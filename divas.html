@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUP Divas | Glamour da Sororidade</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rosa-divas: #d84b72;
+            --dourado-divas: #c5a059;
+            --preto-divas: #0f0f0f;
+            --cinza-claro: #d1d1d1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--preto-divas);
+            background-image: radial-gradient(circle at center, #1a1a1a 0%, var(--preto-divas) 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 95%;
+            padding: 35px 45px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.9);
+            text-align: center;
+            box-sizing: border-box;
+            max-height: 92vh;
+            overflow-y: auto;
+        }
+
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--rosa-divas); border-radius: 10px; }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn-back {
+            color: var(--dourado-divas);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .divas-title {
+            color: var(--dourado-divas);
+            margin: 0;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .divas-subtitle {
+            color: var(--rosa-divas);
+            font-size: 13px;
+            font-weight: 400;
+            margin: 10px 0 35px 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--cinza-claro);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro-text b { color: #fff; font-weight: 600; }
+
+        /* Hub de Influenciadoras */
+        .section-title {
+            color: var(--dourado-divas);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .hub-card {
+            background: rgba(216, 75, 114, 0.03);
+            border: 1px solid rgba(216, 75, 114, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-5px);
+            background: rgba(216, 75, 114, 0.08);
+            border-color: var(--rosa-divas);
+            box-shadow: 0 5px 20px rgba(216, 75, 114, 0.2);
+        }
+
+        .hub-name {
+            display: block;
+            color: var(--rosa-divas);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .hub-handle {
+            display: block;
+            font-size: 11px;
+            color: var(--dourado-divas);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .hub-desc {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--cinza-claro);
+            font-weight: 300;
+        }
+
+        /* Botão de Ação */
+        .btn-wa {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--rosa-divas);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(216, 75, 114, 0.4);
+        }
+
+        .btn-wa:hover {
+            background-color: #fff;
+            color: var(--preto-divas);
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="header-top">
+            <a href="reputacao.html" class="btn-back">← Voltar</a>
+        </div>
+
+        <h1 class="divas-title">YOUP Divas</h1>
+        <h2 class="divas-subtitle">Onde o Glamour encontra a Estratégia</h2>
+
+        <div class="intro-text">
+            <strong>Lugar de Glamur e sororidade!</strong><br>
+            Apoiamos nano e micro influencer Mulheres (empreendedoras) que buscam alavancar o alcance de seus conteúdos explorando a força da sororidade.
+        </div>
+
+        <span class="section-title">Nossas Comunidades & Hubs</span>
+
+        <div class="hub-grid">
+            <a href="https://www.instagram.com/divas_comunidade/" target="_blank" class="hub-card">
+                <span class="hub-name">Divas Comunidade</span>
+                <span class="hub-handle">@divas_comunidade</span>
+                <p class="hub-desc">O coração do nosso movimento. Troca de experiências, networking e crescimento mútuo para influenciadoras.</p>
+            </a>
+
+            <a href="https://www.instagram.com/voce_e_suamarca/" target="_blank" class="hub-card">
+                <span class="hub-name">Você é Sua Marca</span>
+                <span class="hub-handle">@voce_e_suamarca</span>
+                <p class="hub-desc">Foco total em posicionamento de imagem e autoridade feminina. Profissionalize sua influência.</p>
+            </a>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20quero%20fazer%20parte%20do%20YOUP%20Divas!" target="_blank" class="btn-wa">Fazer Parte do Movimento</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

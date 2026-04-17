@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outplacement Executivo - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-medio: #333333;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 1000px;
+            width: 95%;
+            padding: 30px 45px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn-back {
+            color: var(--dourado);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .page-title {
+            color: var(--dourado);
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .page-subtitle {
+            color: var(--verde-claro);
+            font-size: 13px;
+            text-align: center;
+            margin: 10px 0 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Seção de Impacto */
+        .impact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .impact-box {
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 2px solid var(--dourado);
+            padding: 20px;
+        }
+        .impact-box h3 {
+            color: var(--dourado);
+            font-size: 14px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        .impact-box p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 0;
+        }
+
+        /* Tabela de Planos */
+        .plans-title {
+            color: var(--dourado);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            display: block;
+            margin-bottom: 25px;
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .plan-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dourado);
+        }
+        .plan-card.featured {
+            border: 1px solid var(--dourado);
+            background: rgba(197, 160, 89, 0.03);
+        }
+        .plan-name {
+            color: var(--verde-claro);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+        .plan-features li {
+            font-size: 12px;
+            color: var(--cinza-claro);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .plan-features li::before {
+            content: "✓";
+            color: var(--dourado);
+            font-weight: bold;
+        }
+
+        .btn-plan {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--verde-youp);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .btn-plan:hover {
+            background: var(--verde-youp);
+        }
+        .featured .btn-plan {
+            background: var(--dourado);
+            border-color: var(--dourado);
+            color: var(--cinza-escuro);
+            font-weight: 600;
+        }
+        .featured .btn-plan:hover {
+            background: #fff;
+            border-color: #fff;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--cinza-claro);
+            font-size: 11px;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="header-top">
+            <a href="index.html" class="btn-back">Sair da página ×</a>
+        </div>
+
+        <h1 class="page-title">Outplacement de Elite</h1>
+        <h2 class="page-subtitle">Transição Estratégica para Líderes</h2>
+
+        <div class="impact-section">
+            <div class="impact-box">
+                <h3>Pela Marca Empregadora</h3>
+                <p>O desligamento de um líder reverbera em toda a cultura organizacional. Tratar esse processo com cuidado e suporte estratégico protege a <b>reputação da sua empresa</b>, evita passivos e demonstra maturidade institucional ao mercado.</p>
+            </div>
+            <div class="impact-box">
+                <h3>Pela Vida do Executivo</h3>
+                <p>Perder o cargo não é perder a carreira. Oferecemos o suporte necessário para que o líder transforme a transição em uma <b>oportunidade de salto</b>, mantendo seu valor de mercado e segurança psicológica em cada passo.</p>
+            </div>
+        </div>
+
+        <span class="plans-title">Soluções Customizadas para Transição:</span>
+
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-name">Plano Essencial</div>
+                <ul class="plan-features">
+                    <li>Revisão Profissional de Currículo</li>
+                    <li>Otimização de Perfil LinkedIn (SEO e Imagem)</li>
+                    <li>Alinhamento de Posicionamento</li>
+                </ul>
+                <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20Outplacement%20Plano%201." target="_blank" class="btn-plan">Solicitar Orçamento</a>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-name">Plano Estratégico</div>
+                <ul class="plan-features">
+                    <li>Revisão de Currículo e LinkedIn</li>
+                    <li>Plano Go-to-Market (Mapeamento de Mercado)</li>
+                    <li>Simulação de Entrevistas Executivas</li>
+                    <li>Estratégia de Abordagem de Redes</li>
+                </ul>
+                <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20Outplacement%20Plano%202." target="_blank" class="btn-plan">Solicitar Orçamento</a>
+            </div>
+
+            <div class="plan-card featured">
+                <div class="plan-name">Plano Executive Full</div>
+                <ul class="plan-features">
+                    <li>Revisão Completa (CV e LinkedIn)</li>
+                    <li>Estratégia Go-to-Market Personalizada</li>
+                    <li>Mentoria de Preparação para Entrevistas</li>
+                    <li><b>Acompanhamento de Carreira por 6 meses</b></li>
+                    <li>Suporte na Negociação de Novas Propostas</li>
+                </ul>
+                <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20Outplacement%20Plano%203%20Full." target="_blank" class="btn-plan">Solicitar Orçamento Especial</a>
+            </div>
+        </div>
+
+        <p class="footer-note">
+            Desenvolvemos soluções sob medida para grupos ou desligamentos individuais de alta complexidade.
+        </p>
+
+    </div>
+
+</body>
+</html>

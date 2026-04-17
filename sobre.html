@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-medio: #333333;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9)), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 950px;
+            width: 95%;
+            padding: 30px 45px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn-back {
+            color: var(--dourado);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .btn-back:hover { opacity: 0.7; }
+
+        /* Estilos de Texto Base */
+        .manifesto-quote {
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 3px solid var(--dourado);
+            padding: 25px;
+            margin-bottom: 40px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #f0f0f0;
+            font-style: italic;
+        }
+        .manifesto-quote b {
+            color: var(--dourado);
+            font-weight: 600;
+        }
+
+        .section-header {
+            color: var(--dourado);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .section-sub {
+            color: var(--verde-claro);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .text-block {
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--cinza-claro);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .text-block b {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Grade de Prêmios */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 35px 0;
+        }
+        .award-card {
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.15), rgba(0,0,0,0.4));
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 8px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .award-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dourado);
+        }
+        .award-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .award-text {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Grade YOUP (B2B / B2C) */
+        .youp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        .youp-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+        }
+        .youp-card-title {
+            color: var(--verde-claro);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Box de Ética */
+        .ethics-box {
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .ethics-box h4 {
+            color: var(--dourado);
+            margin: 0 0 10px 0;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .ethics-box p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--cinza-claro);
+            line-height: 1.6;
+        }
+
+        /* Footer e Botões */
+        .contact-footer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .btn-action {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--dourado);
+            color: var(--cinza-escuro);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-action:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--verde-youp);
+            color: #fff;
+        }
+        .btn-outline:hover {
+            background: var(--verde-youp);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="header-top">
+            <a href="index.html" class="btn-back">Sair da página ×</a>
+        </div>
+
+        <div class="manifesto-quote">
+            "Você entrega resultados excepcionais, bate metas impossíveis e salva o EBITDA do trimestre. Mas, da catraca da empresa para fora, você é um absoluto desconhecido. <b>Se o mercado não sabe quem você é, a sua carreira está operando na clandestinidade.</b>"
+        </div>
+
+        <h2 class="section-header">Ana Paula Marçal Fortunato</h2>
+        <h3 class="section-sub">Headhunter Sênior & Executive Advisor</h3>
+
+        <p class="text-block">
+            Minha missão é tirar executivos brilhantes dos bastidores e posicioná-los nas mesas de decisão. Ao longo de mais de uma década no mercado, percebi que os melhores líderes frequentemente sabotam o próprio crescimento. 
+        </p>
+        <p class="text-block">
+            Eles centralizam a operação (o <b>"Executivo Polvo"</b>), tornam-se o maior segredo de seus CEOs e, por serem indispensáveis na base, viram <b>"Inpromovíveis"</b>. Eu atuo exatamente na desconstrução desse teto de vidro.
+        </p>
+
+        <div class="awards-grid">
+            <div class="award-card">
+                <span class="award-icon">🏆</span>
+                <span class="award-text">Top 20<br>Prêmio iBest Influencer RH</span>
+            </div>
+            <div class="award-card">
+                <span class="award-icon">🌟</span>
+                <span class="award-text">Top 5<br>Prêmio Top of Mind RH</span>
+            </div>
+            <div class="award-card">
+                <span class="award-icon">🎯</span>
+                <span class="award-text">Top 100 Personalidades<br>Mais Influentes (RHSummit)</span>
+            </div>
+            <div class="award-card">
+                <span class="award-icon">🎙️</span>
+                <span class="award-text">Big Voice<br>in Networking</span>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 40px 0;">
+
+        <h2 class="section-header">A YOUP Consultoria</h2>
+        <h3 class="section-sub">A Inteligência por trás da Liderança</h3>
+
+        <p class="text-block" style="text-align: center;">
+            Somos uma agência boutique de inteligência em recrutamento e carreira. <b>Nosso negócio é Liderança.</b> Operamos como um hub estratégico, conectando as melhores empresas aos melhores executivos através de duas frentes:
+        </p>
+
+        <div class="youp-grid">
+            <div class="youp-card">
+                <div class="youp-card-title">🏢 EXECUTIVE SEARCH (Para Empresas)</div>
+                <p class="text-block">
+                    <b>Headhunting Estratégico & C-Level.</b> Mitigação de risco para o seu Board. Conduzo processos confidenciais e cirúrgicos, atraindo os talentos do "Top 1%" que não estão procurando emprego, mas que têm o perfil exato para mudar o ponteiro do seu negócio.
+                </p>
+            </div>
+
+            <div class="youp-card">
+                <div class="youp-card-title">💼 ADVISORY & AGENCIAMENTO (Para Executivos)</div>
+                <p class="text-block">
+                    <b>Stealth Executive Search.</b> Não trabalho com "dicas de currículo". Funcionamos como seu agente: mapeamos o mercado, construímos seu Capital Político e fazemos a ponte com decisores. Não vendemos mentoria, vendemos execução e acesso ao "Mercado Oculto".
+                </p>
+            </div>
+        </div>
+
+        <div class="ethics-box">
+            <h4>⚖️ Nossa Política de Atuação e Transparência</h4>
+            <p>
+                <b>Processos Seletivos (B2B):</b> Não cobramos taxa de candidatos para participarem de vagas onde somos contratados pela empresa.<br>
+                <b>Agenciamento (B2C):</b> O serviço de prospecção ativa é um projeto de consultoria contratado pelo executivo.
+            </p>
+        </div>
+
+        <div class="contact-footer">
+            <p style="font-size: 14px; color: #fff; font-weight: 600; margin-bottom: 5px;">
+                A sua carreira é o seu maior negócio corporativo.
+            </p>
+            <p style="font-size: 12px; color: var(--cinza-claro); margin-bottom: 25px;">
+                Não terceirize a gestão dela para a "sorte". Assuma o controle do seu próximo movimento. Vamos desenhar a sua rota?
+            </p>
+            
+            <div class="btn-group">
+                <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20li%20o%20seu%20manifesto%20e%20quero%20assumir%20o%20controle%20do%20meu%20pr%C3%B3ximo%20movimento%20de%20carreira." target="_blank" class="btn-action">Falar no WhatsApp</a>
+                <a href="mailto:anapaulamarcal@youpconsultoria.com" class="btn-action btn-outline">Enviar E-mail</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

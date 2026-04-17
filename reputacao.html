@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reputação e Posicionamento - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-medio: #333333;
+            --cinza-claro: #b0b0b0;
+            --rosa-elegante: #d84b72; /* Tom de rosa sofisticado */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9)), url('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 950px;
+            width: 95%;
+            padding: 30px 45px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .btn-back {
+            color: var(--dourado);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .btn-back:hover { opacity: 0.7; }
+
+        .page-title {
+            color: var(--dourado);
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .page-subtitle {
+            color: var(--verde-claro);
+            font-size: 13px;
+            text-align: center;
+            margin: 10px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .page-intro {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #e0e0e0;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Grade de Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+        .service-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover {
+            border-color: var(--dourado);
+            transform: translateY(-3px);
+            background: rgba(197, 160, 89, 0.02);
+        }
+        .service-icon {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .service-title {
+            color: var(--verde-claro);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .service-text {
+            font-size: 12px;
+            color: var(--cinza-claro);
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+        }
+        .service-text b { color: #fff; font-weight: 600; }
+
+        /* Botão de Ação Geral (Agora posicionado acima da seção Rosa) */
+        .action-container {
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 35px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .btn-action {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            border: 1px solid var(--dourado);
+            color: var(--dourado);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-action:hover {
+            background: var(--dourado);
+            color: var(--cinza-escuro);
+        }
+
+        /* Seção Exclusiva - Mulheres / Rosa */
+        .pink-section {
+            background: linear-gradient(135deg, rgba(216, 75, 114, 0.08), rgba(0,0,0,0.3));
+            border: 1px solid rgba(216, 75, 114, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .pink-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background-color: var(--rosa-elegante);
+        }
+        .pink-title {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .pink-title span {
+            color: var(--rosa-elegante);
+        }
+        .pink-text {
+            font-size: 12px;
+            color: #d1d1d1;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+        }
+        .btn-pink {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--rosa-elegante);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-pink:hover {
+            background-color: #b33959;
+            box-shadow: 0 5px 15px rgba(216, 75, 114, 0.4);
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="header-top">
+            <a href="index.html" class="btn-back">Sair da página ×</a>
+        </div>
+
+        <h1 class="page-title">Posicionamento de Marca</h1>
+        <h2 class="page-subtitle">A Sua Imagem é o Seu Maior Ativo</h2>
+
+        <p class="page-intro">
+            Grandes negócios não acontecem por acaso; eles são atraídos por marcas fortes. Atuamos estrategicamente na gestão da sua percepção pública, transformando sua expertise em autoridade inquestionável no mercado corporativo.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <div class="service-title">Gestão Estratégica: LinkedIn</div>
+                <p class="service-text">Transformamos o seu perfil em uma vitrine de autoridade. Planejamento de conteúdo, conexões com <i>stakeholders</i> chave e posicionamento executivo para gerar negócios e oportunidades de alto nível.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <div class="service-title">Branding Visual: Instagram</div>
+                <p class="service-text">Curadoria de imagem e gestão de rede para humanizar sua liderança. Construímos uma narrativa visual elegante que engaja sua audiência e alinha seu estilo de vida à força da sua marca profissional.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📰</div>
+                <div class="service-title">Autoridade e Visibilidade Nacional</div>
+                <p class="service-text">Elevamos o status da sua marca através de <b>Marketing de Influência Corporativa</b>. Inserimos sua voz em publicações estratégicas, colunas formadoras de opinião e nos <b>maiores portais do país</b> para chancelar o seu nome no mercado.</p>
+            </div>
+        </div>
+
+        <div class="action-container">
+            <p style="font-size: 11px; color: var(--cinza-claro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                Como o mercado enxerga você hoje?
+            </p>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20gostaria%20de%20falar%20sobre%20Gest%C3%A3o%20de%20Reputa%C3%A7%C3%A3o%20e%20Posicionamento%20de%20Marca." target="_blank" class="btn-action">Auditoria de Posicionamento</a>
+        </div>
+
+        <div class="pink-section">
+            <h3 class="pink-title">Para Nano e Micro Influenciadoras: <span>A Força Feminina</span></h3>
+            <p class="pink-text">
+                Uma mentoria e gestão estratégica focada exclusivamente em mulheres que desejam monetizar e profissionalizar suas redes. Se você é uma criadora de conteúdo em ascensão, nós construímos a ponte entre a sua influência e o mercado corporativo.
+            </p>
+            <a href="divas.html" class="btn-pink">Você é a Sua Marca</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

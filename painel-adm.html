@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel ADM - Youp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--preto); color: #fff; padding: 30px; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        /* Estilos de Seção */
+        .box { background: rgba(255,255,255,0.03); border: 1px solid rgba(197, 160, 89, 0.2); padding: 30px; border-radius: 15px; margin-bottom: 30px; }
+        h2 { color: var(--dourado); text-transform: uppercase; font-size: 16px; margin-top: 0; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 10px; letter-spacing: 2px; }
+        
+        /* Botões de Acesso Rápido */
+        .grid-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .btn-acesso { 
+            display: block; text-align: center; padding: 12px; background: var(--cinza); 
+            border: 1px solid var(--verde); color: #fff; text-decoration: none; 
+            border-radius: 8px; font-size: 12px; font-weight: 600; transition: 0.3s;
+        }
+        .btn-acesso:hover { background: var(--verde); color: #000; transform: translateY(-3px); }
+
+        /* Formulários */
+        label { display: block; font-size: 11px; color: var(--verde); text-transform: uppercase; margin: 15px 0 5px; }
+        input, textarea, select { width: 100%; padding: 12px; background: #000; border: 1px solid #333; color: #fff; border-radius: 5px; box-sizing: border-box; font-family: inherit; }
+        input:focus, textarea:focus { border-color: var(--dourado); outline: none; }
+        
+        .btn-submit { width: 100%; padding: 15px; background: var(--dourado); border: none; color: #000; font-weight: 600; text-transform: uppercase; cursor: pointer; border-radius: 5px; margin-top: 20px; transition: 0.3s; }
+        .btn-submit:hover { background: #fff; }
+
+        .senha-box { border: 1px solid red; padding: 15px; border-radius: 5px; margin-bottom: 30px; background: rgba(255,0,0,0.1); }
+        .section-tag { font-size: 10px; color: var(--verde); font-weight: 700; margin-bottom: 5px; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align:center; color: var(--dourado); letter-spacing: 3px; text-transform: uppercase;">Centro de Controle YOUP</h1>
+
+    <div class="senha-box">
+        <label style="color: #ff6b6b;">🔒 Senha de Segurança (Obrigatória para publicar)</label>
+        <input type="password" id="senha_geral" placeholder="Digite a senha" required>
+    </div>
+
+    <div class="box">
+        <span class="section-tag">SISTEMAS E OPERAÇÕES</span>
+        <h2>Gestão de Links Youp</h2>
+
+        <p style="font-size: 12px; color: var(--dourado); margin-bottom: 20px;">CONSULTORES</p>
+        <div class="grid-links">
+            <a href="https://script.google.com/macros/s/AKfycbyXmyF0b8pp5tagkYTicptnu0I7AgqlMnYWtAKGHHO_DLlPCUScb2OezHf9qM0YH9Tf/exec" target="_blank" class="btn-acesso">Tarefas</a>
+            <a href="https://script.google.com/macros/s/AKfycbwC5mKooMDTuEowiIufJcTugsAVWlhoiQDHH99DjYgk-LX0KjiOXwc2DAmdURrcTCxeEA/exec" target="_blank" class="btn-acesso">Gestão dos Clientes</a>
+        </div>
+
+        <p style="font-size: 12px; color: var(--dourado); margin: 30px 0 15px;">VAGAS</p>
+        <div class="grid-links">
+            <a href="https://script.google.com/macros/s/AKfycbxH7nOYH-35otgl8_wuf0PuOVP1CqC9jgIp5ZSc0qi45Wz1fvLLhAg78auu3VNfsbFQeg/exec?page=vagas" target="_blank" class="btn-acesso">Pipeline de Talentos</a>
+            <a href="https://script.google.com/macros/s/AKfycbxH7nOYH-35otgl8_wuf0PuOVP1CqC9jgIp5ZSc0qi45Wz1fvLLhAg78auu3VNfsbFQeg/exec" target="_blank" class="btn-acesso">Nossas Vagas</a>
+        </div>
+
+        <p style="font-size: 12px; color: var(--dourado); margin: 30px 0 15px;">ASSESSORADOS</p>
+        <div class="grid-links">
+            <a href="https://script.google.com/macros/s/AKfycbxGycx8Y-fZY4L-7l0LYJFG35n2_WXyB3feH3Z9hxcb5JVyAUUkJhqMIaNleNQgMBMjZg/exec" target="_blank" class="btn-acesso">Portal de Vagas Aprovadas</a>
+            <a href="https://script.google.com/macros/s/AKfycbyXlbYHgCdkWTm-nvYyUkqmn7ujaDnHxeB3qLxfRDzdADERRidIHwPzIhdnGCOTpb0/exec" target="_blank" class="btn-acesso">Cadastro de Clientes</a>
+            <a href="https://script.google.com/macros/s/AKfycbwevIKcWfRBDrWuY2y6rlPHL6gAspDKmEa4NF4BjF5sC-1dIH_GS3WETYSUmNKsu9MjzQ/exec" target="_blank" class="btn-acesso">Mapeamento de Carreira</a>
+        </div>
+
+        <p style="font-size: 12px; color: var(--dourado); margin: 30px 0 15px;">PARCEIROS</p>
+        <div class="grid-links">
+            <a href="https://script.google.com/macros/s/AKfycbxpiwguDMFhq1U9CU5CBDgsND490Z3FNuvEN-G6E8dcWUMdi6Ws8jRTg1idZDg-nWuM/exec" target="_blank" class="btn-acesso">GESTÃO DE CLIENTES</a>
+            <a href="https://script.google.com/macros/s/AKfycbyuQoY-4y-h1hmChylXBAGelRLrPEU1kKi7Z7ImC9i89yFwbmu5frVlYkexgNvxe4XcYw/exec" target="_blank" class="btn-acesso">CANDIDATURA PARCEIROS</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <span class="section-tag">CONTEÚDO</span>
+        <h2>Postar Material de Apoio</h2>
+        <form id="formBlog">
+            <label>Título</label><input type="text" id="b_titulo" required>
+            <label>Categoria</label>
+            <select id="b_categoria">
+                <option value="Carreira">Carreira</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Entrevista">Entrevista</option>
+            </select>
+            <label>Link da Imagem</label><input type="text" id="b_imagem" placeholder="https://..." required>
+            <label>Resumo Breve</label><input type="text" id="b_resumo" required>
+            <label>Conteúdo Completo</label><textarea id="b_conteudo" rows="6" required></textarea>
+            <button type="submit" class="btn-submit">Publicar Matéria</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <span class="section-tag">TALENTOS</span>
+        <h2>Adicionar ao Book de Talentos</h2>
+        <form id="formTalento">
+            <label>ID de Controle (Ex: 001)</label><input type="text" id="t_id" required>
+            <label>Nome Fictício (Ex: Executivo 001)</label><input type="text" id="t_perfil" required>
+            <label>Cargo / Especialidade</label><input type="text" id="t_cargo" required>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <label>Abrangência</label>
+                    <select id="t_local">
+                        <option value="Nacional">Nacional</option>
+                        <option value="Internacional">Internacional</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Área de Atuação</label>
+                    <input list="lista_areas" id="t_area" placeholder="Selecione ou digite..." required>
+                    <datalist id="lista_areas">
+                        <option value="Conselho / C-Level">
+                        <option value="Financeiro">
+                        <option value="Recursos Humanos">
+                        <option value="Comercial / Vendas">
+                        <option value="Operações / Supply">
+                        <option value="Tecnologia / TI">
+                        <option value="Marketing / Digital">
+                        <option value="Jurídico">
+                    </datalist>
+                </div>
+            </div>
+
+            <label>Resumo de Entregas</label><textarea id="t_resumo" rows="4" required></textarea>
+            <label>Tags de Busca (Ex: #CEO #Vendas)</label><input type="text" id="t_tags" required>
+            <button type="submit" class="btn-submit">Publicar Talento</button>
+        </form>
+    </div>
+</div>
+
+<script>
+const API_MATERIAL = 'https://script.google.com/macros/s/AKfycbyYoEJ1coWZpa0rGamY0_zoRom1tJX5w5bDyQ48RuN5CEha_0W7n46HabfqTqMGr63a/exec';
+const API_BOOK = 'https://script.google.com/macros/s/AKfycbwFGjZ4IpHQp68ecUaMSCGsdnGfFTjupiHbKUba26UEXqweduLbqwQIOmzuNl2g7uY6/exec';
+
+function verificarSenha() {
+    if(document.getElementById('senha_geral').value !== 'youp2026') {
+        alert('Senha incorreta!');
+        return false;
+    }
+    return true;
+}
+
+document.getElementById('formBlog').addEventListener('submit', e => {
+    e.preventDefault();
+    if(!verificarSenha()) return;
+    const btn = e.target.querySelector('button'); 
+    btn.innerText = "Enviando...";
+    
+    fetch(API_MATERIAL, { 
+        method: 'POST', 
+        mode: 'no-cors', 
+        body: JSON.stringify({
+            titulo: document.getElementById('b_titulo').value,
+            data: new Date().toLocaleDateString('pt-BR'),
+            categoria: document.getElementById('b_categoria').value,
+            resumo: document.getElementById('b_resumo').value,
+            conteudo: document.getElementById('b_conteudo').value,
+            imagem: document.getElementById('b_imagem').value
+        })
+    }).then(() => { 
+        alert('Matéria enviada com sucesso!'); 
+        e.target.reset(); 
+        btn.innerText = "Publicar Matéria"; 
+    }).catch(() => {
+        alert('Erro ao enviar.');
+        btn.innerText = "Publicar Matéria";
+    });
+});
+
+document.getElementById('formTalento').addEventListener('submit', e => {
+    e.preventDefault();
+    if(!verificarSenha()) return;
+    const btn = e.target.querySelector('button'); 
+    btn.innerText = "Enviando...";
+
+    fetch(API_BOOK, { 
+        method: 'POST', 
+        mode: 'no-cors', 
+        body: JSON.stringify({
+            id: document.getElementById('t_id').value,
+            perfil: document.getElementById('t_perfil').value,
+            cargo: document.getElementById('t_cargo').value,
+            localizacao: document.getElementById('t_local').value,
+            area: document.getElementById('t_area').value,
+            resumo: document.getElementById('t_resumo').value,
+            tags: document.getElementById('t_tags').value,
+            link: 'https://wa.me/5512991322333?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20perfil%20' + document.getElementById('t_perfil').value
+        })
+    }).then(() => { 
+        alert('Talento salvo com sucesso!'); 
+        e.target.reset(); 
+        btn.innerText = "Publicar Talento"; 
+    }).catch(() => {
+        alert('Erro ao enviar.');
+        btn.innerText = "Publicar Talento";
+    });
+});
+</script>
+
+</body>
+</html>

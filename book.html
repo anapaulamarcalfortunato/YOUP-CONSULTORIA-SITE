@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Book de Talentos - Youp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--preto); color: #fff; padding: 40px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .header h1 { color: var(--dourado); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; }
+        .step-box { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px; border: 1px solid rgba(197, 160, 89, 0.1); margin-bottom: 20px; }
+        .step-title { font-size: 13px; text-transform: uppercase; color: var(--verde); letter-spacing: 3px; margin-bottom: 20px; display: block; }
+        .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-nav { padding: 14px 28px; background: transparent; border: 1px solid var(--dourado); color: var(--dourado); cursor: pointer; border-radius: 5px; font-size: 12px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        .btn-nav.active { background: var(--dourado); color: #000; box-shadow: 0 0 15px rgba(197, 160, 89, 0.4); }
+        .select-area { width: 100%; max-width: 400px; padding: 15px; background: #000; border: 1px solid var(--dourado); color: #fff; border-radius: 5px; font-family: 'Montserrat'; font-size: 14px; cursor: pointer; }
+        #areaStep, #talentGrid { display: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; text-align: left; }
+        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(197, 160, 89, 0.2); padding: 25px; border-radius: 10px; transition: 0.3s; }
+        .card:hover { border-color: var(--dourado); transform: translateY(-5px); }
+        .tag { font-size: 10px; color: var(--verde); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 10px; }
+        .id-badge { font-size: 9px; color: var(--dourado); border: 1px solid var(--dourado); padding: 2px 6px; border-radius: 3px; float: right; }
+        .nome { font-size: 18px; color: var(--dourado); margin: 0 0 10px; font-weight: 600; }
+        .cargo { font-size: 14px; font-weight: 600; margin-bottom: 15px; color: #eee; }
+        .resumo { font-size: 12px; color: #bbb; line-height: 1.6; margin-bottom: 20px; }
+        .btn-contato { display: block; text-align: center; padding: 12px; background: var(--verde); color: #fff; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><h1>Book de Talentos</h1></div>
+
+        <div class="step-box">
+            <span class="step-title">1. Selecione a Abrangência</span>
+            <div class="btn-group">
+                <button class="btn-nav btn-local" onclick="setLocal('Nacional', this)">Nacional</button>
+                <button class="btn-nav btn-local" onclick="setLocal('Internacional', this)">Internacional</button>
+            </div>
+        </div>
+
+        <div id="areaStep" class="step-box">
+            <span class="step-title">2. Escolha a Área de Atuação</span>
+            <select id="selectArea" class="select-area" onchange="exibirTalentos(this.value)">
+                <option value="">Selecione uma área...</option>
+            </select>
+        </div>
+
+        <div id="talentGrid" class="grid"></div>
+    </div>
+
+    <script>
+        const API = 'https://script.google.com/macros/s/AKfycbwFGjZ4IpHQp68ecUaMSCGsdnGfFTjupiHbKUba26UEXqweduLbqwQIOmzuNl2g7uY6/exec?tipo=talento';
+        let todosDados = [];
+        let localSelecionado = "";
+
+        async function fetchTalentos() {
+            try {
+                const response = await fetch(API);
+                todosDados = await response.json();
+            } catch (e) { console.error(e); }
+        }
+        fetchTalentos();
+
+        function setLocal(local, btn) {
+            localSelecionado = local;
+            document.querySelectorAll('.btn-local').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const areasSet = new Set();
+            todosDados.forEach(t => {
+                if (String(t.localizacao || "").trim().toLowerCase() === local.toLowerCase() && t.area) {
+                    areasSet.add(String(t.area).trim());
+                }
+            });
+
+            const areasDisponiveis = Array.from(areasSet).sort();
+            const select = document.getElementById('selectArea');
+            select.innerHTML = '<option value="">Selecione uma área...</option>';
+            areasDisponiveis.forEach(area => {
+                const opt = document.createElement('option');
+                opt.value = area; opt.innerText = area;
+                select.appendChild(opt);
+            });
+
+            document.getElementById('areaStep').style.display = 'block';
+            document.getElementById('talentGrid').style.display = 'none';
+        }
+
+        function exibirTalentos(area) {
+            if (!area) return;
+            const finais = todosDados.filter(t => 
+                String(t.localizacao || "").trim().toLowerCase() === localSelecionado.toLowerCase() && 
+                String(t.area || "").trim() === area
+            );
+            
+            const grid = document.getElementById('talentGrid');
+            grid.style.display = 'grid';
+            grid.innerHTML = finais.map(t => {
+                // MONTAGEM DA MENSAGEM DO WHATSAPP
+                const textoZap = encodeURIComponent(`Olá Ana, tenho interesse em solicitar a apresentação do perfil ${t.id} - ${t.perfil} do Book de Talentos.`);
+                const linkZap = `https://wa.me/5512991322333?text=${textoZap}`;
+
+                return `
+                <div class="card">
+                    <span class="id-badge">ID: ${t.id}</span>
+                    <span class="tag">${t.area}</span>
+                    <h3 class="nome">${t.perfil}</h3>
+                    <div class="cargo">${t.cargo}</div>
+                    <div class="resumo">${t.resumo}</div>
+                    <a href="${linkZap}" target="_blank" class="btn-contato">Solicitar Apresentação</a>
+                </div>
+                `;
+            }).join('');
+            grid.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

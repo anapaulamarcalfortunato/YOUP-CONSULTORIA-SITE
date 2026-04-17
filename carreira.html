@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreira e Jobhunter - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-medio: #333333;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.85)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 950px;
+            width: 95%;
+            padding: 30px 45px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn-back {
+            color: var(--dourado);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .btn-back:hover { opacity: 0.7; }
+
+        .page-title {
+            color: var(--dourado);
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .page-subtitle {
+            color: var(--verde-claro);
+            font-size: 13px;
+            text-align: center;
+            margin: 10px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .page-intro {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #e0e0e0;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Grid de Serviços (Ajustado para caber 3 cartões) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .service-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: var(--verde-youp);
+            transform: translateY(-3px);
+        }
+        .service-icon {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dourado);
+        }
+        .service-title {
+            color: var(--verde-claro);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .service-text {
+            font-size: 12px;
+            color: var(--cinza-claro);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Destaque Tecnológico (IA e Painel) */
+        .tech-highlight {
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.08), rgba(92, 142, 130, 0.08));
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .tech-title {
+            color: var(--dourado);
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .tech-text {
+            font-size: 13px;
+            color: #ffffff;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .tech-tag {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--verde-youp);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--verde-claro);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Botão de Ação */
+        .action-container {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .btn-action {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--dourado);
+            color: var(--cinza-escuro);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-action:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="header-top">
+            <a href="index.html" class="btn-back">Sair da página ×</a>
+        </div>
+
+        <h1 class="page-title">Assessoria de Carreira & Jobhunting</h1>
+        <h2 class="page-subtitle">O Próximo Passo da Sua Liderança</h2>
+
+        <p class="page-intro">
+            Para líderes de alta performance, o tempo é o ativo mais valioso. Nossa assessoria assume a linha de frente da sua recolocação, unindo hunting ativo estratégico e tecnologia de ponta para conectar você às melhores cadeiras do mercado.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✒️</div>
+                <div class="service-title">Branding Executivo: CV & LinkedIn</div>
+                <p class="service-text">Traduzimos sua trajetória em resultados tangíveis. Criamos um posicionamento digital e documental que atrai os recrutadores e destaca seu real valor no mercado.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <div class="service-title">Advisory de Carreira (Hunting Ativo)</div>
+                <p class="service-text">Nós prospectamos o mercado de forma ativa em seu nome, mapeando oportunidades aderentes e fazendo o contato direto e estratégico com os tomadores de decisão.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <div class="service-title">Book de Talentos</div>
+                <p class="service-text">Seu perfil é inserido de forma 100% sigilosa em nosso banco de talentos. Garantimos total privacidade enquanto mantemos suas qualificações visíveis para empresas em busca de líderes.</p>
+            </div>
+        </div>
+
+        <div class="tech-highlight">
+            <h3 class="tech-title">Transparência & Inteligência Artificial</h3>
+            <p class="tech-text">
+                Nossa operação é potencializada por um sistema automatizado de <b>Inteligência Artificial</b>, que realiza cruzamentos complexos e o "match" perfeito entre o seu perfil e as vagas ocultas do mercado com precisão cirúrgica. 
+                <br><br>
+                Tudo isso com total controle para você: através do nosso <b>Painel de Acompanhamento Exclusivo</b>, o assessorado tem visibilidade em tempo real de todas as abordagens, evoluções e métricas do seu projeto de recolocação.
+            </p>
+            <div class="tech-tags">
+                <span class="tech-tag">Match Inteligente por IA</span>
+                <span class="tech-tag">Dashboard em Tempo Real</span>
+                <span class="tech-tag">Busca Automatizada</span>
+            </div>
+        </div>
+
+        <div class="action-container">
+            <p style="font-size: 11px; color: var(--cinza-claro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                Assuma o controle da sua trajetória profissional
+            </p>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estava%20na%20p%C3%A1gina%20de%20Carreira%20e%20Jobhunting.%20Gostaria%20de%20entender%20como%20a%20assessoria%20pode%20acelerar%20minha%20recoloca%C3%A7%C3%A3o." target="_blank" class="btn-action">Iniciar minha Recolocação</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

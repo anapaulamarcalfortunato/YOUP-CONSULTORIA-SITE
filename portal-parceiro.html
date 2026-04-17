@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Parceiro - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(40, 40, 40, 0.9)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 800px;
+            width: 95%;
+            padding: 50px 40px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Removido o botão de voltar conforme solicitado */
+
+        .welcome-title {
+            color: var(--dourado);
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .welcome-subtitle {
+            font-size: 11px;
+            color: var(--verde-claro);
+            margin: 10px 0 35px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .intro-text {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 45px;
+            font-weight: 300;
+            color: #e5e5e5;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Grade de Ferramentas do Parceiro */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .portal-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .portal-card:hover {
+            border-color: var(--dourado);
+            background: rgba(197, 160, 89, 0.05);
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--dourado);
+        }
+
+        .card-desc {
+            font-size: 11px;
+            color: var(--cinza-claro);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .partnership-footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .partnership-footer p {
+            font-size: 10px;
+            color: var(--cinza-claro);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <h1 class="welcome-title">Portal do Parceiro</h1>
+        <p class="welcome-subtitle">Gestão Estratégica e Sinergia</p>
+
+        <p class="intro-text">
+            Este é o ambiente exclusivo para parceiros <b>Youp Consultoria</b>. Utilize as ferramentas abaixo para formalizar cadastros e realizar o acompanhamento de candidaturas com agilidade e precisão.
+        </p>
+
+        <div class="portal-grid">
+            <a href="https://script.google.com/macros/s/AKfycbxpiwguDMFhq1U9CU5CBDgsND490Z3FNuvEN-G6E8dcWUMdi6Ws8jRTg1idZDg-nWuM/exec" target="_blank" class="portal-card">
+                <span class="card-icon">📝</span>
+                <span class="card-title">Cadastro de Clientes</span>
+                <span class="card-desc">Registrar novos perfis e dados fundamentais para o início dos projetos de assessoria.</span>
+            </a>
+
+            <a href="https://script.google.com/macros/s/AKfycbyuQoY-4y-h1hmChylXBAGelRLrPEU1kKi7Z7ImC9i89yFwbmu5frVlYkexgNvxe4XcYw/exec" target="_blank" class="portal-card">
+                <span class="card-icon">📊</span>
+                <span class="card-title">Gestão de Candidaturas</span>
+                <span class="card-desc">Monitoramento em tempo real do status e evolução dos processos seletivos.</span>
+            </a>
+        </div>
+
+        <div class="partnership-footer">
+            <p>Youp Consultoria | Aliança de Resultados</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
