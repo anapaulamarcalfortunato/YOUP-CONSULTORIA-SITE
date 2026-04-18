@@ -1,6 +1,6 @@
 const talentosYoup = [
     {
-        id: "Y-P-583",
+        id: "Y-CX-001",
         localizacao: "Nacional",
         area: "Experiência do Cliente",
         perfil: "Especialista em Experiência do Cliente",
@@ -70,40 +70,38 @@ const talentosYoup = [
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
                     <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
                         <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Inteligência de Dados (Tasy)</h4>
-                        <p style="margin: 0; font-size: 13px; color: #aaa;">Geração de relatórios financeiros e operacionais estratégicos que subsidiavam decisões de alto nível, demonstrando foco em resultado no Setor de Saúde.</p>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Geração de relatórios financeiros e operacionais estratégicos que subsidiavam decisões de alto nível.</p>
                     </div>
                     <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
                         <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Otimização Financeira</h4>
-                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou a formalização de contratos de prestação de serviços com corpo clínico, superando resistências e reduzindo obrigações fiscais em 20%.</p>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou a formalização de contratos de prestação de serviços com corpo clínico, reduzindo obrigações fiscais em 20%.</p>
                     </div>
                     <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
                         <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Inovação Estratégica</h4>
-                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou a implementação de plataforma de amostras grátis, aprimorando o rastreamento de medicamentos e treinamento de profissionais.</p>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou a implementação de plataforma de amostras grátis, aprimorando rastreamento de medicamentos.</p>
                     </div>
                     <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
                         <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Conformidade Trabalhista</h4>
-                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou rotinas completas de DP em empresa de Segurança Prisional, garantindo total conformidade com a legislação e suporte aos colaboradores.</p>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou rotinas de DP, garantindo total conformidade com a legislação e suporte aos colaboradores.</p>
                     </div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
-                    
                     <div>
                         <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
                         <div style="margin-bottom: 15px;">
                             <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Secretária Executiva / Suporte Operacional</div>
-                            <div style="color: #888; font-size: 12px; margin-bottom: 5px;">Complexo Provida S.A | Abril 2016 – Atual</div>
+                            <div style="color: #888; font-size: 12px;">Complexo Provida S.A | Abril 2016 – Atual</div>
                         </div>
                         <div style="margin-bottom: 15px;">
                             <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Administrativo (Suporte DP)</div>
-                            <div style="color: #888; font-size: 12px; margin-bottom: 5px;">Montesinos Sistemas Prisional | 2013 - 2015</div>
+                            <div style="color: #888; font-size: 12px;">Montesinos Sistemas Prisional | 2013 - 2015</div>
                         </div>
                         <div>
                             <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Financeiro</div>
                             <div style="color: #888; font-size: 12px;">Copetrol S.A | 2012 - 2013</div>
                         </div>
                     </div>
-
                     <div>
                         <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
                         <div style="margin-bottom: 15px;">
@@ -117,18 +115,15 @@ const talentosYoup = [
                             <div style="color: #888; font-size: 12px;">Uniasselvi</div>
                         </div>
                     </div>
-
                 </div>
 
                 <div style="background: rgba(197, 160, 89, 0.05); border: 1px solid rgba(197, 160, 89, 0.2); padding: 30px; border-radius: 10px; text-align: center;">
                     <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-top: 0;">Próximo Desafio</h3>
                     <p style="font-size: 14px; color: #ccc; max-width: 800px; margin: 0 auto;">
-                        Atuar como Especialista em Experiência do Cliente ou Analista de Suporte Estratégico. Preparada para aplicar habilidades em atendimento resolutivo, otimização de processos e gestão de conformidade para garantir a excelência na jornada do usuário, impulsionando a satisfação e a eficiência operacional em ambientes de alta demanda.
+                        Atuar como Especialista em Experiência do Cliente ou Analista de Suporte Estratégico. Preparada para aplicar habilidades em atendimento resolutivo, otimização de processos e gestão de conformidade para garantir a excelência na jornada do usuário.
                     </p>
                 </div>
-
             </div>
         `
     }
-    // ... Aqui continuam os outros talentos (lembre-se da vírgula)
 ];
