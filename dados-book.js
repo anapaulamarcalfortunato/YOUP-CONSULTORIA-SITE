@@ -5,7 +5,7 @@ const talentosYoup = [
         area: "Experiência do Cliente",
         perfil: "Especialista em Experiência do Cliente",
         cargo: "Suporte Operacional & Governança | +10 Anos de Experiência",
-        objetivo: "Especialista em Experiência do Cliente / Analista de Suporte", // <--- NOVA LINHA AQUI
+        objetivo: "Especialista em Experiência do Cliente / Analista de Suporte",
         resumo: "Profissional com mais de uma década em gestão de processos e suporte estratégico. Pós-graduada em Auditoria e Compliance, une atendimento de excelência com otimização de rotinas (ROI de 20% em redução fiscal).",
         conteudo: `
             <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
@@ -92,15 +92,15 @@ const talentosYoup = [
                         <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
                         <div style="margin-bottom: 15px;">
                             <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Secretária Executiva / Suporte Operacional</div>
-                            <div style="color: #888; font-size: 12px;">Complexo Provida S.A | Abril 2016 – Atual</div>
+                            <div style="color: #888; font-size: 12px;">Grande Complexo Hospitalar | 2016 – Atual</div>
                         </div>
                         <div style="margin-bottom: 15px;">
                             <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Administrativo (Suporte DP)</div>
-                            <div style="color: #888; font-size: 12px;">Montesinos Sistemas Prisional | 2013 - 2015</div>
+                            <div style="color: #888; font-size: 12px;">Empresa de Segurança Prisional | 2013 - 2015</div>
                         </div>
                         <div>
                             <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Financeiro</div>
-                            <div style="color: #888; font-size: 12px;">Copetrol S.A | 2012 - 2013</div>
+                            <div style="color: #888; font-size: 12px;">Cia de Distribuição de Combustíveis | 2012 - 2013</div>
                         </div>
                     </div>
                     <div>
