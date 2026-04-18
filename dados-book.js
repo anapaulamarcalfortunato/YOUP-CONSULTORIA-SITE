@@ -1,6 +1,6 @@
 const talentosYoup = [
     {
-        id: "Y-CX-001",
+        id: "YP-001",
         localizacao: "Nacional",
         area: ["Experiência do Cliente", "Operações", "Marketing", "Governança"],
         nivel: "Média Liderança",
@@ -124,7 +124,7 @@ const talentosYoup = [
     },
     const talentosYoup = [
     {
-        id: "Y-COM-001",
+        id: "YP-002",
         localizacao: "Nacional",
         area: ["Comunicação Corporativa", "Estratégia de Conteúdo", "Marketing", "Liderança"],
         nivel: "Média Liderança",
