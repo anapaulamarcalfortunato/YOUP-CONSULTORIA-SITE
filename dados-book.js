@@ -1,89 +1,134 @@
 const talentosYoup = [
     {
-        id: "Y-H-583", // Código de Referência Único para o WhatsApp
+        id: "Y-P-583",
         localizacao: "Nacional",
-        area: "Governança e Compliance",
-        perfil: "Analista Sênior / Coordenação (Setor de Saúde)",
-        cargo: "9 anos de experiência em Governança, Compliance e Mitigação de Riscos.",
-        resumo: "Especialista em conformidade legal/fiscal, gestão de informações (Tasy) e suporte a Conselhos. ROI comprovado de 20% nas obrigações fiscais via formalização de contratos. Busca posição de liderança e fortalecimento da governança corporativa.",
+        area: "Experiência do Cliente",
+        perfil: "Especialista em Experiência do Cliente",
+        cargo: "Suporte Operacional & Governança | +10 Anos de Experiência",
+        resumo: "Profissional com mais de uma década em gestão de processos e suporte estratégico. Pós-graduada em Auditoria e Compliance, une atendimento de excelência com otimização de rotinas (ROI de 20% em redução fiscal).",
         conteudo: `
-            <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 25px;">
-                    <div style="background-color: rgba(92, 142, 130, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(92, 142, 130, 0.2);">
-                        <p style="margin: 0; color: var(--verde); font-weight: 700; font-size: 0.9em;">ROI Comprovado</p>
-                        <p style="margin: 5px 0 0 0; font-size: 0.85em; opacity: 0.8;">Redução de 20% nas obrigações fiscais via formalização de contratos.</p>
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Especialista em Experiência do Cliente <span style="font-weight: 300; color: #888;">| Suporte Estratégico</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✦</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Visão 360º</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Integração impecável entre atendimento ao cliente e conformidade de processos.</p>
                     </div>
-                    <div style="background-color: rgba(92, 142, 130, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(92, 142, 130, 0.2);">
-                        <p style="margin: 0; color: var(--verde); font-weight: 700; font-size: 0.9em;">Mitigação de Risco</p>
-                        <p style="margin: 5px 0 0 0; font-size: 0.85em; opacity: 0.8;">Especialista em conformidade legal/fiscal e suporte a conselhos.</p>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">◓</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Otimização de Rotinas</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Especialista em fluxos de trabalho, sistema Tasy e gestão documental.</p>
                     </div>
-                    <div style="background-color: rgba(92, 142, 130, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(92, 142, 130, 0.2);">
-                        <p style="margin: 0; color: var(--verde); font-weight: 700; font-size: 0.9em;">Otimização de Dados</p>
-                        <p style="margin: 5px 0 0 0; font-size: 0.85em; opacity: 0.8;">Converte dados brutos (Tasy) em inteligência para decisão estratégica.</p>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">►</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Foco em Resultado</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Geração de relatórios estratégicos para tomada de decisão da Diretoria.</p>
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 30px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
                     <div>
-                        <h4 style="font-size: 1.3em; margin: 0 0 10px 0; color: var(--texto); font-weight: 700;">Perfil Executivo</h4>
-                        <p style="margin: 0 0 10px 0; font-size: 0.95em;">Analista com 9 anos de atuação em Governança Corporativa e Suporte Direto a Conselhos e Executivos de Alto Escalão no setor de Saúde. Pós-graduada em Auditoria e Compliance, com expertise em Mitigação de Riscos Operacionais e Conformidade Legal/Fiscal.</p>
-                        <p style="margin: 0; font-size: 0.95em;">Possui ROI comprovado de 20% nas obrigações fiscais através da formalização e validação de contratos. Especialista em otimização da gestão de informações (Tasy), transformando dados brutos em inteligência para Tomada de Decisão Estratégica. Busca posição que exija liderança e fortalecimento da governança corporativa, com foco em execução estratégica e antecipação de necessidades.</p>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Profissional com sólida trajetória de mais de uma década em gestão de processos, suporte estratégico e otimização de rotinas em setores como Saúde, Segurança e Distribuição. Minha jornada é marcada pela capacidade de antecipar necessidades e tomar iniciativas para resolver problemas complexos.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Pós-graduada em Auditoria e Compliance, possuo uma visão sistêmica que garante a conformidade e a qualidade do serviço prestado. Busco aplicar essa visão 360º para elevar o padrão da experiência do cliente, traduzindo minha proatividade e habilidade analítica em soluções que geram valor tangível.</p>
                     </div>
-                    <div style="background-color: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                        <h4 style="font-size: 1.2em; margin: 0 0 15px 0; color: var(--dourado); font-weight: 700; text-transform: uppercase;">Competências-Chave</h4>
-                        <ul style="margin: 0; padding-left: 15px; font-size: 0.9em; color: #aaa;">
-                            <li style="margin-bottom: 5px;">Governança Corporativa</li>
-                            <li style="margin-bottom: 5px;">Auditoria & Compliance</li>
-                            <li style="margin-bottom: 5px;">Mitigação de Risco Operacional</li>
-                            <li style="margin-bottom: 5px;">Conformidade Legal/Fiscal</li>
-                            <li style="margin-bottom: 5px;">Gestão de Informação (Tasy)</li>
-                            <li style="margin-bottom: 5px;">Suporte a Conselhos & C-Level</li>
-                            <li style="margin-bottom: 5px;">Otimização de Contratos</li>
-                            <li>Gestão de Alvarás & CRMs</li>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências-Chave</h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>Atendimento Multicanal & Resolução</li>
+                            <li>Mapeamento da Jornada do Cliente</li>
+                            <li>Suporte a Stakeholders (C-Level)</li>
+                            <li>Auditoria & Conformidade Legal</li>
+                            <li>Análise de Dados e Relatórios</li>
+                            <li>Gestão de Demandas (Multitasking)</li>
+                            <li>Sistema Tasy & ERPs</li>
                         </ul>
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; text-align: center; gap: 20px; background-color: rgba(197, 160, 89, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.1); margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
                     <div>
-                        <span style="font-size: 3em; font-weight: 800; color: var(--dourado);">9</span>
-                        <p style="margin: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #aaa;">Anos de Atuação<br>em Governança</p>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+10</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Anos de<br>Trajetória</div>
                     </div>
                     <div>
-                        <span style="font-size: 3em; font-weight: 800; color: var(--dourado);">20%</span>
-                        <p style="margin: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #aaa;">Redução Fiscal<br>de obrigações fiscais</p>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">20%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Redução<br>Fiscal</div>
                     </div>
                     <div>
-                        <span style="font-size: 3em; font-weight: 800; color: var(--dourado);">100%</span>
-                        <p style="margin: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: #aaa;">Conformidade<br>com requisitos regulatórios</p>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">360º</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Visão de<br>Processos</div>
                     </div>
                 </div>
 
-                <h4 style="font-size: 1.3em; margin: 0 0 15px 0; color: var(--texto); font-weight: 700;">Conquistas e Impacto</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
-                    <div style="background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <p style="margin: 0 0 5px 0; color: var(--dourado);"><strong>Otimização Financeira</strong></p>
-                        <p style="margin: 0; font-size: 0.9em; opacity: 0.8;">Reduziu 20% das obrigações fiscais da empresa, formalizando e validando contratos, demonstrando impacto direto no ROI.</p>
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Conquistas e Impacto Operacional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Inteligência de Dados (Tasy)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Geração de relatórios financeiros e operacionais estratégicos que subsidiavam decisões de alto nível, demonstrando foco em resultado no Setor de Saúde.</p>
                     </div>
-                    <div style="background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <p style="margin: 0 0 5px 0; color: var(--dourado);"><strong>Fortalecimento da Governança</strong></p>
-                        <p style="margin: 0; font-size: 0.9em; opacity: 0.8;">Implementou práticas de governança para Conselhos e Executivos de Alto Escalão, garantindo transparência e alinhamento estratégico.</p>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Otimização Financeira</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou a formalização de contratos de prestação de serviços com corpo clínico, superando resistências e reduzindo obrigações fiscais em 20%.</p>
                     </div>
-                    <div style="background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <p style="margin: 0 0 5px 0; color: var(--dourado);"><strong>Inteligência de Dados</strong></p>
-                        <p style="margin: 0; font-size: 0.9em; opacity: 0.8;">Otimizou a Gestão de Informações no sistema Tasy, convertendo dados brutos em insights sólidos para decisões estratégicas.</p>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Inovação Estratégica</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou a implementação de plataforma de amostras grátis, aprimorando o rastreamento de medicamentos e treinamento de profissionais.</p>
                     </div>
-                    <div style="background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <p style="margin: 0 0 5px 0; color: var(--dourado);"><strong>Conformidade e Risco</strong></p>
-                        <p style="margin: 0; font-size: 0.9em; opacity: 0.8;">Assegurou a conformidade legal e fiscal, gerenciando alvarás e CRMs, e mitigando riscos operacionais de forma preventiva.</p>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Conformidade Trabalhista</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou rotinas completas de DP em empresa de Segurança Prisional, garantindo total conformidade com a legislação e suporte aos colaboradores.</p>
                     </div>
                 </div>
 
-                <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.95em; opacity: 0.9;">
-                    <strong>Próximo Desafio:</strong> Busca uma posição de Analista Sênior ou Coordenação no setor de Saúde, onde possa aplicar minha experiência em Governança, Compliance e Otimização da Gestão de Informações para fortalecer a estratégia e a conformidade da organização.
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                    
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Secretária Executiva / Suporte Operacional</div>
+                            <div style="color: #888; font-size: 12px; margin-bottom: 5px;">Complexo Provida S.A | Abril 2016 – Atual</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Administrativo (Suporte DP)</div>
+                            <div style="color: #888; font-size: 12px; margin-bottom: 5px;">Montesinos Sistemas Prisional | 2013 - 2015</div>
+                        </div>
+                        <div>
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Financeiro</div>
+                            <div style="color: #888; font-size: 12px;">Copetrol S.A | 2012 - 2013</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">MBA Executivo</div>
+                            <div style="color: #ccc; font-size: 13px;">Auditoria, Compliance e Gestão de Riscos</div>
+                            <div style="color: #888; font-size: 12px;">Faculdade Líbano (Conclusão 2025)</div>
+                        </div>
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Superior Tecnológico</div>
+                            <div style="color: #ccc; font-size: 13px;">Processos Gerenciais</div>
+                            <div style="color: #888; font-size: 12px;">Uniasselvi</div>
+                        </div>
+                    </div>
+
                 </div>
+
+                <div style="background: rgba(197, 160, 89, 0.05); border: 1px solid rgba(197, 160, 89, 0.2); padding: 30px; border-radius: 10px; text-align: center;">
+                    <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-top: 0;">Próximo Desafio</h3>
+                    <p style="font-size: 14px; color: #ccc; max-width: 800px; margin: 0 auto;">
+                        Atuar como Especialista em Experiência do Cliente ou Analista de Suporte Estratégico. Preparada para aplicar habilidades em atendimento resolutivo, otimização de processos e gestão de conformidade para garantir a excelência na jornada do usuário, impulsionando a satisfação e a eficiência operacional em ambientes de alta demanda.
+                    </p>
+                </div>
+
             </div>
         `
     }
+    // ... Aqui continuam os outros talentos (lembre-se da vírgula)
 ];
