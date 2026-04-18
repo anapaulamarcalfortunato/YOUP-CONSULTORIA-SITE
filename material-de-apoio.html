@@ -8,48 +8,130 @@
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: #fff; }
         .container { max-width: 1100px; margin: 0 auto; padding: 40px; }
-        h1 { color: var(--dourado); text-align: center; margin-bottom: 50px; }
+        h1 { color: var(--dourado); text-align: center; margin-bottom: 30px; }
+        
+        /* Estilos dos Filtros */
+        .filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+        .filter-btn { background: #1a1a1a; color: #b0b0b0; border: 1px solid rgba(197, 160, 89, 0.2); padding: 8px 16px; border-radius: 20px; font-family: 'Montserrat'; font-size: 12px; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-weight: 600; }
+        .filter-btn:hover { border-color: var(--dourado); color: #fff; }
+        .filter-btn.active { background: rgba(197, 160, 89, 0.1); border-color: var(--dourado); color: var(--dourado); }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(197, 160, 89, 0.1); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s; }
-        .card:hover { border-color: var(--dourado); transform: translateY(-5px); }
-        .thumb { width: 100%; height: 180px; object-fit: cover; }
-        .content { padding: 20px; }
-        .cat { color: var(--verde); font-size: 10px; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; display: block; }
-        .title { font-size: 17px; margin: 0; }
-        /* Modal básico */
-        #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:100; }
-        .modal-body { max-width:700px; margin:50px auto; background:#111; padding:30px; border-radius:10px; border:1px solid var(--dourado); max-height: 80vh; overflow-y: auto;}
+        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(197, 160, 89, 0.1); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { border-color: var(--dourado); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .thumb { width: 100%; height: 180px; object-fit: cover; background: #111; }
+        .content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        
+        .meta-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .cat { color: var(--verde); font-size: 10px; text-transform: uppercase; font-weight: 600; }
+        .date { color: #888; font-size: 10px; font-weight: 400; }
+        .title { font-size: 17px; margin: 0; line-height: 1.4; }
+
+        /* Modal melhorado */
+        #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:100; backdrop-filter: blur(5px); }
+        .modal-body { max-width:700px; margin:40px auto; background:#1a1a1a; padding:40px; border-radius:15px; border:1px solid rgba(197, 160, 89, 0.3); max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .close-btn { position: absolute; top: 15px; right: 20px; color: #888; font-size: 24px; cursor: pointer; border: none; background: none; transition: 0.2s; }
+        .close-btn:hover { color: var(--dourado); }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Biblioteca de Carreira</h1>
-        <div id="grid" class="grid">Carregando...</div>
+        
+        <div id="filters" class="filters"></div>
+
+        <div id="grid" class="grid">Carregando materiais...</div>
     </div>
-    <div id="modal" onclick="this.style.display='none'">
+
+    <div id="modal" onclick="fecharModal()">
         <div class="modal-body" onclick="event.stopPropagation()">
-            <h2 id="m-title" style="color:var(--dourado)"></h2>
-            <div id="m-text" style="line-height:1.6; white-space: pre-wrap;"></div>
+            <button class="close-btn" onclick="fecharModal()">×</button>
+            <h2 id="m-title" style="color:var(--dourado); margin-top: 0; margin-bottom: 25px; font-size: 24px;"></h2>
+            <div id="m-text" style="line-height:1.8; white-space: pre-wrap; color: #eee; font-size: 15px; font-weight: 300;"></div>
         </div>
     </div>
+
     <script>
         const API = 'https://script.google.com/macros/s/AKfycbyYoEJ1coWZpa0rGamY0_zoRom1tJX5w5bDyQ48RuN5CEha_0W7n46HabfqTqMGr63a/exec?tipo=material';
+        let todosOsMateriais = []; // Guarda os dados globalmente
+
         fetch(API).then(r => r.json()).then(posts => {
+            todosOsMateriais = posts;
+            renderizarFiltros();
+            renderizarGrid(todosOsMateriais);
+        });
+
+        function renderizarFiltros() {
+            const filtersDiv = document.getElementById('filters');
+            // Extrai categorias únicas, ignorando as vazias
+            const categorias = [...new Set(todosOsMateriais.map(p => p.categoria).filter(c => c && c.trim() !== ''))];
+            
+            let htmlFiltros = `<button class="filter-btn active" onclick="filtrar('Todas', this)">Todas</button>`;
+            categorias.forEach(cat => {
+                htmlFiltros += `<button class="filter-btn" onclick="filtrar('${cat}', this)">${cat}</button>`;
+            });
+            filtersDiv.innerHTML = htmlFiltros;
+        }
+
+        function renderizarGrid(lista) {
             const grid = document.getElementById('grid');
-            grid.innerHTML = posts.map(p => `
-                <div class="card" onclick="abrir('${p.titulo}', '${p.conteudo.replace(/'/g, "\\'")}')">
-                    <img src="${p.imagem}" class="thumb">
+            if (lista.length === 0) {
+                grid.innerHTML = "<p style='color:#888; text-align:center; grid-column: 1 / -1;'>Nenhum material encontrado.</p>";
+                return;
+            }
+
+            grid.innerHTML = lista.map(p => {
+                // Formata a data se ela existir na planilha
+                let dataFormatada = '';
+                if (p.data) {
+                    const d = new Date(p.data);
+                    dataFormatada = !isNaN(d) ? d.toLocaleDateString('pt-BR') : p.data;
+                }
+
+                // Usa o p.id_original para não perder a referência no array principal ao filtrar
+                return `
+                <div class="card" onclick="abrir(${p.id_original})">
+                    <img src="${p.imagem}" class="thumb" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/c5a059?text=Youp+Consultoria'">
                     <div class="content">
-                        <span class="cat">${p.categoria}</span>
+                        <div class="meta-info">
+                            <span class="cat">${p.categoria || 'Geral'}</span>
+                            <span class="date">${dataFormatada}</span>
+                        </div>
                         <h3 class="title">${p.titulo}</h3>
                     </div>
                 </div>
-            `).join('');
-        });
-        function abrir(t, txt) {
-            document.getElementById('m-title').innerText = t;
-            document.getElementById('m-text').innerText = txt;
+                `;
+            }).join('');
+        }
+
+        function filtrar(categoria, botao) {
+            // Atualiza os botões visuais
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            botao.classList.add('active');
+
+            // Aplica o filtro mapeando o índice original (para o modal funcionar)
+            const listaComIds = todosOsMateriais.map((p, index) => ({ ...p, id_original: index }));
+            
+            if (categoria === 'Todas') {
+                renderizarGrid(listaComIds);
+            } else {
+                const filtrados = listaComIds.filter(p => p.categoria === categoria);
+                renderizarGrid(filtrados);
+            }
+        }
+
+        // Abertura cirúrgica do Modal através do ID do array
+        function abrir(index) {
+            const p = todosOsMateriais[index];
+            document.getElementById('m-title').innerText = p.titulo;
+            document.getElementById('m-text').innerText = p.conteudo;
             document.getElementById('modal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+        }
+
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Destrava o scroll
         }
     </script>
 </body>
