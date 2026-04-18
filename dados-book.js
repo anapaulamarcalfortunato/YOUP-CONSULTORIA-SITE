@@ -5,6 +5,7 @@ const talentosYoup = [
         area: "Experiência do Cliente",
         perfil: "Especialista em Experiência do Cliente",
         cargo: "Suporte Operacional & Governança | +10 Anos de Experiência",
+        objetivo: "Especialista em Experiência do Cliente / Analista de Suporte", // <--- NOVA LINHA AQUI
         resumo: "Profissional com mais de uma década em gestão de processos e suporte estratégico. Pós-graduada em Auditoria e Compliance, une atendimento de excelência com otimização de rotinas (ROI de 20% em redução fiscal).",
         conteudo: `
             <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
@@ -117,12 +118,6 @@ const talentosYoup = [
                     </div>
                 </div>
 
-                <div style="background: rgba(197, 160, 89, 0.05); border: 1px solid rgba(197, 160, 89, 0.2); padding: 30px; border-radius: 10px; text-align: center;">
-                    <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-top: 0;">Próximo Desafio</h3>
-                    <p style="font-size: 14px; color: #ccc; max-width: 800px; margin: 0 auto;">
-                        Atuar como Especialista em Experiência do Cliente ou Analista de Suporte Estratégico. Preparada para aplicar habilidades em atendimento resolutivo, otimização de processos e gestão de conformidade para garantir a excelência na jornada do usuário.
-                    </p>
-                </div>
             </div>
         `
     }
