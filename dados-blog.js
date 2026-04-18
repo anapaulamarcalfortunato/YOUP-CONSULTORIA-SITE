@@ -30,7 +30,7 @@ const materiaisYoup = [
                 <p style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;"><strong>Reposicione sua marca pessoal:</strong> deixe de ser o bombeiro e torne-se o arquiteto. O mercado oculta as melhores vagas de Conselho para os executivos que sabem delegar sua própria onipresença.</p>
             </div>
         `
-    }, // <--- ESTA VÍRGULA ESTAVA FALTANDO AQUI
+    },
     {
         id: 2,
         categoria: "Carreira",
