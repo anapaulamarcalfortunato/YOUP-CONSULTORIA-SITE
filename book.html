@@ -19,50 +19,63 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         
-        /* FILTROS EM LISTA COM CHECKBOX */
+        /* PAINEL DE FILTROS PADRONIZADOS */
         .dashboard-filters { background: var(--cinza); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 40px; }
-        .filters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .filters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .filter-title { font-size: 11px; text-transform: uppercase; color: var(--dourado); font-weight: 700; letter-spacing: 2px; margin-bottom: 15px; display: block; border-left: 2px solid var(--dourado); padding-left: 10px; }
         
+        /* CAIXAS COM ALTURA FIXA PARA 2 ITENS */
         .checkbox-list { 
-            max-height: 150px; 
+            height: 85px; /* Altura exata para aparecer 2 itens */
             overflow-y: auto; 
             background: rgba(0,0,0,0.2); 
             padding: 10px; 
             border-radius: 8px; 
             border: 1px solid #333;
         }
-        .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; font-size: 13px; color: #aaa; transition: 0.3s; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 5px 0; cursor: pointer; font-size: 13px; color: #aaa; transition: 0.3s; }
         .checkbox-item:hover { color: #fff; }
         .checkbox-item input { accent-color: var(--dourado); cursor: pointer; }
+
+        /* CUSTOM SCROLLBAR PARA AS CAIXAS */
+        .checkbox-list::-webkit-scrollbar { width: 4px; }
+        .checkbox-list::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
 
         /* HEADER DE RESULTADOS */
         .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
         .results-count { color: var(--dourado); font-weight: 700; font-size: 14px; background: rgba(197, 160, 89, 0.1); padding: 5px 12px; border-radius: 20px; }
 
-        /* GRID */
+        /* GRID E CARDS (DESIGN ORIGINAL RESTAURADO) */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
         .card { background: var(--cinza); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 30px; transition: 0.4s; display: flex; flex-direction: column; cursor: pointer; }
         .card:hover { border-color: var(--dourado); transform: translateY(-8px); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
         .badge { background: rgba(92, 142, 130, 0.1); color: var(--verde); padding: 6px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; border: 1px solid rgba(92, 142, 130, 0.3); }
-        .title { font-size: 22px; margin: 15px 0 5px; color: var(--texto); font-weight: 700; }
+        .id-badge { color: var(--dourado); font-size: 11px; font-weight: 700; }
+        
+        .title { font-size: 22px; margin: 0 0 8px; color: var(--texto); font-weight: 700; }
         .cargo { font-size: 13px; color: #888; margin-bottom: 15px; }
+        
+        .objetivo-tag { background: rgba(197, 160, 89, 0.05); border-left: 2px solid var(--dourado); padding: 8px 12px; margin-bottom: 20px; font-size: 12px; color: #ccc; }
+        .objetivo-tag strong { color: var(--dourado); font-weight: 600; text-transform: uppercase; font-size: 10px; display: block; }
+
+        .resumo { font-size: 14px; color: #aaa; line-height: 1.7; flex: 1; }
+        .read-more { margin-top: 20px; font-size: 11px; font-weight: 700; color: var(--dourado); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
 
         /* MODAL COM NAVEGAÇÃO */
         #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15, 15, 15, 0.98); z-index:100; backdrop-filter: blur(10px); }
         .modal-body { max-width:900px; margin: 0 auto; background: var(--preto); border-left: 1px solid rgba(197, 160, 89, 0.2); border-right: 1px solid rgba(197, 160, 89, 0.2); height: 100vh; overflow-y: auto; position: relative; padding: 80px 60px; box-sizing: border-box; }
         
-        .close-btn { position: fixed; top: 20px; right: 30px; color: #fff; font-size: 30px; cursor: pointer; z-index: 110; opacity: 0.5; transition: 0.3s; }
+        .close-btn { position: fixed; top: 20px; right: 30px; color: #fff; font-size: 35px; cursor: pointer; z-index: 110; opacity: 0.5; transition: 0.3s; }
         .close-btn:hover { opacity: 1; color: var(--dourado); }
 
-        .nav-btn { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(197, 160, 89, 0.1); color: var(--dourado); border: 1px solid var(--dourado); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; z-index: 105; font-size: 20px; }
-        .nav-btn:hover { background: var(--dourado); color: var(--preto); }
-        .nav-prev { left: 30px; }
-        .nav-next { right: 30px; }
+        .nav-btn { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(197, 160, 89, 0.05); color: var(--dourado); border: 1px solid rgba(197, 160, 89, 0.3); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; z-index: 105; font-size: 25px; }
+        .nav-btn:hover { background: var(--dourado); color: var(--preto); border-color: var(--dourado); }
+        .nav-prev { left: 40px; }
+        .nav-next { right: 40px; }
 
         #m-text { line-height: 1.8; color: #ccc; font-size: 16px; white-space: pre-wrap; }
-        .modal-header-confidential h2 { font-size: 36px; color: var(--dourado); margin-bottom: 10px; }
-        .btn-contato-modal { display: block; width: 100%; text-align: center; padding: 20px; background: var(--verde); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -70,7 +83,7 @@
     <div class="hero">
         <a href="index.html" class="btn-back-home">← Voltar ao Hub</a>
         <h1>Book de Talentos</h1>
-        <p>Curadoria exclusiva de perfis C-Level. Selecione múltiplas opções para refinar sua busca.</p>
+        <p>Curadoria exclusiva de perfis executivos qualificados Youp.</p>
     </div>
 
     <div class="container">
@@ -116,14 +129,21 @@
         <button class="nav-btn nav-next" onclick="navegarPerfil(1)">❯</button>
 
         <div class="modal-body" onclick="event.stopPropagation()">
-            <div class="modal-header-confidential">
-                <div id="m-id" style="color: var(--dourado); font-size: 12px; font-weight: 700;"></div>
-                <h2 id="m-perfil"></h2>
-                <div id="m-cargo" style="color: #888; margin-bottom: 20px;"></div>
-                <div id="m-area-badges" style="display:flex; gap:5px; margin-bottom:30px;"></div>
+            <div class="card-header" style="border:none; margin-bottom:10px;">
+                <div id="m-area-badges" style="display:flex; gap:5px;"></div>
+                <span id="m-id" class="id-badge"></span>
             </div>
-            <div id="m-text"></div>
-            <a id="m-zap-link" href="" target="_blank" class="btn-contato-modal">Solicitar Apresentação via WhatsApp ➔</a>
+            <h2 id="m-perfil" style="font-size:36px; color:var(--texto); margin:0;"></h2>
+            <div id="m-cargo" style="color: #888; font-size:16px; margin-bottom:30px; font-weight:600;"></div>
+            
+            <div class="objetivo-tag" style="display:inline-block;">
+                <strong>🎯 Busca Posição de:</strong>
+                <span id="m-objetivo" style="color:var(--dourado); font-weight:700;"></span>
+            </div>
+
+            <div id="m-text" style="margin-top:40px; border-top:1px solid #333; padding-top:30px;"></div>
+            
+            <a id="m-zap-link" href="" target="_blank" style="display:block; width:100%; text-align:center; padding:20px; background:var(--verde); color:#fff; text-decoration:none; border-radius:8px; font-weight:700; margin-top:50px;">Solicitar Apresentação via WhatsApp ➔</a>
         </div>
     </div>
 
@@ -175,15 +195,22 @@
                 return;
             }
 
-            grid.innerHTML = perfisFiltradosGlobal.map((t, idx) => `
+            grid.innerHTML = perfisFiltradosGlobal.map((t, idx) => {
+                const areasArray = Array.isArray(t.area) ? t.area : [t.area];
+                const badgesHTML = areasArray.map(a => `<span class="badge">${a}</span>`).join('');
+                return `
                 <div class="card" onclick="abrirModalComIndex(${idx})">
-                    <span class="badge" style="width:fit-content">${Array.isArray(t.area) ? t.area[0] : t.area}</span>
+                    <div class="card-header">
+                        <div class="badge-group">${badgesHTML}</div>
+                        <span class="id-badge">ID: ${t.id}</span>
+                    </div>
                     <h3 class="title">${t.perfil}</h3>
                     <div class="cargo">${t.cargo}</div>
-                    <p style="font-size:13px; color:#888; flex:1;">${t.resumo.substring(0, 120)}...</p>
-                    <div style="color:var(--dourado); font-size:10px; font-weight:700; margin-top:15px; text-transform:uppercase;">Ver Detalhes ➔</div>
-                </div>
-            `).join('');
+                    <div class="objetivo-tag"><strong>🎯 Busca Posição de:</strong> ${t.objetivo || 'Não especificado'}</div>
+                    <p class="resumo">${t.resumo}</p>
+                    <div class="read-more">Ver Perfil Estratégico Completo ➔</div>
+                </div>`;
+            }).join('');
         }
 
         function abrirModalComIndex(index) {
@@ -193,6 +220,7 @@
             document.getElementById('m-id').innerText = "ID: " + t.id;
             document.getElementById('m-perfil').innerText = t.perfil;
             document.getElementById('m-cargo').innerText = t.cargo;
+            document.getElementById('m-objetivo').innerText = t.objetivo || 'Não especificado';
             document.getElementById('m-text').innerHTML = t.conteudo;
             
             const areas = Array.isArray(t.area) ? t.area : [t.area];
@@ -217,7 +245,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Atalhos de teclado para navegação
         document.addEventListener('keydown', (e) => {
             if (document.getElementById('modal').style.display === 'block') {
                 if (e.key === 'ArrowRight') navegarPerfil(1);
