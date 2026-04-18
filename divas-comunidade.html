@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divas Comunidade - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rosa-divas: #d84b72;
+            --rosa-claro: #f4b4c4;
+            --rosa-fundo: #1c0d12;
+            --dourado: #c5a059;
+            --branco-suave: #fdfbfb;
+            --cinza-texto: #d1c8cb;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--rosa-fundo);
+            background-image: linear-gradient(135deg, rgba(28, 13, 18, 0.96), rgba(60, 20, 35, 0.88)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--branco-suave);
+            display: flex; align-items: center; justify-content: center;
+            min-height: 100vh; overflow-y: auto;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(216, 75, 114, 0.3);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 95%;
+            padding: 50px 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(216, 75, 114, 0.05);
+            text-align: center;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .btn-return {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: var(--rosa-claro);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-return:hover {
+            color: var(--rosa-divas);
+            transform: translateX(-3px);
+        }
+
+        .welcome-title { 
+            color: var(--rosa-claro); 
+            font-size: 32px; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px;
+        }
+        .welcome-title span {
+            color: var(--rosa-divas);
+        }
+        
+        .welcome-subtitle { 
+            font-size: 12px; 
+            color: var(--dourado); 
+            margin: 10px 0 35px 0; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 45px;
+            font-weight: 300;
+            color: var(--cinza-texto);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .intro-text b {
+            color: var(--rosa-claro);
+            font-weight: 600;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .portal-card {
+            background: rgba(216, 75, 114, 0.05);
+            border: 1px solid rgba(216, 75, 114, 0.2);
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .portal-card:hover {
+            border-color: var(--rosa-divas);
+            background: rgba(216, 75, 114, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(216, 75, 114, 0.2);
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--branco-suave);
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--cinza-texto);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .card-whatsapp {
+            background: rgba(37, 211, 102, 0.05);
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+        .card-whatsapp:hover {
+            background: rgba(37, 211, 102, 0.15);
+            border-color: #25D366;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.2);
+        }
+        .card-whatsapp .card-title {
+            color: #25D366;
+        }
+
+        .partnership-footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(216, 75, 114, 0.2);
+        }
+
+        .partnership-footer p {
+            font-size: 10px;
+            color: var(--rosa-claro);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <a href="area-parceiro.html" class="btn-return">← Voltar ao Hub Principal</a>
+
+        <h1 class="welcome-title">Divas <span>Comunidade</span></h1>
+        <p class="welcome-subtitle">Conexão, Sororidade e Crescimento</p>
+
+        <p class="intro-text">
+            Um espaço criado por mulheres e para mulheres. Acreditamos que quando uma mulher brilha, ela ilumina o caminho para todas as outras. Junte-se a nós para <b>potencializar sua voz</b> e expandir sua influência com propósito.
+        </p>
+
+        <div class="portal-grid">
+            <a href="https://script.google.com/macros/s/AKfycbzVeQ-Zj4_t896n7Kh1NAmp6u37PSC-iMYPEHamkVnZIp47-amKTL7l9q6a9gu7e4E/exec" target="_blank" class="portal-card">
+                <span class="card-icon">✨</span>
+                <span class="card-title">Cadastro de Influenciadora</span>
+                <span class="card-desc">Faça parte do nosso casting exclusivo. Preencha seu perfil e conecte-se a grandes oportunidades.</span>
+            </a>
+
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1!%20Vim%20pelo%20Portal%20Youp%20e%20quero%20saber%20mais%20sobre%20a%20Comunidade%20Divas%20%F0%9F%92%96" target="_blank" class="portal-card card-whatsapp">
+                <span class="card-icon">💬</span>
+                <span class="card-title">Quero Saber Mais</span>
+                <span class="card-desc">Ficou com alguma dúvida? Clique aqui para bater um papo direto no nosso WhatsApp.</span>
+            </a>
+        </div>
+
+        <div class="partnership-footer">
+            <p>Juntas somos mais fortes 💖</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
