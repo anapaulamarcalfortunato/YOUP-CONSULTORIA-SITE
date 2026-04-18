@@ -60,4 +60,5 @@ const materiaisYoup = [
             <p style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;"><strong>Conclusão:</strong> A sua carreira é uma tela em branco. Se você não assumir o pincel, o RH ou o acaso pintarão o seu destino com as cores que forem convenientes para eles. Assuma a autoria. Traduza técnica em valor. Empacote batalhas em teses de negócio. Domine a narrativa ou seja dominado por ela.</p>
         </div>
     `
-}];
+}
+];
