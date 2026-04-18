@@ -29,6 +29,11 @@ const materiaisYoup = [
         `
     }
 {
+    
+    id: 2,
+    categoria: "Carreira",
+    data: "18/04/2026",
+    tempoLeitura: "6 min",
     titulo: "Você é o Protagonista ou o Figurante da Sua Própria Carreira?",
     slug: "protagonista-ou-figurante-carreira-executiva",
     imagem: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1632&auto=format&fit=crop", 
@@ -61,4 +66,4 @@ const materiaisYoup = [
         </div>
     `
 }
-]
+];
