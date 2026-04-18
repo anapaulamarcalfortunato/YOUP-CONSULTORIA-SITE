@@ -545,30 +545,6 @@ const talentosYoup = [
             </div>
         `
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    [
     {
         id: "YP-006",
         localizacao: "Nacional",
