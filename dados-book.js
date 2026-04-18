@@ -121,5 +121,130 @@ const talentosYoup = [
 
             </div>
         `
+    },
+    const talentosYoup = [
+    {
+        id: "Y-COM-001",
+        localizacao: "Nacional",
+        area: ["Comunicação Corporativa", "Estratégia de Conteúdo", "Marketing", "Liderança"],
+        nivel: "Média Liderança",
+        perfil: "Especialista em Comunicação Estratégica",
+        cargo: "Líder de Estratégia de Conteúdo & Comunicação | +25 Anos de Experiência",
+        objetivo: "Especialista em Comunicação Corporativa / Estratégia de Conteúdo",
+        resumo: "Profissional sênior com mais de 25 anos em Comunicação Estratégica e Liderança. Expertise em Marketing de Conteúdo, SEO (aumento de 38% no tráfego orgânico) e Gestão de grandes equipes (até 90 profissionais).",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Especialista em Comunicação Estratégica <span style="font-weight: 300; color: #888;">| Comunicação Corporativa</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✦</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Liderança Sênior</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Gestão de times multidisciplinares com até 90 profissionais em ambientes de alta performance.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">◓</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Transformação Digital</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Pioneira na digitalização do jornalismo e otimização de processos de distribuição de conteúdo.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">►</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Foco em Performance</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Especialista em SEO e estratégias digitais com resultados comprovados em audiência e tráfego.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Profissional sênior em Comunicação Estratégica e Liderança, com mais de 25 anos de experiência na gestão de conteúdo e transformação digital em ambientes de alta performance. Possuo forte habilidade na liderança de equipes multidisciplinares e gerenciamento de projetos de grande escala, incluindo coberturas globais in loco.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Com expertise em Marketing de Conteúdo focado em performance, trago resultados comprovados em SEO e estratégias multicanal. Busco aplicar meu sólido background para fortalecer a Comunicação Corporativa (Interna e Externa), impulsionar o Branding e gerenciar a Reputação/Crises em organizações com visão de vanguarda e inovação.</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências-Chave</h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>Comunicação Corporativa & ESG</li>
+                            <li>Gestão de Reputação e Crises</li>
+                            <li>Estratégia de Conteúdo & SEO</li>
+                            <li>Liderança de Times (+90 pessoas)</li>
+                            <li>Web Analytics e Engajamento</li>
+                            <li>Gerenciamento de Projetos Complexos</li>
+                            <li>Transformação Digital</li>
+                            <li>Inglês e Espanhol Fluentes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+25</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Anos de<br>Trajetória</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">38%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Aumento de<br>Tráfego Orgânico</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">90</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Profissionais<br>Liderados</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Conquistas e Impacto Operacional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Performance & SEO</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Implementou técnicas avançadas de otimização de conteúdo no portal globo.com, gerando um aumento comprovado de 38% no tráfego orgânico.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Pioneirismo em Transformação Digital</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou a digitalização do jornalismo na ESPN Brasil. Criou padrões e cartilhas de fluxos de trabalho que seguem em uso há mais de 11 anos.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Gestão de Projetos Complexos</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou coberturas in loco de eventos de alcance global, garantindo a excelência do conteúdo multicanal na Copa do Mundo (2010) e Olimpíadas (2012).</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Engajamento & Mídias Sociais</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Otimizou a distribuição e presença online em plataformas chave, impulsionando o engajamento digital da audiência em até 25%.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Líder de Estratégia de Conteúdo e SEO</div>
+                            <div style="color: #888; font-size: 12px;">TV Globo / globo.com | 2020 – Atual</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Editora de Texto e Digital / Gestão de Mídias</div>
+                            <div style="color: #888; font-size: 12px;">SportTV / TV Pública La Plata (Arg) | 2018 - 2020</div>
+                        </div>
+                        <div>
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Editora-Chefe / Coordenadora de Mídias Digitais</div>
+                            <div style="color: #888; font-size: 12px;">ESPN Brasil / SportTV | 2011 - 2018</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Pós-Graduação</div>
+                            <div style="color: #ccc; font-size: 13px;">Direitos Humanos, Responsabilidade Social e ESG</div>
+                            <div style="color: #888; font-size: 12px;">PUC RS (Conclusão 2023)</div>
+                        </div>
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Graduação</div>
+                            <div style="color: #ccc; font-size: 13px;">Jornalismo</div>
+                            <div style="color: #888; font-size: 12px;">Cásper Líbero (Conclusão 2001)</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        `
     }
 ];
