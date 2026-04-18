@@ -544,5 +544,314 @@ const talentosYoup = [
                 <p style="font-size: 13px; color: #888;"><strong>EMPRESAS QUE JÁ ATUOU:</strong> OdontoCompany, MCassab Toys (LEGO®), Interplayers, Unimed Fesp, Clínica Fares, Big Bom, Drogaria Onofre.</p>
             </div>
         `
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    [
+    {
+        id: "YP-006",
+        localizacao: "Nacional",
+        area: ["Engenharia de Produção", "Análise de Dados", "Logística", "Melhoria Contínua"],
+        nivel: "Operacional",
+        perfil: "Engenheiro de Produção | Analista de Processos",
+        cargo: "Trainee de Operações & Analista de BI | Lean Six Sigma",
+        objetivo: "Trainee / Analista de Processos / Analista de BI ou Logística",
+        resumo: "Engenheiro de Produção com sólida base em análise de dados (SQL, Power BI) e melhoria contínua (Yellow Belt). Especialista em traduzir KPIs complexos em ganhos de eficiência.",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Engenharia de Produção <span style="font-weight: 300; color: #888;">| Business Intelligence</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">📊</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Data-Driven</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Expertise em SQL, Power BI e Python para otimização de decisões.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">⚙️</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Eficiência Operacional</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Aplicação de Lean Six Sigma e Metodologias Ágeis (Scrum/Kanban).</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">🛡️</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Conformidade</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Foco em Compliance, auditoria de dados e rigor analítico.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Profissional</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Engenheiro de Produção orientado à qualidade e à transformação de processos por meio de dados. Com experiência em ambientes de alta performance como Itaú Unibanco e Mottu, possuo habilidade em mapear jornadas operacionais e identificar gargalos financeiros ou logísticos.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Destaque para a capacidade de gerir indicadores críticos (KPIs) e liderar projetos de controle visual e redução de custos, unindo o rigor técnico da engenharia com a agilidade das ferramentas modernas de BI.</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Hard Skills</h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>SQL (Google BigQuery) & Power BI</li>
+                            <li>Lean Six Sigma (Yellow Belt)</li>
+                            <li>Excel Expert (Power Query)</li>
+                            <li>Mapeamento de Processos (BPM)</li>
+                            <li>Python para Dados & Cloud (AWS)</li>
+                            <li>Gestão de Inventário e KPIs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">120h</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Formação em<br>Python</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">-15%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Potencial de<br>Custo Operacional</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">Lean</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Cultura de<br>Melhoria Contínua</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Experiência e Impacto</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Otimização Logística (Mottu)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Redução de TMA e ganho de produtividade em manutenções via controle de indicadores.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Compliance Bancário (Itaú)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Validação de dados em AWS e correção de inconsistências em DREs financeiros.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 40px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 10px;">
+                    <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Formação Acadêmica</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Engenharia de Produção</div>
+                            <div style="color: #ccc; font-size: 13px;">Instituto Mauá de Tecnologia (2023)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 13px; color: #888;"><strong>EMPRESAS QUE JÁ ATUOU:</strong> Mottu (Logística), Itaú Unibanco (Financeiro).</p>
+            </div>
+        `
+    },
+    {
+        id: "YP-007",
+        localizacao: "Internacional",
+        area: ["Cyber Security", "Vendas Estratégicas", "Tecnologia", "Gestão"],
+        nivel: "Média Liderança",
+        perfil: "Software Sales Executive | Cybersecurity Specialist",
+        cargo: "Sales Executive & Cyber Security | Founder | Ex-Editora Abril",
+        objetivo: "Software Sales Executive / Account Manager / Cyber Security",
+        resumo: "Profissional híbrido unindo expertise técnica em Cyber Security com sólido histórico em vendas consultivas. Ex-diretor de empresa própria com faturamento mensal de £10k e vivência internacional.",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Sales Executive <span style="font-weight: 300; color: #888;">| Cyber Security</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">🛡️</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Technical Acumen</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Conhecimento em AWS, Kali Linux, GDPR e infraestrutura de segurança.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">📈</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Sales Hunter</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Ciclo completo de vendas: prospecção, negociação e fechamento de contratos.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">🌍</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Global Mindset</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Experiência internacional em Londres e fluência em Inglês e Português.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Líder orientado a resultados com visão estratégica de negócios. Como fundador e diretor de empresa no Reino Unido, desenvolvi habilidades excepcionais de autogestão, negociação e CRM.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Minha formação em Cyber Security me permite atuar como um consultor técnico de vendas, capaz de articular o valor de soluções complexas de software e infraestrutura para tomadores de decisão C-Level.</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Idiomas & Skills</h3>
+                        <p style="font-size: 12px; color: #5c8e82; margin-bottom: 10px; font-weight: bold;">Inglês (Fluente) | Português (Fluente) | Espanhol (Básico)</p>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>Vendas Consultivas & Pipeline</li>
+                            <li>CRM (Salesforce, HubSpot)</li>
+                            <li>Cloud Security (AWS IAM/S3)</li>
+                            <li>Networking & Ethical Hacking</li>
+                            <li>Python & Bash Scripting</li>
+                            <li>Estratégias de Marketing Digital</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">£10k</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Turnover Mensal<br>(Own Business)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">100%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Foco em<br>Client Retention</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">Cyber</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Venda com<br>Base Técnica</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Trajetória Profissional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Gestão de Negócios (UK)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Fundação e escala de empresa de vendas de veículos com 15 vendas/mês.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Sales Rep (Editora Abril)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Superação consistente de metas de vendas de assinaturas e produtos.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 40px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 10px;">
+                    <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Acadêmico</h3>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">BSc Cyber Security</div>
+                            <div style="color: #ccc; font-size: 13px;">University of Roehampton | London (Prev. 2025)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 13px; color: #888;"><strong>LOCAIS DE ATUAÇÃO:</strong> Londres (UK), Brasil.</p>
+            </div>
+        `
+    },
+    {
+        id: "YP-008",
+        localizacao: "Nacional",
+        area: ["Engenharia Aeronáutica", "Gestão de Projetos", "Liderança", "Melhoria Contínua"],
+        nivel: "Média Liderança",
+        perfil: "Engenheiro Aeronáutico | Coordenador Técnico",
+        cargo: "Engenheiro Aeronáutico Sênior | +11 Anos Safran Cabin",
+        objetivo: "Engenheiro Aeronáutico / Coordenador Técnico / Gerente de Projetos",
+        resumo: "Especialista no setor aeronáutico com 11+ anos de experiência na Safran Cabin (projetos Boeing/Airbus). Liderança técnica de equipes multidisciplinares de até 50 colaboradores.",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Engenharia Aeronáutica <span style="font-weight: 300; color: #888;">| Coordenação Técnica</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✈️</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Aviation Expertise</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Desenvolvimento de interiores (Airbus/Boeing) e compliance regulatório.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">👥</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Team Leadership</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Gestão de até 50 profissionais, foco em alocação e OTD (100%).</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">📉</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Lean/Green Belt</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Redução de desperdícios e sincronização de dados em ERP (SAP).</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Profissional</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Engenheiro com sólida trajetória no desenvolvimento e certificação de produtos aeronáuticos. Atuação estratégica na liderança técnica, garantindo a qualidade (90%) e o cumprimento de prazos globais (OTD 100%).</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Experiência internacional em interface com clientes como Boeing e Cathay Pacific, e coordenação com equipes na Alemanha. Especialista em CATIA V5 e metodologias de resolução de problemas (Ishikawa, 5W2H, Kaizen).</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências & Idiomas</h3>
+                         <p style="font-size: 12px; color: #5c8e82; margin-bottom: 10px; font-weight: bold;">Inglês (Fluente) | Francês (Intermediário)</p>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>CATIA V5 & SolidWorks (Avançado)</li>
+                            <li>Smarteam Specialist & SAP</li>
+                            <li>Gestão de Projetos (WBS, PERT/CPM)</li>
+                            <li>Certificação Greenbelt (Lean)</li>
+                            <li>Interiores (Lavatórios, Galleys)</li>
+                            <li>GD&T e Leitura de Desenhos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">11y</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Experiência<br>Safran Cabin</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">100%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">On-Time<br>Delivery (OTD)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">50</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Colaboradores<br>Coordenados</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Impacto Operacional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Greenbelt Strategy</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderança do projeto de otimização de processos e sincronização de dados SAP/Produção.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Global Standards</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Criação de guidelines corporativos para mitigar erros de modelagem e desenho 3D.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 40px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 10px;">
+                    <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Educação Superior</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Pós-Graduação</div>
+                            <div style="color: #ccc; font-size: 13px;">Automação e Controle | UNITAU</div>
+                        </div>
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Engenharia Industrial</div>
+                            <div style="color: #ccc; font-size: 13px;">Mecânica | ETEP Faculdades</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 13px; color: #888;"><strong>EMPRESAS QUE JÁ ATUOU:</strong> Safran Cabin, Cebrace Cristal Plano.</p>
+            </div>
+        `
     }
 ];
