@@ -21,14 +21,43 @@
         
         /* PAINEL DE FILTROS DINÂMICOS */
         .dashboard-filters { background: var(--cinza); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 40px; }
-        .filter-section { margin-bottom: 25px; }
-        .filter-section:last-child { margin-bottom: 0; }
+        .filters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .filter-section { margin-bottom: 0; }
         .filter-title { font-size: 11px; text-transform: uppercase; color: #888; font-weight: 700; letter-spacing: 2px; margin-bottom: 15px; display: block; border-left: 2px solid var(--dourado); padding-left: 10px; }
         
         .pills-container { display: flex; flex-wrap: wrap; gap: 10px; }
         .pill-btn { background: rgba(0,0,0,0.3); color: #aaa; border: 1px solid #333; padding: 10px 20px; border-radius: 30px; font-family: 'Montserrat'; font-size: 12px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; }
         .pill-btn:hover { border-color: var(--dourado); color: var(--texto); }
         .pill-btn.active { background: rgba(197, 160, 89, 0.1); border-color: var(--dourado); color: var(--dourado); }
+
+        /* Estilo para a Lista Suspensa (Áreas de Atuação) */
+        .category-select {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            color: #eeeeee;
+            border: 1px solid #333;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s;
+            appearance: none; /* Remove o visual padrão do navegador */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c5a059' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-6-6h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+        .category-select:focus, .category-select.active {
+            border-color: var(--dourado);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .category-select option {
+            background-color: var(--cinza);
+            color: #eee;
+            padding: 10px;
+        }
 
         /* HEADER DE RESULTADOS */
         .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
@@ -83,30 +112,31 @@
 
     <div class="container">
         <div class="dashboard-filters">
-            
-            <div class="filter-section">
-                <span class="filter-title">Abrangência</span>
-                <div class="pills-container" id="filtros-localizacao">
-                    <button class="pill-btn" onclick="toggleFiltro('localizacao', 'Nacional', this)">Nacional</button>
-                    <button class="pill-btn" onclick="toggleFiltro('localizacao', 'Internacional', this)">Internacional</button>
-                </div>
-            </div>
-
-            <div class="filter-section">
-                <span class="filter-title">Nível Estratégico</span>
-                <div class="pills-container" id="filtros-nivel">
-                    <button class="pill-btn" onclick="toggleFiltro('nivel', 'Operacional', this)">Operacional</button>
-                    <button class="pill-btn" onclick="toggleFiltro('nivel', 'Média Liderança', this)">Média Liderança</button>
-                    <button class="pill-btn" onclick="toggleFiltro('nivel', 'Alta Liderança', this)">Alta Liderança</button>
-                </div>
-            </div>
-
-            <div class="filter-section">
-                <span class="filter-title">Áreas de Atuação</span>
-                <div class="pills-container" id="filtros-area">
+            <div class="filters-grid">
+                <div class="filter-section">
+                    <span class="filter-title">Abrangência</span>
+                    <div class="pills-container" id="filtros-localizacao">
+                        <button class="pill-btn" onclick="toggleFiltroBotao('localizacao', 'Nacional', this)">Nacional</button>
+                        <button class="pill-btn" onclick="toggleFiltroBotao('localizacao', 'Internacional', this)">Internacional</button>
                     </div>
-            </div>
+                </div>
 
+                <div class="filter-section">
+                    <span class="filter-title">Nível Estratégico</span>
+                    <div class="pills-container" id="filtros-nivel">
+                        <button class="pill-btn" onclick="toggleFiltroBotao('nivel', 'Operacional', this)">Operacional</button>
+                        <button class="pill-btn" onclick="toggleFiltroBotao('nivel', 'Média Liderança', this)">Média Liderança</button>
+                        <button class="pill-btn" onclick="toggleFiltroBotao('nivel', 'Alta Liderança', this)">Alta Liderança</button>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <span class="filter-title">Áreas de Atuação</span>
+                    <select id="filtros-area" class="category-select" onchange="aplicarFiltroDropdown('area', this)">
+                        <option value="Todas">Todas as Áreas</option>
+                        </select>
+                </div>
+            </div>
         </div>
 
         <div class="results-header">
@@ -143,11 +173,11 @@
     </div>
 
     <script>
-        // Estado atual dos filtros (Arrays vazios = mostra tudo)
+        // Estado atual dos filtros. 'area' agora guarda apenas uma string por vez via Select.
         let filtrosAtivos = {
             localizacao: [],
             nivel: [],
-            area: []
+            area: "Todas" 
         };
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -155,17 +185,16 @@
                 document.getElementById('talentGrid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-book.js não encontrado!</p>";
                 return;
             }
-            gerarFiltrosDeArea();
+            gerarFiltrosDeAreaDropdown();
             exibirTalentos(); // Carrega tudo por padrão
         });
 
-        // Extrai todas as áreas únicas do banco de dados e cria os botões
-        function gerarFiltrosDeArea() {
-            const container = document.getElementById('filtros-area');
+        // Extrai todas as áreas únicas e preenche a Lista Suspensa (Select)
+        function gerarFiltrosDeAreaDropdown() {
+            const select = document.getElementById('filtros-area');
             const areasSet = new Set();
             
             talentosYoup.forEach(t => {
-                // Suporta se a área for Array ou String antiga
                 const areasArray = Array.isArray(t.area) ? t.area : [t.area];
                 areasArray.forEach(a => {
                     if(a) areasSet.add(a.trim());
@@ -174,22 +203,37 @@
 
             const areasDisponiveis = Array.from(areasSet).sort();
             
-            container.innerHTML = areasDisponiveis.map(area => 
-                `<button class="pill-btn" onclick="toggleFiltro('area', '${area}', this)">${area}</button>`
-            ).join('');
+            areasDisponiveis.forEach(area => {
+                const option = document.createElement('option');
+                option.value = area;
+                option.textContent = area;
+                select.appendChild(option);
+            });
         }
 
-        // Liga e Desliga os filtros
-        function toggleFiltro(categoria, valor, btn) {
+        // Liga e Desliga os filtros estilo Botão (Pill)
+        function toggleFiltroBotao(categoria, valor, btn) {
             btn.classList.toggle('active');
             
             const index = filtrosAtivos[categoria].indexOf(valor);
             if (index > -1) {
-                // Se já estava selecionado, remove
                 filtrosAtivos[categoria].splice(index, 1);
             } else {
-                // Se não estava, adiciona
                 filtrosAtivos[categoria].push(valor);
+            }
+            
+            exibirTalentos();
+        }
+
+        // Aplica o filtro selecionado na Lista Suspensa
+        function aplicarFiltroDropdown(categoria, selectElement) {
+            filtrosAtivos[categoria] = selectElement.value;
+            
+            // Adiciona classe para mudar cor se não for 'Todas'
+            if(selectElement.value !== "Todas") {
+                selectElement.classList.add('active');
+            } else {
+                selectElement.classList.remove('active');
             }
             
             exibirTalentos();
@@ -198,15 +242,15 @@
         // Lógica de cruzamento de dados
         function exibirTalentos() {
             const finais = talentosYoup.filter(t => {
-                // Verifica Localização (Se o filtro estiver vazio, passa todos. Se não, tem que estar incluso)
+                // Verifica Localização
                 const matchLocal = filtrosAtivos.localizacao.length === 0 || filtrosAtivos.localizacao.includes(t.localizacao);
                 
                 // Verifica Nível
                 const matchNivel = filtrosAtivos.nivel.length === 0 || filtrosAtivos.nivel.includes(t.nivel);
                 
-                // Verifica Área (Verifica se alguma das áreas do talento está nos filtros ativos)
+                // Verifica Área (Dropdown)
                 const areasTalento = Array.isArray(t.area) ? t.area : [t.area];
-                const matchArea = filtrosAtivos.area.length === 0 || areasTalento.some(a => filtrosAtivos.area.includes(a));
+                const matchArea = filtrosAtivos.area === "Todas" || areasTalento.includes(filtrosAtivos.area);
 
                 return matchLocal && matchNivel && matchArea;
             });
@@ -218,7 +262,6 @@
                 grid.innerHTML = "<p style='color:#888; text-align:center; grid-column: 1 / -1; padding: 40px 0;'>Nenhum perfil encontrado com esta combinação de filtros.</p>";
             } else {
                 grid.innerHTML = finais.map(t => {
-                    // Prepara as badges de área (suportando múltiplas)
                     const areasArray = Array.isArray(t.area) ? t.area : [t.area];
                     const badgesHTML = areasArray.map(a => `<span class="badge">${a}</span>`).join('');
 
