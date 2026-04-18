@@ -2,7 +2,7 @@ const talentosYoup = [
     {
         id: "Y-CX-001",
         localizacao: "Nacional",
-        area: "Experiência do Cliente",
+        area: ["Experiência do Cliente", "Operações", "Marketing", "Governança"],
         nivel: "Média Liderança",
         perfil: "Especialista em Experiência do Cliente",
         cargo: "Suporte Operacional & Governança | +10 Anos de Experiência",
