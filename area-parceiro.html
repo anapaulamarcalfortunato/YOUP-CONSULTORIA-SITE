@@ -14,6 +14,7 @@
             --verde-youp: #5c8e82;
             --verde-claro: #84a98c;
             --dourado: #c5a059;
+            --preto-fundo: #0f0f0f;
             --cinza-escuro: #1a1a1a;
             --cinza-claro: #b0b0b0;
             --rosa-divas: #d84b72;
@@ -23,6 +24,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
+            background-color: var(--preto-fundo);
             background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600');
             background-size: cover;
             background-position: center;
@@ -60,6 +62,10 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-back:hover {
+            opacity: 0.7;
         }
 
         .welcome-title {
@@ -84,7 +90,6 @@
             color: #e0e0e0;
         }
 
-        /* Botões da Área do Parceiro */
         .portal-group {
             display: flex;
             flex-direction: column;
@@ -109,12 +114,12 @@
         }
 
         .portal-btn:hover {
-            border-color: var(--verde-youp);
-            background: rgba(92, 142, 130, 0.1);
+            border-color: var(--dourado);
+            background: rgba(197, 160, 89, 0.1);
             transform: scale(1.02);
         }
 
-        /* Botão Rosa Divas */
+        /* Botão Rosa Divas - Mantido conforme solicitado */
         .btn-pink {
             background: rgba(216, 75, 114, 0.05);
             border-color: rgba(216, 75, 114, 0.3);
@@ -152,8 +157,8 @@
         </p>
 
         <div class="portal-group">
-            <a href="portal-assessorado.html" class="portal-btn">Portal do Assessorado</a>
-            <a href="portal-consultor.html" class="portal-btn">Portal do Consultor</a>
+            <a href="portal-do-assessorado.html" class="portal-btn">Portal do Assessorado</a>
+            <a href="portal-do-consultor.html" class="portal-btn">Portal do Consultor</a>
             <a href="portal-parceiros.html" class="portal-btn">Portal dos Parceiros</a>
             <a href="divas-comunidade.html" class="portal-btn btn-pink">Divas Comunidade</a>
         </div>
