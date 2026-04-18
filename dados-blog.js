@@ -1,4 +1,4 @@
-{
+const materiaisYoup =[{
     id: 3, // Lembre-se de ajustar este ID para o próximo número da sua lista
     categoria: "Governança",
     data: "18/04/2026",
@@ -26,4 +26,4 @@
         <br>
         Reposicione sua marca pessoal: deixe de ser o bombeiro e torne-se o arquiteto. O mercado oculta as melhores vagas de Conselho para os executivos que sabem delegar sua própria onipresença.
     `
-}
+};
