@@ -90,7 +90,7 @@
         /* Grade de Atividades */
         .portal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
@@ -108,6 +108,7 @@
             align-items: center;
             justify-content: center;
             min-height: 180px;
+            cursor: pointer;
         }
 
         .portal-card:hover {
@@ -116,45 +117,37 @@
             transform: translateY(-5px);
         }
 
-        .card-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .card-title {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            color: var(--verde-claro);
-        }
-
-        .card-desc {
-            font-size: 11px;
-            color: var(--cinza-claro);
-            font-weight: 300;
-            line-height: 1.4;
-        }
-
-        .auth-note {
-            margin-top: 35px;
-            font-size: 12px;
-            color: var(--dourado);
+        /* Botão Vip de Treinamento */
+        .btn-vip {
+            border-color: rgba(197, 160, 89, 0.4);
             background: rgba(197, 160, 89, 0.05);
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .btn-vip:hover {
+            border-color: var(--dourado);
+            background: rgba(197, 160, 89, 0.15);
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.2);
         }
 
-        .footer-note {
-            margin-top: 30px;
-            font-size: 11px;
-            color: var(--cinza-claro);
-            opacity: 0.6;
-        }
+        .card-icon { font-size: 32px; margin-bottom: 15px; display: block; }
+        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--verde-claro); }
+        .btn-vip .card-title { color: var(--dourado); }
+        .card-desc { font-size: 11px; color: var(--cinza-claro); font-weight: 300; line-height: 1.4; }
+
+        .auth-note { margin-top: 35px; font-size: 12px; color: var(--dourado); background: rgba(197, 160, 89, 0.05); display: inline-block; padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.2); }
+        .footer-note { margin-top: 30px; font-size: 11px; color: var(--cinza-claro); opacity: 0.6; }
+
+        /* Modal de Senha */
+        #login-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.95); z-index: 1000; backdrop-filter: blur(10px); }
+        .login-box { background: var(--cinza-escuro); max-width: 400px; margin: 100px auto; padding: 40px; border-radius: 15px; border: 1px solid var(--dourado); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position: relative; }
+        .close-login { position: absolute; top: 15px; right: 20px; color: #888; font-size: 24px; cursor: pointer; }
+        .close-login:hover { color: var(--dourado); }
+        .login-box h3 { color: var(--dourado); margin-top: 0; font-size: 20px; }
+        .login-box p { color: var(--cinza-claro); font-size: 12px; margin-bottom: 25px; }
+        .input-email { width: 100%; box-sizing: border-box; padding: 15px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; font-family: 'Montserrat'; font-size: 14px; outline: none; margin-bottom: 20px; }
+        .input-email:focus { border-color: var(--dourado); }
+        .btn-entrar { background: var(--dourado); color: #000; border: none; padding: 15px; width: 100%; border-radius: 8px; font-family: 'Montserrat'; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn-entrar:hover { background: #dfb668; }
+        #error-msg { color: #d84b72; font-size: 11px; font-weight: 600; margin-top: 15px; display: none; }
     </style>
 </head>
 <body>
@@ -169,7 +162,7 @@
         <p class="welcome-subtitle">Gestão de Atividades e Resultados</p>
 
         <p class="intro-text">
-            Bem-vindo ao hub operacional da <b>Youp Consultoria</b>. Este é o seu painel central para gerenciar entregas, monitorar sua carteira de clientes e atualizar o status de suas tarefas em tempo real.
+            Bem-vindo ao hub operacional da <b>Youp Consultoria</b>. Este é o seu painel central para gerenciar entregas, monitorar sua carteira de clientes e acessar a área exclusiva de desenvolvimento.
         </p>
 
         <div class="portal-grid">
@@ -190,17 +183,72 @@
                 <span class="card-title">Indicar Vagas</span>
                 <span class="card-desc">Contribua com a inteligência do hub enviando novas oportunidades.</span>
             </a>
+
+            <div class="portal-card btn-vip" onclick="abrirLogin()">
+                <span class="card-icon">🎓</span>
+                <span class="card-title">Trilhas de Aprendizado</span>
+                <span class="card-desc">Acesso restrito a materiais de capacitação e manuais internos da Youp.</span>
+            </div>
         </div>
 
         <div class="auth-note">
-            📧 <strong>Importante:</strong> Para acessar os sistemas, utilize seu e-mail corporativo.
+            📧 <strong>Importante:</strong> Para acessar as Trilhas, será necessário validar seu e-mail autorizado.
         </div>
 
         <p class="footer-note">
             Youp Consultoria © 2026 | Inteligência em Carreira e Liderança.
         </p>
-
     </div>
 
+    <div id="login-modal">
+        <div class="login-box">
+            <span class="close-login" onclick="fecharLogin()">×</span>
+            <h3>Área Restrita</h3>
+            <p>Por favor, insira o seu e-mail de consultor autorizado para acessar os treinamentos.</p>
+            <input type="email" id="email-input" class="input-email" placeholder="seu.nome@youpconsultoria.com" autocomplete="off">
+            <button class="btn-entrar" onclick="validarAcesso()">Acessar Trilhas</button>
+            <div id="error-msg">Acesso negado. E-mail não consta na lista de consultores da Youp.</div>
+        </div>
+    </div>
+
+    <script>
+        // LISTA DOS EMAILS AUTORIZADOS (Se precisar colocar mais alguém depois, é só botar vírgula e adicionar entre aspas)
+        const emailsAutorizados = [
+            "anapaulamarcal@youpconsultoria.com",
+            "denise.jobhunter.youp@proton.me",
+            "paola.jobhunter.youp@proton.me",
+            "amanda.jobhunter.youp@proton.me",
+            "miguel.jobhunter.youp@proton.me"
+        ];
+
+        function abrirLogin() {
+            // Se o navegador já lembrar que ele logou antes, vai direto!
+            if (sessionStorage.getItem('consultorYoupLogado') === 'true') {
+                window.location.href = "trilhas-consultor.html";
+            } else {
+                document.getElementById('login-modal').style.display = 'block';
+            }
+        }
+
+        function fecharLogin() {
+            document.getElementById('login-modal').style.display = 'none';
+            document.getElementById('error-msg').style.display = 'none';
+            document.getElementById('email-input').value = "";
+        }
+
+        function validarAcesso() {
+            const emailDigitado = document.getElementById('email-input').value.trim().toLowerCase();
+            const errorMsg = document.getElementById('error-msg');
+
+            // Verifica se o que ele digitou está na lista (independente de letras maiúsculas)
+            if (emailsAutorizados.includes(emailDigitado)) {
+                // Guarda um "crachá" na sessão para ele não ter que ficar digitando toda hora
+                sessionStorage.setItem('consultorYoupLogado', 'true'); 
+                window.location.href = "trilhas-consultor.html"; // Redireciona para as trilhas
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
