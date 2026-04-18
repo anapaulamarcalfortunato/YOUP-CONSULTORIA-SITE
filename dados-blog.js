@@ -1,6 +1,3 @@
-// Este é o seu Banco de Dados de Materiais. 
-// Para adicionar um novo, basta copiar um bloco entre as chaves { } e colar abaixo, separando por vírgula.
-
 const materiaisYoup = [
     {
         id: 1,
@@ -74,4 +71,4 @@ const materiaisYoup = [
             Reposicione sua marca pessoal: deixe de ser o bombeiro e torne-se o arquiteto. O mercado oculta as melhores vagas de Conselho para os executivos que sabem delegar sua própria onipresença.
         `
     }
-];
+]
