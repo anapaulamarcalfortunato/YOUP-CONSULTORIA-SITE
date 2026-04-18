@@ -29,7 +29,6 @@ const materiaisYoup = [
         `
     }
 {
-    
     id: 2,
     categoria: "Carreira",
     data: "18/04/2026",
@@ -63,7 +62,6 @@ const materiaisYoup = [
             <p>O candidato nível CEO assume o controle da entrevista logo no início. Ele não espera o interrogatório; ele lê o contexto e entrega a solução: <em>"Entendo que o desafio não é capital, mas retenção de talentos. Aqui está como eu resolvi isso nos meus dois últimos mandatos."</em> Ele zera o risco do cliente.</p>
 
             <p style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;"><strong>Conclusão:</strong> A sua carreira é uma tela em branco. Se você não assumir o pincel, o RH ou o acaso pintarão o seu destino com as cores que forem convenientes para eles. Assuma a autoria. Traduza técnica em valor. Empacote batalhas em teses de negócio. Domine a narrativa ou seja dominado por ela.</p>
-        </div>
-    `
+        </div>`
 }
-];
+]
