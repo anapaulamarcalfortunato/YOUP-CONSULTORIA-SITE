@@ -380,4 +380,3 @@ const talentosYoup = [
         `
     }
 ];
-];
