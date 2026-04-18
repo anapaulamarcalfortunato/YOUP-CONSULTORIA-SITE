@@ -250,7 +250,7 @@ const talentosYoup = [
         id: "YP-003",
         localizacao: "São Paulo / Nacional",
         area: ["Go-To-Market", "Growth", "Varejo & Consumo", "Estratégia", "Digital"],
-        nivel: "Gerência Executiva",
+        nivel: "Alta Liderança",
         perfil: "Gerente de Go-To-Market B2B",
         cargo: "Estratégia, Growth & Liderança de P&L | +10 Anos de Experiência",
         objetivo: "Gerente de Go-To-Market / Head de Expansão e Negócios",
@@ -372,6 +372,136 @@ const talentosYoup = [
                             <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Graduação</div>
                             <div style="color: #ccc; font-size: 13px;">Relações Internacionais</div>
                             <div style="color: #888; font-size: 12px;">PUC Rio Branco</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        `
+    },
+    
+    {
+        id: "YP-004",
+        localizacao: "Nacional / Internacional",
+        area: ["Óleo e Gás", "Automação Industrial", "Gestão de Projetos", "Operações Offshore"],
+        nivel: "Média Liderança",
+        perfil: "Especialista em Automação e Operações (Óleo e Gás)",
+        cargo: "Engenheiro de Operações & Automação | +10 Anos de Experiência",
+        objetivo: "Engenheiro de Produção / Especialista em Operações e Projetos",
+        resumo: "Profissional com mais de 10 anos de trajetória no setor de Óleo e Gás (offshore/onshore). Especialista em automação industrial e análise de dados em tempo real, aliando visão estratégica de gestão de projetos (MBA) com certificação e vivência internacional.",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Especialista em Automação e Operações <span style="font-weight: 300; color: #888;">| Óleo & Gás (Offshore)</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✦</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Liderança Crítica</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Gestão e execução de operações de intervenção e testes de poço em ambientes de alta complexidade.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">◓</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Visão Analítica</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Expertise técnica em CLPs, telemetria, calibração de sensores e análise de dados em tempo real.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">►</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Foco em HSE</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Orientação rigorosa para segurança, integridade de ativos e alinhamento a padrões internacionais.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Engenheiro em formação com mais de 10 anos de sólida trajetória no setor de Óleo e Gás (offshore/onshore). Possuo profundo conhecimento em automação industrial, intervenção em poços (Surface Well Testing) e manutenção preditiva de sistemas críticos, garantindo a operacionalidade de interfaces homem-máquina em superfícies de alta pressão.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Aliando a competência técnica de campo a uma visão estratégica de negócios (MBA em Gestão de Projetos e Metodologias Ágeis), trago na bagagem atuações em centros de treinamento globais na Europa e no Oriente Médio. Sou altamente orientado à segurança (HSE) e à resiliência na tomada de decisão em ambientes confinados e de risco.</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências-Chave</h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>Automação Industrial & CLPs</li>
+                            <li>Operações Offshore (Well Testing)</li>
+                            <li>Gestão de Projetos (Ágil/Scrum)</li>
+                            <li>Manutenção Preditiva e Corretiva</li>
+                            <li>Telemetria e Análise de Dados</li>
+                            <li>Eletrônica, Hidráulica e Pneumática</li>
+                            <li>Gerenciamento de Ativos e KPIs</li>
+                            <li>Normas Regulamentadoras (HSE)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+10</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Anos de<br>Trajetória</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">30%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Economia em<br>Capex (Retrofit)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">45%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Redução em<br>Falhas Corretivas</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Conquistas e Impacto Operacional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Gestão de Ativos e Custos</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou o retrofit de equipamentos pós-pandemia, garantindo economia de 30% em Capex e a reintegração de ativos críticos à frota operacional.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Engenharia de Manutenção</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Implementou Plano de Manutenções Preventivas baseado em dados estatísticos, reduzindo corretivas em 45% e custos operacionais em 25% (Aliansce Sonae).</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Padrão Técnico Global</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Atuação em centros de excelência na França (Paris) e Emirados Árabes, garantindo o total alinhamento das operações a protocolos internacionais.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Gestão de Projetos e Sustentabilidade</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Gerenciou o projeto "Horta do Bem", iniciativa premiada nacionalmente que demonstrou forte capacidade de liderança desde a concepção à execução.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Especialista em Intervenção e Performance</div>
+                            <div style="color: #888; font-size: 12px;">SCHLUMBERGER | 2021 – Atual</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Assistente Operacional (Infraestrutura)</div>
+                            <div style="color: #888; font-size: 12px;">Aliansce Sonae (Boulevard Shopping) | 2017 - 2020</div>
+                        </div>
+                        <div>
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Técnico de Operações de Campo (Offshore)</div>
+                            <div style="color: #888; font-size: 12px;">SCHLUMBERGER | 2014 - 2016</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">MBA Executivo</div>
+                            <div style="color: #ccc; font-size: 13px;">Gestão de Projetos e Metodologias Ágeis</div>
+                            <div style="color: #888; font-size: 12px;">PUCRS (Conclusão 2026)</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Graduação (Cursando)</div>
+                            <div style="color: #ccc; font-size: 13px;">Engenharia de Produção</div>
+                            <div style="color: #888; font-size: 12px;">UCAM</div>
+                        </div>
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Formação Técnica</div>
+                            <div style="color: #ccc; font-size: 13px;">Técnico em Automação Industrial</div>
+                            <div style="color: #888; font-size: 12px;">IFF Campos-Centro</div>
                         </div>
                     </div>
                 </div>
