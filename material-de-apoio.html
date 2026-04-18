@@ -171,19 +171,26 @@
             document.getElementById('m-text').innerHTML = p.conteudo; // innerHTML permite usar <b> e <br> no arquivo JS
             
             const modal = document.getElementById('modal');
-            modal.classList.add('show');
+            
+            // CORREÇÃO: Reseta o 'display: none' inserido pelo fecharModal
+            modal.style.display = 'block'; 
+            
+            // Um pequeno delay para o navegador registrar o display block antes de iniciar a transição de opacidade
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            
             document.body.style.overflow = 'hidden';
         }
 
         function fecharModal() {
             const modal = document.getElementById('modal');
             modal.classList.remove('show');
-            setTimeout(() => { modal.style.display = 'none'; }, 300); // Espera a animação terminar
+            setTimeout(() => { 
+                modal.style.display = 'none'; 
+            }, 300); // Espera a animação terminar
             document.body.style.overflow = 'auto';
         }
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>
