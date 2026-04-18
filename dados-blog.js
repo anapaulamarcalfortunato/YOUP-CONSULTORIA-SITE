@@ -27,7 +27,7 @@ const materiaisYoup = [
             <br>
             Reposicione sua marca pessoal: deixe de ser o bombeiro e torne-se o arquiteto. O mercado oculta as melhores vagas de Conselho para os executivos que sabem delegar sua própria onipresença.
         `
-    }
+    };
 {
     id: 2,
     categoria: "Carreira",
