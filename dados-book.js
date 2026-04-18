@@ -122,7 +122,6 @@ const talentosYoup = [
             </div>
         `
     },
-    const talentosYoup = [
     {
         id: "YP-002",
         localizacao: "Nacional",
@@ -246,5 +245,139 @@ const talentosYoup = [
 
             </div>
         `
+    },
+    {
+        id: "YP-003",
+        localizacao: "São Paulo / Nacional",
+        area: ["Go-To-Market", "Growth", "Varejo & Consumo", "Estratégia", "Digital"],
+        nivel: "Gerência Executiva",
+        perfil: "Gerente de Go-To-Market B2B",
+        cargo: "Estratégia, Growth & Liderança de P&L | +10 Anos de Experiência",
+        objetivo: "Gerente de Go-To-Market / Head de Expansão e Negócios",
+        resumo: "Profissional sênior com mais de 10 anos em GTM, transformação digital e expansão B2B/B2C. Expertise em orquestração de P&L (R$500M anual), aceleração de ecossistemas fintech (Natura Pay, expansão de 6x na base ativa) e forte habilidade em traduzir estratégias complexas em execução.",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Gerente de Go-To-Market B2B <span style="font-weight: 300; color: #888;">| Estratégia & Growth</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✦</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Liderança de P&L</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Gestão de operações complexas de até R$500M anuais e expansão multimarca.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">◓</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Ecossistemas Digitais</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Aceleração de canais de venda, digitalização de equipes e integração de produtos fintech.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">►</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Growth & Expansão</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Desenho e execução de Go-To-Market por vertical com foco em escala e produtividade.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Profissional com mais de 10 anos de experiência em liderança e orquestração de estratégias Go-To-Market (GTM), transformação digital e expansão de negócios B2B e B2C, com sólida atuação nos setores de fintech, bens de consumo e mercado imobiliário.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Possuo expertise comprovada em segmentação de clientes, proposição de valor e enablement comercial. Apaixonada por impulsionar performance através de pessoas e dados, minha trajetória é marcada pela capacidade de traduzir estratégias complexas em planos executáveis, gerando crescimento exponencial em receita e engajamento.</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências-Chave</h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>Estratégia Go-To-Market (GTM)</li>
+                            <li>Gestão de P&L & Performance</li>
+                            <li>Transformação Digital & Fintech</li>
+                            <li>Expansão B2B, B2C e Venda Direta</li>
+                            <li>Liderança de Times (+50k revendedoras)</li>
+                            <li>Growth Hacking & Lançamentos</li>
+                            <li>Gestão de Mudança (M&A)</li>
+                            <li>Inglês e Francês Fluentes (C1)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+10</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Anos de<br>Experiência</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">6x</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Aumento de<br>Base (Fintech)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">R$500M</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Faturamento<br>Anual Gerido</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Conquistas e Impacto Operacional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Expansão Fintech (Natura Pay)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Orquestrou a expansão nacional, multiplicando a base de 40K para 250K contas e integrando à operação de 1.5MM consultoras em 2 anos.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Gestão de P&L Multimarca</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou GTM para 52 mil revendedoras no RJ, orquestrando a integração da vertical Eudora (20 mil novas ativas) no ecossistema Boticário.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Aceleração Digital First</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Triplicou a receita nos canais digitais (Natura) em um ano, digitalizando 100 mil consultoras e implantando o primeiro modelo de Live Shopping.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Estratégia e Eventos de Escala</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Conduziu evento imobiliário para 1.300 participantes gerando R$4 Bilhões em oportunidades de negócios no Centro-Oeste.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Head de Negócios e Marketing</div>
+                            <div style="color: #888; font-size: 12px;">Maior Imobiliária do Centro-Oeste (Adão Imóveis) | 2024 – Atual</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Gerente Sênior de Vendas e Operações</div>
+                            <div style="color: #888; font-size: 12px;">Grupo Boticário | 2023 - 2024</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Líder de Novos Negócios, Expansão & Digital</div>
+                            <div style="color: #888; font-size: 12px;">Natura &Co (Natura Pay) | 2020 - 2023</div>
+                        </div>
+                        <div>
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Consultora de Investimentos (Alta Renda)</div>
+                            <div style="color: #888; font-size: 12px;">Itaú Unibanco | 2011 - 2014</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Master Internacional</div>
+                            <div style="color: #ccc; font-size: 13px;">Economia Internacional</div>
+                            <div style="color: #888; font-size: 12px;">Université Paris 1 Panthéon Sorbonne</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Pós-Graduações</div>
+                            <div style="color: #ccc; font-size: 13px;">Administração | Gestão de Pessoas e Liderança</div>
+                            <div style="color: #888; font-size: 12px;">FGV / Estácio</div>
+                        </div>
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Graduação</div>
+                            <div style="color: #ccc; font-size: 13px;">Relações Internacionais</div>
+                            <div style="color: #888; font-size: 12px;">PUC Rio Branco</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        `
     }
+];
 ];
