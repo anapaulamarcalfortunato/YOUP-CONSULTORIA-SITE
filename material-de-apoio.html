@@ -2,71 +2,120 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Material de Apoio - Youp</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights & Carreira - Youp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="dados-blog.js"></script>
+
     <style>
-        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: #fff; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px; }
-        h1 { color: var(--dourado); text-align: center; margin-bottom: 30px; }
+        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); overflow-x: hidden; }
         
-        /* Estilos dos Filtros */
-        .filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-        .filter-btn { background: #1a1a1a; color: #b0b0b0; border: 1px solid rgba(197, 160, 89, 0.2); padding: 8px 16px; border-radius: 20px; font-family: 'Montserrat'; font-size: 12px; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-weight: 600; }
-        .filter-btn:hover { border-color: var(--dourado); color: #fff; }
-        .filter-btn.active { background: rgba(197, 160, 89, 0.1); border-color: var(--dourado); color: var(--dourado); }
+        /* Cabeçalho Premium */
+        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+        .hero h1 { color: var(--dourado); font-size: 36px; font-weight: 800; margin: 0; letter-spacing: 1px; }
+        .hero p { color: #888; font-size: 14px; max-width: 500px; margin: 15px auto 0; line-height: 1.6; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(197, 160, 89, 0.1); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; }
-        .card:hover { border-color: var(--dourado); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .thumb { width: 100%; height: 180px; object-fit: cover; background: #111; }
-        .content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         
-        .meta-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .cat { color: var(--verde); font-size: 10px; text-transform: uppercase; font-weight: 600; }
-        .date { color: #888; font-size: 10px; font-weight: 400; }
-        .title { font-size: 17px; margin: 0; line-height: 1.4; }
+        /* Filtros Elegantes */
+        .filters { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .filter-btn { background: transparent; color: #888; border: 1px solid #333; padding: 8px 20px; border-radius: 30px; font-family: 'Montserrat'; font-size: 11px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+        .filter-btn:hover { border-color: var(--dourado); color: var(--texto); }
+        .filter-btn.active { background: var(--dourado); border-color: var(--dourado); color: var(--preto); }
 
-        /* Modal melhorado */
-        #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:100; backdrop-filter: blur(5px); }
-        .modal-body { max-width:700px; margin:40px auto; background:#1a1a1a; padding:40px; border-radius:15px; border:1px solid rgba(197, 160, 89, 0.3); max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-        .close-btn { position: absolute; top: 15px; right: 20px; color: #888; font-size: 24px; cursor: pointer; border: none; background: none; transition: 0.2s; }
-        .close-btn:hover { color: var(--dourado); }
+        /* Grid Estilo Revista */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
+        .card { background: var(--cinza); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; position: relative; }
+        .card:hover { border-color: var(--dourado); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
+        
+        .thumb-wrapper { position: relative; height: 220px; overflow: hidden; }
+        .thumb { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card:hover .thumb { transform: scale(1.05); }
+        
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--verde); color: var(--preto); padding: 5px 12px; border-radius: 20px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+        .meta { display: flex; justify-content: space-between; color: #777; font-size: 11px; font-weight: 400; margin-bottom: 12px; }
+        .meta span { display: flex; align-items: center; gap: 5px; }
+        
+        .title { font-size: 20px; margin: 0 0 10px; color: var(--texto); line-height: 1.3; font-weight: 700; transition: color 0.3s; }
+        .card:hover .title { color: var(--dourado); }
+        .resumo { font-size: 13px; color: #999; line-height: 1.6; margin: 0; flex: 1; }
+        
+        .read-more { margin-top: 20px; font-size: 11px; font-weight: 700; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 5px; }
+        .card:hover .read-more { gap: 10px; }
+
+        /* Modal Ultra Premium */
+        #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15, 15, 15, 0.95); z-index:100; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.3s ease; }
+        #modal.show { display: block; opacity: 1; }
+        
+        .modal-body { max-width:800px; margin: 0 auto; background: var(--preto); padding: 0; border-radius: 0; border-left: 1px solid rgba(197, 160, 89, 0.2); border-right: 1px solid rgba(197, 160, 89, 0.2); height: 100vh; overflow-y: auto; position: relative; box-shadow: 0 0 50px rgba(0,0,0,0.8); transform: translateY(20px); transition: transform 0.4s ease; }
+        #modal.show .modal-body { transform: translateY(0); }
+        
+        .modal-header-img { width: 100%; height: 300px; object-fit: cover; border-bottom: 3px solid var(--dourado); }
+        
+        .close-btn { position: fixed; top: 20px; right: 30px; background: rgba(0,0,0,0.5); color: #fff; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; z-index: 101; backdrop-filter: blur(5px); }
+        .close-btn:hover { background: var(--dourado); color: var(--preto); border-color: var(--dourado); transform: rotate(90deg); }
+
+        .modal-content-inner { padding: 50px; }
+        .modal-meta { display: flex; gap: 20px; color: var(--verde); font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+        #m-title { color: var(--texto); font-size: 32px; font-weight: 800; line-height: 1.2; margin: 0 0 30px 0; }
+        
+        #m-text { line-height: 1.9; white-space: pre-wrap; color: #ccc; font-size: 16px; font-weight: 300; text-align: justify; }
+        
+        /* Estilização interna do texto do modal */
+        #m-text strong { color: var(--dourado); font-weight: 600; }
+        #m-text h3 { color: var(--texto); font-size: 20px; margin-top: 30px; margin-bottom: 10px; }
+        
+        .btn-back-home { position: absolute; top: 20px; left: 20px; color: var(--dourado); text-decoration: none; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
+
+    <div class="hero">
+        <a href="index.html" class="btn-back-home">← Voltar ao Hub</a>
+        <h1>Insights & Carreira</h1>
+        <p>Estratégias avançadas, inteligência de mercado e ferramentas para alavancar a sua trajetória profissional.</p>
+    </div>
+
     <div class="container">
-        <h1>Biblioteca de Carreira</h1>
-        
         <div id="filters" class="filters"></div>
 
-        <div id="grid" class="grid">Carregando materiais...</div>
+        <div id="grid" class="grid"></div>
     </div>
 
     <div id="modal" onclick="fecharModal()">
+        <button class="close-btn" onclick="fecharModal()">×</button>
         <div class="modal-body" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="fecharModal()">×</button>
-            <h2 id="m-title" style="color:var(--dourado); margin-top: 0; margin-bottom: 25px; font-size: 24px;"></h2>
-            <div id="m-text" style="line-height:1.8; white-space: pre-wrap; color: #eee; font-size: 15px; font-weight: 300;"></div>
+            <img id="m-img" src="" class="modal-header-img" alt="Capa">
+            <div class="modal-content-inner">
+                <div class="modal-meta">
+                    <span id="m-cat"></span> • <span id="m-date"></span>
+                </div>
+                <h2 id="m-title"></h2>
+                <div id="m-text"></div>
+            </div>
         </div>
     </div>
 
     <script>
-        const API = 'https://script.google.com/macros/s/AKfycbyYoEJ1coWZpa0rGamY0_zoRom1tJX5w5bDyQ48RuN5CEha_0W7n46HabfqTqMGr63a/exec?tipo=material';
-        let todosOsMateriais = []; // Guarda os dados globalmente
-
-        fetch(API).then(r => r.json()).then(posts => {
-            todosOsMateriais = posts;
+        // Inicia a renderização assim que a página carrega usando a variável "materiaisYoup" do dados-blog.js
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof materiaisYoup === 'undefined') {
+                document.getElementById('grid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-blog.js não encontrado!</p>";
+                return;
+            }
             renderizarFiltros();
-            renderizarGrid(todosOsMateriais);
+            renderizarGrid(materiaisYoup);
         });
 
         function renderizarFiltros() {
             const filtersDiv = document.getElementById('filters');
-            // Extrai categorias únicas, ignorando as vazias
-            const categorias = [...new Set(todosOsMateriais.map(p => p.categoria).filter(c => c && c.trim() !== ''))];
+            const categorias = [...new Set(materiaisYoup.map(p => p.categoria).filter(c => c))];
             
-            let htmlFiltros = `<button class="filter-btn active" onclick="filtrar('Todas', this)">Todas</button>`;
+            let htmlFiltros = `<button class="filter-btn active" onclick="filtrar('Todas', this)">Todos os Artigos</button>`;
             categorias.forEach(cat => {
                 htmlFiltros += `<button class="filter-btn" onclick="filtrar('${cat}', this)">${cat}</button>`;
             });
@@ -76,63 +125,65 @@
         function renderizarGrid(lista) {
             const grid = document.getElementById('grid');
             if (lista.length === 0) {
-                grid.innerHTML = "<p style='color:#888; text-align:center; grid-column: 1 / -1;'>Nenhum material encontrado.</p>";
+                grid.innerHTML = "<p style='color:#888; text-align:center; grid-column: 1 / -1;'>Nenhum material encontrado para esta categoria.</p>";
                 return;
             }
 
-            grid.innerHTML = lista.map(p => {
-                // Formata a data se ela existir na planilha
-                let dataFormatada = '';
-                if (p.data) {
-                    const d = new Date(p.data);
-                    dataFormatada = !isNaN(d) ? d.toLocaleDateString('pt-BR') : p.data;
-                }
-
-                // Usa o p.id_original para não perder a referência no array principal ao filtrar
-                return `
-                <div class="card" onclick="abrir(${p.id_original})">
-                    <img src="${p.imagem}" class="thumb" onerror="this.src='https://via.placeholder.com/400x200/1a1a1a/c5a059?text=Youp+Consultoria'">
+            grid.innerHTML = lista.map((p, index) => `
+                <div class="card" onclick="abrir(${p.id})">
+                    <div class="thumb-wrapper">
+                        <span class="badge">${p.categoria}</span>
+                        <img src="${p.imagem}" class="thumb" onerror="this.src='https://via.placeholder.com/600x400/1a1a1a/c5a059?text=Youp'">
+                    </div>
                     <div class="content">
-                        <div class="meta-info">
-                            <span class="cat">${p.categoria || 'Geral'}</span>
-                            <span class="date">${dataFormatada}</span>
+                        <div class="meta">
+                            <span>📅 ${p.data}</span>
+                            <span>⏱️ ${p.tempoLeitura || '2 min'}</span>
                         </div>
                         <h3 class="title">${p.titulo}</h3>
+                        <p class="resumo">${p.resumo || 'Clique para ler o artigo completo.'}</p>
+                        <div class="read-more">Ler Artigo Completo ➔</div>
                     </div>
                 </div>
-                `;
-            }).join('');
+            `).join('');
         }
 
         function filtrar(categoria, botao) {
-            // Atualiza os botões visuais
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             botao.classList.add('active');
 
-            // Aplica o filtro mapeando o índice original (para o modal funcionar)
-            const listaComIds = todosOsMateriais.map((p, index) => ({ ...p, id_original: index }));
-            
             if (categoria === 'Todas') {
-                renderizarGrid(listaComIds);
+                renderizarGrid(materiaisYoup);
             } else {
-                const filtrados = listaComIds.filter(p => p.categoria === categoria);
+                const filtrados = materiaisYoup.filter(p => p.categoria === categoria);
                 renderizarGrid(filtrados);
             }
         }
 
-        // Abertura cirúrgica do Modal através do ID do array
-        function abrir(index) {
-            const p = todosOsMateriais[index];
+        function abrir(idTarget) {
+            const p = materiaisYoup.find(item => item.id === idTarget);
+            if(!p) return;
+
+            document.getElementById('m-img').src = p.imagem;
+            document.getElementById('m-cat').innerText = p.categoria;
+            document.getElementById('m-date').innerText = p.data;
             document.getElementById('m-title').innerText = p.titulo;
-            document.getElementById('m-text').innerText = p.conteudo;
-            document.getElementById('modal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+            document.getElementById('m-text').innerHTML = p.conteudo; // innerHTML permite usar <b> e <br> no arquivo JS
+            
+            const modal = document.getElementById('modal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
         }
 
         function fecharModal() {
-            document.getElementById('modal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Destrava o scroll
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show');
+            setTimeout(() => { modal.style.display = 'none'; }, 300); // Espera a animação terminar
+            document.body.style.overflow = 'auto';
         }
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
