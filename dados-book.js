@@ -508,5 +508,138 @@ const talentosYoup = [
 
             </div>
         `
+    },
+    {
+        id: "YP-005",
+        localizacao: "Nacional",
+        area: ["Treinamento e Desenvolvimento", "Desenvolvimento Humano (DHO)", "Educação Corporativa", "Recursos Humanos"],
+        nivel: "Liderança / Gestão",
+        perfil: "Especialista em T&D e Desenvolvimento Humano",
+        cargo: "Gestor de T&D e DHO | +20 Anos de Experiência",
+        objetivo: "Gestão em Treinamento e Desenvolvimento (T&D) / Coordenação Estratégica",
+        resumo: "Gestor de T&D e DHO com 20 anos de trajetória na liderança de projetos de aprendizagem de alto impacto. Especialista em Universidades Corporativas Digitais, IA Generativa e metodologias ativas. Atuação orientada a dados (People Analytics) com foco na elevação de KPIs críticos como ROI, NPS, Faturamento e Engajamento.",
+        conteudo: `
+            <div style="font-family: 'Montserrat', sans-serif; color: #eeeeee; line-height: 1.6;">
+                
+                <h1 style="font-size: 28px; color: #c5a059; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; margin-bottom: 30px; margin-top: 0;">
+                    Especialista em T&D e DHO <span style="font-weight: 300; color: #888;">| Educação Corporativa de Alta Performance</span>
+                </h1>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✦</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Arquitetura de Aprendizagem</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Design de Ecossistemas End-to-End, LMS/LXP, Gamificação e IA Generativa.</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">◓</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">DHO Estratégico</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Gestão de Competências, PDIs (Upskilling/Reskilling), Sucessão (9Box) e Cultura (GPTW).</p>
+                    </div>
+                    <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                        <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">►</div>
+                        <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Data-Driven & ROI</h4>
+                        <p style="margin: 0; font-size: 12px; color: #aaa;">Alinhamento de KPIs educacionais a resultados de negócio (Vendas, Conversão, Faturamento e NPS).</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Gestor de T&D e DHO com 20 anos de trajetória consolidada na liderança de projetos de aprendizagem de alto impacto em empresas de grande porte dos setores de Varejo, Indústria, Saúde e Tecnologia. Sou especialista em arquitetar ecossistemas de aprendizagem end-to-end que conectam o desenvolvimento humano diretamente aos resultados financeiros e operacionais do negócio.</p>
+                        <p style="font-size: 14px; color: #ccc; text-align: justify;">Minha atuação baseia-se em metodologias de vanguarda e na implementação de Universidades Corporativas Digitais em modelos Blended 100% gamificados. Com uma gestão fortemente orientada por dados (People Analytics), atuo como facilitador de processos de mudança organizacional, elevando o engajamento, alavancando carreiras e convertendo capacitação em resultados tangíveis de faturamento e satisfação do cliente.</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências-Chave</h3>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                            <li>Gestão de KPIs Educacionais e de Negócio</li>
+                            <li>Arquitetura de Ecossistemas (LMS/LXP)</li>
+                            <li>People Analytics & ROI em T&D</li>
+                            <li>Metodologias Ágeis (Scrum, Design Thinking)</li>
+                            <li>Design Instrucional (6Ds, ADDIE, Microlearning)</li>
+                            <li>Gamificação & IA Generativa</li>
+                            <li>Avaliação de Desempenho e 9Box</li>
+                            <li>Experiência de Aprendizagem (LX) e UX Design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+20</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Anos de<br>Trajetória</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">98.0</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">NPS de Cliente<br>Atingido</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+23%</div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Incremento em<br>Vendas via T&D</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Conquistas e Impacto Operacional</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Escalabilidade e Receita (Franquias)</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Idealizou trilha de capacitação comercial para rede de franquias (+1.200 unidades) gerando incrementos de +23% em Vendas, +12% em Sell Out e 88% de engajamento.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Benchmark de Engajamento LATAM</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Reestruturou a utilização de plataforma corporativa, elevando a adesão de 33% para 95%, estabelecendo recorde de engajamento para a América Latina.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Ecossistema Gamificado no Varejo</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Implementou plataforma gamificada EAD+ integrada a sistemas de gestão de vendas, atingindo 72% de engajamento e impacto de +15,5% no faturamento.</p>
+                    </div>
+                    <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                        <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Foco na Cultura de Cliente</h4>
+                        <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou campanha estratégica focada na experiência do cliente, resultando em aumento de 80% nos respondentes de pesquisa e nota média de satisfação de 98.0.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Histórico Profissional</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Gerente de Treinamento de Franquias</div>
+                            <div style="color: #888; font-size: 12px;">Maior Rede de Franquias Odontológicas | 2025</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Supervisor de T&D, Endomarketing e Incentivos</div>
+                            <div style="color: #888; font-size: 12px;">Multinacional Líder em Brinquedos (Lojas Licenciadas) | 2024 - 2025</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Coordenador de EAD (Learning Experience)</div>
+                            <div style="color: #888; font-size: 12px;">Hub de Negócios em Saúde e Varejo Farmacêutico | 2021 - 2023</div>
+                        </div>
+                        <div>
+                            <div style="color: #c5a059; font-weight: 600; font-size: 14px;">Analista Sênior, Coordenador e Especialista de T&D/DHO</div>
+                            <div style="color: #888; font-size: 12px;">Players de Varejo e Saúde (Unimed, Clínica Fares, Drogaria Onofre) | 2014 - 2021</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Pós-Graduação</div>
+                            <div style="color: #ccc; font-size: 13px;">Design Instrucional para Projetos em EAD</div>
+                            <div style="color: #888; font-size: 12px;">IBDIN (Conclusão 2020)</div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Graduação</div>
+                            <div style="color: #ccc; font-size: 13px;">Pedagogia</div>
+                            <div style="color: #888; font-size: 12px;">Centro Salesiano UNISAL (Conclusão 2009)</div>
+                        </div>
+                        <div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Certificações & Inovação</div>
+                            <div style="color: #ccc; font-size: 13px;">Agile Thinking / Product Discovery (Verity, 2022)</div>
+                            <div style="color: #888; font-size: 12px;">CBTD Experience (2024) | Gestão de Projetos E-Learning (IBDIN)</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        `
     }
 ];
