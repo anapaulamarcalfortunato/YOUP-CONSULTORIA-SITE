@@ -2,40 +2,69 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book de Talentos - Youp</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="dados-book.js"></script>
+
     <style>
-        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--preto); color: #fff; padding: 40px; margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .header h1 { color: var(--dourado); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; }
-        .step-box { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px; border: 1px solid rgba(197, 160, 89, 0.1); margin-bottom: 20px; }
-        .step-title { font-size: 13px; text-transform: uppercase; color: var(--verde); letter-spacing: 3px; margin-bottom: 20px; display: block; }
+        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); overflow-x: hidden; }
+        
+        /* Cabeçalho Premium */
+        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); position: relative; }
+        .hero h1 { color: var(--dourado); font-size: 36px; font-weight: 800; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
+        .hero p { color: #888; font-size: 14px; max-width: 500px; margin: 15px auto 0; line-height: 1.6; }
+        .btn-back-home { position: absolute; top: 20px; left: 20px; color: var(--dourado); text-decoration: none; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Filtros / Steps Elegantes */
+        .step-box { background: var(--cinza); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 25px; text-align: center; transition: all 0.3s; }
+        .step-title { font-size: 12px; text-transform: uppercase; color: var(--verde); font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; display: block; }
+        
         .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn-nav { padding: 14px 28px; background: transparent; border: 1px solid var(--dourado); color: var(--dourado); cursor: pointer; border-radius: 5px; font-size: 12px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
-        .btn-nav.active { background: var(--dourado); color: #000; box-shadow: 0 0 15px rgba(197, 160, 89, 0.4); }
-        .select-area { width: 100%; max-width: 400px; padding: 15px; background: #000; border: 1px solid var(--dourado); color: #fff; border-radius: 5px; font-family: 'Montserrat'; font-size: 14px; cursor: pointer; }
+        .btn-local { background: transparent; color: #888; border: 1px solid #333; padding: 12px 30px; border-radius: 30px; font-family: 'Montserrat'; font-size: 12px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+        .btn-local:hover { border-color: var(--dourado); color: var(--texto); }
+        .btn-local.active { background: var(--dourado); border-color: var(--dourado); color: var(--preto); }
+
+        .select-area { width: 100%; max-width: 400px; padding: 15px 20px; background: var(--preto); border: 1px solid #333; color: #fff; border-radius: 8px; font-family: 'Montserrat'; font-size: 14px; cursor: pointer; transition: 0.3s; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c5a059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 15px center; background-size: 15px; outline: none; }
+        .select-area:focus { border-color: var(--dourado); }
+        
         #areaStep, #talentGrid { display: none; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; text-align: left; }
-        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(197, 160, 89, 0.2); padding: 25px; border-radius: 10px; transition: 0.3s; }
-        .card:hover { border-color: var(--dourado); transform: translateY(-5px); }
-        .tag { font-size: 10px; color: var(--verde); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 10px; }
-        .id-badge { font-size: 9px; color: var(--dourado); border: 1px solid var(--dourado); padding: 2px 6px; border-radius: 3px; float: right; }
-        .nome { font-size: 18px; color: var(--dourado); margin: 0 0 10px; font-weight: 600; }
-        .cargo { font-size: 14px; font-weight: 600; margin-bottom: 15px; color: #eee; }
-        .resumo { font-size: 12px; color: #bbb; line-height: 1.6; margin-bottom: 20px; }
-        .btn-contato { display: block; text-align: center; padding: 12px; background: var(--verde); color: #fff; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 12px; }
+        
+        /* Grid Estilo Cartão de Visita Premium */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: var(--cinza); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 30px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; position: relative; }
+        .card:hover { border-color: var(--dourado); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
+        .badge { background: rgba(92, 142, 130, 0.1); color: var(--verde); padding: 6px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(92, 142, 130, 0.3); }
+        .id-badge { color: var(--dourado); font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+        
+        .title { font-size: 22px; margin: 0 0 8px; color: var(--texto); line-height: 1.3; font-weight: 700; }
+        .cargo { font-size: 13px; color: var(--dourado); font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .resumo { font-size: 14px; color: #aaa; line-height: 1.7; margin: 0 0 25px 0; flex: 1; }
+        
+        .btn-contato { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; background: var(--verde); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; border: 1px solid var(--verde); }
+        .btn-contato:hover { background: transparent; color: var(--verde); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header"><h1>Book de Talentos</h1></div>
 
+    <div class="hero">
+        <a href="index.html" class="btn-back-home">← Voltar ao Hub</a>
+        <h1>Book de Talentos</h1>
+        <p>Acesso exclusivo aos perfis executivos mais qualificados e rigorosamente selecionados do mercado.</p>
+    </div>
+
+    <div class="container">
         <div class="step-box">
             <span class="step-title">1. Selecione a Abrangência</span>
             <div class="btn-group">
-                <button class="btn-nav btn-local" onclick="setLocal('Nacional', this)">Nacional</button>
-                <button class="btn-nav btn-local" onclick="setLocal('Internacional', this)">Internacional</button>
+                <button class="btn-local" onclick="setLocal('Nacional', this)">Nacional</button>
+                <button class="btn-local" onclick="setLocal('Internacional', this)">Internacional</button>
             </div>
         </div>
 
@@ -50,69 +79,92 @@
     </div>
 
     <script>
-        const API = 'https://script.google.com/macros/s/AKfycbwFGjZ4IpHQp68ecUaMSCGsdnGfFTjupiHbKUba26UEXqweduLbqwQIOmzuNl2g7uY6/exec?tipo=talento';
-        let todosDados = [];
         let localSelecionado = "";
 
-        async function fetchTalentos() {
-            try {
-                const response = await fetch(API);
-                todosDados = await response.json();
-            } catch (e) { console.error(e); }
-        }
-        fetchTalentos();
+        // Verifica se o arquivo de dados carregou corretamente
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof talentosYoup === 'undefined') {
+                document.getElementById('talentGrid').style.display = 'block';
+                document.getElementById('talentGrid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-book.js não encontrado!</p>";
+            }
+        });
 
         function setLocal(local, btn) {
             localSelecionado = local;
+            
+            // Controle visual dos botões
             document.querySelectorAll('.btn-local').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
+            // Filtrar áreas disponíveis com base na localização selecionada
             const areasSet = new Set();
-            todosDados.forEach(t => {
+            talentosYoup.forEach(t => {
                 if (String(t.localizacao || "").trim().toLowerCase() === local.toLowerCase() && t.area) {
                     areasSet.add(String(t.area).trim());
                 }
             });
 
+            // Popula o Select de Áreas
             const areasDisponiveis = Array.from(areasSet).sort();
             const select = document.getElementById('selectArea');
             select.innerHTML = '<option value="">Selecione uma área...</option>';
-            areasDisponiveis.forEach(area => {
-                const opt = document.createElement('option');
-                opt.value = area; opt.innerText = area;
-                select.appendChild(opt);
-            });
+            
+            if(areasDisponiveis.length === 0) {
+                select.innerHTML = '<option value="">Nenhum perfil nesta região no momento.</option>';
+            } else {
+                areasDisponiveis.forEach(area => {
+                    const opt = document.createElement('option');
+                    opt.value = area; 
+                    opt.innerText = area;
+                    select.appendChild(opt);
+                });
+            }
 
+            // Exibe o passo 2 e oculta o grid até a escolha final
             document.getElementById('areaStep').style.display = 'block';
             document.getElementById('talentGrid').style.display = 'none';
         }
 
         function exibirTalentos(area) {
-            if (!area) return;
-            const finais = todosDados.filter(t => 
+            if (!area) {
+                document.getElementById('talentGrid').style.display = 'none';
+                return;
+            }
+            
+            // Filtra os talentos pela localização e área exatas
+            const finais = talentosYoup.filter(t => 
                 String(t.localizacao || "").trim().toLowerCase() === localSelecionado.toLowerCase() && 
                 String(t.area || "").trim() === area
             );
             
             const grid = document.getElementById('talentGrid');
             grid.style.display = 'grid';
+            
             grid.innerHTML = finais.map(t => {
-                // MONTAGEM DA MENSAGEM DO WHATSAPP
+                // Montagem da mensagem do WhatsApp
                 const textoZap = encodeURIComponent(`Olá Ana, tenho interesse em solicitar a apresentação do perfil ${t.id} - ${t.perfil} do Book de Talentos.`);
                 const linkZap = `https://wa.me/5512991322333?text=${textoZap}`;
 
                 return `
                 <div class="card">
-                    <span class="id-badge">ID: ${t.id}</span>
-                    <span class="tag">${t.area}</span>
-                    <h3 class="nome">${t.perfil}</h3>
+                    <div class="card-header">
+                        <span class="badge">${t.area}</span>
+                        <span class="id-badge">ID: ${t.id}</span>
+                    </div>
+                    <h3 class="title">${t.perfil}</h3>
                     <div class="cargo">${t.cargo}</div>
-                    <div class="resumo">${t.resumo}</div>
-                    <a href="${linkZap}" target="_blank" class="btn-contato">Solicitar Apresentação</a>
+                    <p class="resumo">${t.resumo}</p>
+                    <a href="${linkZap}" target="_blank" class="btn-contato">
+                        Solicitar Apresentação ➔
+                    </a>
                 </div>
                 `;
             }).join('');
-            grid.scrollIntoView({ behavior: 'smooth' });
+            
+            // Rola a página suavemente até o grid
+            setTimeout(() => {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         }
     </script>
 </body>
