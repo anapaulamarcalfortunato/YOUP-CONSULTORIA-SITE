@@ -424,4 +424,7 @@ const materiaisYoup = [
             </div>
         `
     },
-];
+]
+// --- ORDENAÇÃO AUTOMÁTICA POR ID ---
+// Garante que o artigo com o maior ID (o mais recente) apareça sempre primeiro.
+materiaisYoup.sort((a, b) => b.id - a.id);
