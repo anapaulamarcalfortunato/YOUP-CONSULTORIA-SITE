@@ -231,14 +231,14 @@ const materiaisYoup = [
         `
     },
     {
-        id: 07, // Atualize o número na sua sequência
+        id: 07, 
         categoria: "Carreira",
         data: "10/03/2026",
         tempoLeitura: "7 min",
         titulo: "Liderança 50+: Como Transformar a Maturidade no Maior Ativo Contra a Volatilidade",
         slug: "lideranca-50-anos-maturidade-ativo-mitigacao-riscos",
         resumo: "Como provar para o Conselho que você não é um custo caro e obsoleto, posicionando sua bagagem como a apólice de seguro definitiva para o acionista.",
-        imagem: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop", 
+        imagem: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="margin: 0 0 15px 0;">Cruzar a marca dos 50 anos na elite corporativa deveria ser o ápice da autoridade de um líder, mas frequentemente traz consigo uma sombra insidiosa: o etarismo velado. Como Headhunter transitando nos mais altos escalões, ouço constantemente as ansiedades de executivos brilhantes a portas fechadas. Você entregou EBITDA massivo e liderou M&As complexos. No entanto, ao enfrentar um fundo de Private Equity, você sente o cálculo silencioso: "Esse candidato é muito caro? Tem energia para competir com os fundadores de 35 anos?". Esse medo é real, mas a forma como você reage a ele dita a sua sobrevivência.</p>
