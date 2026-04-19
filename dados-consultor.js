@@ -316,5 +316,150 @@ const trilhasYoup = [
                 </ul>
             </div>
         `
+    },
+
+    {
+        id: 6,
+        trilha: "Gestão dos Clientes",
+        modulo: "Módulo 1: Primeiros Passos",
+        titulo: "Visão Geral e a Magia dos Papéis de Acesso",
+        resumo: "Entenda o conceito do Youp Gestão como nossa casa digital, como acessar a plataforma e a segurança por trás dos papéis de acesso (Busca, Cadastro, Contato e Admin).",
+        linkVideo: "", 
+        imagem: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop", 
+        conteudo: `
+            <div style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+                <h2 style="font-size: 1.4em; margin: 0 0 15px 0; font-weight: 700;">O que é o Youp Gestão? 🌐</h2>
+                <p style="margin: 0 0 15px 0;">Pensem no Youp Gestão como a nossa "casa digital" e o cérebro das nossas operações. Antes, as informações podiam ficar espalhadas; agora, tudo o que vocês precisam para atuar de forma cirúrgica está em um só lugar. O objetivo aqui é ganhar tempo, evitar perda de dados e focar no que realmente importa: resultados.</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">Como acessar a plataforma</h3>
+                <p style="margin: 0 0 15px 0;">Vocês receberão um link seguro para acessar a ferramenta direto no navegador (pode ser pelo computador ou celular). A primeira tela que verão é a de Login. Basta inserir o seu e-mail cadastrado na Youp e a sua senha, e clicar em <strong>"ENTRAR"</strong>.</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">A Magia dos Papéis de Acesso</h3>
+                <p style="margin: 0 0 10px 0;">A ferramenta é inteligente e focada em segurança. Quando você faz login, o sistema reconhece automaticamente qual é o seu papel (Analista Busca, Cadastro, Contato ou Admin). O que isso significa na prática?</p>
+                <ul style="margin: 0 0 15px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Você só verá os clientes que foram atribuídos a você.</li>
+                    <li style="margin-bottom: 5px;">Você só verá as informações pertinentes ao seu trabalho. Se você não lida com o <em>Cadastro</em> do cliente, os dados sensíveis e senhas dele estarão bloqueados para você. Isso protege a empresa, o cliente e organiza a sua mente!</li>
+                </ul>
+            </div>
+        `
+    },
+    {
+        id: 7,
+        trilha: "Gestão dos Clientes",
+        modulo: "Módulo 2: Dominando o Painel",
+        titulo: "Dashboard, Filtros e Organização Visual",
+        resumo: "Como navegar na tela inicial, usar a barra de pesquisa em tempo real, aplicar filtros de status para manter o foco e garantir a segurança ao sair.",
+        linkVideo: "", 
+        imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop", 
+        conteudo: `
+            <div style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+                <h2 style="font-size: 1.4em; margin: 0 0 15px 0; font-weight: 700;">A Tela Inicial (Dashboard) 🗂️</h2>
+                <p style="margin: 0 0 15px 0;">Assim que você faz o login com sucesso, entrará no "Painel de Clientes". Aqui, você verá cartões (cards) para cada cliente atribuído a você. Cada cartão mostra rapidamente o Nome, a Data de Entrada e o Status atual dele (Pendente, Concluído, etc.).</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">Buscando e Filtrando</h3>
+                <p style="margin: 0 0 10px 0;">No topo direito da tela, temos duas ferramentas de ouro para organização:</p>
+                <ul style="margin: 0 0 15px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;"><strong>Barra de Pesquisa:</strong> Digite parte do nome do cliente e a lista será filtrada em tempo real.</li>
+                    <li style="margin-bottom: 5px;"><strong>Filtro de Status:</strong> Por padrão, o sistema oculta clientes "Inativos" para manter a sua tela limpa, focando apenas em quem está ativo. Se precisar buscar o histórico de um cliente antigo, basta mudar este filtro para "Apenas Inativos" ou "Mostrar Todos".</li>
+                </ul>
+
+                <div style="border-left: 3px solid #e74c3c; background-color: rgba(255,255,255,0.05); padding: 15px; margin: 20px 0;">
+                    <strong style="color: #e74c3c;">Saindo com Segurança:</strong><br>
+                    Terminou o expediente ou vai dividir o computador com alguém? Clique no botão vermelho <strong>"Sair"</strong> no canto superior direito para deslogar e proteger os dados.
+                </div>
+            </div>
+        `
+    },
+    {
+        id: 8,
+        trilha: "Gestão dos Clientes",
+        modulo: "Módulo 3: A Ficha do Cliente",
+        titulo: "O Coração do Trabalho: Abas de Busca, Cadastro, Pitch e CV",
+        resumo: "Navegue pelo raio-X do cliente. Descubra onde ficam as Hard/Soft Skills, como copiar senhas com um clique, e acesse o roteiro de vendas (Pitch) e o currículo oficial.",
+        linkVideo: "", 
+        imagem: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop", 
+        conteudo: `
+            <div style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+                <h2 style="font-size: 1.4em; margin: 0 0 15px 0; font-weight: 700;">O Coração do Trabalho ❤️</h2>
+                <p style="margin: 0 0 15px 0;">Ao clicar no cartão de um cliente, uma janela completa se abrirá. É aqui que o seu trabalho acontece.</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">O Cabeçalho Inteligente</h3>
+                <p style="margin: 0 0 15px 0;">Logo no topo, ao lado do nome do cliente, vocês notarão ícones rápidos. Se o cliente tiver o link da pasta do Drive ou do perfil do LinkedIn cadastrados, botões azuis aparecerão ali. É só clicar para abrir diretamente em outra aba, sem precisar ficar caçando links!</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">As 4 Abas de Trabalho:</h3>
+                
+                <h4 style="font-size: 1.1em; margin: 15px 0 5px 0; font-weight: 700;">1. Aba BUSCA (Estratégia)</h4>
+                <p style="margin: 0 0 15px 0;">É a estratégia pura. Aqui estão as informações de "Onde estamos" e "Para onde vamos". Vocês encontrarão o cargo atual, os cargos desejados, pretensão salarial, cidades-alvo e, o mais importante, um mapa completo das Hard Skills (habilidades técnicas), Soft Skills (comportamento) e idiomas do candidato.</p>
+
+                <h4 style="font-size: 1.1em; margin: 15px 0 5px 0; font-weight: 700;">2. Aba CADASTRO (Acesso Restrito)</h4>
+                <p style="margin: 0 0 10px 0;">Se o seu perfil tiver permissão, esta aba revelará os dados pessoais do cliente. O grande destaque aqui são os <strong>Logins</strong>. O sistema exibe o acesso do cliente ao LinkedIn, Gupy e E-mail.</p>
+                <div style="border-left: 3px solid #dcb560; background-color: rgba(255,255,255,0.05); padding: 15px; margin: 15px 0;">
+                    <strong style="color: #dcb560;">💡 Dica de Ouro:</strong> Notou um ícone de "duas folhinhas" ao lado das senhas? Basta clicar nele para copiar a informação na hora! Nunca mais corra o risco de digitar uma senha errada.
+                </div>
+
+                <h4 style="font-size: 1.1em; margin: 15px 0 5px 0; font-weight: 700;">3. Aba PITCH (Venda)</h4>
+                <p style="margin: 0 0 15px 0;">Feita para brilhar os olhos dos recrutadores e empresas. Aqui ficam os maiores trunfos do cliente: Retorno sobre Investimento (ROI), sua Proposta Única de Valor (USP) e seus principais KPIs. É o seu roteiro de argumentação de vendas.</p>
+
+                <h4 style="font-size: 1.1em; margin: 15px 0 5px 0; font-weight: 700;">4. Aba CV FINAL</h4>
+                <p style="margin: 0 0 15px 0;">O documento oficial criado pela Youp. Aqui vocês visualizam os links da versão final do currículo e o texto completo elaborado para o cliente. Usem o botão <strong>"COPIAR TUDO"</strong> para levar esse texto rapidamente para a Gupy ou outras plataformas de vagas.</p>
+            </div>
+        `
+    },
+    {
+        id: 9,
+        trilha: "Gestão dos Clientes",
+        modulo: "Módulo 4: Rotina, Comunicação e Registros",
+        titulo: "Diário de Bordo e Comunicação com a Gestão",
+        resumo: "Como manter a equipe alinhada registrando históricos na aba Diário e como usar a aba ADMIN para reportar urgências diretamente para a administração.",
+        linkVideo: "", 
+        imagem: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop", 
+        conteudo: `
+            <div style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+                <h2 style="font-size: 1.4em; margin: 0 0 15px 0; font-weight: 700;">A Comunicação Documentada 📝</h2>
+                <p style="margin: 0 0 15px 0;">O trabalho em equipe exige uma comunicação perfeita e documentada. O sistema possui duas abas fundamentais para garantir que nenhuma informação se perca pelo caminho.</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">Aba DIÁRIO</h3>
+                <p style="margin: 0 0 10px 0;">É o nosso bloco de notas confidencial. Fez uma entrevista em nome do cliente? Atualizou a senha dele? Alterou alguma estratégia? Escreva na caixa de texto e clique em <strong>"Salvar Registro"</strong>.</p>
+                <ul style="margin: 0 0 15px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">O sistema carimba automaticamente o seu nome, a data e a hora.</li>
+                    <li style="margin-bottom: 5px;">Esse diário é visível apenas para quem atende esse cliente e para a Gestão, mantendo o alinhamento de todos os envolvidos na conta.</li>
+                </ul>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">Aba ADMIN</h3>
+                <p style="margin: 0 0 10px 0;">Encontrou um problema grave? O cliente pediu urgência em algo?</p>
+                <ul style="margin: 0 0 15px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Escreva nesta aba e clique em <strong>"ENVIAR REPORT"</strong>.</li>
+                    <li style="margin-bottom: 5px;">O sistema enviará, na mesma hora, um e-mail direto para a caixa de entrada da Administração com o seu nome, o nome do cliente e a sua mensagem. Usem com sabedoria para destravar impedimentos urgentes!</li>
+                </ul>
+            </div>
+        `
+    },
+    {
+        id: 10,
+        trilha: "Gestão dos Clientes",
+        modulo: "Módulo 5: Visão da Gestão",
+        titulo: "Exclusivo para ADMINS: O Lápis Mágico e Atribuição de Equipes",
+        resumo: "Conheça os 'superpoderes' dos Administradores: edição inline de dados, alteração de status do cliente, gestão da equipe de atendimento e edição do CV Final.",
+        linkVideo: "", 
+        imagem: "https://images.unsplash.com/photo-1542744094-24638ea0b3b5?q=80&w=800&auto=format&fit=crop", 
+        conteudo: `
+            <div style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+                <h2 style="font-size: 1.4em; margin: 0 0 15px 0; font-weight: 700;">A Visão da Gestão 🦅</h2>
+                <p style="margin: 0 0 15px 0;">Se você tem o perfil de ADMIN (Administrador), você possui "poderes" especiais na plataforma para orquestrar o trabalho da equipe.</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">O Lápis Mágico (Edição Rápida)</h3>
+                <p style="margin: 0 0 15px 0;">Para os administradores, quase toda informação de texto na ficha do cliente terá um pequeno ícone de "lápis" ao lado (✏️). Viu um erro de digitação ou precisa atualizar o salário do cliente? Clique no lápis, digite o novo valor e aperte <strong>OK</strong>. O sistema salva na planilha instantaneamente, sem que você precise sair da plataforma.</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">Gerenciamento de Status e Equipe</h3>
+                <p style="margin: 0 0 10px 0;">No cabeçalho do cliente, o Admin não apenas vê o status, mas pode alterá-lo (Pendente, Concluído, Inativo) através de um menu suspenso.</p>
+                <p style="margin: 0 0 15px 0;">Logo ao lado, há o botão roxo <strong>"Equipe"</strong>. Ao clicar nele, você define exatamente quais consultoras (digitando o e-mail delas) cuidarão da Busca, do Cadastro e do Contato daquele cliente. É isso que destrava a ficha na tela delas!</p>
+
+                <h3 style="font-size: 1.2em; margin: 25px 0 10px 0; font-weight: 700;">Edição de CV e Exclusão</h3>
+                <ul style="margin: 0 0 15px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Na aba <strong>"CV FINAL"</strong>, apenas o Admin vê o botão verde "SALVAR ALTERAÇÕES", permitindo ajustar o texto do currículo oficial pela própria plataforma sem precisar ir no Google Docs/Drive.</li>
+                    <li style="margin-bottom: 5px; color: #e74c3c;">Por fim, no topo da ficha, há um ícone de <strong>lixeira vermelha</strong>. Ele serve para excluir um cliente permanentemente do banco de dados (use com extrema cautela!).</li>
+                </ul>
+            </div>
+        `
     }
 ];
