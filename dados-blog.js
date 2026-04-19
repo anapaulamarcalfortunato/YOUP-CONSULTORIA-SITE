@@ -1,6 +1,3 @@
-// Este é o seu Banco de Dados de Materiais. 
-// Para adicionar um novo, basta copiar um bloco entre as chaves { } e colar abaixo, separando por vírgula.
-
 const materiaisYoup = [
     {
             id: 01, // Substitua pelo próximo número da sua sequência
@@ -38,10 +35,8 @@ const materiaisYoup = [
             </div>
         `
     },
-
-
    {
-        id: 2, // Lembre-se de atualizar o ID de acordo com a sua sequência
+        id: 02, 
         categoria: "Carreira",
         data: "20/01/2026",
         tempoLeitura: "6 min",
@@ -81,10 +76,8 @@ const materiaisYoup = [
             </div>
         `
     },
-
-
     {
-        id: 3, // Verifique a sequência no seu arquivo
+        id: 03, 
         categoria: "Carreira",
         data: "30/01/2026",
         tempoLeitura: "6 min",
@@ -120,11 +113,8 @@ const materiaisYoup = [
             </div>
         `
     },
-
-
-
     {
-        id: 4, // Lembre-se de atualizar o ID na sua sequência
+        id: 04, 
         categoria: "Carreira",
         data: "10/02/2026",
         tempoLeitura: "7 min",
@@ -162,10 +152,8 @@ const materiaisYoup = [
             </div>
         `
     },
-
-
     {
-        id: 6, // Ajuste para a sequência correta
+        id: 05, // Ajuste para a sequência correta
         categoria: "Carreira",
         data: "20/02/2026", // Data atual no seu contexto
         tempoLeitura: "7 min",
@@ -202,11 +190,9 @@ const materiaisYoup = [
                 <p style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 0.95em; opacity: 0.9;"><strong style="color: #dcb560;">Conclusão:</strong> Executivos não querem ser vendidos, querem ser comprados. Mas para ser "comprado" pela prateleira mais cara do mercado, você precisa expor o seu produto sob a luz correta. A vulnerabilidade só existe quando você pede. Quando você oferece visão e tese, você projeta domínio. Construa o seu posicionamento enquanto não precisa dele.</p>
             </div>
         `
-    };
-
-
+    },
     {
-        id: 7, // Ajuste para a sequência correta no seu arquivo
+        id: 06, // Ajuste para a sequência correta no seu arquivo
         categoria: "Carreira",
         data: "27/02/2026",
         tempoLeitura: "7 min",
@@ -244,10 +230,8 @@ const materiaisYoup = [
             </div>
         `
     },
-
-
-        {
-        id: 08, // Atualize o número na sua sequência
+    {
+        id: 07, // Atualize o número na sua sequência
         categoria: "Carreira",
         data: "10/03/2026",
         tempoLeitura: "7 min",
@@ -285,10 +269,8 @@ const materiaisYoup = [
             </div>
         `
     },
-
-
-            {
-        id: 09, // Ajuste para a sequência correta no seu arquivo
+    {
+        id: 08, // Ajuste para a sequência correta no seu arquivo
         categoria: "Governança",
         data: "20/03/2026",
         tempoLeitura: "7 min",
@@ -323,10 +305,10 @@ const materiaisYoup = [
                 <p style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 0.95em; opacity: 0.9;"><strong style="color: #dcb560;">Conclusão:</strong> A construção de autoridade na mídia não é flerte com a vaidade; é um mandato de proteção patrimonial da sua carreira. Quando você embasa sua voz em método, inteligência fiduciária e alinhamento institucional, você deixa de ser apenas o executivo de uma empresa e torna-se um ativo intelectual intocável no mercado.</p>
             </div>
         `
-    },
+},
 
-                {
-        id: 10, // Ajuste para a sequência correta no seu arquivo
+{
+        id: 09, // Ajuste para a sequência correta no seu arquivo
         categoria: "Carreira", 
         data: "30/03/2026",
         tempoLeitura: "7 min",
@@ -365,8 +347,8 @@ const materiaisYoup = [
         `
     },
 
-                    {
-        id: 11, // Ajuste para a sequência correta no seu arquivo
+    {
+        id: 10, // Ajuste para a sequência correta no seu arquivo
         categoria: "Liderança", 
         data: "10/04/2026",
         tempoLeitura: "7 min",
@@ -405,8 +387,8 @@ const materiaisYoup = [
         `
     },
 
-                        {
-        id: 12, // Ajuste para a sequência correta no seu arquivo
+    {
+        id: 11, // Ajuste para a sequência correta no seu arquivo
         categoria: "Carreira",
         data: "18/04/2026",
         tempoLeitura: "7 min",
@@ -441,5 +423,5 @@ const materiaisYoup = [
                 <p style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 0.95em; opacity: 0.9;"><strong style="color: #c5a059;">Conclusão:</strong> A demonstração máxima de poder no C-Level é anunciar ao Conselho, com absoluto conforto, que a empresa não precisa mais de você para sobreviver. Corte os tentáculos da Síndrome do Polvo e use a sua liberdade operacional para voar mais alto. Você só domina verdadeiramente uma cadeira de poder no dia em que está totalmente preparado para entregá-la.</p>
             </div>
         `
-    }
+    },
 ];
