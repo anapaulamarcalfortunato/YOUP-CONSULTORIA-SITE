@@ -211,18 +211,18 @@
         </div>
     </div>
 
-    <script>
-        // LISTA DOS EMAILS AUTORIZADOS (Se precisar colocar mais alguém depois, é só botar vírgula e adicionar entre aspas)
-        const emailsAutorizados = [
-            "anapaulamarcal@youpconsultoria.com",
-            "denise.jobhunter.youp@proton.me",
-            "paola.jobhunter.youp@proton.me",
-            "amanda.jobhunter.youp@proton.me",
-            "miguel.jobhunter.youp@proton.me"
+<script>
+        // LISTA DOS EMAILS AUTORIZADOS MASCARADOS (Criptografia Base64)
+        // Isso impede que robôs ou curiosos leiam os e-mails direto no código-fonte.
+        const emailsAutorizadosMascarados = [
+            "YW5hcGF1bGFtYXJjYWxAeW91cGNvbnN1bHRvcmlhLmNvbQ==", // Ana Paula
+            "ZGVuaXNlLmpvYmh1bnRlci55b3VwQHByb3Rvbi5tZQ==",     // Denise
+            "cGFvbGEuam9iaHVudGVyLnlvdXBAcHJvdG9uLm1l",         // Paola
+            "YW1hbmRhLmpvYmh1bnRlci55b3VwQHByb3Rvbi5tZQ==",     // Amanda
+            "bWlndWVsLmpvYmh1bnRlci55b3VwQHByb3Rvbi5tZQ=="      // Miguel
         ];
 
         function abrirLogin() {
-            // Se o navegador já lembrar que ele logou antes, vai direto!
             if (sessionStorage.getItem('consultorYoupLogado') === 'true') {
                 window.location.href = "trilhas-consultor.html";
             } else {
@@ -240,15 +240,15 @@
             const emailDigitado = document.getElementById('email-input').value.trim().toLowerCase();
             const errorMsg = document.getElementById('error-msg');
 
-            // Verifica se o que ele digitou está na lista (independente de letras maiúsculas)
-            if (emailsAutorizados.includes(emailDigitado)) {
-                // Guarda um "crachá" na sessão para ele não ter que ficar digitando toda hora
+            // Pega o e-mail que o consultor digitou e aplica a mesma máscara (Base64)
+            const emailMascarado = btoa(emailDigitado);
+
+            // Verifica se a máscara gerada bate com alguma das nossas senhas salvas
+            if (emailsAutorizadosMascarados.includes(emailMascarado)) {
                 sessionStorage.setItem('consultorYoupLogado', 'true'); 
-                window.location.href = "trilhas-consultor.html"; // Redireciona para as trilhas
+                window.location.href = "trilhas-consultor.html"; 
             } else {
                 errorMsg.style.display = 'block';
             }
         }
     </script>
-</body>
-</html>
