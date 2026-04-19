@@ -4,7 +4,7 @@
 const trilhasYoup = [
     {
         id: 1,
-        trilha: "Gestão de Clientes",
+        trilha: "Gestão das Atividades",
         modulo: "Módulo 1: O Coração do Sistema",
         titulo: "Onboarding: Boas-vindas ao Painel Staff Youp",
         resumo: "Bem-vindo ao seu centro de comando. Entenda o fluxo de gestão, o ciclo de vida das vagas e como ler os dados estratégicos de cada cliente.",
@@ -61,7 +61,7 @@ const trilhasYoup = [
 
     {
         id: 2,
-        trilha: "Gestão de Clientes",
+        trilha: "Gestão das Atividades",
         modulo: "Módulo 2: Ação Diária",
         titulo: "Limpando as Pendências: A Regra do Zero e Execução",
         resumo: "Aprenda a organizar sua rotina usando filtros de foco, executar candidaturas com precisão e dar o start no relacionamento com recrutadores.",
@@ -129,7 +129,7 @@ const trilhasYoup = [
 
     {
         id: 3,
-        trilha: "Gestão de Clientes",
+        trilha: "Gestão das Atividades",
         modulo: "Módulo 3: A Arte do Follow-up",
         titulo: "Onde a mágica acontece: CRM de Vagas, Cadência e SLAs",
         resumo: "Domine o funil de relacionamento. Aprenda a avançar status, gerenciar a 'Regra dos 3 Dias' e usar estratégias de Plano B (Add Contato) para garantir entrevistas.",
@@ -193,7 +193,7 @@ const trilhasYoup = [
 
     {
         id: 4,
-        trilha: "Gestão de Clientes",
+        trilha: "Gestão das Atividades",
         modulo: "Módulo 4: Finalização e Evidências",
         titulo: "Fechando o Ciclo: Evidências e Histórico Vivo",
         resumo: "Onde provamos o nosso valor! Aprenda a registrar desfechos de vagas, usar o Uploader automatizado para salvar prints e consultar o Arquivo do cliente.",
@@ -248,7 +248,7 @@ const trilhasYoup = [
 
     {
         id: 5,
-        trilha: "Gestão de Clientes",
+        trilha: "Gestão das Atividades",
         modulo: "Módulo 5: Garantia de Qualidade",
         titulo: "Visão Master: Triagem Fina, Repescagem e Controle de Fluxo",
         resumo: "Exclusivo para Seniores: aprenda a operar o Coletor, realizar o Pente Fino da Auditoria, destravar vagas paradas com o cliente e usar a edição em massa do Master View.",
