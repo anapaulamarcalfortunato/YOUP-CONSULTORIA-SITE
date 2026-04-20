@@ -210,7 +210,8 @@
             }
         }
 
-        function gerarCertificado() {
+        
+function gerarCertificado() {
             const nome = document.getElementById('nome-consultor').value.trim();
             if(!nome) { alert("Digite seu nome para o certificado!"); return; }
 
@@ -235,8 +236,27 @@
             ctx.fillStyle = '#fff'; ctx.font = '18px Montserrat';
             ctx.fillText('concluiu com êxito a certificação técnica em:', 400, 340);
             
+            // --- NOVA LÓGICA: QUEBRA DE LINHA INTELIGENTE ---
             ctx.fillStyle = '#c5a059'; ctx.font = 'bold 28px Montserrat';
-            ctx.fillText(aulaAtual.trilha, 400, 390);
+            const maxWidth = 660; // Largura limite antes de quebrar a linha
+            const lineHeight = 35; // Espaço entre as linhas
+            let words = aulaAtual.trilha.split(' ');
+            let line = '';
+            let y = 390;
+
+            for(let n = 0; n < words.length; n++) {
+                let testLine = line + words[n] + ' ';
+                let metrics = ctx.measureText(testLine);
+                if (metrics.width > maxWidth && n > 0) {
+                    ctx.fillText(line.trim(), 400, y);
+                    line = words[n] + ' ';
+                    y += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            ctx.fillText(line.trim(), 400, y);
+            // ------------------------------------------------
 
             ctx.fillStyle = '#5c8e82'; ctx.font = 'bold 16px Montserrat';
             ctx.fillText('YOUP CONSULTORIA • EXCELÊNCIA E REPUTAÇÃO', 400, 500);
@@ -246,6 +266,7 @@
             
             canvas.scrollIntoView({behavior: 'smooth'});
         }
+
 function registrarNaPlanilha() {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzlAM34kvL7rv5mMCMXtfAsVQldMsCf3um6-ZVCqhzY2aWeJeKLcM1R1-iG4tpafimp/exec';
     const btn = document.getElementById('btn-registrar');
