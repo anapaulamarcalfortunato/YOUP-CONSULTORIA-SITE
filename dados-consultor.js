@@ -1484,7 +1484,7 @@ const trilhasYoup = [
                 correta: 3
             }
         ]
-       },
+       }
           
     
 ];
