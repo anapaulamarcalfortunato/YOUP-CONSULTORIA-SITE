@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outplacement Executivo - Youp Consultoria</title>
     
+    <script>
+        if (localStorage.getItem('youp_idioma') === 'en') {
+            const paginaIngles = 'outplacement-en.html';
+            fetch(paginaIngles, { method: 'HEAD' }).then(response => {
+                if (response.ok) { window.location.replace(paginaIngles); }
+            });
+        }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -85,7 +94,6 @@
             letter-spacing: 4px;
         }
 
-        /* Seção de Impacto */
         .impact-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -110,7 +118,6 @@
             margin-bottom: 0;
         }
 
-        /* Tabela de Planos */
         .plans-title {
             color: var(--dourado);
             font-size: 12px;
