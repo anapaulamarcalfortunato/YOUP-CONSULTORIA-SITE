@@ -465,7 +465,6 @@ const materiaisYoup = [
     },
 
     {
-        {
         id: 13,
         categoria: "Carreira",
         data: "20/04/2026",
