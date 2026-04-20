@@ -19,6 +19,12 @@
         .hero { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
         .hero h1 { color: var(--dourado); font-size: 32px; font-weight: 800; text-transform: uppercase; margin: 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* FILTRO SELECT */
+        .filter-container { text-align: center; margin-bottom: 40px; }
+        .select-filtro { background: #111; color: var(--dourado); border: 1px solid var(--dourado); padding: 12px 20px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; min-width: 250px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .select-filtro:focus, .select-filtro:hover { box-shadow: 0 0 15px rgba(197, 160, 89, 0.2); background: #1a1a1a; }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
         .card { background: var(--cinza); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; cursor: pointer; border-left: 3px solid var(--dourado); transition: 0.3s; }
         .card:hover { transform: translateY(-5px); background: #222; }
@@ -55,6 +61,12 @@
     </div>
 
     <div class="container">
+        <div class="filter-container">
+            <select id="filtroTrilha" class="select-filtro" onchange="filtrarTrilhas()">
+                <option value="Todas">Mostrar Todas as Trilhas</option>
+                </select>
+        </div>
+
         <div id="aulasGrid" class="grid"></div>
     </div>
 
@@ -90,15 +102,45 @@
         let respostasUsuario = [];
 
         document.addEventListener("DOMContentLoaded", () => {
+            // Preenche o Filtro Dropdown automaticamente
+            const selectFiltro = document.getElementById('filtroTrilha');
+            const trilhasUnicas = [...new Set(trilhasYoup.map(a => a.trilha))];
+            
+            trilhasUnicas.forEach(trilha => {
+                const option = document.createElement('option');
+                option.value = trilha;
+                option.textContent = trilha;
+                selectFiltro.appendChild(option);
+            });
+
+            // Mostra todas as aulas inicialmente
+            renderizarGrid(trilhasYoup);
+        });
+
+        function renderizarGrid(lista) {
             const grid = document.getElementById('aulasGrid');
-            grid.innerHTML = trilhasYoup.map(a => `
+            if(lista.length === 0) {
+                grid.innerHTML = "<p style='color:#888; text-align:center; grid-column:1/-1;'>Nenhuma aula encontrada.</p>";
+                return;
+            }
+            grid.innerHTML = lista.map(a => `
                 <div class="card" onclick="abrirAula(${a.id})">
                     <span class="modulo-badge">${a.trilha}</span>
                     <h3>${a.titulo}</h3>
                     <p style="font-size:12px; color:#888;">${a.resumo}</p>
                 </div>
             `).join('');
-        });
+        }
+
+        function filtrarTrilhas() {
+            const selecionada = document.getElementById('filtroTrilha').value;
+            if (selecionada === "Todas") {
+                renderizarGrid(trilhasYoup);
+            } else {
+                const filtradas = trilhasYoup.filter(a => a.trilha === selecionada);
+                renderizarGrid(filtradas);
+            }
+        }
 
         function abrirAula(id) {
             aulaAtual = trilhasYoup.find(a => a.id === id);
