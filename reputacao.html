@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reputação e Posicionamento - Youp Consultoria</title>
     
+    <script>
+        if (localStorage.getItem('youp_idioma') === 'en') {
+            const paginaIngles = 'reputacao-en.html';
+            fetch(paginaIngles, { method: 'HEAD' }).then(response => {
+                if (response.ok) { window.location.replace(paginaIngles); }
+            });
+        }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -17,7 +26,7 @@
             --cinza-escuro: #1a1a1a;
             --cinza-medio: #333333;
             --cinza-claro: #b0b0b0;
-            --rosa-elegante: #d84b72; /* Tom de rosa sofisticado */
+            --rosa-elegante: #d84b72;
         }
 
         body {
@@ -99,7 +108,6 @@
             margin-right: auto;
         }
 
-        /* Grade de Serviços */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -140,7 +148,6 @@
         }
         .service-text b { color: #fff; font-weight: 600; }
 
-        /* Botão de Ação Geral (Agora posicionado acima da seção Rosa) */
         .action-container {
             text-align: center;
             padding-top: 15px;
@@ -166,7 +173,6 @@
             color: var(--cinza-escuro);
         }
 
-        /* Seção Exclusiva - Mulheres / Rosa */
         .pink-section {
             background: linear-gradient(135deg, rgba(216, 75, 114, 0.08), rgba(0,0,0,0.3));
             border: 1px solid rgba(216, 75, 114, 0.3);
@@ -191,9 +197,7 @@
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
-        .pink-title span {
-            color: var(--rosa-elegante);
-        }
+        .pink-title span { color: var(--rosa-elegante); }
         .pink-text {
             font-size: 12px;
             color: #d1d1d1;
@@ -220,7 +224,6 @@
             box-shadow: 0 5px 15px rgba(216, 75, 114, 0.4);
             transform: translateY(-2px);
         }
-
     </style>
 </head>
 <body>
@@ -253,8 +256,8 @@
 
             <div class="service-card">
                 <div class="service-icon">📰</div>
-                <div class="service-title">Autoridade e Visibilidade Nacional</div>
-                <p class="service-text">Elevamos o status da sua marca através de <b>Marketing de Influência Corporativa</b>. Inserimos sua voz em publicações estratégicas, colunas formadoras de opinião e nos <b>maiores portais do país</b> para chancelar o seu nome no mercado.</p>
+                <div class="service-title">Autoridade e Visibilidade Global</div>
+                <p class="service-text">Elevamos o status da sua marca através de <b>Marketing de Influência Corporativa</b>. Inserimos sua voz em publicações estratégicas, colunas formadoras de opinião e nos <b>maiores portais nacionais e internacionais</b> para chancelar o seu nome no mercado.</p>
             </div>
         </div>
 
@@ -262,7 +265,7 @@
             <p style="font-size: 11px; color: var(--cinza-claro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
                 Como o mercado enxerga você hoje?
             </p>
-            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20gostaria%20de%20falar%20sobre%20Gest%C3%A3o%20de%20Reputa%C3%A7%C3%A3o%20e%20Posicionamento%20de%20Marca." target="_blank" class="btn-action">Auditoria de Posicionamento</a>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estava%20na%20p%C3%A1gina%20de%20Gest%C3%A3o%20de%20Reputa%C3%A7%C3%A3o%20e%20Posicionamento%20de%20Marca." target="_blank" class="btn-action">Auditoria de Posicionamento</a>
         </div>
 
         <div class="pink-section">
