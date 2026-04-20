@@ -84,18 +84,24 @@
             </div>
 
             <div id="pos-prova">
-                <h2 style="color:var(--verde); margin-top:0;">✓ APROVADO!</h2>
-                <p>Sua nota foi <span id="nota-final" style="font-weight:800; font-size: 24px;"></span>%</p>
-                <p style="font-size: 13px;">Insira seu nome completo para o certificado:</p>
-                <input type="text" id="nome-consultor" class="input-nome" placeholder="Seu Nome Completo">
-                
-                <button class="btn-acao btn-certificado" style="display:block" onclick="gerarCertificado()">Gerar Meu Certificado Digital</button>
-                
-                <canvas id="certCanvas" width="800" height="600"></canvas>
-                <p id="instrucao-salvar" style="display:none; font-size:11px; color:#888; margin-top:10px;">Toque e segure (ou clique com o botão direito) na imagem para salvar.</p>
-            </div>
-        </div>
+    <h2 style="color:var(--verde); margin-top:0;">✓ APROVADO!</h2>
+    <p>Sua nota foi <span id="nota-final" style="font-weight:800; font-size: 24px;"></span>%</p>
+    <p style="font-size: 13px;">Insira seu nome completo para o certificado:</p>
+    <input type="text" id="nome-consultor" class="input-nome" placeholder="Seu Nome Completo">
+    
+    <button class="btn-acao btn-certificado" style="display:block" onclick="gerarCertificado()">Gerar Meu Certificado Digital</button>
+    
+    <canvas id="certCanvas" width="800" height="600"></canvas>
+    <p id="instrucao-salvar" style="display:none; font-size:11px; color:#888; margin-top:10px;">Toque e segure (ou clique com o botão direito) na imagem para salvar.</p>
+
+    <button id="btn-registrar" class="btn-acao" style="display:block; background: var(--verde); color: #fff; margin-top: 30px;" onclick="registrarNaPlanilha()">
+        Finalizar e Avisar a Youp ➔
+    </button>
+    
+    <div id="msg-sucesso" style="display:none; margin-top: 20px; color: var(--dourado); font-weight: 600;">
+        Parabéns! Curso concluído - a informação está sendo enviada para a Youp.
     </div>
+</div>
 
     <script>
         let aulaAtual = null;
@@ -240,6 +246,34 @@
             
             canvas.scrollIntoView({behavior: 'smooth'});
         }
+function registrarNaPlanilha() {
+    const scriptURL = 'COLE_AQUI_A_URL_DO_SEU_GOOGLE_SCRIPT';
+    const btn = document.getElementById('btn-registrar');
+    const msg = document.getElementById('msg-sucesso');
+    
+    btn.innerText = "Enviando...";
+    btn.disabled = true;
+
+    const dados = {
+        email: sessionStorage.getItem('usuarioEmail') || 'Email não logado',
+        trilha: aulaAtual.trilha,
+        nota: document.getElementById('nota-final').innerText
+    };
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(dados)
+    })
+    .then(response => {
+        btn.style.display = 'none';
+        msg.style.display = 'block';
+    })
+    .catch(error => {
+        alert('Erro ao enviar registro. Tente novamente.');
+        btn.disabled = false;
+        btn.innerText = "Finalizar e Avisar a Youp ➔";
+    });
+}
 
         function fecharModal() {
             document.getElementById('modal').style.display = 'none';
