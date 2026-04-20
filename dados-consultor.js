@@ -318,8 +318,86 @@ const trilhasYoup = [
         `
     },
 
-    {
+{
         id: 6,
+        trilha: "Gestão de Atividades",
+        modulo: "Módulo Final",
+        titulo: "Certificação Operacional Youp",
+        resumo: "Avaliação de competências para liberação do ecossistema Youp.",
+        linkVideo: "",
+        conteudo: `
+            <h3>Parabéns por chegar até aqui!</h3>
+            <p>Esta trilha consolidou os pilares da nossa operação: Checklist, Gestão de Carteira, Inteligência de Mercado e Atendimento Executivo.</p>
+            <p><b>Regras da Certificação:</b></p>
+            <ul>
+                <li>Total de perguntas: 10</li>
+                <li>Média para aprovação: 80% (8 acertos)</li>
+                <li>Recompensa: Certificado Digital + Acesso ao Aplicativo Youp.</li>
+            </ul>
+            <p>Prepare-se e boa sorte!</p>
+        `,
+        questoes: [
+            // Módulo 1: Organização e Processos
+            {
+                pergunta: "Qual é o objetivo primordial da atualização em tempo real do checklist de tarefas no hub?",
+                opcoes: ["Apenas controle administrativo", "Evitar que a Ana Paula precise cobrar prazos", "Garantir a transparência da operação e agilidade no follow-up com o assessorado", "Cumprir uma formalidade do sistema", "Preencher o tempo ocioso entre reuniões"],
+                correta: 2
+            },
+            {
+                pergunta: "Ao identificar um atraso em uma entrega crítica, qual a conduta padrão Youp?",
+                opcoes: ["Ignorar e tentar compensar no dia seguinte", "Informar imediatamente a gestão com uma solução ou novo prazo proposto", "Esperar o cliente reclamar para se manifestar", "Apagar a tarefa do checklist", "Pedir para outro consultor assumir sem avisar ninguém"],
+                correta: 1
+            },
+            // Módulo 2: Gestão de Clientes (Carteira)
+            {
+                pergunta: "Na Youp, como definimos a 'Gestão de Carteira' de um consultor?",
+                opcoes: ["Uma lista de nomes para enviar e-mails prontos", "Um processo passivo de espera por vagas", "A curadoria estratégica de cada assessorado, tratando cada carreira como um projeto único", "O preenchimento de planilhas de contatos", "A prospecção de qualquer tipo de vaga de nível operacional"],
+                correta: 2
+            },
+            {
+                pergunta: "Como deve ser o acompanhamento (follow-up) com um cliente C-Level?",
+                opcoes: ["Informal e frequente, via áudios longos", "Distante, enviando relatórios apenas uma vez por mês", "Cirúrgico, elegante, focado em avanços concretos e métricas de mercado", "Reativo, respondendo apenas quando solicitado", "Baseado em mensagens motivacionais diárias"],
+                correta: 2
+            },
+            // Módulo 3: Inteligência de Mercado (Hunting)
+            {
+                pergunta: "Sobre o 'Mercado Oculto', qual o papel fundamental do consultor Youp?",
+                opcoes: ["Aguardar que as vagas apareçam no LinkedIn", "Mapear oportunidades não publicadas através de hunting estratégico e networking", "Cadastrar o cliente em sites de emprego comuns", "Pedir ao cliente que procure suas próprias vagas", "Focar apenas em concursos públicos"],
+                correta: 1
+            },
+            {
+                pergunta: "Ao indicar uma vaga para o Hub da Youp, o que deve ser priorizado?",
+                opcoes: ["A quantidade de vagas, independente do perfil", "Vagas que paguem comissões rápidas", "A aderência da oportunidade com o perfil dos assessorados ativos na casa", "Apenas vagas internacionais", "Vagas publicadas em portais de notícias"],
+                correta: 2
+            },
+            // Módulo 4: Comunicação e Reputação
+            {
+                pergunta: "O 'Tom de Voz Letal' mencionado na cultura Youp refere-se a:",
+                opcoes: ["Ser agressivo com os recrutadores", "Falar muito rápido para demonstrar agilidade", "Uma comunicação precisa, direta, altamente profissional e orientada a resultados", "Usar termos técnicos em inglês o tempo todo", "Falar pouco para parecer misterioso"],
+                correta: 2
+            },
+            {
+                pergunta: "Como tratamos a confidencialidade dos dados dos nossos clientes?",
+                opcoes: ["Pode ser compartilhada com parceiros externos sem aviso", "É relativa, dependendo da importância do cargo", "É blindada e absoluta, sendo um dos nossos maiores ativos de confiança", "Apenas dados financeiros são sigilosos", "É aberta apenas para outros clientes da casa"],
+                correta: 2
+            },
+            // Módulo 5: Entrega e Performance
+            {
+                pergunta: "O que caracteriza uma entrega de 'Excelência' no reposicionamento executivo?",
+                opcoes: ["Entregar o currículo no prazo, mesmo com erros", "Superar as expectativas do cliente com insights de mercado e preparação de alto nível", "Apenas garantir que o cliente seja entrevistado", "Fazer o que o cliente pede, mesmo que ele esteja errado estrategicamente", "Delegar todas as tarefas para o suporte"],
+                correta: 1
+            },
+            {
+                pergunta: "Qual a importância do feedback do consultor para a inteligência do hub?",
+                opcoes: ["Nenhuma, o sistema é automatizado", "Serve apenas para avaliação de desempenho individual", "Alimenta o banco de dados para que a Youp entenda tendências de mercado e ajuste estratégias", "É opcional, dependendo da vontade do consultor", "Serve para justificar falhas no processo"],
+                correta: 2
+            }
+        ]
+    },
+    
+
+    {
+        id: 7,
         trilha: "Gestão dos Clientes",
         modulo: "Módulo 1: Primeiros Passos",
         titulo: "Visão Geral e a Magia dos Papéis de Acesso",
@@ -344,7 +422,7 @@ const trilhasYoup = [
         `
     },
     {
-        id: 7,
+        id: 8,
         trilha: "Gestão dos Clientes",
         modulo: "Módulo 2: Dominando o Painel",
         titulo: "Dashboard, Filtros e Organização Visual",
@@ -371,7 +449,7 @@ const trilhasYoup = [
         `
     },
     {
-        id: 8,
+        id: 9,
         trilha: "Gestão dos Clientes",
         modulo: "Módulo 3: A Ficha do Cliente",
         titulo: "O Coração do Trabalho: Abas de Busca, Cadastro, Pitch e CV",
@@ -406,7 +484,7 @@ const trilhasYoup = [
         `
     },
     {
-        id: 9,
+        id: 10,
         trilha: "Gestão dos Clientes",
         modulo: "Módulo 4: Rotina, Comunicação e Registros",
         titulo: "Diário de Bordo e Comunicação com a Gestão",
@@ -435,7 +513,7 @@ const trilhasYoup = [
         `
     },
     {
-        id: 10,
+        id: 11,
         trilha: "Gestão dos Clientes",
         modulo: "Módulo 5: Visão da Gestão",
         titulo: "Exclusivo para ADMINS: O Lápis Mágico e Atribuição de Equipes",
