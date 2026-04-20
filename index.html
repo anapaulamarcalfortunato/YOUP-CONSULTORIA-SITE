@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youp Consultoria - Carreira, Reputação e RH</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -44,7 +43,9 @@
             overflow: hidden; /* Impede a rolagem da página inteira */
         }
 
+        /* Container principal - Adicionado Position Relative para o seletor de idioma ancorar nele */
         .glass-container {
+            position: relative; 
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -58,11 +59,42 @@
             box-sizing: border-box;
         }
 
+        /* NOVO: Seletor de Idiomas no topo direito do Box */
+        .lang-switch-box {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--cinza-claro);
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.4);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            display: flex;
+            align-items: center;
+        }
+        .lang-btn {
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .lang-btn:hover {
+            color: #fff;
+        }
+        .lang-btn.active {
+            color: var(--dourado);
+            cursor: default;
+        }
+
         .logo-container {
             margin-bottom: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 10px;
         }
         .logo-image {
             max-height: 55px;
@@ -161,6 +193,12 @@
 
     <div class="glass-container">
         
+        <div class="lang-switch-box">
+            <span class="lang-btn active">PT</span> 
+            <span style="opacity: 0.3; margin: 0 8px;">|</span> 
+            <span class="lang-btn" onclick="definirIdiomaGlobal('en')">EN</span>
+        </div>
+
         <header class="logo-container">
             <img src="logo.png" alt="Logo Youp Consultoria" class="logo-image">
             <h1 class="logo-text">YOUP CONSULTORIA</h1>
@@ -204,6 +242,39 @@
         </div>
 
     </div>
+
+    <script>
+        // 1. Ao carregar a página index, a gente sempre reseta pro Português.
+        // Isso evita que o cliente fique "preso" no inglês se ele voltar para o início querendo PT.
+        localStorage.setItem('youp_idioma', 'pt');
+
+        // 2. Função acionada ao clicar no botão "EN"
+        function definirIdiomaGlobal(lang) {
+            if (lang === 'en') {
+                const urlIngles = 'index-en.html';
+                const btnEN = document.querySelector('.lang-btn:not(.active)');
+                
+                btnEN.innerText = "..."; 
+                
+                fetch(urlIngles, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        // Salva na memória o idioma Inglês
+                        localStorage.setItem('youp_idioma', 'en');
+                        // Redireciona para a home em Inglês
+                        window.location.href = urlIngles; 
+                    } else {
+                        alert("English version coming soon! 🌎\nA versão global estará disponível em breve.");
+                        btnEN.innerText = "EN"; 
+                    }
+                })
+                .catch(error => {
+                    alert("English version coming soon! 🌎");
+                    btnEN.innerText = "EN";
+                });
+            }
+        }
+    </script>
 
 </body>
 </html>
