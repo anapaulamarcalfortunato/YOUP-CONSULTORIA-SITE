@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script>
+        if (localStorage.getItem('youp_idioma') === 'en') {
+            const paginaIngles = 'book-en.html';
+            fetch(paginaIngles, { method: 'HEAD' }).then(response => {
+                if (response.ok) { window.location.replace(paginaIngles); }
+            });
+        }
+    </script>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6JTWLMZBRS');
     </script>
     <title>Book de Talentos Premium - Youp</title>
@@ -39,7 +47,7 @@
         .pill-btn:hover { border-color: var(--dourado); color: var(--texto); }
         .pill-btn.active { background: rgba(197, 160, 89, 0.1); border-color: var(--dourado); color: var(--dourado); }
 
-        /* Estilo para a Lista Suspensa (Áreas de Atuação) */
+        /* Estilo para a Lista Suspensa */
         .category-select {
             width: 100%;
             background: rgba(0,0,0,0.3);
@@ -53,7 +61,7 @@
             outline: none;
             cursor: pointer;
             transition: 0.3s;
-            appearance: none; /* Remove o visual padrão do navegador */
+            appearance: none; 
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c5a059' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-6-6h12z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 15px center;
@@ -143,7 +151,7 @@
                     <span class="filter-title">Áreas de Atuação</span>
                     <select id="filtros-area" class="category-select" onchange="aplicarFiltroDropdown('area', this)">
                         <option value="Todas">Todas as Áreas</option>
-                        </select>
+                    </select>
                 </div>
             </div>
         </div>
@@ -182,7 +190,6 @@
     </div>
 
     <script>
-        // Estado atual dos filtros. 'area' agora guarda apenas uma string por vez via Select.
         let filtrosAtivos = {
             localizacao: [],
             nivel: [],
@@ -195,10 +202,9 @@
                 return;
             }
             gerarFiltrosDeAreaDropdown();
-            exibirTalentos(); // Carrega tudo por padrão
+            exibirTalentos(); 
         });
 
-        // Extrai todas as áreas únicas e preenche a Lista Suspensa (Select)
         function gerarFiltrosDeAreaDropdown() {
             const select = document.getElementById('filtros-area');
             const areasSet = new Set();
@@ -220,7 +226,6 @@
             });
         }
 
-        // Liga e Desliga os filtros estilo Botão (Pill)
         function toggleFiltroBotao(categoria, valor, btn) {
             btn.classList.toggle('active');
             
@@ -234,11 +239,9 @@
             exibirTalentos();
         }
 
-        // Aplica o filtro selecionado na Lista Suspensa
         function aplicarFiltroDropdown(categoria, selectElement) {
             filtrosAtivos[categoria] = selectElement.value;
             
-            // Adiciona classe para mudar cor se não for 'Todas'
             if(selectElement.value !== "Todas") {
                 selectElement.classList.add('active');
             } else {
@@ -248,16 +251,11 @@
             exibirTalentos();
         }
 
-        // Lógica de cruzamento de dados
         function exibirTalentos() {
             const finais = talentosYoup.filter(t => {
-                // Verifica Localização
                 const matchLocal = filtrosAtivos.localizacao.length === 0 || filtrosAtivos.localizacao.includes(t.localizacao);
-                
-                // Verifica Nível
                 const matchNivel = filtrosAtivos.nivel.length === 0 || filtrosAtivos.nivel.includes(t.nivel);
                 
-                // Verifica Área (Dropdown)
                 const areasTalento = Array.isArray(t.area) ? t.area : [t.area];
                 const matchArea = filtrosAtivos.area === "Todas" || areasTalento.includes(filtrosAtivos.area);
 
