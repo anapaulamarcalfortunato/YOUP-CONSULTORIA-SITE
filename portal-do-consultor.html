@@ -87,7 +87,7 @@
             margin-right: auto;
         }
 
-        /* Grade de Atividades */
+        /* Grade de Atividades (agora apenas com os 3 botões principais) */
         .portal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -117,21 +117,52 @@
             transform: translateY(-5px);
         }
 
-        /* Botão Vip de Treinamento */
-        .btn-vip {
-            border-color: rgba(197, 160, 89, 0.4);
+        .card-icon { font-size: 32px; margin-bottom: 15px; display: block; }
+        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--verde-claro); }
+        .card-desc { font-size: 11px; color: var(--cinza-claro); font-weight: 300; line-height: 1.4; }
+
+        /* ========================================================= */
+        /* NOVO DESIGN: Botão VIP Banner (Longo e Fino)              */
+        /* ========================================================= */
+        .portal-card-full {
             background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 20px 30px;
+            border-radius: 12px;
+            color: #fff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
         }
-        .btn-vip:hover {
+
+        .portal-card-full:hover {
             border-color: var(--dourado);
             background: rgba(197, 160, 89, 0.15);
+            transform: translateY(-3px);
             box-shadow: 0 5px 20px rgba(197, 160, 89, 0.2);
         }
 
-        .card-icon { font-size: 32px; margin-bottom: 15px; display: block; }
-        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--verde-claro); }
-        .btn-vip .card-title { color: var(--dourado); }
-        .card-desc { font-size: 11px; color: var(--cinza-claro); font-weight: 300; line-height: 1.4; }
+        .card-content-inline {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-arrow {
+            color: var(--dourado);
+            font-size: 24px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .portal-card-full:hover .card-arrow {
+            transform: translateX(5px);
+        }
+        /* ========================================================= */
 
         .auth-note { margin-top: 35px; font-size: 12px; color: var(--dourado); background: rgba(197, 160, 89, 0.05); display: inline-block; padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.2); }
         .footer-note { margin-top: 30px; font-size: 11px; color: var(--cinza-claro); opacity: 0.6; }
@@ -183,12 +214,17 @@
                 <span class="card-title">Indicar Vagas</span>
                 <span class="card-desc">Contribua com a inteligência do hub enviando novas oportunidades.</span>
             </a>
+        </div>
 
-            <div class="portal-card btn-vip" onclick="abrirLogin()">
-                <span class="card-icon">🎓</span>
-                <span class="card-title">Trilhas de Aprendizado</span>
-                <span class="card-desc">Acesso restrito a materiais de capacitação e manuais internos da Youp.</span>
+        <div class="portal-card-full" onclick="abrirLogin()">
+            <div class="card-content-inline">
+                <span class="card-icon" style="margin-bottom: 0; margin-right: 20px;">🎓</span>
+                <div style="text-align: left;">
+                    <span class="card-title" style="color: var(--dourado); display: block; margin-bottom: 4px;">Trilhas de Aprendizado</span>
+                    <span class="card-desc" style="font-size: 11px; color: var(--cinza-claro); font-weight: 300;">Acesso restrito a materiais de capacitação e manuais internos da Youp.</span>
+                </div>
             </div>
+            <span class="card-arrow">➔</span>
         </div>
 
         <div class="auth-note">
@@ -211,9 +247,8 @@
         </div>
     </div>
 
-<script>
+    <script>
         // LISTA DOS EMAILS AUTORIZADOS MASCARADOS (Criptografia Base64)
-        // Isso impede que robôs ou curiosos leiam os e-mails direto no código-fonte.
         const emailsAutorizadosMascarados = [
             "YW5hcGF1bGFtYXJjYWxAeW91cGNvbnN1bHRvcmlhLmNvbQ==", // Ana Paula
             "ZGVuaXNlLmpvYmh1bnRlci55b3VwQHByb3Rvbi5tZQ==",     // Denise
@@ -240,16 +275,16 @@
             const emailDigitado = document.getElementById('email-input').value.trim().toLowerCase();
             const errorMsg = document.getElementById('error-msg');
 
-            // Pega o e-mail que o consultor digitou e aplica a mesma máscara (Base64)
             const emailMascarado = btoa(emailDigitado);
 
-            // Verifica se a máscara gerada bate com alguma das nossas senhas salvas
             if (emailsAutorizadosMascarados.includes(emailMascarado)) {
                 sessionStorage.setItem('consultorYoupLogado', 'true'); 
-		sessionStorage.setItem('usuarioEmail', emailDigitado);
+                sessionStorage.setItem('usuarioEmail', emailDigitado);
                 window.location.href = "trilhas-consultor.html"; 
             } else {
                 errorMsg.style.display = 'block';
             }
         }
     </script>
+</body>
+</html>
