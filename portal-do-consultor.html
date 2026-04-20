@@ -246,6 +246,7 @@
             // Verifica se a máscara gerada bate com alguma das nossas senhas salvas
             if (emailsAutorizadosMascarados.includes(emailMascarado)) {
                 sessionStorage.setItem('consultorYoupLogado', 'true'); 
+		sessionStorage.setItem('usuarioEmail', emailDigitado);
                 window.location.href = "trilhas-consultor.html"; 
             } else {
                 errorMsg.style.display = 'block';
