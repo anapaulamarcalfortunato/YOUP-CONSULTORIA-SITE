@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career and Job Hunting - Youp Consulting</title>
+    
+    <script>
+        if (localStorage.getItem('youp_idioma') === 'pt') {
+            const paginaAtual = window.location.pathname.split("/").pop();
+            const paginaPortugues = paginaAtual ? paginaAtual.replace('-en.html', '.html') : 'carreira.html';
+            window.location.replace(paginaPortugues);
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-medio: #333333;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.85)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px;
+            max-width: 950px;
+            width: 95%;
+            padding: 30px 45px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn-back {
+            color: var(--dourado);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .btn-back:hover { opacity: 0.7; }
+
+        .page-title {
+            color: var(--dourado);
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .page-subtitle {
+            color: var(--verde-claro);
+            font-size: 13px;
+            text-align: center;
+            margin: 10px 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .page-intro {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #e0e0e0;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .service-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: var(--verde-youp);
+            transform: translateY(-3px);
+        }
+        .service-icon {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dourado);
+        }
+        .service-title {
+            color: var(--verde-claro);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .service-text {
+            font-size: 12px;
+            color: var(--cinza-claro);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .tech-highlight {
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.08), rgba(92, 142, 130, 0.08));
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .tech-title {
+            color: var(--dourado);
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .tech-text {
+            font-size: 13px;
+            color: #ffffff;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .tech-tag {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--verde-youp);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--verde-claro);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .action-container {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .btn-action {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--dourado);
+            color: var(--cinza-escuro);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-action:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <div class="header-top">
+            <a href="index-en.html" class="btn-back">Close page ×</a>
+        </div>
+
+        <h1 class="page-title">Career Advisory & Job Hunting</h1>
+        <h2 class="page-subtitle">The Next Step in Your Leadership Journey</h2>
+
+        <p class="page-intro">
+            For high-performance leaders, time is the most valuable asset. Our advisory takes the front line of your outplacement, combining strategic active hunting and cutting-edge technology to connect you with the best positions in the market.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✒️</div>
+                <div class="service-title">Executive Branding: CV & LinkedIn</div>
+                <p class="service-text">We translate your trajectory into tangible results. We create a digital and documentary positioning that attracts recruiters and highlights your true market value.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <div class="service-title">Career Advisory (Active Hunting)</div>
+                <p class="service-text">We actively prospect the market on your behalf, mapping suitable opportunities and making direct, strategic contact with decision-makers.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <div class="service-title">Talent Book</div>
+                <p class="service-text">Your profile is included 100% confidentially in our talent pool. We guarantee total privacy while keeping your qualifications visible to companies searching for leaders.</p>
+            </div>
+        </div>
+
+        <div class="tech-highlight">
+            <h3 class="tech-title">Transparency & Artificial Intelligence</h3>
+            <p class="tech-text">
+                Our operation is powered by an automated <b>Artificial Intelligence</b> system, which performs complex data cross-referencing to find the perfect "match" between your profile and the market's hidden job opportunities with surgical precision. 
+                <br><br>
+                All this with complete control for you: through our <b>Exclusive Tracking Dashboard</b>, our clients have real-time visibility of all approaches, developments, and metrics of their outplacement project.
+            </p>
+            <div class="tech-tags">
+                <span class="tech-tag">Smart AI Matching</span>
+                <span class="tech-tag">Real-Time Dashboard</span>
+                <span class="tech-tag">Automated Search</span>
+            </div>
+        </div>
+
+        <div class="action-container">
+            <p style="font-size: 11px; color: var(--cinza-claro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                Take control of your professional trajectory
+            </p>
+            <a href="https://wa.me/5512991322333?text=Hi%20Ana%2C%20I%20was%20on%20the%20Career%20and%20Job%20Hunting%20page.%20I%20would%20like%20to%20understand%20how%20your%20advisory%20can%20accelerate%20my%20relocation." target="_blank" class="btn-action">Start My Relocation</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
