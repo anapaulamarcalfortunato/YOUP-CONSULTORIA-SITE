@@ -539,5 +539,142 @@ const trilhasYoup = [
                 </ul>
             </div>
         `
+    },
+
+    {
+        id: 12,
+        trilha: "Gestão de Clientes",
+        modulo: "Módulo Final",
+        titulo: "Certificação em Atendimento C-Level",
+        resumo: "Avaliação oficial sobre gestão de carteira, estratégia de carreira e relacionamento com assessorados.",
+        linkVideo: "",
+        conteudo: `
+            <h3>Certificação de Atendimento Youp</h3>
+            <p>A gestão de um cliente executivo exige mais do que cordialidade; exige visão de negócios, firmeza técnica e inteligência emocional. O consultor Youp atua como um verdadeiro conselheiro de reputação.</p>
+            <p><b>Regras da Certificação:</b></p>
+            <ul>
+                <li>Total de perguntas: 10</li>
+                <li>Média para aprovação: 80% (8 acertos)</li>
+                <li>Recompensa: Certificado Digital de Gestão Estratégica.</li>
+            </ul>
+            <p>Mostre que você está pronto para conduzir as carreiras mais brilhantes do mercado!</p>
+        `,
+        questoes: [
+            // Reunião Inicial e Alinhamento
+            {
+                pergunta: "Qual é o objetivo principal da reunião de kick-off (onboarding) com um novo cliente executivo?",
+                opcoes: [
+                    "Apenas preencher formulários burocráticos",
+                    "Fazer amizade e criar um clima descontraído e informal",
+                    "Alinhar expectativas reais, entender o momento de carreira, mapear dores e definir a estratégia inicial de posicionamento",
+                    "Vender outros produtos da Youp imediatamente",
+                    "Apenas ensinar o cliente a usar o LinkedIn"
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Durante a reformulação do material do cliente (Currículo e LinkedIn), qual deve ser o foco absoluto da narrativa?",
+                opcoes: [
+                    "Listar detalhadamente todas as tarefas operacionais de cada cargo",
+                    "Destacar realizações executivas, métricas de impacto (saving, EBITDA, expansão) e liderança estratégica",
+                    "Preencher o resumo com jargões motivacionais e frases de efeito",
+                    "Garantir que o currículo tenha no mínimo 5 páginas para parecer robusto",
+                    "Ocultar as experiências mais antigas, mesmo as estratégicas"
+                ],
+                correta: 1
+            },
+            // Sigilo e Estratégia
+            {
+                pergunta: "O cliente atual é Diretor em uma multinacional e deseja buscar transição de forma sigilosa. Como tratamos a abordagem no mercado?",
+                opcoes: [
+                    "Disparamos o currículo dele em grupos de WhatsApp de RH",
+                    "Evitamos buscar vagas até que ele seja demitido",
+                    "Postamos no LinkedIn que ele está 'Aberto a Oportunidades' em modo público",
+                    "Atuamos com perfil cego (blind profile), destacando o escopo e os resultados em empresas do mesmo porte, sem revelar o nome ou o CNPJ atual",
+                    "Criamos um perfil falso para ele na internet"
+                ],
+                correta: 3
+            },
+            {
+                pergunta: "Qual é o principal diferencial da 'Gestão de Carteira' da Youp em comparação a agências de emprego comuns?",
+                opcoes: [
+                    "Garantimos contratação em menos de 30 dias",
+                    "Atuamos de forma reativa, apenas repassando links de vagas",
+                    "Atuamos como curadores e conselheiros de carreira, com gestão proativa, hunting direcionado e inteligência de mercado",
+                    "Cobramos mais barato pelos nossos serviços",
+                    "Focamos apenas em volume de entrevistas, não em qualidade"
+                ],
+                correta: 2
+            },
+            // Relacionamento e Ansiedade
+            {
+                pergunta: "O cliente está ansioso porque não teve chamados para entrevistas na primeira semana de assessoria. Qual a postura do consultor Youp?",
+                opcoes: [
+                    "Acolher a ansiedade com empatia, mas reancorar as expectativas lembrando que o hunting executivo exige tempo e precisão nas agendas do mercado",
+                    "Ignorar as mensagens até ter uma boa notícia para dar",
+                    "Prometer que na próxima semana ele terá pelo menos três entrevistas",
+                    "Refazer todo o currículo do zero para ver se ajuda",
+                    "Dizer que a culpa é da economia atual"
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "Qual é o formato e a periodicidade padrão de follow-up ativo com o assessorado Youp?",
+                opcoes: [
+                    "Diário, mandando mensagens de bom dia para manter o engajamento",
+                    "Mensal, enviando apenas um relatório gerado pelo sistema",
+                    "Apenas quando o cliente cobrar ou quando houver uma entrevista marcada",
+                    "Semanal ou quinzenal, com um status report claro das empresas mapeadas (target), abordagens feitas e próximos passos táticos",
+                    "Nunca chamamos o cliente, esperamos ele entrar em contato"
+                ],
+                correta: 3
+            },
+            // Hunting e Entrevistas
+            {
+                pergunta: "Como o consultor deve apresentar um cliente Youp para um Headhunter parceiro ou decisor de uma vaga alvo?",
+                opcoes: [
+                    "Enviar o currículo em anexo com a mensagem padrão: 'Segue currículo para avaliação'",
+                    "Ligar várias vezes cobrando uma resposta imediata do recrutador",
+                    "Fazer um pitch (abordagem) personalizado e letal, conectando os desafios conhecidos da vaga com os resultados concretos do nosso executivo",
+                    "Disparar mensagens automáticas para centenas de empresas",
+                    "Pedir para o cliente entrar em contato direto com o Headhunter"
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "O cliente foi convocado para uma entrevista final com o Board (Conselho) de uma grande empresa. Qual a ação imediata do consultor?",
+                opcoes: [
+                    "Desejar boa sorte e pedir para ele ligar depois que acabar",
+                    "Enviar um PDF de 50 páginas com dicas gerais de entrevista",
+                    "Realizar um briefing/roleplay (simulação) intenso, focado na postura executiva, dores daquela empresa e na defesa de resultados complexos",
+                    "Aconselhar o cliente a ser puramente emocional na entrevista",
+                    "Acompanhar o cliente fisicamente até a sala de entrevista"
+                ],
+                correta: 2
+            },
+            // Gestão de Crises e Feedback
+            {
+                pergunta: "O cliente avançou até a fase final, mas recebeu uma recusa (não passou). Qual é o protocolo correto?",
+                opcoes: [
+                    "Dizer imediatamente que a empresa não o merecia para confortá-lo",
+                    "Culpar o cliente por ter falado algo errado na entrevista",
+                    "Buscar o feedback real com o Headhunter/RH, acolher o cliente de forma empática, analisar os pontos de melhoria técnica e recalcular a rota juntos",
+                    "Evitar tocar no assunto e sumir por alguns dias",
+                    "Enviar 15 novas vagas aleatórias no mesmo dia para tentar distrair o cliente"
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Como o 'Book de Talentos' (nossa vitrine) deve ser utilizado estrategicamente pelo consultor em favor do cliente?",
+                opcoes: [
+                    "Como um link que enviamos como resposta para qualquer e-mail que recebemos",
+                    "Como uma ferramenta de autoridade: o link do perfil VIP do cliente no Book é enviado em abordagens cirúrgicas a tomadores de decisão para validar seu peso de mercado",
+                    "Apenas para os consultores internos verem quem está na casa",
+                    "Como uma forma de cobrar taxas adicionais do cliente",
+                    "Não devemos usar o Book, pois ele expõe demais o cliente"
+                ],
+                correta: 1
+            }
+        ]
     }
 ];
