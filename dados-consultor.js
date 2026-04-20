@@ -1110,6 +1110,6 @@ const trilhasYoup = [
                 correta: 1
             }
         ]
-    };
+    }
     
 ];
