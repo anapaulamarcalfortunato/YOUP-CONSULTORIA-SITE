@@ -39,7 +39,6 @@
 
         .btn-acao { display: none; width: 100%; text-align: center; padding: 20px; border-radius: 8px; font-weight: 700; margin-top: 20px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; font-family: 'Montserrat'; font-size: 14px; }
         .btn-prova { display: block; background: var(--dourado); color: #000; }
-        .btn-download { background: var(--verde); color: #fff; margin-bottom: 10px; }
         .btn-certificado { background: transparent; color: var(--dourado); border: 1px solid var(--dourado); }
 
         #pos-prova { display:none; text-align: center; margin-top: 30px; padding: 40px; background: rgba(92, 142, 130, 0.05); border-radius: 15px; border: 1px solid var(--verde); }
@@ -78,7 +77,6 @@
                 <p style="font-size: 13px;">Insira seu nome completo para o certificado:</p>
                 <input type="text" id="nome-consultor" class="input-nome" placeholder="Seu Nome Completo">
                 
-                <a id="link-app" href="SEU_LINK_DO_APP_AQUI" class="btn-acao btn-download">Baixar Aplicativo Youp ➔</a>
                 <button class="btn-acao btn-certificado" style="display:block" onclick="gerarCertificado()">Gerar Meu Certificado Digital</button>
                 
                 <canvas id="certCanvas" width="800" height="600"></canvas>
@@ -109,35 +107,47 @@
             document.getElementById('quiz-box').style.display = 'none';
             document.getElementById('pos-prova').style.display = 'none';
             document.getElementById('certCanvas').style.display = 'none';
+            document.getElementById('instrucao-salvar').style.display = 'none';
             document.getElementById('btn-iniciar-prova').style.display = aulaAtual.questoes ? 'block' : 'none';
             document.getElementById('modal').style.display = 'block';
             document.body.style.overflow = 'hidden';
+            respostasUsuario = []; 
         }
 
         function exibirQuiz() {
             const area = document.getElementById('questoes-area');
             area.innerHTML = aulaAtual.questoes.map((q, i) => `
-                <div class="pergunta">${i+1}. ${q.pergunta}</div>
-                ${q.opcoes.map((opt, j) => `
-                    <div class="opcao" onclick="selecionar(${i}, ${j}, this)">${opt}</div>
-                `).join('')}
+                <div class="bloco-questao" style="margin-bottom: 35px;">
+                    <div class="pergunta">${i+1}. ${q.pergunta}</div>
+                    ${q.opcoes.map((opt, j) => `
+                        <div class="opcao" onclick="selecionar(${i}, ${j}, this)">${opt}</div>
+                    `).join('')}
+                </div>
             `).join('');
+            
             document.getElementById('quiz-box').style.display = 'block';
             document.getElementById('btn-iniciar-prova').style.display = 'none';
             document.getElementById('quiz-box').scrollIntoView({behavior: 'smooth'});
         }
 
         function selecionar(pIdx, oIdx, el) {
-            el.parentElement.querySelectorAll('.opcao').forEach(o => o.classList.remove('selected'));
+            const bloco = el.parentElement;
+            bloco.querySelectorAll('.opcao').forEach(o => o.classList.remove('selected'));
             el.classList.add('selected');
             respostasUsuario[pIdx] = oIdx;
         }
 
         function corrigirProva() {
-            if (respostasUsuario.length < aulaAtual.questoes.length) {
-                alert("Por favor, responda todas as 10 perguntas antes de enviar.");
+            let respondidas = 0;
+            for(let i = 0; i < aulaAtual.questoes.length; i++) {
+                if(respostasUsuario[i] !== undefined) respondidas++;
+            }
+
+            if (respondidas < aulaAtual.questoes.length) {
+                alert(`Por favor, responda todas as ${aulaAtual.questoes.length} perguntas antes de enviar.`);
                 return;
             }
+
             let acertos = 0;
             aulaAtual.questoes.forEach((q, i) => { if(respostasUsuario[i] === q.correta) acertos++; });
             const nota = (acertos / aulaAtual.questoes.length) * 100;
@@ -146,7 +156,7 @@
                 document.getElementById('nota-final').innerText = nota.toFixed(0);
                 document.getElementById('quiz-box').style.display = 'none';
                 document.getElementById('pos-prova').style.display = 'block';
-                document.getElementById('link-app').style.display = (aulaAtual.trilha === "Gestão de Atividades") ? 'block' : 'none';
+                document.getElementById('pos-prova').scrollIntoView({behavior: 'smooth'});
             } else {
                 alert(`Nota: ${nota.toFixed(0)}%. Você precisa de 80% (8 acertos). Revise o conteúdo e tente novamente!`);
             }
@@ -161,7 +171,6 @@
             canvas.style.display = 'block';
             document.getElementById('instrucao-salvar').style.display = 'block';
 
-            // Estética do Certificado
             ctx.fillStyle = '#111'; ctx.fillRect(0, 0, 800, 600);
             ctx.strokeStyle = '#c5a059'; ctx.lineWidth = 15; ctx.strokeRect(30, 30, 740, 540);
             ctx.strokeStyle = '#c5a059'; ctx.lineWidth = 2; ctx.strokeRect(45, 45, 710, 510);
