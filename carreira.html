@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carreira e Jobhunter - Youp Consultoria</title>
     
+    <script>
+        if (localStorage.getItem('youp_idioma') === 'en') {
+            const paginaAtual = window.location.pathname.split("/").pop();
+            const paginaIngles = paginaAtual ? paginaAtual.replace('.html', '-en.html') : 'carreira-en.html';
+            
+            fetch(paginaIngles, { method: 'HEAD' }).then(response => {
+                if (response.ok) { window.location.replace(paginaIngles); }
+            });
+        }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -98,7 +109,6 @@
             margin-right: auto;
         }
 
-        /* Grid de Serviços (Ajustado para caber 3 cartões) */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -135,7 +145,6 @@
             margin: 0;
         }
 
-        /* Destaque Tecnológico (IA e Painel) */
         .tech-highlight {
             background: linear-gradient(135deg, rgba(197, 160, 89, 0.08), rgba(92, 142, 130, 0.08));
             border: 1px solid rgba(197, 160, 89, 0.4);
@@ -180,7 +189,6 @@
             text-transform: uppercase;
         }
 
-        /* Botão de Ação */
         .action-container {
             text-align: center;
             padding-top: 15px;
