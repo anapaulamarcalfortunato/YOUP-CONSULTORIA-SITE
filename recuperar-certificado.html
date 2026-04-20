@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Youp - Recuperar Certificado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="dados-consultor.js"></script>
+    <style>
+        body { background: #0f0f0f; color: #eee; font-family: 'Montserrat'; text-align: center; padding: 50px; }
+        .box { max-width: 500px; margin: 0 auto; background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #c5a059; }
+        select, input { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid #c5a059; color: #fff; border-radius: 8px; box-sizing: border-box; }
+        button { background: #c5a059; border: none; padding: 15px 30px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 15px; }
+        canvas { max-width: 100%; margin-top: 20px; display:none; border: 2px solid #c5a059; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2 style="color:#c5a059">Recuperar Certificado</h2>
+        <p style="font-size: 13px; color: #888;">Se você já passou na prova, use esta área para gerar seu certificado novamente.</p>
+        
+        <input type="text" id="nome" placeholder="Seu Nome Completo">
+        
+        <select id="trilha">
+            <option value="">Selecione a Trilha Concluída</option>
+        </select>
+        
+        <input type="date" id="data">
+        
+        <button onclick="gerar()">Gerar Certificado</button>
+        <canvas id="certCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <script>
+        // Preenche o select com as trilhas do seu arquivo de dados
+        const trilhasUnicas = [...new Set(trilhasYoup.map(a => a.trilha.trim()))];
+        const select = document.getElementById('trilha');
+        trilhasUnicas.forEach(t => {
+            let opt = document.createElement('option');
+            opt.value = t; opt.innerHTML = t;
+            select.appendChild(opt);
+        });
+
+        function gerar() {
+            const nome = document.getElementById('nome').value;
+            const trilha = document.getElementById('trilha').value;
+            const dataInput = document.getElementById('data').value;
+            
+            if(!nome || !trilha || !dataInput) { alert("Preencha todos os campos!"); return; }
+
+            const canvas = document.getElementById('certCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.style.display = 'block';
+
+            // Mesma lógica de desenho do portal
+            ctx.fillStyle = '#111'; ctx.fillRect(0, 0, 800, 600);
+            ctx.strokeStyle = '#c5a059'; ctx.lineWidth = 15; ctx.strokeRect(30, 30, 740, 540);
+            ctx.fillStyle = '#c5a059'; ctx.textAlign = 'center';
+            ctx.font = 'bold 38px Montserrat'; ctx.fillText('CERTIFICADO DE APROVAÇÃO', 400, 140);
+            ctx.fillStyle = '#fff'; ctx.font = '20px Montserrat';
+            ctx.fillText('Certificamos para os devidos fins que', 400, 220);
+            ctx.font = 'bold 32px Montserrat'; ctx.fillText(nome.toUpperCase(), 400, 280);
+            ctx.font = '18px Montserrat'; ctx.fillText('concluiu com êxito a certificação técnica em:', 400, 340);
+            ctx.fillStyle = '#c5a059'; ctx.font = 'bold 28px Montserrat'; ctx.fillText(trilha, 400, 390);
+            ctx.fillStyle = '#5c8e82'; ctx.font = 'bold 16px Montserrat'; ctx.fillText('YOUP CONSULTORIA • EXCELÊNCIA E REPUTAÇÃO', 400, 500);
+            
+            // Formata a data escolhida
+            const dataBr = dataInput.split('-').reverse().join('/');
+            ctx.fillStyle = '#666'; ctx.font = '12px Montserrat';
+            ctx.fillText(`Autenticado em: ${dataBr}`, 400, 530);
+        }
+    </script>
+</body>
+</html>
