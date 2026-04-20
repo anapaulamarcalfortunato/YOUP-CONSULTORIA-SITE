@@ -3,175 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trilhas de Aprendizado - Youp</title>
+    <title>Universidade Youp - Certificação</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         if (sessionStorage.getItem('consultorYoupLogado') !== 'true') {
-            window.location.href = "portal-do-consultor.html"; // Chuta de volta pro login
+            window.location.href = "portal-do-consultor.html";
         }
     </script>
-
     <script src="dados-consultor.js"></script>
 
     <style>
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); overflow-x: hidden; }
-        
-        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); position: relative; }
-        .hero h1 { color: var(--dourado); font-size: 32px; font-weight: 800; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
-        .hero p { color: #888; font-size: 14px; max-width: 500px; margin: 15px auto 0; line-height: 1.6; }
-        
-        .header-actions { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; }
-        .btn-action { color: var(--dourado); text-decoration: none; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; background: none; border: none; }
-        .btn-action:hover { color: var(--verde); }
-
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); line-height: 1.6; }
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+        .hero h1 { color: var(--dourado); font-size: 32px; font-weight: 800; text-transform: uppercase; margin: 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        
-        /* Filtros das Trilhas */
-        .filters { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-        .filter-btn { background: var(--cinza); color: #888; border: 1px solid rgba(255,255,255,0.1); padding: 10px 25px; border-radius: 30px; font-family: 'Montserrat'; font-size: 12px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
-        .filter-btn:hover { border-color: var(--dourado); color: var(--texto); }
-        .filter-btn.active { background: rgba(197, 160, 89, 0.1); border-color: var(--dourado); color: var(--dourado); }
-
-        /* Grid de Aulas */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--cinza); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; transition: 0.3s; display: flex; flex-direction: column; cursor: pointer; border-left: 3px solid var(--dourado); }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); background: #222; }
-        
-        .modulo-badge { color: var(--verde); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        .title { font-size: 18px; margin: 0 0 15px; color: var(--texto); font-weight: 700; line-height: 1.4; }
-        .resumo { font-size: 13px; color: #999; line-height: 1.6; flex: 1; margin: 0; }
-        
-        .read-more { margin-top: 25px; font-size: 11px; font-weight: 700; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; }
+        .card { background: var(--cinza); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; cursor: pointer; border-left: 3px solid var(--dourado); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); background: #222; }
+        .card h3 { margin: 10px 0; color: var(--dourado); font-size: 18px; }
+        .modulo-badge { color: var(--verde); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Modal da Aula */
-        #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15, 15, 15, 0.98); z-index:100; backdrop-filter: blur(5px); }
-        .modal-body { max-width:800px; margin: 0 auto; background: var(--preto); border-left: 1px solid rgba(197, 160, 89, 0.2); border-right: 1px solid rgba(197, 160, 89, 0.2); height: 100vh; overflow-y: auto; padding: 60px; box-sizing: border-box; }
+        /* MODAL */
+        #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10, 10, 10, 0.98); z-index:100; backdrop-filter: blur(10px); }
+        .modal-body { max-width:850px; margin: 0 auto; background: var(--preto); height: 100vh; overflow-y: auto; padding: 60px; box-sizing: border-box; border-left: 1px solid #333; border-right: 1px solid #333; }
+        .close-btn { position: fixed; top: 20px; right: 30px; color: #fff; font-size: 35px; cursor: pointer; }
+
+        /* QUIZ */
+        .quiz-container { margin-top: 40px; padding: 30px; background: #111; border: 1px solid var(--dourado); border-radius: 12px; display: none; }
+        .pergunta { font-weight: 700; margin-bottom: 20px; color: var(--dourado); font-size: 16px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .opcao { display: block; padding: 15px; background: #222; margin-bottom: 10px; border-radius: 8px; cursor: pointer; border: 1px solid transparent; transition: 0.2s; font-size: 14px; }
+        .opcao:hover { border-color: var(--verde); background: #2a2a2a; }
+        .opcao.selected { border-color: var(--dourado); background: rgba(197, 160, 89, 0.15); font-weight: 600; }
+
+        .btn-acao { display: none; width: 100%; text-align: center; padding: 20px; border-radius: 8px; font-weight: 700; margin-top: 20px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; font-family: 'Montserrat'; font-size: 14px; }
+        .btn-prova { display: block; background: var(--dourado); color: #000; }
+        .btn-download { background: var(--verde); color: #fff; margin-bottom: 10px; }
+        .btn-certificado { background: transparent; color: var(--dourado); border: 1px solid var(--dourado); }
+
+        #pos-prova { display:none; text-align: center; margin-top: 30px; padding: 40px; background: rgba(92, 142, 130, 0.05); border-radius: 15px; border: 1px solid var(--verde); }
+        canvas { max-width: 100%; height: auto; border: 4px solid var(--dourado); margin-top: 20px; display: none; }
         
-        .close-btn { position: fixed; top: 20px; right: 30px; color: #fff; font-size: 35px; cursor: pointer; z-index: 110; opacity: 0.5; transition: 0.3s; }
-        .close-btn:hover { opacity: 1; color: var(--dourado); }
-
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 30px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); display: none; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-        #m-modulo { color: var(--verde); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        #m-title { font-size: 28px; color: var(--dourado); margin: 0 0 30px 0; line-height: 1.3; }
-        #m-text { line-height: 1.8; color: #ccc; font-size: 15px; white-space: pre-wrap; }
-        #m-text h3 { color: var(--texto); margin-top: 30px; margin-bottom: 10px; font-size: 18px; }
-        #m-text b { color: var(--dourado); }
+        .input-nome { width: 100%; padding: 15px; background: #000; border: 1px solid var(--dourado); color: #fff; border-radius: 8px; margin-bottom: 15px; font-family: 'Montserrat'; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <div class="header-actions">
-            <a href="portal-do-consultor.html" class="btn-action">← Voltar ao Hub</a>
-            <button onclick="fazerLogout()" class="btn-action">Sair (Logout) ×</button>
-        </div>
-        <h1>Universidade Corporativa</h1>
-        <p>Acesso exclusivo aos materiais de padronização, processos e cultura da Youp Consultoria.</p>
+        <h1>Universidade Youp</h1>
+        <p>Certificações de Excelência Operacional</p>
     </div>
 
     <div class="container">
-        <div id="filters" class="filters"></div>
         <div id="aulasGrid" class="grid"></div>
     </div>
 
     <div id="modal">
         <span class="close-btn" onclick="fecharModal()">×</span>
-        <div class="modal-body" onclick="event.stopPropagation()">
-            <div id="m-video-box" class="video-container">
-                <iframe id="m-video" src="" allowfullscreen></iframe>
-            </div>
-            <span id="m-modulo" class="modulo-badge"></span>
-            <h2 id="m-title"></h2>
+        <div class="modal-body">
+            <h2 id="m-title" style="color:var(--dourado)"></h2>
             <div id="m-text"></div>
+
+            <button id="btn-iniciar-prova" class="btn-acao btn-prova" onclick="exibirQuiz()">Iniciar Prova de Certificação</button>
+
+            <div id="quiz-box" class="quiz-container">
+                <div id="questoes-area"></div>
+                <button class="btn-acao btn-prova" style="display:block" onclick="corrigirProva()">Finalizar e Ver Nota</button>
+            </div>
+
+            <div id="pos-prova">
+                <h2 style="color:var(--verde); margin-top:0;">✓ APROVADO!</h2>
+                <p>Sua nota foi <span id="nota-final" style="font-weight:800; font-size: 24px;"></span>%</p>
+                <p style="font-size: 13px;">Insira seu nome completo para o certificado:</p>
+                <input type="text" id="nome-consultor" class="input-nome" placeholder="Seu Nome Completo">
+                
+                <a id="link-app" href="SEU_LINK_DO_APP_AQUI" class="btn-acao btn-download">Baixar Aplicativo Youp ➔</a>
+                <button class="btn-acao btn-certificado" style="display:block" onclick="gerarCertificado()">Gerar Meu Certificado Digital</button>
+                
+                <canvas id="certCanvas" width="800" height="600"></canvas>
+                <p id="instrucao-salvar" style="display:none; font-size:11px; color:#888; margin-top:10px;">Toque e segure (ou clique com o botão direito) na imagem para salvar.</p>
+            </div>
         </div>
     </div>
 
     <script>
+        let aulaAtual = null;
+        let respostasUsuario = [];
+
         document.addEventListener("DOMContentLoaded", () => {
-            if (typeof trilhasYoup === 'undefined') {
-                document.getElementById('aulasGrid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-consultor.js não encontrado!</p>";
-                return;
-            }
-            renderizarFiltros();
-            renderizarGrid(trilhasYoup);
-        });
-
-        function renderizarFiltros() {
-            const filtersDiv = document.getElementById('filters');
-            const trilhas = [...new Set(trilhasYoup.map(a => a.trilha).filter(t => t))];
-            
-            let htmlFiltros = `<button class="filter-btn active" onclick="filtrar('Todas', this)">Todas as Trilhas</button>`;
-            trilhas.forEach(trilha => {
-                htmlFiltros += `<button class="filter-btn" onclick="filtrar('${trilha}', this)">${trilha}</button>`;
-            });
-            filtersDiv.innerHTML = htmlFiltros;
-        }
-
-        function renderizarGrid(lista) {
             const grid = document.getElementById('aulasGrid');
-            if (lista.length === 0) {
-                grid.innerHTML = "<p style='color:#888; text-align:center; grid-column: 1 / -1;'>Nenhuma aula encontrada.</p>";
-                return;
-            }
-
-            grid.innerHTML = lista.map(a => `
+            grid.innerHTML = trilhasYoup.map(a => `
                 <div class="card" onclick="abrirAula(${a.id})">
-                    <span class="modulo-badge">${a.trilha} • ${a.modulo}</span>
-                    <h3 class="title">${a.titulo}</h3>
-                    <p class="resumo">${a.resumo}</p>
-                    <div class="read-more">Acessar Material ➔</div>
+                    <span class="modulo-badge">${a.trilha}</span>
+                    <h3>${a.titulo}</h3>
+                    <p style="font-size:12px; color:#888;">${a.resumo}</p>
                 </div>
             `).join('');
-        }
+        });
 
-        function filtrar(trilha, botao) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            botao.classList.add('active');
-
-            if (trilha === 'Todas') {
-                renderizarGrid(trilhasYoup);
-            } else {
-                const filtradas = trilhasYoup.filter(a => a.trilha === trilha);
-                renderizarGrid(filtradas);
-            }
-        }
-
-        function abrirAula(idTarget) {
-            const a = trilhasYoup.find(item => item.id === idTarget);
-            if(!a) return;
-
-            document.getElementById('m-modulo').innerText = `${a.trilha} • ${a.modulo}`;
-            document.getElementById('m-title').innerText = a.titulo;
-            document.getElementById('m-text').innerHTML = a.conteudo;
-
-            const videoBox = document.getElementById('m-video-box');
-            const videoIframe = document.getElementById('m-video');
-
-            if (a.linkVideo && a.linkVideo.trim() !== "") {
-                videoIframe.src = a.linkVideo;
-                videoBox.style.display = "block";
-            } else {
-                videoIframe.src = "";
-                videoBox.style.display = "none";
-            }
-
+        function abrirAula(id) {
+            aulaAtual = trilhasYoup.find(a => a.id === id);
+            document.getElementById('m-title').innerText = aulaAtual.titulo;
+            document.getElementById('m-text').innerHTML = aulaAtual.conteudo;
+            document.getElementById('quiz-box').style.display = 'none';
+            document.getElementById('pos-prova').style.display = 'none';
+            document.getElementById('certCanvas').style.display = 'none';
+            document.getElementById('btn-iniciar-prova').style.display = aulaAtual.questoes ? 'block' : 'none';
             document.getElementById('modal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
-        function fecharModal() {
-            document.getElementById('modal').style.display = 'none';
-            document.getElementById('m-video').src = ""; // Para parar o vídeo se estiver tocando
-            document.body.style.overflow = 'auto';
+        function exibirQuiz() {
+            const area = document.getElementById('questoes-area');
+            area.innerHTML = aulaAtual.questoes.map((q, i) => `
+                <div class="pergunta">${i+1}. ${q.pergunta}</div>
+                ${q.opcoes.map((opt, j) => `
+                    <div class="opcao" onclick="selecionar(${i}, ${j}, this)">${opt}</div>
+                `).join('')}
+            `).join('');
+            document.getElementById('quiz-box').style.display = 'block';
+            document.getElementById('btn-iniciar-prova').style.display = 'none';
+            document.getElementById('quiz-box').scrollIntoView({behavior: 'smooth'});
         }
 
-        function fazerLogout() {
-            sessionStorage.removeItem('consultorYoupLogado');
-            window.location.href = "portal-do-consultor.html";
+        function selecionar(pIdx, oIdx, el) {
+            el.parentElement.querySelectorAll('.opcao').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            respostasUsuario[pIdx] = oIdx;
+        }
+
+        function corrigirProva() {
+            if (respostasUsuario.length < aulaAtual.questoes.length) {
+                alert("Por favor, responda todas as 10 perguntas antes de enviar.");
+                return;
+            }
+            let acertos = 0;
+            aulaAtual.questoes.forEach((q, i) => { if(respostasUsuario[i] === q.correta) acertos++; });
+            const nota = (acertos / aulaAtual.questoes.length) * 100;
+
+            if(nota >= 80) {
+                document.getElementById('nota-final').innerText = nota.toFixed(0);
+                document.getElementById('quiz-box').style.display = 'none';
+                document.getElementById('pos-prova').style.display = 'block';
+                document.getElementById('link-app').style.display = (aulaAtual.trilha === "Gestão de Atividades") ? 'block' : 'none';
+            } else {
+                alert(`Nota: ${nota.toFixed(0)}%. Você precisa de 80% (8 acertos). Revise o conteúdo e tente novamente!`);
+            }
+        }
+
+        function gerarCertificado() {
+            const nome = document.getElementById('nome-consultor').value.trim();
+            if(!nome) { alert("Digite seu nome para o certificado!"); return; }
+
+            const canvas = document.getElementById('certCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.style.display = 'block';
+            document.getElementById('instrucao-salvar').style.display = 'block';
+
+            // Estética do Certificado
+            ctx.fillStyle = '#111'; ctx.fillRect(0, 0, 800, 600);
+            ctx.strokeStyle = '#c5a059'; ctx.lineWidth = 15; ctx.strokeRect(30, 30, 740, 540);
+            ctx.strokeStyle = '#c5a059'; ctx.lineWidth = 2; ctx.strokeRect(45, 45, 710, 510);
+
+            ctx.fillStyle = '#c5a059'; ctx.textAlign = 'center';
+            ctx.font = 'bold 38px Montserrat'; ctx.fillText('CERTIFICADO DE APROVAÇÃO', 400, 140);
+            
+            ctx.fillStyle = '#fff'; ctx.font = '20px Montserrat';
+            ctx.fillText('Certificamos para os devidos fins que', 400, 220);
+            
+            ctx.fillStyle = '#fff'; ctx.font = 'bold 32px Montserrat';
+            ctx.fillText(nome.toUpperCase(), 400, 280);
+            
+            ctx.fillStyle = '#fff'; ctx.font = '18px Montserrat';
+            ctx.fillText('concluiu com êxito a certificação técnica em:', 400, 340);
+            
+            ctx.fillStyle = '#c5a059'; ctx.font = 'bold 28px Montserrat';
+            ctx.fillText(aulaAtual.trilha, 400, 390);
+
+            ctx.fillStyle = '#5c8e82'; ctx.font = 'bold 16px Montserrat';
+            ctx.fillText('YOUP CONSULTORIA • EXCELÊNCIA E REPUTAÇÃO', 400, 500);
+
+            ctx.fillStyle = '#666'; ctx.font = '12px Montserrat';
+            ctx.fillText(`Autenticado em: ${new Date().toLocaleDateString('pt-BR')}`, 400, 530);
+            
+            canvas.scrollIntoView({behavior: 'smooth'});
+        }
+
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            respostasUsuario = [];
         }
     </script>
 </body>
