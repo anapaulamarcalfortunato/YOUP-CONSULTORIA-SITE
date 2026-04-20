@@ -320,7 +320,7 @@ const trilhasYoup = [
 
 {
         id: 6,
-        trilha: "Gestão de Atividades",
+        trilha: "Gestão das Atividades",
         modulo: "Módulo Final",
         titulo: "Certificação Operacional Youp",
         resumo: "Avaliação de competências para liberação do ecossistema Youp.",
@@ -543,7 +543,7 @@ const trilhasYoup = [
 
     {
         id: 12,
-        trilha: "Gestão de Clientes",
+        trilha: "Gestão dos Clientes",
         modulo: "Módulo Final",
         titulo: "Certificação em Atendimento C-Level",
         resumo: "Avaliação oficial sobre gestão de carteira, estratégia de carreira e relacionamento com assessorados.",
