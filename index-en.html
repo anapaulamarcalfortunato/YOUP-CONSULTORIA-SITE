@@ -21,7 +21,7 @@
         :root {
             --verde-youp: #5c8e82;
             --verde-claro: #84a98c;
-            --dourado: #c5a059;
+            --dourado: #c5a059; /* Dourado elegante/fosco */
             --cinza-escuro: #1a1a1a;
             --cinza-medio: #333333;
             --cinza-claro: #b0b0b0;
@@ -39,16 +39,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            height: 100vh; /* Ocupa exatamente a altura da tela */
+            overflow: hidden; /* Impede a rolagem da página inteira */
         }
 
+        /* Container principal - Adicionado Position Relative para o seletor de idioma ancorar nele */
         .glass-container {
-            position: relative;
+            position: relative; 
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
+            border: 1px solid rgba(197, 160, 89, 0.2); /* Borda levemente dourada */
             border-radius: 15px;
             max-width: 850px;
             width: 95%;
@@ -58,6 +59,7 @@
             box-sizing: border-box;
         }
 
+        /* NOVO: Seletor de Idiomas no topo direito do Box */
         .lang-switch-box {
             position: absolute;
             top: 20px;
@@ -220,7 +222,6 @@
             <p class="section-title">For Talent</p>
             <div class="button-group">
                 <a href="carreira-en.html" class="btn">Career & Outplacement</a>
-                <a href="https://script.google.com/macros/s/AKfycbxH7nOYH-35otgl8_wuf0PuOVP1CqC9jgIp5ZSc0qi45Wz1fvLLhAg78auu3VNfsbFQeg/exec" class="btn" target="_blank" style="border-color: var(--verde-claro);">Our Jobs</a>
                 <a href="reputacao-en.html" class="btn">Reputation</a>
             </div>
         </div>
@@ -232,10 +233,7 @@
             <div class="button-group">
                 <a href="https://wa.me/5512991322333?text=Hi%20Ana%2C%20I%20was%20on%20your%20website%20and%20I%20want%20to%20change%20my%20career%2C%20can%20you%20help%20me%3F" target="_blank" class="btn btn-alt btn-gold">Contact Us</a>
                 <a href="sobre-en.html" class="btn btn-alt">About Us</a>
-                <a href="produtos-en.html" class="btn btn-alt">Products</a>
-                <a href="area-parceiro-en.html" class="btn btn-alt">Partner Area</a>
                 <a href="contatos-en.html" class="btn btn-alt">Contacts</a>
-                <a href="privacidade-en.html" class="btn btn-alt" style="font-size: 10px;">Privacy</a>
             </div>
         </div>
 
