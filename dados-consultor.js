@@ -1,7 +1,7 @@
-// Banco de Dados de Treinamentos - Equipe Youp
-// Para adicionar uma nova aula, copie um bloco entre { }, coloque uma vírgula e cole abaixo.
-
 const trilhasYoup = [
+    // ==========================================
+    // TRILHA 1: Gestão das Atividades
+    // ==========================================
     {
         id: 1,
         trilha: "Gestão das Atividades",
@@ -95,7 +95,6 @@ const trilhasYoup = [
                         </ul>
                     </li>
                 </ul>
-                <p style="margin: 0 0 15px 0; font-size: 0.9em; opacity: 0.9;"><em>Atenção: Em alguns projetos de parceria (vagas externas), você verá uma caixinha de texto extra. Se a plataforma gerar um status específico que você queira registrar, digite ali e clique em "Salvar Texto".</em></p>
                 
                 <p style="margin: 0 0 20px 0;"><strong>🚀 Mágica do Sistema:</strong> Assim que você clica no botão, o cartão desaparece da tela de Pendências e o sistema já carimba a data e hora do feito lá na planilha da Master.</p>
 
@@ -202,7 +201,7 @@ const trilhasYoup = [
                 <p style="margin: 0 0 10px 0;">Como vimos no módulo anterior, o painel oculta automaticamente as vagas que chegam ao fim do funil para manter a sua tela limpa. Mas o que significa cada um desses status finais? Quando você deve usá-los na aba de Follows?</p>
                 <ul style="margin: 0 0 15px 0; padding-left: 20px;">
                     <li style="margin-bottom: 5px;"><strong>🎯 Agendou Entrevista:</strong> O nosso objetivo principal! Use quando o recrutador convidar o cliente para um papo.</li>
-                    <li style="margin-bottom: 5px;"><strong>📄 Enviou Currículo:</strong> Quando o recrutador pede o CV para análise, mas ainda não marcou a entrevista. (<em>Atenção: algumas vagas podem morrer aqui se o CV não for aprovado, então fique de olho para atualizar depois, se necessário</em>).</li>
+                    <li style="margin-bottom: 5px;"><strong>📄 Enviou Currículo:</strong> Quando o recrutador pede o CV para análise, mas ainda não marcou a entrevista.</li>
                     <li style="margin-bottom: 5px;"><strong>❌ Negativa/Reprovado:</strong> Quando o recrutador responde informando que o perfil não seguiu no processo.</li>
                     <li style="margin-bottom: 5px;"><strong>🧊 Processo Congelado:</strong> Quando a empresa informa que a vaga foi suspensa temporariamente.</li>
                     <li style="margin-bottom: 5px;"><strong>🔒 Vaga Finalizada:</strong> Quando a empresa fecha a posição com outro candidato.</li>
@@ -329,7 +328,6 @@ const trilhasYoup = [
             <p>Prepare-se e boa sorte!</p>
         `,
         questoes: [
-            // Módulo 1: Organização e Processos
             {
                 pergunta: "Qual é o objetivo primordial da atualização em tempo real do checklist de tarefas no hub?",
                 opcoes: ["Apenas controle administrativo", "Evitar que a Ana Paula precise cobrar prazos", "Garantir a transparência da operação e agilidade no follow-up com o assessorado", "Cumprir uma formalidade do sistema", "Preencher o tempo ocioso entre reuniões"],
@@ -340,7 +338,6 @@ const trilhasYoup = [
                 opcoes: ["Ignorar e tentar compensar no dia seguinte", "Informar imediatamente a gestão com uma solução ou novo prazo proposto", "Esperar o cliente reclamar para se manifestar", "Apagar a tarefa do checklist", "Pedir para outro consultor assumir sem avisar ninguém"],
                 correta: 1
             },
-            // Módulo 2: Gestão de Clientes (Carteira)
             {
                 pergunta: "Na Youp, como definimos a 'Gestão de Carteira' de um consultor?",
                 opcoes: ["Uma lista de nomes para enviar e-mails prontos", "Um processo passivo de espera por vagas", "A curadoria estratégica de cada assessorado, tratando cada carreira como um projeto único", "O preenchimento de planilhas de contatos", "A prospecção de qualquer tipo de vaga de nível operacional"],
@@ -351,7 +348,6 @@ const trilhasYoup = [
                 opcoes: ["Informal e frequente, via áudios longos", "Distante, enviando relatórios apenas uma vez por mês", "Cirúrgico, elegante, focado em avanços concretos e métricas de mercado", "Reativo, respondendo apenas quando solicitado", "Baseado em mensagens motivacionais diárias"],
                 correta: 2
             },
-            // Módulo 3: Inteligência de Mercado (Hunting)
             {
                 pergunta: "Sobre o 'Mercado Oculto', qual o papel fundamental do consultor Youp?",
                 opcoes: ["Aguardar que as vagas apareçam no LinkedIn", "Mapear oportunidades não publicadas através de hunting estratégico e networking", "Cadastrar o cliente em sites de emprego comuns", "Pedir ao cliente que procure suas próprias vagas", "Focar apenas em concursos públicos"],
@@ -362,7 +358,6 @@ const trilhasYoup = [
                 opcoes: ["A quantidade de vagas, independente do perfil", "Vagas que paguem comissões rápidas", "A aderência da oportunidade com o perfil dos assessorados ativos na casa", "Apenas vagas internacionais", "Vagas publicadas em portais de notícias"],
                 correta: 2
             },
-            // Módulo 4: Comunicação e Reputação
             {
                 pergunta: "O 'Tom de Voz Letal' mencionado na cultura Youp refere-se a:",
                 opcoes: ["Ser agressivo com os recrutadores", "Falar muito rápido para demonstrar agilidade", "Uma comunicação precisa, direta, altamente profissional e orientada a resultados", "Usar termos técnicos em inglês o tempo todo", "Falar pouco para parecer misterioso"],
@@ -373,7 +368,6 @@ const trilhasYoup = [
                 opcoes: ["Pode ser compartilhada com parceiros externos sem aviso", "É relativa, dependendo da importância do cargo", "É blindada e absoluta, sendo um dos nossos maiores ativos de confiança", "Apenas dados financeiros são sigilosos", "É aberta apenas para outros clientes da casa"],
                 correta: 2
             },
-            // Módulo 5: Entrega e Performance
             {
                 pergunta: "O que caracteriza uma entrega de 'Excelência' no reposicionamento executivo?",
                 opcoes: ["Entregar o currículo no prazo, mesmo com erros", "Superar as expectativas do cliente com insights de mercado e preparação de alto nível", "Apenas garantir que o cliente seja entrevistado", "Fazer o que o cliente pede, mesmo que ele esteja errado estrategicamente", "Delegar todas as tarefas para o suporte"],
@@ -386,12 +380,16 @@ const trilhasYoup = [
             }
         ]
     },
+
+    // ==========================================
+    // TRILHA 2: Gestão dos Clientes
+    // ==========================================
     {
         id: 7,
         trilha: "Gestão dos Clientes",
         modulo: "Módulo 1: Primeiros Passos",
         titulo: "Visão Geral e a Magia dos Papéis de Acesso",
-        resumo: "Entenda o conceito do Youp Gestão como nossa casa digital, como acessar a plataforma e a segurança por trás dos papéis de acesso (Busca, Cadastro, Contato e Admin).",
+        resumo: "Entenda o conceito do Youp Gestão como nossa casa digital, como acessar a plataforma e a segurança por trás dos papéis de acesso.",
         linkVideo: "", 
         imagem: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop", 
         conteudo: `
@@ -409,6 +407,7 @@ const trilhasYoup = [
                     <li style="margin-bottom: 5px;">Você só verá as informações pertinentes ao seu trabalho. Se você não lida com o <em>Cadastro</em> do cliente, os dados sensíveis e senhas dele estarão bloqueados para você. Isso protege a empresa, o cliente e organiza a sua mente!</li>
                 </ul>
             </div>
+        `
     },
     {
         id: 8,
@@ -470,6 +469,7 @@ const trilhasYoup = [
                 <h4 style="font-size: 1.1em; margin: 15px 0 5px 0; font-weight: 700;">4. Aba CV FINAL</h4>
                 <p style="margin: 0 0 15px 0;">O documento oficial criado pela Youp. Aqui vocês visualizam os links da versão final do currículo e o texto completo elaborado para o cliente. Usem o botão <strong>"COPIAR TUDO"</strong> para levar esse texto rapidamente para a Gupy ou outras plataformas de vagas.</p>
             </div>
+        `
     },
     {
         id: 10,
@@ -498,6 +498,7 @@ const trilhasYoup = [
                     <li style="margin-bottom: 5px;">O sistema enviará, na mesma hora, um e-mail direto para a caixa de entrada da Administração com o seu nome, o nome do cliente e a sua mensagem. Usem com sabedoria para destravar impedimentos urgentes!</li>
                 </ul>
             </div>
+        `
     },
     {
         id: 11,
@@ -525,6 +526,7 @@ const trilhasYoup = [
                     <li style="margin-bottom: 5px; color: #e74c3c;">Por fim, no topo da ficha, há um ícone de <strong>lixeira vermelha</strong>. Ele serve para excluir um cliente permanentemente do banco de dados (use com extrema cautela!).</li>
                 </ul>
             </div>
+        `
     },
     {
         id: 12,
@@ -534,7 +536,7 @@ const trilhasYoup = [
         resumo: "Avaliação oficial sobre gestão de carteira, estratégia de carreira e relacionamento com assessorados.",
         linkVideo: "",
         conteudo: `
-            <h3>Certificação de Atendimento Youp</h3>
+            <h3 style="color: var(--dourado);">Certificação de Atendimento Youp</h3>
             <p>A gestão de um cliente executivo exige mais do que cordialidade; exige visão de negócios, firmeza técnica e inteligência emocional. O consultor Youp atua como um verdadeiro conselheiro de reputação.</p>
             <p><b>Regras da Certificação:</b></p>
             <ul>
@@ -545,7 +547,6 @@ const trilhasYoup = [
             <p>Mostre que você está pronto para conduzir as carreiras mais brilhantes do mercado!</p>
         `,
         questoes: [
-            // Reunião Inicial e Alinhamento
             {
                 pergunta: "Qual é o objetivo principal da reunião de kick-off (onboarding) com um novo cliente executivo?",
                 opcoes: [
@@ -568,7 +569,6 @@ const trilhasYoup = [
                 ],
                 correta: 1
             },
-            // Sigilo e Estratégia
             {
                 pergunta: "O cliente atual é Diretor em uma multinacional e deseja buscar transição de forma sigilosa. Como tratamos a abordagem no mercado?",
                 opcoes: [
@@ -591,7 +591,6 @@ const trilhasYoup = [
                 ],
                 correta: 2
             },
-            // Relacionamento e Ansiedade
             {
                 pergunta: "O cliente está ansioso porque não teve chamados para entrevistas na primeira semana de assessoria. Qual a postura do consultor Youp?",
                 opcoes: [
@@ -614,7 +613,6 @@ const trilhasYoup = [
                 ],
                 correta: 3
             },
-            // Hunting e Entrevistas
             {
                 pergunta: "Como o consultor deve apresentar um cliente Youp para um Headhunter parceiro ou decisor de uma vaga alvo?",
                 opcoes: [
@@ -637,7 +635,6 @@ const trilhasYoup = [
                 ],
                 correta: 2
             },
-            // Gestão de Crises e Feedback
             {
                 pergunta: "O cliente avançou até a fase final, mas recebeu uma recusa (não passou). Qual é o protocolo correto?",
                 opcoes: [
@@ -662,6 +659,10 @@ const trilhasYoup = [
             }
         ]
     },
+
+    // ==========================================
+    // TRILHA 3: IA ao Favor da Youp
+    // ==========================================
     {
         id: 13,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -730,7 +731,7 @@ const trilhasYoup = [
             <h3 style="color: var(--dourado); margin-bottom: 15px;">1. Como o Algoritmo "Lê" (O Processo de Parsing)</h3>
             <p>O ATS não "lê" um currículo como nós lemos um livro. Ele faz um processo chamado <strong>Parsing</strong> (análise e extração de dados). Ele pega aquele arquivo PDF ou Word, quebra todo o texto, destrói a formatação e tenta jogar as informações nas "gavetas" do banco de dados da empresa (gaveta de "Nome", gaveta de "Cargos", gaveta de "Educação").</p>
             <ul style="margin-bottom: 25px;">
-                <li style="margin-bottom: 10px;"><strong>O idioma do ATS é a simplicidade:</strong> Se o sistema não consegue identificar o que é o título do cargo e o que é o nome da empresa, ele mistura tudo ou, pior, ignora a informação.</li>
+                <li style="margin-bottom: 10px;"><strong>O idioma do ATS é a simplicidade:</strong> Se o sistema não consegue identify o que é o título do cargo e o que é o nome da empresa, ele mistura tudo ou, pior, ignora a informação.</li>
                 <li><strong>A importância da nomenclatura padrão:</strong> Sistemas de ATS procuram por cabeçalhos universais. Se o cliente colocou no currículo um título criativo como "Minha Jornada de Sucesso" em vez de "Experiência Profissional", o robô pode simplesmente não entender que os dados abaixo são o histórico de trabalho dele.</li>
             </ul>
 
@@ -754,6 +755,7 @@ const trilhasYoup = [
                 <strong>Resumo da Ópera para o nosso time:</strong> O ATS é burro e literal, mas é ele quem segura a chave da porta. Nós não podemos ser reprovados por falhas de formatação ou por usar a nomenclatura errada para a coisa certa. Agora que entendemos como o "inimigo" pensa e como ele nos avalia, temos a faca e o queijo na mão para usar a NOSSA Inteligência Artificial (Gemini, ChatGPT) para vencê-lo no próprio jogo.<br><br>
                 <em>Ficou claro como o sistema de leitura e o cálculo de score funcionam? Estão prontos para entrarmos no Módulo 3 e aprendermos a construir a Engenharia de Prompts perfeita para domar a nossa IA?</em>
             </div>
+        `
     },
     {
         id: 15,
@@ -812,6 +814,7 @@ const trilhasYoup = [
                 <strong>Resumo da Ópera para o nosso time:</strong> A Engenharia de Prompts na nossa consultoria não é sobre aprender truques de tecnologia, mas sobre saber fazer as perguntas certas e estabelecer o rigor necessário. Com o contexto bem definido, a vaga dissecada e os dados do cliente protegidos, nós criamos o ambiente perfeito para a mágica acontecer.<br><br>
                 <em>Anotem e revisem esses comandos. No Módulo 4, nós vamos juntar tudo o que aprendemos até aqui para cruzar o histórico do cliente com a vaga e criar um currículo de altíssima conversão. Nos vemos na próxima aula.</em>
             </div>
+        `
     },
     {
         id: 16,
@@ -967,7 +970,6 @@ const trilhasYoup = [
             <p>Concentre-se, revise seus conceitos mentais e prove que você domina a máquina. Boa prova!</p>
         `,
         questoes: [
-            // Módulo 1
             {
                 pergunta: "Sobre o uso da Inteligência Artificial na elaboração de currículos, qual é a premissa fundamental da Youp?",
                 opcoes: [
@@ -990,7 +992,6 @@ const trilhasYoup = [
                 ],
                 correta: 1
             },
-            // Módulo 2
             {
                 pergunta: "Por que o currículo com 'design' (duas colunas, gráficos, ícones e barras de progresso) é considerado o inimigo do cliente C-Level?",
                 opcoes: [
@@ -1013,7 +1014,6 @@ const trilhasYoup = [
                 ],
                 correta: 1
             },
-            // Módulo 3
             {
                 pergunta: "Para evitar a 'amnésia algorítmica' e respostas genéricas, qual é o primeiro passo obrigatório antes de pedir uma tarefa à IA?",
                 opcoes: [
@@ -1036,7 +1036,6 @@ const trilhasYoup = [
                 ],
                 correta: 1
             },
-            // Módulo 4
             {
                 pergunta: "O que significa realizar o 'Diagnóstico de Gaps' no processo de CV Tailoring?",
                 opcoes: [
@@ -1059,7 +1058,6 @@ const trilhasYoup = [
                 ],
                 correta: 4
             },
-            // Módulo 5
             {
                 pergunta: "Como a IA atua na Geração de Perguntas Comportamentais para o candidato?",
                 opcoes: [
@@ -1084,5 +1082,413 @@ const trilhasYoup = [
             }
         ]
     },
-    
+
+    // ==========================================
+    // TRILHA 4: O Currículo Inteligente
+    // ==========================================
+    {
+        id: 19,
+        trilha: "O Currículo Inteligente",
+        modulo: "Módulo 1",
+        titulo: "A Dupla Audiência e a Anatomia do Currículo Híbrido",
+        resumo: "Entenda como criar um currículo 'bilíngue' que vença o algoritmo do ATS e persuada o recrutador humano em 6 segundos.",
+        linkVideo: "",
+        conteudo: `
+            <p>Bem-vindos, time de elite! Se na trilha anterior nós aprendemos a usar a Inteligência Artificial a nosso favor, nesta trilha nós vamos aprender a construir o "produto final" perfeito.</p>
+            
+            <p>O maior erro dos profissionais no mercado — e de muitos consultores desatualizados — é escrever um currículo para uma audiência só. Alguns fazem currículos "frios" e cheios de jargões só para passar na máquina. Outros fazem currículos poéticos, lindos e cheios de design para impressionar o humano (e nunca chegam nele).</p>
+            
+            <p>Nós faremos o <strong>Currículo Híbrido</strong>. Ele é bilíngue. Ele tem a estrutura técnica que a máquina ama e o apelo emocional e de resultados que o humano compra. Vamos entender a anatomia desse documento através de três pilares fundamentais.</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. A Batalha dos Dois Leitores (Máquina vs. Humano)</h3>
+            <p>Quando você finaliza o currículo do seu cliente e ele clica em "Enviar Candidatura", o documento entra em um funil com dois porteiros completamente diferentes.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Porteiro Digital (ATS):</strong> Ele é frio, literal e não tem imaginação. O objetivo dele não é contratar, é filtrar e categorizar. Ele pega o arquivo, destrói o visual e extrai apenas texto puro. Se a vaga pede "Gestão de Projetos" e o cliente escreveu "Fiz a coordenação de diversas iniciativas", o ATS diz: Match = 0%. O robô precisa da correspondência exata para liberar a catraca.</li>
+                <li style="margin-bottom: 10px;"><strong>O Porteiro Humano (Recrutador / Gestor):</strong> O humano está cansado. Ele já leu 50 currículos hoje. O objetivo dele é confiar e resolver um problema. Se ele ler um currículo robótico, apenas com uma lista de palavras-chave ("Gestão de Projetos, Scrum, Kanban"), ele não sente confiança. Ele precisa de contexto: "Liderou a Gestão de Projetos usando Scrum, reduzindo o tempo de entrega em 20%".</li>
+                <li><strong>A nossa regra de ouro:</strong> O currículo é formatado e preenchido com palavras-chave para o robô, mas as frases, as narrativas e os resultados são escritos para o humano.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. O Princípio da Carga Cognitiva (Por que 6 segundos?)</h3>
+            <p>Estudos de Eye-Tracking (rastreamento ocular) provam que um recrutador humano decide se vai ler um currículo até o fim ou descartá-lo em cerca de 6 a 7 segundos. Isso acontece por causa da "Carga Cognitiva".</p>
+            <p>A carga cognitiva é o esforço mental que o cérebro do recrutador precisa fazer para entender a informação. Se o esforço for alto, o cérebro desiste.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Efeito "Muralha de Texto":</strong> Nunca deixem o currículo do cliente com parágrafos de 8 ou 10 linhas. Isso causa fadiga visual instantânea. O leitor humano pula o texto.</li>
+                <li style="margin-bottom: 10px;"><strong>O Respiro Visual (Whitespace):</strong> O espaço em branco no currículo é tão importante quanto o texto. Margens adequadas, espaçamento entre as experiências profissionais e uso de bullet points (tópicos curtos) reduzem drasticamente a carga cognitiva. O documento convida a pessoa a ler.</li>
+                <li><strong>Hierarquia da Informação:</strong> O recrutador não deveria ter que procurar onde o cliente estudou ou qual foi o último cargo dele. Se ele precisa "caçar" a informação, a formatação falhou. A hierarquia deve ser óbvia: Título da Seção (maior), Cargo (destacado), Empresa, Período.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. O "Primeiro Terço" de Ouro (A Zona de Conversão)</h3>
+            <p>Imagine a primeira página do currículo do seu cliente. Agora, divida essa página mentalmente em três partes horizontais. A parte superior — o primeiro terço logo abaixo do nome — é o seu "horário nobre".</p>
+            <p>No jornalismo, chama-se isso de <em>Above the Fold</em> (acima da dobra do jornal). É o que a pessoa vê antes de precisar rolar a tela para baixo. É aqui que o jogo é ganho ou perdido.</p>
+            <p>O que obrigatoriamente precisa estar no Primeiro Terço de Ouro?</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>Nome e Contatos Limpos:</strong> Nome completo, cidade/estado, telefone com DDD, e-mail profissional e link do LinkedIn customizado. (Nada de CEP, endereço completo, CPF ou estado civil. O robô não precisa disso agora, e o humano não se importa).</li>
+                <li style="margin-bottom: 10px;"><strong>Título Profissional (Target):</strong> Imediatamente abaixo dos contatos. Não é o último cargo do cliente, é o cargo que ele deseja e que tem aderência à vaga (Ex: Diretor Financeiro | CFO | Head de Controladoria). Isso alinha a expectativa do humano e pontua alto no ATS.</li>
+                <li style="margin-bottom: 10px;"><strong>Resumo Executivo de Impacto:</strong> Um parágrafo enxuto (3 a 5 linhas) que responda: "Quem é esse profissional, qual sua bagagem mais forte e que tipo de problema ele resolve?".</li>
+                <li><strong>Competências Core (Core Skills):</strong> Uma lista de 6 a 9 palavras-chave absolutas da área dele. Isso garante que, logo no primeiro segundo de varredura, tanto o robô quanto o humano encontrem os termos técnicos exigidos pela vaga.</li>
+            </ul>
+            <p>Se o consultor conseguir prender a atenção do humano e satisfazer o robô neste primeiro terço, o resto do currículo servirá apenas para comprovar o que já foi "vendido" no topo.</p>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da nossa primeira aula:</strong> O currículo inteligente não escolhe lados; ele atende às regras frias da máquina sem perder o poder de persuasão exigido pela mente humana. Ao dominarem a gestão da carga cognitiva e a construção impecável do Primeiro Terço, vocês garantem que o cliente passe da triagem inicial com folga.
+            </div>
+        `
+    },
+    {
+        id: 20,
+        trilha: "O Currículo Inteligente",
+        modulo: "Módulo 2",
+        titulo: "O Idioma do Algoritmo (Vencendo o ATS)",
+        resumo: "Aprenda as leis absolutas para tornar o currículo invisível a falhas e 100% legível para os algoritmos de triagem.",
+        linkVideo: "",
+        conteudo: `
+            <p>Bem-vindos de volta, time! Na nossa primeira aula, entendemos quem são os dois porteiros do nosso cliente e como prender a atenção deles nos primeiros segundos. Agora, vamos vestir o jaleco de engenheiros.</p>
+            
+            <p>Nesta aula, o foco é 100% no porteiro digital: o <strong>ATS (Applicant Tracking System)</strong>. De nada adianta o nosso cliente ser o maior especialista do mercado se o currículo dele for um arquivo que o robô da empresa não consegue decodificar. O robô não sente pena, ele não deduz e ele não tenta adivinhar; se ele não entende a formatação, ele descarta.</p>
+            
+            <p>Peguem as anotações. Aqui estão as três leis absolutas para tornar o currículo "invisível a falhas" e 100% legível para os algoritmos.</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. Arquitetura e Layout ATS-Friendly (A Regra do "Menos é Mais")</h3>
+            <p>O primeiro choque de realidade que precisamos passar para o nosso cliente é: o currículo não é uma peça de design gráfico, é um documento de transferência de dados. O processo de parsing (leitura) do ATS pega o arquivo e arranca toda a formatação para jogar o texto em um banco de dados.</p>
+            <p>Se você colocar obstáculos no meio do caminho, o texto quebra.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>A Regra da Coluna Única:</strong> Este é o erro número um do mercado. O ATS lê como um ser humano ocidental: da esquerda para a direita, de cima para baixo. Se o currículo tiver duas colunas, o robô vai ler a primeira linha da coluna da esquerda e emendar com a primeira linha da coluna da direita. O resultado é uma frase sem sentido. O currículo inteligente é sempre de coluna única.</li>
+                <li style="margin-bottom: 10px;"><strong>O Banimento dos Elementos Gráficos:</strong> Tabelas invisíveis, caixas de texto (text boxes), gráficos de pizza para nível de idiomas, barras de progresso e ícones (como o símbolo do WhatsApp ou do LinkedIn) são "criptonita" para o ATS. Muitos sistemas antigos simplesmente travam ou ignoram tudo o que está dentro de uma caixa de texto. Tudo deve ser texto corrido e digitável.</li>
+                <li><strong>Fontes Universais:</strong> Esqueça fontes exóticas baixadas na internet. Use o padrão seguro que qualquer máquina do mundo reconhece: Arial, Calibri, Tahoma, Garamond ou Times New Roman. O básico que funciona.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. Nomenclatura Padrão de Cabeçalhos (Os Gatilhos do Robô)</h3>
+            <p>Quando o algoritmo está escaneando o texto, ele precisa saber em qual "gaveta" guardar cada informação. Ele faz isso procurando por gatilhos específicos, que são os títulos das seções.</p>
+            <p>Se o consultor tentar ser poético ou "diferentão" nos títulos, o robô não encontra a gaveta.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>Sem invenções:</strong> Se você colocar "Minha Jornada de Sucesso", o ATS não saberá que ali está a experiência profissional do cliente. Aquele bloco inteiro de informações preciosas pode ter pontuação zero no cálculo de tempo de cargo.</li>
+                <li><strong>O Padrão Ouro:</strong> Usem sempre a nomenclatura universal que qualquer sistema global (Workday, Taleo, Gupy) tem no código fonte.
+                    <ul style="margin-top: 10px; color: #ddd;">
+                        <li>Use "Resumo Profissional" (não "Sobre Mim").</li>
+                        <li>Use "Experiência Profissional" (não "Onde Deixei Minha Marca").</li>
+                        <li>Use "Formação Acadêmica" (não "Meus Estudos").</li>
+                        <li>Use "Habilidades" ou "Competências" (não "Meus Superpoderes").</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. Gestão de Palavras-Chave e Variações (A Matemática do Match)</h3>
+            <p>Aqui é onde o consultor de elite se separa do amador. O amador pega as exigências da vaga e faz uma lista escondida no final da página com as palavras-chave em fonte branca (achando que vai enganar o sistema). O ATS moderno detecta isso, classifica como Keyword Stuffing (spam) e bloqueia o candidato.</p>
+            <p>Nós fazemos a inserção inteligente e contextualizada.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>As Variações Importam:</strong> O robô busca correspondência exata, e nem sempre a empresa configurou os sinônimos no sistema. O seu cliente domina KPIs? Ótimo. No currículo, você vai escrever a sigla e o termo por extenso: "Implementação de KPIs (Key Performance Indicators)...". Se a vaga pede "Gestão de Fornecedores" e o cliente colocou "Supply Chain", o consultor deve ajustar para que as duas nomenclaturas coexistam no texto.</li>
+                <li style="margin-bottom: 10px;"><strong>O Fator Tempo:</strong> O algoritmo do ATS é matemático. Quando uma vaga exige "10 anos de experiência em M&A", o sistema não busca a palavra "M&A" apenas no resumo. Ele busca a palavra dentro dos blocos de Experiência Profissional e calcula o tempo somando as datas (mês e ano) atreladas àquele cargo. Portanto, a palavra-chave precisa estar distribuída ao longo das experiências anteriores do cliente, comprovando a longevidade daquela competência.</li>
+                <li><strong>Datas Claras:</strong> Por falar em tempo, o formato da data precisa ser legível para a máquina. O padrão mais seguro é "Mês/Ano – Mês/Ano" (ex: Jan/2018 – Mar/2023 ou 01/2018 – 03/2023). Ocultar os meses prejudica o cálculo exato do algoritmo.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da nossa segunda aula:</strong> O idioma do algoritmo é binário, padronizado e sem margem para abstrações artísticas. Garantir um layout de coluna única, cabeçalhos universais e uma distribuição matemática das palavras-chave garante que o currículo do nosso cliente atravesse o portal digital sem nenhum arranhão.<br><br>
+                <em>O arquivo chegou limpo e intacto nas mãos do recrutador. Na próxima aula, o jogo vira. Aprenderemos a encantar o ser humano.</em>
+            </div>
+        `
+    },
+    { 
+        id: 21,
+        trilha: "O Currículo Inteligente",
+        modulo: "Módulo 3",
+        titulo: "O Olhar do Recrutador Humano (Storytelling e Impacto)",
+        resumo: "Estratégias de ergonomia visual, leitura em 'F' e bullet points de impacto para persuadir o recrutador humano.",
+        linkVideo: "",
+        conteudo: `
+            <p>Muito bem, equipe! Nas duas primeiras aulas, nós construímos um "veículo" perfeito. Ele passou pela alfândega do ATS sem disparar nenhum alarme e aterrissou direto na tela do gestor da vaga ou do headhunter sênior.</p>
+
+            <p>Neste momento, o jogo vira 180 graus. A máquina só se importava com dados e formatação; o humano, por outro lado, procura segurança, narrativa e evidências de resolução de problemas. Palavras-chave isoladas não convencem um diretor a agendar uma entrevista. O que convence é o impacto gerado no mundo real.</p>
+
+            <p>Neste módulo, aprenderemos a desenhar o currículo para o olho e para a mente humana, utilizando as seguintes três estratégias centrais:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. Padrão de Leitura em "F" (A Ergonomia Visual)</h3>
+            <p>Estudos globais de eye-tracking (rastreamento do movimento ocular) mostram que, quando um ser humano abre um documento em texto, ele não lê linha por linha. Ele escaneia a página formando a letra "F".</p>
+            <p>Os olhos começam no topo, leem a primeira linha horizontalmente, descem um pouco, leem horizontalmente até a metade, e depois apenas escaneiam a margem esquerda em uma linha reta para baixo, buscando ganchos de atenção.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Poder da Margem Esquerda:</strong> Se o recrutador vai escanear o lado esquerdo da página descendo, as informações mais valiosas devem estar alinhadas à esquerda. É por isso que o Título do Cargo e o Nome da Empresa devem estar no início da linha, e não perdidos no meio do parágrafo.</li>
+                <li style="margin-bottom: 10px;"><strong>Fuja do Texto Justificado:</strong> Muitos clientes adoram justificar o texto para deixar um "bloco quadrado" bonito. O problema é que o texto justificado cria "rios em branco" (espaçamentos irregulares entre as palavras) que cansam o cérebro do leitor. Usem sempre alinhamento à esquerda. Isso melhora a leitura dinâmica e facilita a varredura em "F".</li>
+                <li><strong>Negrito Estratégico:</strong> Use o negrito (bold) para guiar os olhos do leitor durante essa varredura vertical. Destaque cargos, números impressionantes e nomes de ferramentas chave. O negrito é o "farol" no meio do texto.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. Transformando "Tarefas" em "Conquistas" (A Mudança de Mindset)</h3>
+            <p>Um dos maiores erros que vemos em currículos de executivos é listar as rotinas do cargo como se fosse o manual da empresa. O gestor que está lendo já sabe o que um Gerente Financeiro faz. Ele não quer ler "Responsável pelo fluxo de caixa". Ele quer saber o quão bem o seu cliente fez isso.</p>
+            <p>Temos que transformar o currículo de um documento passivo (descrição de cargo) em um documento ativo (portfólio de resultados).</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>A Síndrome do "Responsável por":</strong> Cortem essa expressão do vocabulário de vocês. "Responsável por gerir a equipe" não prova que a pessoa geria bem. Mude para a ação real que demonstra a competência.</li>
+                <li><strong>O Foco no ROI e no Impacto:</strong> Toda ação listada no currículo corporativo deve, idealmente, apontar para um de três objetivos primordiais: aumentou receita, reduziu custos ou otimizou tempo/processos. Nós precisamos investigar com o cliente qual dessas três vertentes o projeto atingiu.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. O Formato de Bullet Points Vencedor (A Estrutura de Elite)</h3>
+            <p>Nós não usamos longos parágrafos narrativos nas descrições de experiências. Nós usamos bullet points (tópicos). Eles são fáceis de escanear e digerir. Porém, não basta jogar a informação de qualquer jeito.</p>
+            <p>A nossa equipe vai utilizar uma fórmula baseada no método STAR (Situação, Tarefa, Ação, Resultado), adaptada para o papel. Todo bullet point de impacto deve seguir esta anatomia:</p>
+            
+            <p style="text-align: center; font-size: 16px; color: var(--dourado); font-weight: bold; margin: 20px 0; padding: 15px; border: 1px dashed var(--dourado);">
+                Verbo de Ação (no passado) + O Que Foi Feito/Contexto + O Resultado Mensurável.
+            </p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid #b33939; margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: #b33939; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo Clássico (O Currículo Fraco):</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">"Responsável por treinar a equipe de vendas e acompanhar os resultados mensais para bater a meta."</p>
+            </div>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo Elite (A Fórmula do Bullet Point Vencedor):</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">"Liderou a reestruturação e o treinamento da equipe comercial (15 pessoas), implementando metodologias de venda consultiva que resultaram em um crescimento de 22% na receita recorrente em 12 meses."</p>
+            </div>
+
+            <p>Percebam a diferença de peso. A segunda opção comprova a liderança, dá a dimensão do desafio (15 pessoas), mostra a competência técnica (venda consultiva) e fecha com o impacto financeiro (22% de crescimento). É assim que um recrutador humano decide ligar para o candidato.</p>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da nossa terceira aula:</strong> O design para o ser humano não tem a ver com cores e grafismos, tem a ver com facilidade de leitura e comprovação de autoridade. Ao posicionar as informações no formato em F, eliminar o tom de "lista de tarefas" e utilizar a fórmula de bullet points baseada em resultados, vocês transformam o documento em uma peça de persuasão irrefutável.
+            </div>
+        `
+    },
+    { 
+        id: 22,
+        trilha: "O Currículo Inteligente",
+        modulo: "Módulo 4",
+        titulo: "O Resumo Executivo Profissional (A 'Vitrine' Estratégica)",
+        resumo: "Aprenda a construir um Elevator Pitch impactante, eliminando clichês e usando competências core para atrair o RH e o ATS.",
+        linkVideo: "",
+        conteudo: `
+            <p>Vamos lá, equipe! Reta final da nossa especialização. Já estruturamos o layout para o robô (ATS) e calibramos a narrativa dos bullet points para encantar o recrutador humano. Agora, precisamos focar na peça central que une esses dois mundos: o Resumo Executivo (ou Professional Summary).</p>
+            
+            <p>O Resumo Executivo fica posicionado no topo do currículo, logo no "Primeiro Terço de Ouro" que discutimos na Aula 1. Ele é o <strong>Elevator Pitch</strong> (discurso de elevador) do nosso cliente. Se esse parágrafo for fraco, o recrutador não vai se dar ao trabalho de ler as experiências brilhantes que descrevemos embaixo.</p>
+            
+            <p>Peguem as canetas. Aqui estão os três elementos que formam uma vitrine estratégica impecável:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. A Promessa de Valor (O Foco no Problema do Empregador)</h3>
+            <p>O maior erro conceitual dos candidatos é usar o resumo como uma autobiografia sentimental ou uma lista de desejos (ex: "Busco uma oportunidade para crescer na empresa..."). O mercado de alto nível não paga honorários para saber o que o candidato quer; ele paga para saber o que o candidato resolve.</p>
+            <p>O Resumo Executivo deve ser um parágrafo denso e direto, de 3 a 5 linhas no máximo, que faça uma Promessa de Valor.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>A Estrutura Padrão Ouro:</strong> Quem é o profissional + Tempo de pista (senioridade) + Foco principal de atuação + Maior diferencial (impacto).</li>
+                <li><strong>A Visão do Negócio:</strong> Em vez de focar apenas no cargo, foque no momento da empresa. Se o seu cliente é um Diretor de Supply Chain, a promessa de valor dele não é "movimentar caixas", é "garantir a eficiência operacional, reduzir custos logísticos e proteger as margens da companhia".</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. A Fuga dos Clichês (Troque Adjetivos por Fatos)</h3>
+            <p>Recrutadores humanos reviram os olhos para adjetivos vazios. Palavras como proativo, perfeccionista ou líder nato não significam nada se não puderem ser medidas. Elas ocupam espaço valioso e diminuem o peso executivo do documento.</p>
+            <p>Nós substituímos adjetivos abstratos por <strong>fatos inquestionáveis</strong>.</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid #b33939; margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: #b33939; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">O Resumo Clichê (Amador):</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">"Profissional muito dinâmico e proativo, com grande foco em resultados e excelente trabalho em equipe. Ótima comunicação e liderança para lidar com grandes desafios."</p>
+            </div>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">O Resumo de Alto Nível (Nossa Entrega):</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">"Executivo de Finanças com mais de 15 anos de atuação em multinacionais do setor de Varejo. Especialista em reestruturação de dívidas, M&A (Fusões e Aquisições) e otimização de fluxo de caixa. Histórico comprovado na liderança de equipes multidisciplinares e gestão de orçamentos superiores a R$ 200 Milhões."</p>
+            </div>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. O Bloco de Competências Core (O "Banquete" Híbrido)</h3>
+            <p>Imediatamente abaixo do resumo, vamos inserir uma seção visual chamada <strong>Competências Principais (ou Core Skills)</strong>. Será uma lista de 6 a 9 palavras-chave técnicas (Hard Skills).</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>Para o ATS (A Máquina):</strong> Injeta a densidade de palavras-chave necessária para validar o perfil, aumentando o score de match instantaneamente.</li>
+                <li style="margin-bottom: 10px;"><strong>Para o Humano (O Recrutador):</strong> Cria um mapa visual. O gestor bate o olho e faz um checklist mental rápido: "Ok, ele tem o que eu preciso. Vou continuar lendo".</li>
+                <li><strong>O que colocar:</strong> Foco em ferramentas, metodologias e conhecimentos técnicos (ex: SAP, Lean Six Sigma, Gestão de P&L). Evite Soft Skills aqui.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da nossa quarta aula:</strong> O Resumo Executivo é o trailer do filme. Ele precisa ser impactante, livre de clichês amadores e cirurgicamente desenhado para prometer a resolução de uma dor de mercado. Quando ancoramos esse parágrafo forte com o Bloco de Competências Core, entregamos ao cliente a "vitrine" perfeita para que ele seja convidado para a mesa de negociação.
+            </div>
+        `
+    },
+    { 
+        id: 23,
+        trilha: "O Currículo Inteligente",
+        modulo: "Módulo 5",
+        titulo: "Validação, Ferramentas e Versionamento",
+        resumo: "Garantia de qualidade (QA), o 'Teste do Bloco de Notas' e a estratégia do Currículo Base para adaptação rápida.",
+        linkVideo: "",
+        conteudo: `
+            <p>Chegamos à nossa última aula, time de elite! O currículo do nosso cliente já foi desenhado com precisão milimétrica. A arquitetura está limpa para o ATS, os bullet points estão orientados a resultados e o Resumo Executivo é uma vitrine de alto impacto.</p>
+            
+            <p>No entanto, o trabalho do consultor não termina na redação. Nós precisamos garantir a garantia de qualidade (QA) desse documento e ensinar o nosso assessorado a utilizá-lo de forma inteligente no mercado. Um currículo excelente enviado no formato errado ou sem adaptação perde todo o seu poder.</p>
+            
+            <p>Peguem as últimas anotações. Vamos fechar o nosso processo com os três pilares de validação e entrega.</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. Testes Práticos de Parsing (O "Teste do Bloco de Notas")</h3>
+            <p>Antes de entregarmos o arquivo final para um cliente C-Level, nós mesmos precisamos atuar como o algoritmo para validar o nosso trabalho. Como fazemos isso sem ter acesso interno aos sistemas das empresas? Usando o método de engenharia reversa mais antigo e seguro do mercado.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Teste do Texto Puro (.txt):</strong> Salve o currículo em PDF ou Word e tente copiar todo o texto. Cole-o no "Bloco de Notas" (Notepad) do Windows ou no "TextEdit" do Mac.</li>
+                <li><strong>A Análise de Ruído:</strong> O Bloco de Notas remove toda a formatação, margens e negritos, simulando exatamente como o parser do ATS "enxerga" os dados brutos. Leia o texto de cima para baixo. Os cargos estão colados nos nomes das empresas? As datas desapareceram? As frases se misturaram? Se a resposta for sim, a formatação original falhou. Volte ao Word, limpe o layout e teste de novo até que o texto puro faça sentido linearmente.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. A Guerra dos Formatos (PDF vs. Word)</h3>
+            <p>Sempre surge a dúvida no momento de enviar a candidatura: "Devo mandar em Word ou PDF?". Como consultores estratégicos, nossa orientação não é baseada em "achismos", mas em tecnologia de recrutamento.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>A Regra Geral (O Império do PDF):</strong> Na grande maioria dos portais corporativos modernos (Workday, Gupy, Greenhouse) e para envio direto por e-mail a gestores, o PDF é o rei. Ele "congela" a formatação. Ele garante que a fonte não vai desconfigurar e que o layout em "F" que desenhamos para o humano permanecerá intacto em qualquer tela de computador ou celular.</li>
+                <li style="margin-bottom: 10px;"><strong>A Exceção (O Uso do Word):</strong> Orientamos o cliente a enviar em formato Word (.docx) apenas em duas situações rigorosas:
+                    <ul style="margin-top: 10px; color: #ddd;">
+                        <li>Quando o edital ou o sistema da vaga exige explicitamente o formato Word.</li>
+                        <li>Quando o currículo é enviado para Headhunters independentes ou agências de Executive Search, pois muitas vezes eles precisam retirar os dados de contato ou formatar o documento com o timbre da própria consultoria antes de apresentar ao conselho contratante.</li>
+                    </ul>
+                </li>
+                <li><strong>A Nossa Entrega:</strong> Nós sempre entregamos os dois arquivos ao cliente. O Word é o "documento vivo" (para ele editar) e o PDF é o arquivo pronto para disparo.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. O Currículo Base vs. O Currículo Adaptado (Versionamento)</h3>
+            <p>O maior conselho de carreira que vocês podem dar aos clientes na reunião de entrega é: <em>"Não existe um currículo universal"</em>. Se o cliente disparar exatamente o mesmo PDF para 30 vagas diferentes, ele terá uma taxa de conversão baixíssima.</p>
+            <p>Nós ensinaremos a estratégia do Documento Mestre.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Currículo Base (Master CV):</strong> É o documento completo que construímos juntos. Ele contém todo o histórico reescrito, todas as competências mapeadas e o resumo estruturado. Este arquivo é o "estoque de peças" do cliente.</li>
+                <li style="margin-bottom: 10px;"><strong>A Adaptação Cirúrgica (Targeted CV):</strong> Quando o cliente encontra uma vaga desejada, ele não vai reescrever o currículo. Ele vai abrir o Word do "Currículo Base", "Salvar Como" (com o nome da empresa desejada) e fazer ajustes milimétricos em três áreas em menos de 10 minutos:
+                    <ul style="margin-top: 10px; color: #ddd;">
+                        <li>Ajustar o "Título Target" logo abaixo do nome para bater com a vaga.</li>
+                        <li>Trocar 2 ou 3 palavras do Bloco de Competências Core para inserir as palavras-chave exatas exigidas no anúncio.</li>
+                        <li>Reordenar os bullet points das experiências, colocando no topo aqueles resultados que resolvem a dor específica daquela empresa.</li>
+                    </ul>
+                </li>
+                <li><strong>Exemplo Prático:</strong> Se a vaga atual enfatiza fortemente a reestruturação de equipes em vez de M&A, o cliente pega aquele bullet point brilhante sobre liderança e o coloca como o primeiro item da experiência mais recente, deixando o dado de fusões para a linha de baixo.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 25px; border: 2px solid var(--dourado); border-radius: 8px; margin-top: 40px; text-align: center;">
+                <h2 style="color: var(--dourado); margin-top: 0;">🏆 Conclusão da Especialização Híbrida</h2>
+                <p style="margin-bottom: 15px;">Parabéns, equipe! Vocês agora dominam a arte de construir o <strong>Currículo Híbrido</strong>.</p>
+                <p style="text-align: left; margin-bottom: 15px;">Atravessamos todas as camadas do recrutamento estratégico. Compreendemos a psicologia da carga cognitiva, desarmamos as armadilhas dos sistemas ATS, injetamos resultados mensuráveis nas descrições de cargo, criamos vitrines de alto impacto e validamos tecnicamente o produto final.</p>
+                <p style="font-weight: 600; color: var(--verde);">O currículo de um executivo não é um obituário do passado; é um manifesto de valor futuro. Com essas técnicas, os documentos produzidos pela nossa consultoria deixarão de ser apenas arquivos para se tornarem verdadeiras chaves mestras no mercado corporativo. Excelentes reuniões de entrega e vamos ao trabalho!</p>
+            </div>
+        `
+    },
+    { 
+        id: 24,
+        trilha: "O Currículo Inteligente",
+        modulo: "Módulo Final",
+        titulo: "Certificação em Arquitetura de Currículos (Modelo Híbrido)",
+        resumo: "Avaliação final sobre o design estratégico de currículos, superação de ATS e escrita orientada a impacto.",
+        linkVideo: "",
+        conteudo: `
+            <h3 style="color: var(--dourado);">Certificação de Elite: O Currículo Inteligente</h3>
+            <p>Você chegou ao final da trilha que separa os redatores de currículo amadores dos verdadeiros arquitetos de carreira executiva. Você aprendeu a agradar o robô (ATS) sem perder a alma persuasiva que encanta o gestor humano.</p>
+            <p>O currículo não é o fim, é o meio. Ele é a chave que abre a porta da sala de entrevistas para o nosso cliente.</p>
+            <p><b>Regras da Certificação:</b></p>
+            <ul>
+                <li>Total de perguntas: 10 (cobrindo a jornada do ATS à leitura em F do recrutador).</li>
+                <li>Média para aprovação: 80% (8 acertos).</li>
+                <li>Recompensa: Inserção do seu nome na planilha de auditores aprovados da Youp.</li>
+            </ul>
+            <p>Mente fria, foco nos resultados. Boa prova!</p>
+        `,
+        questoes: [
+            {
+                pergunta: "Qual é o conceito de 'Currículo Híbrido' (Bilíngue) na metodologia da Youp Consultoria?",
+                opcoes: [
+                    "Um currículo que mistura inglês e português na mesma página.",
+                    "Um documento focado apenas no visual moderno (design) para agradar recrutadores.",
+                    "Um documento formatado tecnicamente para ser lido pela máquina (ATS) e escrito narrativamente para encantar o recrutador humano.",
+                    "Um currículo que utiliza obrigatoriamente duas colunas para otimizar espaço.",
+                    "Um documento focado inteiramente em Soft Skills e inteligência emocional."
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Entendendo que o recrutador humano leva cerca de 6 segundos para decidir se continua lendo um currículo (Carga Cognitiva), o que o consultor deve posicionar no 'Primeiro Terço de Ouro'?",
+                opcoes: [
+                    "O endereço completo do candidato, estado civil e CPF.",
+                    "Um longo texto justificando por que o cliente quer mudar de emprego.",
+                    "Todo o histórico escolar do ensino médio e hobbies.",
+                    "O Título Target, Resumo Executivo de impacto e o Bloco de Competências Core.",
+                    "Apenas uma grande foto do candidato e referências de antigos chefes."
+                ],
+                correta: 3
+            },
+            {
+                pergunta: "Qual é o maior erro de arquitetura de currículo que atua como 'criptonita' para a leitura (parsing) do sistema ATS?",
+                opcoes: [
+                    "Usar fontes universais como Arial e Calibri.",
+                    "O uso de layouts com coluna dupla, caixas de texto e gráficos, que quebram a leitura linear do robô.",
+                    "Escrever o currículo apenas na cor preta, sem usar logos de empresas.",
+                    "Colocar o nome do cargo em negrito.",
+                    "Enviar o arquivo PDF em um final de semana."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "Por que devemos usar nomenclaturas padronizadas, como 'Experiência Profissional', e não títulos criativos como 'Minha Jornada de Sucesso'?",
+                opcoes: [
+                    "Porque os recrutadores humanos acham que criatividade é um defeito.",
+                    "Porque o algoritmo do ATS busca gatilhos exatos (cabeçalhos) para saber em qual gaveta do banco de dados deve guardar e calcular o tempo daquelas informações.",
+                    "Porque títulos criativos aumentam muito o peso em megabytes do arquivo.",
+                    "Porque o LinkedIn proíbe o uso de cabeçalhos criativos nas importações.",
+                    "Não há problema, o sistema ATS entende ironia e criatividade perfeitamente."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "De acordo com os estudos de ergonomia visual (Leitura em 'F'), onde as informações de maior destaque, como Título do Cargo e Empresa, devem estar posicionadas?",
+                opcoes: [
+                    "Alinhadas na margem esquerda, pois é a zona de varredura vertical constante dos olhos do leitor humano.",
+                    "Centralizadas, para criar um aspecto de poesia visual.",
+                    "Na margem direita, finalizando a linha como uma surpresa.",
+                    "Escondidas no meio de um parágrafo longo e justificado.",
+                    "No rodapé da página 2."
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "Ao transformar tarefas passivas em conquistas ativas, qual é a fórmula de excelência (Método STAR adaptado) para estruturar um Bullet Point?",
+                opcoes: [
+                    "Data de início + Nome do chefe + Função exercida.",
+                    "Anotar as rotinas diárias e finalizar com 'responsável por'.",
+                    "Verbo de Ação no passado + O Que Foi Feito/Contexto + O Resultado Mensurável (Impacto financeiro ou operacional).",
+                    "Copiar a descrição exata da vaga do cliente e colar no currículo.",
+                    "Escrever em primeira pessoa: 'Eu fiz um excelente trabalho quando gerenciei a equipe'."
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Sobre o Resumo Executivo (Elevator Pitch), qual prática separa um currículo corporativo de elite de um currículo amador?",
+                opcoes: [
+                    "Substituir adjetivos clichês e vazios (proativo, líder nato) por fatos concretos, senioridade e uma promessa de valor focada na dor da empresa.",
+                    "Fazer uma lista longa de desejos do candidato e o que ele espera ganhar da empresa.",
+                    "Omitir o tempo de experiência do candidato para não parecer muito velho.",
+                    "Usar pelo menos três parágrafos para contar a história da infância do candidato.",
+                    "Excluir o resumo executivo, pois os recrutadores nunca leem o topo da página."
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "Qual é a dupla função estratégica do Bloco de 'Competências Core' localizado imediatamente abaixo do Resumo Executivo?",
+                opcoes: [
+                    "Listar as soft skills do candidato (empatia, simpatia) e preencher espaço em branco.",
+                    "Injetar instantaneamente as palavras-chave (Hard Skills) necessárias para elevar o score no ATS, além de criar um checklist visual rápido para o humano.",
+                    "Informar os hobbies do candidato para o RH puxar assunto na entrevista.",
+                    "Esconder os anos de ociosidade do candidato.",
+                    "Dizer ao robô quais programas o candidato não sabe usar."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "O que é o 'Teste do Bloco de Notas' recomendado na fase de Garantia de Qualidade (QA)?",
+                opcoes: [
+                    "O consultor deve escrever todo o currículo no Bloco de Notas e entregar em .txt para o cliente.",
+                    "Pedir para o cliente memorizar o currículo sem olhar para o papel.",
+                    "Colar o texto do PDF em um Bloco de Notas para remover a formatação e simular a visão do ATS, validando se a ordem cronológica e os dados não se misturaram.",
+                    "Colar adesivos (post-its) no monitor para lembrar das palavras-chave.",
+                    "Enviar o currículo para 10 amigos lerem e darem notas."
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Na estratégia de versionamento ensinada pela Youp, como o cliente deve utilizar o 'Currículo Base' (Master CV)?",
+                opcoes: [
+                    "Ele deve enviar o Currículo Base exatamente como está para todas as vagas que encontrar, sem alterar uma vírgula.",
+                    "Ele deve apagar o arquivo e pedir para a Youp fazer um novo do zero toda semana.",
+                    "Ele não deve usar o Currículo Base, pois o ideal é escrever um novo no site Vagas.com.",
+                    "Ele deve usar o Currículo Base como matriz e fazer a 'Adaptação Cirúrgica' para a vaga alvo (ajustando o Título Target, priorizando bullet points e trocando palavras nas Competências Core).",
+                    "Ele deve imprimir o Currículo Base e entregar apenas fisicamente nas empresas."
+                ],
+                correta: 3
+            }
+        ]
+    }
 ];
