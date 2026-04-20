@@ -433,7 +433,7 @@ const materiaisYoup = [
         titulo: "Proposta Salarial Baixa no C-Level: Como Negociar seu Valor Sem Perder a Cadeira",
         slug: "proposta-salarial-baixa-clevel-como-negociar-bonus-equity",
         resumo: "Se o salário fixo oferecido não reflete o seu potencial, não recue. Aprenda a pivotar a negociação para pacotes de parceria, bônus agressivos e Equity.",
-        imagem: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop", 
+        imagem: "https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?q=80&w=800&auto=format&fit=crop", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="margin: 0 0 15px 0;">A cena é um rito de passagem doloroso na carreira executiva: após meses de sabatinas e alinhamentos, a carta de oferta chega à sua mesa. O mandato de CEO ou Diretor é fascinante, mas o pacote de remuneração fixa é uma decepção profunda. O salário não reflete a sua senioridade ou o tamanho do <em>turnaround</em> esperado. A dúvida paralisa o profissional: "É possível bater de frente e negociar salário em um mercado tão competitivo?"</p>
