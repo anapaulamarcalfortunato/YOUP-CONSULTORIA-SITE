@@ -57,8 +57,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
-
     {
         id: 2,
         trilha: "Gestão das Atividades",
@@ -124,9 +122,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
-
-
     {
         id: 3,
         trilha: "Gestão das Atividades",
@@ -190,7 +185,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
     {
         id: 4,
         trilha: "Gestão das Atividades",
@@ -245,7 +239,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
     {
         id: 5,
         trilha: "Gestão das Atividades",
@@ -317,8 +310,7 @@ const trilhasYoup = [
             </div>
         `
     },
-
-{
+    {
         id: 6,
         trilha: "Gestão das Atividades",
         modulo: "Módulo Final",
@@ -394,8 +386,6 @@ const trilhasYoup = [
             }
         ]
     },
-    
-
     {
         id: 7,
         trilha: "Gestão dos Clientes",
@@ -419,7 +409,6 @@ const trilhasYoup = [
                     <li style="margin-bottom: 5px;">Você só verá as informações pertinentes ao seu trabalho. Se você não lida com o <em>Cadastro</em> do cliente, os dados sensíveis e senhas dele estarão bloqueados para você. Isso protege a empresa, o cliente e organiza a sua mente!</li>
                 </ul>
             </div>
-        `
     },
     {
         id: 8,
@@ -481,7 +470,6 @@ const trilhasYoup = [
                 <h4 style="font-size: 1.1em; margin: 15px 0 5px 0; font-weight: 700;">4. Aba CV FINAL</h4>
                 <p style="margin: 0 0 15px 0;">O documento oficial criado pela Youp. Aqui vocês visualizam os links da versão final do currículo e o texto completo elaborado para o cliente. Usem o botão <strong>"COPIAR TUDO"</strong> para levar esse texto rapidamente para a Gupy ou outras plataformas de vagas.</p>
             </div>
-        `
     },
     {
         id: 10,
@@ -510,7 +498,6 @@ const trilhasYoup = [
                     <li style="margin-bottom: 5px;">O sistema enviará, na mesma hora, um e-mail direto para a caixa de entrada da Administração com o seu nome, o nome do cliente e a sua mensagem. Usem com sabedoria para destravar impedimentos urgentes!</li>
                 </ul>
             </div>
-        `
     },
     {
         id: 11,
@@ -538,9 +525,7 @@ const trilhasYoup = [
                     <li style="margin-bottom: 5px; color: #e74c3c;">Por fim, no topo da ficha, há um ícone de <strong>lixeira vermelha</strong>. Ele serve para excluir um cliente permanentemente do banco de dados (use com extrema cautela!).</li>
                 </ul>
             </div>
-        `
     },
-
     {
         id: 12,
         trilha: "Gestão dos Clientes",
@@ -677,8 +662,6 @@ const trilhasYoup = [
             }
         ]
     },
-
-
     {
         id: 13,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -726,7 +709,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
     {
         id: 14,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -772,10 +754,7 @@ const trilhasYoup = [
                 <strong>Resumo da Ópera para o nosso time:</strong> O ATS é burro e literal, mas é ele quem segura a chave da porta. Nós não podemos ser reprovados por falhas de formatação ou por usar a nomenclatura errada para a coisa certa. Agora que entendemos como o "inimigo" pensa e como ele nos avalia, temos a faca e o queijo na mão para usar a NOSSA Inteligência Artificial (Gemini, ChatGPT) para vencê-lo no próprio jogo.<br><br>
                 <em>Ficou claro como o sistema de leitura e o cálculo de score funcionam? Estão prontos para entrarmos no Módulo 3 e aprendermos a construir a Engenharia de Prompts perfeita para domar a nossa IA?</em>
             </div>
-        `
     },
-
-
     {
         id: 15,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -833,10 +812,7 @@ const trilhasYoup = [
                 <strong>Resumo da Ópera para o nosso time:</strong> A Engenharia de Prompts na nossa consultoria não é sobre aprender truques de tecnologia, mas sobre saber fazer as perguntas certas e estabelecer o rigor necessário. Com o contexto bem definido, a vaga dissecada e os dados do cliente protegidos, nós criamos o ambiente perfeito para a mágica acontecer.<br><br>
                 <em>Anotem e revisem esses comandos. No Módulo 4, nós vamos juntar tudo o que aprendemos até aqui para cruzar o histórico do cliente com a vaga e criar um currículo de altíssima conversão. Nos vemos na próxima aula.</em>
             </div>
-        `
     },
-
-
     {
         id: 16,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -902,7 +878,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
     {
         id: 17,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -972,8 +947,6 @@ const trilhasYoup = [
             </div>
         `
     },
-
-
     {
         id: 18,
         trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
@@ -1110,10 +1083,7 @@ const trilhasYoup = [
                 correta: 1
             }
         ]
-    };
-
-
-
+    },
     {
         id: 19,
         trilha: "O Currículo Inteligente",
@@ -1164,9 +1134,8 @@ const trilhasYoup = [
             </div>
         `
     },
-
     {
-        id: 21,
+        id: 20,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 2",
         titulo: "O Idioma do Algoritmo (Vencendo o ATS)",
@@ -1218,11 +1187,9 @@ const trilhasYoup = [
                 <strong>Resumo da nossa segunda aula:</strong> O idioma do algoritmo é binário, padronizado e sem margem para abstrações artísticas. Garantir um layout de coluna única, cabeçalhos universais e uma distribuição matemática das palavras-chave garante que o currículo do nosso cliente atravesse o portal digital sem nenhum arranhão.<br><br>
                 <em>O arquivo chegou limpo e intacto nas mãos do recrutador. Na próxima aula, o jogo vira. Aprenderemos a encantar o ser humano.</em>
             </div>
-        `
     },
-
-   {
-        id: 22,
+    { 
+    id: 21,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 3",
         titulo: "O Olhar do Recrutador Humano (Storytelling e Impacto)",
@@ -1279,9 +1246,7 @@ const trilhasYoup = [
             </div>
         `
     },
-
-    {
-        id: 23,
+    { id: 22,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 4",
         titulo: "O Resumo Executivo Profissional (A 'Vitrine' Estratégica)",
@@ -1329,10 +1294,8 @@ const trilhasYoup = [
             <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
                 <strong>Resumo da nossa quarta aula:</strong> O Resumo Executivo é o trailer do filme. Ele precisa ser impactante, livre de clichês amadores e cirurgicamente desenhado para prometer a resolução de uma dor de mercado. Quando ancoramos esse parágrafo forte com o Bloco de Competências Core, entregamos ao cliente a "vitrine" perfeita para que ele seja convidado para a mesa de negociação.
             </div>
-        `
     },
-   {
-        id: 24,
+    { id: 23,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 5",
         titulo: "Validação, Ferramentas e Versionamento",
@@ -1390,9 +1353,8 @@ const trilhasYoup = [
             </div>
         `
     },
-
-    {
-        id: 25,
+    { 
+        id: 24,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo Final",
         titulo: "Certificação em Arquitetura de Currículos (Modelo Híbrido)",
@@ -1411,7 +1373,6 @@ const trilhasYoup = [
             <p>Mente fria, foco nos resultados. Boa prova!</p>
         `,
         questoes: [
-            // Módulo 1
             {
                 pergunta: "Qual é o conceito de 'Currículo Híbrido' (Bilíngue) na metodologia da Youp Consultoria?",
                 opcoes: [
@@ -1434,7 +1395,6 @@ const trilhasYoup = [
                 ],
                 correta: 3
             },
-            // Módulo 2
             {
                 pergunta: "Qual é o maior erro de arquitetura de currículo que atua como 'criptonita' para a leitura (parsing) do sistema ATS?",
                 opcoes: [
@@ -1457,7 +1417,6 @@ const trilhasYoup = [
                 ],
                 correta: 1
             },
-            // Módulo 3
             {
                 pergunta: "De acordo com os estudos de ergonomia visual (Leitura em 'F'), onde as informações de maior destaque, como Título do Cargo e Empresa, devem estar posicionadas?",
                 opcoes: [
@@ -1480,7 +1439,6 @@ const trilhasYoup = [
                 ],
                 correta: 2
             },
-            // Módulo 4
             {
                 pergunta: "Sobre o Resumo Executivo (Elevator Pitch), qual prática separa um currículo corporativo de elite de um currículo amador?",
                 opcoes: [
@@ -1503,7 +1461,6 @@ const trilhasYoup = [
                 ],
                 correta: 1
             },
-            // Módulo 5
             {
                 pergunta: "O que é o 'Teste do Bloco de Notas' recomendado na fase de Garantia de Qualidade (QA)?",
                 opcoes: [
@@ -1527,11 +1484,7 @@ const trilhasYoup = [
                 correta: 3
             }
         ]
-    }   
-        
-
-
-
-        
+       },
+          
     
 ];
