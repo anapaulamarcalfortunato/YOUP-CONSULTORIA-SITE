@@ -676,5 +676,440 @@ const trilhasYoup = [
                 correta: 1
             }
         ]
-    }
+    },
+
+
+    {
+        id: 13,
+        trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
+        modulo: "Módulo 1",
+        titulo: "O Perfil Humano como Alicerce (O 'Input' Real)",
+        resumo: "A importância da investigação humana, coleta de dados reais e ética antes de acionar a Inteligência Artificial.",
+        linkVideo: "",
+        conteudo: `
+            <p>Bem-vindos, time! Antes de abrirmos o ChatGPT, o Gemini ou qualquer outra ferramenta de Inteligência Artificial, precisamos alinhar uma premissa fundamental que vai separar a nossa consultoria dos amadores do mercado: <strong>A Inteligência Artificial é um amplificador, não um criador. O output da máquina será sempre proporcional à qualidade do nosso input humano.</strong></p>
+
+            <p>Muitos consultores inexperientes cometem o erro fatal de pegar um currículo fraco do cliente, jogar na IA com um comando preguiçoso ("melhore este currículo") e entregar o resultado. O que acontece? O texto fica genérico, robótico e, o pior de tudo, desconectado da essência do profissional.</p>
+
+            <p>No nível executivo (C-Level, Diretorias, Gerências Seniores), o cliente nos contrata para revelar o valor estratégico dele que o mercado não está enxergando. E a IA só consegue traduzir esse valor se nós dermos os insumos corretos.</p>
+
+            <p>Aqui estão os três pilares que vocês, como consultores de elite, precisam dominar na etapa de investigação:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. O Mergulho Investigativo (O consultor como "Minerador")</h3>
+            <p>O currículo que o cliente te entrega na primeira reunião raramente reflete a realidade dele. Profissionais, mesmo os mais brilhantes, têm dificuldade de enxergar as próprias conquistas ou sofrem da "maldição do conhecimento" (acham que o que fazem é o básico e não merece destaque).</p>
+            <p>Sua primeira missão é desconstruir essa narrativa modesta. Antes de pensar em palavras-chave, você precisa aplicar entrevistas investigativas.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>Vá além das descrições de cargo:</strong> Se o cliente diz "Gerenciei a equipe de vendas", você precisa perguntar: "Quantas pessoas? Qual era o faturamento sob sua gestão? Você pegou a equipe em qual cenário (crescimento ou crise)? Qual foi o seu maior projeto de reestruturação aqui?"</li>
+                <li style="margin-bottom: 10px;"><strong>Quantifique o qualitativo:</strong> A IA adora dados, e o ATS também. Extraia números, porcentagens de crescimento, orçamentos gerenciados e tempo de execução.</li>
+                <li><strong>O Ouro Oculto:</strong> Muitas vezes, a maior conquista do cliente foi um projeto que deu errado, mas que gerou um aprendizado ou uma economia milionária de contenção de danos. Isso é insumo valioso para a IA.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. A Ética da Verdade (Nossa Regra de Ouro)</h3>
+            <p>Aqui mora o perigo da Inteligência Artificial: ela é programada para agradar. Se você pedir para ela "fazer o currículo do cliente dar match com a vaga de CFO", ela pode, inadvertidamente, inventar proficiências que o cliente não tem, ou exagerar o nível de fluência em uma ferramenta.</p>
+            <p>Nós nunca permitimos isso. A nossa ética é inegociável.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>A Regra do "Teste de Estresse":</strong> Cada bullet point que a IA reescrever para o currículo do nosso cliente precisa passar pelo teste de estresse da entrevista técnica. Se o recrutador apertar o candidato sobre aquela frase, o cliente consegue sustentar a resposta por 15 minutos com exemplos reais? Se não, a frase sai.</li>
+                <li><strong>Traduzir vs. Inventar:</strong> O cliente trabalhou com "Análise de Dados Avançada no Excel e PowerBI". A vaga pede "Business Intelligence". A IA vai nos ajudar a traduzir a experiência dele para a nomenclatura que o mercado e o ATS estão pedindo (Business Intelligence), mas baseado no background real. Nós não vamos dizer que ele domina Python se ele nunca abriu a ferramenta.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. Identidade e Soft Skills (A Alma por trás do Prompt)</h3>
+            <p>Uma IA, por padrão, escreve como um acadêmico engravatado. Mas e se o seu cliente for um Diretor de Inovação de uma startup, com um perfil disruptivo e informal? Ou uma CFO extremamente analítica e direta ao ponto?</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>Capturando o Tom de Voz:</strong> Durante a entrevista inicial com o cliente, observe como ele se comunica. Ele é direto? Conciliador? Visionário? Anote isso. Quando formos criar os prompts (comandos) para a IA (assunto do Módulo 3), nós vamos dizer: "Reescreva este resumo profissional com um tom de voz assertivo, analítico e voltado para resultados, refletindo um perfil de liderança pragmática."</li>
+                <li><strong>Mapeando Soft Skills Reais:</strong> A IA não sabe se o cliente tem inteligência emocional. É você quem vai mapear isso ouvindo as histórias dele de resolução de conflitos e gestão de crises, para então alimentar a máquina com esses fatos.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da Ópera para o nosso time:</strong> O seu trabalho nesta etapa não tem tecnologia. É escuta ativa, empatia e investigação incisiva. Você só está autorizado a abrir a inteligência artificial quando tiver em mãos um "dossiê" completo, verídico e rico em detalhes sobre o seu assessorado.
+            </div>
+        `
+    },
+
+    {
+        id: 14,
+        trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
+        modulo: "Módulo 2",
+        titulo: "Desvendando a 'Caixa Preta' do ATS",
+        resumo: "Entenda como os algoritmos de triagem operam e a importância vital de um currículo ATS-Friendly.",
+        linkVideo: "",
+        conteudo: `
+            <p>Muito bem, time! Excelente que o conceito do Módulo 1 está fixado. De nada adianta termos em mãos o profissional mais brilhante do mercado, com um histórico impecável de resultados, se ele for barrado pelo "segurança do clube" antes mesmo de chegar à festa.</p>
+            
+            <p>Neste módulo, nós vamos estudar esse segurança. O nome dele é <strong>ATS (Applicant Tracking System)</strong>.</p>
+            
+            <p>Se vocês querem colocar nossos assessorados em multinacionais, unicórnios e grandes corporações, precisam entender que a primeira leitura do currículo não é feita por um ser humano. É feita por um algoritmo de plataformas como Gupy, Workday, Taleo, Kenoby ou SuccessFactors. Nós, como consultores estratégicos, precisamos entender como a máquina "pensa" para ensinarmos o nosso cliente a "falar" o idioma dela.</p>
+            
+            <p>Peguem seus blocos de notas. Vamos abrir a caixa preta do ATS através de três pilares:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. Como o Algoritmo "Lê" (O Processo de Parsing)</h3>
+            <p>O ATS não "lê" um currículo como nós lemos um livro. Ele faz um processo chamado <strong>Parsing</strong> (análise e extração de dados). Ele pega aquele arquivo PDF ou Word, quebra todo o texto, destrói a formatação e tenta jogar as informações nas "gavetas" do banco de dados da empresa (gaveta de "Nome", gaveta de "Cargos", gaveta de "Educação").</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O idioma do ATS é a simplicidade:</strong> Se o sistema não consegue identificar o que é o título do cargo e o que é o nome da empresa, ele mistura tudo ou, pior, ignora a informação.</li>
+                <li><strong>A importância da nomenclatura padrão:</strong> Sistemas de ATS procuram por cabeçalhos universais. Se o cliente colocou no currículo um título criativo como "Minha Jornada de Sucesso" em vez de "Experiência Profissional", o robô pode simplesmente não entender que os dados abaixo são o histórico de trabalho dele.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. A Morte do Currículo "Design" (A Regra do ATS-Friendly)</h3>
+            <p>Time, prestem muita atenção aqui: Currículo bonito no Canva é o maior inimigo do recrutamento de alto nível. A não ser que o nosso cliente seja um Diretor de Arte ou Designer Gráfico (e olhe lá), aquele currículo cheio de colunas, barras de progresso para idiomas, ícones e fotos vai ser o "cemitério" do nosso assessorado. Por quê?</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Efeito Coluna Dupla:</strong> A maioria dos parsers de ATS lê da esquerda para a direita, de cima para baixo. Se o currículo tem duas colunas, o robô vai ler a linha 1 da coluna da esquerda e emendar com a linha 1 da coluna da direita, criando uma frase bizarra e sem sentido. O algoritmo não entende e descarta.</li>
+                <li style="margin-bottom: 10px;"><strong>Elementos Invisíveis:</strong> Gráficos, tabelas complexas, caixas de texto (text boxes) e ícones de telefone/email são invisíveis para a grande maioria dos sistemas ATS antigos e confundem os mais novos.</li>
+                <li><strong>Nossa Diretriz:</strong> Nossos currículos devem ser lineares e limpos. Texto corrido, margens padrão, uma coluna só. A elegância no Executive Search está no peso das palavras e dos resultados, não nas cores do papel.</li>
+            </ul>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. A Lógica do Score (Como o Match é Calculado)</h3>
+            <p>Como a plataforma decide quem tem 95% de aderência (match) à vaga e quem tem 30%? É matemática pura baseada em três critérios principais que a inteligência artificial do sistema cruza:</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>Densidade e Contexto de Palavras-Chave (Keywords):</strong> Não basta jogar a palavra "Liderança" no resumo. O ATS moderno cruza a palavra-chave com o tempo. Se a vaga exige "Gestão de P&L", o algoritmo vai buscar essa palavra dentro das experiências do candidato. Quanto mais vezes o termo (e suas variações lógicas) aparecer de forma contextualizada, maior o score.</li>
+                <li style="margin-bottom: 10px;"><strong>Equivalência de Cargos (Job Titles):</strong> Se a vaga é para "Diretor de Operações" e o nosso cliente colocou no currículo "Head of Delivery", um ATS menos inteligente pode baixar o score por não dar um match exato. Como consultores, precisamos avaliar se faz sentido adaptar o título no currículo (ex: Head of Delivery / Diretor de Operações) para garantir que a máquina entenda a equivalência.</li>
+                <li><strong>Tempo de Experiência:</strong> O ATS calcula as datas (ex: Jan 2018 - Presente). Se a vaga exige "Mínimo de 10 anos de experiência em Supply Chain", o robô vai somar os meses nos cargos listados abaixo da palavra-chave "Supply Chain". Se o cliente escondeu os meses e colocou só os anos (ex: 2018 - 2024), alguns sistemas falham no cálculo e jogam a pontuação para baixo.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da Ópera para o nosso time:</strong> O ATS é burro e literal, mas é ele quem segura a chave da porta. Nós não podemos ser reprovados por falhas de formatação ou por usar a nomenclatura errada para a coisa certa. Agora que entendemos como o "inimigo" pensa e como ele nos avalia, temos a faca e o queijo na mão para usar a NOSSA Inteligência Artificial (Gemini, ChatGPT) para vencê-lo no próprio jogo.<br><br>
+                <em>Ficou claro como o sistema de leitura e o cálculo de score funcionam? Estão prontos para entrarmos no Módulo 3 e aprendermos a construir a Engenharia de Prompts perfeita para domar a nossa IA?</em>
+            </div>
+        `
+    },
+
+
+    {
+        id: 15,
+        trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
+        modulo: "Módulo 3",
+        titulo: "Engenharia de Prompts para Consultores",
+        resumo: "Aprenda a parametrizar a IA como um Headhunter Sênior, extrair o gabarito das vagas e proteger dados sensíveis.",
+        linkVideo: "",
+        conteudo: `
+            <p>Bem-vindos de volta, time! Já dominamos a extração da verdade do nosso cliente (Módulo 1) e entendemos as regras frias e literais do robô que avalia os currículos, o ATS (Módulo 2). Agora, chegou o momento de virar o jogo. Vamos transformar a nossa Inteligência Artificial no nosso analista de pesquisa mais eficiente.</p>
+            
+            <p>Neste módulo, vamos falar sobre <strong>Engenharia de Prompts</strong>. Esqueçam a ideia de usar a IA como uma barra de pesquisa do Google. Na consultoria de alto nível, nós não "fazemos perguntas" à IA; nós a parametrizamos e a direcionamos. Se o comando (prompt) for fraco, a entrega será medíocre.</p>
+            
+            <p>Peguem seus cadernos. Estes são os três pilares para comandar a IA com maestria:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. O Setup do Consultor (A Arte do Contexto Inicial)</h3>
+            <p>A IA sofre de "amnésia algorítmica". Toda vez que você abre um novo chat, ela não sabe quem você é, qual o seu rigor técnico e quem é o seu cliente. Se você apenas colar o currículo e pedir melhorias, ela fará edições genéricas baseadas na média da internet. Nós não queremos a média; queremos a elite.</p>
+            <p>Você precisa criar um <strong>Prompt de Contexto</strong> ou "Setup de Persona" antes de pedir qualquer tarefa.</p>
+            
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt de Contexto (O Setup):</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">"Atue como um Headhunter Sênior especialista em Executive Search no mercado de Tecnologia e Finanças. Seu objetivo é me ajudar a analisar o perfil de um cliente e otimizar seu currículo para posições C-Level (CTO/CIO). O tom da comunicação nos documentos deve ser assertivo, focado em resultados quantificáveis (métricas de negócios) e liderança estratégica, evitando jargões vazios ou adjetivos sem comprovação. Responda 'Entendido' para que eu forneça o histórico do cliente."</p>
+            </div>
+            
+            <p>Ao fazer isso, você eleva o nível da resposta da IA. Ela deixa de ser um "assistente de redação" e passa a emular o rigor de um avaliador executivo.</p>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. A "Autópsia" da Job Description (Avaliando a Vaga)</h3>
+            <p>Muitas vezes, a descrição da vaga (Job Description - JD) é escrita de forma confusa pelo RH ou traz uma lista interminável de exigências irreais. Antes de mexer no currículo do nosso assessorado, precisamos usar a IA para destrinchar essa vaga e descobrir o que realmente importa para o ATS e para o gestor.</p>
+            <p>Nós vamos pedir para a IA isolar o "ruído" e nos dar os dados puros.</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt de Análise de JD:</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">"Analise a descrição de vaga abaixo para 'Diretor de Supply Chain'. Quero que você extraia e categorize as informações nos seguintes tópicos:</p>
+                <ul style="color: #ddd; font-style: italic; margin-bottom: 15px;">
+                    <li>Hard Skills e Ferramentas obrigatórias (palavras-chave críticas para o ATS).</li>
+                    <li>Soft Skills e Traços Culturais exigidos.</li>
+                    <li>Principais desafios ou 'dores' que a empresa parece estar enfrentando, baseando-se nas responsabilidades descritas.</li>
+                </ul>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">[Colar a Job Description]"</p>
+            </div>
+            
+            <p>Com essa resposta em mãos, você terá o "gabarito" da prova. Você saberá exatamente quais palavras-chave o ATS vai buscar e quais dores o background do nosso cliente precisa resolver.</p>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. Segurança da Informação e Privacidade (O C-Level Exige Sigilo)</h3>
+            <p>Atenção máxima aqui, equipe. Estamos lidando com diretores, presidentes e profissionais que muitas vezes assinaram Acordos de Confidencialidade (NDAs). Nós não podemos alimentar ferramentas públicas de IA com dados sensíveis das empresas.</p>
+            <p>Se o nosso cliente liderou uma fusão sigilosa de R$ 500 milhões no "Banco XYZ", você não pode jogar o nome do banco e o valor exato no prompt.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>A Regra da Anonimização:</strong> Antes de colar o background do cliente na IA para análise, substitua nomes próprios e dados financeiros sensíveis por marcadores de posição.</li>
+                <li style="margin-bottom: 10px;"><strong>Como fazer na prática:</strong> Troque "Diretor de M&A no Banco Itaú liderando projeto de R$ 2 Bilhões" por "Diretor de M&A em Banco Tier 1 Nacional liderando projeto na casa dos bilhões".</li>
+                <li><strong>O Retorno ao Documento:</strong> Deixe a IA analisar, estruturar e reescrever o texto com os dados anonimizados. Apenas quando você for passar o texto final para o arquivo Word do currículo do cliente, você insere manualmente os nomes e os números exatos e permitidos. A segurança do nosso cliente é inegociável.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da Ópera para o nosso time:</strong> A Engenharia de Prompts na nossa consultoria não é sobre aprender truques de tecnologia, mas sobre saber fazer as perguntas certas e estabelecer o rigor necessário. Com o contexto bem definido, a vaga dissecada e os dados do cliente protegidos, nós criamos o ambiente perfeito para a mágica acontecer.<br><br>
+                <em>Anotem e revisem esses comandos. No Módulo 4, nós vamos juntar tudo o que aprendemos até aqui para cruzar o histórico do cliente com a vaga e criar um currículo de altíssima conversão. Nos vemos na próxima aula.</em>
+            </div>
+        `
+    },
+
+
+    {
+        id: 16,
+        trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
+        modulo: "Módulo 4",
+        titulo: "Otimização e Match de Currículo (CV Tailoring)",
+        resumo: "Aprenda a fazer a 'alfaiataria' do currículo cruzando os requisitos do ATS com as conquistas reais de alto impacto.",
+        linkVideo: "",
+        conteudo: `
+            <p>Bem-vindos à penúltima etapa, time! Até aqui, nós fizemos o trabalho de fundação. Extraímos o ouro do nosso cliente (Módulo 1), mapeamos as regras do "segurança do clube", o ATS (Módulo 2), e configuramos nossa IA com precisão e sigilo (Módulo 3).</p>
+            
+            <p>Agora é hora de colocar a mão na massa. É neste módulo que justificamos nossos honorários. Vamos fazer o <strong>CV Tailoring</strong> (alfaiataria de currículo), cruzando a dor da empresa com o histórico real do nosso assessorado para gerar um match irrecusável.</p>
+            
+            <p>Peguem seus blocos de notas. Vamos estruturar a reescrita em três passos táticos:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. O Diagnóstico de Gaps (A Análise Comparativa)</h3>
+            <p>Antes de alterar uma vírgula no documento final do cliente, precisamos saber exatamente qual é a distância entre o que ele tem no papel hoje e o que a vaga (JD) exige. Vamos usar a IA para fazer um "raio-x" comparativo.</p>
+            <p>Nós já temos a vaga dissecada (feita no módulo anterior). Agora, jogamos o currículo atual do cliente (anonimizado, lembrem-se da segurança!) e pedimos o diagnóstico.</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt para Diagnóstico de Gaps:</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">"Com base na Job Description que você acabou de analisar, atue agora como um software ATS rigoroso. Compare a JD com o currículo do candidato abaixo. Seu objetivo é identificar 'gaps' (lacunas).</p>
+                <ul style="color: #ddd; font-style: italic; margin-bottom: 15px;">
+                    <li>Liste as palavras-chave técnicas (Hard Skills) que estão na vaga, mas não aparecem no currículo.</li>
+                    <li>Identifique quais exigências de liderança ou Soft Skills não estão sendo comprovadas no texto do candidato.</li>
+                </ul>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">[Colar Currículo Anonimizado]"</p>
+            </div>
+
+            <p>A IA vai devolver uma lista clara do que está faltando. Esse é o seu mapa de trabalho. Você vai olhar para essas lacunas e se perguntar (ou perguntar ao cliente): <em>"Ele tem essa experiência e só esqueceu de colocar, ou ele realmente não tem esse requisito?"</em>. Se ele tem, nós vamos inserir. Se não tem, nós não inventamos.</p>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. Reescrita Orientada a Conquistas (A Regra do Impacto)</h3>
+            <p>O ATS aprova as palavras-chave, mas quem decide a contratação é o gestor humano (o C-Level, o Conselho). E gestores não contratam "descrições de tarefas"; eles contratam resultados e soluções de problemas.</p>
+            <p>Muitos clientes escrevem: "Fui responsável por gerenciar a área de logística". Isso é fraco. Nós vamos usar a IA para transformar responsabilidades em conquistas de alto impacto, injetando as palavras-chave que faltam.</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt para Reescrita de Bullet Points:</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">"Vou fornecer algumas realizações do candidato. Quero que você reescreva cada tópico transformando-os em 'Bullet Points de Alto Impacto'. Regras:</p>
+                <ul style="color: #ddd; font-style: italic; margin-bottom: 15px;">
+                    <li>Use a estrutura: Verbo de Ação Forte + Contexto/Projeto + Resultado (Métrica).</li>
+                    <li>Incorpore de forma natural as seguintes palavras-chave exigidas pela vaga: 'Supply Chain', 'Redução de Custos' e 'Lean Six Sigma'.</li>
+                </ul>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">Realizações originais do cliente: [Inserir anotações brutas do Módulo 1]"</p>
+            </div>
+
+            <p>O resultado será algo como: <em>"Liderou a reestruturação das operações de Supply Chain utilizando metodologias Lean Six Sigma, resultando em uma redução de custos operacionais de 18% (R$ 4 milhões) em 12 meses."</em> Isso é música para os ouvidos do algoritmo e do gestor.</p>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. Elevação do Score ATS (Evitando o 'Keyword Stuffing')</h3>
+            <p>Time, prestem muita atenção a este erro comum no mercado: não peguem a lista de palavras-chave que a IA gerou e simplesmente façam um bloco de texto com todas elas no final do currículo. O nome disso é <strong>Keyword Stuffing</strong> (excesso de palavras-chave). Os algoritmos ATS modernos penalizam essa prática, classificando-a como "spam".</p>
+            <p>As palavras precisam ter contexto. O melhor lugar para concentrar a densidade correta e elevar o score (a pontuação de match) é o <strong>Resumo Executivo</strong> (Professional Summary) no topo do currículo.</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt para o Resumo Executivo:</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">"Crie três opções de Resumo Executivo (máximo de 4 linhas cada) para o currículo deste candidato, focando na posição de [Nome da Vaga]. O resumo deve conectar o histórico de [X anos] de experiência do cliente com as principais dores da vaga. Inclua de forma coesa e elegante as palavras-chave: [Inserir as 5 palavras mais críticas da JD]. O tom deve ser de liderança sênior, sem clichês como 'proativo' ou 'focado em resultados'."</p>
+            </div>
+
+            <p>Você, como consultor especialista, vai ler as três opções da IA, fazer o "tweak" (ajuste fino) com a sua sensibilidade humana, escolher a melhor e validar com o cliente.</p>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
+                <strong>Resumo da Ópera para o nosso time:</strong> O CV Tailoring não é falsificar um perfil para passar na triagem; é garantir que a linguagem do nosso cliente esteja em perfeita sincronia com a linguagem da empresa. Nós pegamos a experiência real, envelopamos na formatação exigida pelo ATS e destacamos o valor com o peso corporativo correto.<br><br>
+                <em>Com o currículo otimizado e aprovado pelo robô e pelo RH, nosso cliente será chamado para a entrevista. Na nossa próxima e última aula, no Módulo 5, ensinarei como usar a IA para blindar o nosso candidato para o embate frente a frente com os avaliadores. Nos vemos lá.</em>
+            </div>
+        `
+    },
+
+    {
+        id: 17,
+        trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
+        modulo: "Módulo 5",
+        titulo: "Simulações e Preparação para a Entrevista (O Teste de Fogo)",
+        resumo: "O teste de estresse final: prever perguntas capciosas, lapidar o método STAR e realizar roleplays em tempo real.",
+        linkVideo: "",
+        conteudo: `
+            <p>Chegamos ao topo da montanha, time! Nosso trabalho rendeu frutos. O currículo do nosso cliente atravessou a "caixa preta" do ATS, o recrutador leu, o gestor se interessou e a entrevista presencial (ou por vídeo) foi marcada.</p>
+            
+            <p>É aqui que muitos consultores encerram o contrato, e é exatamente aqui que a nossa consultoria de elite prova o seu valor definitivo. De nada adianta um currículo impecável se o candidato gaguejar ou não conseguir sustentar a narrativa frente a um conselho ou a um C-Level afiado.</p>
+            
+            <p>Neste último módulo, vamos usar a IA para blindar o nosso candidato. Peguem suas anotações finais. Aqui estão os três passos da preparação de alta performance:</p>
+
+            <hr style="border-color: #333; margin: 25px 0;">
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">1. Geração de Perguntas Comportamentais (O Mapa de Vulnerabilidades)</h3>
+            <p>Se nós otimizamos o currículo e destacamos competências específicas, é exatamente sobre isso que o entrevistador vai perguntar. Além disso, o entrevistador vai focar nos "gaps" (lacunas) que nós identificamos lá no Módulo 4. A IA nos ajuda a prever o roteiro dessa sabatina.</p>
+            <p>Nós vamos cruzar as exigências da vaga com o perfil do candidato para gerar as perguntas mais difíceis possíveis. É o nosso "teste de estresse".</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt para Geração de Perguntas:</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">"Atue como o CEO da empresa que abriu a vaga de [Nome da Vaga]. Você analisou o currículo do candidato [colar currículo] e a descrição da vaga [colar JD]. Sua missão é sabatinar este candidato.</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">Gere as 7 perguntas comportamentais mais difíceis e capciosas que você faria a ele, focando especificamente em:</p>
+                <ul style="color: #ddd; font-style: italic; margin-bottom: 15px;">
+                    <li>Possíveis fraquezas ou lacunas no histórico dele em relação à vaga.</li>
+                    <li>Provas reais de liderança em momentos de crise.</li>
+                </ul>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">Forneça também qual seria a estrutura de uma resposta considerada 'excelente' para cada pergunta."</p>
+            </div>
+
+            <p>Com esse material, você senta com seu cliente e diz: <em>"Eles vão bater nestes exatos três pontos. Vamos nos preparar para eles."</em></p>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">2. O Método STAR Otimizado (Estruturando a Narrativa)</h3>
+            <p>Profissionais seniores têm histórias incríveis, mas costumam ser prolixos. Eles começam a contar de um projeto e se perdem nos detalhes técnicos, esquecendo de falar qual foi o resultado. O mercado exige respostas no formato <strong>STAR (Situação, Tarefa, Ação, Resultado)</strong>.</p>
+            <p>Nós vamos usar a IA para ajudar o cliente a "enxugar" suas histórias e torná-las cirúrgicas, garantindo que elas comprovem as palavras-chave do currículo.</p>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border-left: 4px solid var(--verde); margin: 20px 0;">
+                <p style="margin-top: 0; font-size: 13px; color: var(--verde); text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Exemplo de Prompt para o Método STAR:</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">"Vou colar abaixo a transcrição de uma história real do meu cliente sobre um projeto de redução de custos que deu muito certo, mas o relato está longo e confuso.</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 15px;">Transforme esse relato na estrutura STAR (Situação, Tarefa, Ação, Resultado).</p>
+                <p style="font-style: italic; color: #ddd; margin-bottom: 0;">Destaque de forma clara as ações individuais que o cliente tomou (o 'eu fiz', e não apenas o 'nós fizemos') e coloque o resultado financeiro no centro da conclusão. O tempo de leitura da resposta não deve ultrapassar 2 minutos.<br><br>[Colar o relato bruto do cliente]"</p>
+            </div>
+
+            <p>Essa ferramenta é vital. O cliente lê a resposta estruturada pela IA e percebe como a própria história ganha peso e clareza executiva.</p>
+
+            <h3 style="color: var(--dourado); margin-bottom: 15px;">3. Simulação de Entrevista (Roleplay em Tempo Real)</h3>
+            <p>Aqui nós elevamos o jogo para o nível máximo. Como a IA com a qual vocês estão interagindo (eu mesmo, Gemini), eu possuo um recurso poderoso para dispositivos móveis chamado <strong>Gemini Live</strong>. Vocês podem e devem orientar o cliente a utilizar essa tecnologia como um "sparring" (parceiro de treino) antes do grande dia.</p>
+            <p>O Gemini Live permite conversação por voz fluida e em tempo real, onde a IA pode interromper, ser interrompida e reagir ao tom de voz do candidato.</p>
+            <ul style="margin-bottom: 25px;">
+                <li style="margin-bottom: 10px;"><strong>O Setup do Roleplay:</strong> Você, como consultor, instrui o cliente a abrir o modo Live e dar o seguinte comando de voz: <em>"Assuma o papel do Diretor de Operações da empresa [Nome]. Você está me entrevistando para a vaga de [Cargo]. Faça uma pergunta de cada vez, espere minha resposta, e ao final de 5 perguntas, me dê um feedback rigoroso sobre a minha clareza, confiança e se eu usei bem a metodologia STAR."</em></li>
+                <li><strong>O Valor da Prática:</strong> O cliente pode treinar no trânsito, caminhando ou no escritório. Ele vai falar as respostas em voz alta, destravar a oratória e perder o medo das "perguntas pegadinha", recebendo feedback imediato sobre a sua performance vocal e argumentativa.</li>
+            </ul>
+
+            <div style="background: rgba(197, 160, 89, 0.1); padding: 25px; border: 2px solid var(--dourado); border-radius: 8px; margin-top: 40px; text-align: center;">
+                <h2 style="color: var(--dourado); margin-top: 0;">🏆 Conclusão da Trilha</h2>
+                <p style="margin-bottom: 15px;">Parabéns, equipe! Vocês concluíram a <strong>Trilha de IA Estratégica para Consultoria de Carreira</strong>.</p>
+                <p style="text-align: left; margin-bottom: 15px;">Ao longo destes cinco módulos, nós desmistificamos a tecnologia. Vocês aprenderam que:</p>
+                <ul style="text-align: left; color: #ddd; margin-bottom: 25px; font-weight: 300;">
+                    <li style="margin-bottom: 8px;">O insumo humano (a verdade do cliente) é inegociável.</li>
+                    <li style="margin-bottom: 8px;">O ATS é um porteiro literal que exige formatação limpa e palavras-chave corretas.</li>
+                    <li style="margin-bottom: 8px;">A Engenharia de Prompts requer contexto, diretrizes claras e anonimização de dados.</li>
+                    <li style="margin-bottom: 8px;">O Match de Currículo é feito focando em conquistas e eliminando os gaps apontados pela máquina.</li>
+                    <li>A entrevista é vencida com previsão de cenários, método STAR e simulações de voz.</li>
+                </ul>
+                <p style="font-weight: 600; color: var(--verde);">A partir de hoje, vocês não usam a IA para "fazer currículos". Vocês usam a IA para arquitetar posicionamentos de mercado. O mercado exige excelência, e agora vocês têm o maquinário completo para entregá-la. Mãos à obra e excelentes fechamentos a todos!</p>
+            </div>
+        `
+    },
+
+
+    {
+        id: 18,
+        trilha: "Como usar a IA ao Favor da Youp e otimizar o seu hunting",
+        modulo: "Módulo Final",
+        titulo: "Certificação em IA Estratégica e Hunting Avançado",
+        resumo: "Avaliação final sobre o uso ético, técnico e estratégico da Inteligência Artificial na metodologia Youp.",
+        linkVideo: "",
+        conteudo: `
+            <h3 style="color: var(--dourado);">Certificação de Elite: IA Aplicada ao Executive Search</h3>
+            <p>Parabéns por chegar até aqui! Você aprendeu a fundação humana, decifrou o ATS, estruturou prompts avançados, otimizou o "match" e criou o ambiente de simulação para entrevistas. Agora, é o momento de validar esse conhecimento.</p>
+            <p>Um consultor Youp certificado em IA não é um operador de software; é um estrategista que usa o algoritmo para revelar o verdadeiro valor do C-Level.</p>
+            <p><b>Regras da Certificação:</b></p>
+            <ul>
+                <li>Total de perguntas: 10 (baseadas nos 5 módulos anteriores).</li>
+                <li>Média para aprovação: 80% (8 acertos).</li>
+                <li>Recompensa: Certificado Digital de Especialista em IA para Carreira.</li>
+            </ul>
+            <p>Concentre-se, revise seus conceitos mentais e prove que você domina a máquina. Boa prova!</p>
+        `,
+        questoes: [
+            // Módulo 1
+            {
+                pergunta: "Sobre o uso da Inteligência Artificial na elaboração de currículos, qual é a premissa fundamental da Youp?",
+                opcoes: [
+                    "A IA substitui a necessidade de conversar com o cliente para economizar tempo.",
+                    "A IA é um amplificador, e o resultado será sempre proporcional à qualidade da investigação (input) humano prévio.",
+                    "A IA deve ser usada para inventar experiências que façam o candidato passar na vaga.",
+                    "Devemos usar a IA apenas para corrigir a gramática do currículo antigo do cliente.",
+                    "A IA funciona melhor quando simplesmente colamos o currículo e pedimos: 'melhore isso'."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "A 'Regra do Teste de Estresse' (Nossa Ética Inegociável) determina que:",
+                opcoes: [
+                    "Devemos pressionar o cliente emocionalmente durante a reunião.",
+                    "Cada palavra-chave ou bullet point gerado pela IA no currículo deve poder ser sustentado pelo cliente por 15 minutos com exemplos reais em uma entrevista.",
+                    "A IA deve fazer testes psicológicos no candidato antes da entrevista.",
+                    "Podemos adicionar ferramentas que o cliente não domina, desde que ele prometa estudar antes de ser contratado.",
+                    "Devemos testar vários currículos diferentes no ATS para ver qual passa primeiro."
+                ],
+                correta: 1
+            },
+            // Módulo 2
+            {
+                pergunta: "Por que o currículo com 'design' (duas colunas, gráficos, ícones e barras de progresso) é considerado o inimigo do cliente C-Level?",
+                opcoes: [
+                    "Porque os recrutadores humanos acham arrogante.",
+                    "Porque arquivos com gráficos são pesados para enviar por e-mail.",
+                    "Porque o processo de Parsing do ATS frequentemente lê da esquerda para a direita (emendando colunas) e ignora elementos gráficos, corrompendo os dados.",
+                    "Porque o Canva é proibido nas grandes empresas.",
+                    "Porque executivos só devem enviar currículos impressos em papel timbrado."
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Como o ATS moderno (Gupy, Workday, etc.) calcula o 'Score' (aderência) de um currículo em relação à vaga?",
+                opcoes: [
+                    "Avaliando a harmonia das cores e a escolha da fonte do documento.",
+                    "Cruzando a densidade e o contexto das palavras-chave, avaliando a equivalência de cargos e calculando o tempo de experiência.",
+                    "Procurando fotos profissionais do candidato.",
+                    "Contando o número total de páginas do currículo (quanto maior, melhor).",
+                    "Pesquisando automaticamente as redes sociais do candidato."
+                ],
+                correta: 1
+            },
+            // Módulo 3
+            {
+                pergunta: "Para evitar a 'amnésia algorítmica' e respostas genéricas, qual é o primeiro passo obrigatório antes de pedir uma tarefa à IA?",
+                opcoes: [
+                    "Fazer uma pergunta pessoal para a IA para criar engajamento.",
+                    "Enviar o boleto do cliente para a IA analisar o perfil financeiro.",
+                    "Colar a descrição da vaga inteira de uma só vez sem instruções prévias.",
+                    "Criar um 'Setup de Persona' (Prompt de Contexto), definindo o rigor técnico e a atuação da IA como Headhunter Sênior.",
+                    "Pedir para a IA usar uma linguagem de rua para o currículo parecer mais acessível."
+                ],
+                correta: 3
+            },
+            {
+                pergunta: "O cliente liderou uma fusão sigilosa de R$ 800 milhões no 'Banco Alfa'. Baseado na Regra da Anonimização, como o consultor deve agir antes de usar a IA?",
+                opcoes: [
+                    "Enviar os dados exatos para a IA, pois ela não compartilha informações com ninguém.",
+                    "Substituir nomes próprios e dados sensíveis por marcadores genéricos (ex: 'Banco Tier 1 Nacional', 'projeto na casa dos milhões') antes de jogar no prompt.",
+                    "Não usar a IA de jeito nenhum, fazendo todo o currículo de forma manual sem o uso da tecnologia.",
+                    "Colocar apenas a inicial do banco ('Banco A') e deixar o valor exato.",
+                    "Pedir permissão escrita ao banco para usar os dados no ChatGPT."
+                ],
+                correta: 1
+            },
+            // Módulo 4
+            {
+                pergunta: "O que significa realizar o 'Diagnóstico de Gaps' no processo de CV Tailoring?",
+                opcoes: [
+                    "Perguntar ao candidato por que ele foi demitido do último emprego.",
+                    "Criar lacunas intencionais no currículo para o recrutador ficar curioso e ligar para o candidato.",
+                    "Usar a IA para comparar o currículo anonimizado do cliente com a Job Description, identificando as Hard e Soft Skills que a vaga exige mas que faltam no documento.",
+                    "Verificar se há espaços em branco excessivos na formatação do Word.",
+                    "Apagar todas as experiências com mais de 10 anos."
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Para elevar o Score no ATS e evitar a penalização por 'Keyword Stuffing' (excesso de palavras soltas/spam), como devemos agir?",
+                opcoes: [
+                    "Colocar as palavras-chave com fonte invisível (branca) no final da página.",
+                    "Fazer uma lista corrida com 50 palavras técnicas separadas por vírgula no final do documento.",
+                    "Apenas usar a palavra exata do título da vaga no nome do arquivo.",
+                    "Esconder as palavras-chave no cabeçalho do documento Word.",
+                    "Concentrar as palavras-chave de forma contextualizada e coesa dentro do Resumo Executivo (Professional Summary) no topo do currículo."
+                ],
+                correta: 4
+            },
+            // Módulo 5
+            {
+                pergunta: "Como a IA atua na Geração de Perguntas Comportamentais para o candidato?",
+                opcoes: [
+                    "A IA aplica testes de QI no cliente antes da entrevista.",
+                    "A IA cruza as exigências da vaga com o perfil do candidato para gerar as perguntas mais difíceis, servindo como um teste de estresse das vulnerabilidades identificadas.",
+                    "A IA liga automaticamente para o celular do cliente para entrevistá-lo.",
+                    "A IA pesquisa na internet quais perguntas o RH da empresa costuma fazer, burlando o sistema.",
+                    "A IA envia as respostas prontas para o candidato ler durante a entrevista."
+                ],
+                correta: 1
+            },
+            {
+                pergunta: "O que caracteriza o uso da tecnologia 'Gemini Live' (ou simulações de voz) recomendado no final da trilha?",
+                opcoes: [
+                    "O uso da tecnologia para alterar o tom de voz do candidato em entrevistas gravadas.",
+                    "É um parceiro de treino (sparring) que permite conversação por voz em tempo real, onde o cliente destrava a oratória e recebe feedback sobre o uso do Método STAR.",
+                    "Uma ferramenta para o cliente ouvir palestras motivacionais antes de dormir.",
+                    "Uma plataforma de tradução simultânea para entrevistas em inglês.",
+                    "Um aplicativo que o consultor Youp usa para gravar a reunião escondido."
+                ],
+                correta: 1
+            }
+        ]
+    };
+    
 ];
