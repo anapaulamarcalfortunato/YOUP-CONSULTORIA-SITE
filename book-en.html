@@ -15,12 +15,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-6JTWLMZBRS');
     </script>
     <title>Premium Talent Book - Youp</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <script src="dados-book.js"></script>
+    <script src="dados-book-en.js"></script>
 
     <style>
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
@@ -195,7 +196,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             if (typeof talentosYoup === 'undefined') {
-                document.getElementById('talentGrid').innerHTML = "<p style='text-align:center; color:red;'>Error: File dados-book.js not found!</p>";
+                document.getElementById('talentGrid').innerHTML = "<p style='text-align:center; color:red;'>Error: File dados-book-en.js not found!</p>";
                 return;
             }
             gerarFiltrosDeAreaDropdown();
@@ -250,6 +251,7 @@
 
         function exibirTalentos() {
             const finais = talentosYoup.filter(t => {
+                // Aqui o script cruza o valor em PT (ex: "Média Liderança") no banco de dados para os botões do HTML que estão em inglês.
                 const matchLocal = filtrosAtivos.localizacao.length === 0 || filtrosAtivos.localizacao.includes(t.localizacao);
                 const matchNivel = filtrosAtivos.nivel.length === 0 || filtrosAtivos.nivel.includes(t.nivel);
                 
@@ -305,7 +307,6 @@
             document.getElementById('m-objetivo').innerText = t.objetivo || 'Not specified'; 
             document.getElementById('m-text').innerHTML = t.conteudo; 
 
-            // WhatsApp Message Translation
             const textoZap = encodeURIComponent(`Hi Ana, I'm interested in requesting the presentation of the confidential profile ${t.id} - ${t.perfil} from the Talent Book.`);
             const linkZap = `https://wa.me/5512991322333?text=${textoZap}`;
             document.getElementById('m-zap-link').href = linkZap;
