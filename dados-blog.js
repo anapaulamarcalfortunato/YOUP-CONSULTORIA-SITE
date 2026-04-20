@@ -424,6 +424,45 @@ const materiaisYoup = [
             </div>
         `
     },
+
+    {
+        id: 12,
+        categoria: "Carreira",
+        data: "19/04/2026",
+        tempoLeitura: "7 min",
+        titulo: "Proposta Salarial Baixa no C-Level: Como Negociar seu Valor Sem Perder a Cadeira",
+        slug: "proposta-salarial-baixa-clevel-como-negociar-bonus-equity",
+        resumo: "Se o salário fixo oferecido não reflete o seu potencial, não recue. Aprenda a pivotar a negociação para pacotes de parceria, bônus agressivos e Equity.",
+        imagem: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800&auto=format&fit=crop", 
+        conteudo: `
+            <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
+                <p style="margin: 0 0 15px 0;">A cena é um rito de passagem doloroso na carreira executiva: após meses de sabatinas e alinhamentos, a carta de oferta chega à sua mesa. O mandato de CEO ou Diretor é fascinante, mas o pacote de remuneração fixa é uma decepção profunda. O salário não reflete a sua senioridade ou o tamanho do <em>turnaround</em> esperado. A dúvida paralisa o profissional: "É possível bater de frente e negociar salário em um mercado tão competitivo?"</p>
+                
+                <p style="margin: 0 0 15px 0;">O choque de realidade é que sim, é possível negociar, mas a maioria o faz de forma amadora. O erro letal é tentar convencer o Conselho a aumentar o fixo baseando-se no seu "potencial histórico" ou na "média do mercado". O acionista não se importa com a sua hipoteca. Na frieza do <em>Board</em>, a remuneração não é um prêmio pelo seu passado; é uma alocação de risco financeiro voltada para o futuro.</p>
+
+                <h2 style="font-size: 1.4em; margin: 25px 0 10px 0; font-weight: 700;">A Armadilha do Fixo Alto</h2>
+                <p style="margin: 0 0 15px 0;">Insistir de forma intransigente no salário fixo em um cenário volátil envia uma mensagem terrível. Quando um executivo exige a segurança de uma base altíssima antes de entregar o primeiro real de lucro, a leitura silenciosa do investidor é de que ele quer a proteção de um burocrata estatal combinada com a recompensa de um fundador. Empresas evitam inflar a linha de despesas fixas (SG&A) com folhas inflexíveis.</p>
+
+                <div style="border-left: 3px solid #dcb560; background-color: rgba(255,255,255,0.05); padding: 15px; margin: 20px 0; font-style: italic; font-size: 1em;">
+                    "A virada de chave para o executivo de elite não é abandonar a mesa, mas pivotar o formato. Você deve deixar de negociar o 'salário do funcionário' e passar a negociar o 'pacote de parceria'."
+                </div>
+
+                <h2 style="font-size: 1.4em; margin: 25px 0 10px 0; font-weight: 700;">As 3 Alavancas da Contraproposta</h2>
+                <p style="margin: 0 0 15px 0;"><strong>1. Bônus de Assinatura (Sign-on Bonus):</strong> Se a companhia não pode quebrar a banda salarial, proponha: <em>"Aceito o fixo proposto. No entanto, para mitigar o risco da transição e o bônus que estou deixando na minha atual empresa, proponho um Sign-on Bonus pago no ato."</em> Isso resolve a dor imediata sem inflar a folha recorrente.</p>
+
+                <p style="margin: 0 0 15px 0;"><strong>2. Variável Agressivo:</strong> A verdadeira riqueza nunca é construída pelo salário mensal. Se o Conselho oferece uma base menor, exija um teto maior na vitória: <em>"Estou disposto a assumir esse risco. Em contrapartida, exijo que meu multiplicador, caso eu entregue 120% do EBITDA, passe de 2 para 6 salários."</em> Você prova que tem <em>skin in the game</em>.</p>
+
+                <p style="margin: 0 0 15px 0;"><strong>3. Equity (Ações):</strong> Se a oferta em dinheiro é fraca, o executivo sênior exige o lado de cima da tabela de capitalização. Negociar opções de ações demonstra a maturidade fiduciária de quem vai tratar o dinheiro da empresa como se fosse o seu próprio patrimônio.</p>
+
+                <h2 style="font-size: 1.4em; margin: 25px 0 10px 0; font-weight: 700;">A Psicologia do Conselho</h2>
+                <p style="margin: 0 0 15px 0;">O tom nunca deve ser de ultimato. O C-Level utiliza a Postura Fiduciária Colaborativa: <em>"Nós precisamos alinhar o meu risco pessoal com a tese da empresa. Trouxe três cenários alternativos para ajustarmos sem ferir o caixa imediato de vocês."</em></p>
+
+                <p style="margin: 0 0 15px 0;">Como Headhunter, garanto: quando levo ao cliente uma contraproposta que sacrifica o fixo em troca de um variável selvagem atrelado a resultados, o Chairman sorri. A negociação deixa de ser um atrito de RH e se transforma no melhor estudo de caso da sua entrevista.</p>
+
+                <p style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 0.95em; opacity: 0.9;"><strong style="color: #dcb560;">Conclusão:</strong> Uma oferta baixa é apenas a jogada de abertura de um xadrez fiduciário. O seu potencial só tem valor quando atrelado a resultados futuros. Pare de implorar por migalhas na base e domine as engrenagens do Bônus e do Equity. Cobre caro, mas cobre diretamente do lucro que você vai gerar.</p>
+            </div>
+        `
+    }
 ]
 // --- ORDENAÇÃO AUTOMÁTICA POR ID ---
 // Garante que o artigo com o maior ID (o mais recente) apareça sempre primeiro.
