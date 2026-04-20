@@ -1084,7 +1084,7 @@ const trilhasYoup = [
             }
         ]
     },
-    {
+{
         id: 19,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 1",
@@ -1187,9 +1187,10 @@ const trilhasYoup = [
                 <strong>Resumo da nossa segunda aula:</strong> O idioma do algoritmo é binário, padronizado e sem margem para abstrações artísticas. Garantir um layout de coluna única, cabeçalhos universais e uma distribuição matemática das palavras-chave garante que o currículo do nosso cliente atravesse o portal digital sem nenhum arranhão.<br><br>
                 <em>O arquivo chegou limpo e intacto nas mãos do recrutador. Na próxima aula, o jogo vira. Aprenderemos a encantar o ser humano.</em>
             </div>
+        `
     },
     { 
-    id: 21,
+        id: 21,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 3",
         titulo: "O Olhar do Recrutador Humano (Storytelling e Impacto)",
@@ -1246,7 +1247,8 @@ const trilhasYoup = [
             </div>
         `
     },
-    { id: 22,
+    { 
+        id: 22,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 4",
         titulo: "O Resumo Executivo Profissional (A 'Vitrine' Estratégica)",
@@ -1294,8 +1296,10 @@ const trilhasYoup = [
             <div style="background: rgba(197, 160, 89, 0.1); padding: 20px; border-left: 4px solid var(--dourado); border-radius: 4px; margin-top: 30px;">
                 <strong>Resumo da nossa quarta aula:</strong> O Resumo Executivo é o trailer do filme. Ele precisa ser impactante, livre de clichês amadores e cirurgicamente desenhado para prometer a resolução de uma dor de mercado. Quando ancoramos esse parágrafo forte com o Bloco de Competências Core, entregamos ao cliente a "vitrine" perfeita para que ele seja convidado para a mesa de negociação.
             </div>
+        `
     },
-    { id: 23,
+    { 
+        id: 23,
         trilha: "O Currículo Inteligente",
         modulo: "Módulo 5",
         titulo: "Validação, Ferramentas e Versionamento",
@@ -1484,7 +1488,7 @@ const trilhasYoup = [
                 correta: 3
             }
         ]
-       }
+    }
           
     
 ];
