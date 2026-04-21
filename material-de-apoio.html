@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <script>
+        if (localStorage.getItem('youp_idioma') === 'en') {
+            const paginaIngles = 'material-de-apoio-en.html';
+            fetch(paginaIngles, { method: 'HEAD' }).then(response => {
+                if (response.ok) { window.location.replace(paginaIngles); }
+            });
+        }
+    </script>
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6JTWLMZBRS');
     </script>
-    <title>Insights & Carreira - Youp</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <script src="dados-blog.js"></script>
-
-    <style>
-
     <title>Insights & Carreira - Youp</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
@@ -28,10 +29,31 @@
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); overflow-x: hidden; }
         
+        /* Ferramentas de Idioma no Topo */
+        .header-tools { position: absolute; top: 20px; right: 20px; display: flex; align-items: center; gap: 15px; z-index: 10; }
+        
+        .lang-switch-box {
+            font-size: 11px; font-weight: 600; color: var(--cinza-claro); letter-spacing: 2px;
+            background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.3); display: flex; align-items: center;
+        }
+        .lang-btn { cursor: pointer; transition: 0.3s; text-decoration: none; color: inherit; }
+        .lang-btn:hover { color: #fff; }
+        .lang-btn.active { color: var(--dourado); cursor: default; }
+
+        /* Estilo do Google Tradutor */
+        #google_translate_element select {
+            background: rgba(0,0,0,0.4); color: #fff; border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 5px; border-radius: 5px; font-family: 'Montserrat', sans-serif; font-size: 10px; outline: none; cursor: pointer;
+        }
+        .skiptranslate iframe { display: none !important; }
+        body { top: 0 !important; }
+
         /* Cabeçalho Premium */
-        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); position: relative; }
         .hero h1 { color: var(--dourado); font-size: 36px; font-weight: 800; margin: 0; letter-spacing: 1px; }
         .hero p { color: #888; font-size: 14px; max-width: 500px; margin: 15px auto 0; line-height: 1.6; }
+        .btn-back-home { position: absolute; top: 20px; left: 20px; color: var(--dourado); text-decoration: none; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         
@@ -80,25 +102,30 @@
         #m-title { color: var(--texto); font-size: 32px; font-weight: 800; line-height: 1.2; margin: 0 0 30px 0; }
         
         #m-text { line-height: 1.9; white-space: pre-wrap; color: #ccc; font-size: 16px; font-weight: 300; text-align: justify; }
-        
-        /* Estilização interna do texto do modal */
         #m-text strong { color: var(--dourado); font-weight: 600; }
         #m-text h3 { color: var(--texto); font-size: 20px; margin-top: 30px; margin-bottom: 10px; }
-        
-        .btn-back-home { position: absolute; top: 20px; left: 20px; color: var(--dourado); text-decoration: none; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <div class="hero">
         <a href="index.html" class="btn-back-home">← Voltar ao Hub</a>
+        
+        <div class="header-tools">
+            <div id="google_translate_element"></div>
+            <div class="lang-switch-box">
+                <span class="lang-btn active">PT</span> 
+                <span style="opacity: 0.3; margin: 0 8px;">|</span> 
+                <span class="lang-btn" onclick="definirIdiomaBlog('en')">EN</span>
+            </div>
+        </div>
+
         <h1>Insights & Carreira</h1>
         <p>Estratégias avançadas, inteligência de mercado e ferramentas para alavancar a sua trajetória profissional.</p>
     </div>
 
     <div class="container">
         <div id="filters" class="filters"></div>
-
         <div id="grid" class="grid"></div>
     </div>
 
@@ -116,8 +143,21 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
-        // Inicia a renderização assim que a página carrega usando a variável "materiaisYoup" do dados-blog.js
+        function definirIdiomaBlog(lang) {
+            if (lang === 'en') {
+                localStorage.setItem('youp_idioma', 'en');
+                window.location.href = 'material-de-apoio-en.html';
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             if (typeof materiaisYoup === 'undefined') {
                 document.getElementById('grid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-blog.js não encontrado!</p>";
@@ -184,27 +224,18 @@
             document.getElementById('m-cat').innerText = p.categoria;
             document.getElementById('m-date').innerText = p.data;
             document.getElementById('m-title').innerText = p.titulo;
-            document.getElementById('m-text').innerHTML = p.conteudo; // innerHTML permite usar <b> e <br> no arquivo JS
+            document.getElementById('m-text').innerHTML = p.conteudo; 
             
             const modal = document.getElementById('modal');
-            
-            // CORREÇÃO: Reseta o 'display: none' inserido pelo fecharModal
             modal.style.display = 'block'; 
-            
-            // Um pequeno delay para o navegador registrar o display block antes de iniciar a transição de opacidade
-            setTimeout(() => {
-                modal.classList.add('show');
-            }, 10);
-            
+            setTimeout(() => { modal.classList.add('show'); }, 10);
             document.body.style.overflow = 'hidden';
         }
 
         function fecharModal() {
             const modal = document.getElementById('modal');
             modal.classList.remove('show');
-            setTimeout(() => { 
-                modal.style.display = 'none'; 
-            }, 300); // Espera a animação terminar
+            setTimeout(() => { modal.style.display = 'none'; }, 300); 
             document.body.style.overflow = 'auto';
         }
     </script>
