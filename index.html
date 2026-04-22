@@ -58,6 +58,11 @@
             text-align: center;
             box-sizing: border-box;
         }
+        
+        /* Barra de rolagem elegante caso o conteúdo passe do tamanho da tela */
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
 
         /* NOVO: Seletor de Idiomas no topo direito do Box */
         .lang-switch-box {
@@ -156,6 +161,7 @@
             font-weight: 400;
             transition: all 0.3s ease;
             width: 180px; 
+            box-sizing: border-box;
         }
 
         .btn:hover {
@@ -186,6 +192,42 @@
             border: 0;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin: 15px 0;
+        }
+
+        /* ======================================================= */
+        /* PATCH DE RESPONSIVIDADE MOBILE (EXCLUSIVO PARA A HOME)  */
+        /* ======================================================= */
+        @media (max-width: 768px) {
+            /* Libera a rolagem interna do container para não cortar os botões na base */
+            .glass-container {
+                max-height: 90vh;
+                overflow-y: auto;
+                padding: 45px 15px 25px 15px !important;
+            }
+
+            /* Ajusta o seletor de idioma para o topo sem encavalar */
+            .lang-switch-box {
+                top: 10px;
+                right: 15px;
+                padding: 4px 10px;
+                font-size: 10px;
+            }
+
+            /* Reduz levemente as fontes principais */
+            .logo-text { font-size: 18px; }
+            .logo-subtext { font-size: 8px; letter-spacing: 2px; }
+            .intro-text { font-size: 12px; padding: 0 5px; }
+            
+            /* Transforma a grade de botões em uma lista única e 100% larga */
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .btn {
+                width: 100%;
+                padding: 14px 18px;
+            }
         }
     </style>
 </head>
