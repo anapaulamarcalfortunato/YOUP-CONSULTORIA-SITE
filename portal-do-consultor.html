@@ -57,6 +57,11 @@
             text-align: center;
         }
 
+        /* Barra de rolagem customizada */
+        .glass-container::-webkit-scrollbar { width: 5px; }
+        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
         .header-top {
             display: flex;
             justify-content: flex-end;
@@ -187,31 +192,29 @@
         /* PATCH DE RESPONSIVIDADE MOBILE (CELULAR)  */
         /* ========================================= */
         @media (max-width: 768px) {
-            .page-title, .hero h1, .welcome-title, .divas-title { font-size: 24px !important; line-height: 1.2; }
-            .page-subtitle, .welcome-subtitle, .section-sub { font-size: 10px !important; line-height: 1.4; }
-            .intro-text, .page-intro, .text-block { font-size: 13px !important; text-align: left; padding: 0 5px; }
+            .welcome-title { font-size: 22px !important; line-height: 1.2; }
+            .welcome-subtitle { font-size: 10px !important; line-height: 1.4; }
+            .intro-text { font-size: 13px !important; text-align: left; padding: 0 5px; }
             
-            .impact-section, .grid-impact, .services-grid, .plans-grid, .youp-grid, .portal-grid, .awards-grid, .grid { 
-                grid-template-columns: 1fr !important; 
+            .portal-grid { grid-template-columns: 1fr !important; gap: 15px; }
+            
+            /* Ajuste fundamental: permite rolar o conteúdo no celular e reduz bordas */
+            .glass-container { 
+                padding: 25px 20px !important; 
+                width: 90% !important; 
+                max-height: 85vh !important; 
+                overflow-y: auto !important; 
             }
             
-            .glass-container { padding: 25px 20px !important; width: 90% !important; margin-top: 20px; }
-            .modal-body { padding: 25px !important; border: none !important; }
-            .modal-content-inner { padding: 20px 10px !important; }
-            
-            .btn-main, .btn-action, .btn-pink, .btn-wa, .btn-plan { 
-                padding: 15px 10px !important; 
-                font-size: 11px !important; 
-                width: 100%; 
-                box-sizing: border-box; 
-                text-align: center;
-            }
-            .btn-group { flex-direction: column; width: 100%; }
+            /* Ajuste do botão comprido VIP */
+            .portal-card-full { padding: 20px 15px !important; flex-direction: column; text-align: center; gap: 15px; }
+            .card-content-inline { flex-direction: column; text-align: center; }
+            .card-content-inline .card-icon { margin-right: 0 !important; margin-bottom: 10px !important; }
+            .card-content-inline div { text-align: center !important; }
+            .card-arrow { transform: rotate(90deg); margin-top: 5px; }
+            .portal-card-full:hover .card-arrow { transform: rotate(90deg) translateY(5px); }
 
-            .hero { padding-top: 80px !important; }
-            .header-tools { top: 10px !important; right: 10px !important; flex-direction: column; align-items: flex-end; gap: 8px; }
-            .btn-back-home { top: 15px !important; left: 10px !important; }
-            
+            /* Ajuste da tela de Login do Consultor */
             .login-box { width: 90% !important; padding: 25px !important; margin: 50px auto !important; box-sizing: border-box; }
         }
     </style>
