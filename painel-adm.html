@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel ADM - Youp</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+    
     <style>
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; }
         body { font-family: 'Montserrat', sans-serif; background: var(--preto); color: #fff; padding: 30px; margin: 0; }
@@ -24,6 +34,18 @@
         .btn-acesso:hover { background: var(--verde); color: #000; transform: translateY(-3px); }
 
         .section-tag { font-size: 10px; color: var(--verde); font-weight: 700; margin-bottom: 5px; display: block; }
+
+        /* ========================================= */
+        /* PATCH DE RESPONSIVIDADE MOBILE (CELULAR)  */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .box { padding: 20px; }
+            h1 { font-size: 20px !important; margin-bottom: 25px !important; }
+            h2 { font-size: 14px !important; }
+            .grid-links { grid-template-columns: 1fr; }
+            .btn-acesso { padding: 15px; font-size: 13px; }
+        }
     </style>
 </head>
 <body>
@@ -37,7 +59,7 @@
 
         <p style="font-size: 12px; color: var(--dourado); margin-bottom: 20px;">CONSULTORES</p>
         <div class="grid-links">
-            <a href="https://script.google.com/macros/s/AKfycbyXmyF0b8pp5tagkYTicptnu0I7AgqlMnYWtAKGHHO_DLlPCUScb2OezHf9qM0YH9Tf/exec" target="_blank" class="btn-acesso">Tarefas</a>
+            <a href="https://script.google.com/macros/s/AKfycbynw50HS8c1mllIkmpp4cxstjDpierBd4yWVXAUWrqtxF_6eVpX4yZ8wprPrb1A6nMx/exec" target="_blank" class="btn-acesso">Tarefas</a>
             <a href="https://script.google.com/macros/s/AKfycbwC5mKooMDTuEowiIufJcTugsAVWlhoiQDHH99DjYgk-LX0KjiOXwc2DAmdURrcTCxeEA/exec" target="_blank" class="btn-acesso">Gestão dos Clientes</a>
         </div>
 
