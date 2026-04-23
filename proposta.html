@@ -136,6 +136,7 @@
                 <option value="headhunter">HeadHunter de Alta Performance (B2B)</option>
                 <option value="outplacement">Outplacement de Elite</option>
                 <option value="reputacao">Posicionamento de Marca & Reputação</option>
+                <option value="mentoria">Mentoria Executiva</option>
             </select>
         </div>
 
@@ -210,6 +211,25 @@
             if (inc && bloco) {
                 bloco.style.display = inc.value === 'sim' ? 'block' : 'none';
             }
+        }
+
+        // Função para gerar dinamicamente os inputs de temas da Mentoria
+        function renderizarTemasMentoria() {
+            const container = document.getElementById('temasContainer');
+            if (!container) return;
+            const qtd = parseInt(document.getElementById('qtdSessoes').value);
+            let html = '';
+            for (let i = 1; i <= qtd; i++) {
+                const existingVal = document.getElementById(`tema_${i}`) ? document.getElementById(`tema_${i}`).value : '';
+                html += `
+                    <div class="form-group" style="margin-left: 10px; border-left: 2px solid var(--dourado); padding-left: 10px;">
+                        <label>Tema da Sessão ${i}</label>
+                        <input type="text" id="tema_${i}" class="form-control" placeholder="Ex: Liderança Estratégica" value="${existingVal}" oninput="atualizarProposta()">
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+            atualizarProposta();
         }
 
         // Bases de Conhecimento dos Serviços
@@ -364,6 +384,62 @@
                         <div class="price-desc"><b>Inclui:</b> Planejamento editorial, ghostwriting executivo para LinkedIn, monitoramento de métricas e inserções estratégicas em mídia. Contrato mínimo sugerido de 6 meses.</div>
                     </div>
                 `
+            },
+            mentoria: {
+                titulo: "Mentoria Executiva",
+                descricao: `
+                    <p class="doc-text">Um processo individual e customizado, desenhado para elevar a sua performance, aprimorar a visão estratégica e superar gargalos específicos da sua liderança ou carreira. Transformamos potencial em resultados mensuráveis.</p>
+                    <div class="doc-section-title">Foco de Atuação</div>
+                    <div class="method-grid">
+                        <div class="method-box"><h4>Customização Absoluta</h4><p>Trilhas desenhadas a partir das suas reais necessidades operacionais e de liderança.</p></div>
+                        <div class="method-box"><h4>Prática e Execução</h4><p>Ferramentas e frameworks aplicáveis no seu dia a dia corporativo desde a primeira sessão.</p></div>
+                    </div>
+                `,
+                inputsValores: `
+                    <div class="form-group">
+                        <label>Quantidade de Sessões (1 hora cada)</label>
+                        <select id="qtdSessoes" class="form-control" onchange="renderizarTemasMentoria()" style="border-color:var(--verde-youp);">
+                            <option value="5">5 Sessões</option>
+                            <option value="6">6 Sessões</option>
+                            <option value="7">7 Sessões</option>
+                            <option value="8">8 Sessões</option>
+                            <option value="9">9 Sessões</option>
+                            <option value="10">10 Sessões</option>
+                        </select>
+                    </div>
+                    
+                    <div id="temasContainer"></div>
+
+                    <hr style="border: 0; border-top: 1px dashed rgba(197, 160, 89, 0.2); margin: 15px 0;">
+
+                    <div class="form-group">
+                        <label>Valor Total do Programa</label>
+                        <input type="text" id="valMentoria" class="form-control" value="R$ 5.000,00" oninput="atualizarProposta()">
+                    </div>
+                `,
+                gerarValores: () => {
+                    const qtd = parseInt(document.getElementById('qtdSessoes').value);
+                    let temasHtml = '<ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 12px; color: #444; line-height: 1.8;">';
+                    
+                    for (let i = 1; i <= qtd; i++) {
+                        const temaInput = document.getElementById(`tema_${i}`);
+                        const temaTexto = (temaInput && temaInput.value.trim() !== '') ? temaInput.value : 'Tema a definir em alinhamento';
+                        temasHtml += `<li><b>Sessão ${i}:</b> ${temaTexto}</li>`;
+                    }
+                    temasHtml += '</ul>';
+
+                    return `
+                    <div class="price-box">
+                        <div class="price-title">Programa de Mentoria Customizada (${qtd} horas)</div>
+                        <div class="price-value">${document.getElementById('valMentoria').value}</div>
+                        <div class="price-desc">
+                            <b>Estrutura do Programa:</b>
+                            ${temasHtml}
+                            <br><b>Duração:</b> Encontros de 1 hora, agendados conforme disponibilidade mútua.
+                        </div>
+                    </div>
+                    `;
+                }
             }
         };
 
@@ -378,7 +454,11 @@
         function mudarServico() {
             const svc = document.getElementById('inputServico').value;
             document.getElementById('blocos-valores').innerHTML = templates[svc].inputsValores;
-            toggleBasic(); // Para ocultar o basic se a opção "não" estiver salva ou ativa
+            
+            // Tratamentos específicos por serviço
+            if (svc === 'agenciamento') toggleBasic();
+            if (svc === 'mentoria') renderizarTemasMentoria();
+            
             atualizarProposta();
         }
 
