@@ -131,7 +131,7 @@
 
         <div class="form-group">
             <label>Serviço Oferecido</label>
-            <select id="inputServico" class="form-control" onchange="mudarServico(); atualizarProposta()">
+            <select id="inputServico" class="form-control" onchange="mudarServico()">
                 <option value="agenciamento">Agenciamento Executivo High-Impacto</option>
                 <option value="headhunter">HeadHunter de Alta Performance (B2B)</option>
                 <option value="outplacement">Outplacement de Elite</option>
@@ -203,6 +203,15 @@
     </main>
 
     <script>
+        // Função para mostrar/esconder o bloco do Plano Basic no menu esquerdo
+        function toggleBasic() {
+            const inc = document.getElementById('incBasic');
+            const bloco = document.getElementById('blocoBasicInput');
+            if (inc && bloco) {
+                bloco.style.display = inc.value === 'sim' ? 'block' : 'none';
+            }
+        }
+
         // Bases de Conhecimento dos Serviços
         const templates = {
             agenciamento: {
@@ -219,14 +228,25 @@
                 `,
                 inputsValores: `
                     <div class="form-group">
-                        <label>Valor Plano Basic (Fixo)</label>
-                        <input type="text" id="valBasic" class="form-control" value="R$ 2.500,00" oninput="atualizarProposta()">
+                        <label style="color:#fff;">Mostrar Plano Basic na Proposta?</label>
+                        <select id="incBasic" class="form-control" onchange="toggleBasic(); atualizarProposta()" style="border-color:var(--verde-youp);">
+                            <option value="sim">Sim, incluir Plano Basic</option>
+                            <option value="nao">Não, exibir apenas o Premium</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label>Prazo Plano Basic</label>
-                        <input type="text" id="valPrazoBasic" class="form-control" value="90 dias" oninput="atualizarProposta()">
+
+                    <div id="blocoBasicInput">
+                        <div class="form-group">
+                            <label>Valor Plano Basic (Fixo)</label>
+                            <input type="text" id="valBasic" class="form-control" value="R$ 2.500,00" oninput="atualizarProposta()">
+                        </div>
+                        <div class="form-group">
+                            <label>Prazo Plano Basic</label>
+                            <input type="text" id="valPrazoBasic" class="form-control" value="90 dias" oninput="atualizarProposta()">
+                        </div>
+                        <hr style="border: 0; border-top: 1px dashed rgba(197, 160, 89, 0.2); margin: 15px 0;">
                     </div>
-                    <hr style="border: 0; border-top: 1px dashed rgba(197, 160, 89, 0.2); margin: 15px 0;">
+
                     <div class="form-group">
                         <label>Valor Retainer Plano Premium</label>
                         <input type="text" id="valPremiumRetainer" class="form-control" value="R$ 4.500,00" oninput="atualizarProposta()">
@@ -240,18 +260,30 @@
                         <input type="text" id="valPrazoPremium" class="form-control" value="180 dias" oninput="atualizarProposta()">
                     </div>
                 `,
-                gerarValores: () => `
-                    <div class="price-box">
-                        <div class="price-title">Plano Basic</div>
-                        <div class="price-value">${document.getElementById('valBasic').value}</div>
-                        <div class="price-desc"><b>Serviços:</b> Diagnóstico e Tradução de Impacto, Rebranding Executivo, Plano Go-to-Market, Book de Talentos YP e suporte WhatsApp.<br><b>Período:</b> ${document.getElementById('valPrazoBasic').value}.</div>
-                    </div>
+                gerarValores: () => {
+                    const incBasic = document.getElementById('incBasic') ? document.getElementById('incBasic').value : 'sim';
+                    let htmlBasic = '';
+                    
+                    if (incBasic === 'sim') {
+                        htmlBasic = `
+                        <div class="price-box">
+                            <div class="price-title">Plano Basic</div>
+                            <div class="price-value">${document.getElementById('valBasic').value}</div>
+                            <div class="price-desc"><b>Serviços:</b> Diagnóstico e Tradução de Impacto, Rebranding Executivo, Plano Go-to-Market, Book de Talentos YP e suporte WhatsApp.<br><b>Período:</b> ${document.getElementById('valPrazoBasic').value}.</div>
+                        </div>
+                        `;
+                    }
+
+                    const htmlPremium = `
                     <div class="price-box">
                         <div class="price-title">Plano Premium (Sourcing Ativo)</div>
                         <div class="price-value">${document.getElementById('valPremiumRetainer').value} <span style="font-size:14px; font-weight:400; color:#333;">+ ${document.getElementById('valPremiumSucesso').value} Taxa de Sucesso</span></div>
                         <div class="price-desc"><b>Serviços:</b> Execução completa. Todos os serviços do plano Basic <b>+</b> Sourcing Ativo e Inteligência de Mercado no modelo Stealth Search. (Taxa de sucesso faturada sobre o 1º salário bruto após a contratação).<br><b>Período:</b> ${document.getElementById('valPrazoPremium').value}.</div>
                     </div>
-                `
+                    `;
+
+                    return htmlBasic + htmlPremium;
+                }
             },
             headhunter: {
                 titulo: "HeadHunting Estratégico (B2B)",
@@ -346,6 +378,7 @@
         function mudarServico() {
             const svc = document.getElementById('inputServico').value;
             document.getElementById('blocos-valores').innerHTML = templates[svc].inputsValores;
+            toggleBasic(); // Para ocultar o basic se a opção "não" estiver salva ou ativa
             atualizarProposta();
         }
 
