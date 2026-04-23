@@ -38,10 +38,15 @@
             z-index: 10;
         }
 
+        /* Barra de Rolagem da Sidebar */
+        .sidebar::-webkit-scrollbar { width: 6px; }
+        .sidebar::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+        .sidebar::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
+
         .sidebar h2 { color: var(--dourado); font-size: 20px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
         .sidebar p { font-size: 12px; color: var(--cinza-claro); margin-bottom: 30px; }
 
-        .form-group { margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
         .form-group label { display: block; font-size: 11px; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 8px; font-weight: 600; letter-spacing: 1px; }
         .form-control { 
             width: 100%; padding: 12px 15px; 
@@ -134,10 +139,16 @@
             </select>
         </div>
 
-        <div id="blocos-valores">
-            </div>
+        <div id="blocos-valores"></div>
 
-        <div class="form-group" style="margin-top:30px;">
+        <hr style="border: 0; border-top: 1px solid rgba(197, 160, 89, 0.3); margin: 25px 0;">
+
+        <div class="form-group">
+            <label>Outros Serviços Propostos (Opcional)</label>
+            <textarea id="inputOutros" class="form-control" rows="3" placeholder="Descreva aqui se houver mais serviços. Se deixar em branco, não aparecerá na proposta." oninput="atualizarProposta()"></textarea>
+        </div>
+
+        <div class="form-group">
             <label>Condições de Pagamento</label>
             <input type="text" id="inputCondicao" class="form-control" value="À vista no Pix ou Parcelado em até 12x no cartão." oninput="atualizarProposta()">
         </div>
@@ -151,7 +162,7 @@
             <div class="doc-header">
                 <div>
                     <h1>YOUP CONSULTORIA</h1>
-                    <p>Carreira, Recolocação e RH</p>
+                    <p>Carreira, Reputação e RH</p>
                 </div>
                 <div class="doc-date" id="docData">Data: --/--/----</div>
             </div>
@@ -161,6 +172,11 @@
 
             <div id="docDescricaoServico">
                 </div>
+
+            <div id="docOutrosServicosContainer" style="display: none;">
+                <div class="doc-section-title">Outros Serviços Propostos</div>
+                <p class="doc-text" id="docOutrosText" style="white-space: pre-wrap;"></p>
+            </div>
 
             <div class="doc-section-title">Investimento</div>
             <div id="docValores">
@@ -198,7 +214,7 @@
                         <div class="method-box"><h4>1. Diagnóstico e Tradução</h4><p>Mapeamento de know how e tradução para a linguagem financeira de ROI.</p></div>
                         <div class="method-box"><h4>2. Rebranding Executivo</h4><p>Revisão de Currículo e LinkedIn, criando um documento de valuation do seu passe.</p></div>
                         <div class="method-box"><h4>3. Sourcing e Inteligência</h4><p>Pesquisa de vagas off-market e contato direto com headhunters e decisores.</p></div>
-                        <div class="method-box"><h4>4. Playbook Go-to-Market</h4><p>Termômetro de liquidez e Roadmap de 60 dias focado em empresas-alvo.</p></div>
+                        <div class="method-box"><h4>4. Playbook Go-to-Market</h4><p>Termômetro de liquidez e Roadmap focado em empresas-alvo.</p></div>
                     </div>
                 `,
                 inputsValores: `
@@ -207,24 +223,33 @@
                         <input type="text" id="valBasic" class="form-control" value="R$ 2.500,00" oninput="atualizarProposta()">
                     </div>
                     <div class="form-group">
-                        <label>Valor Retainer Plano Premium (Entrada)</label>
+                        <label>Prazo Plano Basic</label>
+                        <input type="text" id="valPrazoBasic" class="form-control" value="90 dias" oninput="atualizarProposta()">
+                    </div>
+                    <hr style="border: 0; border-top: 1px dashed rgba(197, 160, 89, 0.2); margin: 15px 0;">
+                    <div class="form-group">
+                        <label>Valor Retainer Plano Premium</label>
                         <input type="text" id="valPremiumRetainer" class="form-control" value="R$ 4.500,00" oninput="atualizarProposta()">
                     </div>
                     <div class="form-group">
                         <label>Taxa de Sucesso Plano Premium (%)</label>
                         <input type="text" id="valPremiumSucesso" class="form-control" value="45%" oninput="atualizarProposta()">
                     </div>
+                    <div class="form-group">
+                        <label>Prazo Plano Premium</label>
+                        <input type="text" id="valPrazoPremium" class="form-control" value="180 dias" oninput="atualizarProposta()">
+                    </div>
                 `,
                 gerarValores: () => `
                     <div class="price-box">
                         <div class="price-title">Plano Basic</div>
                         <div class="price-value">${document.getElementById('valBasic').value}</div>
-                        <div class="price-desc"><b>Serviços:</b> Diagnóstico e Tradução de Impacto, Rebranding Executivo, Plano Go-to-Market, Book de Talentos YP e suporte WhatsApp.<br><b>Período:</b> 90 dias.</div>
+                        <div class="price-desc"><b>Serviços:</b> Diagnóstico e Tradução de Impacto, Rebranding Executivo, Plano Go-to-Market, Book de Talentos YP e suporte WhatsApp.<br><b>Período:</b> ${document.getElementById('valPrazoBasic').value}.</div>
                     </div>
                     <div class="price-box">
                         <div class="price-title">Plano Premium (Sourcing Ativo)</div>
                         <div class="price-value">${document.getElementById('valPremiumRetainer').value} <span style="font-size:14px; font-weight:400; color:#333;">+ ${document.getElementById('valPremiumSucesso').value} Taxa de Sucesso</span></div>
-                        <div class="price-desc"><b>Serviços:</b> Execução completa. Todos os serviços do plano Basic <b>+</b> Sourcing Ativo e Inteligência de Mercado no modelo Stealth Search. (Taxa de sucesso faturada sobre o 1º salário bruto após a contratação).<br><b>Período:</b> 180 dias.</div>
+                        <div class="price-desc"><b>Serviços:</b> Execução completa. Todos os serviços do plano Basic <b>+</b> Sourcing Ativo e Inteligência de Mercado no modelo Stealth Search. (Taxa de sucesso faturada sobre o 1º salário bruto após a contratação).<br><b>Período:</b> ${document.getElementById('valPrazoPremium').value}.</div>
                     </div>
                 `
             },
@@ -252,7 +277,7 @@
                     <div class="price-box">
                         <div class="price-title">Fee de Resultado</div>
                         <div class="price-value">${document.getElementById('valFee').value} <span style="font-size:14px; font-weight:400; color:#333;">sobre o pacote anual</span></div>
-                        <div class="price-desc"><b>Entregas:</b> Alinhamento de SLA, mapeamento de mercado, entrevistas por competência, checagem de referências e apresentação dos finalistas.<br><b>Garantia de Reposição:</b> ${document.getElementById('valGarantia').value}.</div>
+                        <div class="price-desc"><b>Faturamento:</b> 40% de entrada (Retainer) e 60% na contratação do executivo (Success Fee).<br><b>Entregas:</b> Alinhamento de SLA, mapeamento de mercado, entrevistas por competência, checagem de referências e apresentação dos finalistas.<br><b>Garantia de Reposição:</b> ${document.getElementById('valGarantia').value}.</div>
                     </div>
                 `
             },
@@ -291,7 +316,7 @@
                     <div class="doc-section-title">Eixos de Atuação</div>
                     <div class="method-grid">
                         <div class="method-box"><h4>LinkedIn Estratégico</h4><p>Planejamento de conteúdo e conexões com stakeholders chave.</p></div>
-                        <div class="method-box"><h4>Visibilidade Global</h4><p>Marketing de Influência Corporativa em portais renomados.</p></div>
+                        <div class="method-box"><h4>Visibilidade Global</h4><p>Marketing de Influência Corporativa, incluindo ocasionalmente publicações em Grandes Portais Nacionais.</p></div>
                     </div>
                 `,
                 inputsValores: `
@@ -329,12 +354,22 @@
             const cliente = document.getElementById('inputCliente').value || "[Nome do Cliente]";
             const svc = document.getElementById('inputServico').value;
             const condicao = document.getElementById('inputCondicao').value;
+            const outros = document.getElementById('inputOutros').value.trim();
 
             document.getElementById('docClienteTarget').innerHTML = `Preparado para: <span>${cliente}</span>`;
             document.getElementById('docServicoTitle').innerText = templates[svc].titulo;
             document.getElementById('docDescricaoServico').innerHTML = templates[svc].descricao;
             document.getElementById('docValores').innerHTML = templates[svc].gerarValores();
             document.getElementById('docCondicaoTexto').innerText = condicao;
+
+            // Controle da Seção de Outros Serviços (Só aparece se você digitar algo)
+            const containerOutros = document.getElementById('docOutrosServicosContainer');
+            if (outros !== "") {
+                document.getElementById('docOutrosText').innerText = outros;
+                containerOutros.style.display = 'block';
+            } else {
+                containerOutros.style.display = 'none';
+            }
         }
     </script>
 
