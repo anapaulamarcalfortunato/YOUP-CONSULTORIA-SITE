@@ -63,6 +63,8 @@
             text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
         }
         .btn-gerar:hover { background: #fff; transform: translateY(-2px); }
+        .btn-gerar:disabled { background: #555; cursor: not-allowed; }
+
         .btn-voltar {
             display: block; text-align: center; margin-top: 15px;
             color: var(--cinza-claro); font-size: 10px; text-transform: uppercase; text-decoration: none;
@@ -122,7 +124,7 @@
 
     <aside class="sidebar">
         <h2>Gerador de Proposta</h2>
-        <p>Preencha os dados para atualizar o documento ao lado em tempo real.</p>
+        <p>A proposta será salva automaticamente na sua planilha do Google antes de gerar o PDF.</p>
 
         <div class="form-group">
             <label>Nome do Cliente / Empresa</label>
@@ -154,7 +156,9 @@
             <input type="text" id="inputCondicao" class="form-control" value="À vista no Pix ou Parcelado em até 12x no cartão." oninput="atualizarProposta()">
         </div>
 
-        <button class="btn-gerar" onclick="window.print()">Gerar PDF</button>
+        <button id="btnSalvar" class="btn-gerar" onclick="salvarESenviar()">Salvar e Gerar PDF</button>
+        <div id="statusMsg" style="margin-top: 10px; font-size: 11px; text-align: center; color: var(--verde-claro);"></div>
+
         <a href="portal-do-consultor.html" class="btn-voltar">← Voltar ao Portal</a>
     </aside>
 
@@ -204,6 +208,49 @@
     </main>
 
     <script>
+        // URL da Planilha (Google Apps Script)
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwA1r5bx0tQqJj-8otAV06TzWOSpRdtH3TO-fNx0mMJHDnpBivGkPdgUCOPERiFgBo/exec';
+
+        function salvarESenviar() {
+            const btn = document.getElementById('btnSalvar');
+            const status = document.getElementById('statusMsg');
+            
+            btn.disabled = true;
+            btn.innerText = "Salvando no Sistema...";
+            status.innerText = "Conectando com a planilha Youp...";
+
+            // Coleta os valores atuais para salvar
+            const dados = {
+                cliente: document.getElementById('inputCliente').value || "Não informado",
+                servico: document.getElementById('docServicoTitle').innerText,
+                valor: document.getElementById('docValores').innerText.replace(/\n/g, ' | '), // formata p/ salvar bonito
+                condicao: document.getElementById('inputCondicao').value,
+                outros: document.getElementById('inputOutros').value || "Nenhum"
+            };
+
+            // Dispara via POST para o Google Script
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(dados)
+            }).then(() => {
+                status.innerText = "✓ Salvo na Planilha! Gerando PDF...";
+                setTimeout(() => {
+                    window.print();
+                    btn.disabled = false;
+                    btn.innerText = "Salvar e Gerar PDF";
+                    status.innerText = "";
+                }, 1000);
+            }).catch(error => {
+                console.error('Erro:', error);
+                alert("Erro ao salvar na planilha. Gerando apenas o PDF.");
+                window.print();
+                btn.disabled = false;
+                btn.innerText = "Salvar e Gerar PDF";
+                status.innerText = "";
+            });
+        }
+
         // Função para mostrar/esconder o bloco do Plano Basic no menu esquerdo
         function toggleBasic() {
             const inc = document.getElementById('incBasic');
