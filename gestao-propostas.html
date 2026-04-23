@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Propostas - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cinza-escuro);
+            background-image: linear-gradient(135deg, rgba(15,15,15,0.98), rgba(30,30,30,0.95)), url('https://images.unsplash.com/photo-1454165833767-027ffea10c3b?q=80&w=1600');
+            background-size: cover; background-attachment: fixed;
+            color: #fff;
+        }
+
+        .header {
+            padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-title h1 { color: var(--dourado); margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
+        .header-title p { color: var(--verde-claro); margin: 5px 0 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 4px; }
+        
+        .btn-novo {
+            padding: 12px 25px; background: var(--verde-youp); color: #fff; text-decoration: none;
+            border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;
+            transition: 0.3s; letter-spacing: 1px;
+        }
+        .btn-novo:hover { background: var(--dourado); color: var(--cinza-escuro); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+
+        /* Cards de Resumo */
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .summary-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 25px; border-radius: 12px; border-left: 3px solid var(--dourado);
+            backdrop-filter: blur(10px);
+        }
+        .summary-card h3 { font-size: 11px; color: var(--cinza-claro); text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px; }
+        .summary-card .value { font-size: 32px; color: var(--dourado); font-weight: 800; }
+
+        /* Tabela de Propostas */
+        .table-container {
+            background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px; padding: 20px; backdrop-filter: blur(10px);
+            overflow-x: auto;
+        }
+
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { color: var(--verde-claro); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding: 15px; border-bottom: 1px solid rgba(197, 160, 89, 0.3); }
+        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; font-weight: 300; }
+        
+        .status-badge {
+            background: rgba(92, 142, 130, 0.2); border: 1px solid var(--verde-youp);
+            color: var(--verde-claro); padding: 5px 10px; border-radius: 20px;
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+        }
+
+        .tr-hover:hover { background: rgba(255,255,255,0.02); }
+
+        #loader { text-align: center; padding: 50px; color: var(--dourado); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* PATCH MOBILE */
+        @media (max-width: 768px) {
+            .header { flex-direction: column; gap: 20px; text-align: center; padding: 20px; }
+            .summary-grid { grid-template-columns: 1fr; }
+            th, td { padding: 10px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-title">
+            <h1>DashBoard Comercial</h1>
+            <p>Gestão de Propostas Enviadas</p>
+        </div>
+        <div style="display:flex; gap: 10px;">
+            <a href="painel-adm.html" class="btn-novo" style="background: transparent; border: 1px solid var(--cinza-claro); color: var(--cinza-claro);">← Voltar</a>
+            <a href="proposta.html" class="btn-novo">+ Nova Proposta</a>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>Total Enviadas</h3>
+                <div class="value" id="cardTotal">--</div>
+            </div>
+            <div class="summary-card" style="border-left-color: var(--verde-youp);">
+                <h3>Última Atualização</h3>
+                <div class="value" id="cardUltima" style="font-size: 20px; color: var(--verde-claro); margin-top: 10px;">--/--/----</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div id="loader">Carregando dados da inteligência Youp...</div>
+            <table id="tabelaPropostas" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Serviço</th>
+                        <th>Investimento (Resumo)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaBody">
+                    </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwA1r5bx0tQqJj-8otAV06TzWOSpRdtH3TO-fNx0mMJHDnpBivGkPdgUCOPERiFgBo/exec';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch(scriptURL)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('tabelaPropostas').style.display = 'table';
+                    
+                    document.getElementById('cardTotal').innerText = data.length;
+
+                    if(data.length > 0) {
+                        const dataFormatada = new Date(data[0]["Data"]).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit'});
+                        document.getElementById('cardUltima').innerText = dataFormatada;
+                    }
+
+                    const tbody = document.getElementById('tabelaBody');
+                    data.forEach(linha => {
+                        const dataRow = new Date(linha["Data"]).toLocaleDateString('pt-BR');
+                        const cliente = linha["Cliente"] || "Não informado";
+                        const servico = linha["Serviço"] || "-";
+                        
+                        // Pegar só a primeira linha do investimento para não poluir a tabela
+                        let valorResumo = (linha["Investimento"] || "").split('|')[0];
+                        if(valorResumo.length > 40) valorResumo = valorResumo.substring(0, 40) + "...";
+                        
+                        const status = linha["Status"] || "Enviada";
+
+                        const tr = document.createElement('tr');
+                        tr.className = "tr-hover";
+                        tr.innerHTML = `
+                            <td>${dataRow}</td>
+                            <td style="font-weight:600; color:#fff;">${cliente}</td>
+                            <td style="color:var(--dourado);">${servico}</td>
+                            <td>${valorResumo}</td>
+                            <td><span class="status-badge">${status}</span></td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(error => {
+                    document.getElementById('loader').innerText = "Erro ao carregar os dados. Verifique as permissões da planilha.";
+                    console.error('Erro!', error.message);
+                });
+        });
+    </script>
+</body>
+</html>
