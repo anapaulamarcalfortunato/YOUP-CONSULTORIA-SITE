@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Propostas - Youp Consultoria</title>
+    <title>Dashboard Comercial - Youp Consultoria</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,8 @@
             --dourado: #c5a059;
             --cinza-escuro: #1a1a1a;
             --cinza-claro: #b0b0b0;
+            --vermelho: #d84b72;
+            --azul: #4b8cd8;
         }
 
         body {
@@ -41,7 +43,7 @@
         .btn-novo {
             padding: 12px 25px; background: var(--verde-youp); color: #fff; text-decoration: none;
             border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;
-            transition: 0.3s; letter-spacing: 1px;
+            transition: 0.3s; letter-spacing: 1px; cursor: pointer;
         }
         .btn-novo:hover { background: var(--dourado); color: var(--cinza-escuro); }
 
@@ -66,23 +68,36 @@
 
         table { width: 100%; border-collapse: collapse; text-align: left; }
         th { color: var(--verde-claro); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; padding: 15px; border-bottom: 1px solid rgba(197, 160, 89, 0.3); }
-        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; font-weight: 300; }
-        
-        .status-badge {
-            background: rgba(92, 142, 130, 0.2); border: 1px solid var(--verde-youp);
-            color: var(--verde-claro); padding: 5px 10px; border-radius: 20px;
-            font-size: 10px; font-weight: 700; text-transform: uppercase;
-        }
-
+        td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; font-weight: 300; transition: all 0.3s; }
         .tr-hover:hover { background: rgba(255,255,255,0.02); }
+
+        /* Dropdown de Status do CRM */
+        .status-select {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #888;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Montserrat';
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .status-select:focus { box-shadow: 0 0 10px rgba(197, 160, 89, 0.3); }
+
+        .row-hiding { opacity: 0; transform: translateX(20px); transition: all 0.5s ease; }
 
         #loader { text-align: center; padding: 50px; color: var(--dourado); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* PATCH MOBILE */
         @media (max-width: 768px) {
             .header { flex-direction: column; gap: 20px; text-align: center; padding: 20px; }
             .summary-grid { grid-template-columns: 1fr; }
             th, td { padding: 10px; font-size: 11px; }
+            .status-select { padding: 4px 8px; font-size: 9px; }
         }
     </style>
 </head>
@@ -91,7 +106,7 @@
     <div class="header">
         <div class="header-title">
             <h1>DashBoard Comercial</h1>
-            <p>Gestão de Propostas Enviadas</p>
+            <p>Funil de Vendas e Propostas</p>
         </div>
         <div style="display:flex; gap: 10px;">
             <a href="painel-adm.html" class="btn-novo" style="background: transparent; border: 1px solid var(--cinza-claro); color: var(--cinza-claro);">← Voltar</a>
@@ -103,7 +118,7 @@
         
         <div class="summary-grid">
             <div class="summary-card">
-                <h3>Total Enviadas</h3>
+                <h3>Propostas em Aberto</h3>
                 <div class="value" id="cardTotal">--</div>
             </div>
             <div class="summary-card" style="border-left-color: var(--verde-youp);">
@@ -113,7 +128,7 @@
         </div>
 
         <div class="table-container">
-            <div id="loader">Carregando dados da inteligência Youp...</div>
+            <div id="loader">Carregando CRM Youp...</div>
             <table id="tabelaPropostas" style="display:none;">
                 <thead>
                     <tr>
@@ -121,7 +136,7 @@
                         <th>Cliente</th>
                         <th>Serviço</th>
                         <th>Investimento (Resumo)</th>
-                        <th>Status</th>
+                        <th>Gestão de Status</th>
                     </tr>
                 </thead>
                 <tbody id="tabelaBody">
@@ -132,16 +147,32 @@
     </div>
 
     <script>
+        // MESMA URL DA SUA PLANILHA
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwA1r5bx0tQqJj-8otAV06TzWOSpRdtH3TO-fNx0mMJHDnpBivGkPdgUCOPERiFgBo/exec';
 
+        // Lógica de Cores para o Status
+        function getStatusColor(status) {
+            if(status === 'Em Negociação') return 'var(--dourado)';
+            if(status === 'Aprovada') return 'var(--verde-claro)';
+            if(status === 'Recusada') return 'var(--vermelho)';
+            return '#888'; // Enviada Padrão
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
+            carregarDados();
+        });
+
+        function carregarDados() {
             fetch(scriptURL)
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('loader').style.display = 'none';
                     document.getElementById('tabelaPropostas').style.display = 'table';
                     
-                    document.getElementById('cardTotal').innerText = data.length;
+                    // FILTRAR: Mostra todas, EXCETO as "Encerradas"
+                    const propostasAtivas = data.filter(linha => linha["Status"] !== "Encerrada");
+                    
+                    document.getElementById('cardTotal').innerText = propostasAtivas.length;
 
                     if(data.length > 0) {
                         const dataFormatada = new Date(data[0]["Data"]).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit'});
@@ -149,34 +180,80 @@
                     }
 
                     const tbody = document.getElementById('tabelaBody');
-                    data.forEach(linha => {
+                    tbody.innerHTML = ''; // Limpa antes de injetar
+
+                    propostasAtivas.forEach(linha => {
                         const dataRow = new Date(linha["Data"]).toLocaleDateString('pt-BR');
                         const cliente = linha["Cliente"] || "Não informado";
                         const servico = linha["Serviço"] || "-";
                         
-                        // Pegar só a primeira linha do investimento para não poluir a tabela
                         let valorResumo = (linha["Investimento"] || "").split('|')[0];
                         if(valorResumo.length > 40) valorResumo = valorResumo.substring(0, 40) + "...";
                         
-                        const status = linha["Status"] || "Enviada";
+                        const statusAtual = linha["Status"] || "Enviada";
+                        const corStatus = getStatusColor(statusAtual);
 
                         const tr = document.createElement('tr');
                         tr.className = "tr-hover";
+                        tr.id = "row-" + linha.rowIndex; // ID único baseado na linha da planilha
+
                         tr.innerHTML = `
                             <td>${dataRow}</td>
                             <td style="font-weight:600; color:#fff;">${cliente}</td>
                             <td style="color:var(--dourado);">${servico}</td>
                             <td>${valorResumo}</td>
-                            <td><span class="status-badge">${status}</span></td>
+                            <td>
+                                <select class="status-select" style="border-color: ${corStatus}; color: ${corStatus}" onchange="atualizarStatus(${linha.rowIndex}, this)">
+                                    <option value="Enviada" ${statusAtual === 'Enviada' ? 'selected' : ''}>Enviada</option>
+                                    <option value="Em Negociação" ${statusAtual === 'Em Negociação' ? 'selected' : ''}>Em Negociação</option>
+                                    <option value="Aprovada" ${statusAtual === 'Aprovada' ? 'selected' : ''}>Aprovada</option>
+                                    <option value="Recusada" ${statusAtual === 'Recusada' ? 'selected' : ''}>Recusada</option>
+                                    <option value="Encerrada">Encerrar (Ocultar)</option>
+                                </select>
+                            </td>
                         `;
                         tbody.appendChild(tr);
                     });
                 })
                 .catch(error => {
-                    document.getElementById('loader').innerText = "Erro ao carregar os dados. Verifique as permissões da planilha.";
-                    console.error('Erro!', error.message);
+                    document.getElementById('loader').innerText = "Erro ao carregar os dados.";
                 });
-        });
+        }
+
+        // Função que muda o Status na Planilha
+        function atualizarStatus(rowIndex, selectElement) {
+            const novoStatus = selectElement.value;
+            const tr = document.getElementById("row-" + rowIndex);
+
+            // Muda a cor imediatamente na tela para dar feedback visual
+            const cor = getStatusColor(novoStatus);
+            selectElement.style.borderColor = cor;
+            selectElement.style.color = cor;
+            
+            // Se for encerrada, faz a animação de sumir da tela
+            if(novoStatus === "Encerrada") {
+                tr.classList.add("row-hiding");
+                setTimeout(() => { tr.style.display = 'none'; }, 500); // Esconde da tabela
+                // Diminui o contador
+                const total = parseInt(document.getElementById('cardTotal').innerText);
+                document.getElementById('cardTotal').innerText = total - 1;
+            }
+
+            // Envia para o Google Script
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({
+                    action: "update",
+                    rowIndex: rowIndex,
+                    status: novoStatus
+                })
+            }).then(() => {
+                console.log("Status atualizado na planilha com sucesso!");
+            }).catch(err => {
+                console.error("Erro ao atualizar na planilha:", err);
+            });
+        }
     </script>
 </body>
 </html>
