@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Propostas - Youp Consultoria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --cinza-escuro: #1a1a1a;
+            --cinza-claro: #b0b0b0;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cinza-escuro);
+            display: flex; height: 100vh; overflow: hidden;
+        }
+
+        /* PAINEL DE CONTROLE (Esquerda) */
+        .sidebar {
+            width: 400px;
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(30, 30, 30, 0.95)), url('https://images.unsplash.com/photo-1454165833767-027ffea10c3b?q=80&w=600');
+            background-size: cover;
+            border-right: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 30px;
+            color: #fff;
+            overflow-y: auto;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .sidebar h2 { color: var(--dourado); font-size: 20px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .sidebar p { font-size: 12px; color: var(--cinza-claro); margin-bottom: 30px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 11px; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 8px; font-weight: 600; letter-spacing: 1px; }
+        .form-control { 
+            width: 100%; padding: 12px 15px; 
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); 
+            color: #fff; border-radius: 6px; font-family: 'Montserrat'; font-size: 13px; 
+            box-sizing: border-box; outline: none; transition: 0.3s;
+        }
+        .form-control:focus { border-color: var(--dourado); background: rgba(0,0,0,0.8); }
+        
+        .btn-gerar {
+            width: 100%; padding: 15px; margin-top: 20px;
+            background: var(--dourado); color: var(--cinza-escuro);
+            border: none; border-radius: 6px; font-weight: 700; font-size: 14px;
+            text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-gerar:hover { background: #fff; transform: translateY(-2px); }
+        .btn-voltar {
+            display: block; text-align: center; margin-top: 15px;
+            color: var(--cinza-claro); font-size: 10px; text-transform: uppercase; text-decoration: none;
+        }
+
+        /* ÁREA DE PREVIEW / DOCUMENTO (Direita) */
+        .preview-area {
+            flex: 1; background: #eef1f0; padding: 40px; overflow-y: auto;
+            display: flex; justify-content: center;
+        }
+
+        .document-a4 {
+            background: #fff; width: 210mm; min-height: 297mm;
+            padding: 20mm; box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            color: #333; position: relative; box-sizing: border-box;
+        }
+
+        /* Estilos Internos do Documento Gerado */
+        .doc-header { border-bottom: 2px solid var(--verde-youp); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .doc-header h1 { margin: 0; color: var(--verde-youp); font-weight: 800; font-size: 28px; letter-spacing: -1px; }
+        .doc-header p { margin: 5px 0 0 0; color: var(--dourado); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .doc-date { font-size: 11px; color: #888; text-align: right; }
+
+        .doc-title { color: var(--cinza-escuro); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+        .doc-client { color: var(--dourado); font-size: 14px; font-weight: 600; margin-bottom: 30px; text-transform: uppercase; }
+        
+        .doc-text { font-size: 13px; line-height: 1.8; color: #444; margin-bottom: 20px; text-align: justify; }
+        .doc-text b { color: var(--verde-youp); }
+        
+        .doc-section-title { color: var(--verde-youp); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin: 30px 0 15px; font-weight: 700; text-transform: uppercase; }
+        
+        .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .method-box { background: #f9fbfb; border-left: 3px solid var(--dourado); padding: 15px; }
+        .method-box h4 { margin: 0 0 10px 0; color: var(--cinza-escuro); font-size: 13px; }
+        .method-box p { margin: 0; font-size: 11px; line-height: 1.6; color: #555; }
+
+        .price-box { background: rgba(92, 142, 130, 0.05); border: 1px solid rgba(92, 142, 130, 0.2); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .price-title { color: var(--verde-youp); font-weight: 700; font-size: 16px; margin-bottom: 10px; text-transform: uppercase; }
+        .price-value { color: var(--dourado); font-size: 24px; font-weight: 800; margin-bottom: 15px; }
+        .price-desc { font-size: 12px; color: #444; line-height: 1.6; }
+
+        .doc-footer { margin-top: 50px; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+        .doc-footer p { font-size: 11px; color: #888; margin: 5px 0; }
+        .authority-badges { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .badge { font-size: 10px; font-weight: 700; color: var(--dourado); border: 1px solid var(--dourado); padding: 5px 10px; border-radius: 20px; text-transform: uppercase; }
+
+        /* CONFIGURAÇÃO DE IMPRESSÃO (Oculta painel e ajusta A4) */
+        @media print {
+            body { background: white; display: block; overflow: visible; height: auto; }
+            .sidebar { display: none; }
+            .preview-area { background: white; padding: 0; display: block; }
+            .document-a4 { box-shadow: none; width: 100%; height: auto; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Gerador de Proposta</h2>
+        <p>Preencha os dados para atualizar o documento ao lado em tempo real.</p>
+
+        <div class="form-group">
+            <label>Nome do Cliente / Empresa</label>
+            <input type="text" id="inputCliente" class="form-control" placeholder="Ex: João da Silva / Empresa X" oninput="atualizarProposta()">
+        </div>
+
+        <div class="form-group">
+            <label>Serviço Oferecido</label>
+            <select id="inputServico" class="form-control" onchange="mudarServico(); atualizarProposta()">
+                <option value="agenciamento">Agenciamento Executivo High-Impacto</option>
+                <option value="headhunter">HeadHunter de Alta Performance (B2B)</option>
+                <option value="outplacement">Outplacement de Elite</option>
+                <option value="reputacao">Posicionamento de Marca & Reputação</option>
+            </select>
+        </div>
+
+        <div id="blocos-valores">
+            </div>
+
+        <div class="form-group" style="margin-top:30px;">
+            <label>Condições de Pagamento</label>
+            <input type="text" id="inputCondicao" class="form-control" value="À vista no Pix ou Parcelado em até 12x no cartão." oninput="atualizarProposta()">
+        </div>
+
+        <button class="btn-gerar" onclick="window.print()">Gerar PDF</button>
+        <a href="portal-do-consultor.html" class="btn-voltar">← Voltar ao Portal</a>
+    </aside>
+
+    <main class="preview-area">
+        <div class="document-a4">
+            <div class="doc-header">
+                <div>
+                    <h1>YOUP CONSULTORIA</h1>
+                    <p>Carreira, Recolocação e RH</p>
+                </div>
+                <div class="doc-date" id="docData">Data: --/--/----</div>
+            </div>
+
+            <div class="doc-title" id="docServicoTitle">Proposta Comercial</div>
+            <div class="doc-client" id="docClienteTarget">Preparado para: <span>[Nome do Cliente]</span></div>
+
+            <div id="docDescricaoServico">
+                </div>
+
+            <div class="doc-section-title">Investimento</div>
+            <div id="docValores">
+                </div>
+
+            <div class="doc-text" style="margin-top: 20px; font-size: 11px;">
+                <strong>Condições:</strong> <span id="docCondicaoTexto">À vista no Pix ou Parcelado em até 12x no cartão.</span>
+            </div>
+
+            <div class="doc-section-title">Próximos Passos</div>
+            <p class="doc-text">
+                Se o seu tempo vale a sua alta performance e você busca um salto com discrição e estratégia, o próximo passo é a Execução. Estamos prontos para iniciar imediatamente.
+            </p>
+
+            <div class="doc-footer">
+                <p>Nós Mapeamos. Nós Conectamos.</p>
+                <p>anapaulamarcal@youpconsultoria.com | (12) 99132-2333</p>
+                <div class="authority-badges">
+                    <span class="badge">Top 20 Influencer RH</span>
+                    <span class="badge">Top 5 Top of Mind</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Bases de Conhecimento dos Serviços
+        const templates = {
+            agenciamento: {
+                titulo: "Agenciamento Executivo High-Impacto",
+                descricao: `
+                    <p class="doc-text">A YOUP oferece serviços abrangentes de Agenciamento projetados para profissionais em busca de recolocação ou transição na carreira. Com uma metodologia personalizada e rede de influência, atuamos como seus agentes no <b>Mercado Oculto</b>.</p>
+                    <div class="doc-section-title">Nossa Metodologia</div>
+                    <div class="method-grid">
+                        <div class="method-box"><h4>1. Diagnóstico e Tradução</h4><p>Mapeamento de know how e tradução para a linguagem financeira de ROI.</p></div>
+                        <div class="method-box"><h4>2. Rebranding Executivo</h4><p>Revisão de Currículo e LinkedIn, criando um documento de valuation do seu passe.</p></div>
+                        <div class="method-box"><h4>3. Sourcing e Inteligência</h4><p>Pesquisa de vagas off-market e contato direto com headhunters e decisores.</p></div>
+                        <div class="method-box"><h4>4. Playbook Go-to-Market</h4><p>Termômetro de liquidez e Roadmap de 60 dias focado em empresas-alvo.</p></div>
+                    </div>
+                `,
+                inputsValores: `
+                    <div class="form-group">
+                        <label>Valor Plano Basic (Fixo)</label>
+                        <input type="text" id="valBasic" class="form-control" value="R$ 2.500,00" oninput="atualizarProposta()">
+                    </div>
+                    <div class="form-group">
+                        <label>Valor Retainer Plano Premium (Entrada)</label>
+                        <input type="text" id="valPremiumRetainer" class="form-control" value="R$ 4.500,00" oninput="atualizarProposta()">
+                    </div>
+                    <div class="form-group">
+                        <label>Taxa de Sucesso Plano Premium (%)</label>
+                        <input type="text" id="valPremiumSucesso" class="form-control" value="45%" oninput="atualizarProposta()">
+                    </div>
+                `,
+                gerarValores: () => `
+                    <div class="price-box">
+                        <div class="price-title">Plano Basic</div>
+                        <div class="price-value">${document.getElementById('valBasic').value}</div>
+                        <div class="price-desc"><b>Serviços:</b> Diagnóstico e Tradução de Impacto, Rebranding Executivo, Plano Go-to-Market, Book de Talentos YP e suporte WhatsApp.<br><b>Período:</b> 90 dias.</div>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-title">Plano Premium (Sourcing Ativo)</div>
+                        <div class="price-value">${document.getElementById('valPremiumRetainer').value} <span style="font-size:14px; font-weight:400; color:#333;">+ ${document.getElementById('valPremiumSucesso').value} Taxa de Sucesso</span></div>
+                        <div class="price-desc"><b>Serviços:</b> Execução completa. Todos os serviços do plano Basic <b>+</b> Sourcing Ativo e Inteligência de Mercado no modelo Stealth Search. (Taxa de sucesso faturada sobre o 1º salário bruto após a contratação).<br><b>Período:</b> 180 dias.</div>
+                    </div>
+                `
+            },
+            headhunter: {
+                titulo: "HeadHunting Estratégico (B2B)",
+                descricao: `
+                    <p class="doc-text">Mitigação de risco para o seu Board. O custo de uma contratação errada em cargos de liderança é astronômico. Nossa metodologia elimina o "tentativa e erro".</p>
+                    <div class="doc-section-title">Nossos Diferenciais</div>
+                    <div class="method-grid">
+                        <div class="method-box"><h4>Precisão Cirúrgica</h4><p>Identificamos o líder que possui as competências táticas exatas para destravar seu negócio.</p></div>
+                        <div class="method-box"><h4>Hunting de Invisíveis</h4><p>Acesso a profissionais "fora do radar" que não enviam currículos, mas geram valor.</p></div>
+                    </div>
+                `,
+                inputsValores: `
+                    <div class="form-group">
+                        <label>Valor do Fee de Contratação (%)</label>
+                        <input type="text" id="valFee" class="form-control" value="20%" oninput="atualizarProposta()">
+                    </div>
+                    <div class="form-group">
+                        <label>Prazo de Garantia (Reposição)</label>
+                        <input type="text" id="valGarantia" class="form-control" value="90 dias" oninput="atualizarProposta()">
+                    </div>
+                `,
+                gerarValores: () => `
+                    <div class="price-box">
+                        <div class="price-title">Fee de Resultado</div>
+                        <div class="price-value">${document.getElementById('valFee').value} <span style="font-size:14px; font-weight:400; color:#333;">sobre o pacote anual</span></div>
+                        <div class="price-desc"><b>Entregas:</b> Alinhamento de SLA, mapeamento de mercado, entrevistas por competência, checagem de referências e apresentação dos finalistas.<br><b>Garantia de Reposição:</b> ${document.getElementById('valGarantia').value}.</div>
+                    </div>
+                `
+            },
+            outplacement: {
+                titulo: "Outplacement de Elite",
+                descricao: `
+                    <p class="doc-text">O desligamento de um líder reverbera em toda a cultura organizacional. Tratar esse processo com cuidado protege a reputação da empresa e demonstra maturidade institucional.</p>
+                    <div class="doc-section-title">Pilares do Programa</div>
+                    <div class="method-grid">
+                        <div class="method-box"><h4>Proteção de Marca</h4><p>Redução de passivos trabalhistas e manutenção do Employer Branding.</p></div>
+                        <div class="method-box"><h4>Apoio ao Executivo</h4><p>Apoio psicológico e estratégico para rápida reinserção no mercado.</p></div>
+                    </div>
+                `,
+                inputsValores: `
+                    <div class="form-group">
+                        <label>Valor do Programa</label>
+                        <input type="text" id="valOutplacement" class="form-control" value="R$ 6.000,00" oninput="atualizarProposta()">
+                    </div>
+                    <div class="form-group">
+                        <label>Tempo de Cobertura</label>
+                        <input type="text" id="valTempoOut" class="form-control" value="6 meses" oninput="atualizarProposta()">
+                    </div>
+                `,
+                gerarValores: () => `
+                    <div class="price-box">
+                        <div class="price-title">Programa de Transição</div>
+                        <div class="price-value">${document.getElementById('valOutplacement').value} <span style="font-size:14px; font-weight:400; color:#333;">por executivo</span></div>
+                        <div class="price-desc"><b>Inclui:</b> Revisão de materiais, mapeamento de mercado, preparação para entrevistas e acompanhamento dedicado durante <b>${document.getElementById('valTempoOut').value}</b>.</div>
+                    </div>
+                `
+            },
+            reputacao: {
+                titulo: "Gestão de Reputação e Marca",
+                descricao: `
+                    <p class="doc-text">Grandes negócios não acontecem por acaso; são atraídos por marcas fortes. Atuamos estrategicamente na gestão da sua percepção pública.</p>
+                    <div class="doc-section-title">Eixos de Atuação</div>
+                    <div class="method-grid">
+                        <div class="method-box"><h4>LinkedIn Estratégico</h4><p>Planejamento de conteúdo e conexões com stakeholders chave.</p></div>
+                        <div class="method-box"><h4>Visibilidade Global</h4><p>Marketing de Influência Corporativa em portais renomados.</p></div>
+                    </div>
+                `,
+                inputsValores: `
+                    <div class="form-group">
+                        <label>Valor Mensal (Fee)</label>
+                        <input type="text" id="valReputacao" class="form-control" value="R$ 3.500,00" oninput="atualizarProposta()">
+                    </div>
+                `,
+                gerarValores: () => `
+                    <div class="price-box">
+                        <div class="price-title">Assessoria de Posicionamento</div>
+                        <div class="price-value">${document.getElementById('valReputacao').value} <span style="font-size:14px; font-weight:400; color:#333;">/mês</span></div>
+                        <div class="price-desc"><b>Inclui:</b> Planejamento editorial, ghostwriting executivo para LinkedIn, monitoramento de métricas e inserções estratégicas em mídia. Contrato mínimo sugerido de 6 meses.</div>
+                    </div>
+                `
+            }
+        };
+
+        // Inicialização
+        document.addEventListener("DOMContentLoaded", () => {
+            const dataAtual = new Date();
+            document.getElementById('docData').innerText = "Data: " + dataAtual.toLocaleDateString('pt-BR');
+            mudarServico(); 
+        });
+
+        // Troca os inputs laterais dependendo do serviço escolhido
+        function mudarServico() {
+            const svc = document.getElementById('inputServico').value;
+            document.getElementById('blocos-valores').innerHTML = templates[svc].inputsValores;
+            atualizarProposta();
+        }
+
+        // Atualiza a pré-visualização A4 em tempo real
+        function atualizarProposta() {
+            const cliente = document.getElementById('inputCliente').value || "[Nome do Cliente]";
+            const svc = document.getElementById('inputServico').value;
+            const condicao = document.getElementById('inputCondicao').value;
+
+            document.getElementById('docClienteTarget').innerHTML = `Preparado para: <span>${cliente}</span>`;
+            document.getElementById('docServicoTitle').innerText = templates[svc].titulo;
+            document.getElementById('docDescricaoServico').innerHTML = templates[svc].descricao;
+            document.getElementById('docValores').innerHTML = templates[svc].gerarValores();
+            document.getElementById('docCondicaoTexto').innerText = condicao;
+        }
+    </script>
+
+</body>
+</html>
