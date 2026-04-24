@@ -38,7 +38,6 @@
             z-index: 10;
         }
 
-        /* Barra de Rolagem da Sidebar */
         .sidebar::-webkit-scrollbar { width: 6px; }
         .sidebar::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
         .sidebar::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
@@ -83,7 +82,6 @@
             color: #333; position: relative; box-sizing: border-box;
         }
 
-        /* Estilos Internos do Documento Gerado */
         .doc-header { border-bottom: 2px solid var(--verde-youp); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
         .doc-header h1 { margin: 0; color: var(--verde-youp); font-weight: 800; font-size: 28px; letter-spacing: -1px; }
         .doc-header p { margin: 5px 0 0 0; color: var(--dourado); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
@@ -112,7 +110,6 @@
         .authority-badges { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
         .badge { font-size: 10px; font-weight: 700; color: var(--dourado); border: 1px solid var(--dourado); padding: 5px 10px; border-radius: 20px; text-transform: uppercase; }
 
-        /* CONFIGURAÇÃO DE IMPRESSÃO (Oculta painel e ajusta A4) */
         @media print {
             body { background: white; display: block; overflow: visible; height: auto; }
             .sidebar { display: none; }
@@ -157,6 +154,18 @@
             <input type="text" id="inputCondicao" class="form-control" value="À vista no Pix ou Parcelado em até 12x no cartão." oninput="atualizarProposta()">
         </div>
 
+        <hr style="border: 0; border-top: 1px solid rgba(197, 160, 89, 0.3); margin: 25px 0;">
+        <h3 style="color: var(--dourado); font-size: 11px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">Dados de Contato (Uso Interno)</h3>
+        
+        <div class="form-group">
+            <label>WhatsApp do Cliente</label>
+            <input type="text" id="inputWhatsapp" class="form-control" placeholder="Ex: 11999999999">
+        </div>
+        <div class="form-group">
+            <label>E-mail do Cliente</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Ex: cliente@email.com">
+        </div>
+
         <button id="btnSalvar" class="btn-gerar" onclick="salvarESenviar()">Salvar e Gerar PDF</button>
         <div id="statusMsg" style="margin-top: 10px; font-size: 11px; text-align: center; color: var(--verde-claro);"></div>
 
@@ -176,8 +185,7 @@
             <div class="doc-title" id="docServicoTitle">Proposta Comercial</div>
             <div class="doc-client" id="docClienteTarget">Preparado para: <span>[Nome do Cliente]</span></div>
 
-            <div id="docDescricaoServico">
-                </div>
+            <div id="docDescricaoServico"></div>
 
             <div id="docOutrosServicosContainer" style="display: none;">
                 <div class="doc-section-title">Outros Serviços Propostos</div>
@@ -185,8 +193,7 @@
             </div>
 
             <div class="doc-section-title">Investimento</div>
-            <div id="docValores">
-                </div>
+            <div id="docValores"></div>
 
             <div class="doc-text" style="margin-top: 20px; font-size: 11px;">
                 <strong>Condições:</strong> <span id="docCondicaoTexto">À vista no Pix ou Parcelado em até 12x no cartão.</span>
@@ -209,7 +216,6 @@
     </main>
 
     <script>
-        // URL da Planilha (Google Apps Script)
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwA1r5bx0tQqJj-8otAV06TzWOSpRdtH3TO-fNx0mMJHDnpBivGkPdgUCOPERiFgBo/exec';
 
         function salvarESenviar() {
@@ -220,16 +226,16 @@
             btn.innerText = "Salvando no Sistema...";
             status.innerText = "Conectando com a planilha Youp...";
 
-            // Coleta os valores atuais para salvar
             const dados = {
                 cliente: document.getElementById('inputCliente').value || "Não informado",
                 servico: document.getElementById('docServicoTitle').innerText,
-                valor: document.getElementById('docValores').innerText.replace(/\n/g, ' | '), // formata p/ salvar bonito
+                valor: document.getElementById('docValores').innerText.replace(/\n/g, ' | '),
                 condicao: document.getElementById('inputCondicao').value,
-                outros: document.getElementById('inputOutros').value || "Nenhum"
+                outros: document.getElementById('inputOutros').value || "Nenhum",
+                whatsapp: document.getElementById('inputWhatsapp').value, // Envia o Whatsapp
+                email: document.getElementById('inputEmail').value        // Envia o Email
             };
 
-            // Dispara via POST para o Google Script
             fetch(scriptURL, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -252,7 +258,6 @@
             });
         }
 
-        // Função para mostrar/esconder o bloco do Plano Basic no menu esquerdo
         function toggleBasic() {
             const inc = document.getElementById('incBasic');
             const bloco = document.getElementById('blocoBasicInput');
@@ -261,7 +266,6 @@
             }
         }
 
-        // Função para gerar dinamicamente os inputs de temas da Mentoria
         function renderizarTemasMentoria() {
             const container = document.getElementById('temasContainer');
             if (!container) return;
@@ -280,7 +284,6 @@
             atualizarProposta();
         }
 
-        // Bases de Conhecimento dos Serviços
         const templates = {
             agenciamento: {
                 titulo: "Agenciamento Executivo High-Impacto",
@@ -491,26 +494,22 @@
             }
         };
 
-        // Inicialização
         document.addEventListener("DOMContentLoaded", () => {
             const dataAtual = new Date();
             document.getElementById('docData').innerText = "Data: " + dataAtual.toLocaleDateString('pt-BR');
             mudarServico(); 
         });
 
-        // Troca os inputs laterais dependendo do serviço escolhido
         function mudarServico() {
             const svc = document.getElementById('inputServico').value;
             document.getElementById('blocos-valores').innerHTML = templates[svc].inputsValores;
             
-            // Tratamentos específicos por serviço
             if (svc === 'agenciamento') toggleBasic();
             if (svc === 'mentoria') renderizarTemasMentoria();
             
             atualizarProposta();
         }
 
-        // Atualiza a pré-visualização A4 em tempo real
         function atualizarProposta() {
             const cliente = document.getElementById('inputCliente').value || "[Nome do Cliente]";
             const svc = document.getElementById('inputServico').value;
@@ -523,7 +522,6 @@
             document.getElementById('docValores').innerHTML = templates[svc].gerarValores();
             document.getElementById('docCondicaoTexto').innerText = condicao;
 
-            // Controle da Seção de Outros Serviços (Só aparece se você digitar algo)
             const containerOutros = document.getElementById('docOutrosServicosContainer');
             if (outros !== "") {
                 document.getElementById('docOutrosText').innerText = outros;
@@ -533,6 +531,5 @@
             }
         }
     </script>
-
 </body>
 </html>
