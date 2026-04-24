@@ -7,7 +7,7 @@ const materiaisYoup = [
         titulo: "The Board Doesn't Want Answers, It Wants a Thesis: How to Master Boardroom Scrutiny",
         slug: "how-to-master-boardroom-interviews-thesis",
         resumo: "C-Level interviews are not about your past; they are about the predictability of your future. Learn how to stop reciting your resume and start mitigating shareholder risk.",
-        imagem: "https://www.correiobraziliense.com.br/cbradar/wp-content/uploads/2025/07/pessoa-confiante_1752873746061-1140x570.jpg", 
+        imagem: "https://www.contabeis.com.br/assets/img/news/1b5d33394d845abacffa141ff10c0374.jpg", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="font-size: 1.1em; font-weight: 600; margin: 0 0 15px 0;">The transition from middle to upper leadership requires abandoning a dangerous habit: the belief that you are there to prove you know how to 'do'. In an interview with the Board of Directors, your execution capacity has already been validated by Headhunters. The game is different now.</p>
