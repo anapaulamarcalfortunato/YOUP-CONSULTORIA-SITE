@@ -71,7 +71,6 @@
         td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; font-weight: 300; transition: all 0.3s; }
         .tr-hover:hover { background: rgba(255,255,255,0.02); }
 
-        /* Dropdown de Status do CRM */
         .status-select {
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid #888;
@@ -90,8 +89,12 @@
         .status-select:focus { box-shadow: 0 0 10px rgba(197, 160, 89, 0.3); }
 
         .row-hiding { opacity: 0; transform: translateX(20px); transition: all 0.5s ease; }
-
         #loader { text-align: center; padding: 50px; color: var(--dourado); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+        .icon-link {
+            text-decoration: none; font-size: 18px; margin-right: 10px; transition: transform 0.2s; display: inline-block;
+        }
+        .icon-link:hover { transform: scale(1.2); }
 
         @media (max-width: 768px) {
             .header { flex-direction: column; gap: 20px; text-align: center; padding: 20px; }
@@ -135,7 +138,8 @@
                         <th>Data</th>
                         <th>Cliente</th>
                         <th>Serviço</th>
-                        <th>Investimento (Resumo)</th>
+                        <th>Investimento</th>
+                        <th>Contato</th>
                         <th>Gestão de Status</th>
                     </tr>
                 </thead>
@@ -147,15 +151,13 @@
     </div>
 
     <script>
-        // MESMA URL DA SUA PLANILHA
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwA1r5bx0tQqJj-8otAV06TzWOSpRdtH3TO-fNx0mMJHDnpBivGkPdgUCOPERiFgBo/exec';
 
-        // Lógica de Cores para o Status
         function getStatusColor(status) {
             if(status === 'Em Negociação') return 'var(--dourado)';
             if(status === 'Aprovada') return 'var(--verde-claro)';
             if(status === 'Recusada') return 'var(--vermelho)';
-            return '#888'; // Enviada Padrão
+            return '#888'; 
         }
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -169,9 +171,7 @@
                     document.getElementById('loader').style.display = 'none';
                     document.getElementById('tabelaPropostas').style.display = 'table';
                     
-                    // FILTRAR: Mostra todas, EXCETO as "Encerradas"
                     const propostasAtivas = data.filter(linha => linha["Status"] !== "Encerrada");
-                    
                     document.getElementById('cardTotal').innerText = propostasAtivas.length;
 
                     if(data.length > 0) {
@@ -180,7 +180,7 @@
                     }
 
                     const tbody = document.getElementById('tabelaBody');
-                    tbody.innerHTML = ''; // Limpa antes de injetar
+                    tbody.innerHTML = ''; 
 
                     propostasAtivas.forEach(linha => {
                         const dataRow = new Date(linha["Data"]).toLocaleDateString('pt-BR');
@@ -193,15 +193,30 @@
                         const statusAtual = linha["Status"] || "Enviada";
                         const corStatus = getStatusColor(statusAtual);
 
+                        // --- GERAR BOTÕES DE CONTATO ---
+                        const zap = linha["WhatsApp"] || "";
+                        const email = linha["Email"] || "";
+                        let htmlContato = "";
+                        
+                        if(zap) {
+                            const numLimpo = zap.replace(/[^0-9]/g, ''); // Tira traços e espaços
+                            htmlContato += `<a href="https://wa.me/55${numLimpo}" target="_blank" class="icon-link" title="Falar no WhatsApp">📱</a>`;
+                        }
+                        if(email) {
+                            htmlContato += `<a href="mailto:${email}" class="icon-link" title="Enviar E-mail">📧</a>`;
+                        }
+                        if(!zap && !email) htmlContato = "-";
+
                         const tr = document.createElement('tr');
                         tr.className = "tr-hover";
-                        tr.id = "row-" + linha.rowIndex; // ID único baseado na linha da planilha
+                        tr.id = "row-" + linha.rowIndex; 
 
                         tr.innerHTML = `
                             <td>${dataRow}</td>
                             <td style="font-weight:600; color:#fff;">${cliente}</td>
                             <td style="color:var(--dourado);">${servico}</td>
                             <td>${valorResumo}</td>
+                            <td>${htmlContato}</td>
                             <td>
                                 <select class="status-select" style="border-color: ${corStatus}; color: ${corStatus}" onchange="atualizarStatus(${linha.rowIndex}, this)">
                                     <option value="Enviada" ${statusAtual === 'Enviada' ? 'selected' : ''}>Enviada</option>
@@ -220,26 +235,21 @@
                 });
         }
 
-        // Função que muda o Status na Planilha
         function atualizarStatus(rowIndex, selectElement) {
             const novoStatus = selectElement.value;
             const tr = document.getElementById("row-" + rowIndex);
 
-            // Muda a cor imediatamente na tela para dar feedback visual
             const cor = getStatusColor(novoStatus);
             selectElement.style.borderColor = cor;
             selectElement.style.color = cor;
             
-            // Se for encerrada, faz a animação de sumir da tela
             if(novoStatus === "Encerrada") {
                 tr.classList.add("row-hiding");
-                setTimeout(() => { tr.style.display = 'none'; }, 500); // Esconde da tabela
-                // Diminui o contador
+                setTimeout(() => { tr.style.display = 'none'; }, 500); 
                 const total = parseInt(document.getElementById('cardTotal').innerText);
                 document.getElementById('cardTotal').innerText = total - 1;
             }
 
-            // Envia para o Google Script
             fetch(scriptURL, {
                 method: 'POST',
                 mode: 'no-cors',
