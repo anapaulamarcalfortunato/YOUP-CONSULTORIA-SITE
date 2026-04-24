@@ -362,7 +362,7 @@ const materiaisYoup = [
         `
     },
 
-    {
+{
         id: 15,
         categoria: "Leadership",
         data: "2026-04-22",
@@ -370,6 +370,7 @@ const materiaisYoup = [
         titulo: "Secure Minds at the C-Level: Fiduciary Authority Is Immune to Ego Friction",
         slug: "secure-minds-clevel-fiduciary-authority-ego-friction",
         resumo: "At the senior level, shielding the ego against fiduciary friction is a brutal governance competency. Learn how to audit empty criticism without reactivity.",
+        // Imagem Corrigida abaixo
         imagem: "https://images.unsplash.com/photo-1610419730537-887e07663f73?q=80&w=800&auto=format&fit=crop", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
