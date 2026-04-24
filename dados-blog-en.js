@@ -7,7 +7,7 @@ const materiaisYoup = [
         titulo: "The Board Doesn't Want Answers, It Wants a Thesis: How to Master Boardroom Scrutiny",
         slug: "how-to-master-boardroom-interviews-thesis",
         resumo: "C-Level interviews are not about your past; they are about the predictability of your future. Learn how to stop reciting your resume and start mitigating shareholder risk.",
-        imagem: "https://unsplash.com/pt-br/fotografias/close-up-de-pessoas-de-negocios-discutindo-um-plano-financeiro-com-papelada-e-tablet-digital-6y6DGYcuQNo", 
+        imagem: "https://www.correiobraziliense.com.br/cbradar/wp-content/uploads/2025/07/pessoa-confiante_1752873746061-1140x570.jpg", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="font-size: 1.1em; font-weight: 600; margin: 0 0 15px 0;">The transition from middle to upper leadership requires abandoning a dangerous habit: the belief that you are there to prove you know how to 'do'. In an interview with the Board of Directors, your execution capacity has already been validated by Headhunters. The game is different now.</p>
@@ -370,7 +370,6 @@ const materiaisYoup = [
         titulo: "Secure Minds at the C-Level: Fiduciary Authority Is Immune to Ego Friction",
         slug: "secure-minds-clevel-fiduciary-authority-ego-friction",
         resumo: "At the senior level, shielding the ego against fiduciary friction is a brutal governance competency. Learn how to audit empty criticism without reactivity.",
-        // Imagem Corrigida abaixo
         imagem: "https://jrmcoaching.com.br/wp-content/uploads/2018/01/pessoas-confiantes.jpg", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
