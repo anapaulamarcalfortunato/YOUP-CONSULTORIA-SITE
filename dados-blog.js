@@ -547,6 +547,7 @@ const materiaisYoup = [
         titulo: "Mentes Seguras no C-Level: A Autoridade Fiduciária é Imune à Fricção do Ego",
         slug: "mentes-seguras-clevel-autoridade-fiduciaria-friccao-ego",
         resumo: "No alto escalão, blindar o ego contra a fricção fiduciária é uma competência de governança brutal. Aprenda a auditar críticas vazias sem reatividade.",
+        // Imagem Corrigida abaixo
         imagem: "https://images.unsplash.com/photo-1610419730537-887e07663f73?q=80&w=800&auto=format&fit=crop", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
@@ -555,10 +556,10 @@ const materiaisYoup = [
                 <p style="margin: 0 0 15px 0;">O ditado popular afirma que "mentes seguras são imunes à crítica". Como Headhunter que transita nas esferas de governança, eu refino essa tese: no alto escalão, mentes seguras não são imunes à crítica; elas são imunes à <em>reação</em> emocional diante dela. Há uma distinção vital entre um questionamento fiduciário legítimo e uma crítica vazia, baseada em fricções políticas. O executivo seguro não se ofende com o ruído, pois sabe diferenciar o ataque pessoal da análise de risco da companhia. O ego corporativo é o passivo oculto mais caro que uma organização pode carregar.</p>
 
                 <div style="border-left: 3px solid #dcb560; background-color: rgba(255,255,255,0.05); padding: 15px; margin: 20px 0; font-style: italic; font-size: 1.1em;">
-                    "Reagir emocionalmente a um questionamento contundente envia uma mensagem de fragilidade fiduciária. O Conselho busca líderes que governem a companhia com a mesma frieza que governam o próprio ego."
+                    "Reagir emocionalmente a um questionamento contundente envia uma mensagem de fragilidade fiduciária. O Conselho busca líderes que governem a companhia com a mesma frieza que governem o próprio ego."
                 </div>
 
-                <p style="margin: 0 0 15px 0;">Reagir com emoção a um questionamento fiduciário envia uma mensagem terrível: "Se este líder perde o equilíbrio emocional diante de uma pergunta difícil em uma sala segura, como ele governará a empresa durante uma crise real?" A reatividade é uma demonstração de que a sua autoridade está alicerçada na validação externa, e não na densidade da sua tese. O C-Level de elite processa a fricção com frieza, absorve o dado útil e descarta o ruído com a serenidade de quem conhece o valor que está gerando para o P&L.</p>
+                <p style="margin: 0 0 15px 0;">Reagir com emoção a um questionamento fiduciário envia uma mensagem terrível: "Se este líder perde o equilíbrio emocional diante de uma pergunta difícil em uma sala segura, como ele governará a empresa durante uma crisis real?" A reatividade é uma demonstração de que a sua autoridade está alicerçada na validação externa, e not na densidade da sua tese. O C-Level de elite processa a fricção com frieza, absorve o dado útil e descarta o ruído com a serenidade de quem conhece o valor que está gerando para o P&L.</p>
 
                 <p style="margin: 0 0 15px 0;">Essa segurança psicológica não é um dom inato, mas uma competência forjada através da "Gestão da Cicatriz". O executivo que já sobreviveu a reestruturações complexas possui um capital emocional que o blinda contra a fricção superficial. Ele não precisa provar que é perfeito, pois já integrou seus erros ao seu <em>framework</em> mental de tomada de decisão. A confiança autêntica não é sobre ter certeza absoluta, mas sobre ter a maturidade de assumir o peso das falhas estratégicas.</p>
 
