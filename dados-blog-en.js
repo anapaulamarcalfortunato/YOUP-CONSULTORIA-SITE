@@ -371,7 +371,7 @@ const materiaisYoup = [
         slug: "secure-minds-clevel-fiduciary-authority-ego-friction",
         resumo: "At the senior level, shielding the ego against fiduciary friction is a brutal governance competency. Learn how to audit empty criticism without reactivity.",
         // Imagem Corrigida abaixo
-        imagem: "https://images.unsplash.com/photo-1610419730537-887e07663f73?q=80&w=800&auto=format&fit=crop", 
+        imagem: "https://jrmcoaching.com.br/wp-content/uploads/2018/01/pessoas-confiantes.jpg", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="margin: 0 0 15px 0;">The fiduciary arena of the C-Level is not an environment for emotional amateurs. Sitting in the CEO or Director chair means accepting that every strategic decision will be dissected, questioned, and often sharply criticized by the Board and shareholders. It is common for brilliant executives, with spotless operational track records, to fry emotionally when confronted with the Boardroom crossfire. The trap is not the criticism, but the inability of an ungoverned ego to process friction without descending into aggressive defensiveness or paralyzing insecurity.</p>
