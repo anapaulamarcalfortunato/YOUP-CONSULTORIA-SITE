@@ -7,7 +7,7 @@ const materiaisYoup = [
         titulo: "O Conselho Não Quer Respostas, Quer uma Tese: Como Dominar a Sabatina da Diretoria",
         slug: "como-dominar-entrevista-diretoria-conselho",
         resumo: "Entrevistas C-Level não são sobre o seu passado, são sobre a previsibilidade do seu futuro. Aprenda a parar de recitar o currículo e comece a mitigar o risco do acionista.",
-        imagem: "https://unsplash.com/pt-br/fotografias/close-up-de-pessoas-de-negocios-discutindo-um-plano-financeiro-com-papelada-e-tablet-digital-6y6DGYcuQNo", 
+        imagem: "https://www.correiobraziliense.com.br/cbradar/wp-content/uploads/2025/07/pessoa-confiante_1752873746061-1140x570.jpg", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="font-size: 1.1em; font-weight: 600; margin: 0 0 15px 0;">A transição da média para a alta liderança exige o abandono de um hábito perigoso: a crença de que você está lá para provar que sabe "fazer". Em uma entrevista com o Conselho de Administração ou com a Diretoria Estatutária, a sua capacidade de execução já foi validada pelos Headhunters. O jogo agora é outro.</p>
