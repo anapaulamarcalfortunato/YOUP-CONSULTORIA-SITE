@@ -7,7 +7,7 @@ const materiaisYoup = [
         titulo: "O Conselho Não Quer Respostas, Quer uma Tese: Como Dominar a Sabatina da Diretoria",
         slug: "como-dominar-entrevista-diretoria-conselho",
         resumo: "Entrevistas C-Level não são sobre o seu passado, são sobre a previsibilidade do seu futuro. Aprenda a parar de recitar o currículo e comece a mitigar o risco do acionista.",
-        imagem: "https://jrmcoaching.com.br/wp-content/uploads/2018/01/pessoas-confiantes.jpg", 
+        imagem: "https://unsplash.com/pt-br/fotografias/close-up-de-pessoas-de-negocios-discutindo-um-plano-financeiro-com-papelada-e-tablet-digital-6y6DGYcuQNo", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="font-size: 1.1em; font-weight: 600; margin: 0 0 15px 0;">A transição da média para a alta liderança exige o abandono de um hábito perigoso: a crença de que você está lá para provar que sabe "fazer". Em uma entrevista com o Conselho de Administração ou com a Diretoria Estatutária, a sua capacidade de execução já foi validada pelos Headhunters. O jogo agora é outro.</p>
@@ -547,8 +547,7 @@ const materiaisYoup = [
         titulo: "Mentes Seguras no C-Level: A Autoridade Fiduciária é Imune à Fricção do Ego",
         slug: "mentes-seguras-clevel-autoridade-fiduciaria-friccao-ego",
         resumo: "No alto escalão, blindar o ego contra a fricção fiduciária é uma competência de governança brutal. Aprenda a auditar críticas vazias sem reatividade.",
-        // Imagem Corrigida abaixo
-        imagem: "https://images.unsplash.com/photo-1610419730537-887e07663f73?q=80&w=800&auto=format&fit=crop", 
+        imagem: "https://jrmcoaching.com.br/wp-content/uploads/2018/01/pessoas-confiantes.jpg", 
         conteudo: `
             <div class="artigo-container" style="font-family: 'Inter', sans-serif; line-height: 1.6; color: inherit;">
                 <p style="margin: 0 0 15px 0;">A arena fiduciária do C-Level não é um ambiente para amadores emocionais. Sentar-se na cadeira de CEO ou Diretor significa aceitar que cada uma de suas decisões estratégicas será dissecada, questionada e, muitas vezes, criticada de forma contundente pelo Conselho e acionistas. É comum executivos brilhantes, com passados operacionais irrepreensíveis, fritarem emocionalmente quando confrontados com o fogo cruzado do Boardroom. A armadilha não está na crítica, mas na incapacidade de um ego mal governado em processar a fricção sem descambar para a defensividade agressiva ou para a paralisação.</p>
