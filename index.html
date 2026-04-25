@@ -54,11 +54,8 @@
             backdrop-filter: blur(10px);
         }
         
-        .nav-logo-svg { height: 35px; width: auto; transition: 0.3s; }
-        .nav-logo-svg:hover { transform: scale(1.05); }
-        
-        .nav-actions { display: flex; align-items: center; gap: 30px; }
-        .lang-switch { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--texto-mute); display: flex; gap: 10px; }
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .lang-switch { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--texto-mute); display: flex; gap: 10px; margin-right: 10px; }
         .lang-switch span { cursor: pointer; transition: 0.3s; }
         .lang-switch span:hover { color: #fff; }
         .lang-switch span.active { color: var(--dourado); cursor: default; border-bottom: 1px solid var(--dourado); }
@@ -70,20 +67,22 @@
         }
         .btn-contact:hover { background: var(--dourado); color: var(--cinza-escuro); }
 
+        /* BOTÃO HUB DE PARCEIROS VIP */
+        .btn-hub {
+            background: var(--dourado); color: var(--cinza-escuro);
+            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 700; text-decoration: none; transition: 0.3s;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+        }
+        .btn-hub:hover { background: #dfb668; transform: translateY(-2px); }
+
         /* HERO SECTION (CENTRO) */
         .hero { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 20px; }
         
-        /* Nova Marca Central com o Logo Vetorizado */
-        .hero-brand-container { margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; }
-        .hero-logo-svg { height: 60px; width: auto; margin-bottom: 20px; animation: float 6s ease-in-out infinite; }
-        .hero-brand { display: block; color: var(--dourado); font-size: 20px; font-weight: 700; letter-spacing: 6px; margin-bottom: 8px; }
-        .hero-brand-sub { display: block; color: var(--verde-youp); font-size: 11px; text-transform: uppercase; letter-spacing: 5px; font-weight: 600; }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0px); }
-        }
+        /* Marca Central */
+        .hero-brand-container { margin-bottom: 30px; }
+        .hero-brand { display: block; color: var(--dourado); font-size: 18px; font-weight: 700; letter-spacing: 6px; margin-bottom: 8px; }
+        .hero-brand-sub { display: block; color: var(--verde-claro); font-size: 10px; text-transform: uppercase; letter-spacing: 4px; font-weight: 500; }
 
         .headline { font-size: 42px; font-weight: 300; line-height: 1.2; max-width: 800px; margin: 0 auto 20px; letter-spacing: -0.5px; }
         .headline b { font-weight: 600; color: #fff; }
@@ -116,7 +115,9 @@
         /* RESPONSIVIDADE MOBILE */
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-actions { width: 100%; justify-content: space-between; }
+            .nav-actions { width: 100%; flex-direction: column; gap: 12px; }
+            .btn-contact, .btn-hub { width: 100%; text-align: center; box-sizing: border-box; }
+            .lang-switch { margin-right: 0; margin-bottom: 5px; }
             .hero-brand { font-size: 16px; letter-spacing: 4px; }
             .hero-brand-sub { font-size: 9px; letter-spacing: 3px; }
             .headline { font-size: 28px; }
@@ -129,24 +130,14 @@
 <body>
 
     <nav class="navbar fade-in">
-        <a href="index.html" style="display: flex; align-items: center;">
-            <svg class="nav-logo-svg" viewBox="-20 -20 140 140" xmlns="http://www.w3.org/2000/svg">
-                <g fill="var(--verde-youp)">
-                    <path d="M 51 0 L 100 0 L 100 49 L 85 49 A 10 10 0 0 1 65 49 L 51 49 L 51 35 A 10 10 0 0 1 51 15 L 51 0 Z" />
-                    <path d="M 51 51 L 65 51 A 10 10 0 0 0 85 51 L 100 51 L 100 100 L 51 100 L 51 85 A 10 10 0 0 1 51 65 L 51 51 Z" />
-                    <path d="M 0 51 L 15 51 A 10 10 0 0 1 35 51 L 49 51 L 49 65 A 10 10 0 0 0 49 85 L 49 100 L 0 100 L 0 51 Z" />
-                    <g transform="translate(-12, -15) rotate(-15 25 25)">
-                        <path d="M 0 0 L 49 0 L 49 15 A 10 10 0 0 0 49 35 L 49 49 L 35 49 A 10 10 0 0 0 15 49 L 0 49 L 0 0 Z" />
-                    </g>
-                </g>
-            </svg>
-        </a>
+        <div></div>
         
         <div class="nav-actions">
             <div class="lang-switch">
                 <span class="active">PT</span>
                 <span onclick="definirIdiomaGlobal('en')">EN</span>
             </div>
+            <a href="area-parceiro.html" class="btn-hub">Hub Exclusivo</a>
             <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estava%20no%20seu%20site%20e%20quero%20mudar%20a%20minha%20carreira%2C%20voc%C3%AA%20me%20ajuda%3F" target="_blank" class="btn-contact">Falar com Consultor</a>
         </div>
     </nav>
@@ -154,16 +145,6 @@
     <main class="hero fade-in delay-1">
         
         <div class="hero-brand-container">
-            <svg class="hero-logo-svg" viewBox="-20 -20 140 140" xmlns="http://www.w3.org/2000/svg">
-                <g fill="var(--verde-youp)">
-                    <path d="M 51 0 L 100 0 L 100 49 L 85 49 A 10 10 0 0 1 65 49 L 51 49 L 51 35 A 10 10 0 0 1 51 15 L 51 0 Z" />
-                    <path d="M 51 51 L 65 51 A 10 10 0 0 0 85 51 L 100 51 L 100 100 L 51 100 L 51 85 A 10 10 0 0 1 51 65 L 51 51 Z" />
-                    <path d="M 0 51 L 15 51 A 10 10 0 0 1 35 51 L 49 51 L 49 65 A 10 10 0 0 0 49 85 L 49 100 L 0 100 L 0 51 Z" />
-                    <g transform="translate(-12, -15) rotate(-15 25 25)">
-                        <path d="M 0 0 L 49 0 L 49 15 A 10 10 0 0 0 49 35 L 49 49 L 35 49 A 10 10 0 0 0 15 49 L 0 49 L 0 0 Z" />
-                    </g>
-                </g>
-            </svg>
             <span class="hero-brand">YOUP CONSULTORIA</span>
             <span class="hero-brand-sub">Carreira, Reputação e RH</span>
         </div>
@@ -198,7 +179,7 @@
                 <div class="link-list">
                     <a href="sobre.html" class="link-item">Nossa Filosofia e História</a>
                     <a href="produtos.html" class="link-item">Ecosystema de Produtos</a>
-                    <a href="area-parceiro.html" class="link-item">Hub Exclusivo de Parceiros</a>
+                    <a href="blog.html" class="link-item">Blog e Insights Corporativos</a>
                 </div>
             </div>
 
