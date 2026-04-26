@@ -194,7 +194,7 @@
             e.preventDefault();
             // Se já tem a pulseira VIP, vai direto para o material
             if (sessionStorage.getItem('youp_vip_auth') === 'autorizado') {
-                window.location.href = "material-de-apoio2.html";
+                window.location.href = "material-de-apoio.html";
             } else {
                 // Se não tem, abre o Modal de Login
                 document.getElementById('loginOverlay').style.display = 'flex';
@@ -239,7 +239,7 @@
 
                     // Joga direto para o material
                     setTimeout(() => {
-                        window.location.href = "material-de-apoio2.html";
+                        window.location.href = "material-de-apoio.html";
                     }, 800);
                 } else {
                     msgErro.innerText = data.erro;
