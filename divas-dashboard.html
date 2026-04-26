@@ -33,22 +33,24 @@
         .input-group { margin: 25px 0; text-align: left; }
         .input-group label { display: block; font-size: 10px; color: var(--dourado); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; }
         .input-group input { width: 100%; padding: 15px; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 12px; color: #fff; box-sizing: border-box; outline: none; font-family: 'Montserrat'; }
-        .input-group input:focus { border-color: var(--dourado); box-shadow: 0 0 15px rgba(197, 160, 89, 0.2); }
         .btn-login { background: var(--rosa-divas); color: #fff; width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn-login:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(216, 75, 114, 0.4); background: #e05a7f; }
+        .btn-login:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(216, 75, 114, 0.4); }
 
         /* --- DASHBOARD CONTAINER --- */
         .dashboard-container { display: none; max-width: 1300px; margin: 0 auto; padding: 40px 20px; animation: fadeIn 0.8s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .header-dash { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 30px; margin-bottom: 40px; }
+        .header-dash { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 30px; margin-bottom: 30px; }
         .header-dash h1 { margin: 0; font-size: 28px; font-weight: 800; color: var(--branco); letter-spacing: 1px; }
         .header-dash h1 span { color: var(--rosa-divas); }
         
-        /* BARRA DE PESQUISA */
-        .search-container { position: relative; margin-bottom: 40px; max-width: 500px; }
-        .search-input { width: 100%; padding: 15px 25px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px; color: #fff; font-family: 'Montserrat'; outline: none; font-size: 14px; transition: 0.3s; }
-        .search-input:focus { border-color: var(--rosa-divas); box-shadow: 0 0 20px rgba(216, 75, 114, 0.1); }
+        /* BARRA DE FILTROS */
+        .filter-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .filter-group { display: flex; flex-direction: column; gap: 8px; }
+        .filter-group label { font-size: 10px; color: var(--dourado); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        .filter-select, .search-input { background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); border-radius: 8px; padding: 12px; color: #fff; font-family: 'Montserrat'; outline: none; cursor: pointer; font-size: 13px; }
+        .filter-select:focus, .search-input:focus { border-color: var(--rosa-divas); }
+        .search-input { cursor: text; }
 
         /* --- GRID DE CARDS --- */
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
@@ -68,27 +70,19 @@
         .influencer-card:hover { transform: translateY(-8px); border-color: var(--rosa-claro); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         
         .card-top { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
-        .inf-name { font-size: 22px; font-weight: 800; color: var(--rosa-claro); margin: 0; }
-        .inf-niche { font-size: 11px; color: var(--dourado); text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
+        .inf-name { font-size: 20px; font-weight: 800; color: var(--rosa-claro); margin: 0; }
+        .inf-niche { font-size: 10px; color: var(--dourado); text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
 
-        /* BLOCOS DE DADOS */
         .data-section { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 15px; }
         .data-section-title { font-size: 9px; font-weight: 800; color: var(--rosa-divas); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
         
         .info-row { display: flex; flex-direction: column; margin-bottom: 12px; }
-        .info-row:last-child { margin-bottom: 0; }
         .info-label { font-size: 10px; color: var(--cinza-texto); text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
-        .info-value { font-size: 13px; color: var(--branco); font-weight: 400; line-height: 1.5; }
-        .info-value b { color: var(--dourado); }
-
-        .badge-status { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
-        .status-ativo { background: rgba(40, 167, 69, 0.2); color: #81c784; border: 1px solid #28a745; }
-        .status-pendente { background: rgba(255, 193, 7, 0.2); color: #ffd54f; border: 1px solid #ffc107; }
+        .info-value { font-size: 12px; color: var(--branco); font-weight: 400; line-height: 1.5; }
 
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
         .btn-card { display: flex; align-items: center; justify-content: center; padding: 12px; border-radius: 10px; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         .btn-drive { background: rgba(197, 160, 89, 0.1); border: 1px solid var(--dourado); color: var(--dourado); }
-        .btn-drive:hover { background: var(--dourado); color: var(--rosa-fundo); }
         .btn-whatsapp { background: rgba(216, 75, 114, 0.1); border: 1px solid var(--rosa-divas); color: var(--rosa-claro); }
         .btn-whatsapp:hover { background: var(--rosa-divas); color: #fff; }
 
@@ -97,7 +91,6 @@
         @media (max-width: 768px) {
             .cards-grid { grid-template-columns: 1fr; }
             .header-dash { flex-direction: column; text-align: center; gap: 20px; }
-            .influencer-card { padding: 20px; }
         }
     </style>
 </head>
@@ -106,16 +99,16 @@
     <div class="login-overlay" id="loginOverlay">
         <div class="login-box">
             <h2>DIVAS <span>CASTING</span></h2>
-            <p style="color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px;">Sistema de Gestão Interna</p>
+            <p style="color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px;">Acesso Restrito - Diretoria</p>
             <div class="input-group">
                 <label>E-mail Corporativo</label>
-                <input type="email" id="loginEmail" placeholder="seu@email.com">
+                <input type="email" id="loginEmail" placeholder="admin@youp.com">
             </div>
             <div class="input-group">
                 <label>Chave de Acesso</label>
                 <input type="password" id="loginSenha" placeholder="••••••••">
             </div>
-            <button class="btn-login" onclick="fazerLogin()">Acessar Dashboard</button>
+            <button class="btn-login" onclick="fazerLogin()">Acessar Painel</button>
             <p id="msgErro" style="color: #ff6b6b; font-size: 11px; margin-top: 15px; font-weight: 600;"></p>
         </div>
     </div>
@@ -123,26 +116,48 @@
     <div class="dashboard-container" id="dashboard">
         <div class="header-dash">
             <h1>Casting <span>Oficial</span></h1>
-            <button onclick="sessionStorage.clear(); location.reload();" style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:#aaa; padding:10px 20px; border-radius:50px; cursor:pointer; font-size: 11px; font-weight: 600; text-transform: uppercase;">Encerrar Sessão ✕</button>
+            <button onclick="sessionStorage.clear(); location.reload();" style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:#aaa; padding:10px 20px; border-radius:50px; cursor:pointer; font-size: 11px; font-weight: 600; text-transform: uppercase;">Sair ✕</button>
         </div>
 
-        <div class="search-container">
-            <input type="text" class="search-input" id="searchBar" placeholder="Pesquisar por nome, nicho ou tema..." onkeyup="filtrarCards()">
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>Pesquisar Nome</label>
+                <input type="text" class="search-input" id="searchName" placeholder="Digite um nome..." onkeyup="aplicarFiltros()">
+            </div>
+            <div class="filter-group">
+                <label>Nicho de Atuação</label>
+                <select class="filter-select" id="filterNicho" onchange="aplicarFiltros()">
+                    <option value="todos">Todos os Nichos</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Rede Social</label>
+                <select class="filter-select" id="filterRede" onchange="aplicarFiltros()">
+                    <option value="todos">Todas as Redes</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Comunidade Divas</label>
+                <select class="filter-select" id="filterComunidade" onchange="aplicarFiltros()">
+                    <option value="todos">Ver Todas</option>
+                    <option value="Sim">Faz parte</option>
+                    <option value="Não">Não faz parte</option>
+                </select>
+            </div>
         </div>
 
-        <div id="loader" class="loader">Sincronizando com a Planilha Divas...</div>
+        <div id="loader" class="loader">Organizando Casting em ordem alfabética...</div>
         <div class="cards-grid" id="gridInfluencers"></div>
     </div>
 
     <script>
-        // === COLOQUE O SEU LINK DO GOOGLE SCRIPT AQUI ===
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzVeQ-Zj4_t896n7Kh1NAmp6u37PSC-iMYPEHamkVnZIp47-amKTL7l9q6a9gu7e4E/exec'; 
+        let dadosOriginais = [];
 
         function fazerLogin() {
             const email = document.getElementById('loginEmail').value.trim();
             const senha = document.getElementById('loginSenha').value.trim();
             const btn = document.querySelector('.btn-login');
-            
             if(!email || !senha) return;
             btn.innerText = "Autenticando...";
 
@@ -155,15 +170,14 @@
                     carregarInfluencers(); 
                 } else { 
                     document.getElementById('msgErro').innerText = data.erro; 
-                    btn.innerText = "Acessar Dashboard";
+                    btn.innerText = "Acessar Painel";
                 }
             }).catch(() => {
                 document.getElementById('msgErro').innerText = "Erro na conexão.";
-                btn.innerText = "Acessar Dashboard";
+                btn.innerText = "Acessar Painel";
             });
         }
 
-        // Verifica se já está logado
         if (sessionStorage.getItem('divas_auth') === 'autorizado') {
             document.getElementById('loginOverlay').style.display='none';
             document.getElementById('dashboard').style.display='block';
@@ -173,61 +187,113 @@
         function carregarInfluencers() {
             fetch(scriptURL + "?action=get_influencers")
             .then(res => res.json()).then(dados => {
+                // 1. ORDEM ALFABÉTICA
+                dados.sort((a, b) => {
+                    let nomeA = (a['nome_do_influencer'] || a['nome_completo'] || '').toUpperCase();
+                    let nomeB = (b['nome_do_influencer'] || b['nome_completo'] || '').toUpperCase();
+                    return nomeA.localeCompare(nomeB);
+                });
+
+                dadosOriginais = dados;
                 document.getElementById('loader').style.display = 'none';
-                const grid = document.getElementById('gridInfluencers');
                 
-                grid.innerHTML = dados.map(inf => {
-                    const statusClass = (inf['status_do_contrato'] || '').toLowerCase().includes('ativo') ? 'status-ativo' : 'status-pendente';
-                    
-                    return `
-                    <div class="influencer-card">
-                        <div class="card-top">
-                            <h3 class="inf-name">${inf['nome_do_influencer'] || 'Não Informado'}</h3>
-                            <span class="inf-niche">${inf['nicho'] || 'Geral'}</span>
-                            <div style="margin-top:10px;"><span class="badge-status ${statusClass}">${inf['status_do_contrato'] || 'Pendente'}</span></div>
-                        </div>
-
-                        <div class="data-section">
-                            <span class="data-section-title">Estratégia e Conteúdo</span>
-                            <div class="info-row">
-                                <span class="info-label">Bio / Posicionamento</span>
-                                <span class="info-value">${inf['bio_/_mini_bio'] || 'N/A'}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Temas Chave</span>
-                                <span class="info-value">${inf['temas_chaves_(repeticao)'] || 'N/A'}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Slogan / Keywords</span>
-                                <span class="info-value">${inf['slogan_/_palavras-chave'] || 'N/A'}</span>
-                            </div>
-                        </div>
-
-                        <div class="data-section">
-                            <span class="data-section-title">Identidade Visual</span>
-                            <div class="info-row">
-                                <span class="info-value"><b>Paleta:</b> ${inf['paleta_de_cores'] || 'Não definido'}</span>
-                                <span class="info-value"><b>Fontes:</b> ${inf['tipografia_(fontes)'] || 'Não definido'}</span>
-                            </div>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="${inf['link_da_pasta_do_drive']}" target="_blank" class="btn-card btn-drive">Pasta Drive</a>
-                            <a href="https://wa.me/${(inf['telefone'] || '').replace(/\D/g,'')}" target="_blank" class="btn-card btn-whatsapp">WhatsApp</a>
-                        </div>
-                    </div>
-                    `;
-                }).join('');
+                popularFiltros(dados);
+                renderizarCards(dados);
             });
         }
 
-        function filtrarCards() {
-            let input = document.getElementById('searchBar').value.toLowerCase();
-            let cards = document.getElementsByClassName('influencer-card');
-            for (let i = 0; i < cards.length; i++) {
-                let content = cards[i].innerText.toLowerCase();
-                cards[i].style.display = content.includes(input) ? "" : "none";
+        function popularFiltros(dados) {
+            const nichos = new Set();
+            const redes = new Set();
+
+            dados.forEach(inf => {
+                if (inf['nicho']) nichos.add(inf['nicho']);
+                // Se as redes estiverem como "Instagram, TikTok", separa elas
+                if (inf['redes']) {
+                    inf['redes'].split(',').forEach(r => redes.add(r.trim()));
+                }
+            });
+
+            const selectNicho = document.getElementById('filterNicho');
+            nichos.forEach(n => {
+                let opt = document.createElement('option');
+                opt.value = n; opt.innerText = n;
+                selectNicho.appendChild(opt);
+            });
+
+            const selectRede = document.getElementById('filterRede');
+            redes.forEach(r => {
+                let opt = document.createElement('option');
+                opt.value = r; opt.innerText = r;
+                selectRede.appendChild(opt);
+            });
+        }
+
+        function aplicarFiltros() {
+            const buscaNome = document.getElementById('searchName').value.toLowerCase();
+            const nichoSel = document.getElementById('filterNicho').value;
+            const redeSel = document.getElementById('filterRede').value;
+            const comunSel = document.getElementById('filterComunidade').value;
+
+            const filtrados = dadosOriginais.filter(inf => {
+                const matchNome = (inf['nome_do_influencer'] || inf['nome_completo'] || '').toLowerCase().includes(buscaNome);
+                const matchNicho = nichoSel === 'todos' || inf['nicho'] === nichoSel;
+                const matchRede = redeSel === 'todos' || (inf['redes'] && inf['redes'].includes(redeSel));
+                const matchComun = comunSel === 'todos' || inf['comunidade_(sim/nao)'] === comunSel;
+
+                return matchNome && matchNicho && matchRede && matchComun;
+            });
+
+            renderizarCards(filtrados);
+        }
+
+        function renderizarCards(dados) {
+            const grid = document.getElementById('gridInfluencers');
+            if(dados.length === 0) {
+                grid.innerHTML = "<p style='grid-column:1/-1; text-align:center; color:var(--dourado)'>Nenhuma influenciadora encontrada com esses filtros.</p>";
+                return;
             }
+
+            grid.innerHTML = dados.map(inf => {
+                return `
+                <div class="influencer-card">
+                    <div class="card-top">
+                        <h3 class="inf-name">${inf['nome_do_influencer'] || inf['nome_completo'] || 'Não Informado'}</h3>
+                        <span class="inf-niche">${inf['nicho'] || 'Geral'}</span>
+                        <div style="font-size:9px; color:var(--cinza-texto); margin-top:5px">Redes: ${inf['redes'] || 'N/A'}</div>
+                    </div>
+
+                    <div class="data-section">
+                        <span class="data-section-title">Perfil Estratégico</span>
+                        <div class="info-row">
+                            <span class="info-label">Bio / Mini Bio</span>
+                            <span class="info-value">${inf['bio_/_mini_bio'] || 'N/A'}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Temas Chave</span>
+                            <span class="info-value">${inf['temas_chaves_(repeticao)'] || 'N/A'}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Faz parte da comunidade?</span>
+                            <span class="info-value"><b>${inf['comunidade_(sim/nao)'] || 'Não'}</b></span>
+                        </div>
+                    </div>
+
+                    <div class="data-section">
+                        <span class="data-section-title">Branding Visual</span>
+                        <div class="info-row">
+                            <span class="info-value"><b>Paleta:</b> ${inf['paleta_de_cores'] || '---'}</span>
+                            <span class="info-value"><b>Fontes:</b> ${inf['tipografia_(fontes)'] || '---'}</span>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <a href="${inf['link_da_pasta_do_drive']}" target="_blank" class="btn-card btn-drive">Pasta Drive</a>
+                        <a href="https://wa.me/${(inf['telefone'] || '').replace(/\D/g,'')}" target="_blank" class="btn-card btn-whatsapp">WhatsApp</a>
+                    </div>
+                </div>
+                `;
+            }).join('');
         }
     </script>
 </body>
