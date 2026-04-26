@@ -10,13 +10,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6JTWLMZBRS');
     </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -29,175 +28,102 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
+            margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;
             background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: #ffffff; display: flex; align-items: center; justify-content: center;
+            height: 100vh; overflow: hidden;
         }
 
+        /* --- O CONTEÚDO DO PORTAL (Sempre Visível) --- */
         .glass-container {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 15px;
-            max-width: 850px;
-            width: 95%;
-            padding: 40px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
-            box-sizing: border-box;
-            text-align: center;
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 15px; max-width: 850px; width: 95%; padding: 40px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7); box-sizing: border-box; text-align: center;
         }
 
-        .header-top {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
-        .btn-back {
-            color: var(--dourado);
-            text-decoration: none;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .btn-back { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .btn-back:hover { color: #fff; }
 
-        .welcome-title {
-            color: var(--dourado);
-            margin: 0;
-            font-size: 26px;
-            font-weight: 600;
-        }
-        .welcome-subtitle {
-            font-size: 11px;
-            color: var(--verde-claro);
-            margin: 10px 0 30px 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
+        .welcome-title { color: var(--dourado); margin: 0; font-size: 26px; font-weight: 600; }
+        .welcome-subtitle { font-size: 11px; color: var(--verde-claro); margin: 10px 0 30px 0; text-transform: uppercase; letter-spacing: 4px; }
 
-        .intro-text {
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-weight: 300;
-            color: #e0e0e0;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .intro-text { font-size: 14px; line-height: 1.8; margin-bottom: 40px; font-weight: 300; color: #e0e0e0; max-width: 700px; margin-left: auto; margin-right: auto; }
         .intro-text b { color: #fff; font-weight: 600; }
 
-        /* Grade de Acessos */
-        .portal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
+        .portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 20px; }
 
         .portal-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); padding: 30px 20px; border-radius: 12px;
+            text-decoration: none; color: #fff; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;
+        }
+        .portal-card:hover { border-color: var(--dourado); background: rgba(197, 160, 89, 0.05); transform: translateY(-5px); }
+
+        .card-icon { font-size: 30px; margin-bottom: 15px; display: block; }
+        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--dourado); }
+        .card-desc { font-size: 11px; color: var(--cinza-claro); font-weight: 300; line-height: 1.4; }
+
+        .footer-note { margin-top: 40px; font-size: 11px; color: var(--cinza-claro); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+
+        /* --- A CAIXA DE LOGIN (Aparece apenas ao clicar no Material de Apoio) --- */
+        .login-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 10, 0.85); display: none; align-items: center; justify-content: center; z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .login-box {
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 15px; padding: 40px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
         }
 
-        .portal-card:hover {
-            border-color: var(--dourado);
-            background: rgba(197, 160, 89, 0.05);
-            transform: translateY(-5px);
+        .btn-close {
+            position: absolute; top: 15px; right: 20px; background: transparent; border: none;
+            color: #888; font-size: 18px; cursor: pointer; transition: 0.3s;
         }
+        .btn-close:hover { color: var(--dourado); }
 
-        .card-icon {
-            font-size: 30px;
-            margin-bottom: 15px;
-            display: block;
+        .login-brand { color: var(--dourado); font-size: 20px; font-weight: 700; letter-spacing: 4px; margin: 0 0 5px; }
+        .login-sub { color: var(--verde-claro); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 30px; }
+
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { display: block; font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .input-group input {
+            width: 100%; padding: 12px 15px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+            color: #fff; font-family: 'Montserrat'; font-size: 13px; box-sizing: border-box; outline: none; transition: 0.3s;
         }
+        .input-group input:focus { border-color: var(--dourado); background: rgba(0,0,0,0.6); }
 
-        .card-title {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            color: var(--dourado);
+        .btn-login {
+            background: var(--dourado); color: var(--cinza-escuro); width: 100%; padding: 15px; border: none; border-radius: 8px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
+        .btn-login:hover { background: #dfb668; transform: translateY(-2px); }
+        .btn-login:disabled { background: #555; color: #888; cursor: not-allowed; transform: none; }
 
-        .card-desc {
-            font-size: 11px;
-            color: var(--cinza-claro);
-            font-weight: 300;
-            line-height: 1.4;
-        }
-
-        .footer-note {
-            margin-top: 40px;
-            font-size: 11px;
-            color: var(--cinza-claro);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 20px;
-        }
-
-        /* ========================================= */
-        /* PATCH DE RESPONSIVIDADE MOBILE (CELULAR)  */
-        /* ========================================= */
+        .msg-erro { color: #d84b72; font-size: 11px; margin-top: 15px; min-height: 15px; font-weight: 600; }
+        
         @media (max-width: 768px) {
-            .page-title, .hero h1, .welcome-title, .divas-title { font-size: 24px !important; line-height: 1.2; }
-            .page-subtitle, .welcome-subtitle, .section-sub { font-size: 10px !important; line-height: 1.4; }
-            .intro-text, .page-intro, .text-block { font-size: 13px !important; text-align: left; padding: 0 5px; }
-            
-            .impact-section, .grid-impact, .services-grid, .plans-grid, .youp-grid, .portal-grid, .awards-grid, .grid { 
-                grid-template-columns: 1fr !important; 
-            }
-            
-            .glass-container { padding: 25px 20px !important; width: 90% !important; margin-top: 20px; max-height: 85vh; overflow-y: auto; }
-            .modal-body { padding: 25px !important; border: none !important; }
-            .modal-content-inner { padding: 20px 10px !important; }
-            
-            .btn-main, .btn-action, .btn-pink, .btn-wa, .btn-plan { 
-                padding: 15px 10px !important; 
-                font-size: 11px !important; 
-                width: 100%; 
-                box-sizing: border-box; 
-                text-align: center;
-            }
-            .btn-group { flex-direction: column; width: 100%; }
-
-            .hero { padding-top: 80px !important; }
-            .header-tools { top: 10px !important; right: 10px !important; flex-direction: column; align-items: flex-end; gap: 8px; }
-            .btn-back-home { top: 15px !important; left: 10px !important; }
-            
-            .login-box { width: 90% !important; padding: 25px !important; margin: 50px auto !important; box-sizing: border-box; }
+            .glass-container { padding: 25px 20px; width: 90%; max-height: 90vh; overflow-y: auto; }
+            .portal-grid { grid-template-columns: 1fr; }
+            .welcome-title { font-size: 20px; }
+            .intro-text { font-size: 12px; }
+            .login-box { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glass-container">
+    <div class="glass-container" id="conteudoVIP">
         
         <div class="header-top">
-            <a href="area-parceiro.html" class="btn-back">← Voltar para Área do Parceiro</a>
+            <a href="area-parceiro.html" class="btn-back">← Hub de Parceiros</a>
+            <a href="#" onclick="encerrarSessao()" id="btnSair" class="btn-back" style="color: #d84b72; display: none;">Encerrar Sessão ✕</a>
         </div>
 
-        <h1 class="welcome-title">Bem-vindo ao seu Centro de Comando</h1>
+        <h1 class="welcome-title">Bem-vindo<span id="nomeLogado"></span></h1>
         <p class="welcome-subtitle">Estratégia e Execução de Carreira</p>
 
         <p class="intro-text">
@@ -211,10 +137,10 @@
                 <span class="card-desc">Acesse as oportunidades curadas e alinhadas ao seu perfil.</span>
             </a>
 
-            <a href="material-de-apoio.html" class="portal-card">
+            <a onclick="verificarAcessoMaterial(event)" class="portal-card">
                 <span class="card-icon">📚</span>
                 <span class="card-title">Material de Apoio</span>
-                <span class="card-desc">Guias, templates e recursos para fortalecer sua marca.</span>
+                <span class="card-desc">Guias e recursos protegidos. <b>(Acesso Restrito)</b></span>
             </a>
 
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6MDXiBLHsyQBePqdZaIOZimqKiGtU7ZB3kYCIZpYmpnK6iQ/viewform" target="_blank" class="portal-card">
@@ -227,8 +153,113 @@
         <p class="footer-note">
             Lembre-se: o sucesso da sua recolocação é um projeto construído a quatro mãos.
         </p>
-
     </div>
 
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <button class="btn-close" onclick="fecharLogin()">✕</button>
+            <h1 class="login-brand">ACESSO RESTRITO</h1>
+            <p class="login-sub">Material de Apoio Youp</p>
+
+            <div class="input-group">
+                <label>E-mail Corporativo</label>
+                <input type="email" id="emailClient" placeholder="seu@email.com">
+            </div>
+            <div class="input-group">
+                <label>Chave de Segurança</label>
+                <input type="password" id="senhaClient" placeholder="••••••••">
+            </div>
+
+            <button class="btn-login" id="btnEntrar" onclick="validarAcesso()">Acessar Material</button>
+            <div class="msg-erro" id="msgErro"></div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwv5ny2u_o-NRnuEzTPB824oL22I2psB6_PkR52PNVhlcqMeSDmJYgR-eTRkF73J2zk/exec';
+
+        // Atualiza a tela se o cliente já estiver logado
+        document.addEventListener("DOMContentLoaded", () => {
+            if (sessionStorage.getItem('youp_vip_auth') === 'autorizado') {
+                const nome = sessionStorage.getItem('youp_vip_nome');
+                if (nome) {
+                    document.getElementById('nomeLogado').innerText = ", " + nome.split(" ")[0];
+                }
+                document.getElementById('btnSair').style.display = 'block';
+            }
+        });
+
+        // Clique no card "Material de Apoio"
+        function verificarAcessoMaterial(e) {
+            e.preventDefault();
+            // Se já tem a pulseira VIP, vai direto para o material
+            if (sessionStorage.getItem('youp_vip_auth') === 'autorizado') {
+                window.location.href = "material-de-apoio2.html";
+            } else {
+                // Se não tem, abre o Modal de Login
+                document.getElementById('loginOverlay').style.display = 'flex';
+            }
+        }
+
+        // Fechar a caixinha de login se desistir
+        function fecharLogin() {
+            document.getElementById('loginOverlay').style.display = 'none';
+            document.getElementById('msgErro').innerText = "";
+        }
+
+        // Função de ir no Google e checar a senha
+        function validarAcesso() {
+            const email = document.getElementById('emailClient').value;
+            const senha = document.getElementById('senhaClient').value;
+            const btn = document.getElementById('btnEntrar');
+            const msgErro = document.getElementById('msgErro');
+
+            if(!email || !senha) {
+                msgErro.innerText = "Preencha o e-mail corporativo e a chave.";
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Verificando...";
+            msgErro.innerText = "";
+
+            const urlSegura = scriptURL + "?action=login&email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha);
+
+            fetch(urlSegura)
+            .then(response => response.json())
+            .then(data => {
+                if(data.sucesso) {
+                    // Guarda o nome do executivo e autoriza
+                    sessionStorage.setItem('youp_vip_auth', 'autorizado');
+                    sessionStorage.setItem('youp_vip_nome', data.nome);
+                    
+                    btn.innerText = "Acesso Liberado!";
+                    btn.style.background = "var(--verde-youp)";
+                    btn.style.color = "#fff";
+
+                    // Joga direto para o material
+                    setTimeout(() => {
+                        window.location.href = "material-de-apoio2.html";
+                    }, 800);
+                } else {
+                    msgErro.innerText = data.erro;
+                    btn.disabled = false;
+                    btn.innerText = "Acessar Material";
+                }
+            })
+            .catch(error => {
+                msgErro.innerText = "Erro de conexão com os servidores Youp.";
+                btn.disabled = false;
+                btn.innerText = "Acessar Material";
+            });
+        }
+
+        // Função para sair
+        function encerrarSessao() {
+            sessionStorage.removeItem('youp_vip_auth');
+            sessionStorage.removeItem('youp_vip_nome');
+            window.location.reload(); 
+        }
+    </script>
 </body>
 </html>
