@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <script>
+        // Se o visitante não tiver passado pelo login, é expulso para o portal
+        if (sessionStorage.getItem('youp_vip_auth') !== 'autorizado') {
+            window.location.replace("portal-do-assessorado.html");
+        }
+        
+        // Redirecionamento de Idioma Original
         if (localStorage.getItem('youp_idioma') === 'en') {
             const paginaIngles = 'material-de-apoio-en.html';
             fetch(paginaIngles, { method: 'HEAD' }).then(response => {
@@ -12,6 +15,8 @@
             });
         }
     </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
@@ -20,7 +25,8 @@
       gtag('js', new Date());
       gtag('config', 'G-6JTWLMZBRS');
     </script>
-    <title>Insights & Carreira - Youp</title>
+    
+    <title>Material de Apoio - Youp Consultoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <script src="dados-blog.js"></script>
@@ -29,7 +35,7 @@
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); overflow-x: hidden; }
         
-        /* Ferramentas de Idioma no Topo */
+        /* Ferramentas no Topo */
         .header-tools { position: absolute; top: 20px; right: 20px; display: flex; align-items: center; gap: 15px; z-index: 10; }
         
         .lang-switch-box {
@@ -40,6 +46,14 @@
         .lang-btn { cursor: pointer; transition: 0.3s; text-decoration: none; color: inherit; }
         .lang-btn:hover { color: #fff; }
         .lang-btn.active { color: var(--dourado); cursor: default; }
+
+        /* Botão Sair VIP */
+        .btn-sair-vip {
+            background: rgba(216, 75, 114, 0.1); border: 1px solid rgba(216, 75, 114, 0.5); color: #d84b72;
+            padding: 6px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-sair-vip:hover { background: #d84b72; color: #fff; }
 
         /* Estilo do Google Tradutor */
         #google_translate_element select {
@@ -104,14 +118,19 @@
         #m-text { line-height: 1.9; white-space: pre-wrap; color: #ccc; font-size: 16px; font-weight: 300; text-align: justify; }
         #m-text strong { color: var(--dourado); font-weight: 600; }
         #m-text h3 { color: var(--texto); font-size: 20px; margin-top: 30px; margin-bottom: 10px; }
+
+        @media (max-width: 768px) {
+            .header-tools { flex-direction: column; top: 15px; right: 15px; align-items: flex-end; gap: 8px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <a href="index.html" class="btn-back-home">← Voltar ao Hub</a>
+        <a href="portal-do-assessorado.html" class="btn-back-home">← Voltar ao Portal</a>
         
         <div class="header-tools">
+            <button onclick="encerrarSessaoVIP()" class="btn-sair-vip">Sair da Sessão ✕</button>
             <div id="google_translate_element"></div>
             <div class="lang-switch-box">
                 <span class="lang-btn active">PT</span> 
@@ -120,8 +139,8 @@
             </div>
         </div>
 
-        <h1>Insights & Carreira</h1>
-        <p>Estratégias avançadas, inteligência de mercado e ferramentas para alavancar a sua trajetória profissional.</p>
+        <h1>Material de Apoio Executivo</h1>
+        <p>Área restrita e confidencial. Ferramentas, templates e análises táticas para os Assessorados da Youp Consultoria.</p>
     </div>
 
     <div class="container">
@@ -147,6 +166,12 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         }
+        
+        function encerrarSessaoVIP() {
+            sessionStorage.removeItem('youp_vip_auth');
+            sessionStorage.removeItem('youp_vip_nome');
+            window.location.replace("portal-do-assessorado.html");
+        }
     </script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
@@ -160,7 +185,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             if (typeof materiaisYoup === 'undefined') {
-                document.getElementById('grid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-blog.js não encontrado!</p>";
+                document.getElementById('grid').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-blog.js não encontrado ou vazio!</p>";
                 return;
             }
             renderizarFiltros();
@@ -171,7 +196,7 @@
             const filtersDiv = document.getElementById('filters');
             const categorias = [...new Set(materiaisYoup.map(p => p.categoria).filter(c => c))];
             
-            let htmlFiltros = `<button class="filter-btn active" onclick="filtrar('Todas', this)">Todos os Artigos</button>`;
+            let htmlFiltros = `<button class="filter-btn active" onclick="filtrar('Todas', this)">Todos os Materiais</button>`;
             categorias.forEach(cat => {
                 htmlFiltros += `<button class="filter-btn" onclick="filtrar('${cat}', this)">${cat}</button>`;
             });
@@ -197,8 +222,8 @@
                             <span>⏱️ ${p.tempoLeitura || '2 min'}</span>
                         </div>
                         <h3 class="title">${p.titulo}</h3>
-                        <p class="resumo">${p.resumo || 'Clique para ler o artigo completo.'}</p>
-                        <div class="read-more">Ler Artigo Completo ➔</div>
+                        <p class="resumo">${p.resumo || 'Clique para ler o documento completo.'}</p>
+                        <div class="read-more">Acessar Material ➔</div>
                     </div>
                 </div>
             `).join('');
