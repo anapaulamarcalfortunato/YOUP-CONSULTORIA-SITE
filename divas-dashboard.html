@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Divas - Casting Oficial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rosa-divas: #d84b72;
+            --rosa-claro: #f4b4c4;
+            --rosa-fundo: #1c0d12;
+            --dourado: #c5a059;
+            --branco-suave: #fdfbfb;
+            --cinza-texto: #d1c8cb;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--rosa-fundo);
+            background-image: linear-gradient(135deg, rgba(28, 13, 18, 0.96), rgba(60, 20, 35, 0.88)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: var(--branco-suave);
+            min-height: 100vh; display: flex; flex-direction: column;
+        }
+
+        /* --- OVERLAY DE LOGIN --- */
+        .login-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 5, 10, 0.95); display: flex; align-items: center; justify-content: center;
+            z-index: 1000; backdrop-filter: blur(10px);
+        }
+        
+        .login-box {
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px);
+            border: 1px solid rgba(216, 75, 114, 0.4); border-radius: 20px;
+            padding: 50px 40px; width: 90%; max-width: 400px; text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(216, 75, 114, 0.05);
+        }
+
+        .login-box h1 { color: var(--rosa-claro); font-size: 24px; margin: 0 0 5px; font-weight: 800; letter-spacing: 2px;}
+        .login-box h1 span { color: var(--rosa-divas); }
+        .login-box p { color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin: 0 0 30px; font-weight: 600;}
+
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; font-size: 10px; color: var(--rosa-claro); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .input-group input {
+            width: 100%; padding: 15px; background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(216, 75, 114, 0.3); border-radius: 8px; color: #fff;
+            font-family: 'Montserrat'; font-size: 14px; box-sizing: border-box; outline: none; transition: 0.3s;
+        }
+        .input-group input:focus { border-color: var(--dourado); background: rgba(0,0,0,0.8); }
+
+        .btn-login {
+            background: var(--rosa-divas); color: #fff; width: 100%;
+            padding: 15px; border: none; border-radius: 8px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+        .btn-login:hover { background: #f4b4c4; color: var(--rosa-fundo); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(216, 75, 114, 0.3); }
+        
+        .msg-erro { color: #ff6b6b; font-size: 11px; margin-top: 15px; font-weight: 600; }
+
+        /* --- DASHBOARD PRINCIPAL --- */
+        .dashboard-container {
+            display: none; /* Escondido até logar */
+            width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 20px; box-sizing: border-box;
+        }
+
+        .header-dash {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(216, 75, 114, 0.3); padding-bottom: 20px; margin-bottom: 40px;
+        }
+
+        .brand-dash h2 { margin: 0; color: var(--rosa-claro); font-size: 24px; font-weight: 800; letter-spacing: 1px; }
+        .brand-dash span { color: var(--dourado); font-size: 11px; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; display: block; margin-top: 5px;}
+
+        .btn-sair {
+            background: transparent; color: var(--cinza-texto); border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600; cursor: pointer; transition: 0.3s;
+        }
+        .btn-sair:hover { border-color: var(--rosa-divas); color: var(--rosa-divas); }
+
+        /* --- GRID DE CARDS DAS INFLUENCERS --- */
+        .loader { text-align: center; color: var(--dourado); font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 50px; text-transform: uppercase; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+        .cards-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;
+        }
+
+        .influencer-card {
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);
+            border: 1px solid rgba(216, 75, 114, 0.2); border-radius: 15px;
+            padding: 30px; transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .influencer-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--dourado);
+        }
+        .influencer-card:hover {
+            transform: translateY(-5px); border-color: var(--rosa-claro);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(216, 75, 114, 0.1);
+        }
+
+        .inf-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;}
+        .inf-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--rosa-divas); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; text-transform: uppercase; border: 2px solid var(--dourado); }
+        .inf-name { font-size: 18px; font-weight: 700; color: var(--rosa-claro); margin: 0; }
+        .inf-niche { font-size: 10px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+        .inf-data { display: flex; flex-direction: column; gap: 10px; }
+        .data-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+        .data-label { color: var(--cinza-texto); font-weight: 300; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
+        .data-value { color: #fff; font-weight: 600; text-align: right; max-width: 60%; word-break: break-word;}
+        
+        .data-value a { color: var(--rosa-claro); text-decoration: none; transition: 0.3s; }
+        .data-value a:hover { color: var(--dourado); }
+
+        .btn-view-more {
+            display: block; width: 100%; text-align: center; margin-top: 25px;
+            padding: 10px; background: rgba(216, 75, 114, 0.1); border: 1px solid var(--rosa-divas);
+            color: var(--rosa-claro); border-radius: 8px; font-size: 11px; text-transform: uppercase;
+            font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-view-more:hover { background: var(--rosa-divas); color: #fff; }
+
+        @media (max-width: 768px) {
+            .header-dash { flex-direction: column; gap: 20px; text-align: center; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .login-box { padding: 40px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <h1>Divas <span>Casting</span></h1>
+            <p>Acesso Restrito - Diretoria</p>
+
+            <div class="input-group">
+                <label>E-mail de Acesso</label>
+                <input type="email" id="loginEmail" placeholder="admin@divas.com">
+            </div>
+            
+            <div class="input-group">
+                <label>Chave de Segurança</label>
+                <input type="password" id="loginSenha" placeholder="••••••••">
+            </div>
+
+            <button class="btn-login" id="btnEntrar" onclick="fazerLogin()">Acessar Painel</button>
+            <div class="msg-erro" id="msgErro"></div>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="dashboard">
+        
+        <div class="header-dash">
+            <div class="brand-dash">
+                <h2>Casting Oficial</h2>
+                <span>Comunidade Divas • Perfis Cadastrados</span>
+            </div>
+            <button class="btn-sair" onclick="sair()">Encerrar Sessão ✕</button>
+        </div>
+
+        <div id="loader" class="loader">Sincronizando banco de dados...</div>
+        
+        <div class="cards-grid" id="gridInfluencers">
+            </div>
+
+    </div>
+
+    <script>
+        // === MUITO IMPORTANTE: COLOQUE O LINK DO SEU GOOGLE SCRIPT AQUI ===
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzVeQ-Zj4_t896n7Kh1NAmp6u37PSC-iMYPEHamkVnZIp47-amKTL7l9q6a9gu7e4E/exec'; 
+
+        // Ao abrir a página, verifica se já está logada
+        document.addEventListener("DOMContentLoaded", () => {
+            if (sessionStorage.getItem('divas_auth') === 'autorizado') {
+                liberarPainel();
+            }
+        });
+
+        // Função de Login
+        function fazerLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const senha = document.getElementById('loginSenha').value.trim();
+            const btn = document.getElementById('btnEntrar');
+            const erro = document.getElementById('msgErro');
+
+            if(!email || !senha) {
+                erro.innerText = "Preencha e-mail e senha."; return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Autenticando...";
+            erro.innerText = "";
+
+            const urlSegura = scriptURL + "?action=login_divas&email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha);
+
+            fetch(urlSegura)
+            .then(response => response.json())
+            .then(data => {
+                if(data.sucesso) {
+                    sessionStorage.setItem('divas_auth', 'autorizado');
+                    liberarPainel();
+                } else {
+                    erro.innerText = data.erro;
+                    btn.disabled = false;
+                    btn.innerText = "Acessar Painel";
+                }
+            })
+            .catch(error => {
+                erro.innerText = "Erro ao conectar com o banco de dados.";
+                btn.disabled = false;
+                btn.innerText = "Acessar Painel";
+            });
+        }
+
+        // Esconde o Login e Puxa os Dados
+        function liberarPainel() {
+            document.getElementById('loginOverlay').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            carregarInfluencers();
+        }
+
+        // Função de Sair
+        function sair() {
+            sessionStorage.removeItem('divas_auth');
+            window.location.reload();
+        }
+
+        // Puxa os dados da aba "Cadastros"
+        function carregarInfluencers() {
+            const urlFetch = scriptURL + "?action=get_influencers";
+            const grid = document.getElementById('gridInfluencers');
+            const loader = document.getElementById('loader');
+
+            fetch(urlFetch)
+            .then(response => response.json())
+            .then(dados => {
+                loader.style.display = 'none';
+
+                if(dados.length === 0) {
+                    grid.innerHTML = "<p style='color:var(--cinza-texto); text-align:center; width:100%;'>Nenhum cadastro encontrado na planilha.</p>";
+                    return;
+                }
+
+                // Cria um card para cada linha da planilha
+                grid.innerHTML = dados.map(inf => {
+                    // Pega a primeira letra do nome para o Avatar
+                    const primeiraLetra = inf.nome ? inf.nome.charAt(0) : "D";
+                    const nome = inf.nome || "Não informado";
+                    
+                    // Aqui você mapeia os campos da sua planilha. 
+                    // O JS pega o nome do cabeçalho, tira acentos e espaços e converte para minúsculo.
+                    // Exemplo: "Instagram" vira "instagram", "Telefone / WhatsApp" vira "telefone_/_whatsapp"
+                    
+                    const insta = inf.instagram || "N/A";
+                    const instaLink = insta !== "N/A" ? `<a href="https://instagram.com/${insta.replace('@','')}" target="_blank">${insta}</a>` : "N/A";
+                    
+                    const telefone = inf.whatsapp || inf.telefone || "N/A"; // Ajuste conforme o cabeçalho da sua planilha
+                    const email = inf.email || "N/A";
+                    const nicho = inf.nicho || inf.segmento || "Lifestyle"; // Ajuste conforme o cabeçalho
+                    
+                    return `
+                    <div class="influencer-card">
+                        <div class="inf-header">
+                            <div class="inf-avatar">${primeiraLetra}</div>
+                            <div>
+                                <h3 class="inf-name">${nome}</h3>
+                                <span class="inf-niche">${nicho}</span>
+                            </div>
+                        </div>
+                        <div class="inf-data">
+                            <div class="data-row">
+                                <span class="data-label">Instagram</span>
+                                <span class="data-value">${instaLink}</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">WhatsApp</span>
+                                <span class="data-value">${telefone}</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">E-mail</span>
+                                <span class="data-value" style="text-transform: lowercase;">${email}</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/55${telefone.replace(/\D/g,'')}?text=Olá ${nome.split(' ')[0]}, tudo bem? Somos da Comunidade Divas!" target="_blank" class="btn-view-more">
+                            Chamar no WhatsApp
+                        </a>
+                    </div>
+                    `;
+                }).join('');
+            })
+            .catch(error => {
+                loader.innerText = "Erro ao carregar os dados. Recarregue a página.";
+            });
+        }
+    </script>
+</body>
+</html>
