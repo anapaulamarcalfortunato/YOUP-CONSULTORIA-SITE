@@ -4,134 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Divas - Casting Oficial</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --rosa-divas: #d84b72;
             --rosa-claro: #f4b4c4;
             --rosa-fundo: #1c0d12;
             --dourado: #c5a059;
-            --branco-suave: #fdfbfb;
+            --branco: #fdfbfb;
             --cinza-texto: #d1c8cb;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(216, 75, 114, 0.2);
         }
 
         body {
             margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--rosa-fundo);
-            background-image: linear-gradient(135deg, rgba(28, 13, 18, 0.96), rgba(60, 20, 35, 0.88)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600');
+            background-image: linear-gradient(135deg, rgba(28, 13, 18, 0.98), rgba(60, 20, 35, 0.95)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600');
             background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--branco-suave);
-            min-height: 100vh; display: flex; flex-direction: column;
+            color: var(--branco); min-height: 100vh;
         }
 
-        /* --- OVERLAY DE LOGIN --- */
-        .login-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 5, 10, 0.95); display: flex; align-items: center; justify-content: center;
-            z-index: 1000; backdrop-filter: blur(10px);
-        }
+        /* --- LOGIN OVERLAY --- */
+        .login-overlay { position: fixed; inset: 0; background: rgba(15, 5, 10, 0.98); display: flex; align-items: center; justify-content: center; z-index: 2000; backdrop-filter: blur(15px); }
+        .login-box { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 24px; padding: 50px 40px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .login-box h2 { color: var(--rosa-claro); margin: 0; font-weight: 800; letter-spacing: 2px; }
+        .input-group { margin: 25px 0; text-align: left; }
+        .input-group label { display: block; font-size: 10px; color: var(--dourado); text-transform: uppercase; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; }
+        .input-group input { width: 100%; padding: 15px; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 12px; color: #fff; box-sizing: border-box; outline: none; font-family: 'Montserrat'; }
+        .input-group input:focus { border-color: var(--dourado); box-shadow: 0 0 15px rgba(197, 160, 89, 0.2); }
+        .btn-login { background: var(--rosa-divas); color: #fff; width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .btn-login:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(216, 75, 114, 0.4); background: #e05a7f; }
+
+        /* --- DASHBOARD CONTAINER --- */
+        .dashboard-container { display: none; max-width: 1300px; margin: 0 auto; padding: 40px 20px; animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .header-dash { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 30px; margin-bottom: 40px; }
+        .header-dash h1 { margin: 0; font-size: 28px; font-weight: 800; color: var(--branco); letter-spacing: 1px; }
+        .header-dash h1 span { color: var(--rosa-divas); }
         
-        .login-box {
-            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px);
-            border: 1px solid rgba(216, 75, 114, 0.4); border-radius: 20px;
-            padding: 50px 40px; width: 90%; max-width: 400px; text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(216, 75, 114, 0.05);
-        }
+        /* BARRA DE PESQUISA */
+        .search-container { position: relative; margin-bottom: 40px; max-width: 500px; }
+        .search-input { width: 100%; padding: 15px 25px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px; color: #fff; font-family: 'Montserrat'; outline: none; font-size: 14px; transition: 0.3s; }
+        .search-input:focus { border-color: var(--rosa-divas); box-shadow: 0 0 20px rgba(216, 75, 114, 0.1); }
 
-        .login-box h1 { color: var(--rosa-claro); font-size: 24px; margin: 0 0 5px; font-weight: 800; letter-spacing: 2px;}
-        .login-box h1 span { color: var(--rosa-divas); }
-        .login-box p { color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin: 0 0 30px; font-weight: 600;}
+        /* --- GRID DE CARDS --- */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
 
-        .input-group { margin-bottom: 20px; text-align: left; }
-        .input-group label { display: block; font-size: 10px; color: var(--rosa-claro); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .input-group input {
-            width: 100%; padding: 15px; background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(216, 75, 114, 0.3); border-radius: 8px; color: #fff;
-            font-family: 'Montserrat'; font-size: 14px; box-sizing: border-box; outline: none; transition: 0.3s;
+        .influencer-card { 
+            background: var(--glass); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 20px; 
+            padding: 30px; 
+            position: relative; 
+            overflow: hidden;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-        .input-group input:focus { border-color: var(--dourado); background: rgba(0,0,0,0.8); }
-
-        .btn-login {
-            background: var(--rosa-divas); color: #fff; width: 100%;
-            padding: 15px; border: none; border-radius: 8px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 2px; cursor: pointer; transition: 0.3s; margin-top: 10px;
-        }
-        .btn-login:hover { background: #f4b4c4; color: var(--rosa-fundo); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(216, 75, 114, 0.3); }
+        .influencer-card:hover { transform: translateY(-8px); border-color: var(--rosa-claro); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         
-        .msg-erro { color: #ff6b6b; font-size: 11px; margin-top: 15px; font-weight: 600; }
+        .card-top { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
+        .inf-name { font-size: 22px; font-weight: 800; color: var(--rosa-claro); margin: 0; }
+        .inf-niche { font-size: 11px; color: var(--dourado); text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
 
-        /* --- DASHBOARD PRINCIPAL --- */
-        .dashboard-container {
-            display: none; /* Escondido até logar */
-            width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 20px; box-sizing: border-box;
-        }
-
-        .header-dash {
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(216, 75, 114, 0.3); padding-bottom: 20px; margin-bottom: 40px;
-        }
-
-        .brand-dash h2 { margin: 0; color: var(--rosa-claro); font-size: 24px; font-weight: 800; letter-spacing: 1px; }
-        .brand-dash span { color: var(--dourado); font-size: 11px; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; display: block; margin-top: 5px;}
-
-        .btn-sair {
-            background: transparent; color: var(--cinza-texto); border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
-            letter-spacing: 1px; font-weight: 600; cursor: pointer; transition: 0.3s;
-        }
-        .btn-sair:hover { border-color: var(--rosa-divas); color: var(--rosa-divas); }
-
-        /* --- GRID DE CARDS DAS INFLUENCERS --- */
-        .loader { text-align: center; color: var(--dourado); font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 50px; text-transform: uppercase; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
-
-        .cards-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;
-        }
-
-        .influencer-card {
-            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);
-            border: 1px solid rgba(216, 75, 114, 0.2); border-radius: 15px;
-            padding: 30px; transition: 0.4s; position: relative; overflow: hidden;
-        }
-        .influencer-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--dourado);
-        }
-        .influencer-card:hover {
-            transform: translateY(-5px); border-color: var(--rosa-claro);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(216, 75, 114, 0.1);
-        }
-
-        .inf-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;}
-        .inf-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--rosa-divas); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; text-transform: uppercase; border: 2px solid var(--dourado); }
-        .inf-name { font-size: 18px; font-weight: 700; color: var(--rosa-claro); margin: 0; }
-        .inf-niche { font-size: 10px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-
-        .inf-data { display: flex; flex-direction: column; gap: 10px; }
-        .data-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
-        .data-label { color: var(--cinza-texto); font-weight: 300; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
-        .data-value { color: #fff; font-weight: 600; text-align: right; max-width: 60%; word-break: break-word;}
+        /* BLOCOS DE DADOS */
+        .data-section { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 15px; }
+        .data-section-title { font-size: 9px; font-weight: 800; color: var(--rosa-divas); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
         
-        .data-value a { color: var(--rosa-claro); text-decoration: none; transition: 0.3s; }
-        .data-value a:hover { color: var(--dourado); }
+        .info-row { display: flex; flex-direction: column; margin-bottom: 12px; }
+        .info-row:last-child { margin-bottom: 0; }
+        .info-label { font-size: 10px; color: var(--cinza-texto); text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+        .info-value { font-size: 13px; color: var(--branco); font-weight: 400; line-height: 1.5; }
+        .info-value b { color: var(--dourado); }
 
-        .btn-view-more {
-            display: block; width: 100%; text-align: center; margin-top: 25px;
-            padding: 10px; background: rgba(216, 75, 114, 0.1); border: 1px solid var(--rosa-divas);
-            color: var(--rosa-claro); border-radius: 8px; font-size: 11px; text-transform: uppercase;
-            font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: 0.3s;
-        }
-        .btn-view-more:hover { background: var(--rosa-divas); color: #fff; }
+        .badge-status { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+        .status-ativo { background: rgba(40, 167, 69, 0.2); color: #81c784; border: 1px solid #28a745; }
+        .status-pendente { background: rgba(255, 193, 7, 0.2); color: #ffd54f; border: 1px solid #ffc107; }
+
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .btn-card { display: flex; align-items: center; justify-content: center; padding: 12px; border-radius: 10px; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
+        .btn-drive { background: rgba(197, 160, 89, 0.1); border: 1px solid var(--dourado); color: var(--dourado); }
+        .btn-drive:hover { background: var(--dourado); color: var(--rosa-fundo); }
+        .btn-whatsapp { background: rgba(216, 75, 114, 0.1); border: 1px solid var(--rosa-divas); color: var(--rosa-claro); }
+        .btn-whatsapp:hover { background: var(--rosa-divas); color: #fff; }
+
+        .loader { text-align: center; color: var(--dourado); font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 100px; text-transform: uppercase; }
 
         @media (max-width: 768px) {
-            .header-dash { flex-direction: column; gap: 20px; text-align: center; }
             .cards-grid { grid-template-columns: 1fr; }
-            .login-box { padding: 40px 25px; }
+            .header-dash { flex-direction: column; text-align: center; gap: 20px; }
+            .influencer-card { padding: 20px; }
         }
     </style>
 </head>
@@ -139,167 +105,129 @@
 
     <div class="login-overlay" id="loginOverlay">
         <div class="login-box">
-            <h1>Divas <span>Casting</span></h1>
-            <p>Acesso Restrito - Diretoria</p>
-
+            <h2>DIVAS <span>CASTING</span></h2>
+            <p style="color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin-top: 5px;">Sistema de Gestão Interna</p>
             <div class="input-group">
-                <label>E-mail de Acesso</label>
-                <input type="email" id="loginEmail" placeholder="admin@divas.com">
+                <label>E-mail Corporativo</label>
+                <input type="email" id="loginEmail" placeholder="seu@email.com">
             </div>
-            
             <div class="input-group">
-                <label>Chave de Segurança</label>
+                <label>Chave de Acesso</label>
                 <input type="password" id="loginSenha" placeholder="••••••••">
             </div>
-
-            <button class="btn-login" id="btnEntrar" onclick="fazerLogin()">Acessar Painel</button>
-            <div class="msg-erro" id="msgErro"></div>
+            <button class="btn-login" onclick="fazerLogin()">Acessar Dashboard</button>
+            <p id="msgErro" style="color: #ff6b6b; font-size: 11px; margin-top: 15px; font-weight: 600;"></p>
         </div>
     </div>
 
     <div class="dashboard-container" id="dashboard">
-        
         <div class="header-dash">
-            <div class="brand-dash">
-                <h2>Casting Oficial</h2>
-                <span>Comunidade Divas • Perfis Cadastrados</span>
-            </div>
-            <button class="btn-sair" onclick="sair()">Encerrar Sessão ✕</button>
+            <h1>Casting <span>Oficial</span></h1>
+            <button onclick="sessionStorage.clear(); location.reload();" style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:#aaa; padding:10px 20px; border-radius:50px; cursor:pointer; font-size: 11px; font-weight: 600; text-transform: uppercase;">Encerrar Sessão ✕</button>
         </div>
 
-        <div id="loader" class="loader">Sincronizando banco de dados...</div>
-        
-        <div class="cards-grid" id="gridInfluencers">
-            </div>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchBar" placeholder="Pesquisar por nome, nicho ou tema..." onkeyup="filtrarCards()">
+        </div>
 
+        <div id="loader" class="loader">Sincronizando com a Planilha Divas...</div>
+        <div class="cards-grid" id="gridInfluencers"></div>
     </div>
 
     <script>
-        // === MUITO IMPORTANTE: COLOQUE O LINK DO SEU GOOGLE SCRIPT AQUI ===
+        // === COLOQUE O SEU LINK DO GOOGLE SCRIPT AQUI ===
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzVeQ-Zj4_t896n7Kh1NAmp6u37PSC-iMYPEHamkVnZIp47-amKTL7l9q6a9gu7e4E/exec'; 
 
-        // Ao abrir a página, verifica se já está logada
-        document.addEventListener("DOMContentLoaded", () => {
-            if (sessionStorage.getItem('divas_auth') === 'autorizado') {
-                liberarPainel();
-            }
-        });
-
-        // Função de Login
         function fazerLogin() {
             const email = document.getElementById('loginEmail').value.trim();
             const senha = document.getElementById('loginSenha').value.trim();
-            const btn = document.getElementById('btnEntrar');
-            const erro = document.getElementById('msgErro');
-
-            if(!email || !senha) {
-                erro.innerText = "Preencha e-mail e senha."; return;
-            }
-
-            btn.disabled = true;
+            const btn = document.querySelector('.btn-login');
+            
+            if(!email || !senha) return;
             btn.innerText = "Autenticando...";
-            erro.innerText = "";
 
-            const urlSegura = scriptURL + "?action=login_divas&email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha);
-
-            fetch(urlSegura)
-            .then(response => response.json())
-            .then(data => {
-                if(data.sucesso) {
+            fetch(scriptURL + "?action=login_divas&email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha))
+            .then(res => res.json()).then(data => {
+                if(data.sucesso) { 
                     sessionStorage.setItem('divas_auth', 'autorizado');
-                    liberarPainel();
-                } else {
-                    erro.innerText = data.erro;
-                    btn.disabled = false;
-                    btn.innerText = "Acessar Painel";
+                    document.getElementById('loginOverlay').style.display='none'; 
+                    document.getElementById('dashboard').style.display='block'; 
+                    carregarInfluencers(); 
+                } else { 
+                    document.getElementById('msgErro').innerText = data.erro; 
+                    btn.innerText = "Acessar Dashboard";
                 }
-            })
-            .catch(error => {
-                erro.innerText = "Erro ao conectar com o banco de dados.";
-                btn.disabled = false;
-                btn.innerText = "Acessar Painel";
+            }).catch(() => {
+                document.getElementById('msgErro').innerText = "Erro na conexão.";
+                btn.innerText = "Acessar Dashboard";
             });
         }
 
-        // Esconde o Login e Puxa os Dados
-        function liberarPainel() {
-            document.getElementById('loginOverlay').style.display = 'none';
-            document.getElementById('dashboard').style.display = 'block';
+        // Verifica se já está logado
+        if (sessionStorage.getItem('divas_auth') === 'autorizado') {
+            document.getElementById('loginOverlay').style.display='none';
+            document.getElementById('dashboard').style.display='block';
             carregarInfluencers();
         }
 
-        // Função de Sair
-        function sair() {
-            sessionStorage.removeItem('divas_auth');
-            window.location.reload();
-        }
-
-        // Puxa os dados da aba "Cadastros"
         function carregarInfluencers() {
-            const urlFetch = scriptURL + "?action=get_influencers";
-            const grid = document.getElementById('gridInfluencers');
-            const loader = document.getElementById('loader');
-
-            fetch(urlFetch)
-            .then(response => response.json())
-            .then(dados => {
-                loader.style.display = 'none';
-
-                if(dados.length === 0) {
-                    grid.innerHTML = "<p style='color:var(--cinza-texto); text-align:center; width:100%;'>Nenhum cadastro encontrado na planilha.</p>";
-                    return;
-                }
-
-                // Cria um card para cada linha da planilha
+            fetch(scriptURL + "?action=get_influencers")
+            .then(res => res.json()).then(dados => {
+                document.getElementById('loader').style.display = 'none';
+                const grid = document.getElementById('gridInfluencers');
+                
                 grid.innerHTML = dados.map(inf => {
-                    // Pega a primeira letra do nome para o Avatar
-                    const primeiraLetra = inf.nome ? inf.nome.charAt(0) : "D";
-                    const nome = inf.nome || "Não informado";
-                    
-                    // Aqui você mapeia os campos da sua planilha. 
-                    // O JS pega o nome do cabeçalho, tira acentos e espaços e converte para minúsculo.
-                    // Exemplo: "Instagram" vira "instagram", "Telefone / WhatsApp" vira "telefone_/_whatsapp"
-                    
-                    const insta = inf.instagram || "N/A";
-                    const instaLink = insta !== "N/A" ? `<a href="https://instagram.com/${insta.replace('@','')}" target="_blank">${insta}</a>` : "N/A";
-                    
-                    const telefone = inf.whatsapp || inf.telefone || "N/A"; // Ajuste conforme o cabeçalho da sua planilha
-                    const email = inf.email || "N/A";
-                    const nicho = inf.nicho || inf.segmento || "Lifestyle"; // Ajuste conforme o cabeçalho
+                    const statusClass = (inf['status_do_contrato'] || '').toLowerCase().includes('ativo') ? 'status-ativo' : 'status-pendente';
                     
                     return `
                     <div class="influencer-card">
-                        <div class="inf-header">
-                            <div class="inf-avatar">${primeiraLetra}</div>
-                            <div>
-                                <h3 class="inf-name">${nome}</h3>
-                                <span class="inf-niche">${nicho}</span>
+                        <div class="card-top">
+                            <h3 class="inf-name">${inf['nome_do_influencer'] || 'Não Informado'}</h3>
+                            <span class="inf-niche">${inf['nicho'] || 'Geral'}</span>
+                            <div style="margin-top:10px;"><span class="badge-status ${statusClass}">${inf['status_do_contrato'] || 'Pendente'}</span></div>
+                        </div>
+
+                        <div class="data-section">
+                            <span class="data-section-title">Estratégia e Conteúdo</span>
+                            <div class="info-row">
+                                <span class="info-label">Bio / Posicionamento</span>
+                                <span class="info-value">${inf['bio_/_mini_bio'] || 'N/A'}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Temas Chave</span>
+                                <span class="info-value">${inf['temas_chaves_(repeticao)'] || 'N/A'}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Slogan / Keywords</span>
+                                <span class="info-value">${inf['slogan_/_palavras-chave'] || 'N/A'}</span>
                             </div>
                         </div>
-                        <div class="inf-data">
-                            <div class="data-row">
-                                <span class="data-label">Instagram</span>
-                                <span class="data-value">${instaLink}</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">WhatsApp</span>
-                                <span class="data-value">${telefone}</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">E-mail</span>
-                                <span class="data-value" style="text-transform: lowercase;">${email}</span>
+
+                        <div class="data-section">
+                            <span class="data-section-title">Identidade Visual</span>
+                            <div class="info-row">
+                                <span class="info-value"><b>Paleta:</b> ${inf['paleta_de_cores'] || 'Não definido'}</span>
+                                <span class="info-value"><b>Fontes:</b> ${inf['tipografia_(fontes)'] || 'Não definido'}</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/55${telefone.replace(/\D/g,'')}?text=Olá ${nome.split(' ')[0]}, tudo bem? Somos da Comunidade Divas!" target="_blank" class="btn-view-more">
-                            Chamar no WhatsApp
-                        </a>
+
+                        <div class="btn-group">
+                            <a href="${inf['link_da_pasta_do_drive']}" target="_blank" class="btn-card btn-drive">Pasta Drive</a>
+                            <a href="https://wa.me/${(inf['telefone'] || '').replace(/\D/g,'')}" target="_blank" class="btn-card btn-whatsapp">WhatsApp</a>
+                        </div>
                     </div>
                     `;
                 }).join('');
-            })
-            .catch(error => {
-                loader.innerText = "Erro ao carregar os dados. Recarregue a página.";
             });
+        }
+
+        function filtrarCards() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let cards = document.getElementsByClassName('influencer-card');
+            for (let i = 0; i < cards.length; i++) {
+                let content = cards[i].innerText.toLowerCase();
+                cards[i].style.display = content.includes(input) ? "" : "none";
+            }
         }
     </script>
 </body>
