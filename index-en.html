@@ -3,244 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youp Consulting - Career, Reputation and HR</title>
+    <title>Youp Consultoria - Career & HR Boutique</title>
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6JTWLMZBRS');
-</script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --verde-youp: #5c8e82;
             --verde-claro: #84a98c;
-            --dourado: #c5a059; /* Dourado elegante/fosco */
-            --cinza-escuro: #1a1a1a;
-            --cinza-medio: #333333;
-            --cinza-claro: #b0b0b0;
+            --dourado: #c5a059;
+            --cinza-escuro: #0a0a0a; 
+            --texto-claro: #f0f0f0;
+            --texto-mute: #888888;
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-image: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh; /* Ocupa exatamente a altura da tela */
-            overflow: hidden; /* Impede a rolagem da página inteira */
+            background-color: var(--cinza-escuro);
+            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.92), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: var(--texto-claro);
+            min-height: 100vh; display: flex; flex-direction: column;
         }
 
-        /* Container principal - Adicionado Position Relative para o seletor de idioma ancorar nele */
-        .glass-container {
-            position: relative; 
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(197, 160, 89, 0.2); /* Borda levemente dourada */
-            border-radius: 15px;
-            max-width: 850px;
-            width: 95%;
-            padding: 25px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            text-align: center;
-            box-sizing: border-box;
+        /* ANIMAÇÃO DE ENTRADA */
+        .fade-in { animation: fadeInUp 1s ease-out forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* NOVO: Seletor de Idiomas no topo direito do Box */
-        .lang-switch-box {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--cinza-claro);
-            letter-spacing: 2px;
-            background: rgba(0,0,0,0.4);
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            display: flex;
-            align-items: center;
+        /* NAVBAR (TOPO) */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
-        .lang-btn {
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            color: inherit;
+        
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .lang-switch { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--texto-mute); display: flex; gap: 10px; margin-right: 10px; }
+        .lang-switch span { cursor: pointer; transition: 0.3s; }
+        .lang-switch span:hover { color: #fff; }
+        .lang-switch span.active { color: var(--dourado); cursor: default; border-bottom: 1px solid var(--dourado); }
+        
+        .btn-contact {
+            background: transparent; color: var(--dourado); border: 1px solid var(--dourado);
+            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s;
         }
-        .lang-btn:hover {
-            color: #fff;
-        }
-        .lang-btn.active {
-            color: var(--dourado);
-            cursor: default;
-        }
+        .btn-contact:hover { background: var(--dourado); color: var(--cinza-escuro); }
 
-        .logo-container {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
+        /* BOTÃO HUB DE PARCEIROS VIP */
+        .btn-hub {
+            background: var(--dourado); color: var(--cinza-escuro);
+            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 700; text-decoration: none; transition: 0.3s;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
         }
-        .logo-image {
-            max-height: 55px;
-            margin-bottom: 5px;
-        }
-        .logo-text {
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin: 0;
-            color: var(--dourado); 
-        }
-        .logo-subtext {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--verde-claro);
-            margin-top: 2px;
-        }
+        .btn-hub:hover { background: #dfb668; transform: translateY(-2px); }
 
-        .intro-text {
-            font-size: 13px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: var(--cinza-claro);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* HERO SECTION (CENTRO) */
+        .hero { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 20px; }
+        
+        /* Marca Central */
+        .hero-brand-container { margin-bottom: 30px; }
+        .hero-brand { display: block; color: var(--dourado); font-size: 18px; font-weight: 700; letter-spacing: 6px; margin-bottom: 8px; }
+        .hero-brand-sub { display: block; color: var(--verde-claro); font-size: 10px; text-transform: uppercase; letter-spacing: 4px; font-weight: 500; }
 
-        .section-title {
-            color: var(--dourado);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 15px 0 10px 0;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-            display: inline-block;
-            padding-bottom: 3px;
-        }
+        .headline { font-size: 42px; font-weight: 300; line-height: 1.2; max-width: 800px; margin: 0 auto 20px; letter-spacing: -0.5px; }
+        .headline b { font-weight: 600; color: #fff; }
+        .sub-headline { font-size: 14px; font-weight: 300; color: var(--texto-mute); max-width: 500px; margin: 0 auto 50px; line-height: 1.8; }
 
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
+        /* GRID DE SERVIÇOS */
+        .container { max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 20px 60px; box-sizing: border-box; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        
+        .column { 
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); 
+            border-radius: 12px; padding: 30px; backdrop-filter: blur(10px); transition: 0.4s;
         }
+        .column:hover { border-color: rgba(197, 160, 89, 0.3); background: rgba(255,255,255,0.04); transform: translateY(-5px); }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 18px;
-            background-color: rgba(92, 142, 130, 0.1);
-            color: #ffffff;
-            text-decoration: none;
-            border: 1px solid var(--verde-youp);
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            width: 180px; 
-        }
+        .col-title { font-size: 12px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .col-title::before { content: ''; width: 20px; height: 1px; background: var(--dourado); display: block; }
 
-        .btn:hover {
-            background-color: var(--verde-youp);
-            box-shadow: 0 0 10px rgba(92, 142, 130, 0.5);
-            transform: translateY(-2px);
-        }
+        .link-list { display: flex; flex-direction: column; gap: 15px; }
+        .link-item { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 300; transition: 0.3s; display: flex; justify-content: space-between; }
+        .link-item:hover { color: #fff; transform: translateX(5px); }
+        .link-item::after { content: '→'; opacity: 0; transition: 0.3s; color: var(--verde-youp); }
+        .link-item:hover::after { opacity: 1; }
 
-        .btn-alt {
-            border-color: var(--cinza-medio);
-            background-color: rgba(51, 51, 51, 0.3);
-        }
-        .btn-alt:hover {
-            background-color: var(--cinza-medio);
-            border-color: var(--dourado);
-        }
+        /* LINKS INSTITUCIONAIS MINIMALISTAS */
+        .footer-links { text-align: center; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--texto-mute); text-decoration: none; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--dourado); }
 
-        .btn-gold {
-            border-color: var(--dourado);
-            color: var(--dourado);
-        }
-        .btn-gold:hover {
-            background-color: var(--dourado);
-            color: var(--cinza-escuro);
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin: 15px 0;
+        /* RESPONSIVIDADE MOBILE */
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-actions { width: 100%; flex-direction: column; gap: 12px; }
+            .btn-contact, .btn-hub { width: 100%; text-align: center; box-sizing: border-box; }
+            .lang-switch { margin-right: 0; margin-bottom: 5px; }
+            .hero-brand { font-size: 16px; letter-spacing: 4px; }
+            .hero-brand-sub { font-size: 9px; letter-spacing: 3px; }
+            .headline { font-size: 28px; }
+            .sub-headline { font-size: 12px; }
+            .grid { grid-template-columns: 1fr; gap: 15px; }
+            .column { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glass-container">
+    <nav class="navbar fade-in">
+        <div></div>
         
-        <div class="lang-switch-box">
-            <span class="lang-btn" onclick="definirIdiomaGlobal('pt')">PT</span> 
-            <span style="opacity: 0.3; margin: 0 8px;">|</span> 
-            <span class="lang-btn active">EN</span>
-        </div>
-
-        <header class="logo-container">
-            <img src="logo.png" alt="Youp Consulting Logo" class="logo-image">
-            <h1 class="logo-text">YOUP CONSULTING</h1>
-            <p class="logo-subtext">Career, Reputation and HR</p>
-        </header>
-
-        <p class="intro-text">
-            Connecting exceptional talent and visionary companies through career and reputation strategies.
-        </p>
-
-        <div>
-            <p class="section-title">For Companies</p>
-            <div class="button-group">
-                <a href="headhunter-en.html" class="btn">Executive Headhunter</a>
-                <a href="outplacement-en.html" class="btn">Outplacement</a>
-                <a href="book-en.html" class="btn">Talent Book</a>
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <span onclick="definirIdiomaGlobal('pt')">PT</span>
+                <span class="active">EN</span>
             </div>
+            <a href="area-parceiro-en.html" class="btn-hub">Exclusive Hub</a>
+            <a href="https://wa.me/5512991322333?text=Hello%20Ana%2C%20I%20was%20on%20your%20website%20and%20want%20to%20change%20my%20career%2C%20can%20you%20help%20me%3F" target="_blank" class="btn-contact">Talk to a Consultant</a>
+        </div>
+    </nav>
+
+    <main class="hero fade-in delay-1">
+        
+        <div class="hero-brand-container">
+            <span class="hero-brand">YOUP CONSULTORIA</span>
+            <span class="hero-brand-sub">Career, Reputation & HR</span>
         </div>
 
-        <div>
-            <p class="section-title">For Talent</p>
-            <div class="button-group">
-                <a href="carreira-en.html" class="btn">Career & Outplacement</a>
-                <a href="reputacao-en.html" class="btn">Reputation</a>
+        <h1 class="headline">Where exceptional leaders meet <b>visionary companies.</b></h1>
+        <p class="sub-headline">Market intelligence, high-impact executive search, and board structuring for the new corporate landscape.</p>
+    </main>
+
+    <div class="container fade-in delay-2">
+        <div class="grid">
+            
+            <div class="column">
+                <h2 class="col-title">For Companies</h2>
+                <div class="link-list">
+                    <a href="headhunter-en.html" class="link-item">Executive Headhunter</a>
+                    <a href="outplacement-en.html" class="link-item">Strategic Outplacement</a>
+                    <a href="book-en.html" class="link-item">Mapped Talent Book</a>
+                </div>
             </div>
-        </div>
 
-        <hr>
-
-        <div>
-            <p class="section-title">Institutional</p>
-            <div class="button-group">
-                <a href="https://wa.me/5512991322333?text=Hi%20Ana%2C%20I%20was%20on%20your%20website%20and%20I%20want%20to%20change%20my%20career%2C%20can%20you%20help%20me%3F" target="_blank" class="btn btn-alt btn-gold">Contact Us</a>
-                <a href="sobre-en.html" class="btn btn-alt">About Us</a>
-                <a href="contatos-en.html" class="btn btn-alt">Contacts</a>
+            <div class="column">
+                <h2 class="col-title">For Executives</h2>
+                <div class="link-list">
+                    <a href="carreira-en.html" class="link-item">Career Transition & Outplacement</a>
+                    <a href="reputacao-en.html" class="link-item">Brand Reputation Management</a>
+                    <a href="https://script.google.com/macros/s/AKfycbxH7nOYH-35otgl8_wuf0PuOVP1CqC9jgIp5ZSc0qi45Wz1fvLLhAg78auu3VNfsbFQeg/exec" target="_blank" class="link-item">Access to Job Board</a>
+                </div>
             </div>
+
+            <div class="column">
+                <h2 class="col-title">The Youp Standard</h2>
+                <div class="link-list">
+                    <a href="sobre-en.html" class="link-item">Our Philosophy & History</a>
+                    <a href="produtos-en.html" class="link-item">Product Ecosystem</a>
+                    <a href="blog-en.html" class="link-item">Blog & Corporate Insights</a>
+                </div>
+            </div>
+
         </div>
 
+        <div class="footer-links">
+            <a href="contatos-en.html">Contacts & Ombudsman</a>
+            <a href="privacidade-en.html">Privacy Policy</a>
+            <span style="color: #444; font-size: 10px;">&copy; 2026 Youp Consultoria. Tailor-Made Executive Search.</span>
+        </div>
     </div>
 
     <script>
-        // Ao carregar a página index-en, confirmamos que o idioma na memória é EN
+        // Registra que o usuário está navegando em inglês
         localStorage.setItem('youp_idioma', 'en');
 
         function definirIdiomaGlobal(lang) {
