@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <script>
+        if (sessionStorage.getItem('consultorYoupLogado') !== 'true') {
+            window.location.replace("portal-do-consultor.html");
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universidade Youp - Certificação</title>
@@ -10,24 +15,25 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6JTWLMZBRS');
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <script>
-        if (sessionStorage.getItem('consultorYoupLogado') !== 'true') {
-            window.location.href = "portal-do-consultor.html";
-        }
-    </script>
     <script src="dados-consultor.js"></script>
 
     <style>
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0f0f0f; --cinza: #1a1a1a; --texto: #eeeeee; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); line-height: 1.6; }
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+        
+        /* CABEÇALHO E NAVEGAÇÃO */
+        .hero { position: relative; text-align: center; padding: 60px 20px; background: linear-gradient(180deg, var(--cinza) 0%, var(--preto) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
         .hero h1 { color: var(--dourado); font-size: 32px; font-weight: 800; text-transform: uppercase; margin: 0; }
+        
+        .nav-topo { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; z-index: 10; }
+        .btn-nav { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .btn-nav:hover { color: #fff; }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         
         /* FILTRO SELECT */
@@ -61,11 +67,21 @@
         canvas { max-width: 100%; height: auto; border: 4px solid var(--dourado); margin-top: 20px; display: none; }
         
         .input-nome { width: 100%; padding: 15px; background: #000; border: 1px solid var(--dourado); color: #fff; border-radius: 8px; margin-bottom: 15px; font-family: 'Montserrat'; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-topo { flex-direction: column; align-items: center; gap: 10px; position: static; margin-bottom: 20px;}
+            .hero { padding: 30px 20px; }
+            .modal-body { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="hero">
+        <div class="nav-topo">
+            <a href="portal-do-consultor.html" class="btn-nav">← Voltar ao Portal</a>
+            <a href="#" onclick="encerrarSessaoConsultor()" class="btn-nav" style="color: #d84b72;">Sair da Sessão ✕</a>
+        </div>
         <h1>Universidade Youp</h1>
         <p>Certificações de Excelência Operacional</p>
     </div>
@@ -94,26 +110,36 @@
             </div>
 
             <div id="pos-prova">
-    <h2 style="color:var(--verde); margin-top:0;">✓ APROVADO!</h2>
-    <p>Sua nota foi <span id="nota-final" style="font-weight:800; font-size: 24px;"></span>%</p>
-    <p style="font-size: 13px;">Insira seu nome completo para o certificado:</p>
-    <input type="text" id="nome-consultor" class="input-nome" placeholder="Seu Nome Completo">
-    
-    <button class="btn-acao btn-certificado" style="display:block" onclick="gerarCertificado()">Gerar Meu Certificado Digital</button>
-    
-    <canvas id="certCanvas" width="800" height="600"></canvas>
-    <p id="instrucao-salvar" style="display:none; font-size:11px; color:#888; margin-top:10px;">Toque e segure (ou clique com o botão direito) na imagem para salvar.</p>
+                <h2 style="color:var(--verde); margin-top:0;">✓ APROVADO!</h2>
+                <p>Sua nota foi <span id="nota-final" style="font-weight:800; font-size: 24px;"></span>%</p>
+                <p style="font-size: 13px;">Insira seu nome completo para o certificado:</p>
+                <input type="text" id="nome-consultor" class="input-nome" placeholder="Seu Nome Completo">
+                
+                <button class="btn-acao btn-certificado" style="display:block" onclick="gerarCertificado()">Gerar Meu Certificado Digital</button>
+                
+                <canvas id="certCanvas" width="800" height="600"></canvas>
+                <p id="instrucao-salvar" style="display:none; font-size:11px; color:#888; margin-top:10px;">Toque e segure (ou clique com o botão direito) na imagem para salvar.</p>
 
-    <button id="btn-registrar" class="btn-acao" style="display:block; background: var(--verde); color: #fff; margin-top: 30px;" onclick="registrarNaPlanilha()">
-        Finalizar e Avisar a Youp ➔
-    </button>
-    
-    <div id="msg-sucesso" style="display:none; margin-top: 20px; color: var(--dourado); font-weight: 600;">
-        Parabéns! Curso concluído - a informação está sendo enviada para a Youp.
+                <button id="btn-registrar" class="btn-acao" style="display:block; background: var(--verde); color: #fff; margin-top: 30px;" onclick="registrarNaPlanilha()">
+                    Finalizar e Avisar a Youp ➔
+                </button>
+                
+                <div id="msg-sucesso" style="display:none; margin-top: 20px; color: var(--dourado); font-weight: 600;">
+                    Parabéns! Curso concluído - a informação está sendo enviada para a Youp.
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
     <script>
+        // Função de Sair da Sessão (Limpa o navegador e expulsa)
+        function encerrarSessaoConsultor() {
+            sessionStorage.removeItem('consultorYoupLogado');
+            sessionStorage.removeItem('usuarioEmail');
+            sessionStorage.removeItem('consultorNome');
+            window.location.replace("portal-do-consultor.html"); 
+        }
+
         let aulaAtual = null;
         let respostasUsuario = [];
 
@@ -220,8 +246,7 @@
             }
         }
 
-        
-function gerarCertificado() {
+        function gerarCertificado() {
             const nome = document.getElementById('nome-consultor').value.trim();
             if(!nome) { alert("Digite seu nome para o certificado!"); return; }
 
@@ -246,10 +271,10 @@ function gerarCertificado() {
             ctx.fillStyle = '#fff'; ctx.font = '18px Montserrat';
             ctx.fillText('concluiu com êxito a certificação técnica em:', 400, 340);
             
-            // --- NOVA LÓGICA: QUEBRA DE LINHA INTELIGENTE ---
+            // Lógica inteligente de quebra de linha do curso
             ctx.fillStyle = '#c5a059'; ctx.font = 'bold 28px Montserrat';
-            const maxWidth = 660; // Largura limite antes de quebrar a linha
-            const lineHeight = 35; // Espaço entre as linhas
+            const maxWidth = 660; 
+            const lineHeight = 35; 
             let words = aulaAtual.trilha.split(' ');
             let line = '';
             let y = 390;
@@ -266,7 +291,6 @@ function gerarCertificado() {
                 }
             }
             ctx.fillText(line.trim(), 400, y);
-            // ------------------------------------------------
 
             ctx.fillStyle = '#5c8e82'; ctx.font = 'bold 16px Montserrat';
             ctx.fillText('YOUP CONSULTORIA • EXCELÊNCIA E REPUTAÇÃO', 400, 500);
@@ -277,34 +301,34 @@ function gerarCertificado() {
             canvas.scrollIntoView({behavior: 'smooth'});
         }
 
-function registrarNaPlanilha() {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzlAM34kvL7rv5mMCMXtfAsVQldMsCf3um6-ZVCqhzY2aWeJeKLcM1R1-iG4tpafimp/exec';
-    const btn = document.getElementById('btn-registrar');
-    const msg = document.getElementById('msg-sucesso');
-    
-    btn.innerText = "Enviando...";
-    btn.disabled = true;
+        function registrarNaPlanilha() {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzlAM34kvL7rv5mMCMXtfAsVQldMsCf3um6-ZVCqhzY2aWeJeKLcM1R1-iG4tpafimp/exec';
+            const btn = document.getElementById('btn-registrar');
+            const msg = document.getElementById('msg-sucesso');
+            
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
 
-    const dados = {
-        email: sessionStorage.getItem('usuarioEmail') || 'Email não logado',
-        trilha: aulaAtual.trilha,
-        nota: document.getElementById('nota-final').innerText
-    };
+            const dados = {
+                email: sessionStorage.getItem('usuarioEmail') || 'Email não logado',
+                trilha: aulaAtual.trilha,
+                nota: document.getElementById('nota-final').innerText
+            };
 
-    fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(dados)
-    })
-    .then(response => {
-        btn.style.display = 'none';
-        msg.style.display = 'block';
-    })
-    .catch(error => {
-        alert('Erro ao enviar registro. Tente novamente.');
-        btn.disabled = false;
-        btn.innerText = "Finalizar e Avisar a Youp ➔";
-    });
-}
+            fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(dados)
+            })
+            .then(response => {
+                btn.style.display = 'none';
+                msg.style.display = 'block';
+            })
+            .catch(error => {
+                alert('Erro ao enviar registro. Tente novamente.');
+                btn.disabled = false;
+                btn.innerText = "Finalizar e Avisar a Youp ➔";
+            });
+        }
 
         function fecharModal() {
             document.getElementById('modal').style.display = 'none';
