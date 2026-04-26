@@ -101,8 +101,8 @@
         .col-title { font-size: 12px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 600; display: flex; align-items: center; gap: 10px; }
         .col-title::before { content: ''; width: 20px; height: 1px; background: var(--dourado); display: block; }
 
-        .link-list { display: flex; flex-direction: column; gap: 15px; }
-        .link-item { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 300; transition: 0.3s; display: flex; justify-content: space-between; }
+        .link-list { display: flex; flex-direction: column; gap: 10px; }
+        .link-item { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 300; transition: 0.3s; display: flex; justify-content: space-between; padding: 6px 0; }
         .link-item:hover { color: #fff; transform: translateX(5px); }
         .link-item::after { content: '→'; opacity: 0; transition: 0.3s; color: var(--verde-youp); }
         .link-item:hover::after { opacity: 1; }
@@ -112,18 +112,33 @@
         .footer-links a { color: var(--texto-mute); text-decoration: none; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .footer-links a:hover { color: var(--dourado); }
 
-        /* RESPONSIVIDADE MOBILE */
+        /* ========================================= */
+        /* OTIMIZAÇÃO ULTRA PREMIUM PARA MOBILE      */
+        /* ========================================= */
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-actions { width: 100%; flex-direction: column; gap: 12px; }
-            .btn-contact, .btn-hub { width: 100%; text-align: center; box-sizing: border-box; }
-            .lang-switch { margin-right: 0; margin-bottom: 5px; }
-            .hero-brand { font-size: 16px; letter-spacing: 4px; }
+            .navbar { padding: 20px 15px; flex-direction: column; gap: 20px; }
+            .navbar > div:first-child { display: none; } /* Esconde o div vazio do desktop */
+            
+            .nav-actions { width: 100%; flex-direction: column; gap: 15px; align-items: center; }
+            .lang-switch { margin-right: 0; margin-bottom: 5px; justify-content: center; }
+            
+            /* Botões maiores e mais fáceis de tocar no celular */
+            .btn-contact, .btn-hub { width: 100%; max-width: 320px; text-align: center; box-sizing: border-box; padding: 12px 20px; font-size: 12px; }
+            
+            .hero { padding: 50px 20px 30px; }
+            .hero-brand { font-size: 15px; letter-spacing: 4px; }
             .hero-brand-sub { font-size: 9px; letter-spacing: 3px; }
-            .headline { font-size: 28px; }
-            .sub-headline { font-size: 12px; }
-            .grid { grid-template-columns: 1fr; gap: 15px; }
-            .column { padding: 20px; }
+            
+            .headline { font-size: 32px; line-height: 1.3; }
+            .sub-headline { font-size: 13px; padding: 0 10px; margin-bottom: 40px; }
+            
+            .grid { grid-template-columns: 1fr; gap: 20px; }
+            .column { padding: 25px 20px; }
+            
+            /* Aumenta a área de toque dos links no celular */
+            .link-item { padding: 10px 0; font-size: 14px; }
+            
+            .footer-links { flex-direction: column; gap: 15px; padding-bottom: 30px; }
         }
     </style>
 </head>
