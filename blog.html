@@ -21,10 +21,30 @@
         .btn-voltar { background: transparent; color: var(--cinza-claro); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s; }
         .btn-voltar:hover { border-color: var(--dourado); color: var(--dourado); }
 
-        .page-header { text-align: center; padding: 60px 20px 40px; }
+        /* Ajustes Premium para o Google Translate */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        #google_translate_element select {
+            background: rgba(255, 255, 255, 0.05); color: var(--dourado); 
+            border: 1px solid rgba(197, 160, 89, 0.4); padding: 6px 10px; 
+            border-radius: 20px; font-family: 'Montserrat', sans-serif; 
+            font-size: 10px; font-weight: 600; text-transform: uppercase; 
+            outline: none; cursor: pointer; backdrop-filter: blur(5px);
+        }
+        #google_translate_element select option { background: var(--cinza-escuro); color: var(--dourado); }
+        .goog-logo-link { display: none !important; }
+        .goog-te-gadget { color: transparent !important; margin-bottom: -5px; }
+
+        .page-header { text-align: center; padding: 60px 20px 20px; }
         .page-title { font-size: 32px; font-weight: 300; margin: 0 0 15px; letter-spacing: 1px; color: #fff; }
         .page-title b { font-weight: 600; color: var(--dourado); }
         .page-subtitle { font-size: 13px; color: var(--texto-mute); max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+        /* SISTEMA DE FILTROS */
+        .filter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; padding: 0 20px; }
+        .filter-btn { background: rgba(255,255,255,0.05); color: #ccc; border: 1px solid rgba(255,255,255,0.1); padding: 10px 25px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.4s; backdrop-filter: blur(5px); }
+        .filter-btn:hover { border-color: rgba(197, 160, 89, 0.5); color: #fff; }
+        .filter-btn.active { background: var(--dourado); color: #000; border-color: var(--dourado); }
 
         .container { max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 20px 80px; box-sizing: border-box; flex: 1; }
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
@@ -40,14 +60,17 @@
         .read-more { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
         .blog-card:hover .read-more { color: var(--dourado); }
 
-        @media (max-width: 768px) { .navbar { padding: 15px 20px; } .page-title { font-size: 24px; } }
+        @media (max-width: 768px) { .navbar { padding: 15px 20px; } .page-title { font-size: 24px; } .filter-container { gap: 10px; } .filter-btn { padding: 8px 15px; font-size: 10px; } }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <a href="index.html" class="brand-text">YOUP</a>
-        <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="google_translate_element"></div>
+            <a href="index.html" class="btn-voltar">← Início</a>
+        </div>
     </nav>
 
     <header class="page-header">
@@ -55,133 +78,150 @@
         <p class="page-subtitle">Tendências, análises do mercado executivo e estratégias de carreira diretamente da inteligência Youp.</p>
     </header>
 
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todos</button>
+        <button class="filter-btn" onclick="filtrarBlog('carreira', this)">Carreira C-Level</button>
+        <button class="filter-btn" onclick="filtrarBlog('rh', this)">Recrutamento de Elite & RH</button>
+        <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas & Especialistas</button>
+    </div>
+
     <main class="container">
-        <div class="blog-grid">
+        <div class="blog-grid" id="blogGrid">
             
-            <a href="artigo-plano-90-dias.html" class="blog-card">
+            <a href="artigo-recrutamento-elite-top-1-porcento.html" class="blog-card" data-category="rh">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="card-img" alt="Recrutamento de Elite RH">
+                <div class="card-content">
+                    <div class="card-meta"><span>Recrutamento de Elite</span><span>18 min leitura</span></div>
+                    <h2 class="card-title">Como Atrair o Top 1% dos Candidatos: O Guia Definitivo do Recrutamento Executivo</h2>
+                    <p class="card-excerpt">Por que anúncios de vagas não funcionam para a alta liderança e como mapear os talentos mais cobiçados do mercado.</p>
+                    <span class="read-more">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-plano-90-dias.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800" class="card-img" alt="Plano de 90 dias C-Level">
                 <div class="card-content">
-                    <div class="card-meta"><span>Performance</span><span>8 min leitura</span></div>
+                    <div class="card-meta"><span>Performance</span><span>15 min leitura</span></div>
                     <h2 class="card-title">O Plano de 90 Dias: O diferencial absoluto na entrevista</h2>
                     <p class="card-excerpt">Deixar de ser um candidato que responde a perguntas para se tornar um consultor estratégico.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-entrevista-socios-private-equity.html" class="blog-card">
+            <a href="artigo-entrevista-socios-private-equity.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800" class="card-img" alt="Entrevista com Private Equity">
                 <div class="card-content">
-                    <div class="card-meta"><span>Alta Liderança</span><span>8 min leitura</span></div>
+                    <div class="card-meta"><span>Alta Liderança</span><span>15 min leitura</span></div>
                     <h2 class="card-title">A Etapa Final: Sobrevivendo à Entrevista com Sócios e Private Equity</h2>
                     <p class="card-excerpt">Aprenda a navegar na política psicológica da última barreira entre você e a cadeira.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-mercado-oculto-vagas.html" class="blog-card">
+            <a href="artigo-mercado-oculto-vagas.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=800" class="card-img" alt="Mercado Oculto de Vagas Executivas">
                 <div class="card-content">
-                    <div class="card-meta"><span>Mercado Oculto</span><span>9 min leitura</span></div>
+                    <div class="card-meta"><span>Mercado Oculto</span><span>18 min leitura</span></div>
                     <h2 class="card-title">Por que as melhores vagas B2B nunca são publicadas?</h2>
                     <p class="card-excerpt">A mecânica corporativa do Stealth Search e como acessar as vagas confidenciais.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-linkedin-atrai-headhunters.html" class="blog-card">
+            <a href="artigo-linkedin-atrai-headhunters.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800" class="card-img" alt="LinkedIn para C-Level">
                 <div class="card-content">
-                    <div class="card-meta"><span>Posicionamento</span><span>8 min leitura</span></div>
+                    <div class="card-meta"><span>Posicionamento</span><span>18 min leitura</span></div>
                     <h2 class="card-title">A anatomia de um LinkedIn que atrai Headhunters C-Level</h2>
                     <p class="card-excerpt">O que os recrutadores de elite procuram e como estruturar o seu Valuation de carreira.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-negociacao-salario-c-level.html" class="blog-card">
+            <a href="artigo-negociacao-salario-c-level.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800" class="card-img" alt="Negociação salarial executiva">
                 <div class="card-content">
-                    <div class="card-meta"><span>Negociação</span><span>7 min leitura</span></div>
-                    <h2 class="card-title">Negociação de Pacotes: Por que focar no salário base é um erro amador</h2>
+                    <div class="card-meta"><span>Negociação</span><span>17 min leitura</span></div>
+                    <h2 class="card-title">Negociação de Pacotes: Por que focar no salário base é um erro</h2>
                     <p class="card-excerpt">Entenda a mecânica de Equity, LTI, STI e as luvas de contratação.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-entrevista-como-rodada-investimentos.html" class="blog-card">
+            <a href="artigo-entrevista-como-rodada-investimentos.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="card-img" alt="Entrevista como Pitch Deck">
                 <div class="card-content">
-                    <div class="card-meta"><span>Posicionamento</span><span>7 min leitura</span></div>
+                    <div class="card-meta"><span>Posicionamento</span><span>16 min leitura</span></div>
                     <h2 class="card-title">Do Currículo ao Pitch Deck: A entrevista como rodada de investimentos</h2>
                     <p class="card-excerpt">Trate a sua transição de carreira como o roadshow de uma startup de alto valor.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-armadilha-da-vulnerabilidade.html" class="blog-card">
+            <a href="artigo-armadilha-da-vulnerabilidade.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800" class="card-img" alt="Falar de Fracassos">
                 <div class="card-content">
-                    <div class="card-meta"><span>Performance</span><span>6 min leitura</span></div>
+                    <div class="card-meta"><span>Performance</span><span>12 min leitura</span></div>
                     <h2 class="card-title">A Armadilha da Vulnerabilidade: Como falar de fracassos reais</h2>
                     <p class="card-excerpt">Por que responder 'sou perfeccionista' é um atestado de falta de senioridade.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-follow-up-executivo.html" class="blog-card">
+            <a href="artigo-follow-up-executivo.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800" class="card-img" alt="Follow up executivo">
                 <div class="card-content">
-                    <div class="card-meta"><span>Performance</span><span>6 min leitura</span></div>
+                    <div class="card-meta"><span>Performance</span><span>14 min leitura</span></div>
                     <h2 class="card-title">O Follow-up Executivo: Estratégia vs. Ansiedade</h2>
                     <p class="card-excerpt">A linha tênue entre demonstrar garra comercial e queimar o próprio Valuation pós-entrevista.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-culture-add-comites.html" class="blog-card">
+            <a href="artigo-culture-add-comites.html" class="blog-card" data-category="carreira">
                 <img src="https://www.sct.ce.gov.br/wp-content/uploads/sites/34/2019/10/Resultado.png" class="card-img" alt="Culture Add vs Cultural Fit">
                 <div class="card-content">
-                    <div class="card-meta"><span>Mercado</span><span>7 min leitura</span></div>
+                    <div class="card-meta"><span>Mercado</span><span>15 min leitura</span></div>
                     <h2 class="card-title">Cultural Fit x Culture Add: O que os Comitês realmente querem</h2>
                     <p class="card-excerpt">Por que empresas buscam líderes que desafiem o status quo, e não clones dos fundadores.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-senioridade-executiva-etarismo.html" class="blog-card">
+            <a href="artigo-senioridade-executiva-etarismo.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800" class="card-img" alt="Senioridade e Etarismo">
                 <div class="card-content">
-                    <div class="card-meta"><span>Liderança</span><span>6 min leitura</span></div>
+                    <div class="card-meta"><span>Liderança</span><span>12 min leitura</span></div>
                     <h2 class="card-title">O Paradoxo da Senioridade: Idade como prêmio, não passivo</h2>
                     <p class="card-excerpt">Como combater o etarismo provando que 30 anos de carreira significam gestão de crises.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-entrevista-conselho-board.html" class="blog-card">
+            <a href="artigo-entrevista-conselho-board.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" class="card-img" alt="Entrevista para Conselho de Administração">
                 <div class="card-content">
-                    <div class="card-meta"><span>Alta Liderança</span><span>8 min leitura</span></div>
+                    <div class="card-meta"><span>Alta Liderança</span><span>14 min leitura</span></div>
                     <h2 class="card-title">A Entrevista para Conselho: A diferença entre C-Level e Board</h2>
                     <p class="card-excerpt">Por que mostrar 'capacidade de execução' pode te eliminar sumariamente de um processo para Conselheiro.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-backchanneling-referencias.html" class="blog-card">
+            <a href="artigo-backchanneling-referencias.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800" class="card-img" alt="Checagem de Referências Executivas">
                 <div class="card-content">
-                    <div class="card-meta"><span>Mercado</span><span>6 min leitura</span></div>
-                    <h2 class="card-title">Backchanneling: A checagem de referências que você não controla</h2>
+                    <div class="card-meta"><span>Mercado</span><span>14 min leitura</span></div>
+                    <h2 class="card-title">Backchanneling: A checagem de referências invisível</h2>
                     <p class="card-excerpt">Como os Headhunters seniores investigam a sua reputação conversando com quem não está no currículo.</p>
                     <span class="read-more">Ler Artigo ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-executivo-polvo-operacao.html" class="blog-card">
+            <a href="artigo-executivo-polvo-operacao.html" class="blog-card" data-category="carreira">
                 <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800" class="card-img" alt="Microgerenciamento executivo">
                 <div class="card-content">
-                    <div class="card-meta"><span>Liderança</span><span>7 min leitura</span></div>
+                    <div class="card-meta"><span>Liderança</span><span>16 min leitura</span></div>
                     <h2 class="card-title">O Executivo Polvo: O perigo de ser essencial na operação</h2>
                     <p class="card-excerpt">Por que resolver tudo está destruindo o seu valuation no mercado e impedindo sua promoção.</p>
                     <span class="read-more">Ler Artigo ➔</span>
@@ -190,5 +230,34 @@
 
         </div>
     </main>
+
+    <script>
+        function filtrarBlog(categoria, botaoClicado) {
+            const botoes = document.querySelectorAll('.filter-btn');
+            botoes.forEach(btn => btn.classList.remove('active'));
+            botaoClicado.classList.add('active');
+
+            const cards = document.querySelectorAll('.blog-card');
+            cards.forEach(card => {
+                if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt-BR',
+                includedLanguages: 'en,es,fr,de,it', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
