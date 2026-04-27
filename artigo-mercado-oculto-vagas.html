@@ -105,6 +105,95 @@
 </head>
 <body>
 
+    <style>
+    .sticky-ad {
+        position: fixed;
+        right: 40px;
+        top: 250px;
+        width: 260px;
+        background: var(--cinza-escuro);
+        border: 1px solid var(--dourado);
+        padding: 30px 20px;
+        border-radius: 4px;
+        z-index: 999;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        font-family: 'Montserrat', sans-serif;
+        display: block;
+    }
+
+    .sticky-ad h4 {
+        color: var(--dourado);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0 0 15px 0;
+        font-weight: 700;
+    }
+
+    .sticky-ad p {
+        color: #fff;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    .btn-ad {
+        display: block;
+        background: var(--dourado);
+        color: #000;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    .btn-ad:hover {
+        background: #fff;
+        transform: scale(1.03);
+    }
+
+    /* Ajuste para telas menores (Mobile) */
+    @media (max-width: 1200px) {
+        .sticky-ad {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: auto;
+            width: 100%;
+            border-radius: 0;
+            border: none;
+            border-top: 2px solid var(--dourado);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .sticky-ad h4 { margin: 0; font-size: 12px; }
+        .sticky-ad p { display: none; }
+        .btn-ad { padding: 10px 20px; }
+    }
+
+    /* Esconder o banner se a tela for muito pequena verticalmente */
+    @media (max-height: 600px) and (min-width: 1200px) {
+        .sticky-ad { display: none; }
+    }
+</style>
+
+<div class="sticky-ad">
+    <h4>Mentoria Youp</h4>
+    <p>Assuma o controle do seu Valuation Executivo e acesse o Mercado Oculto de vagas.</p>
+    <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estou%20lendo%20seu%20artigo%20e%20tenho%20interesse%20na%20Mentoria%20Premium." class="btn-ad" target="_blank">Agendar Diagnóstico</a>
+</div>
+
     <nav class="navbar">
         <a href="index.html" class="brand-text">YOUP</a>
         <div style="display: flex; align-items: center; gap: 15px;">
