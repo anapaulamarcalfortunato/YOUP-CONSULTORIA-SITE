@@ -3,66 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insights Corporativos - Youp Consultoria</title>
+    
+    <title>Insights Corporativos | Transição C-Level e Headhunter</title>
+    <meta name="description" content="Artigos, tendências e inteligência de mercado sobre Executive Search, Outplacement e transição de carreira para alta liderança.">
+    <meta name="robots" content="index, follow">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --verde-youp: #5c8e82;
-            --verde-claro: #84a98c;
-            --dourado: #c5a059;
-            --cinza-escuro: #0a0a0a; 
-            --texto-claro: #f0f0f0;
-            --texto-mute: #888888;
-        }
-
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--cinza-escuro);
-            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--texto-claro);
-            min-height: 100vh; display: flex; flex-direction: column;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-        }
+        :root { --verde-youp: #5c8e82; --verde-claro: #84a98c; --dourado: #c5a059; --cinza-escuro: #0a0a0a; --texto-claro: #f0f0f0; --texto-mute: #888888; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--cinza-escuro); background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600'); background-size: cover; background-position: center; background-attachment: fixed; color: var(--texto-claro); min-height: 100vh; display: flex; flex-direction: column; }
+        
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
         .brand-text { color: var(--dourado); font-size: 14px; font-weight: 700; letter-spacing: 4px; text-decoration: none; }
-        .btn-voltar {
-            background: transparent; color: var(--cinza-claro); border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
-            letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s;
-        }
+        .btn-voltar { background: transparent; color: var(--cinza-claro); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s; }
         .btn-voltar:hover { border-color: var(--dourado); color: var(--dourado); }
 
-        /* CABEÇALHO DO BLOG */
         .page-header { text-align: center; padding: 60px 20px 40px; }
         .page-title { font-size: 32px; font-weight: 300; margin: 0 0 15px; letter-spacing: 1px; color: #fff; }
         .page-title b { font-weight: 600; color: var(--dourado); }
         .page-subtitle { font-size: 13px; color: var(--texto-mute); max-width: 500px; margin: 0 auto; line-height: 1.6; }
 
-        /* GRID DOS ARTIGOS */
         .container { max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 20px 80px; box-sizing: border-box; flex: 1; }
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
 
-        .blog-card {
-            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px; overflow: hidden; backdrop-filter: blur(10px); transition: 0.4s;
-            display: flex; flex-direction: column; cursor: pointer;
-        }
+        /* CARDS AGORA SÃO LINKS <A> */
+        .blog-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; backdrop-filter: blur(10px); transition: 0.4s; display: flex; flex-direction: column; text-decoration: none; }
         .blog-card:hover { transform: translateY(-5px); border-color: rgba(197, 160, 89, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
         .card-img { width: 100%; height: 200px; object-fit: cover; opacity: 0.8; transition: 0.4s; }
         .blog-card:hover .card-img { opacity: 1; }
-        
         .card-content { padding: 25px; display: flex; flex-direction: column; flex: 1; }
         .card-meta { display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; color: var(--verde-claro); letter-spacing: 1px; margin-bottom: 15px; font-weight: 600; }
         .card-title { font-size: 16px; font-weight: 600; margin: 0 0 10px; line-height: 1.4; color: var(--dourado); }
@@ -70,46 +41,7 @@
         .read-more { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
         .blog-card:hover .read-more { color: var(--dourado); }
 
-        /* MODAL DE LEITURA (A Magia Executiva) */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); z-index: 1000;
-            display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s;
-        }
-        .modal-overlay.active { display: flex; opacity: 1; }
-        
-        .modal-content {
-            background: #fff; color: #333; width: 100%; max-width: 800px; height: 100%; max-height: 90vh;
-            border-radius: 12px; position: relative; overflow-y: auto; padding: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: translateY(20px); transition: transform 0.3s; display: flex; flex-direction: column;
-        }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
-
-        .modal-header-img { width: 100%; height: 250px; object-fit: cover; }
-        .close-btn {
-            position: absolute; top: 15px; right: 20px; background: rgba(0,0,0,0.5); color: #fff;
-            border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 18px; cursor: pointer;
-            display: flex; justify-content: center; align-items: center; transition: 0.3s; backdrop-filter: blur(5px);
-        }
-        .close-btn:hover { background: var(--vermelho); }
-        
-        .modal-body { padding: 40px 50px; }
-        .modal-meta { font-size: 11px; color: var(--verde-youp); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
-        .modal-title { font-size: 28px; font-weight: 800; color: var(--cinza-escuro); margin: 0 0 30px; line-height: 1.2; letter-spacing: -0.5px; }
-        
-        .modal-text { font-size: 15px; color: #444; line-height: 1.8; font-weight: 400; text-align: justify; }
-        .modal-text p { margin-bottom: 20px; }
-        .modal-text b { color: var(--cinza-escuro); font-weight: 700; }
-        .modal-text ul { padding-left: 20px; margin-bottom: 20px; }
-        .modal-text li { margin-bottom: 10px; }
-
-        @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; }
-            .page-title { font-size: 24px; }
-            .modal-content { max-height: 100vh; border-radius: 0; }
-            .modal-body { padding: 30px 20px; }
-            .modal-title { font-size: 22px; }
-        }
+        @media (max-width: 768px) { .navbar { padding: 15px 20px; } .page-title { font-size: 24px; } }
     </style>
 </head>
 <body>
@@ -125,81 +57,29 @@
     </header>
 
     <main class="container">
-        <div class="blog-grid" id="gridArtigos">
+        <div class="blog-grid">
+            
+            <a href="artigo-plano-90-dias.html" class="blog-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Reunião de diretoria C-Level">
+                <div class="card-content">
+                    <div class="card-meta"><span>Performance em Entrevistas</span><span>8 min leitura</span></div>
+                    <h2 class="card-title">O Plano de 90 Dias: O diferencial absoluto na entrevista para C-Level</h2>
+                    <p class="card-excerpt">Deixar de ser um candidato que responde a perguntas para se tornar um consultor que resolve o problema do Conselho.</p>
+                    <span class="read-more">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-entrevista-socios.html" class="blog-card">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop" class="card-img" alt="Executivos em reunião">
+                <div class="card-content">
+                    <div class="card-meta"><span>Alta Liderança</span><span>8 min leitura</span></div>
+                    <h2 class="card-title">A Etapa Final: Sobrevivendo à Entrevista com Sócios e Private Equity</h2>
+                    <p class="card-excerpt">Fundadores querem lealdade cega; Fundos de PE exigem múltiplos de EBITDA. Aprenda a navegar na política psicológica da última barreira.</p>
+                    <span class="read-more">Ler Artigo ➔</span>
+                </div>
+            </a>
+
             </div>
     </main>
-
-    <div class="modal-overlay" id="leitorModal" onclick="fecharModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="fecharModal(event)">✕</button>
-            <img src="" alt="" class="modal-header-img" id="modalImg">
-            <div class="modal-body">
-                <div class="modal-meta">
-                    <span id="modalCat"></span> • <span id="modalTempo"></span>
-                </div>
-                <h2 class="modal-title" id="modalTitle"></h2>
-                <div class="modal-text" id="modalContent"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="dados-aberto.js"></script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const grid = document.getElementById("gridArtigos");
-            
-            // Caso o arquivo js não carregue
-            if (typeof artigosBlog === 'undefined') {
-                grid.innerHTML = "<p style='text-align:center; color: #888;'>Carregando insights...</p>";
-                return;
-            }
-
-            // Gera os cards dinamicamente
-            artigosBlog.forEach(artigo => {
-                const card = document.createElement("div");
-                card.className = "blog-card";
-                card.onclick = () => abrirArtigo(artigo.id);
-                
-                card.innerHTML = `
-                    <img src="${artigo.imagem}" class="card-img" alt="${artigo.titulo}">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span>${artigo.categoria}</span>
-                            <span>${artigo.data}</span>
-                        </div>
-                        <h3 class="card-title">${artigo.titulo}</h3>
-                        <p class="card-excerpt">${artigo.resumo}</p>
-                        <span class="read-more">Ler Artigo ➔</span>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        });
-
-        const modal = document.getElementById('leitorModal');
-
-        function abrirArtigo(id) {
-            const artigo = artigosBlog.find(a => a.id === id);
-            if(artigo) {
-                document.getElementById('modalImg').src = artigo.imagem;
-                document.getElementById('modalCat').innerText = artigo.categoria;
-                document.getElementById('modalTempo').innerText = "Leitura: " + artigo.tempoLeitura;
-                document.getElementById('modalTitle').innerText = artigo.titulo;
-                document.getElementById('modalContent').innerHTML = artigo.conteudo;
-                
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Impede rolar o site atrás
-            }
-        }
-
-        function fecharModal(e) {
-            // Só fecha se clicar no botão X ou no fundo preto (fora do conteúdo branco)
-            if(e.target === modal || e.target.classList.contains('close-btn')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto'; // Volta a rolagem do site
-            }
-        }
-    </script>
 </body>
 </html>
