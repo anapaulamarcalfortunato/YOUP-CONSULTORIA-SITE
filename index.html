@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youp Consultoria - Boutique de Carreiras e RH</title>
     
+    <title>Youp Consultoria | Headhunter Executivo e Transição de Carreira C-Level</title>
+    <meta name="description" content="Boutique estratégica de RH e Carreira. Especialistas em Executive Search, Outplacement, Headhunter e Gestão de Reputação para líderes e diretores.">
+    <meta name="keywords" content="Headhunter, Transição de Carreira, C-Level, RH Estratégico, Executive Search Brasil, Recolocação Executiva, Outplacement, Mentoria de Carreira">
+    <meta name="author" content="Youp Consultoria">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Youp Consultoria | Executive Search e Carreira">
+    <meta property="og:description" content="Onde líderes excepcionais encontram empresas visionárias. Acelere o seu próximo passo profissional conosco.">
+    <meta property="og:site_name" content="Youp Consultoria">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -107,7 +116,7 @@
         .link-item::after { content: '→'; opacity: 0; transition: 0.3s; color: var(--verde-youp); }
         .link-item:hover::after { opacity: 1; }
 
-        /* LINKS INSTITUCIONAIS MINIMALISTAS */
+        /* LINKS INSTITUCIONAIS MINIMALISTAS (Alterado para Tag Footer semântica) */
         .footer-links { text-align: center; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .footer-links a { color: var(--texto-mute); text-decoration: none; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .footer-links a:hover { color: var(--dourado); }
@@ -117,12 +126,11 @@
         /* ========================================= */
         @media (max-width: 768px) {
             .navbar { padding: 20px 15px; flex-direction: column; gap: 20px; }
-            .navbar > div:first-child { display: none; } /* Esconde o div vazio do desktop */
+            .navbar > div:first-child { display: none; } 
             
             .nav-actions { width: 100%; flex-direction: column; gap: 15px; align-items: center; }
             .lang-switch { margin-right: 0; margin-bottom: 5px; justify-content: center; }
             
-            /* Botões maiores e mais fáceis de tocar no celular */
             .btn-contact, .btn-hub { width: 100%; max-width: 320px; text-align: center; box-sizing: border-box; padding: 12px 20px; font-size: 12px; }
             
             .hero { padding: 50px 20px 30px; }
@@ -135,7 +143,6 @@
             .grid { grid-template-columns: 1fr; gap: 20px; }
             .column { padding: 25px 20px; }
             
-            /* Aumenta a área de toque dos links no celular */
             .link-item { padding: 10px 0; font-size: 14px; }
             
             .footer-links { flex-direction: column; gap: 15px; padding-bottom: 30px; }
@@ -200,11 +207,11 @@
 
         </div>
 
-        <div class="footer-links">
+        <footer class="footer-links">
             <a href="contatos.html">Contatos & Ouvidoria</a>
             <a href="privacidade.html">Política de Privacidade</a>
             <span style="color: #444; font-size: 10px;">&copy; 2026 Youp Consultoria. Tailor-Made Executive Search.</span>
-        </div>
+        </footer>
     </div>
 
     <script>
