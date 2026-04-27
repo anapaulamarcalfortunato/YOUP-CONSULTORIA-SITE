@@ -29,6 +29,7 @@
             background-color: #f4f4f4; 
             color: var(--texto-corpo); 
             line-height: 1.9; 
+            top: 0px !important;
         }
         
         .navbar { 
@@ -36,12 +37,26 @@
             padding: 15px 50px; background-color: var(--cinza-escuro); 
             position: sticky; top: 0; z-index: 1000;
         }
-        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        .brand-text { color: var(--dourado); font-size: 14px; font-weight: 700; letter-spacing: 4px; text-decoration: none; }
+        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        .btn-voltar:hover { background: var(--dourado); color: #000; }
 
-        /* === NOVA IMAGEM DEFINIDA AQUI === */
+        /* Ajustes Premium para o Google Translate */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        #google_translate_element select {
+            background: rgba(255, 255, 255, 0.05); color: var(--dourado); 
+            border: 1px solid rgba(197, 160, 89, 0.4); padding: 6px 10px; 
+            border-radius: 20px; font-family: 'Montserrat', sans-serif; 
+            font-size: 10px; font-weight: 600; text-transform: uppercase; 
+            outline: none; cursor: pointer;
+        }
+        .goog-logo-link { display: none !important; }
+        .goog-te-gadget { color: transparent !important; }
+
+        /* === IMAGEM HERO (LINK ATUALIZADO E FUNCIONAL) === */
         .article-hero { 
             width: 100%; height: 60vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://targo.com.br/wp-content/uploads/2025/03/5-dicas-de-como-ser-um-bom-cliente-oculto-1170x630-3.png') center/cover; 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600') center/cover; 
             display: flex; align-items: center; justify-content: center;
         }
 
@@ -91,8 +106,11 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" style="color:var(--dourado); text-decoration:none; font-weight:800; letter-spacing:3px;">YOUP</a>
-        <a href="blog.html" class="btn-voltar">← Corporate Insights</a>
+        <a href="index.html" class="brand-text">YOUP</a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="google_translate_element"></div>
+            <a href="blog.html" class="btn-voltar">← Voltar</a>
+        </div>
     </nav>
 
     <div class="article-hero" title="O mercado oculto de vagas executivas e a mecânica do sigilo"></div>
@@ -104,7 +122,7 @@
         <div class="article-content">
             <p>Se você baseia a sua estratégia de <b>transição de carreira executiva</b> ou recolocação apenas em monitorar os alertas de vagas de portais convencionais, você está, involuntariamente, disputando as sobras do mercado. Dados consolidados do setor de <i>Executive Search</i> global indicam um cenário contundente: cerca de <b>70% a 80% das posições executivas de alto escalão (C-Level, Diretorias e Conselhos) jamais chegam a ser anunciadas publicamente.</b></p>
 
-            <p>Este fenômeno é o que chamamos de <b>Mercado Oculto de Vagas</b> (<i>Hidden Job Market</i>). Elas opera em uma dimensão paralela de sigilo absoluto, indicações diplomáticas e mapeamento cirúrgico de talentos. Mas por que empresas modernas e transparentes escondem suas melhores oportunidades? A resposta reside em uma mistura complexa de mitigação de riscos financeiros, confidencialidade societária e proteção de ativos intangíveis.</p>
+            <p>Este fenômeno é o que chamamos de <b>Mercado Oculto de Vagas</b> (<i>Hidden Job Market</i>). Ele opera em uma dimensão paralela de sigilo absoluto, indicações diplomáticas e mapeamento cirúrgico de talentos. Mas por que empresas modernas e transparentes escondem suas melhores oportunidades? A resposta reside em uma mistura complexa de mitigação de riscos financeiros, confidencialidade societária e proteção de ativos intangíveis.</p>
 
             <h2>1. A Lógica do Sigilo Corporativo (Stealth Search)</h2>
             <p>Para uma organização de grande porte, a substituição de um Diretor ou de um CEO não é apenas um evento administrativo; é um tremor sísmico que pode alterar o valor das ações, desestabilizar equipes e sinalizar fraqueza para a concorrência. Existem três pilares táticos que forçam o <b>Recrutamento Sigiloso</b>:</p>
@@ -155,6 +173,17 @@
             <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20li%20o%20artigo%20sobre%20o%20Mercado%20Oculto%20e%20gostaria%20de%20entender%20como%20a%20Youp%20pode%20me%20ajudar%20a%20ser%20acessado." class="btn-cta" target="_blank">Acessar o Mercado Oculto</a>
         </section>
     </main>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt-BR',
+                includedLanguages: 'en,es,fr,de,it', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
