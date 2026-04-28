@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Entrevista: Aline Barbara sobre o RH Humano, Etarismo e Employer Branding | Youp Consultoria</title>
-    <meta name="description" content="Aline Barbara, especialista em T&D e autora, discute como a humanização, o LinkedIn e o combate ao etarismo se tornaram as maiores vantagens competitivas do RH estratégico.">
-    <meta name="keywords" content="aline barbara, entrevista rh, employer branding, etarismo no mercado de trabalho, linkedin para rh, marca pessoal hr, youp consultoria, gestão de pessoas">
+    <meta name="description" content="Aline Barbara discute como a humanização, o LinkedIn e o combate ao etarismo se tornaram as maiores vantagens competitivas do RH estratégico.">
+    <meta name="keywords" content="aline barbara, entrevista rh, employer branding, etarismo, linkedin para rh, marca pessoal hr, youp consultoria">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.youpconsultoria.com.br/entrevista-aline-barbara.html" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,56 +36,43 @@
 
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; margin-top: 5px; }
         .brand-logo { color:var(--dourado); text-decoration:none; font-weight:800; letter-spacing:3px; }
-        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
 
         .article-hero { 
             width: 100%; height: 60vh; 
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem5.jpg') top center/cover; 
             display: flex; align-items: center; justify-content: center;
         }
-        
+
         .article-main { max-width: 900px; margin: -100px auto 100px; background: var(--fundo-claro); padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
         .article-meta { color: var(--verde-youp); font-size: 12px; text-transform: uppercase; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; display: block; }
         .article-title { font-size: 42px; color: var(--texto-titulo); font-weight: 800; line-height: 1.2; margin-bottom: 40px; letter-spacing: -1px; }
         
-        /* ESTILO FOTO INLINE - PADRÃO ROMULO (450px) */
-        .interviewee-portrait-container {
-            text-align: center;
-            margin: 50px 0;
-            position: relative;
-        }
-        .interviewee-portrait {
-            max-width: 450px; 
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border: 2px solid #f1e6d3; 
-            transition: 0.3s;
-        }
+        .interviewee-portrait-container { text-align: center; margin: 50px 0; }
+        .interviewee-portrait { max-width: 450px; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid #f1e6d3; }
+        .inline-img { max-width: 500px; width: 100%; display: block; margin: 50px auto; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
 
         .article-content h2 { font-size: 28px; color: var(--texto-titulo); border-left: 5px solid var(--dourado); padding-left: 20px; margin: 60px 0 30px; font-weight: 700; }
         .interview-q { font-size: 20px; color: var(--texto-titulo); font-weight: 700; margin: 50px 0 20px; border-left: 4px solid var(--dourado); padding-left: 20px; }
         .interview-a { font-size: 18px; color: var(--texto-corpo); margin-bottom: 30px; text-align: justify; padding-left: 24px; }
         
         .article-content p { margin-bottom: 30px; font-size: 18px; text-align: justify; }
-        .highlight-box { background: #f9f6f0; border-radius: 8px; padding: 40px; margin: 50px 0; border: 1px solid #eee; font-style: italic; font-size: 20px; line-height: 1.8; }
-        .quote-author { display: block; font-weight: 700; color: var(--dourado); font-style: normal; margin-top: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .share-sidebar { position: fixed; left: 30px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 15px; z-index: 998; }
-        .share-btn { width: 45px; height: 45px; background: var(--cinza-escuro); color: var(--dourado); display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-weight: 800; border: 1px solid var(--dourado); transition: 0.3s; font-size: 14px; cursor: pointer; }
-        
-        /* CAIXA DE AUTOR / ENTREVISTADO PADRÃO YOUP */
-        .author-box { display: flex; align-items: center; background-color: #fdfdfd; border: 1px solid #f0f0f0; border-left: 5px solid var(--dourado); padding: 35px 30px; margin: 40px 0; border-radius: 4px; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .guest-box-simple { background: #fafafa; border: 1px solid #eee; border-left: 5px solid var(--verde-youp); padding: 40px; border-radius: 4px; margin: 50px 0; }
+        .guest-box-simple h4 { color: var(--texto-titulo); font-size: 20px; margin: 0 0 15px 0; font-weight: 800; }
+        .guest-box-simple p { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 15px; }
+
+        .author-box { display: flex; align-items: center; background-color: #fdfdfd; border: 1px solid #f0f0f0; border-left: 5px solid var(--dourado); padding: 35px 30px; margin: 40px 0; border-radius: 4px; gap: 30px; }
         .author-photo { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-shrink: 0; }
         .author-info { display: flex; flex-direction: column; }
         .author-name { font-size: 22px; color: var(--texto-titulo); margin: 0 0 5px 0; font-weight: 800; }
         .author-title { font-size: 11px; color: var(--dourado); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
-        .author-bio { font-size: 15px !important; color: #555 !important; line-height: 1.7 !important; margin-bottom: 15px !important; text-align: left !important; }
-        .author-linkedin { font-size: 13px; color: var(--verde-youp); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: 0.3s; }
+        .author-bio { font-size: 15px !important; color: #555 !important; line-height: 1.7 !important; margin-bottom: 15px !important; }
+        .author-linkedin { font-size: 13px; color: var(--verde-youp); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; }
 
+        /* BANNER STICKY - VERSÃO DESKTOP */
         .sticky-ad { position: fixed; right: 40px; top: 200px; width: 260px; background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 30px 20px; border-radius: 4px; z-index: 999; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .sticky-ad h4 { color: var(--dourado); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 15px 0; font-weight: 700; }
+        .sticky-ad h4 { color: var(--dourado); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px 0; font-weight: 700; }
         .sticky-ad p { color: #fff; font-size: 13px; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
         .btn-ad { display: block; background: var(--dourado); color: #000; text-align: center; text-decoration: none; padding: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; border-radius: 2px; transition: 0.3s; }
 
@@ -93,6 +80,10 @@
         .cta-box h3 { color: var(--dourado); font-size: 32px; margin: 0 0 20px 0; }
         .btn-cta { display: inline-block; background: var(--dourado); color: #000; padding: 20px 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 50px; margin-top: 30px; transition: 0.3s; }
 
+        .share-sidebar { position: fixed; left: 30px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 15px; z-index: 998; }
+        .share-btn { width: 45px; height: 45px; background: var(--cinza-escuro); color: var(--dourado); display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-weight: 800; border: 1px solid var(--dourado); transition: 0.3s; font-size: 14px; cursor: pointer; }
+
+        /* AJUSTES MOBILE CORRIGIDOS */
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; }
             .article-hero { height: 40vh; }
@@ -102,6 +93,29 @@
             .interview-q { font-size: 18px; padding-left: 10px; }
             .author-box { flex-direction: column; text-align: center; }
             .btn-cta { width: 100%; box-sizing: border-box; }
+            .share-sidebar { display: none; }
+
+            /* FIX DO BANNER NO MOBILE */
+            .sticky-ad { 
+                position: fixed; 
+                bottom: 0; 
+                top: auto; 
+                left: 0; 
+                right: 0; 
+                width: 100%; 
+                border-radius: 0; 
+                border: none; 
+                border-top: 2px solid var(--dourado); 
+                padding: 15px 20px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: space-between; 
+                box-sizing: border-box; 
+                z-index: 1100;
+            }
+            .sticky-ad p { display: none; }
+            .sticky-ad h4 { margin: 0; font-size: 11px; }
+            .btn-ad { padding: 8px 15px; font-size: 10px; margin: 0; }
         }
     </style>
 </head>
@@ -134,13 +148,13 @@
         <h1 class="article-title">A Humanização como Vantagem Competitiva: O Novo Papel do RH e a Força da Marca Pessoal</h1>
         
         <div class="article-content">
-            <p>O rigor corporativo sempre foi aclamado como um pilar da eficiência, mas, na era da Inteligência Artificial e da hiperconexão, a frieza dos processos tornou-se o maior ralo de talentos das organizações. Para debater como o setor de Recursos Humanos precisa deixar de ser uma "ilha operacional" para se tornar o motor estratégico da cultura e atração de talentos, a Youp Consultoria convidou <a href="https://www.linkedin.com/in/alinebarbara/" target="_blank" style="color: var(--dourado); font-weight: 700; text-decoration: none;">Aline Barbara</a>.</p>
+            <p>O rigor corporativo sempre foi aclamado como um pilar da eficiência, mas a frieza dos processos tornou-se o maior ralo de talentos das organizações. Para debater como o setor de RH precisa se tornar o motor estratégico da cultura, a Youp Consultoria convidou <a href="https://www.linkedin.com/in/alinebarbara/" target="_blank" style="color: var(--dourado); font-weight: 700; text-decoration: none;">Aline Barbara</a>.</p>
 
             <div class="interviewee-portrait-container">
                 <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem5.jpg" alt="Aline Barbara - Especialista em RH" class="interviewee-portrait">
             </div>
 
-            <p>Professora universitária, especialista em Treinamento e Desenvolvimento (T&D), coautora no tema de Diversidade Geracional e autora do livro <i>"Desvende o LinkedIn e Tenha um Perfil Campeão"</i>, Aline traz uma visão clara: o RH não lida apenas com planilhas; lida com pessoas. E, mais importante, o próprio profissional de RH precisa aprender a valorizar a sua marca pessoal para ter influência na organização.</p>
+            <p>Professora universitária, especialista em T&D, Aline traz uma visão clara: o RH não lida apenas com planilhas; lida com pessoas. Nesta entrevista exclusiva, preservamos exatamente as palavras da nossa especialista.</p>
 
             <h2>Educação, Emoção e o Fim do RH Burocrático</h2>
 
@@ -152,6 +166,8 @@
 
             <div class="interview-q">3. "Sabemos que o RH está deixando de ser apenas operacional para ser estratégico. Na sua visão de professora, qual é a habilidade que os novos profissionais de RH mais têm dificuldade de desenvolver, mas que é essencial para o amanhã?"</div>
             <div class="interview-a">Sem dúvida, a escuta ativa e empática. Vivemos em uma era de respostas rápidas e prontos-socorros digitais e num constante estado reativo. O novo profissional de RH quer resolver tudo com um software, mas a habilidade essencial é saber ler as entrelinhas, entender o que o colaborador não está dizendo e ter o pensamento crítico para ser estratégico, não apenas um executor de tarefas. O operacional ficará para as máquinas, o grande diferencial será ter amplas habilidades humanas e conceituais.</div>
+
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=900" alt="Ambiente de inovação e juventude" class="inline-img">
 
             <h2>Juventude e Inserção no Mercado</h2>
 
@@ -167,21 +183,23 @@
             <h2>LinkedIn, Marca Pessoal e Influência</h2>
 
             <div class="interview-q">7. "Aline, você escreveu o livro 'Desvende o LinkedIn e Tenha um Perfil Campeão'. Para um profissional de RH, o LinkedIn é apenas um lugar de busca de currículos ou é a principal vitrine de cultura organizacional hoje?"</div>
-            <div class="interview-a">Olha, quem ainda enxerga o LinkedIn apenas como um banco de currículos está operando o RH com a mentalidade da década passada. Hoje, a rede é o coração pulsante da marca empregadora. É ali que a cultura organizacional deixa de ser um quadro na parede e se torna uma conversa real. Para o profissional de RH, o LinkedIn é a ferramenta para humanizar o CNPJ: é onde mostramos os bastidores, os valores na prática e atraímos talentos não apenas por competência técnica, mas por afinidade cultural. O currículo diz o que a pessoa faz, mas o LinkedIn nos mostra quem ela é e como a empresa se relaciona com o mundo. E como eu escrevi no subtítulo do meu livro: O currículo relata suas vivências profissionais e sua formação, mas o LinkedIn faz muito mais que isto.</div>
+            <div class="interview-a">Olha, quem ainda enxerga o LinkedIn apenas como um banco de currículos está operando o RH com a mentalidade da década passada. Hoje, a rede é o coração pulsante da marca empregadora. É ali que a cultura organizacional deixa de ser um quadro na parede e se torna uma conversa real. Para o profissional de RH, o LinkedIn é a ferramenta para humanizar o CNPJ: é onde mostramos os bastidores, os values na prática e atraímos talentos não apenas por competência técnica, mas por afinidade cultural. O currículo diz o que a pessoa faz, mas o LinkedIn nos mostra quem ela é e como a empresa se relaciona com o mundo.</div>
 
             <div class="interview-q">8. "Você é uma voz ativa na rede. Ser uma influenciadora no RH ajuda na dinâmica com seus alunos em sala de aula? Eles se sentem mais conectados com a teoria quando veem você aplicando a prática no mundo digital?"</div>
-            <div class="interview-a">Totalmente! Em tempos de excesso de informação, o que o aluno mais busca é a coerência. Quando eles entram na sala e veem que a professora que está falando sobre 'Personal Branding' ou 'Gestão de Pessoas' é a mesma pessoa que eles acompanham no LinkedIn, o jogo muda. Isso gera uma ponte de confiança imediata. Eles percebem que a teoria que eu ensino não está guardada em uma gaveta; ela está viva, sendo testada e aplicada em tempo real no digital. Isso traz uma autoridade prática que os livros, sozinhos, não conseguem entregar. Eu não sou apenas uma professora falando de mercado; eu vivo o mercado falando com eles na sala de aula e nas redes sociais, que para essa geração é uma fonte de credibilidade e poder.</div>
+            <div class="interview-a">Totalmente! Em tempos de excesso de informação, o que o aluno mais busca é a coerência. Quando eles entram na sala e veem que a professora que está falando sobre 'Personal Branding' ou 'Gestão de Pessoas' é a mesma pessoa que eles acompanham no LinkedIn, o jogo muda. Isso gera uma ponte de confiança imediata. Eles percebem que a teoria que eu ensino não está guardada em uma gaveta; ela está viva, sendo testada e aplicada em tempo real no digital.</div>
 
             <div class="interview-q">9. "No seu curso, você estimula os profissionais a serem protagonistas de suas carreiras. Por que o profissional de RH, que cuida tanto da carreira dos outros, às vezes esquece de cuidar da própria marca pessoal?"</div>
-            <div class="interview-a">É o clássico dilema da 'casa de ferreiro, espeto de pau', mas com um agravante: o RH se acostumou a ser o palco para os outros brilharem. Historicamente, fomos treinados para sermos os guardiões dos talentos alheios, esquecendo que nós também somos talentos. Muitos profissionais de RH sentem uma 'culpa' invisível ao se promoverem, como se isso fosse vaidade. Mas eu sempre bato na tecla de que marca pessoal para o RH é ferramenta de trabalho. Um profissional de RH com uma marca forte tem mais influência interna, mais credibilidade com a diretoria e consegue atrair melhores parceiros. Cuidar da própria marca é, na verdade, um ato de autorrespeito com a própria trajetória. Lembre-se: um RH com marca pessoal forte tem muito mais poder de barganha e influência dentro da empresa. Cuidar de si não é vaidade, é estratégia de carreira.</div>
+            <div class="interview-a">É o clássico dilema da 'casa de ferreiro, espeto de pau', mas com um agravante: o RH se acostumou a ser o palco para os outros brilharem. Muitos profissionais de RH sentem uma 'culpa' invisível ao se promoverem. Mas eu sempre bato na tecla de que marca pessoal para o RH é ferramenta de trabalho. Um profissional de RH com uma marca forte tem mais influência interna, mais credibilidade com a diretoria e consegue atrair melhores parceiros.</div>
+
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=900" alt="Gestão de pessoas e colaboração" class="inline-img">
 
             <h2>Causas Necessárias: 40+ e Diversidade</h2>
 
             <div class="interview-q">10. "Você abraçou uma causa nobre: o combate ao preconceito com profissionais 40+. Como educadora, como você trabalha a mente dos seus alunos jovens para que eles valorizem a senioridade quando estiverem recrutando no futuro?"</div>
-            <div class="interview-a">Eu os faço pensarem no futuro: "Como você quer ser tratado daqui a 20 anos?". Eu mostro que a senioridade traz um "repertório de crises" que o jovem ainda não tem. Promovo trocas entre eles. Quando um jovem de 20 anos vê a potência de uma mulher de 45 que domina a tecnologia e ainda tem inteligência emocional, o preconceito cai por terra. Além disso, às vezes eu tenho a sorte de ter alunos 40+, 50+ e até 60+ em sala, e com esse meu posicionamento essas pessoas se sentem mais acolhidas e seguras.</div>
+            <div class="interview-a">Eu os faço pensarem no futuro: "Como você quer ser tratado daqui a 20 anos?". Eu mostro que a senioridade traz um "repertório de crises" que o jovem ainda não tem. Promovo trocas entre eles. Quando um jovem de 20 anos vê a potência de uma mulher de 45 que domina a tecnologia e ainda tem inteligência emocional, o preconceito cai por terra.</div>
 
             <div class="interview-q">11. "Você defende que 'não existe prazo de validade para bons profissionais'. Como o RH pode educar os donos de empresas para enxergarem o valor da experiência misturada com a energia dos mais novos?"</div>
-            <div class="interview-a">Pelos números e pelos fatos. Diversidade geracional traz lucro, diminui o turnover e melhora o clima. Eu oriento meus alunos a falarem a língua do negócio: "Ter alguém 40+ no time não é caridade, é inteligência competitiva". É o equilíbrio entre a energia de quem quer descobrir o mundo e a sabedoria de quem já sabe onde estão os buracos no caminho. Eu faço questão o tempo todo de conscientizar meus alunos que: “Bons profissionais não têm prazo de validade!” (aliás esse é o nome do meu capítulo no livro Etarismo e Diversidade no Mercado de Tralho onde sou uma das coautoras). Afinal, as empresas precisam dos profissionais jovens e dos profissionais maduros, porque as empresas são reflexo da nossa sociedade e todos têm seu espaço.</div>
+            <div class="interview-a">Pelos números e pelos fatos. Diversidade geracional traz lucro, diminui o turnover e melhora o clima. Eu oriento meus alunos a falarem a língua do negócio: "Ter alguém 40+ no time não é caridade, é inteligência competitiva". É o equilíbrio entre a energia de quem quer descobrir o mundo e a sabedoria de quem já sabe onde estão os buracos no caminho.</div>
 
             <h2>Carreira e Trajetória Pessoal</h2>
 
@@ -189,23 +207,22 @@
             <div class="interview-a">O setor público me ensinou sobre resiliência e a importância dos processos. As franquias me deram agilidade, foco em resultados e visão de dona. Já a docência... ah, ela me ensina todos os dias que gerir pessoas é, acima de tudo, um ato de esperança e paciência. Em todos esses mundos, o aprendizado central é o mesmo: não se gere "colaboradores", gerem-se indivíduos com histórias únicas. Respeitar essa individualidade é o que torna a gestão humana.</div>
 
             <div class="interview-q">13. "A sua paixão por viagens e novas culturas transparece no seu trabalho. De que forma conhecer o mundo te ajuda a ensinar sobre responsabilidade social e empatia nas organizações?"</div>
-            <div class="interview-a">Viajar abre as janelas da alma e sacode nossos preconceitos. Quando você vê como outras culturas lidam com o trabalho e com a vida, você entende que o seu jeito não é o único — e nem sempre é o melhor. Isso me permite ensinar meus alunos a olharem para o lado com menos julgamento e mais curiosidade. O mundo é vasto demais para a gente ter uma mente estreita dentro das organizações. A empatia nasce de entender que o "diferente" é apenas outra forma de ser incrível.</div>
+            <div class="interview-a">Viajar abre as janelas da alma e sacode nossos preconceitos. Quando você vê como outras culturas lidam com o trabalho e com a vida, você entende que o seu jeito não é o único. Isso me permite ensinar meus alunos a olharem para o lado com menos julgamento e mais curiosidade.</div>
+
+            <h2>Encerramento e Inspiração</h2>
 
             <div class="interview-q">14. "Se você pudesse redesenhar o currículo de todos os cursos de Gestão de RH hoje, qual disciplina 'fora da caixa' você incluiria para tornar os profissionais mais completos?"</div>
-            <div class="interview-a">Eu incluiria "Felicidade e Bem-estar no Trabalho" ou "Comunicação Assertiva". Precisamos entender de rituais, de cultura e de como a felicidade impacta a produtividade de forma prática, não romântica é o que diferencia um RH operacional de um RH estratégico. E a comunicação assertiva? É a ferramenta que faz tudo isso funcionar sem ruídos.</div>
+            <div class="interview-a">Eu incluiria "Felicidade e Bem-estar no Trabalho" ou "Comunicação Assertiva". Precisamos entender de rituais, de cultura e de como a felicidade impacta a produtividade de forma prática, não romântica.</div>
 
             <div class="interview-q">15. "Aline, para fechar: qual é a frase ou o pensamento que te motiva a levantar todos os dias e acreditar que, através do ensino, você está construindo um mundo mais justo?"</div>
-            <div class="interview-a">Eu me guio muito pela ideia de que a educação não apenas informa, ela transforma. Acredito que, ao formar profissionais de RH mais humanos e conscientes, estou espalhando sementes de justiça e empatia por centenas de empresas onde eu jamais poderia estar fisicamente. É o efeito multiplicador: eu ensino um, e esse um melhora a vida de muitos.</div>
+            <div class="interview-a">Eu me guio muito pela ideia de que a educação não apenas informa, ela transforma. Acredito que, ao formar profissionais de RH mais humanos e conscientes, estou espalhando sementes de justiça e empatia por centenas de empresas.</div>
 
         </div>
         
-        <div class="author-box" style="border-left-color: var(--verde-youp); background-color: #fafafa;">
-            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem5.jpg" alt="Aline Barbara" class="author-photo">
-            <div class="author-info">
-                <h4 class="author-name"><a href="https://www.linkedin.com/in/alinebarbara/" target="_blank" style="color: inherit; text-decoration: none;">Aline Barbara</a></h4>
-                <span class="author-title">Especialista em T&D, Professora Universitária e Autora</span>
-                <p class="author-bio">Estrategista de Marca Pessoal e LinkedIn, Aline tem a missão de transformar pessoas por meio do ensino, humor e leveza. Autora do livro <i>"Desvende o LinkedIn"</i> e coautora de <i>"Etarismo e Diversidade no Mercado de Trabalho"</i>, defende ativamente o fim do prazo de validade para talentos seniores. Siga Aline no <a href="https://www.linkedin.com/in/alinebarbara/" target="_blank" style="color:var(--dourado); font-weight:700;">LinkedIn</a>.</p>
-            </div>
+        <div class="guest-box-simple">
+            <h4>Sobre Aline Barbara</h4>
+            <p>Professora universitária, palestrante e especialista em Treinamento e Desenvolvimento (T&D), Aline tem a missão de transformar pessoas através do ensino humanizado. É autora do livro <i>"Desvende o LinkedIn"</i> e coautora da obra <i>"Etarismo e Diversidade no Mercado de Trabalho"</i>.</p>
+            <p>Como mentora, ajuda profissionais a desenvolverem sua marca pessoal e visibilidade estratégica no digital. <a href="https://www.linkedin.com/in/alinebarbara/" target="_blank" style="color: var(--dourado); font-weight: 700; text-decoration: none;">Acompanhe Aline no LinkedIn ➔</a></p>
         </div>
 
         <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; margin-bottom: 30px;">
@@ -222,14 +239,14 @@
             <div class="author-info">
                 <h4 class="author-name">Ana Paula Marçal Fortunato</h4>
                 <span class="author-title">CEO & Estrategista de Carreira C-Level</span>
-                <p class="author-bio">Especialista em transição e Branding Executivo, Ana ajuda líderes de elite a maximizarem seu Valuation e acessarem o Mercado Oculto de Vagas. Atua como ponte estratégica entre talentos de alta performance e Boards.</p>
+                <p class="author-bio">Especialista em transição e Branding Executivo, Ana ajuda líderes de elite a maximizarem seu Valuation e acessarem o Mercado Oculto de Vagas.</p>
                 <a href="https://www.linkedin.com/in/anapaulamarcalfortunato" class="author-linkedin" target="_blank">Conectar no LinkedIn ➔</a>
             </div>
         </div>
 
         <section class="cta-box">
             <h3>Como a cultura da sua empresa atrai talentos?</h3>
-            <p>Posicionar sua marca pessoal e a marca empregadora da sua empresa no LinkedIn é vital para a retenção. Vamos construir sua estratégia digital.</p>
+            <p>Posicionar sua marca pessoal no LinkedIn é vital para a retenção e autoridade. Vamos construir sua estratégia digital.</p>
             <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20li%20a%20entrevista%20da%20Aline%20e%20gostaria%20de%20falar%20sobre%20posicionamento." class="btn-cta" target="_blank">Falar com a Youp Consultoria</a>
         </section>
     </main>
