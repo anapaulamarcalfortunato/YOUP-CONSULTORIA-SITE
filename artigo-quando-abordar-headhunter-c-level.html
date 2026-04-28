@@ -330,11 +330,21 @@
             btn.innerText = 'Processando...';
             btn.disabled = true;
 
-            var formData = new FormData(form);
-            var scriptURL = 'https://script.google.com/macros/s/AKfycbwI248hq1hrWMv2QSHvybEpjebayryrzStQ1bnLjC9F8xqw6HA5eUXAUFUV_rGvlkPtAg/exec'; 
+            // Empacotando os dados de forma blindada para o Google
+            var data = new URLSearchParams();
+            data.append('email', document.getElementById('emailInput').value);
+            data.append('action', document.getElementById('actionField').value);
 
-            // === A MÁGICA ESTÁ NESTA LINHA ABAIXO (mode: 'no-cors') ===
-            fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+            // =======================================================
+            // 🚨 COLE AQUI O SEU NOVO LINK DO GOOGLE (ENTRE AS ASPAS)
+            // =======================================================
+            var scriptURL = 'COLE_AQUI_O_SEU_NOVO_LINK_GERADO_NO_PASSO_1'; 
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: data,
+                mode: 'no-cors' // Impede o bloqueio de segurança do navegador
+            })
             .then(response => {
                 form.style.display = 'none';
                 document.getElementById('toggleAction').style.display = 'none';
@@ -343,7 +353,8 @@
             .catch(error => {
                 btn.innerText = 'Tentar novamente';
                 btn.disabled = false;
-                alert('Erro na conexão. Verifique sua rede e tente novamente.');
+                alert('Ocorreu um erro no servidor. Verifique sua internet ou tente mais tarde.');
+                console.error('Erro detalhado:', error);
             });
         });
     </script>
