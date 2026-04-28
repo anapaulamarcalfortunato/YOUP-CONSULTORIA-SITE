@@ -12,6 +12,43 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+            /* ========================================== */
+        /* CAIXA DA AUTORA (MINI BIO)                 */
+        /* ========================================== */
+        .author-box {
+            display: flex;
+            align-items: center;
+            background-color: #fdfdfd;
+            border: 1px solid #f0f0f0;
+            border-left: 5px solid var(--dourado);
+            padding: 35px 30px;
+            margin: 60px 0 20px;
+            border-radius: 4px;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .author-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        .author-info { display: flex; flex-direction: column; }
+        .author-name { font-size: 22px; color: var(--texto-titulo); margin: 0 0 5px 0; font-weight: 800; }
+        .author-title { font-size: 12px; color: var(--dourado); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
+        .author-bio { font-size: 15px !important; color: #555 !important; line-height: 1.7 !important; margin-bottom: 15px !important; text-align: left !important; }
+        .author-linkedin { font-size: 13px; color: var(--verde-youp); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: 0.3s; }
+        .author-linkedin:hover { color: var(--dourado); transform: translateX(5px); }
+
+        /* Responsivo da Caixa para Celular */
+        @media (max-width: 768px) {
+            .author-box { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
+            .author-bio { text-align: center !important; }
+        }
+
     <style>
         /* === VISUAL CLARO (EDITORIAL PREMIUM) === */
         :root { 
@@ -162,6 +199,19 @@
         <li style="margin-bottom: 12px;"><a href="artigo-follow-up-executivo.html" style="color: #c5a059; text-decoration: none; font-weight: 600;">➔ Follow-up Executivo: Mantendo o tom de autoridade</a></li>
     </ul>
 </div>
+
+                <div class="author-box">
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="author-photo">
+            
+            <div class="author-info">
+                <h4 class="author-name">Ana Paula Marçal Fortunato</h4>
+                <span class="author-title">CEO & Estrategista de Carreira C-Level</span>
+                <p class="author-bio">Especialista em transição e Branding Executivo, Ana ajuda líderes de elite a maximizarem seu Valuation e acessarem o Mercado Oculto de Vagas. Atua como ponte estratégica entre talentos de alta performance e Boards que buscam excelência em sucessão e governança. Com foco em ROI, sua missão é transformar trajetórias em ativos indispensáveis.</p>
+                
+                <a href="https://www.linkedin.com/in/anapaulamarcalfortunato" class="author-linkedin" target="_blank">Conectar no LinkedIn ➔</a>
+            </div>
+        </div>
+
 
         <section class="cta-box">
             <h3>Travando na hora de vender seus resultados (e seus reveses)?</h3>
