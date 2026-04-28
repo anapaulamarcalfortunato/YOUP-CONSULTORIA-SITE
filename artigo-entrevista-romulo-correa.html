@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>O Novo Algoritmo do LinkedIn e a IA na Carreira: Entrevista com Romulo Correa | Youp</title>
+    <meta name="description" content="Entrevista exclusiva com Romulo Correa, LinkedIn Top Voice. Descubra como o algoritmo do LinkedIn mudou, o impacto da IA na carreira executiva e o lançamento do app Construa Sua Carreira.">
+    <meta name="keywords" content="algoritmo do linkedin, romulo correa, linkedin top voice, inteligência artificial na carreira, google gemini para executivos, marca pessoal executiva, posicionamento digital c-level, 360Brew">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.youpconsultoria.com.br/artigo-entrevista-romulo-correa.html" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.9; top: 0px !important; }
+        
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; }
+        .brand-text { color: var(--dourado); font-size: 14px; font-weight: 700; letter-spacing: 4px; text-decoration: none; }
+        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+
+        /* Banner Flutuante Mentoria Youp */
+        .sticky-ad { position: fixed; right: 40px; top: 200px; width: 260px; background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 30px 20px; border-radius: 4px; z-index: 999; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .sticky-ad h4 { color: var(--dourado); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 15px 0; font-weight: 700; }
+        .sticky-ad p { color: #fff; font-size: 13px; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
+        .btn-ad { display: block; background: var(--dourado); color: #000; text-align: center; text-decoration: none; padding: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; border-radius: 2px; transition: 0.3s; }
+
+        @media (max-width: 1200px) {
+            .sticky-ad { position: fixed; bottom: 0; left: 0; right: 0; top: auto; width: 100%; border-radius: 0; border: none; border-top: 2px solid var(--dourado); padding: 15px 25px; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; }
+            .sticky-ad p { display: none; }
+            .sticky-ad h4 { margin: 0; font-size: 12px; }
+        }
+
+        /* Tradutor */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        #google_translate_element select { background: rgba(255, 255, 255, 0.05); color: var(--dourado); border: 1px solid rgba(197, 160, 89, 0.4); padding: 6px 10px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; outline: none; cursor: pointer; }
+
+        /* IMAGEM DO GITHUB APLICADA AQUI (Link limpo) */
+        .article-hero { width: 100%; height: 60vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem3.jpg') center/cover; display: flex; align-items: center; justify-content: center; }
+
+        .article-main { max-width: 900px; margin: -100px auto 100px; background: var(--fundo-claro); padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .article-meta { color: var(--verde-youp); font-size: 12px; text-transform: uppercase; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; display: block; }
+        .article-title { font-size: 42px; color: var(--texto-titulo); font-weight: 800; line-height: 1.2; margin-bottom: 40px; letter-spacing: -1px; }
+        
+        /* ESTILO DA ENTREVISTA */
+        .interview-intro { font-size: 18px; font-style: italic; color: #555; margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid #eee; }
+        .question { font-size: 20px; color: var(--texto-titulo); font-weight: 700; margin: 50px 0 20px; border-left: 4px solid var(--dourado); padding-left: 20px; }
+        .answer { font-size: 18px; color: var(--texto-corpo); margin-bottom: 30px; text-align: justify; padding-left: 24px; }
+        
+        .article-content h3 { font-size: 24px; color: var(--verde-youp); margin: 60px 0 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .article-content a { color: var(--dourado); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--dourado); }
+        .article-content a:hover { color: var(--verde-youp); border-color: var(--verde-youp); }
+
+        .teia-box { border-left: 4px solid var(--dourado); background: #f9f9f9; padding: 25px; margin: 40px 24px; font-family: 'Montserrat', sans-serif; }
+        
+        .bio-box { background: var(--cinza-escuro); color: #fff; padding: 40px; border-radius: 8px; margin-top: 60px; display: flex; flex-direction: column; gap: 15px; }
+        .bio-box h4 { color: var(--dourado); font-size: 20px; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .bio-box p { font-size: 15px; line-height: 1.8; margin: 0; color: #e0e0e0; }
+
+        .cta-box { background: #f9f6f0; border: 1px solid #e8dfce; padding: 60px; text-align: center; border-radius: 8px; margin-top: 80px; }
+        .cta-box h3 { color: var(--texto-titulo); font-size: 28px; margin-bottom: 20px; }
+        .btn-cta { display: inline-block; background: var(--cinza-escuro); color: #fff; padding: 18px 40px; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 50px; margin-top: 20px; transition: 0.3s; border: none; }
+        .btn-cta:hover { background: var(--dourado); color: #000; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand-text">YOUP</a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="google_translate_element"></div>
+            <a href="blog.html" class="btn-voltar">← Insights</a>
+        </div>
+    </nav>
+
+    <div class="sticky-ad">
+        <h4>Mentoria Youp</h4>
+        <p>Acelere sua transição C-Level dominando as regras do novo mercado executivo.</p>
+        <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20li%20a%20entrevista%20do%20Romulo%20e%20gostaria%20de%20entender%20como%20posicionar%20minha%20marca%20pessoal." class="btn-ad" target="_blank">Falar com Consultor</a>
+    </div>
+
+    <div class="article-hero" title="Entrevista com Romulo Correa - Especialista em IA e LinkedIn"></div>
+
+    <main class="article-main">
+        <span class="article-meta">Entrevista Exclusiva • 25 min de leitura</span>
+        <h1 class="article-title">O Fim do "SEO Tradicional" no LinkedIn e a Era da IA na Carreira Executiva</h1>
+        
+        <div class="article-content">
+            <p class="interview-intro">Nesta edição especial do blog da Youp Consultoria, conversei com <a href="https://www.linkedin.com/in/romulocorrea/" target="_blank">Romulo Correa</a>, Estrategista de IA Generativa (Gemini), LinkedIn Top Voice 2024 e criador do recém-lançado aplicativo <a href="https://construasuacarreira.com/" target="_blank">Construa Sua Carreira</a>. Discutimos como as mudanças profundas no algoritmo do LinkedIn estão penalizando perfis baseados em velhas dicas de "palavras-chave" e como a Inteligência Artificial pode escalar a autoridade de executivos seniores sem perder a essência humana.</p>
+
+            <div class="question">1. Ana Paula (Youp): "Romulo, parabéns pelo lançamento do APP 'Construa sua Carreira'! Você já mentoreou centenas de executivos e agora 'empacotou' esse conhecimento em tecnologia. Qual foi a principal dor que você viu no mercado que te motivou a criar esse aplicativo?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> A principal motivação foi perceber que o LinkedIn mudou o seu algoritmo e mudou a forma como ele avalia o perfil e o conteúdo dos seus usuários. O que está acontecendo é que as pessoas ainda estão usando o seu perfil com regras completamente ultrapassadas. Muita gente não sabe como o perfil é avaliado agora pelo algoritmo. 
+                <br><br>
+                Ainda tem muita gente, incluindo consultores do LinkedIn, pensando que o segredo é usar palavra-chave; escrever uma frase marketeira. Nada disso funciona agora. O resultado é que o algoritmo não vai conseguir identificar qual é a identidade profissional da pessoa, qual é seu tópico de autoridade e em que cluster ele indexa esse perfil no grafo econômico do LinkedIn.
+                <br><br>
+                A pessoa pode ter conteúdos ótimos e maravilhosos, mas seu perfil não está alinhado com o conteúdo e, agora, essas duas áreas não estão separadas. São analisadas dinamicamente. Se o algoritmo não conseguir entender o alinhamento entre perfil e conteúdo, ele diminui a visibilidade daquele conteúdo, deixando limitado um pequeno grupo de conexões da pessoa. Em resumo, não dá mais para fazer o perfil baseado em dicas. Estamos num novo momento.
+            </div>
+
+            <div class="question">2. Ana Paula (Youp): "O APP usa o framework 360Brew para otimizar o perfil. Explica para a gente, de forma simples: como essa lógica das quatro seções do perfil 'conversa' com o algoritmo do LinkedIn para fazer alguém ser encontrado?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Acho que primeiro é preciso dizer que, obviamente, eu não tenho o código secreto do algoritmo do LinkedIn. Mas posso afirmar com segurança que, quando dizemos que o aplicativo usa o framework 360Brew, queremos dizer que ele está usando um conjunto de regras e parâmetros usados pelo novo algoritmo do LinkedIn.
+                <br><br>
+                O que nós fizemos foi reunir dezenas de informações técnicas que tivemos acesso, sobre como o algoritmo funciona e traduzimos tudo em um aplicativo. Decidimos começar avaliando as quatro seções mais importantes para o algoritmo. As próximas versões incluirão novas áreas.
+            </div>
+
+            <div class="question">3. Ana Paula (Youp): "Hoje se fala muito em IA, mas você é um especialista em Google Gemini. Como o seu APP e sua metodologia conseguem usar a IA para ganhar produtividade sem que o perfil do profissional pareça um 'robô' sem alma?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Ótima pergunta. Nosso aplicativo combina o melhor da Inteligência Artificial com o melhor da nossa humanidade. Para garantir isso, nós incluímos perguntas aos usuários, que somente eles têm a resposta. Por exemplo: qual é seu objetivo profissional? Quem é seu público primário? e várias outras.
+                <br><br>
+                O aplicativo levará as respostas a sério e será capaz de detectar qualquer dissonância entre o que o usuário respondeu e o que está publicado no seu perfil. Ele será capaz de sugerir algo diferente se o usuário responder com novas informações. Então, o algoritmo nunca dará uma sugestão genérica. Ele fará todo o possível para criar contexto com as informações já existentes, mas ele usará qualquer nova informação que o usuário incluir no processo.
+            </div>
+
+            <h3>Estratégia e Algoritmo: O 360Brew</h3>
+
+            <div class="question">4. Ana Paula (Youp): "O novo algoritmo do LinkedIn tem deixado muita gente confusa. O que o 360Brew faz que as estratégias comuns de 'SEO de LinkedIn' não conseguem entregar?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> O 360Brew representa o fim da era do "SEO tradicional", que focava na repetição mecânica de palavras-chave e na lógica de sobreposição lexical (lexical overlap) em buscas de correspondências exatas.
+                <br><br>
+                Como se fazia e se ensinava? A otimização envolvia táticas para manipular o sistema, como o excesso de termos genéricos ou a repetição de palavras exatamente iguais ao longo do texto. Isso funcionava porque o algoritmo apenas contava palavras. Ele quantificava mecanicamente.
+                <br><br>
+                Agora, o algoritmo não apenas quantifica sinais mecânicos; ele passa a "ler" e compreender a intenção, a coerência e a semântica de perfis, interações e publicações. O grande diferencial do 360Brew é aplicar um raciocínio semântico profundo, capaz de deduzir a "Autoridade Tópica" de um criador ao cruzar as entidades nomeadas de seu perfil (Título, Empresa, Cargo e Setor, Ferramentas, Métodos, Tecnologias, termos técnicos da área) com a densidade técnica e estrutural que ele encontra no seu perfil e no seu conteúdo também.
+                <br><br>
+                Na prática, ele procura por contexto. Por outro lado, ele desconsidera a “conversa fiada” e os “autoelogios” sem uma evidência concreta no texto. Nosso aplicativo faz exatamente essa leitura e indica o que é sinal e o que é ruído.
+            </div>
+
+            <div class="teia-box">
+                <strong>Conexão Youp:</strong> Entender o algoritmo é o primeiro passo. O segundo é alinhar essa narrativa digital para atrair as bancas de Executive Search. Saiba mais em nosso guia sobre <a href="artigo-linkedin-atrai-headhunters.html">como ter um LinkedIn que atrai Headhunters C-Level</a>.
+            </div>
+
+            <div class="question">5. Ana Paula (Youp): "Romulo, existe uma dúvida clássica: o posicionamento de quem quer um novo emprego é muito diferente de quem quer gerar negócios e autoridade? O que muda no 'tom de voz' desse perfil?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Olha, independentemente das duas situações, a partir de agora, o que importa realmente é o quanto dá evidências concretas da sua autoridade. Seja um estagiário, seja um CEO.
+                <br><br>
+                No perfil, isso significa que não adianta mais dizer “tenho 20 anos de experiência em marketing de varejo”. A pergunta que tanto o algoritmo quanto as pessoas vão procurar responder é: quais foram seus principais resultados e entregas nesses 20 anos? Isso tem que aparecer claramente.
+                <br><br>
+                Além disso, é preciso se aprofundar e realmente ter clareza para quem você está falando. Isso é simples de dizer, mas não é óbvio de implementar. Porque é preciso entender do que chamo dos 3Ds (Dores, Desejos e Dúvidas) do seu público. Só assim é possível criar conteúdos que conversam diretamente com seu público. É assim que desenvolvemos o tom de voz adequado.
+                <br><br>
+                Por isso, é um erro muito comum, copiar o que os outros estão fazendo. É preciso desenvolver seu próprio tom, avaliando as reações que você recebe. A receita é a mesma para quem busca uma posição dentro de uma corporação, como para quem vende serviços, mas a implementação demanda essa reflexão.
+            </div>
+
+            <div class="question">6. Ana Paula (Youp): "Para quem quer que o perfil gere entrevistas e oportunidades reais amanhã: qual é a seção do perfil que ninguém dá importância, mas que é o 'pulo do gato' no seu framework?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Olha, vou ser bem sincero. Não tem mais pulo do gato. O perfil é importante, da headline até as competências. Agora, cada sessão tem seu objetivo e seu uso pelo algoritmo. Então posso apontar um erro muito frequente, cometido por muitos Top Voices. As primeiras palavras são muito mais importantes do que as que aparecem no meio da headline, no meio do texto sobre ou no meio do post.
+                <br><br>
+                Como ele não dá a mínima para métricas de vaidade, começar a headline com “Top Voice LinkedIn”, “Top 3 no iBest” ou com frases poéticas como “ninja das vendas” é um erro crasso. O algoritmo não faz absolutamente nada com essas frases e a pessoa desperdiçou um lugar importantíssimo na headline, por exemplo.
+                <br><br>
+                Alguém pode perguntar se, quem deve ler o perfil não é a pessoa do recrutador. Acontece que o recrutador também está usando filtros de IA para chegar à lista final dos perfis. O LinkedIn lançou novas ferramentas para os recrutadores, que agora também fazem essa análise em milésimos de segundo. Então, gosto de lembrar às pessoas que, antes que um humano encontre seu perfil, ele já foi visto, lido e interpretado pelo algoritmo, e é por isso que você pode ou não aparecer no feed de um recrutador ou passar pelos filtros que ele faz. Nosso aplicativo faz toda essa análise e posso afirmar com segurança que ele funciona melhor ainda, quando se trata de ficar preparado para esses filtros do LinkedIn.
+            </div>
+
+            <h3>Criação de Conteúdo e Marca Pessoal</h3>
+
+            <div class="question">7. Ana Paula (Youp): "Você fala sobre ser uma 'Liderança de Pensamento'. Qual o maior erro que você vê profissionais seniores cometerem quando decidem finalmente começar a escrever e criar conteúdo no LinkedIn?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Olha, poderia listar vários, mas, para ficar dentro do nosso tema aqui, diria que alguns erros não podem ser mais cometidos. O primeiro é falar de um assunto que não está alinhado com o perfil. Recentemente, apresentando o aplicativo para um amigo, vi que a primeira palavra da headline dele era “psicanalista”. Embora ele tenha a formação, o conteúdo dele não é sobre psicanálise. Esse desalinhamento agora custa caro.
+                <br><br>
+                Segundo erro é pensar que tem que criar conteúdo todo dia. O resultado é conteúdo ruim, porque a qualidade cai ao longo do tempo. O algoritmo lê o conteúdo e quer densidade de conteúdo. Se o conteúdo é genérico, feito com IA, só para marcar presença, isso agora é muito ruim, porque se ele apresentar o seu conteúdo para uma pessoa e ela rejeitar várias vezes, ele para de mostrar seu conteúdo e entende que não há valor.
+                <br><br>
+                Então, é melhor ter consistência, nem que seja 2x por semana, com conteúdos que respeitem o tempo das pessoas e compartilhar algo que alivie uma dor, tire uma dúvida ou atenda a um desejo do que preencher a planilha de publicação com conteúdos rasos.
+            </div>
+
+            <div class="question">8. Ana Paula (Youp): "Muitas pessoas têm medo da exposição digital. Como a sua metodologia dos '5 Is da Marca Pessoal' ajuda a destravar quem tem décadas de experiência, mas ainda se sente um 'estranho' nas redes sociais?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> A dificuldade que as pessoas sentem é que elas interpretam qualquer exposição como “marketing pessoal”, no sentido de parecer que estão “contando vantagem”, “alimentando o próprio ego”, como vemos muitos fazendo. As pessoas olham isso e dizem: "Eu não quero ser isso nem fazer isso."
+                <br><br>
+                Mas, quando elas compreendem que marca pessoal é o impacto que ela gera no outro, isso muda tudo. O foco sai do que eu faço para como aquilo que eu sou, com minha história e minhas competências, ajuda as pessoas a resolverem um problema. Eu gosto de dizer que quem diz qual é minha marca pessoal não sou eu. São meus clientes, minha esposa, meus colegas de trabalho. São eles que validam aquilo que receberam de mim, como pessoa e como profissional. Então todos nós temos nossa marca pessoal. Ela está sendo construída e fortalecida diariamente a cada interação.
+                <br><br>
+                O medo da exposição acontece porque estamos ainda muito voltados para nós mesmos. Estamos preocupados com nossa performance, nossa aparência, porque o foco e o objetivo ainda não são os outros nem a contribuição que podemos fazer. Quando estamos alinhados e conscientes de qual é nossa marca pessoal, nosso foco é em saber que um conteúdo meu pode ajudar muita gente, e todos nós adoramos ajudar os outros a resolver algum problema.
+                <br><br>
+                No método 5 Is (Identidade, Inteligência, Impacto, Influência e Inspiração) eu ajudo as pessoas a fazerem esse alinhamento e terem clareza de como elas podem causar o impacto que sempre desejaram, a partir de um lugar verdadeiro e autêntico.
+            </div>
+
+            <div class="question">9. Ana Paula (Youp): "Você foi reconhecido como LinkedIn Top Voice 2024. O que esse selo mudou na sua percepção sobre a responsabilidade de educar as pessoas dentro da plataforma?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Eu me sinto muito honrado por fazer parte desse grupo de pessoas. Ser Top Voice só me faz continuar buscando entregar mais valor para as pessoas. As pessoas esperam mais também. Então é um processo de continuar aprendendo e sempre evoluindo.
+            </div>
+
+            <h3>Carreira, Senioridade e IA</h3>
+
+            <div class="question">10. Ana Paula (Youp): "Com 30 anos de vivência corporativa e passagens por gigantes como Michelin e Banco do Brasil, como foi para você a transição de um executivo 'tradicional' para um estrategista de IA Generativa? De onde veio essa semente da inovação?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Eu saí do mundo corporativo, nove anos atrás, quando fiz 50 anos de idade. Eu já havia ocupado vários cargos, atuado em diferentes áreas e já havia uma pergunta na minha cabeça: como vou viver a segunda metade da minha vida?
+                <br><br>
+                Eu fiz uma revisão de vida e percebi que existiam alguns padrões que estavam presentes ao longo da minha vida. Sempre gostei de pensar estrategicamente, de ensinar e compartilhar conhecimento com pessoas, além de sempre ser fascinado por tecnologia. Por isso, quando comecei a atuar como mentor de executivos, já fiz isso online, usando as ferramentas disponíveis, muito antes da pandemia.
+                <br><br>
+                Esse gosto pela novidade tecnológica foi o que me fez criar a primeira página web do banco onde trabalhava no final dos anos 90. Depois, a vontade de trabalhar no digital me fez pedir demissão do banco para trabalhar na primeira agência digital do Brasil, a MediaLab.
+                <br><br>
+                Quando a IA generativa chegou, eu tive a mesma sensação que tive no início da Internet. Algo muito revolucionário estava acontecendo, de novo. Comecei a usar ativamente e a compartilhar tudo que estava aprendendo para minha comunidade de criadores de conteúdo. Rapidamente as pessoas começaram a me pedir para criar uma mentoria de IA e daí já surgiram 3 turmas de treinamento em IA generativa, especialmente focada no ecossistema Gemini.
+                <br><br>
+                Finalmente, meses atrás, fui procurado por meus atuais sócios para ajudá-los a criar um aplicativo para o LinkedIn, a partir do meu conhecimento do algoritmo do LinkedIn. Então foi um passo natural, uma vez que eu já estava querendo usar a IA com o LinkedIn.
+            </div>
+
+            <div class="teia-box">
+                <strong>Momento de Transição:</strong> Assim como Romulo fez sua transição aos 50 anos, a maturidade executiva é um ativo indispensável. Leia nosso artigo sobre <a href="artigo-senioridade-executiva-etarismo.html">O Valor do Cabelo Branco no C-Level</a>.
+            </div>
+
+            <div class="question">11. Ana Paula (Youp): "Muitos profissionais com mais de 20 ou 30 anos de carreira sentem que o mercado está 'correndo' rápido demais por causa da IA. Como o Gemini pode ser o maior aliado desses profissionais para que eles não percam espaço?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Boa pergunta. Minha resposta é muito pragmática. Percebi que o Google tem algumas vantagens estratégicas nesse momento. O alimento das IAs é o conteúdo gerado na rede. O Google é, por natureza, a empresa com o maior volume de informação do mundo. A segunda coisa é que o Google tem um conjunto muito amplo de ferramentas, plataformas e iniciativas difíceis de imitar que já usamos, como o Gmail e o Google Drive.
+                <br><br>
+                Então, o Google sempre será um dos líderes no mundo da IA. Eu recomendaria a qualquer um que investisse e se aprofundasse em uma ferramenta, antes de sair pulando de galho em galho. O Google é o melhor custo-benefício, na minha opinião. Ele tem o que as outras IAs têm e, se não tem agora, terá na próxima versão; e ele também pode integrar tudo, economizando dinheiro, porque ele sempre tem uma ferramenta similar à que o mercado oferece, aumentando muitas vezes a produtividade na hora de trabalhar colaborativamente.
+            </div>
+
+            <div class="question">12. Ana Paula (Youp): "Você já mentoreou executivos em 6 países diferentes. Você percebeu alguma diferença cultural marcante na forma como brasileiros e europeus, por exemplo, cuidam da própria autoridade digital?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Como meu trabalho é muito pessoal, voltado para questões muito específicas de cada pessoa, não vi uma diferença cultural forte. O que percebo é que as necessidades humanas são universais, quando deixamos de lado as ferramentas e as questões técnicas e focamos no que mais incomoda às pessoas.
+                <br><br>
+                A minha experiência é que, não importa quem seja, alguns medos e inseguranças são os mesmos. De uma forma ou de outra, estamos imersos no mesmo caldo cultural tecnológico. Podem ter diferenças em ferramentas, mas os efeitos na nossa humanidade são muito parecidos. Uma comparação muito forte, um crítico interno terrível e uma dificuldade de reconhecer seus méritos, honrar sua própria história e entender que só podemos ser nós mesmos.
+            </div>
+
+            <h3>Visão de Futuro e Legado</h3>
+
+            <div class="question">13. Ana Paula (Youp): "Se o LinkedIn acabasse amanhã, mas o APP 'Construa sua Carreira' continuasse vivo, qual o maior valor que o usuário ainda teria em mãos?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Sem dúvida nenhuma teria uma clareza da sua identidade profissional e de como pode projetar sua autoridade, seja onde for.
+            </div>
+
+            <div class="question">14. Ana Paula (Youp): "O que é, para você, o equilíbrio perfeito entre a 'senioridade técnica' e a 'influência real na rede'?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Eu não sei se tenho uma receita para isso. Mas posso compartilhar minha própria experiência. Eu gosto muito de compartilhar com as pessoas tudo que aprendo. Tenho real realização em ensinar algo, seja para uma pessoa ou para um grupo. Esse contato com as pessoas são algo que faz sentir humano, realizando algo que é minha contribuição no mundo.
+                <br><br>
+                Mas, quando comecei a estudar sobre inteligência artificial e sobre o algoritmo do LinkedIn, tive que mergulhar num mundo muito técnico e frio. Minhas leituras mudaram, meu conteúdo mudou, meu tom de voz mudou. Percebi que estava perdendo meu lado mais humano. Então, o que estou procurando fazer agora é voltar a equilibrar as leituras, falar mais sobre mim e cuidar das minhas relações no mundo real, com pessoas reais, com problemas reais.
+                <br><br>
+                Esse equilíbrio ou desequilíbrio aparece na rede, e somente com um processo de autovaliação é que chegamos a um equilíbrio que faça sentido para nós. É onde me encontro atualmente.
+            </div>
+
+            <div class="question">15. Ana Paula (Youp): "Romulo, para encerrarmos: qual o seu maior desejo com esse novo APP? Onde você quer que os profissionais que o utilizarem cheguem daqui a um ano?"</div>
+            <div class="answer">
+                <strong>Romulo Correa:</strong> Queremos crescer como uma plataforma de soluções para todos os que usam o LinkedIn diariamente. Queremos crescer no nicho primário do LinkedIn, de carreira, ajudando pessoas e profissionais que atuam com recrutamento e recolocação e precisam aparecer corretamente no LinkedIn.
+                <br><br>
+                Mas, como mentor e empreendedor, sei das dores de quem quer crescer no seu negócio usando o LinkedIn. Queremos oferecer ferramentas para esse grupo também. Mas, sobretudo, queremos ouvir o que estão nos pedindo. Já recebemos várias sugestões e estamos anotando todas para as próximas versões. Decidimos lançar com uma funcionalidade e ir aprendendo ao longo do processo, ao invés de criar algo que não foi pedido.
+            </div>
+
+            <div class="bio-box">
+                <h4>Sobre o Entrevistado</h4>
+                <p>Estrategista de LinkedIn e IA Generativa (Gemini), <strong>Romulo Correa</strong> transforma track record em autoridade digital. Com 30 anos de vivência corporativa (Michelin, BB) e criador da metodologia "Os 5 Is da Marca Pessoal", mentoreou mais de 500 executivos em 6 países. Reconhecido como <strong>LinkedIn Top Voice 2024</strong> e co-criador do <a href="https://construasuacarreira.com/" style="color:var(--dourado); text-decoration:underline;" target="_blank">App Construa Sua Carreira</a>, ele une pragmatismo técnico e IA para escalar a influência de C-Levels. Siga Romulo no <a href="https://www.linkedin.com/in/romulocorrea/" style="color:var(--dourado); text-decoration:underline;" target="_blank">LinkedIn</a>.</p>
+            </div>
+        </div>
+
+        <section class="cta-box">
+            <h3>Preparado para alinhar seu Valuation às novas regras do mercado?</h3>
+            <p>Seja dominando o LinkedIn ou mapeando as cadeiras invisíveis através do Stealth Search, a sua estratégia C-Level precisa de inteligência e mentoria direcionada.</p>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20li%20a%20entrevista%20com%20o%20Romulo%20e%20quero%20elevar%20o%20n%C3%ADvel%20da%20minha%20estrat%C3%A9gia%20de%20carreira." class="btn-cta" target="_blank">Agende seu Diagnóstico com a Youp</a>
+        </section>
+    </main>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'pt-BR', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element'); }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
