@@ -333,7 +333,8 @@
             var formData = new FormData(form);
             var scriptURL = 'https://script.google.com/macros/s/AKfycbwI248hq1hrWMv2QSHvybEpjebayryrzStQ1bnLjC9F8xqw6HA5eUXAUFUV_rGvlkPtAg/exec'; 
 
-            fetch(scriptURL, { method: 'POST', body: formData })
+            // === A MÁGICA ESTÁ NESTA LINHA ABAIXO (mode: 'no-cors') ===
+            fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
             .then(response => {
                 form.style.display = 'none';
                 document.getElementById('toggleAction').style.display = 'none';
