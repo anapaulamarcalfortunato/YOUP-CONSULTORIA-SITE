@@ -63,16 +63,6 @@
         .share-btn:hover { background: var(--dourado); color: var(--cinza-escuro); transform: scale(1.1); }
         .mobile-share { display: none; margin: 40px 0; gap: 15px; justify-content: center; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 20px 0; }
 
-        .newsletter-box { background: #fdfdfd; padding: 40px; border-radius: 8px; margin: 50px 0; text-align: center; border: 1px solid #e0e0e0; border-bottom: 4px solid var(--verde-youp); }
-        .newsletter-box h4 { color: var(--texto-titulo); font-size: 22px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 10px; font-weight: 800; }
-        .newsletter-box p { font-size: 15px; margin-bottom: 25px; color: #555; }
-        .newsletter-form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .newsletter-form input { padding: 15px 20px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; width: 100%; max-width: 350px; font-family: 'Montserrat', sans-serif; outline: none; }
-        .newsletter-form input:focus { border-color: var(--dourado); }
-        .newsletter-form button { background: var(--cinza-escuro); color: var(--dourado); border: none; padding: 15px 30px; font-size: 14px; font-weight: 700; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: 0.3s; font-family: 'Montserrat', sans-serif; }
-        .newsletter-form button:hover { background: var(--dourado); color: #000; }
-        .unsubscribe-link { display: block; margin-top: 15px; font-size: 11px; color: #999; text-decoration: underline; cursor: pointer; }
-
         .author-box { display: flex; align-items: center; background-color: #fdfdfd; border: 1px solid #f0f0f0; border-left: 5px solid var(--dourado); padding: 35px 30px; margin: 40px 0; border-radius: 4px; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
         .author-photo { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-shrink: 0; }
         .author-info { display: flex; flex-direction: column; }
@@ -111,9 +101,8 @@
             .article-content h2 { font-size: 22px; }
             .author-box { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
             .author-bio { text-align: center !important; }
-            .btn-cta, .newsletter-form button { width: 100%; box-sizing: border-box; padding: 15px; }
+            .btn-cta { width: 100%; box-sizing: border-box; padding: 15px; }
             .cta-box h3 { font-size: 24px; }
-            .newsletter-box { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -240,23 +229,6 @@
             <a onclick="shareWhatsApp()" class="share-btn" title="WhatsApp">WA</a>
         </div>
 
-        <div class="newsletter-box" id="newsletterSection">
-            <h4 id="newsTitle">Executive Briefing</h4>
-            <p id="newsText">Receba análises estratégicas, bastidores do Executive Search e movimentações do Mercado Oculto C-Level diretamente no seu e-mail corporativo.</p>
-            
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="hidden" name="action" id="actionField" value="Inscrição">
-                <input type="email" name="email" id="emailInput" placeholder="Seu e-mail corporativo" required>
-                <button type="submit" id="btnSubmit">Assinar</button>
-            </form>
-            
-            <div id="msgSucesso" style="display:none; color: var(--verde-youp); font-weight: 800; margin-top: 15px; font-size: 14px;">
-                Operação confirmada com sucesso.
-            </div>
-
-            <span class="unsubscribe-link" id="toggleAction" onclick="toggleUnsubscribe()">Deseja cancelar sua inscrição? Clique aqui.</span>
-        </div>
-
         <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; margin-bottom: 30px;">
             <h4 style="font-size: 14px; text-transform: uppercase; color: #888; letter-spacing: 1px;">Governança de Transição:</h4>
             <ul style="list-style: none; padding: 0;">
@@ -300,63 +272,6 @@
             var url = encodeURIComponent(window.location.href);
             window.open('https://api.whatsapp.com/send?text=Leitura obrigatória sobre carreira executiva: ' + title + ' - ' + url, '_blank');
         }
-
-        function toggleUnsubscribe() {
-            const actionField = document.getElementById('actionField');
-            const btn = document.getElementById('btnSubmit');
-            const title = document.getElementById('newsTitle');
-            const text = document.getElementById('newsText');
-            const toggle = document.getElementById('toggleAction');
-
-            if (actionField.value === 'Inscrição') {
-                actionField.value = 'Cancelamento';
-                btn.innerText = 'Remover meu e-mail';
-                title.innerText = 'Cancelar Inscrição';
-                text.innerText = 'Sentimos muito em ver você partir. Insira seu e-mail para ser removido da nossa lista VIP.';
-                toggle.innerText = 'Deseja se inscrever? Clique aqui.';
-            } else {
-                actionField.value = 'Inscrição';
-                btn.innerText = 'Assinar';
-                title.innerText = 'Executive Briefing';
-                text.innerText = 'Receba análises estratégicas, bastidores do Executive Search e movimentações do Mercado Oculto C-Level diretamente no seu e-mail corporativo.';
-                toggle.innerText = 'Deseja cancelar sua inscrição? Clique aqui.';
-            }
-        }
-
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var form = this;
-            var btn = document.getElementById('btnSubmit');
-            btn.innerText = 'Processando...';
-            btn.disabled = true;
-
-            // Empacotando os dados de forma blindada para o Google
-            var data = new URLSearchParams();
-            data.append('email', document.getElementById('emailInput').value);
-            data.append('action', document.getElementById('actionField').value);
-
-            // =======================================================
-            // 🚨 COLE AQUI O SEU NOVO LINK DO GOOGLE (ENTRE AS ASPAS)
-            // =======================================================
-            var scriptURL = 'COLE_AQUI_O_SEU_NOVO_LINK_GERADO_NO_PASSO_1'; 
-
-            fetch(scriptURL, {
-                method: 'POST',
-                body: data,
-                mode: 'no-cors' // Impede o bloqueio de segurança do navegador
-            })
-            .then(response => {
-                form.style.display = 'none';
-                document.getElementById('toggleAction').style.display = 'none';
-                document.getElementById('msgSucesso').style.display = 'block';
-            })
-            .catch(error => {
-                btn.innerText = 'Tentar novamente';
-                btn.disabled = false;
-                alert('Ocorreu um erro no servidor. Verifique sua internet ou tente mais tarde.');
-                console.error('Erro detalhado:', error);
-            });
-        });
     </script>
 </body>
 </html>
