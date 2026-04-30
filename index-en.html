@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youp Consultoria - Career & HR Boutique</title>
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,10 +8,24 @@
       gtag('js', new Date());
       gtag('config', 'G-6JTWLMZBRS');
     </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Youp Consultoria - Career & HR Boutique</title>
+    <meta name="description" content="Boutique estratégica de RH e Carreira. Especialistas em Executive Search, Outplacement, Headhunter e Gestão de Reputação para líderes e diretores.">
+    <meta name="keywords" content="Headhunter, Transição de Carreira, C-Level, RH Estratégico, Executive Search Brasil, Recolocação Executiva, Outplacement, Mentoria de Carreira">
+    <meta name="author" content="Youp Consultoria">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Youp Consultoria | Executive Search and Career">
+    <meta property="og:description" content="Where exceptional leaders meet visionary companies. Accelerate your next professional step with us.">
+    <meta property="og:site_name" content="Youp Consultoria">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -23,98 +33,113 @@
             --verde-claro: #84a98c;
             --dourado: #c5a059;
             --cinza-escuro: #0a0a0a; 
-            --texto-claro: #f0f0f0;
-            --texto-mute: #888888;
+            --texto-claro: #fdfdfd;
+            --texto-mute: #a0a0a0;
         }
 
         body {
             margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--cinza-escuro);
-            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.92), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
+            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.90), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
             background-size: cover; background-position: center; background-attachment: fixed;
             color: var(--texto-claro);
-            min-height: 100vh; display: flex; flex-direction: column;
+            height: 100vh; 
+            overflow: hidden; 
+            display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        /* ANIMAÇÃO DE ENTRADA */
         .fade-in { animation: fadeInUp 1s ease-out forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.6s; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* NAVBAR (TOPO) */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
         }
         
-        .nav-actions { display: flex; align-items: center; gap: 20px; }
-        .lang-switch { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--texto-mute); display: flex; gap: 10px; margin-right: 10px; }
-        .lang-switch span { cursor: pointer; transition: 0.3s; }
+        .nav-actions { display: flex; align-items: center; gap: 25px; }
+        .lang-switch { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--texto-mute); display: flex; gap: 15px; margin-right: 10px; }
+        .lang-switch span { cursor: pointer; transition: 0.3s; padding-bottom: 3px; }
         .lang-switch span:hover { color: #fff; }
-        .lang-switch span.active { color: var(--dourado); cursor: default; border-bottom: 1px solid var(--dourado); }
+        .lang-switch span.active { color: var(--dourado); cursor: default; border-bottom: 2px solid var(--dourado); }
         
         .btn-contact {
             background: transparent; color: var(--dourado); border: 1px solid var(--dourado);
-            padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
-            letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s;
+            padding: 10px 25px; border-radius: 30px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 700; text-decoration: none; transition: 0.3s;
         }
-        .btn-contact:hover { background: var(--dourado); color: var(--cinza-escuro); }
+        .btn-contact:hover { background: var(--dourado); color: var(--cinza-escuro); box-shadow: 0 0 15px rgba(197, 160, 89, 0.4); }
 
-        /* HERO SECTION (CENTRO) */
-        .hero { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 20px; }
+        .hero { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 20px; }
         
-        /* Marca Central */
-        .hero-brand-container { margin-bottom: 30px; }
-        .hero-brand { display: block; color: var(--dourado); font-size: 18px; font-weight: 700; letter-spacing: 6px; margin-bottom: 8px; }
-        .hero-brand-sub { display: block; color: var(--verde-claro); font-size: 10px; text-transform: uppercase; letter-spacing: 4px; font-weight: 500; }
+        .hero-brand-container { margin-bottom: 25px; }
+        .hero-brand { display: block; color: var(--dourado); font-size: 18px; font-weight: 800; letter-spacing: 8px; margin-bottom: 8px; }
+        .hero-brand-sub { display: block; color: var(--verde-claro); font-size: 11px; text-transform: uppercase; letter-spacing: 5px; font-weight: 600; }
 
-        .headline { font-size: 42px; font-weight: 300; line-height: 1.2; max-width: 800px; margin: 0 auto 20px; letter-spacing: -0.5px; }
-        .headline b { font-weight: 600; color: #fff; }
-        .sub-headline { font-size: 14px; font-weight: 300; color: var(--texto-mute); max-width: 500px; margin: 0 auto 50px; line-height: 1.8; }
+        .headline { font-size: 48px; font-weight: 300; line-height: 1.2; max-width: 900px; margin: 0 auto 20px; letter-spacing: -1px; }
+        .headline b { font-weight: 700; color: #fff; }
+        .sub-headline { font-size: 16px; font-weight: 300; color: var(--texto-mute); max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-        /* GRID DE SERVIÇOS */
-        .container { max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 20px 60px; box-sizing: border-box; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 40px 20px; box-sizing: border-box; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 15px; }
         
         .column { 
             background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); 
             border-radius: 12px; padding: 30px; backdrop-filter: blur(10px); transition: 0.4s;
+            display: flex; flex-direction: column;
         }
-        .column:hover { border-color: rgba(197, 160, 89, 0.3); background: rgba(255,255,255,0.04); transform: translateY(-5px); }
+        .column:hover { border-color: rgba(197, 160, 89, 0.4); background: rgba(255,255,255,0.04); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
 
-        .col-title { font-size: 12px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-        .col-title::before { content: ''; width: 20px; height: 1px; background: var(--dourado); display: block; }
+        .col-title { font-size: 14px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 700; display: flex; align-items: center; gap: 15px; }
+        .col-title::before { content: ''; width: 25px; height: 2px; background: var(--dourado); display: block; }
 
-        .link-list { display: flex; flex-direction: column; gap: 15px; }
-        .link-item { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 300; transition: 0.3s; display: flex; justify-content: space-between; }
-        .link-item:hover { color: #fff; transform: translateX(5px); }
-        .link-item::after { content: '→'; opacity: 0; transition: 0.3s; color: var(--verde-youp); }
-        .link-item:hover::after { opacity: 1; }
+        .link-list { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+        .link-item { color: #d0d0d0; text-decoration: none; font-size: 14px; font-weight: 400; transition: 0.3s; display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .link-item:hover { color: #fff; transform: translateX(8px); border-color: transparent; }
+        .link-item::after { content: '→'; opacity: 0; transition: 0.3s; color: var(--dourado); font-weight: 800; }
+        .link-item:hover::after { opacity: 1; transform: translateX(5px); }
 
-        /* LINKS INSTITUCIONAIS MINIMALISTAS */
-        .footer-links { text-align: center; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .footer-links a { color: var(--texto-mute); text-decoration: none; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .link-blog-highlight {
+            background: linear-gradient(135deg, var(--dourado), #dfb668);
+            color: #000 !important;
+            padding: 14px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto; 
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+            transition: 0.3s;
+        }
+        .link-blog-highlight:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4); }
+
+        .footer-links { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .footer-links a { color: var(--texto-mute); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
         .footer-links a:hover { color: var(--dourado); }
 
-        /* RESPONSIVIDADE MOBILE */
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-actions { width: 100%; flex-direction: column; gap: 12px; }
-            .btn-contact { width: 100%; text-align: center; box-sizing: border-box; }
-            .lang-switch { margin-right: 0; margin-bottom: 5px; }
-            .hero-brand { font-size: 16px; letter-spacing: 4px; }
-            .hero-brand-sub { font-size: 9px; letter-spacing: 3px; }
-            .headline { font-size: 28px; }
-            .sub-headline { font-size: 12px; }
-            .grid { grid-template-columns: 1fr; gap: 15px; }
-            .column { padding: 20px; }
+            body { height: auto; min-height: 100vh; overflow-y: auto; }
+            .navbar { padding: 20px 15px; flex-direction: column; gap: 20px; }
+            .nav-actions { width: 100%; flex-direction: column; gap: 15px; align-items: center; }
+            .btn-contact { width: 100%; max-width: 320px; text-align: center; box-sizing: border-box; padding: 15px 20px; }
+            .hero { padding: 40px 20px; flex: none; }
+            .headline { font-size: 32px; line-height: 1.3; }
+            .grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-links { flex-direction: column; gap: 15px; padding-bottom: 30px; }
         }
     </style>
 </head>
@@ -133,7 +158,6 @@
     </nav>
 
     <main class="hero fade-in delay-1">
-        
         <div class="hero-brand-container">
             <span class="hero-brand">YOUP CONSULTORIA</span>
             <span class="hero-brand-sub">Career, Reputation & HR</span>
@@ -143,7 +167,7 @@
         <p class="sub-headline">Market intelligence, high-impact executive search, and board structuring for the new corporate landscape.</p>
     </main>
 
-    <div class="container fade-in delay-2">
+    <section class="container fade-in delay-2">
         <div class="grid">
             
             <div class="column">
@@ -168,22 +192,22 @@
                 <h2 class="col-title">The Youp Standard</h2>
                 <div class="link-list">
                     <a href="sobre-en.html" class="link-item">Our Philosophy & History</a>
-                    <a href="produtos-en.html" class="link-item">Product Ecosystem</a>
-                    <a href="blog-en.html" class="link-item">Blog & Corporate Insights</a>
+                    <a href="blog.html" class="link-blog-highlight">
+                        Access Corporate Insights ➔
+                    </a>
                 </div>
             </div>
 
         </div>
 
-        <div class="footer-links">
+        <footer class="footer-links">
             <a href="contatos-en.html">Contacts & Ombudsman</a>
             <a href="privacidade-en.html">Privacy Policy</a>
-            <span style="color: #444; font-size: 10px;">&copy; 2026 Youp Consultoria. Tailor-Made Executive Search.</span>
-        </div>
-    </div>
+            <span style="color: #666; font-size: 11px; letter-spacing: 1px; font-weight: 500;">&copy; 2026 Youp Consultoria. Tailor-Made Executive Search.</span>
+        </footer>
+    </section>
 
     <script>
-        // Registra que o usuário está navegando em inglês
         localStorage.setItem('youp_idioma', 'en');
 
         function definirIdiomaGlobal(lang) {
