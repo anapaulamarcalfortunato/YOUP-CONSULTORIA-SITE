@@ -2,45 +2,166 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.youpconsultoria.com.br/</loc>
+    <loc>https://www.youpconsultoria.com/</loc>
     <priority>1.0</priority>
   </url>
-  
   <url>
-    <loc>https://www.youpconsultoria.com.br/blog.html</loc>
+    <loc>https://www.youpconsultoria.com/blog.html</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.youpconsultoria.com.br/artigo-radar-executivo-vol1-maio-2026.html</loc>
+    <loc>https://www.youpconsultoria.com/sobre.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/carreira.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/headhunter.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/outplacement.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/mapeamento-de-carreira.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/reputacao.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/produtos.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/contatos.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.youpconsultoria.com.br/artigo-elas-no-radar-gargalo-prestigio-boards.html</loc>
+    <loc>https://www.youpconsultoria.com/artigo-apagao-tech-rh-estrategico.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-armadilha-da-vulnerabilidade.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-backchanneling-referencias.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-blog-linkedin-top-companies.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-c-level-diretoria-nao-e-time.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-culture-add-comites.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-elas-no-radar-gargalo-prestigio-boards.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-entrevista-como-rodada-investimentos.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-entrevista-conselho-board.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-entrevista-socios-private-equity.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-executivo-polvo-operacao.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-follow-up-executivo.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-linkedin-atrai-headhunters.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-mercado-oculto-vagas.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-momento-promocao.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-negociacao-salario-c-level.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-nr1-risco-governanca-c-level.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-plano-90-dias.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-quando-abordar-headhunter-c-level.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-radar-executivo-vol1-maio-2026.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-recrutamento-elite-top-1-porcento.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-rh-ma-capital-humano.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-rh-onboarding-elite.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-rh-planejamento-sucessao.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-rh-remuneracao-estrategica.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-senioridade-executiva-etarismo.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-turnover-selo-qualidade.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.youpconsultoria.com.br/artigo-nr1-risco-governanca-c-level.html</loc>
+    <loc>https://www.youpconsultoria.com/entrevista-aline-barbara.html</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.youpconsultoria.com.br/artigo-c-level-diretoria-nao-e-time.html</loc>
+    <loc>https://www.youpconsultoria.com/entrevista-debora-boscolo.html</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.youpconsultoria.com.br/artigo-apagao-tech-rh-estrategico.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.youpconsultoria.com.br/artigo-turnover-selo-qualidade.html</loc>
+    <loc>https://www.youpconsultoria.com/entrevista-romulo-correa.html</loc>
     <priority>0.8</priority>
   </url>
 
 </urlset>
-
-
