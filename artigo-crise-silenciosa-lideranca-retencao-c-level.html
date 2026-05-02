@@ -29,61 +29,56 @@
         }
       },
       "datePublished": "2026-05-02",
-      "description": "Por que o Top 1% dos executivos está abandonando cadeiras C-Level em 2026? Um dossiê profundo sobre a quebra do contrato psicológico e a falência da retenção pelo salário."
+      "description": "Dossiê completo sobre a quebra do contrato psicológico e a falência da retenção pelo salário. Dados da Deloitte e LHH de 2026."
     }
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Crise Silenciosa da Liderança | Dossiê Youp 2026</title>
-    
+    <title>A Crise Silenciosa da Liderança | Artigo de Autoridade Youp</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; }
-        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f8f9fa; color: var(--texto-corpo); line-height: 1.9; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.9; }
         
         .progress-container { width: 100%; height: 5px; background: #e0e0e0; position: fixed; top: 0; z-index: 1002; }
-        .progress-bar { height: 5px; background: var(--dourado); width: 0%; }
+        .progress-bar { height: 5px; background: var(--dourado); width: 0%; transition: width 0.1s; }
 
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; }
-        .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; }
-        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; }
+        .brand-logo { color:var(--dourado); text-decoration:none; font-weight:800; letter-spacing:3px; }
+        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; background: transparent; cursor: pointer;}
 
-        .article-hero { width: 100%; height: 65vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=1600&q=80') center/cover; display: flex; align-items: center; justify-content: center; }
-        .hero-title-box { max-width: 800px; text-align: center; color: #fff; padding: 20px; }
-        .hero-title-box h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+        .article-hero { width: 100%; height: 60vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=1600&q=80') center/cover; display: flex; align-items: center; justify-content: center; }
+        .hero-text { text-align: center; color: #fff; padding: 20px; max-width: 900px; }
+        .hero-text h1 { font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
 
-        .article-main { max-width: 900px; margin: -100px auto 100px; background: var(--fundo-claro); padding: 80px 100px; border-radius: 4px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); position: relative; }
-        .article-meta { color: var(--verde-youp); font-size: 12px; text-transform: uppercase; font-weight: 700; letter-spacing: 3px; margin-bottom: 30px; display: block; }
-        
-        .article-content h2 { font-size: 32px; color: var(--cinza-escuro); margin: 60px 0 30px; font-weight: 800; border-left: 6px solid var(--dourado); padding-left: 20px; }
+        .article-main { max-width: 900px; margin: -80px auto 100px; background: var(--fundo-claro); padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); position: relative; }
+        .article-content h2 { font-size: 32px; color: var(--cinza-escuro); border-left: 6px solid var(--dourado); padding-left: 20px; margin: 60px 0 30px; font-weight: 800; }
         .article-content p { font-size: 19px; margin-bottom: 35px; text-align: justify; }
-        
-        .data-box { background: var(--cinza-escuro); color: #fff; padding: 50px; border-radius: 8px; margin: 60px 0; text-align: center; border-bottom: 4px solid var(--dourado); }
-        .data-number { font-size: 72px; color: var(--dourado); font-weight: 800; display: block; }
-        
-        /* CARD PARCEIRO IA EXPRESS */
-        .partner-card { background: #000; border: 1px solid var(--dourado); padding: 40px; margin: 60px 0; border-radius: 12px; display: flex; align-items: center; gap: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .partner-info { flex: 1; }
-        .partner-tag { color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px; display: block; }
-        .partner-info h4 { color: #fff; margin: 0 0 10px 0; font-size: 22px; }
-        .partner-info p { color: #ccc; font-size: 14px !important; margin: 0 !important; line-height: 1.5 !important; }
-        .btn-partner { background: var(--dourado); color: #000; padding: 15px 30px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 11px; border-radius: 4px; white-space: nowrap; transition: 0.3s; }
 
-        .author-box { display: flex; align-items: center; background: #fdfdfd; border: 1px solid #eee; padding: 40px; margin: 80px 0; border-left: 6px solid var(--dourado); gap: 30px; }
+        /* CARD DE VENDAS PARCEIRO - IA EXPRESS */
+        .sales-card { background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 40px; margin: 60px 0; border-radius: 8px; display: flex; align-items: center; gap: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .sales-card-info { flex: 1; }
+        .sales-tag { color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; display: block; margin-bottom: 10px; }
+        .sales-card-info h4 { color: #fff; font-size: 24px; margin: 0 0 10px 0; }
+        .sales-card-info p { color: #bbb; font-size: 15px !important; line-height: 1.5 !important; margin: 0 !important; }
+        .btn-sales { background: var(--dourado); color: #000; padding: 18px 30px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 11px; border-radius: 4px; transition: 0.3s; white-space: nowrap; }
+        .btn-sales:hover { background: #dfb668; transform: translateY(-3px); }
+
+        .author-box { display: flex; align-items: center; background: #fdfdfd; border: 1px solid #eee; padding: 40px; margin-top: 80px; border-left: 6px solid var(--dourado); gap: 30px; }
         .author-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; }
         .author-name { font-size: 24px; font-weight: 800; margin: 0; }
-        .author-bio { font-size: 15px; color: #666; margin-top: 10px; }
+        .author-title { font-size: 12px; color: var(--dourado); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
 
         .reading-list { list-style: none; padding: 0; margin: 40px 0; border-top: 1px solid #eee; padding-top: 30px; }
-        .reading-list li { margin-bottom: 15px; font-weight: 600; }
-        .reading-list a { color: var(--dourado); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .reading-list li { margin-bottom: 15px; }
+        .reading-list a { color: var(--dourado); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px; }
 
         @media (max-width: 768px) {
-            .article-main { padding: 40px 20px; margin-top: -50px; }
-            .hero-title-box h1 { font-size: 32px; }
-            .partner-card { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .article-main { padding: 40px 20px; }
+            .hero-text h1 { font-size: 30px; }
+            .sales-card { flex-direction: column; text-align: center; }
             .author-box { flex-direction: column; text-align: center; }
         }
     </style>
@@ -98,66 +93,63 @@
 </nav>
 
 <div class="article-hero">
-    <div class="hero-title-box">
-        <span style="text-transform: uppercase; letter-spacing: 4px; font-size: 12px; color: var(--dourado);">Dossiê de Capital Humano 2026</span>
-        <h1>A Crise Silenciosa da Liderança: Por que o Top 1% não é mais retido pelo salário</h1>
+    <div class="hero-text">
+        <span style="color: var(--dourado); font-weight: 700; text-transform: uppercase; letter-spacing: 3px;">Dossiê de Capital Humano 2026</span>
+        <h1>A Crise Silenciosa da Liderança: Por que o Top 1% não é retido pelo salário</h1>
     </div>
 </div>
 
 <main class="article-main">
-    <span class="article-meta">Escrito por Ana Paula Marçal Fortunato • 22 min de leitura</span>
+    <span style="color: var(--verde-youp); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Por Ana Paula Marçal Fortunato • 25 min de leitura</span>
 
     <div class="article-content">
-        <p>Se você perguntar a um CEO em 2026 qual o seu maior "risco de prateleira", ele provavelmente citará a volatilidade da IA ou a instabilidade geopolítica. Mas, nos corredores silenciosos do C-Suite, a verdadeira hemorragia é outra: **a fuga de cérebros**. Não estamos falando de rotatividade técnica, mas do êxodo sistemático da alta gestão — líderes que carregam consigo a memória institucional, a capacidade de execução e o DNA da cultura organizacional.</p>
+        <p>Vivemos o auge de uma transformação invisível na alta gestão. Se você perguntar a um Conselho de Administração em 2026 qual o seu maior risco, as respostas padrão circularão em torno de IA ou inflação. Mas nos bastidores das grandes corporações, uma hemorragia silenciosa está drenando o capital intelectual das empresas: os melhores líderes estão fazendo as malas. Não se trata de rotatividade técnica; é o colapso do <b>Contrato Psicológico</b> na liderança.</p>
 
-        <p>O mercado habituou-se a tratar a insatisfação executiva com "hush money". Se um Diretor ou Vice-Presidente sinalizava desconforto, o Board e o RH abriam a carteira, ofereciam um agressivo bônus de retenção ou ajustavam o bônus anual (STI). Em 2026, essa estratégia não apenas faliu; ela tornou-se um catalisador de desprezo corporativo.</p>
+        <p>O mercado habituou-se à ideia de que, no C-Level, o dinheiro resolve qualquer atrito cultural. Se um Diretor ou Vice-Presidente sinalizasse desconforto, o Board abria a carteira. Em 2026, essa estratégia não apenas faliu; ela tornou-se um catalisador de desprezo. O executivo de elite não quer apenas o bônus; ele exige autonomia, clareza estratégica e respeito ao seu tempo mental.</p>
 
-        <div class="data-box">
-            <span class="data-number">70%</span>
-            <span class="data-text">Dos executivos da alta liderança planejam deixar seus cargos atuais nos próximos 12 meses, segundo o relatório global da Deloitte. O motivo? O colapso do Contrato Psicológico.</span>
-        </div>
+        <h2>1. O Colapso do Contrato Psicológico</h2>
+        <p>O "Contrato Psicológico" é o acordo invisível que diz: "Eu entrego minha expertise e lealdade, e você me entrega um ambiente onde eu possa construir algo real". Quando a empresa vende autonomia na vitrine do EVP (Employee Value Proposition), mas entrega burocracia sufocante no dia a dia, esse contrato é rasgado. Dados da Deloitte de 2026 mostram que 70% dos executivos pensam em sair. Eles fogem não do trabalho duro, mas do trabalho inútil.</p>
 
-        <h2>O Colapso do Contrato Psicológico</h2>
-        <p>Como Headhunter, vejo isso diariamente: o executivo do Top 1% não foge do trabalho duro. Ele foge do trabalho inútil. O "Contrato Psicológico" é aquele acordo invisível que diz: "Eu entrego minha expertise, lealdade e resultados acima da média, e você me entrega autonomia, clareza estratégica e um ambiente onde eu possa construir algo real".</p>
-        
-        <p>Quando a empresa quebra esse acordo — seja por burocracia excessiva, falta de transparência do Board ou uma cultura que pune o erro e sufoca a inovação — o salário, por maior que seja, torna-se apenas uma taxa de permanência temporária. Em 2026, pagar acima do mercado para um executivo infeliz é como tentar consertar um vazamento de óleo com fita adesiva de ouro: brilha, mas a máquina continua quebrando.</p>
+        <p>A retenção pelo salário tornou-se "aluguel de tempo". Tentar segurar um líder brilhante apenas cobrindo a oferta da concorrência, sem consertar o ambiente, é apenas adiar o inevitável por seis meses. O custo contábil de substituir um executivo é alto, mas a <b>Erosão de EBITDA</b> — a perda de memória institucional e moral da equipe — é incalculável.</p>
 
-        <h2>A Erosão de EBITDA e o Custo Invisível</h2>
-        <p>Muitos Conselhos ainda veem a saída de um C-Level como uma métrica de RH. Erro fatal. Na Youp, traduzimos isso para a língua do negócio: a saída de um líder de elite causa uma **Erosão de EBITDA** imediata. O custo contábil de substituir um executivo gira em torno de 200% do seu salário anual. Mas o custo real — o atraso de projetos críticos, a queda na moral da equipe e a perda de confiança dos clientes — pode ser dez vezes maior.</p>
-
-        <div class="partner-card">
-            <div class="partner-info">
-                <span class="partner-tag">Recomendação Youp</span>
-                <h4>IA Express: Inteligência Artificial na Gestão</h4>
-                <p>O executivo moderno precisa de ferramentas para focar no humano. Descubra como escalar sua produtividade tática e liberar tempo para a liderança estratégica.</p>
+        <div class="sales-card">
+            <div class="sales-card-info">
+                <span class="sales-tag">Sugestão de Investimento</span>
+                <h4>IA Express: Inteligência Artificial na Gestão de Negócios</h4>
+                <p>O executivo moderno precisa de ferramentas para focar em GENTE. Descubra como líderes do Top 1% estão usando IA para automatizar o tático e escalar a estratégia humana.</p>
             </div>
-            <a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" class="btn-partner">Garantir Vaga ➔</a>
+            <a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" class="btn-sales">Garantir Vaga ➔</a>
         </div>
 
-        <h2>Due Diligence Cultural: O Novo Mandato do Executive Search</h2>
-        <p>O Executive Search de elite em 2026 não é mais sobre "quem você conhece", mas sobre a capacidade de realizar uma **Due Diligence Cultural**. O meu papel não é apenas encontrar o candidato com o melhor histórico financeiro ou operacional. É auditar o fit entre o DNA do líder e a saúde real (não a de vitrine) da organização.</p>
-        
-        <p>Se o Board não está disposto a investir em **Gente** e na manutenção de um EVP (Employee Value Proposition) autêntico, nenhum Headhunter do mundo conseguirá travar o turnover. A retenção começa no momento do diagnóstico da vaga, muito antes da primeira entrevista.</p>
+        <h2>2. A Matemática do Caos: O Risco de Ignorar GENTE</h2>
+        <p>Muitos Conselhos ainda veem o turnover como uma métrica de RH. Na Youp, traduzimos isso para a língua do negócio: a perda de um C-Level custa até 300% do seu salário anual. Mas o rombo financeiro real vem do atraso de projetos críticos e da queda de produtividade das equipes que ficam "órfãs" de liderança. O executivo que sai carrega consigo relacionamentos com clientes-chave e a visão tática que mantém o EBITDA saudável.</p>
 
-        <h2>Conclusão: O Valor Real do Capital Intelectual</h2>
-        <p>Estamos vivendo a era do Capital Humano como o único diferencial competitivo sustentável. Máquinas podem ser compradas, processos podem ser copiados, mas a **capacidade de liderança de elite** é um ativo escasso. As empresas que sobreviverão a 2026 são aquelas que entenderem que o cheque no final do mês é a taxa de entrada, mas a cultura e o respeito ao contrato psicológico são o que garantem a permanência.</p>
+        <p>Se o seu Board foca apenas no financeiro e ignora a gestão de talentos, eles estão criando uma vulnerabilidade estrutural. Um líder infeliz não apenas sai; ele muitas vezes leva consigo os melhores cérebros da operação, gerando um efeito cascata que pode levar anos para ser revertido.</p>
+
+        <h2>3. Due Diligence Cultural: O Novo Mandato do Executive Search</h2>
+        <p>O papel do Headhunter de elite em 2026 mudou. Não somos mais "vendedores de currículos". Somos auditores de cultura. A contratação de sucesso exige uma <b>Due Diligence Cultural</b> prévia. Antes de trazer o líder, auditamos a empresa: a promessa do EVP é real? O Board dá suporte ou é um entrave? Se não houver fit real, a contratação será um transplante rejeitado pelo organismo corporativo.</p>
+
+        <p>A retenção começa no diagnóstico da vaga. O executivo do futuro não aceita cargos; ele aceita missões alinhadas ao seu propósito e que respeitem o seu contrato psicológico. As empresas que sobreviverão são aquelas que entenderem que o cheque é a entrada, mas a cultura é o que mantém a cadeira ocupada.</p>
+
+        <h2>Conclusão: O Valor do Capital Intelectual</h2>
+        <p>Máquinas podem ser compradas, processos copiados. Mas a capacidade de liderança de elite é o único diferencial competitivo impossível de replicar. O segredo da retenção em 2026 não está no bônus, mas no respeito ao capital intelectual e na coragem do Board em priorizar as pessoas sobre a planilha.</p>
     </div>
+
+    <ul class="reading-list">
+        <li style="color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Aprofunde sua Autoridade:</li>
+        <li><a href="artigo-elas-no-radar-cfos-blindagem-valuation.html">➔ Elas no Radar: O impacto das mulheres CFOs no Valuation</a></li>
+        <li><a href="artigo-elas-no-radar-gargalo-prestigio-boards.html">➔ O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</a></li>
+        <li><a href="artigo-turnover-selo-qualidade.html">➔ O Novo Valuation do Talento: Turnover no C-Suite</a></li>
+    </ul>
 
     <div class="author-box">
         <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="author-photo">
         <div class="author-info">
             <h4 class="author-name">Ana Paula Marçal Fortunato</h4>
-            <span class="author-title">CEO Youp • Estrategista de Carreira C-Level & Headhunter</span>
-            <p class="author-bio">Com expertise em blindagem de reputação e governança de talentos, Ana atua no mapeamento do Top 1% do mercado, convertendo capital humano em diferencial competitivo para Conselhos e Diretorias.</p>
+            <span class="author-title">CEO Youp • Executive Search & Estrategista C-Level</span>
+            <p style="font-size: 15px; margin-top: 10px;">Com foco em blindagem de reputação e capital intelectual, Ana atua no topo da pirâmide corporativa convertendo gestão de talentos em diferencial competitivo de mercado.</p>
         </div>
     </div>
-
-    <ul class="reading-list">
-        <li style="color: #888; font-size: 12px; margin-bottom: 20px; text-transform: uppercase;">Aprofunde sua visão estratégica:</li>
-        <li><a href="artigo-elas-no-radar-cfos-blindagem-valuation.html">➔ Elas no Radar: O impacto das mulheres CFOs no Valuation</a></li>
-        <li><a href="artigo-elas-no-radar-gargalo-prestigio-boards.html">➔ O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</a></li>
-        <li><a href="artigo-radar-executivo-vol1-maio-2026.html">➔ Radar Executivo Vol. 1: Movimentações do C-Level em 2026</a></li>
-    </ul>
 </main>
 
 <script>
@@ -168,6 +160,5 @@
         document.getElementById("myBar").style.width = scrolled + "%";
     };
 </script>
-
 </body>
 </html>
