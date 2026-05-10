@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book: Currículo Campeão | Youp Consultoria</title>
+    <meta name="description" content="Aprenda a criar um currículo que vence os sistemas ATS e atrai a atenção dos recrutadores. Um guia prático da Headhunter Ana Paula Marçal Fortunato.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dourado: #c5a059;
+            --verde-youp: #5c8e82;
+            --cinza-escuro: #0a0a0a;
+            --fundo-claro: #fafafa;
+            --texto-corpo: #333333;
+            --texto-leitura: #1a1a1a;
+        }
+        
+        body { margin: 0; padding: 0; font-family: 'Merriweather', serif; background-color: var(--fundo-claro); color: var(--texto-leitura); line-height: 1.8; }
+        h1, h2, h3, h4, .nav-brand { font-family: 'Montserrat', sans-serif; }
+        
+        /* Navbar Simples */
+        .navbar { background-color: var(--cinza-escuro); padding: 15px 30px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .nav-brand { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 18px; }
+        
+        /* Capa do E-book */
+        .hero-section { background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?fm=webp&w=1200&q=80') center/cover; padding: 100px 20px; text-align: center; color: #fff; }
+        .hero-tag { display: inline-block; background: var(--dourado); color: var(--cinza-escuro); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 8px 15px; border-radius: 30px; margin-bottom: 20px; }
+        .hero-title { font-size: 46px; font-weight: 800; line-height: 1.2; margin: 0 auto 20px; max-width: 800px; }
+        .hero-subtitle { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 300; color: #e0e0e0; max-width: 600px; margin: 0 auto; }
+        
+        /* Container de Leitura */
+        .book-container { max-width: 760px; margin: 0 auto; padding: 60px 30px; background: #fff; box-shadow: 0 0 40px rgba(0,0,0,0.03); }
+        
+        /* Tipografia de Leitura */
+        .book-container p { font-size: 18px; margin-bottom: 25px; text-align: justify; }
+        .book-container h2 { font-size: 32px; color: var(--cinza-escuro); margin: 60px 0 30px; padding-bottom: 15px; border-bottom: 2px solid var(--dourado); }
+        .book-container h3 { font-size: 22px; color: var(--verde-youp); margin: 40px 0 20px; }
+        .book-container ul { font-family: 'Montserrat', sans-serif; font-size: 16px; margin-bottom: 30px; padding-left: 20px; }
+        .book-container li { margin-bottom: 12px; }
+        
+        /* Caixas de Destaque */
+        .headhunter-tip { background-color: #f8f9fa; border-left: 5px solid var(--dourado); padding: 30px; margin: 40px 0; border-radius: 0 8px 8px 0; font-family: 'Montserrat', sans-serif; }
+        .headhunter-tip h4 { margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; }
+        .headhunter-tip p { margin: 0; font-size: 16px; font-style: italic; color: #555; text-align: left; }
+        
+        /* Alertas Erros Fatais */
+        .fatal-error { background-color: #fff5f5; border: 1px solid #ffcccc; padding: 25px; margin: 30px 0; border-radius: 8px; font-family: 'Montserrat', sans-serif; }
+        .fatal-error h4 { margin: 0 0 10px 0; color: #d93025; font-size: 16px; display: flex; align-items: center; gap: 8px;}
+        .fatal-error p { margin: 0; font-size: 15px; color: #333; text-align: left;}
+        
+        /* Imagens Integradas */
+        .book-image { width: 100%; height: auto; border-radius: 8px; margin: 40px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        /* Footer/CTA */
+        .book-footer { background-color: var(--cinza-escuro); color: #fff; text-align: center; padding: 60px 20px; margin-top: 40px; font-family: 'Montserrat', sans-serif; }
+        .author-pic { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--dourado); margin-bottom: 20px; object-fit: cover;}
+        .cta-btn { display: inline-block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; font-weight: 800; text-transform: uppercase; padding: 18px 40px; border-radius: 30px; margin-top: 30px; transition: 0.3s; letter-spacing: 1px; font-size: 13px;}
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 32px; }
+            .book-container { padding: 40px 20px; }
+            .book-container h2 { font-size: 26px; }
+            .book-container p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-brand">YOUP</a>
+    </nav>
+
+    <header class="hero-section">
+        <span class="hero-tag">E-book Gratuito</span>
+        <h1 class="hero-title">Currículo Campeão</h1>
+        <p class="hero-subtitle">Como vencer os robôs de recrutamento (ATS) e garantir a sua cadeira na entrevista com o Headhunter.</p>
+    </header>
+
+    <main class="book-container">
+        
+        <p><strong>Olá, profissional! Seja muito bem-vindo.</strong></p>
+        <p>Na minha cadeira como Headhunter, eu vejo um fenômeno triste e repetitivo todos os dias: profissionais tecnicamente brilhantes, com histórias incríveis de superação e resultados, sendo sumariamente ignorados em processos seletivos.</p>
+        <p>O motivo? Quase nunca é a falta de competência. É a <strong>falha na comunicação com a máquina</strong>.</p>
+        <p>Hoje, o seu currículo raramente cai direto nas mãos de um ser humano. Antes de mim, ele precisa passar pelo "segurança da balada": os sistemas ATS (<em>Applicant Tracking Systems</em>). Se você não souber conversar com eles, seu arquivo vira pó digital. Este web-book é o seu manual definitivo para hackear esse sistema e construir um currículo que não apenas passe pelos robôs, mas que encante os olhos humanos do outro lado.</p>
+
+        <h2>1. O que é o ATS e por que ele reprova você?</h2>
+        <p>ATS (<em>Applicant Tracking System</em>) é um software usado por 99% das médias e grandes empresas (como Gupy, Kenoby, Taleo, Workday). O trabalho dele é ler milhares de currículos em segundos, extrair as informações e ranquear os candidatos com base na compatibilidade com a vaga.</p>
+        <p>O problema é que <strong>o robô é míope</strong>. Ele não consegue ler gráficos bonitos, barras de nível de idioma ou fotos bem produzidas. Se o seu currículo for muito "enfeitado" graficamente, o ATS embaralha as letras, não acha as suas competências e joga a sua nota de compatibilidade lá para baixo.</p>
+
+        <div class="headhunter-tip">
+            <h4>Visão da Headhunter</h4>
+            <p>"O melhor currículo não é o mais bonito feito no Canva. O melhor currículo é aquele feito no Word, em fundo branco, com texto preto e fonte limpa. O design não deve roubar a cena da sua trajetória."</p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1586282391129-76a6df230234?fm=webp&w=800&q=80" alt="Pessoa analisando currículo no computador" class="book-image">
+
+        <h2>2. Os Erros Fatais (O que arrancar do seu CV hoje)</h2>
+        <p>Antes de colocar o que é certo, precisamos fazer uma faxina. Se o seu currículo tem algum dos itens abaixo, ele está perdendo pontos de imediato:</p>
+
+        <div class="fatal-error">
+            <h4>❌ Erro 1: Colunas Divididas</h4>
+            <p>O ATS lê da esquerda para a direita, de cima para baixo. Se você usa o currículo dividido em duas colunas (uma barra lateral colorida, por exemplo), o robô mistura o nome da sua empresa com as suas habilidades. Use texto corrido, de margem a margem.</p>
+        </div>
+
+        <div class="fatal-error">
+            <h4>❌ Erro 2: Barras de Habilidade (Gráficos)</h4>
+            <p>Colocar 5 "estrelinhas" em Excel ou uma barra carregada 80% em Liderança não significa nada para o robô. Escreva em texto: "Excel Avançado" ou "Liderança de Equipes Multidisciplinares".</p>
+        </div>
+
+        <div class="fatal-error">
+            <h4>❌ Erro 3: Foto e Dados Desnecessários</h4>
+            <p>Salvo se a vaga exigir explicitamente, não use foto. Não coloque RG, CPF, CNH ou endereço completo (apenas Cidade/Estado e LinkedIn já bastam). Proteja seus dados e economize espaço para o que importa.</p>
+        </div>
+
+        <h2>3. A Anatomia do Currículo Vencedor</h2>
+        <p>Um currículo que passa pelas máquinas e agrada os olhos exigentes de um recrutador segue uma hierarquia lógica e limpa. Veja a estrutura de ouro:</p>
+
+        <h3>A) O Cabeçalho (Minimalista)</h3>
+        <p>Seu nome em destaque, seguido do título da sua área de atuação (ex: <em>Gerente de Operações Logísticas | Especialista em Supply Chain</em>). Abaixo, seus contatos: Telefone, E-mail, Cidade/Estado e o link clicável do seu LinkedIn.</p>
+
+        <h3>B) O Resumo Profissional (O seu Pitch)</h3>
+        <p>Esqueça aquelas frases prontas de 1990 como "Busco uma oportunidade para crescer junto com a empresa". O recrutador quer saber <strong>o que você resolve</strong>. Em um parágrafo de 4 a 5 linhas, resuma seus anos de experiência, sua principal área de domínio e o maior impacto que você já gerou na carreira.</p>
+
+        <h3>C) Experiência Profissional (O Coração do CV)</h3>
+        <p>Aqui é onde a maioria falha. As pessoas costumam colocar no currículo apenas o que elas <em>faziam</em> (sua rotina). O mercado não contrata rotina, contrata <strong>resultados</strong>.</p>
+        <p>Para cada empresa, siga a regra: Cargo, Empresa, Mês/Ano a Mês/Ano. Abaixo, use *Bullet points* (marcadores) para descrever suas entregas. Use a fórmula: <strong>Verbo de Ação + O que você fez + O Resultado (com números).</strong></p>
+        <ul>
+            <li><strong>Fraco:</strong> Responsável por gerenciar a equipe de vendas.</li>
+            <li><strong>Campeão:</strong> Liderei uma equipe de 15 vendedores, reestruturando as rotas de atendimento, o que resultou em um aumento de 22% no faturamento da filial em 6 meses.</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?fm=webp&w=800&q=80" alt="Equipe em reunião focada em resultados" class="book-image">
+
+        <h3>D) Formação Acadêmica e Idiomas</h3>
+        <p>Seja direto. Curso, Instituição e Ano de Conclusão. Em idiomas, seja honesto. A mentira no idioma é descoberta nos primeiros 3 minutos da entrevista.</p>
+
+        <h2>4. A Mágica das Palavras-Chave (Keywords)</h2>
+        <p>A etapa final para blindar o seu currículo é a adaptação (Tailoring). Nunca mande exatamente o mesmo currículo para vagas diferentes.</p>
+        <p>Leia a descrição da vaga com atenção. Quais são as palavras que a empresa repete? Se a vaga pede "Gestão de Conflitos" e "Metodologia Ágil", essas exatas palavras precisam estar espalhadas naturalmente no texto da sua experiência e no seu resumo. É assim que o ATS faz o "Match" (combinação) do seu perfil com a vaga.</p>
+
+        <div class="headhunter-tip">
+            <h4>Dica de Ouro de Conversão</h4>
+            <p>Sempre salve e envie o seu currículo em formato <strong>PDF</strong> (a menos que a plataforma exija Word). O PDF garante que o formato não vai quebrar quando o recrutador abrir a tela do celular ou no notebook da empresa.</p>
+        </div>
+
+        <h2>Sua Próxima Jogada</h2>
+        <p>Se você chegou até aqui e aplicou essas mudanças, o seu currículo já está melhor do que 85% dos arquivos que circulam na minha caixa de entrada todos os dias. Você limpou os ruídos, adequou ao robô e focou em métricas e resultados.</p>
+        <p>O currículo é a chave que abre a porta da sala de entrevistas. Agora, cabe a você sentar na cadeira e provar, com comunicação estratégica e posicionamento, que você é o dono da vaga.</p>
+
+    </main>
+
+    <footer class="book-footer">
+        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="author-pic">
+        <h3 style="margin:0 0 10px 0; font-size: 24px;">Pronto para o próximo nível?</h3>
+        <p style="max-width: 600px; margin: 0 auto 20px; font-weight: 300;">O currículo garante a entrevista, mas o que garante a sua contratação é o seu posicionamento. Descubra como as mentorias da Youp podem acelerar a sua carreira.</p>
+        <a href="https://www.instagram.com/anapaulamarcalfortunato" class="cta-btn" target="_blank">Acompanhe no Instagram</a>
+    </footer>
+
+</body>
+</html>
