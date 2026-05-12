@@ -144,7 +144,7 @@
                     </tr>
                 </thead>
                 <tbody id="tabelaBody">
-                    </tbody>
+                </tbody>
             </table>
         </div>
 
@@ -171,7 +171,8 @@
                     document.getElementById('loader').style.display = 'none';
                     document.getElementById('tabelaPropostas').style.display = 'table';
                     
-                    const propostasAtivas = data.filter(linha => linha["Status"] !== "Encerrada");
+                    // Ajuste: Filtra agora tanto as Encerradas quanto as Recusadas para não exibi-las
+                    const propostasAtivas = data.filter(linha => linha["Status"] !== "Encerrada" && linha["Status"] !== "Recusada");
                     document.getElementById('cardTotal').innerText = propostasAtivas.length;
 
                     if(data.length > 0) {
@@ -199,7 +200,7 @@
                         let htmlContato = "";
                         
                         if(zap) {
-                            const numLimpo = zap.replace(/[^0-9]/g, ''); // Tira traços e espaços
+                            const numLimpo = zap.replace(/[^0-9]/g, ''); 
                             htmlContato += `<a href="https://wa.me/55${numLimpo}" target="_blank" class="icon-link" title="Falar no WhatsApp">📱</a>`;
                         }
                         if(email) {
@@ -222,7 +223,7 @@
                                     <option value="Enviada" ${statusAtual === 'Enviada' ? 'selected' : ''}>Enviada</option>
                                     <option value="Em Negociação" ${statusAtual === 'Em Negociação' ? 'selected' : ''}>Em Negociação</option>
                                     <option value="Aprovada" ${statusAtual === 'Aprovada' ? 'selected' : ''}>Aprovada</option>
-                                    <option value="Recusada" ${statusAtual === 'Recusada' ? 'selected' : ''}>Recusada</option>
+                                    <option value="Recusada" ${statusAtual === 'Recusada' ? 'selected' : ''}>Recusada (Ocultar)</option>
                                     <option value="Encerrada">Encerrar (Ocultar)</option>
                                 </select>
                             </td>
@@ -243,7 +244,8 @@
             selectElement.style.borderColor = cor;
             selectElement.style.color = cor;
             
-            if(novoStatus === "Encerrada") {
+            // Ajuste: Oculta a linha imediatamente se for Encerrada OU Recusada
+            if(novoStatus === "Encerrada" || novoStatus === "Recusada") {
                 tr.classList.add("row-hiding");
                 setTimeout(() => { tr.style.display = 'none'; }, 500); 
                 const total = parseInt(document.getElementById('cardTotal').innerText);
