@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Talentos | YOUP Consultoria</title>
+    <style>
+        /* Zera as margens para o sistema ocupar 100% da tela de ponta a ponta */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Esconde a barra de rolagem do site, deixando só a do sistema */
+            background-color: #0f0f0f; /* Fundo escuro YOUP para evitar 'piscos' brancos ao carregar */
+        }
+        
+        /* O "Cavalo de Troia" - Estica o sistema para todos os cantos */
+        .youp-portal-frame {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbxH7nOYH-35otgl8_wuf0PuOVP1CqC9jgIp5ZSc0qi45Wz1fvLLhAg78auu3VNfsbFQeg/exec" 
+        class="youp-portal-frame" 
+        title="Portal de Vagas YOUP"
+        allowfullscreen>
+    </iframe>
+
+</body>
+</html>
