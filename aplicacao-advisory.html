@@ -37,12 +37,20 @@
         .field-group { margin-bottom: 20px; }
         label { display: block; font-size: 13px; margin-bottom: 8px; color: #ccc; }
         
+        /* CORREÇÃO DO DARK MODE NOS CAMPOS */
         input, select, textarea {
             width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             border-radius: 5px; color: #fff; font-family: 'Montserrat'; font-size: 14px; box-sizing: border-box;
+            color-scheme: dark; /* Força o navegador a usar estilos dark nativos */
         }
 
         input:focus, select:focus, textarea:focus { border-color: var(--dourado); outline: none; background: rgba(255,255,255,0.08); }
+
+        /* AJUSTE DAS OPÇÕES DO SELECT */
+        select option {
+            background-color: #1a1a1a; 
+            color: #fff;
+        }
 
         .btn-submit {
             width: 100%; padding: 15px; background: var(--dourado); color: var(--cinza-escuro);
@@ -69,6 +77,14 @@
             <input type="text" name="nome" required>
         </div>
         <div class="field-group">
+            <label>E-mail Corporativo / Principal</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="field-group">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+        </div>
+        <div class="field-group">
             <label>LinkedIn (URL)</label>
             <input type="url" name="linkedin" placeholder="https://linkedin.com/in/seu-perfil" required>
         </div>
@@ -80,7 +96,6 @@
                 <option value="Diretor">Diretor / Superintendente</option>
                 <option value="Head/Gerente Sênior">Head / Gerente Sênior</option>
                 <option value="Coordenador">Coordenador / Especialista</option>
-                <option value="Outro">Outro</option>
             </select>
         </div>
         <div class="field-group">
@@ -133,6 +148,7 @@
 </div>
 
 <script>
+    // IMPORTANTE: Insira sua nova URL do Google Apps Script abaixo
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyGO80zvQJTxDtcC0OsL6IqXj9KBKt1NxP4SZDVsEwtOZydQcS31wwMIFWGsDitrrPb/exec';
     const form = document.getElementById('applicationForm');
 
