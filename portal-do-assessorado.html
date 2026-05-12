@@ -35,7 +35,7 @@
             height: 100vh; overflow: hidden;
         }
 
-        /* --- O CONTEÚDO DO PORTAL (Sempre Visível) --- */
+        /* --- O CONTEÚDO DO PORTAL --- */
         .glass-container {
             background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 15px; max-width: 850px; width: 95%; padding: 40px;
@@ -66,7 +66,7 @@
 
         .footer-note { margin-top: 40px; font-size: 11px; color: var(--cinza-claro); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
 
-        /* --- A CAIXA DE LOGIN (Aparece apenas ao clicar no Material de Apoio) --- */
+        /* --- A CAIXA DE LOGIN --- */
         .login-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(10, 10, 10, 0.85); display: none; align-items: center; justify-content: center; z-index: 1000;
@@ -105,6 +105,23 @@
 
         .msg-erro { color: #d84b72; font-size: 11px; margin-top: 15px; min-height: 15px; font-weight: 600; }
         
+        /* --- TELA CHEIA DO IFRAME (MAGIA ACONTECE AQUI) --- */
+        .iframe-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #0f0f0f; z-index: 9999; display: none; flex-direction: column;
+        }
+        .iframe-header {
+            height: 60px; background: #1a1a1a; border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+        }
+        .iframe-title { color: var(--dourado); font-weight: 600; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+        .iframe-close-btn {
+            color: #0f0f0f; text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: bold;
+            background: var(--dourado); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s;
+        }
+        .iframe-close-btn:hover { background: #dfb668; transform: scale(1.05); }
+        .iframe-content { flex: 1; width: 100%; border: none; }
+
         @media (max-width: 768px) {
             .glass-container { padding: 25px 20px; width: 90%; max-height: 90vh; overflow-y: auto; }
             .portal-grid { grid-template-columns: 1fr; }
@@ -131,7 +148,7 @@
         </p>
 
         <div class="portal-grid">
-            <a href="https://script.google.com/macros/s/AKfycbxGycx8Y-fZY4L-7l0LYJFG35n2_WXyB3feH3Z9hxcb5JVyAUUkJhqMIaNleNQgMBMjZg/exec" target="_blank" class="portal-card">
+            <a onclick="abrirIframe(event, 'https://script.google.com/macros/s/AKfycbxGycx8Y-fZY4L-7l0LYJFG35n2_WXyB3feH3Z9hxcb5JVyAUUkJhqMIaNleNQgMBMjZg/exec', 'Vagas Aprovadas')" class="portal-card">
                 <span class="card-icon">🚀</span>
                 <span class="card-title">Vagas Aprovadas</span>
                 <span class="card-desc">Acesse as oportunidades curadas e alinhadas ao seu perfil.</span>
@@ -143,7 +160,7 @@
                 <span class="card-desc">Guias e recursos protegidos. <b>(Acesso Restrito)</b></span>
             </a>
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6MDXiBLHsyQBePqdZaIOZimqKiGtU7ZB3kYCIZpYmpnK6iQ/viewform" target="_blank" class="portal-card">
+            <a onclick="abrirIframe(event, 'https://docs.google.com/forms/d/e/1FAIpQLSd6MDXiBLHsyQBePqdZaIOZimqKiGtU7ZB3kYCIZpYmpnK6iQ/viewform', 'Ouvidoria e Feedback')" class="portal-card">
                 <span class="card-icon">⚖️</span>
                 <span class="card-title">Ouvidoria</span>
                 <span class="card-desc">Seu canal direto para feedbacks, críticas ou sugestões.</span>
@@ -175,10 +192,31 @@
         </div>
     </div>
 
+    <div class="iframe-overlay" id="iframeOverlay">
+        <div class="iframe-header">
+            <span class="iframe-title" id="iframeTitle">Portal YOUP</span>
+            <button class="iframe-close-btn" onclick="fecharIframe()">✕ Voltar ao Painel</button>
+        </div>
+        <iframe id="youpIframe" class="iframe-content" allowfullscreen></iframe>
+    </div>
+
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwv5ny2u_o-NRnuEzTPB824oL22I2psB6_PkR52PNVhlcqMeSDmJYgR-eTRkF73J2zk/exec';
 
-        // Atualiza a tela se o cliente já estiver logado
+        // --- SISTEMA DE IFRAME ---
+        function abrirIframe(event, url, titulo) {
+            event.preventDefault(); // Impede de abrir nova aba
+            document.getElementById('iframeTitle').innerText = titulo;
+            document.getElementById('youpIframe').src = url;
+            document.getElementById('iframeOverlay').style.display = 'flex';
+        }
+
+        function fecharIframe() {
+            document.getElementById('iframeOverlay').style.display = 'none';
+            document.getElementById('youpIframe').src = ''; // Esvazia o iframe para não consumir internet
+        }
+
+        // --- SISTEMA DE LOGIN VIP ---
         document.addEventListener("DOMContentLoaded", () => {
             if (sessionStorage.getItem('youp_vip_auth') === 'autorizado') {
                 const nome = sessionStorage.getItem('youp_vip_nome');
@@ -189,25 +227,20 @@
             }
         });
 
-        // Clique no card "Material de Apoio"
         function verificarAcessoMaterial(e) {
             e.preventDefault();
-            // Se já tem a pulseira VIP, vai direto para o material
             if (sessionStorage.getItem('youp_vip_auth') === 'autorizado') {
                 window.location.href = "material-de-apoio.html";
             } else {
-                // Se não tem, abre o Modal de Login
                 document.getElementById('loginOverlay').style.display = 'flex';
             }
         }
 
-        // Fechar a caixinha de login se desistir
         function fecharLogin() {
             document.getElementById('loginOverlay').style.display = 'none';
             document.getElementById('msgErro').innerText = "";
         }
 
-        // Função de ir no Google e checar a senha
         function validarAcesso() {
             const email = document.getElementById('emailClient').value;
             const senha = document.getElementById('senhaClient').value;
@@ -229,7 +262,6 @@
             .then(response => response.json())
             .then(data => {
                 if(data.sucesso) {
-                    // Guarda o nome do executivo e autoriza
                     sessionStorage.setItem('youp_vip_auth', 'autorizado');
                     sessionStorage.setItem('youp_vip_nome', data.nome);
                     
@@ -237,7 +269,6 @@
                     btn.style.background = "var(--verde-youp)";
                     btn.style.color = "#fff";
 
-                    // Joga direto para o material
                     setTimeout(() => {
                         window.location.href = "material-de-apoio.html";
                     }, 800);
@@ -254,7 +285,6 @@
             });
         }
 
-        // Função para sair
         function encerrarSessao() {
             sessionStorage.removeItem('youp_vip_auth');
             sessionStorage.removeItem('youp_vip_nome');
