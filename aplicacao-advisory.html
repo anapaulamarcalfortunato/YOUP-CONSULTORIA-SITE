@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação Executiva | YOUP Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --dourado: #c5a059;
+            --cinza-escuro: #0a0a0a;
+            --texto-claro: #f0f0f0;
+            --bg-card: rgba(255, 255, 255, 0.03);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cinza-escuro);
+            color: var(--texto-claro);
+            margin: 0; padding: 40px 20px;
+            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
+            background-size: cover; background-attachment: fixed;
+        }
+
+        .container { max-width: 700px; margin: 0 auto; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { color: var(--dourado); font-weight: 300; letter-spacing: 2px; }
+        .header h1 b { font-weight: 700; }
+        .header p { color: #888; font-size: 14px; line-height: 1.6; }
+
+        form { background: var(--bg-card); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px); }
+
+        .section-title { color: var(--verde-youp); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0 15px; border-bottom: 1px solid rgba(92, 142, 130, 0.3); padding-bottom: 5px; }
+
+        .field-group { margin-bottom: 20px; }
+        label { display: block; font-size: 13px; margin-bottom: 8px; color: #ccc; }
+        
+        input, select, textarea {
+            width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 5px; color: #fff; font-family: 'Montserrat'; font-size: 14px; box-sizing: border-box;
+        }
+
+        input:focus, select:focus, textarea:focus { border-color: var(--dourado); outline: none; background: rgba(255,255,255,0.08); }
+
+        .btn-submit {
+            width: 100%; padding: 15px; background: var(--dourado); color: var(--cinza-escuro);
+            border: none; border-radius: 5px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; cursor: pointer; transition: 0.3s; margin-top: 20px;
+        }
+        .btn-submit:hover { background: #e0b869; transform: translateY(-2px); }
+
+        .loading { display: none; text-align: center; color: var(--dourado); font-weight: 600; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>YOUP <b>Advisory</b></h1>
+        <p>Aplicação exclusiva para líderes e executivos. Mapeamos seu perfil para garantir o alinhamento estratégico com nossa metodologia de elite.</p>
+    </div>
+
+    <form id="applicationForm">
+        <div class="section-title">Dados Estratégicos</div>
+        <div class="field-group">
+            <label>Nome Completo</label>
+            <input type="text" name="nome" required>
+        </div>
+        <div class="field-group">
+            <label>LinkedIn (URL)</label>
+            <input type="url" name="linkedin" placeholder="https://linkedin.com/in/seu-perfil" required>
+        </div>
+        <div class="field-group">
+            <label>Nível Hierárquico Atual/Último</label>
+            <select name="nivel" required>
+                <option value="">Selecione...</option>
+                <option value="C-Level/VP">C-Level / VP / Conselheiro</option>
+                <option value="Diretor">Diretor / Superintendente</option>
+                <option value="Head/Gerente Sênior">Head / Gerente Sênior</option>
+                <option value="Coordenador">Coordenador / Especialista</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
+        <div class="field-group">
+            <label>Faixa Salarial Alvo</label>
+            <select name="faixa_salarial" required>
+                <option value="">Selecione...</option>
+                <option value="Abaixo de 10k">Abaixo de R$ 10.000</option>
+                <option value="10k-20k">Entre R$ 10.000 e R$ 20.000</option>
+                <option value="20k-35k">Entre R$ 20.000 e R$ 35.000</option>
+                <option value="Acima de 35k">Acima de R$ 35.000</option>
+            </select>
+        </div>
+
+        <div class="section-title">Diagnóstico de Movimento</div>
+        <div class="field-group">
+            <label>Qual seu maior gargalo hoje?</label>
+            <select name="gargalo" required>
+                <option value="Invisível no Mercado">Sou invisível para o Mercado Oculto/Headhunters</option>
+                <option value="Perfil Operacional">Meu perfil parece operacional, não estratégico</option>
+                <option value="Trava em Entrevistas">Consigo entrevistas, mas não avanço para o Board</option>
+                <option value="Transição Segura">Estou estagnado e preciso de um plano Go-to-Market</option>
+            </select>
+        </div>
+        <div class="field-group">
+            <label>Impacto Gerado (Resuma seu ROI em 2 frases)</label>
+            <textarea name="impacto" rows="3" placeholder="Ex: Reduzi o OPEX em 20% através da reestruturação logística..."></textarea>
+        </div>
+
+        <div class="section-title">Investimento & Urgência</div>
+        <div class="field-group">
+            <label>Nível de Urgência</label>
+            <select name="urgencia" required>
+                <option value="Altíssima">Imediata (Próximas 2 semanas)</option>
+                <option value="Média">Planejada (1 a 2 meses)</option>
+                <option value="Baixa">Sondagem de mercado</option>
+            </select>
+        </div>
+        <div class="field-group">
+            <label>O investimento de R$ 4,5k a R$ 10k faz sentido para seu planejamento?</label>
+            <select name="budget" required>
+                <option value="Sim">Sim, estou ciente e tenho orçamento</option>
+                <option value="Mentoria">Prefiro um formato mais enxuto/mentoria</option>
+                <option value="Não">Buscando soluções acessíveis/gratuitas</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Enviar Aplicação</button>
+        <div id="loadingMsg" class="loading">Processando dados na nuvem YOUP...</div>
+    </form>
+</div>
+
+<script>
+    const scriptURL = 'SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI';
+    const form = document.getElementById('applicationForm');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('loadingMsg').style.display = 'block';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('Aplicação enviada com sucesso. Nossa inteligência avaliará seu perfil e retornaremos em breve.');
+                form.reset();
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('loadingMsg').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Erro!', error.message);
+                alert('Erro ao enviar. Tente novamente.');
+                document.getElementById('submitBtn').disabled = false;
+            });
+    });
+</script>
+
+</body>
+</html>
