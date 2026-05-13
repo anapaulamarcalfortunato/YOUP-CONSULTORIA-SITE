@@ -15,7 +15,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -28,109 +28,58 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--preto-fundo);
+            margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--preto-fundo);
             background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: #ffffff; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden;
         }
 
         .glass-container {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 15px;
-            max-width: 700px;
-            width: 95%;
-            padding: 40px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
-            text-align: center;
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2); border-radius: 15px; max-width: 700px; width: 95%; padding: 40px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7); text-align: center;
         }
 
-        .header-top {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
-        .btn-back {
-            color: var(--dourado);
-            text-decoration: none;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-back:hover {
-            opacity: 0.7;
-        }
+        .header-top { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+        .btn-back { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .btn-back:hover { opacity: 0.7; }
 
-        .welcome-title {
-            color: var(--dourado);
-            margin: 0;
-            font-size: 28px;
-            font-weight: 600;
-        }
-        .welcome-subtitle {
-            font-size: 13px;
-            color: var(--cinza-claro);
-            margin: 10px 0 30px 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+        .welcome-title { color: var(--dourado); margin: 0; font-size: 28px; font-weight: 600; }
+        .welcome-subtitle { font-size: 13px; color: var(--cinza-claro); margin: 10px 0 30px 0; text-transform: uppercase; letter-spacing: 3px; }
+        .intro-text { font-size: 14px; line-height: 1.6; margin-bottom: 35px; font-weight: 300; color: #e0e0e0; }
 
-        .intro-text {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            font-weight: 300;
-            color: #e0e0e0;
-        }
-
-        .portal-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
+        .portal-group { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; }
 
         .portal-btn {
-            display: block;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.03);
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
+            display: block; padding: 18px; background: rgba(255, 255, 255, 0.03); color: #fff; text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 13px; font-weight: 400;
+            letter-spacing: 1px; transition: all 0.3s ease; text-transform: uppercase; cursor: pointer;
         }
+        .portal-btn:hover { border-color: var(--dourado); background: rgba(197, 160, 89, 0.1); transform: scale(1.02); }
 
-        .portal-btn:hover {
-            border-color: var(--dourado);
-            background: rgba(197, 160, 89, 0.1);
-            transform: scale(1.02);
-        }
+        .footer-note { margin-top: 35px; font-size: 11px; color: var(--cinza-claro); font-style: italic; }
 
-        .footer-note {
-            margin-top: 35px;
-            font-size: 11px;
-            color: var(--cinza-claro);
-            font-style: italic;
+        /* Estilos do Modal de Login */
+        #login-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.95); z-index: 1000; backdrop-filter: blur(10px); }
+        .login-box { background: var(--cinza-escuro); max-width: 400px; margin: 100px auto; padding: 40px; border-radius: 15px; border: 1px solid var(--dourado); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position: relative; }
+        .close-login { position: absolute; top: 15px; right: 20px; color: #888; font-size: 24px; cursor: pointer; }
+        .close-login:hover { color: var(--dourado); }
+        .login-box h3 { color: var(--dourado); margin-top: 0; font-size: 20px; }
+        .login-box p { color: var(--cinza-claro); font-size: 12px; margin-bottom: 25px; }
+        
+        .input-group { text-align: left; margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .input-email { width: 100%; box-sizing: border-box; padding: 15px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; font-family: 'Montserrat'; font-size: 13px; outline: none; }
+        .input-email:focus { border-color: var(--dourado); }
+        
+        .btn-entrar { background: var(--dourado); color: #000; border: none; padding: 15px; width: 100%; border-radius: 8px; font-family: 'Montserrat'; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; margin-top: 5px;}
+        .btn-entrar:hover { background: #dfb668; }
+        .btn-entrar:disabled { background: #555; cursor: not-allowed; }
+        #error-msg { color: #d84b72; font-size: 11px; font-weight: 600; margin-top: 15px; display: none; }
+
+        @media (max-width: 768px) {
+            .glass-container { padding: 30px 20px; width: 90%; }
+            .login-box { width: 90%; padding: 25px; margin: 50px auto; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -151,7 +100,7 @@
 
         <div class="portal-group">
             <a href="portal-do-assessorado.html" class="portal-btn">Portal do Assessorado</a>
-            <a href="portal-do-consultor.html" class="portal-btn">Portal do Consultor</a>
+            <a onclick="abrirLoginConsultor(event)" class="portal-btn">Portal do Consultor</a>
             <a href="portal-parceiros.html" class="portal-btn">Portal dos Parceiros</a>
         </div>
 
@@ -161,5 +110,86 @@
 
     </div>
 
+    <div id="login-modal">
+        <div class="login-box">
+            <span class="close-login" onclick="fecharLogin()">×</span>
+            <h3>Acesso Restrito</h3>
+            <p>Por favor, insira suas credenciais corporativas para entrar no Portal do Consultor.</p>
+            
+            <div class="input-group">
+                <label>E-mail Corporativo</label>
+                <input type="email" id="email-input" class="input-email" placeholder="nome@youpconsultoria.com" autocomplete="off" style="margin-bottom: 5px;">
+            </div>
+            
+            <div class="input-group">
+                <label>Chave de Acesso</label>
+                <input type="password" id="senha-input" class="input-email" placeholder="••••••••" style="margin-bottom: 5px;">
+            </div>
+
+            <button class="btn-entrar" id="btnAcessar" onclick="validarAcesso()">Acessar Portal</button>
+            <div id="error-msg"></div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwv5ny2u_o-NRnuEzTPB824oL22I2psB6_PkR52PNVhlcqMeSDmJYgR-eTRkF73J2zk/exec';
+
+        function abrirLoginConsultor(event) {
+            event.preventDefault();
+            // Se já estiver logado, entra direto
+            if (sessionStorage.getItem('consultorYoupLogado') === 'true') {
+                window.location.href = "portal-do-consultor.html";
+            } else {
+                document.getElementById('login-modal').style.display = 'block';
+            }
+        }
+
+        function fecharLogin() {
+            document.getElementById('login-modal').style.display = 'none';
+            document.getElementById('error-msg').style.display = 'none';
+        }
+
+        function validarAcesso() {
+            const email = document.getElementById('email-input').value.trim();
+            const senha = document.getElementById('senha-input').value.trim();
+            const btn = document.getElementById('btnAcessar');
+            const errorMsg = document.getElementById('error-msg');
+
+            if(!email || !senha) {
+                errorMsg.innerText = "Preencha o e-mail e a senha.";
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Verificando...";
+            errorMsg.style.display = 'none';
+
+            // Usando a mesma ação e senha que eram das trilhas
+            const urlSegura = scriptURL + "?action=login_consultor&email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha);
+
+            fetch(urlSegura)
+            .then(response => response.json())
+            .then(data => {
+                if(data.sucesso) {
+                    sessionStorage.setItem('consultorYoupLogado', 'true'); 
+                    sessionStorage.setItem('usuarioEmail', email);
+                    sessionStorage.setItem('consultorNome', data.nome);
+                    window.location.href = "portal-do-consultor.html"; 
+                } else {
+                    errorMsg.innerText = data.erro;
+                    errorMsg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerText = "Acessar Portal";
+                }
+            })
+            .catch(error => {
+                errorMsg.innerText = "Erro de conexão. Tente novamente.";
+                errorMsg.style.display = 'block';
+                btn.disabled = false;
+                btn.innerText = "Acessar Portal";
+            });
+        }
+    </script>
 </body>
 </html>
