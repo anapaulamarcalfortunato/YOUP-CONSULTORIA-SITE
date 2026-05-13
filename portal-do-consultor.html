@@ -45,7 +45,7 @@
         .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
 
         .header-top { display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center;}
-        .btn-back { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .btn-back { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; cursor: pointer;}
         .btn-back:hover { color: #fff;}
 
         .welcome-title { color: var(--dourado); margin: 0; font-size: 26px; font-weight: 600; }
@@ -67,7 +67,7 @@
 
         .portal-card-full {
             background: rgba(197, 160, 89, 0.05); border: 1px solid rgba(197, 160, 89, 0.4); padding: 20px 30px; border-radius: 12px;
-            color: #fff; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; cursor: pointer; width: 100%; box-sizing: border-box; margin-top: 10px;
+            text-decoration: none; color: #fff; transition: all 0.3s ease; display: flex; align-items: center; justify-content: space-between; cursor: pointer; width: 100%; box-sizing: border-box; margin-top: 10px;
         }
         .portal-card-full:hover { border-color: var(--dourado); background: rgba(197, 160, 89, 0.15); transform: translateY(-3px); box-shadow: 0 5px 20px rgba(197, 160, 89, 0.2); }
 
@@ -75,25 +75,7 @@
         .card-arrow { color: var(--dourado); font-size: 24px; font-weight: bold; transition: transform 0.3s; }
         .portal-card-full:hover .card-arrow { transform: translateX(5px); }
 
-        .auth-note { margin-top: 35px; font-size: 12px; color: var(--dourado); background: rgba(197, 160, 89, 0.05); display: inline-block; padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.2); }
         .footer-note { margin-top: 30px; font-size: 11px; color: var(--cinza-claro); opacity: 0.6; }
-
-        #login-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 10, 0.95); z-index: 1000; backdrop-filter: blur(10px); }
-        .login-box { background: var(--cinza-escuro); max-width: 400px; margin: 100px auto; padding: 40px; border-radius: 15px; border: 1px solid var(--dourado); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position: relative; }
-        .close-login { position: absolute; top: 15px; right: 20px; color: #888; font-size: 24px; cursor: pointer; }
-        .close-login:hover { color: var(--dourado); }
-        .login-box h3 { color: var(--dourado); margin-top: 0; font-size: 20px; }
-        .login-box p { color: var(--cinza-claro); font-size: 12px; margin-bottom: 25px; }
-        
-        .input-group { text-align: left; margin-bottom: 20px; }
-        .input-group label { display: block; font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .input-email { width: 100%; box-sizing: border-box; padding: 15px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; font-family: 'Montserrat'; font-size: 13px; outline: none; }
-        .input-email:focus { border-color: var(--dourado); }
-        
-        .btn-entrar { background: var(--dourado); color: #000; border: none; padding: 15px; width: 100%; border-radius: 8px; font-family: 'Montserrat'; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; margin-top: 5px;}
-        .btn-entrar:hover { background: #dfb668; }
-        .btn-entrar:disabled { background: #555; cursor: not-allowed; }
-        #error-msg { color: #d84b72; font-size: 11px; font-weight: 600; margin-top: 15px; display: none; }
 
         @media (max-width: 768px) {
             .welcome-title { font-size: 22px !important; }
@@ -106,9 +88,15 @@
             .card-content-inline .card-icon { margin-right: 0 !important; margin-bottom: 10px !important; }
             .card-arrow { transform: rotate(90deg); margin-top: 5px; }
             .portal-card-full:hover .card-arrow { transform: rotate(90deg) translateY(5px); }
-            .login-box { width: 90% !important; padding: 25px !important; margin: 50px auto !important; box-sizing: border-box; }
         }
     </style>
+    
+    <script>
+        // Trava de Segurança: Se não houver login validado, expulsa de volta para a tela anterior
+        if (sessionStorage.getItem('consultorYoupLogado') !== 'true') {
+            window.location.href = 'area-parceiro.html';
+        }
+    </script>
 </head>
 <body>
 
@@ -116,14 +104,14 @@
         
         <div class="header-top">
             <a href="area-parceiro.html" class="btn-back">← Hub de Parceiros</a>
-            <a href="#" onclick="encerrarSessaoConsultor()" id="btnSairConsultor" class="btn-back" style="color: #d84b72; display: none;">Sair ✕</a>
+            <a onclick="encerrarSessaoConsultor()" id="btnSairConsultor" class="btn-back" style="color: #d84b72;">Sair ✕</a>
         </div>
 
         <h1 class="welcome-title">Espaço do Consultor</h1>
         <p class="welcome-subtitle">Gestão de Atividades e Resultados</p>
 
         <p class="intro-text">
-            Bem-vindo ao hub operacional da <b>Youp Consultoria</b>. Este é o seu painel central para gerenciar entregas, monitorar sua carteira de clientes e acessar a área exclusiva de desenvolvimento.
+            Bem-vindo ao hub operacional da <b id="nomeUsuarioLogado">Youp Consultoria</b>. Este é o seu painel central para gerenciar entregas, monitorar sua carteira de clientes e acessar a área exclusiva de desenvolvimento.
         </p>
 
         <div class="portal-grid">
@@ -146,116 +134,35 @@
             </a>
         </div>
 
-        <div class="portal-card-full" onclick="abrirLogin()">
+        <a href="trilhas-consultor.html" class="portal-card-full">
             <div class="card-content-inline">
                 <span class="card-icon" style="margin-bottom: 0; margin-right: 20px;">🎓</span>
                 <div style="text-align: left;">
                     <span class="card-title" style="color: var(--dourado); display: block; margin-bottom: 4px;">Trilhas de Aprendizado</span>
-                    <span class="card-desc" style="font-size: 11px; color: var(--cinza-claro); font-weight: 300;">Acesso restrito a materiais de capacitação e manuais internos da Youp.</span>
+                    <span class="card-desc" style="font-size: 11px; color: var(--cinza-claro); font-weight: 300;">Acesso direto aos materiais de capacitação e manuais internos da Youp.</span>
                 </div>
             </div>
             <span class="card-arrow">➔</span>
-        </div>
-
-        <div class="auth-note">
-            📧 <strong>Importante:</strong> Para acessar as Trilhas, será necessário validar suas credenciais autorizadas.
-        </div>
+        </a>
 
         <p class="footer-note">
             Youp Consultoria © 2026 | Inteligência em Carreira e Liderança.
         </p>
     </div>
 
-    <div id="login-modal">
-        <div class="login-box">
-            <span class="close-login" onclick="fecharLogin()">×</span>
-            <h3>Área Restrita</h3>
-            <p>Por favor, insira suas credenciais de consultor para acessar a Universidade Youp.</p>
-            
-            <div class="input-group">
-                <label>E-mail Corporativo</label>
-                <input type="email" id="email-input" class="input-email" placeholder="nome@youpconsultoria.com" autocomplete="off" style="margin-bottom: 5px;">
-            </div>
-            
-            <div class="input-group">
-                <label>Chave de Acesso</label>
-                <input type="password" id="senha-input" class="input-email" placeholder="••••••••" style="margin-bottom: 5px;">
-            </div>
-
-            <button class="btn-entrar" id="btnAcessarTrilha" onclick="validarAcesso()">Acessar Trilhas</button>
-            <div id="error-msg"></div>
-        </div>
-    </div>
-
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwv5ny2u_o-NRnuEzTPB824oL22I2psB6_PkR52PNVhlcqMeSDmJYgR-eTRkF73J2zk/exec';
-
         document.addEventListener("DOMContentLoaded", () => {
-            if (sessionStorage.getItem('consultorYoupLogado') === 'true') {
-                document.getElementById('btnSairConsultor').style.display = 'block';
+            const nomeConsultor = sessionStorage.getItem('consultorNome');
+            if (nomeConsultor) {
+                document.getElementById('nomeUsuarioLogado').innerText = nomeConsultor;
             }
         });
-
-        function abrirLogin() {
-            if (sessionStorage.getItem('consultorYoupLogado') === 'true') {
-                window.location.href = "trilhas-consultor.html";
-            } else {
-                document.getElementById('login-modal').style.display = 'block';
-            }
-        }
-
-        function fecharLogin() {
-            document.getElementById('login-modal').style.display = 'none';
-            document.getElementById('error-msg').style.display = 'none';
-        }
-
-        function validarAcesso() {
-            const email = document.getElementById('email-input').value.trim();
-            const senha = document.getElementById('senha-input').value.trim();
-            const btn = document.getElementById('btnAcessarTrilha');
-            const errorMsg = document.getElementById('error-msg');
-
-            if(!email || !senha) {
-                errorMsg.innerText = "Preencha o e-mail e a senha.";
-                errorMsg.style.display = 'block';
-                return;
-            }
-
-            btn.disabled = true;
-            btn.innerText = "Verificando...";
-            errorMsg.style.display = 'none';
-
-            // Chama o Script passando action=login_consultor
-            const urlSegura = scriptURL + "?action=login_consultor&email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha);
-
-            fetch(urlSegura)
-            .then(response => response.json())
-            .then(data => {
-                if(data.sucesso) {
-                    sessionStorage.setItem('consultorYoupLogado', 'true'); 
-                    sessionStorage.setItem('usuarioEmail', email);
-                    sessionStorage.setItem('consultorNome', data.nome);
-                    window.location.href = "trilhas-consultor.html"; 
-                } else {
-                    errorMsg.innerText = data.erro;
-                    errorMsg.style.display = 'block';
-                    btn.disabled = false;
-                    btn.innerText = "Acessar Trilhas";
-                }
-            })
-            .catch(error => {
-                errorMsg.innerText = "Erro de conexão. Tente novamente.";
-                errorMsg.style.display = 'block';
-                btn.disabled = false;
-                btn.innerText = "Acessar Trilhas";
-            });
-        }
 
         function encerrarSessaoConsultor() {
             sessionStorage.removeItem('consultorYoupLogado');
             sessionStorage.removeItem('usuarioEmail');
             sessionStorage.removeItem('consultorNome');
-            window.location.reload(); 
+            window.location.href = 'area-parceiro.html'; 
         }
     </script>
 </body>
