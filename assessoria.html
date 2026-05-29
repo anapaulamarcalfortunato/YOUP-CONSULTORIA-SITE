@@ -52,11 +52,25 @@
 <body>
 
     <div class="wrapper-container">
-        <iframe 
-            src="https://script.google.com/macros/s/AKfycby_GifFMsGcdu26C3VAArMVVHq2wrs3aNZXWl1S3j1WwIZ0-IBOMfFKsL64xOVdcFEt/exec" 
-            title="Portal de Assessoria Executiva Youp">
-        </iframe>
+        <iframe id="portalIframe" title="Portal de Assessoria Executiva Youp"></iframe>
     </div>
+
+    <script>
+        // 1. Pega os parâmetros da URL do seu site (ex: ?email=cliente@exemplo.com)
+        const parametrosDaUrl = new URLSearchParams(window.location.search);
+        const emailDoCliente = parametrosDaUrl.get('email');
+
+        // 2. A URL base do seu App do Google
+        let urlDoGoogleApp = "https://script.google.com/macros/s/AKfycby_GifFMsGcdu26C3VAArMVVHq2wrs3aNZXWl1S3j1WwIZ0-IBOMfFKsL64xOVdcFEt/exec";
+
+        // 3. Se houver um e-mail na URL, repassa ele para a URL do iframe
+        if (emailDoCliente) {
+            urlDoGoogleApp += "?email=" + encodeURIComponent(emailDoCliente);
+        }
+
+        // 4. Injeta a URL completa no iframe
+        document.getElementById('portalIframe').src = urlDoGoogleApp;
+    </script>
 
 </body>
 </html>
