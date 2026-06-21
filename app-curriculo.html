@@ -76,6 +76,16 @@
     <script>
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
         let nomeClienteGlobal = "Cliente";
+        let isUnsaved = false; // Controle de Segurança Antifechamento
+
+        // CAMADA 1: Trava o navegador se o cliente tentar fechar a aba sem baixar
+        window.addEventListener('beforeunload', function (e) {
+            if (isUnsaved) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
         const systemPrompt = `Aja como um Headhunter Executivo da Youp Consultoria. 
 ETAPA 1: AUDITORIA. O currículo deve conter obrigatoriamente Experiências com DATAS, Formação, Cursos e Idiomas. Se faltar algo, responda APENAS com [INCOMPLETO] e a lista de pendências.
 ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# nome, ## resumo executivo, ## destaques e impacto no negócio, ## experiência profissional [empresa|data|contexto|ações], ## formação acadêmica, ## cursos e idiomas).`;
@@ -89,6 +99,17 @@ ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# n
 
             const token = document.getElementById('token').value.trim();
             nomeClienteGlobal = document.getElementById('name').value.trim();
+            
+            // CAMADA 2: Puxa o backup da máquina se o usuário já tiver gerado o material
+            const backupLocal = localStorage.getItem('youp_cv_backup_' + token);
+            if (backupLocal) {
+                document.getElementById('cv-document').innerHTML = marked.parse(backupLocal);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('download-screen').style.display = 'block';
+                isUnsaved = true; // Ativa o aviso de antifechamento
+                return; // Impede que o sistema gaste tempo indo até o servidor de novo
+            }
+
             const cargo = document.getElementById('cargo').value;
             const problem = document.getElementById('problem').value;
             const metrics = document.getElementById('metrics').value;
@@ -119,6 +140,10 @@ ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# n
                         document.getElementById('form-screen').style.display = 'block';
                         window.scrollTo(0, 0);
                     } else {
+                        // CAMADA 2: Salva o texto gerado na memória do navegador do cliente
+                        localStorage.setItem('youp_cv_backup_' + token, result);
+                        isUnsaved = true; // Ativa trava de antifechamento
+
                         document.getElementById('cv-document').innerHTML = marked.parse(result);
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('download-screen').style.display = 'block';
@@ -132,6 +157,9 @@ ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# n
         });
 
         function baixarCVPDF() {
+            // O cliente clicou em baixar, então destravamos a página para ele poder sair
+            isUnsaved = false; 
+
             const originalTitle = document.title;
             document.title = nomeClienteGlobal + "-Currículo";
             window.print();
