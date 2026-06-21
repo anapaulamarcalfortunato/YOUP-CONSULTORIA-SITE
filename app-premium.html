@@ -5,204 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacote Premium: CV + LinkedIn + Mentoria GTM | Youp Consultoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
     <style>
-        :root {
-            --dourado: #c5a059;
-            --verde-youp: #5c8e82;
-            --cinza-escuro: #0a0a0a;
-            --fundo-claro: #ffffff;
-            --texto-corpo: #2c2c2c;
-            --azul-linkedin: #0077b5;
-            --vermelho-alerta: #d32f2f;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo);
-            margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
-        }
-
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --azul-linkedin: #0077b5; --vermelho-alerta: #d32f2f; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .navbar { width: 100%; background-color: var(--cinza-escuro); padding: 15px 50px; box-sizing: border-box; display: flex; justify-content: flex-start; }
         .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 20px; }
-
-        .container {
-            width: 90%; max-width: 800px; background-color: var(--fundo-claro);
-            margin: 50px 0; padding: 60px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); box-sizing: border-box;
-        }
-
+        .container { width: 90%; max-width: 800px; background-color: var(--fundo-claro); margin: 50px 0; padding: 60px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); box-sizing: border-box; }
         h1 { color: var(--cinza-escuro); font-weight: 800; font-size: 32px; margin-bottom: 10px; text-align: center; }
         .subtitle { color: #666; text-align: center; font-size: 16px; margin-bottom: 40px; font-weight: 400; line-height: 1.5; }
-
-        #alert-box {
-            display: none; background-color: #ffebee; color: var(--vermelho-alerta);
-            padding: 20px; border-left: 5px solid var(--vermelho-alerta); border-radius: 4px;
-            margin-bottom: 30px; font-weight: 500; font-size: 14px; line-height: 1.6;
-        }
-
+        #alert-box { display: none; background-color: #ffebee; color: var(--vermelho-alerta); padding: 20px; border-left: 5px solid var(--vermelho-alerta); border-radius: 4px; margin-bottom: 30px; font-weight: 500; font-size: 14px; line-height: 1.6; }
         .form-group { margin-bottom: 30px; }
         label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--cinza-escuro); text-transform: uppercase; letter-spacing: 1px; }
         input[type="text"], textarea, select { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 15px; box-sizing: border-box; }
         textarea { height: 150px; resize: vertical; }
         select { background-color: #fff; cursor: pointer; font-weight: 500; }
-
-        .btn-submit, .btn-action {
-            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; margin-bottom: 15px; text-decoration: none;
-        }
-        
+        .btn-submit, .btn-action { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; margin-bottom: 15px; text-decoration: none; }
         .btn-submit { background-color: var(--cinza-escuro); color: var(--dourado); }
         .btn-submit:hover { background-color: var(--dourado); color: var(--cinza-escuro); }
-
         .btn-linkedin { background-color: var(--azul-linkedin); color: #fff; margin-top: 35px; }
         .btn-linkedin:hover { background-color: #005a8c; }
-
         .btn-reports { background-color: var(--dourado); color: var(--cinza-escuro); margin-top: 35px; }
         .btn-reports:hover { background-color: #b08d4b; color: #fff;}
-
         .btn-download { background-color: transparent; border: 2px solid var(--verde-youp); color: var(--verde-youp); }
         .btn-download:hover { background-color: var(--verde-youp); color: #fff; }
-
         .btn-pdf-linkedin { background-color: transparent; border: 2px solid var(--azul-linkedin); color: var(--azul-linkedin); }
         .btn-pdf-linkedin:hover { background-color: var(--azul-linkedin); color: #fff; }
-
         .btn-pdf-reports { background-color: transparent; border: 2px solid var(--dourado); color: var(--dourado); }
         .btn-pdf-reports:hover { background-color: var(--dourado); color: #fff; }
-
         .btn-copy { background-color: var(--cinza-escuro); color: var(--dourado); }
-
-        /* Botões de Upsell Premium */
         .btn-upsell-1 { background-color: var(--cinza-escuro); color: var(--dourado); margin-top: 30px; }
         .btn-upsell-1:hover { background-color: #222; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-
         .btn-upsell-2 { background-color: transparent; border: 2px solid var(--cinza-escuro); color: var(--cinza-escuro); }
         .btn-upsell-2:hover { background-color: var(--cinza-escuro); color: var(--dourado); transform: translateY(-2px); }
-
-        /* Blocos de Fluxo */
         #loading, #cv-success-screen, #linkedin-success-screen, #reports-success-screen { display: none; }
         #loading { text-align: center; padding: 40px 0; }
         .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--dourado); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
         .preview-box { background: #e9ecef; padding: 20px; border-radius: 6px; margin-top: 25px; max-height: 400px; overflow-y: auto; border: 1px solid #ddd; }
-        
         .document-paper { background-color: #fff; padding: 40px; color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; }
-
-        /* Estilização Interna dos Documentos */
         #cv-document { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; text-align: justify; }
         #cv-document h1, #cv-document h2, #cv-document h3 { color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 20px; margin-bottom: 10px; font-size: 14pt; }
-        
         #linkedin-document { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.6; text-align: left; }
         #linkedin-document h1 { color: var(--azul-linkedin); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 25px; margin-bottom: 15px; font-size: 16pt; }
-
         #reports-document { font-family: Arial, sans-serif; font-size: 11.5pt; line-height: 1.8; text-align: justify; color: #333; }
         #reports-document h1 { color: var(--dourado); border-bottom: 2px solid var(--cinza-escuro); padding-bottom: 8px; margin-top: 30px; margin-bottom: 20px; font-size: 18pt; text-transform: uppercase; }
         #reports-document h2 { color: var(--cinza-escuro); margin-top: 25px; margin-bottom: 15px; font-size: 14pt; }
         #reports-document strong { color: #000; }
-
         .section-divider { border: 0; height: 1px; background: #ddd; margin: 50px 0; }
-
-        /* Rodapés de impressão ocultos na tela */
         .print-footer { display: none; }
-
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
-            
-            body.printing-linkedin .print-footer, body.printing-reports .print-footer {
-                display: block; position: fixed; bottom: 0; left: 0; width: 100%;
-                text-align: center; font-size: 10pt; font-family: Arial, sans-serif;
-                font-weight: bold; color: #555; border-top: 1px solid #ccc; padding-top: 5px;
-                letter-spacing: 2px; visibility: visible;
-            }
-
+            body.printing-linkedin .print-footer, body.printing-reports .print-footer { display: block; position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 10pt; font-family: Arial, sans-serif; font-weight: bold; color: #555; border-top: 1px solid #ccc; padding-top: 5px; letter-spacing: 2px; visibility: visible; }
             body.printing-cv #cv-document, body.printing-cv #cv-document * { visibility: visible; }
             body.printing-cv #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
-            
             body.printing-linkedin #linkedin-document, body.printing-linkedin #linkedin-document * { visibility: visible; }
             body.printing-linkedin #linkedin-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
-
             body.printing-reports #reports-document, body.printing-reports #reports-document * { visibility: visible; }
             body.printing-reports #reports-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
-
             h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
         }
-
         @media (max-width: 768px) { .container { padding: 30px; margin: 20px 0; } }
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <a href="#" class="brand-logo">YOUP</a>
-    </nav>
-
+    <nav class="navbar"><a href="#" class="brand-logo">YOUP</a></nav>
     <div class="container">
-        
         <div id="form-screen">
             <h1>Pacote Premium Youp</h1>
             <p class="subtitle">A Jornada Completa: Currículo Estratégico + Perfil LinkedIn + Termômetro de Liquidez + Plano Go-to-Market (Mentoria Executiva).</p>
-
             <div id="alert-box"></div>
-
             <form id="autoridade-form">
                 <div class="form-group" style="border: 1px solid var(--dourado); padding: 20px; border-radius: 4px; background: #fffdf6;">
                     <label for="token" style="color: var(--dourado); font-weight: 800;">Código de Acesso Único</label>
                     <input type="text" id="token" placeholder="Insira seu código de transação da Hotmart (Ex: HP...)" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" placeholder="Ex: Ana Silva" required>
-                </div>
-                <div class="form-group">
-                    <label for="cargo">Cargo Desejado</label>
-                    <input type="text" id="cargo" placeholder="Ex: Diretor de Operações, CFO" required>
-                </div>
-                <div class="form-group">
-                    <label for="problem">Maior problema de negócio resolvido</label>
-                    <textarea id="problem" placeholder="Conte-nos sobre o desafio macro (financeiro, processos ou pessoas) e como você o mitigou..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="metrics">Métricas reais que comprovam o sucesso</label>
-                    <textarea id="metrics" placeholder="Ex: Redução de 15% no custo operacional, aumento de R$ 2M na receita..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="old_cv">Cole seu Histórico / Currículo Atual</label>
-                    <textarea id="old_cv" placeholder="Certifique-se de incluir no texto: Experiências anteriores com datas, Formação acadêmica, Idiomas e Cursos..." style="height: 200px;" required></textarea>
-                </div>
+                <div class="form-group"><label for="name">Nome Completo</label><input type="text" id="name" placeholder="Ex: Ana Silva" required></div>
+                <div class="form-group"><label for="cargo">Cargo Desejado</label><input type="text" id="cargo" placeholder="Ex: Diretor de Operações, CFO" required></div>
+                <div class="form-group"><label for="problem">Maior problema de negócio resolvido</label><textarea id="problem" placeholder="Conte-nos sobre o desafio macro..." required></textarea></div>
+                <div class="form-group"><label for="metrics">Métricas reais que comprovam o sucesso</label><textarea id="metrics" placeholder="Ex: Redução de 15%..." required></textarea></div>
+                <div class="form-group"><label for="old_cv">Cole seu Histórico / Currículo Atual</label><textarea id="old_cv" style="height: 200px;" required></textarea></div>
                 <button type="submit" class="btn-submit">Etapa 1: Analisar e Gerar Currículo ➔</button>
             </form>
         </div>
-
-        <div id="loading">
-            <div class="spinner" id="spinner-color"></div>
-            <h3 style="color: var(--cinza-escuro);" id="loading-title">Processando Dados...</h3>
-            <p style="color: #666;" id="loading-sub">Por favor, aguarde alguns segundos.</p>
-        </div>
-
+        <div id="loading"><div class="spinner" id="spinner-color"></div><h3 id="loading-title">Processando Dados...</h3><p id="loading-sub">Por favor, aguarde alguns segundos.</p></div>
         <div id="cv-success-screen">
-            <div style="text-align: center;">
-                <h1 style="color: var(--verde-youp);">Etapa 1 Concluída!</h1>
-                <p class="subtitle" style="margin-bottom: 20px;">Seu Currículo Estratégico otimizado para ATS está pronto para download abaixo.</p>
-            </div>
-
-            <button onclick="baixarCVPDF()" class="btn-action btn-download">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                SALVAR CURRÍCULO EM PDF (ATS-FRIENDLY)
-            </button>
-
-            <div class="preview-box">
-                <div id="cv-document" class="document-paper"></div>
-            </div>
-
+            <div style="text-align: center;"><h1 style="color: var(--verde-youp);">Etapa 1 Concluída!</h1><p class="subtitle">Seu Currículo Estratégico otimizado para ATS está pronto para download abaixo.</p></div>
+            <button onclick="baixarCVPDF()" class="btn-action btn-download"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> SALVAR CURRÍCULO EM PDF (ATS-FRIENDLY)</button>
+            <div class="preview-box"><div id="cv-document" class="document-paper"></div></div>
             <hr class="section-divider">
-
             <h2>Etapa 2: Customizar Perfil LinkedIn</h2>
             <p class="subtitle" style="text-align: left; margin-bottom: 25px;">Escolha o tom de voz da narrativa do seu <b>SOBRE</b>.</p>
-            
             <div class="form-group">
                 <label for="tom-narrativa">Tom de Voz da Narrativa</label>
                 <select id="tom-narrativa">
@@ -211,156 +107,60 @@
                     <option value="Inovador, focado em agilidade, transformação digital, metodologias modernas e cultura de crescimento.">Líder Tecnológico / Inovação (Moderno e Ágil)</option>
                 </select>
             </div>
-
-            <button onclick="gerarLinkedIn()" class="btn-action btn-linkedin">
-                Etapa 2: Gerar Perfil LinkedIn ➔
-            </button>
+            <button onclick="gerarLinkedIn()" class="btn-action btn-linkedin">Etapa 2: Gerar Perfil LinkedIn ➔</button>
         </div>
-
         <div id="linkedin-success-screen">
-            <div style="text-align: center;">
-                <h1 style="color: var(--azul-linkedin);">Perfil LinkedIn Pronto!</h1>
-                <p class="subtitle" style="margin-bottom: 20px;">O prompt estruturado e calibrado para SEO gerou as seções exatas para sua revisão e cópia.</p>
-            </div>
-
-            <button onclick="copiarPerfil()" id="btn-copiar" class="btn-action btn-copy">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                COPIAR TEXTO DO PERFIL COMPLETO
-            </button>
-
-            <button onclick="baixarLinkedInPDF()" class="btn-action btn-pdf-linkedin">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                BAIXAR PERFIL EM PDF
-            </button>
-
-            <div class="preview-box">
-                <div id="linkedin-document" class="document-paper"></div>
-            </div>
-
+            <div style="text-align: center;"><h1 style="color: var(--azul-linkedin);">Perfil LinkedIn Pronto!</h1><p class="subtitle">O prompt estruturado e calibrado para SEO gerou as seções exatas para sua revisão e cópia.</p></div>
+            <button onclick="copiarPerfil()" id="btn-copiar" class="btn-action btn-copy"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> COPIAR TEXTO DO PERFIL COMPLETO</button>
+            <button onclick="baixarLinkedInPDF()" class="btn-action btn-pdf-linkedin"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> BAIXAR PERFIL EM PDF</button>
+            <div class="preview-box"><div id="linkedin-document" class="document-paper"></div></div>
             <hr class="section-divider">
-
             <h2>Etapa 3: Mentoria Estratégica (GTM)</h2>
             <p class="subtitle" style="text-align: left; margin-bottom: 25px;">Nesta última etapa, a inteligência da Youp atuará como sua mentora executiva (Ana Paula), criando um <b>Termômetro de Liquidez</b> e um <b>Plano de Ação de Mercado</b> profundo baseado em seu histórico.</p>
-
-            <button onclick="gerarRelatorios()" class="btn-action btn-reports">
-                Etapa 3: Gerar Relatórios Estratégicos ➔
-            </button>
+            <button onclick="gerarRelatorios()" class="btn-action btn-reports">Etapa 3: Gerar Relatórios Estratégicos ➔</button>
         </div>
-
         <div id="reports-success-screen">
-            <div style="text-align: center;">
-                <h1 style="color: var(--dourado);">Sua Mentoria Está Pronta!</h1>
-                <p class="subtitle" style="margin-bottom: 20px;">Abaixo estão o seu Termômetro de Liquidez e seu Plano Go-To-Market elaborados pela inteligência da Youp Consultoria.</p>
-            </div>
-
-            <button onclick="baixarRelatoriosPDF()" class="btn-action btn-pdf-reports">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                BAIXAR RELATÓRIO ESTRATÉGICO EM PDF
-            </button>
-
-            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%21%20Acabei%20de%20gerar%20meu%20GTM%20e%20gostaria%20de%20aprofundar%20meu%20relat%C3%B3rio%20e%20desenvolver%20o%20plano%20de%20a%C3%A7%C3%A3o.%20%28J%C3%A1%20estou%20enviando%20meu%20PDF%20para%20voc%C3%AA%20conhecer%20meu%20perfil%21%29." target="_blank" class="btn-action btn-upsell-1">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                APROFUNDAR MEU PLANO DE AÇÃO
-            </a>
-
-            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%21%20Acabei%20de%20gerar%20meu%20GTM%20e%20percebi%20que%20preciso%20de%20ajuda%20ativa%20de%20um%20Career%20Advisor%20%28Jobhunter%29%20para%20encontrar%20vagas.%20Podemos%20conversar%3F%20%28Meu%20PDF%20est%C3%A1%20aqui%21%29." target="_blank" class="btn-action btn-upsell-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                PRECISO DE AJUDA PARA ENCONTRAR VAGAS (JOBHUNTER)
-            </a>
-
+            <div style="text-align: center;"><h1 style="color: var(--dourado);">Sua Mentoria Está Pronta!</h1><p class="subtitle">Abaixo estão o seu Termômetro de Liquidez e seu Plano Go-To-Market elaborados pela inteligência da Youp Consultoria.</p></div>
+            <button onclick="baixarRelatoriosPDF()" class="btn-action btn-pdf-reports"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> BAIXAR RELATÓRIO ESTRATÉGICO EM PDF</button>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%21%20Acabei%20de%20gerar%20meu%20GTM%20e%20gostaria%20de%20aprofundar%20meu%20relat%C3%B3rio%20e%20desenvolver%20o%20plano%20de%20a%C3%A7%C3%A3o.%20%28J%C3%A1%20estou%20enviando%20meu%20PDF%20para%20voc%C3%AA%20conhecer%20meu%20perfil%21%29." target="_blank" class="btn-action btn-upsell-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> APROFUNDAR MEU PLANO DE AÇÃO</a>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%21%20Acabei%20de%20gerar%20meu%20GTM%20e%20percebi%20que%20preciso%20de%20ajuda%20ativa%20de%20um%20Career%20Advisor%20%28Jobhunter%29%20para%20encontrar%20vagas.%20Podemos%20conversar%3F%20%28Meu%20PDF%20est%C3%A1%20aqui%21%29." target="_blank" class="btn-action btn-upsell-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> PRECISO DE AJUDA PARA ENCONTRAR VAGAS (JOBHUNTER)</a>
             <p style="text-align: center; font-size: 13px; color: #777; margin-top: 15px;"><i>Ao clicar em uma das opções acima, não esqueça de nos enviar o seu PDF no chat para agilizarmos a sua análise.</i></p>
-
-            <div class="preview-box">
-                <div id="reports-document" class="document-paper"></div>
-            </div>
+            <div class="preview-box"><div id="reports-document" class="document-paper"></div></div>
         </div>
-
     </div>
-
     <div class="print-footer">YOUP CONSULTORIA</div>
-
     <script>
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
+        let curriculoGeradoTexto = ""; let areaAtuacaoGlobal = ""; let nomeClienteGlobal = "Cliente"; let savedToken = ""; let isUnsaved = false;
 
-        let curriculoGeradoTexto = "";
-        let areaAtuacaoGlobal = "";
-        let nomeClienteGlobal = "Cliente";
-        let savedToken = ""; 
-        let isUnsaved = false; // CAMADA 1: Controle de Segurança Antifechamento
-
-        // CAMADA 1: Trava o navegador se o cliente tentar fechar a aba
         window.addEventListener('beforeunload', function (e) {
-            if (isUnsaved) {
-                e.preventDefault();
-                e.returnValue = '';
-            }
+            if (isUnsaved) { e.preventDefault(); e.returnValue = ''; }
         });
 
-        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
-ETAPA 1: AUDITORIA DE QUALIDADE
-Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
-ETAPA 2: GERAÇÃO
-Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números. Use Markdown (# para nome, ## para seções, ** para negrito, - para listas).
-ESTRUTURA DE SAÍDA EXIGIDA:
-# [Nome do Profissional]
-**Localização:** | **LinkedIn:** | **Cargo Alvo:** [Cargo Alvo]
-## Resumo Executivo
-[Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]
-## Destaques e Impacto no Negócio
-- [Bullet point 1 contendo a métrica de maior impacto]
-- [Bullet point 2 contendo métricas gerenciais/processos]
-- [Bullet point 3 contendo impacto financeiro/estratégico]
-## Experiência Profissional
-**[Nome da Empresa]** | [Período com datas]
-*Contexto:* [Breve contexto do desafio macro enfrentado na entrada]
-- [Ações estratégicas aplicadas e resultados operacionais]
-## Formação Acadêmica e Certificações
-- [Formação/Certificação 1]
-## Cursos e Idiomas
-- [Idiomas com respectivo nível]
-- [Cursos]`;
+        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.\nETAPA 1: AUDITORIA DE QUALIDADE\nAnalise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.\nETAPA 2: GERAÇÃO\nSe estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números. Use Markdown (# para nome, ## para seções, ** para negrito, - para listas).\nESTRUTURA DE SAÍDA EXIGIDA:\n# [Nome do Profissional]\n**E-mail:** [Extrair do CV] | **Telefone:** [Extrair do CV] | **LinkedIn:** [Extrair do CV] | **Localização:** [Extrair do CV]\n**Cargo Alvo:** [Cargo Alvo]\n## Resumo Executivo\n[Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]\n## Destaques e Impacto no Negócio\n- [Bullet point 1 contendo a métrica de maior impacto]\n- [Bullet point 2 contendo métricas gerenciais/processos]\n- [Bullet point 3 contendo impacto financeiro/estratégico]\n## Experiência Profissional\n**[Nome da Empresa]** | [Período com datas]\n*Contexto:* [Breve contexto do desafio macro enfrentado na entrada]\n- [Ações estratégicas aplicadas e resultados operacionais]\n## Formação Acadêmica e Certificações\n- [Formação/Certificação 1]\n## Cursos e Idiomas\n- [Idiomas com respectivo nível]\n- [Cursos]`;
 
-        const formScreen = document.getElementById('form-screen');
-        const cvSuccessScreen = document.getElementById('cv-success-screen');
-        const linkedinSuccessScreen = document.getElementById('linkedin-success-screen');
-        const reportsSuccessScreen = document.getElementById('reports-success-screen');
-        const loading = document.getElementById('loading');
-        
-        const cvDocument = document.getElementById('cv-document');
-        const linkedinDocument = document.getElementById('linkedin-document');
-        const reportsDocument = document.getElementById('reports-document');
-        const alertBox = document.getElementById('alert-box');
-
-        // GERAÇÃO DO CURRÍCULO (ETAPA 1)
         document.getElementById('autoridade-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            formScreen.style.display = 'none';
-            loading.style.display = 'block';
-            alertBox.style.display = 'none';
+            document.getElementById('form-screen').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('alert-box').style.display = 'none';
 
             savedToken = document.getElementById('token').value.trim();
             nomeClienteGlobal = document.getElementById('name').value.trim();
             areaAtuacaoGlobal = document.getElementById('cargo').value;
 
-            // CAMADA 2: Puxa o backup da máquina se o usuário já tiver gerado o material
             const backupLocal = localStorage.getItem('youp_premium_backup_' + savedToken);
             if (backupLocal) {
                 const backupData = JSON.parse(backupLocal);
-                nomeClienteGlobal = backupData.name || nomeClienteGlobal;
-                areaAtuacaoGlobal = backupData.cargo || areaAtuacaoGlobal;
-                curriculoGeradoTexto = backupData.cv;
-                cvDocument.innerHTML = marked.parse(curriculoGeradoTexto);
-                
-                isUnsaved = true; // Ativa o aviso de antifechamento
-                loading.style.display = 'none';
-                cvSuccessScreen.style.display = 'block';
-                return; // Impede que o sistema gaste tempo indo até o servidor de novo
+                nomeClienteGlobal = backupData.name || nomeClienteGlobal; areaAtuacaoGlobal = backupData.cargo || areaAtuacaoGlobal; curriculoGeradoTexto = backupData.cv;
+                document.getElementById('cv-document').innerHTML = marked.parse(curriculoGeradoTexto);
+                isUnsaved = true; document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
+                return;
             }
 
             const problem = document.getElementById('problem').value;
             const metrics = document.getElementById('metrics').value;
             const old_cv = document.getElementById('old_cv').value;
-
             const userMessage = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo Alvo: ${areaAtuacaoGlobal}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
 
             try {
@@ -372,261 +172,112 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 const data = await response.json();
 
                 if (data.error) {
-                    alertBox.innerText = data.error.message;
-                    alertBox.style.display = 'block';
-                    loading.style.display = 'none';
-                    formScreen.style.display = 'block';
+                    document.getElementById('alert-box').innerText = data.error.message; document.getElementById('alert-box').style.display = 'block';
+                    document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
                     window.scrollTo(0, 0);
                 } else if (data.candidates && data.candidates[0]) {
                     const result = data.candidates[0].content.parts[0].text;
                     if (result.includes('[INCOMPLETO]')) {
-                        alertBox.innerText = result.replace('[INCOMPLETO]', '').trim();
-                        alertBox.style.display = 'block';
-                        loading.style.display = 'none';
-                        formScreen.style.display = 'block';
+                        document.getElementById('alert-box').innerText = result.replace('[INCOMPLETO]', '').trim(); document.getElementById('alert-box').style.display = 'block';
+                        document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
                         window.scrollTo(0, 0);
                     } else {
                         curriculoGeradoTexto = result;
-
-                        // CAMADA 2: Salva o texto gerado na memória
-                        localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify({
-                            name: nomeClienteGlobal,
-                            cargo: areaAtuacaoGlobal,
-                            cv: curriculoGeradoTexto
-                        }));
-                        isUnsaved = true; // Ativa a trava antifechamento
-
-                        cvDocument.innerHTML = marked.parse(result);
-                        loading.style.display = 'none';
-                        cvSuccessScreen.style.display = 'block';
+                        localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify({ name: nomeClienteGlobal, cargo: areaAtuacaoGlobal, cv: curriculoGeradoTexto }));
+                        isUnsaved = true; document.getElementById('cv-document').innerHTML = marked.parse(result);
+                        document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
                     }
-                } else { throw new Error(); }
+                }
             } catch (error) {
-                alert('Erro no processamento. Tente novamente.');
-                loading.style.display = 'none';
-                formScreen.style.display = 'block';
+                alert('Erro no processamento.'); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
             }
         });
 
-        // GERAÇÃO DO LINKEDIN (ETAPA 2)
         async function gerarLinkedIn() {
             document.getElementById('spinner-color').style.borderTopColor = 'var(--azul-linkedin)';
             document.getElementById('loading-title').innerText = "Otimizando Perfil LinkedIn...";
-            document.getElementById('loading-sub').innerText = "Calculando densidade exata de palavras-chave estruturadas.";
-            
-            cvSuccessScreen.style.display = 'none';
-            loading.style.display = 'block';
+            document.getElementById('cv-success-screen').style.display = 'none'; document.getElementById('loading').style.display = 'block';
 
-            // CAMADA 2 (Verificação): Se ele já havia gerado o LinkedIn, restaura direto.
             const backupLocal = localStorage.getItem('youp_premium_backup_' + savedToken);
             if (backupLocal) {
                 const backupData = JSON.parse(backupLocal);
                 if (backupData.li) {
-                    linkedinDocument.innerHTML = marked.parse(backupData.li);
-                    loading.style.display = 'none';
-                    linkedinSuccessScreen.style.display = 'block';
+                    document.getElementById('linkedin-document').innerHTML = marked.parse(backupData.li);
+                    document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
                     return;
                 }
             }
 
             const tomEscolhido = document.getElementById('tom-narrativa').value;
-
-            const linkedinSystemPrompt = `Com base no currículo e nas competências para a área, crie um perfil do LinkedIn estratégico com tom de voz: ${tomEscolhido}. 
-Siga este formato rigorosamente:
-# TÍTULO PROFISSIONAL
-[3 opções]
-# SOBRE
-[Storytelling em primeira pessoa no tom especificado. DEVE conter entre 2500 e 2600 caracteres].
-# HABILIDADES ESSENCIAIS
-[Exatamente 80 habilidades divididas em Técnicas, Comportamentais e Tecnológicas].
-# EXPERIÊNCIAS PROFISSIONAIS
-[Detalhe as experiências no padrão LinkedIn].
-# FORMAÇÃO E CERTIFICAÇÕES
-[Dados de educação].
-# RECOMENDAÇÕES
-[Modelo de texto diplomático para solicitar recomendação].
-# OUTRAS INFORMAÇÕES
-[Sugestões de projetos/multimídia].
-# DICAS DE ENGAJAMENTO
-[3 temas de posts].`;
-
+            const linkedinSystemPrompt = `Com base no currículo e nas competências para a área, crie um perfil do LinkedIn estratégico com tom de voz: ${tomEscolhido}. \nSiga este formato rigorosamente:\n# TÍTULO PROFISSIONAL\n[3 opções]\n# SOBRE\n[Storytelling em primeira pessoa no tom especificado. DEVE conter entre 2500 e 2600 caracteres].\n# HABILIDADES ESSENCIAIS\n[Exatamente 80 habilidades divididas em Técnicas, Comportamentais e Tecnológicas].\n# EXPERIÊNCIAS PROFISSIONAIS\n[Detalhe as experiências no padrão LinkedIn].\n# FORMAÇÃO E CERTIFICAÇÕES\n[Dados de educação].\n# RECOMENDAÇÕES\n[Modelo de texto diplomático para solicitar recomendação].\n# OUTRAS INFORMAÇÕES\n[Sugestões de projetos/multimídia].\n# DICAS DE ENGAJAMENTO\n[3 temas de posts].`;
             const userMessage = `Área/Carreira: ${areaAtuacaoGlobal}\nCurrículo Base:\n${curriculoGeradoTexto}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    // isFollowUp: true -> Avisa o cofre para não bloquear a Etapa 2
                     body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: linkedinSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
 
-                if (data.error) {
-                    alert(data.error.message);
-                    loading.style.display = 'none';
-                    cvSuccessScreen.style.display = 'block';
-                } else if (data.candidates && data.candidates[0]) {
+                if (data.candidates && data.candidates[0]) {
                     const resultLinkedin = data.candidates[0].content.parts[0].text;
-                    
-                    // CAMADA 2 (Atualização): Salva também o texto do LinkedIn na memória do navegador
                     if (backupLocal) {
-                        const backupData = JSON.parse(backupLocal);
-                        backupData.li = resultLinkedin;
+                        const backupData = JSON.parse(backupLocal); backupData.li = resultLinkedin;
                         localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify(backupData));
                     }
-
-                    linkedinDocument.innerHTML = marked.parse(resultLinkedin);
-                    loading.style.display = 'none';
-                    linkedinSuccessScreen.style.display = 'block';
-                } else { throw new Error(); }
+                    document.getElementById('linkedin-document').innerHTML = marked.parse(resultLinkedin);
+                    document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
+                }
             } catch (error) {
-                alert('Erro ao otimizar o perfil. Tente novamente.');
-                loading.style.display = 'none';
-                cvSuccessScreen.style.display = 'block';
+                alert('Erro ao otimizar o perfil.'); document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
             }
         }
 
-        // GERAÇÃO DOS RELATÓRIOS (ETAPA 3 - GTM)
         async function gerarRelatorios() {
             document.getElementById('spinner-color').style.borderTopColor = 'var(--dourado)';
             document.getElementById('loading-title').innerText = "Elaborando Análise de Mercado...";
-            document.getElementById('loading-sub').innerText = "A inteligência da Youp Consultoria está estruturando sua mentoria executiva profunda.";
-            
-            linkedinSuccessScreen.style.display = 'none';
-            loading.style.display = 'block';
+            document.getElementById('linkedin-success-screen').style.display = 'none'; document.getElementById('loading').style.display = 'block';
 
-            // CAMADA 2 (Verificação): Se ele já havia gerado o Relatório GTM, restaura direto.
             const backupLocal = localStorage.getItem('youp_premium_backup_' + savedToken);
             if (backupLocal) {
                 const backupData = JSON.parse(backupLocal);
                 if (backupData.gtm) {
-                    reportsDocument.innerHTML = marked.parse(backupData.gtm);
-                    loading.style.display = 'none';
-                    reportsSuccessScreen.style.display = 'block';
+                    document.getElementById('reports-document').innerHTML = marked.parse(backupData.gtm);
+                    document.getElementById('loading').style.display = 'none'; document.getElementById('reports-success-screen').style.display = 'block';
                     return;
                 }
             }
 
-            const reportsSystemPrompt = `Aja como Ana Paula, Headhunter Sênior e Mentora Executiva da Youp Consultoria. Sua missão é entregar dois relatórios profundos, consultivos e acolhedores, baseados na realidade do mercado C-Level: o "Termômetro de Liquidez" e o "Plano Go-to-Market (GTM)".
-            
-O tom deve ser de aconselhamento premium. Use "eu" (Ana Paula) falando diretamente com "você" (o cliente). O texto deve ser LONGO, ESTRUTURADO, rico em detalhes corporativos e com um vocabulário que justifique um investimento de consultoria executiva. Seja muito honesta e orientativa sobre os gaps e sobre a estratégia de mercado.
-
-Use EXATAMENTE a seguinte estrutura Markdown:
-
-# TERMÔMETRO DE LIQUIDEZ ESTRATÉGICA
-**Score de Empregabilidade:** [Nota de 0 a 100 baseada na força do currículo e perfil]
-
-## Análise de Risco e Potencial
-[Escreva 3 a 4 parágrafos profundos analisando as forças do candidato, aderência ao mercado, gaps e percepção de mercado.]
-
-## Plano de Ação Orientativo
-[Liste de 3 a 5 passos consultivos detalhados. Ex: "1. Como sua mentora, aconselho que você..."]
-
----
-
-# PLANO GO-TO-MARKET (GTM)
-[Introdução consultiva de 1 a 2 parágrafos sobre a mudança de posicionamento.]
-
-## I. Posicionamento Estratégico de Mercado
-[Defina o Core Offering e o Diferencial Competitivo em formato de tese executiva.]
-
-## II. Perfil de Cliente Ideal (ICP)
-[Descreva detalhadamente os segmentos-alvo, estágio da empresa e dores críticas que este executivo resolve.]
-
-## III. Matriz de Valor (EBITDA & Mitigação de Risco)
-[Traduza as conquistas operacionais do currículo em impacto financeiro, margem e proteção corporativa.]
-
-## IV. Estratégia de Tração e Abordagem (Outbound)
-[Aconselhe sobre quem abordar (C-Level) e forneça um modelo de mensagem de abordagem (Pitch) consultivo, elegante e ancorado em resultados financeiros.]
-
-## V. Roadmap de Execução (90 Dias)
-[Divida em 3 fases mensais claras, longas e acionáveis, orientando o cliente passo a passo.]
-
-## VI. O Próximo Passo: Mentoria Estratégica Individual
-Como mentora, devo ser 100% transparente: ter este documento em mãos não garante o resultado se a execução não for impecável. O Go-to-Market é apenas o mapa; a tração vem da velocidade e da precisão da abordagem. Se você percebeu que precisa de um acompanhamento tático para executar este plano, o próximo passo é agendarmos uma **Sessão de Mentoria Estratégica (Serviço Premium)**. Me envie este PDF no WhatsApp para consultarmos a agenda e os valores desta sessão exclusiva. Pressione um dos botões abaixo no site e vamos elevar o seu posicionamento ao próximo nível!`;
-
+            const reportsSystemPrompt = `Aja como Ana Paula, Headhunter Sênior e Mentora Executiva da Youp Consultoria. Sua missão é entregar dois relatórios profundos, consultivos e acolhedores, baseados na realidade do mercado C-Level: o "Termômetro de Liquidez" e o "Plano Go-to-Market (GTM)".\n            \nO tom deve ser de aconselhamento premium. Use "eu" (Ana Paula) falando diretamente com "você" (o cliente). O texto deve ser LONGO, ESTRUTURADO, rico em detalhes corporativos e com um vocabulário que justifique um investimento de consultoria executiva. Seja muito honesta e orientativa sobre os gaps e sobre a estratégia de mercado.\n\nUse EXATAMENTE a seguinte estrutura Markdown:\n\n# TERMÔMETRO DE LIQUIDEZ ESTRATÉGICA\n**Score de Empregabilidade:** [Nota de 0 a 100 baseada na força do currículo e perfil]\n\n## Análise de Risco e Potencial\n[Escreva 3 a 4 parágrafos profundos analisando as forças do candidato, aderência ao mercado, gaps e percepção de mercado.]\n\n## Plano de Ação Orientativo\n[Liste de 3 a 5 passos consultivos detalhados. Ex: "1. Como sua mentora, aconselho que você..."]\n\n---\n\n# PLANO GO-TO-MARKET (GTM)\n[Introdução consultiva de 1 a 2 parágrafos sobre a mudança de posicionamento.]\n\n## I. Posicionamento Estratégico de Mercado\n[Defina o Core Offering e o Diferencial Competitivo em formato de tese executiva.]\n\n## II. Perfil de Cliente Ideal (ICP)\n[Descreva detalhadamente os segmentos-alvo, estágio da empresa e dores críticas que este executivo resolve.]\n\n## III. Matriz de Valor (EBITDA & Mitigação de Risco)\n[Traduza as conquistas operacionais do currículo em impacto financeiro, margem e proteção corporativa.]\n\n## IV. Estratégia de Tração e Abordagem (Outbound)\n[Aconselhe sobre quem abordar (C-Level) e forneça um modelo de mensagem de abordagem (Pitch) consultivo, elegant e ancorado em resultados financeiros.]\n\n## V. Roadmap de Execução (90 Dias)\n[Divida em 3 fases mensais claras, longas e acionáveis, orientando o cliente passo a passo.]\n\n## VI. O Próximo Passo: Mentoria Estratégica Individual\nComo mentora, devo ser 100% transparente: ter este documento em mãos não garante o resultado se a execução não for impecável. O Go-to-Market é apenas o mapa; a tração vem da velocidade e da precisão da abordagem. Se você percebeu que precisa de um acompanhamento tático para executar este plano, o próximo passo é agendarmos uma **Sessão de Mentoria Estratégica (Serviço Premium)**. Me envie este PDF no WhatsApp para consultarmos a agenda e os valores desta sessão exclusiva. Pressione um dos botões abaixo no site e vamos elevar o seu posicionamento ao próximo nível!`;
             const userMessage = `Perfil do Cliente: ${nomeClienteGlobal}\nCargo Alvo: ${areaAtuacaoGlobal}\nDados Extraídos do Currículo Base:\n${curriculoGeradoTexto}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    // isFollowUp: true -> Avisa o cofre para não bloquear a Etapa 3
                     body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: reportsSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
 
-                if (data.error) {
-                    alert(data.error.message);
-                    loading.style.display = 'none';
-                    linkedinSuccessScreen.style.display = 'block';
-                } else if (data.candidates && data.candidates[0]) {
+                if (data.candidates && data.candidates[0]) {
                     const resultReports = data.candidates[0].content.parts[0].text;
-
-                    // CAMADA 2 (Atualização): Salva também o GTM na memória do navegador
                     if (backupLocal) {
-                        const backupData = JSON.parse(backupLocal);
-                        backupData.gtm = resultReports;
+                        const backupData = JSON.parse(backupLocal); backupData.gtm = resultReports;
                         localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify(backupData));
                     }
-
-                    reportsDocument.innerHTML = marked.parse(resultReports);
-                    loading.style.display = 'none';
-                    reportsSuccessScreen.style.display = 'block';
-                } else { throw new Error(); }
+                    document.getElementById('reports-document').innerHTML = marked.parse(resultReports);
+                    document.getElementById('loading').style.display = 'none'; document.getElementById('reports-success-screen').style.display = 'block';
+                }
             } catch (error) {
-                alert('Erro ao gerar os relatórios. Tente novamente.');
-                loading.style.display = 'none';
-                linkedinSuccessScreen.style.display = 'block';
+                alert('Erro ao gerar os relatórios.'); document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
             }
         }
 
-        // CONTROLADORES DE SALVAMENTO DINÂMICO
-        function baixarCVPDF() {
-            const originalTitle = document.title;
-            document.title = nomeClienteGlobal + "-Currículo";
-            document.body.classList.add('printing-cv');
-            document.body.classList.remove('printing-linkedin', 'printing-reports');
-            window.print();
-            setTimeout(() => { document.title = originalTitle; }, 1000);
-        }
-
-        function baixarLinkedInPDF() {
-            const originalTitle = document.title;
-            document.title = nomeClienteGlobal + "-Currículo-linkedin";
-            document.body.classList.add('printing-linkedin');
-            document.body.classList.remove('printing-cv', 'printing-reports');
-            window.print();
-            setTimeout(() => { document.title = originalTitle; }, 1000);
-        }
-
-        function baixarRelatoriosPDF() {
-            isUnsaved = false; // A Trava da Camada 1 é desfeita pois o cliente concluiu e salvou o último documento Premium.
-            
-            const originalTitle = document.title;
-            document.title = nomeClienteGlobal + "-Relatorio-Estrategico";
-            document.body.classList.add('printing-reports');
-            document.body.classList.remove('printing-cv', 'printing-linkedin');
-            window.print();
-            setTimeout(() => { document.title = originalTitle; }, 1000);
-        }
-
-        // FUNÇÃO COPIAR LINKEDIN
-        function copiarPerfil() {
-            const tempDiv = document.createElement("div");
-            tempDiv.innerHTML = linkedinDocument.innerHTML;
-            const plainText = tempDiv.innerText;
-
-            navigator.clipboard.writeText(plainText).then(() => {
-                const btn = document.getElementById('btn-copiar');
-                btn.innerHTML = "TEXTO COPIADO COM SUCESSO! ✓";
-                btn.style.backgroundColor = "var(--verde-youp)";
-                setTimeout(() => {
-                    btn.innerHTML = 'COPIAR TEXTO DO PERFIL COMPLETO';
-                    btn.style.backgroundColor = "var(--cinza-escuro)";
-                }, 3000);
-            });
-        }
+        function baixarCVPDF() { const originalTitle = document.title; document.title = nomeClienteGlobal + "-Currículo"; document.body.classList.add('printing-cv'); document.body.classList.remove('printing-linkedin', 'printing-reports'); window.print(); setTimeout(() => { document.title = originalTitle; }, 1000); }
+        function baixarLinkedInPDF() { const originalTitle = document.title; document.title = nomeClienteGlobal + "-Currículo-linkedin"; document.body.classList.add('printing-linkedin'); document.body.classList.remove('printing-cv', 'printing-reports'); window.print(); setTimeout(() => { document.title = originalTitle; }, 1000); }
+        function baixarRelatoriosPDF() { isUnsaved = false; const originalTitle = document.title; document.title = nomeClienteGlobal + "-Relatorio-Estrategico"; document.body.classList.add('printing-reports'); document.body.classList.remove('printing-cv', 'printing-linkedin'); window.print(); setTimeout(() => { document.title = originalTitle; }, 1000); }
+        function copiarPerfil() { const tempDiv = document.createElement("div"); tempDiv.innerHTML = document.getElementById('linkedin-document').innerHTML; navigator.clipboard.writeText(tempDiv.innerText); const btn = document.getElementById('btn-copiar'); btn.innerHTML = "TEXTO COPIADO COM SUCESSO! ✓"; setTimeout(() => { btn.innerHTML = 'COPIAR TEXTO DO PERFIL COMPLETO'; }, 3000); }
     </script>
 </body>
 </html>
