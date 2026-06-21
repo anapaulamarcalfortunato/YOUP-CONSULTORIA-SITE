@@ -131,6 +131,7 @@
             <div id="alert-box"></div>
 
             <form id="autoridade-form">
+                <!-- CADEADO DIGITAL -->
                 <div class="form-group" style="border: 1px solid var(--dourado); padding: 20px; border-radius: 4px; background: #fffdf6;">
                     <label for="token" style="color: var(--dourado); font-weight: 800;">Código de Acesso Único</label>
                     <input type="text" id="token" placeholder="Insira seu código de transação da Hotmart (Ex: HP...)" required>
@@ -235,13 +236,10 @@
         let nomeClienteGlobal = "Cliente";
         let savedToken = ""; // Retém o token digitado pelo cliente
 
-        // PROMPT DO CURRÍCULO (Fase 1 com Guardião)
-        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
-        ETAPA 1: AUDITORIA DE QUALIDADE
-        Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais acompanhadas de DATAS, Formação Acadêmica, Cursos Complementares/Certificações e Nível de Idiomas.
-        Se alguma dessas informações fundamentais estiver ausente, responda APENAS com a tag: [INCOMPLETO] seguido da explicação de quais dados faltam.
-        ETAPA 2: GERAÇÃO
-        Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números. Use Markdown (# para nome, ## para seções, ** para negrito, - para listas).`;
+        // PROMPT DO CURRÍCULO (EXATAMENTE IGUAL AO /APP-CURRICULO)
+        const cvSystemPrompt = `Aja como um Headhunter Executivo da Youp Consultoria. 
+ETAPA 1: AUDITORIA. O currículo deve conter obrigatoriamente Experiências com DATAS, Formação, Cursos e Idiomas. Se faltar algo, responda APENAS com [INCOMPLETO] e a lista de pendências.
+ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# nome, ## resumo executivo, ## destaques e impacto no negócio, ## experiência profissional [empresa|data|contexto|ações], ## formação acadêmica, ## cursos e idiomas).`;
 
         const formScreen = document.getElementById('form-screen');
         const cvSuccessScreen = document.getElementById('cv-success-screen');
@@ -350,7 +348,6 @@ Formato de Entrega Exigido:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    // isFollowUp: true -> Avisa o cofre que o token já foi validado na Etapa 1 e não deve ser bloqueado
                     body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: linkedinSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
