@@ -92,7 +92,6 @@
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
             
-            /* REGRA 1: Rodapé YOUP CONSULTORIA RESTRITO APENAS PARA O LINKEDIN */
             body.printing-linkedin .print-footer-linkedin {
                 display: block; position: fixed; bottom: 0; left: 0; width: 100%;
                 text-align: center; font-size: 10pt; font-family: Arial, sans-serif;
@@ -100,11 +99,9 @@
                 letter-spacing: 2px; visibility: visible;
             }
 
-            /* Se estiver imprimindo o CV (Não ativa nenhum rodapé) */
             body.printing-cv #cv-document, body.printing-cv #cv-document * { visibility: visible; }
             body.printing-cv #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
             
-            /* Se estiver imprimindo o LinkedIn */
             body.printing-linkedin #linkedin-document, body.printing-linkedin #linkedin-document * { visibility: visible; }
             body.printing-linkedin #linkedin-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
 
@@ -125,7 +122,7 @@
     <div class="container">
         
         <div id="form-screen">
-            <h1>Pacote Autoridade</h1>
+            <h1>Plano Autoridade</h1>
             <p class="subtitle">Alinhamento total: Currículo Estratégico + Perfil LinkedIn Otimizado.</p>
 
             <div id="alert-box"></div>
@@ -234,12 +231,33 @@
         let curriculoGeradoTexto = "";
         let areaAtuacaoGlobal = "";
         let nomeClienteGlobal = "Cliente";
-        let savedToken = ""; // Retém o token digitado pelo cliente
+        let savedToken = ""; 
 
-        // PROMPT DO CURRÍCULO (EXATAMENTE IGUAL AO /APP-CURRICULO)
-        const cvSystemPrompt = `Aja como um Headhunter Executivo da Youp Consultoria. 
-ETAPA 1: AUDITORIA. O currículo deve conter obrigatoriamente Experiências com DATAS, Formação, Cursos e Idiomas. Se faltar algo, responda APENAS com [INCOMPLETO] e a lista de pendências.
-ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# nome, ## resumo executivo, ## destaques e impacto no negócio, ## experiência profissional [empresa|data|contexto|ações], ## formação acadêmica, ## cursos e idiomas).`;
+        // O PROMPT RIGOROSO RESTAURADO (COM CABEÇALHO COMPLETO DE DADOS)
+        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
+ETAPA 1: AUDITORIA DE QUALIDADE
+Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
+ETAPA 2: GERAÇÃO
+Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números. Use Markdown (# para nome, ## para seções, ** para negrito, - para listas).
+ESTRUTURA DE SAÍDA EXIGIDA:
+# [Nome do Profissional]
+**E-mail:** [Extrair do CV] | **Telefone:** [Extrair do CV] | **LinkedIn:** [Extrair do CV] | **Localização:** [Extrair do CV]
+**Cargo Alvo:** [Cargo Alvo]
+## Resumo Executivo
+[Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]
+## Destaques e Impacto no Negócio
+- [Bullet point 1 contendo a métrica de maior impacto]
+- [Bullet point 2 contendo métricas gerenciais/processos]
+- [Bullet point 3 contendo impacto financeiro/estratégico]
+## Experiência Profissional
+**[Nome da Empresa]** | [Período com datas]
+*Contexto:* [Breve contexto do desafio macro enfrentado na entrada]
+- [Ações estratégicas aplicadas e resultados operacionais]
+## Formação Acadêmica e Certificações
+- [Formação/Certificação 1]
+## Cursos e Idiomas
+- [Idiomas com respectivo nível]
+- [Cursos]`;
 
         const formScreen = document.getElementById('form-screen');
         const cvSuccessScreen = document.getElementById('cv-success-screen');
@@ -348,6 +366,7 @@ Formato de Entrega Exigido:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    // isFollowUp: true garante a liberação do cofre nesta etapa
                     body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: linkedinSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
@@ -369,7 +388,6 @@ Formato de Entrega Exigido:
             }
         }
 
-        // CONTROLADORES DE SALVAMENTO DINÂMICO DE ARQUIVO
         function baixarCVPDF() {
             const originalTitle = document.title;
             document.title = nomeClienteGlobal + "-Currículo";
@@ -388,7 +406,6 @@ Formato de Entrega Exigido:
             setTimeout(() => { document.title = originalTitle; }, 1000);
         }
 
-        // FUNÇÃO COPIAR LINKEDIN
         function copiarPerfil() {
             const tempDiv = document.createElement("div");
             tempDiv.innerHTML = linkedinDocument.innerHTML;
