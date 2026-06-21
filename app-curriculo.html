@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Builder | Youp Consultoria</title>
+    <!-- Fonte padrão do site Youp -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Bibliotecas Mágicas para transformar o texto em PDF perfeitamente formatado -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <style>
         /* Estilos baseados na identidade visual da Youp */
         :root {
@@ -20,151 +25,74 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #f4f4f4;
             color: var(--texto-corpo);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center;
             min-height: 100vh;
         }
 
-        /* Barra de Navegação */
         .navbar {
-            width: 100%;
-            background-color: var(--cinza-escuro);
-            padding: 15px 50px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: flex-start;
+            width: 100%; background-color: var(--cinza-escuro);
+            padding: 15px 50px; box-sizing: border-box;
+            display: flex; justify-content: flex-start;
         }
 
-        .brand-logo {
-            color: var(--dourado);
-            text-decoration: none;
-            font-weight: 800;
-            letter-spacing: 3px;
-            font-size: 20px;
-        }
+        .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 20px; }
 
-        /* Container Principal */
         .container {
-            width: 90%;
-            max-width: 800px;
-            background-color: var(--fundo-claro);
-            margin: 50px 0;
-            padding: 60px;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            box-sizing: border-box;
+            width: 90%; max-width: 800px; background-color: var(--fundo-claro);
+            margin: 50px 0; padding: 60px; border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05); box-sizing: border-box;
         }
 
-        h1 {
-            color: var(--cinza-escuro);
-            font-weight: 800;
-            font-size: 32px;
-            margin-bottom: 10px;
-            text-align: center;
+        h1 { color: var(--cinza-escuro); font-weight: 800; font-size: 32px; margin-bottom: 10px; text-align: center; }
+        .subtitle { color: #666; text-align: center; font-size: 16px; margin-bottom: 50px; font-weight: 400; }
+
+        /* Formulário */
+        .form-group { margin-bottom: 30px; }
+        label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--cinza-escuro); text-transform: uppercase; letter-spacing: 1px; }
+        input[type="text"], textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 15px; box-sizing: border-box; }
+        textarea { height: 150px; resize: vertical; }
+
+        .btn-submit, .btn-download {
+            display: block; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 16px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none;
+        }
+        
+        .btn-submit { background-color: var(--cinza-escuro); color: var(--dourado); }
+        .btn-submit:hover { background-color: var(--dourado); color: var(--cinza-escuro); }
+
+        .btn-download { background-color: var(--verde-youp); color: #fff; margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .btn-download:hover { background-color: #4a756b; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(92, 142, 130, 0.3); }
+
+        /* Telas */
+        #loading, #download-screen { display: none; }
+        
+        #loading { text-align: center; padding: 40px 0; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--dourado); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* O Container do PDF (Simula uma folha A4 na tela para o cliente ter um "Gostinho" do resultado) */
+        .pdf-preview-box {
+            background: #e9ecef; padding: 20px; border-radius: 6px; margin-top: 30px; max-height: 400px; overflow-y: auto; border: 1px solid #ddd;
         }
 
-        .subtitle {
-            color: #666;
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 50px;
-            font-weight: 400;
-        }
-
-        /* Área do Formulário */
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: var(--cinza-escuro);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            display: block;
-            width: 100%;
-            background-color: var(--cinza-escuro);
-            color: var(--dourado);
-            border: none;
-            padding: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--dourado);
-            color: var(--cinza-escuro);
-        }
-
-        /* Área do Resultado */
-        #result-area {
-            display: none;
-            margin-top: 50px;
-        }
-
-        #cv-output {
-            background-color: #fafafa;
-            border: 1px solid #eee;
+        #cv-document {
+            background-color: #fff;
             padding: 40px;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            white-space: pre-wrap;
-            font-size: 15px;
-            line-height: 1.8;
-            color: var(--texto-corpo);
+            color: #000;
+            font-family: Arial, sans-serif; /* Fonte corporativa padrão para currículos */
+            font-size: 11pt;
+            line-height: 1.5;
+            text-align: justify;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* Tela de Carregamento */
-        #loading {
-            display: none;
-            text-align: center;
-            font-weight: 600;
-            color: var(--verde-youp);
-            margin-top: 20px;
-        }
+        /* Formatação de HTML dentro do PDF gerado pelo marked.js */
+        #cv-document h1, #cv-document h2, #cv-document h3 { color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 20px; margin-bottom: 10px; font-size: 14pt; }
+        #cv-document p { margin-bottom: 10px; }
+        #cv-document ul { margin-top: 5px; margin-bottom: 15px; padding-left: 20px; }
+        #cv-document li { margin-bottom: 5px; }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px;
-                margin: 20px 0;
-            }
-            h1 {
-                font-size: 26px;
-            }
-            .navbar {
-                padding: 15px 20px;
-            }
-        }
+        @media (max-width: 768px) { .container { padding: 30px; margin: 20px 0; } h1 { font-size: 26px; } .navbar { padding: 15px 20px; } }
     </style>
 </head>
 <body>
@@ -174,88 +102,120 @@
     </nav>
 
     <div class="container">
+        <!-- TELA 1: FORMULÁRIO -->
         <div id="form-screen">
             <h1>AI Resume Builder</h1>
             <p class="subtitle">Insira seus dados abaixo para que nossa IA baseada em Executive Search reestruture seu currículo de alto impacto.</p>
 
             <form id="cv-form">
                 <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" placeholder="Ex: Ana Silva" required>
+                </div>
+                <div class="form-group">
                     <label for="cargo">Cargo Desejado</label>
-                    <input type="text" id="cargo" name="cargo" placeholder="Ex: Diretor Financeiro, CFO, Superintendente de Operações" required>
+                    <input type="text" id="cargo" placeholder="Ex: Diretor Financeiro, CFO" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="problem">Qual o maior problema de negócio que você resolveu na sua última posição?</label>
-                    <textarea id="problem" name="problem" placeholder="Conte-nos sobre o desafio macro (financeiro, operacional ou de pessoas) e como você o mitigou..." required></textarea>
+                    <label for="problem">Maior problema de negócio resolvido</label>
+                    <textarea id="problem" placeholder="Conte-nos sobre o desafio macro (financeiro, operacional ou de pessoas) e como você o mitigou..." required></textarea>
                 </div>
-
                 <div class="form-group">
-                    <label for="metrics">Quais métricas reais comprovam esse sucesso?</label>
-                    <textarea id="metrics" name="metrics" placeholder="Ex: Redução de 15% no custo operacional, aumento de R$ 2M na receita, liderança de equipe com 50 pessoas..." required></textarea>
+                    <label for="metrics">Métricas reais que comprovam o sucesso</label>
+                    <textarea id="metrics" placeholder="Ex: Redução de 15% no custo operacional, aumento de R$ 2M na receita..." required></textarea>
                 </div>
-
                 <div class="form-group">
-                    <label for="old_cv">Cole aqui o texto do seu currículo atual</label>
-                    <textarea id="old_cv" name="old_cv" placeholder="Copie todo o texto do seu Word ou PDF e cole aqui..." style="height: 250px;" required></textarea>
+                    <label for="old_cv">Cole o texto do seu currículo atual</label>
+                    <textarea id="old_cv" placeholder="Copie todo o texto do seu Word ou PDF e cole aqui..." style="height: 200px;" required></textarea>
                 </div>
-
                 <button type="submit" class="btn-submit">Gerar Currículo Estratégico ➔</button>
             </form>
         </div>
 
-        <div id="loading">Orquestrando narrativa C-Level... Aguarde alguns segundos.</div>
+        <!-- TELA 2: CARREGAMENTO -->
+        <div id="loading">
+            <div class="spinner"></div>
+            <h3 style="color: var(--cinza-escuro);">Orquestrando narrativa C-Level...</h3>
+            <p style="color: #666;">Por favor, aguarde alguns segundos.</p>
+        </div>
 
-        <div id="result-area">
-            <h2 style="color: var(--verde-youp); text-align: center; margin-bottom: 30px;">Seu Novo Currículo Está Pronto!</h2>
-            <div id="cv-output"></div>
-            <p style="text-align:center; color:#777; font-size:14px; margin-top:20px;">Copie o texto acima e cole no seu template preferido da Youp.</p>
+        <!-- TELA 3: PÁGINA DE DOWNLOAD (O "E-Book") -->
+        <div id="download-screen">
+            <div style="text-align: center;">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--verde-youp)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <h1 style="color: var(--verde-youp);">Currículo Finalizado!</h1>
+                <p class="subtitle" style="margin-bottom: 20px;">Seu material foi reestruturado e diagramado. Clique no botão abaixo para baixar o seu PDF pronto para envio.</p>
+            </div>
+
+            <button onclick="baixarPDF()" class="btn-download">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                BAIXAR CURRÍCULO EM PDF
+            </button>
+
+            <!-- Preview do Documento (Onde o texto é inserido e de onde o PDF será gerado) -->
+            <div class="pdf-preview-box">
+                <p style="text-align: center; font-size: 12px; color: #888; margin-top: 0;">Pré-visualização do Documento</p>
+                <div id="cv-document">
+                    <!-- O conteúdo formatado pela IA aparecerá aqui -->
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // --- CONFIGURAÇÃO SEGURA ---
-        // Substitua o texto entre aspas abaixo pela URL gerada ao implantar o seu Google Apps Script
+        // --- 1. CONFIGURAÇÃO DA INTEGRAÇÃO ---
+        // COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
 
-        // --- O PROMPT SECRETO (Invisível para o cliente) ---
-        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. A sua missão é transformar os dados fornecidos pelo usuário em um Currículo Executivo de Alto Impacto, desenhado estritamente para leitura de decisores humanos C-Level e Boards. O tom deve ser assertivo, confiante, limpo e elegante, escrito estritamente em PRIMEIRA PESSOA. Não invente números. Se baseie apenas nos fatos fornecidos.
+        // --- 2. O PROMPT ---
+        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Transforme os dados fornecidos em um Currículo Executivo de Alto Impacto para leitura de C-Level. Escreva em PRIMEIRA PESSOA. Não invente números.
+        
+Use formatação Markdown (use # para o Nome, ## para os títulos das seções, ** para negrito, e - para tópicos).
 
-ESTRUTURA DE SAÍDA EXIGIDA (Entregue apenas o currículo formatado):
+ESTRUTURA DE SAÍDA:
+# [Nome do Profissional]
+**Localização:** | **LinkedIn:** | **Cargo Alvo:** [Cargo Alvo]
 
-Cabeçalho Clean: Nome, Localização, LinkedIn e Cargo Alvo.
-Resumo Executivo (Storytelling): Um parágrafo de 4 a 5 linhas narrando a essência da trajetória e o principal diferencial competitivo.
-Destaques e Impacto no Negócio: 3 bullet points fortes com os maiores "gols" de carreira (foco em métricas fornecidas).
-Experiência Profissional: Contexto rápido do desafio da empresa + Bullet points de ações estratégicas e resultados.
-Formação e Certificações.`;
+## Resumo Executivo
+[Storytelling de 4 a 5 linhas]
 
-        // --- LÓGICA DO FRONTEND ---
+## Destaques e Impacto no Negócio
+- [Bullet point 1]
+- [Bullet point 2]
+- [Bullet point 3]
+
+## Experiência Profissional
+**[Nome da Empresa]** | [Período]
+*Contexto:* [Breve contexto do desafio]
+- [Ações estratégicas e resultados]
+
+## Formação Acadêmica e Certificações
+- [Formação]`;
+
+        // --- 3. LÓGICA DO FRONTEND ---
         const formScreen = document.getElementById('form-screen');
         const form = document.getElementById('cv-form');
         const loading = document.getElementById('loading');
-        const resultArea = document.getElementById('result-area');
-        const cvOutput = document.getElementById('cv-output');
+        const downloadScreen = document.getElementById('download-screen');
+        const cvDocument = document.getElementById('cv-document');
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault(); 
-
             formScreen.style.display = 'none';
             loading.style.display = 'block';
-            resultArea.style.display = 'none';
 
+            const name = document.getElementById('name').value;
             const cargo = document.getElementById('cargo').value;
             const problem = document.getElementById('problem').value;
             const metrics = document.getElementById('metrics').value;
             const old_cv = document.getElementById('old_cv').value;
 
-            const userMessage = `DADOS DO PROFISSIONAL:\nCargo Alvo: ${cargo}\nMaior Problema Resolvido: ${problem}\nMétricas/Resultados: ${metrics}\nCurrículo Atual (Texto Raw):\n${old_cv}`;
+            const userMessage = `DADOS:\nNome: ${name}\nCargo Alvo: ${cargo}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
 
             try {
-                // Chamada segura para o seu cofre oculto no Google
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8' 
-                    },
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify({
                         systemPrompt: systemPrompt,
                         userMessage: userMessage
@@ -264,14 +224,17 @@ Formação e Certificações.`;
 
                 const data = await response.json();
 
-                // Faz a leitura da resposta no formato do Google Gemini
                 if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
-                    const generatedCV = data.candidates[0].content.parts[0].text;
-                    cvOutput.textContent = generatedCV;
+                    const generatedMarkdown = data.candidates[0].content.parts[0].text;
+                    
+                    // A MÁGICA 1: Transforma a resposta crua em HTML bonito usando a biblioteca Marked.js
+                    cvDocument.innerHTML = marked.parse(generatedMarkdown);
+                    
+                    // Mostra a tela de Download
                     loading.style.display = 'none';
-                    resultArea.style.display = 'block';
+                    downloadScreen.style.display = 'block';
                 } else {
-                    console.error('Resposta recebida do script:', data);
+                    console.error('Resposta da API:', data);
                     throw new Error('Resposta inválida do servidor.');
                 }
 
@@ -282,6 +245,24 @@ Formação e Certificações.`;
                 formScreen.style.display = 'block';
             }
         });
+
+        // --- 4. FUNÇÃO PARA GERAR O PDF ---
+        function baixarPDF() {
+            // Pega o elemento HTML que criamos (o #cv-document)
+            const element = document.getElementById('cv-document');
+            
+            // Configurações da folha A4 e qualidade
+            const opt = {
+                margin:       15,
+                filename:     'Curriculo_Executivo_Youp.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // A MÁGICA 2: Transforma o elemento HTML em um arquivo PDF e baixa
+            html2pdf().set(opt).from(element).save();
+        }
     </script>
 </body>
 </html>
