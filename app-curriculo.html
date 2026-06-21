@@ -6,17 +6,16 @@
     <title>AI Resume Builder | Youp Consultoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Apenas a biblioteca de formatação de texto (Marked.js) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
-        /* Estilos Visuais da Youp (Para a Tela) */
         :root {
             --dourado: #c5a059;
             --verde-youp: #5c8e82;
             --cinza-escuro: #0a0a0a;
             --fundo-claro: #ffffff;
             --texto-corpo: #2c2c2c;
+            --vermelho-alerta: #d32f2f;
         }
 
         body {
@@ -33,7 +32,14 @@
         }
 
         h1 { color: var(--cinza-escuro); font-weight: 800; font-size: 32px; margin-bottom: 10px; text-align: center; }
-        .subtitle { color: #666; text-align: center; font-size: 16px; margin-bottom: 50px; font-weight: 400; }
+        .subtitle { color: #666; text-align: center; font-size: 16px; margin-bottom: 40px; font-weight: 400; }
+
+        /* Caixa de Alerta para Currículo Incompleto */
+        #alert-box {
+            display: none; background-color: #ffebee; color: var(--vermelho-alerta);
+            padding: 20px; border-left: 5px solid var(--vermelho-alerta); border-radius: 4px;
+            margin-bottom: 30px; font-weight: 500; font-size: 14px; line-height: 1.6;
+        }
 
         .form-group { margin-bottom: 30px; }
         label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--cinza-escuro); text-transform: uppercase; letter-spacing: 1px; }
@@ -59,8 +65,7 @@
         
         #cv-document {
             background-color: #fff; padding: 40px; color: #000;
-            font-family: Arial, sans-serif; /* Fonte Universal para ATS */
-            font-size: 11pt; line-height: 1.5; text-align: justify; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; text-align: justify; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         #cv-document h1, #cv-document h2, #cv-document h3 { color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 20px; margin-bottom: 10px; font-size: 14pt; }
@@ -68,24 +73,11 @@
         #cv-document ul { margin-top: 5px; margin-bottom: 15px; padding-left: 20px; }
         #cv-document li { margin-bottom: 5px; }
 
-        /* =========================================================
-           A MÁGICA ATS-FRIENDLY (O que acontece ao clicar em baixar)
-           ========================================================= */
         @media print {
-            /* 1. Esconde TUDO do site (Botões, Navbar, Fundo) */
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
-            
-            /* 2. Torna visível APENAS o currículo */
             #cv-document, #cv-document * { visibility: visible; }
-            
-            /* 3. Posiciona o currículo no topo da folha, sem sombras e sem bordas */
-            #cv-document {
-                position: absolute; left: 0; top: 0; width: 100%; max-width: 100%;
-                padding: 0; margin: 0; box-shadow: none; border: none;
-            }
-
-            /* 4. Força as quebras de página para não cortar o texto */
+            #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
             h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
@@ -106,6 +98,9 @@
             <h1>AI Resume Builder</h1>
             <p class="subtitle">Insira seus dados abaixo para que nossa IA baseada em Executive Search reestruture seu currículo.</p>
 
+            <!-- Caixa de Alerta (Invisível até a IA detectar um erro) -->
+            <div id="alert-box"></div>
+
             <form id="cv-form">
                 <div class="form-group">
                     <label for="name">Nome Completo</label>
@@ -125,7 +120,7 @@
                 </div>
                 <div class="form-group">
                     <label for="old_cv">Cole o texto do seu currículo atual</label>
-                    <textarea id="old_cv" placeholder="Copie todo o texto e cole aqui..." style="height: 200px;" required></textarea>
+                    <textarea id="old_cv" placeholder="Cole aqui seu histórico (Certifique-se de incluir Datas, Formação, Idiomas e Cursos)..." style="height: 200px;" required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Gerar Currículo Estratégico ➔</button>
             </form>
@@ -134,7 +129,7 @@
         <!-- TELA 2: CARREGAMENTO -->
         <div id="loading">
             <div class="spinner"></div>
-            <h3 style="color: var(--cinza-escuro);">Orquestrando narrativa C-Level...</h3>
+            <h3 style="color: var(--cinza-escuro);">Orquestrando e Validando Dados...</h3>
             <p style="color: #666;">Por favor, aguarde alguns segundos.</p>
         </div>
 
@@ -146,7 +141,6 @@
                 <p class="subtitle" style="margin-bottom: 20px;">Seu material 100% otimizado para ATS está pronto. Clique abaixo para salvar.</p>
             </div>
 
-            <!-- Este botão agora aciona a impressão nativa -->
             <button onclick="window.print()" class="btn-download hide-on-print">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 SALVAR CURRÍCULO EM PDF
@@ -163,9 +157,21 @@
         // COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
 
-        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Transforme os dados fornecidos em um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números.
-        
-Use formatação Markdown (use # para o Nome, ## para os títulos das seções, ** para negrito, e - para tópicos).
+        // O NOVO PROMPT COM O GUARDIÃO DE DADOS
+        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
+
+ETAPA 1: AUDITORIA DE QUALIDADE
+Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE:
+1. Experiências Profissionais acompanhadas de DATAS.
+2. Formação Acadêmica.
+3. Cursos Complementares ou Certificações.
+4. Nível de Idiomas.
+
+Se alguma dessas 4 informações fundamentais estiver ausente, NÃO GERE O CURRÍCULO. Responda APENAS com a seguinte tag e uma mensagem profissional:
+[INCOMPLETO] Olá! Para que o seu currículo C-Level seja aprovado nos sistemas ATS, ele não pode ter lacunas. Notei que faltam as seguintes informações no texto enviado: [Liste o que faltou de forma clara]. Por favor, adicione esses dados no campo de texto e gere novamente.
+
+ETAPA 2: GERAÇÃO (Apenas se a auditoria passar)
+Se os dados estiverem completos, transforme as informações em um Currículo Executivo de Alto Impacto. Escreva em PRIMEIRA PESSOA. Não invente números. Use formatação Markdown.
 
 ESTRUTURA DE SAÍDA:
 # [Nome do Profissional]
@@ -180,23 +186,29 @@ ESTRUTURA DE SAÍDA:
 - [Bullet point 3]
 
 ## Experiência Profissional
-**[Nome da Empresa]** | [Período]
+**[Nome da Empresa]** | [Período com datas]
 *Contexto:* [Breve contexto do desafio]
 - [Ações estratégicas e resultados]
 
 ## Formação Acadêmica e Certificações
-- [Formação]`;
+- [Formação]
+
+## Cursos e Idiomas
+- [Idiomas com nível]
+- [Cursos]`;
 
         const formScreen = document.getElementById('form-screen');
         const form = document.getElementById('cv-form');
         const loading = document.getElementById('loading');
         const downloadScreen = document.getElementById('download-screen');
         const cvDocument = document.getElementById('cv-document');
+        const alertBox = document.getElementById('alert-box');
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault(); 
             formScreen.style.display = 'none';
             loading.style.display = 'block';
+            alertBox.style.display = 'none'; // Reseta o alerta
 
             const name = document.getElementById('name').value;
             const cargo = document.getElementById('cargo').value;
@@ -217,9 +229,23 @@ ESTRUTURA DE SAÍDA:
 
                 if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
                     const generatedMarkdown = data.candidates[0].content.parts[0].text;
-                    cvDocument.innerHTML = marked.parse(generatedMarkdown);
-                    loading.style.display = 'none';
-                    downloadScreen.style.display = 'block';
+                    
+                    // A LÓGICA DO GUARDIÃO
+                    if (generatedMarkdown.includes('[INCOMPLETO]')) {
+                        // Se estiver incompleto, exibe o aviso em vermelho e volta para o formulário
+                        const errorMsg = generatedMarkdown.replace('[INCOMPLETO]', '').trim();
+                        alertBox.innerText = errorMsg;
+                        alertBox.style.display = 'block';
+                        
+                        loading.style.display = 'none';
+                        formScreen.style.display = 'block';
+                        window.scrollTo(0, 0); // Rola a página para o topo para o cliente ver o erro
+                    } else {
+                        // Se passou na auditoria, gera o PDF perfeitamente
+                        cvDocument.innerHTML = marked.parse(generatedMarkdown);
+                        loading.style.display = 'none';
+                        downloadScreen.style.display = 'block';
+                    }
                 } else {
                     throw new Error('Resposta inválida do servidor.');
                 }
