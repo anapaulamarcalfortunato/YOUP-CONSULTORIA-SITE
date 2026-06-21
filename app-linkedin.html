@@ -7,15 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root {
-            --dourado: #c5a059;
-            --verde-youp: #5c8e82;
-            --cinza-escuro: #0a0a0a;
-            --fundo-claro: #ffffff;
-            --texto-corpo: #2c2c2c;
-            --azul-linkedin: #0077b5;
-            --vermelho-alerta: #d32f2f;
-        }
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --azul-linkedin: #0077b5; --vermelho-alerta: #d32f2f; }
         body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .navbar { width: 100%; background-color: var(--cinza-escuro); padding: 15px 50px; box-sizing: border-box; display: flex; justify-content: flex-start; }
         .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 20px; }
@@ -97,7 +89,7 @@
                 <select id="tom-narrativa">
                     <option value="Corporativo Sênior, diplomático, focado em governança e liderança transformacional.">Corporativo Sênior (Institucional e Polido)</option>
                     <option value="Altamente assertivo, enérgico, focado em resultados agressivos, eficiência e M&A.">Assertivo de Alta Performance (Focado em Números)</option>
-                    <option value="Inovador, focado em agilidade, transformation digital, metodologias modernas e cultura de crescimento.">Líder Tecnológico / Inovação (Moderno e Ágil)</option>
+                    <option value="Inovador, focado em agilidade, transformação digital, metodologias modernas e cultura de crescimento.">Líder Tecnológico / Inovação (Moderno e Ágil)</option>
                 </select>
             </div>
             <button onclick="gerarLinkedIn()" class="btn-action btn-linkedin">Gerar Perfil LinkedIn Otimizado ➔</button>
@@ -118,27 +110,37 @@
             if (isUnsaved) { e.preventDefault(); e.returnValue = ''; }
         });
 
-        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
+        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria.
+REGRA DE OURO: ZERO TEXTO INTRODUTÓRIO. NÃO DÊ OLÁ. SUA RESPOSTA DEVE SER APENAS A TAG DE ERRO OU DIRETAMENTE O CÓDIGO DO CURRÍCULO.
+
 ETAPA 1: AUDITORIA DE QUALIDADE
-Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
+Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: E-mail, Telefone, Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. 
+Se faltar QUALQUER UM DESTES, aborte e responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
+
 ETAPA 2: GERAÇÃO
-Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números. Use Markdown (# para nome, ## para seções, ** para negrito, - para listas).
-ESTRUTURA DE SAÍDA EXIGIDA:
+Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números.
+ESTRUTURA DE SAÍDA EXIGIDA (Inicie sua resposta exatamente a partir do #):
 # [Nome do Profissional]
 **E-mail:** [Extrair do CV] | **Telefone:** [Extrair do CV] | **LinkedIn:** [Extrair do CV] | **Localização:** [Extrair do CV]
+
 **Cargo Alvo:** [Cargo Alvo]
+
 ## Resumo Executivo
 [Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]
+
 ## Destaques e Impacto no Negócio
 - [Bullet point 1 contendo a métrica de maior impacto]
 - [Bullet point 2 contendo métricas gerenciais/processos]
 - [Bullet point 3 contendo impacto financeiro/estratégico]
+
 ## Experiência Profissional
 **[Nome da Empresa]** | [Período com datas]
 *Contexto:* [Breve contexto do desafio macro enfrentado na entrada]
 - [Ações estratégicas aplicadas e resultados operacionais]
+
 ## Formação Acadêmica e Certificações
 - [Formação/Certificação 1]
+
 ## Cursos e Idiomas
 - [Idiomas com respectivo nível]
 - [Cursos]`;
@@ -213,7 +215,36 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             }
 
             const tomEscolhido = document.getElementById('tom-narrativa').value;
-            const linkedinSystemPrompt = `Com base no currículo e nas competências exigidas pelo mercado para a área de atuação do profissional fornecida, crie um perfil do LinkedIn altamente otimizado e estratégico. Adote estritamente o seguinte tom de voz para a composição da narrativa: ${tomEscolhido}. \nSiga rigorosamente o formato de entrega abaixo:\n\nFormato de Entrega Exigido:\n\n# TÍTULO PROFISSIONAL\n[Sugira até 3 opções de títulos atraentes, modernos e ricos em palavras-chave].\n\n# SOBRE\n[Crie um resumo profissional em formato de storytelling emocionante e corporativo, escrito em primeira pessoa seguindo o tom especificado. O texto DEVE conter obrigatoriamente entre 2500 e 2600 caracteres considerando espaços. Fale sobre a jornada, marcos, diferenciais e o valor gerado].\n\n# HABILIDADES ESSENCIAIS\n[Liste exatamente 80 habilidades demandadas no mercado atual da área, divididas didaticamente em: Habilidades Técnicas (Hard Skills), Habilidades Comportamentais (Soft Skills) e Habilidades Tecnológicas].\n\n# EXPERIÊNCIAS PROFISSIONAIS\n[Descreva detalhadamente as experiências do currículo fornecido no padrão do LinkedIn, com cargo, período, contexto de desafio e conquistas quantificáveis estratégicas].\n\n# FORMAÇÃO E CERTIFICAÇÕES\n[Transponha os dados de educação].\n\n# RECOMENDAÇÕES\n[Sugira um modelo de texto diplomático para o usuário enviar para ex-colegas/gestores solicitando recomendações].\n\n# OUTRAS INFORMAÇÕES\n[Sugestões de projetos, causas ou materiais multimídia para enriquecer a vitrine].\n\n# DICAS DE ENGAJAMENTO\n[Sugira 3 temas de posts para o profissional atrair headhunters].`;
+            
+            // PROMPT DO LINKEDIN ABERTO COM TRAVA ANTI-SAUDAÇÃO
+            const linkedinSystemPrompt = `REGRA DE OURO: ZERO TEXTO INTRODUTÓRIO. SUA RESPOSTA DEVE SER APENAS O CÓDIGO DO PERFIL COMEÇANDO PELO TÍTULO.
+Com base no currículo e nas competências exigidas pelo mercado para a área de atuação do profissional fornecida, crie um perfil do LinkedIn altamente otimizado e estratégico. Adote estritamente o seguinte tom de voz para a composição da narrativa: ${tomEscolhido}. 
+Siga rigorosamente o formato de entrega abaixo:
+
+# TÍTULO PROFISSIONAL
+[Sugira até 3 opções de títulos atraentes, modernos e ricos em palavras-chave].
+
+# SOBRE
+[Crie um resumo profissional em formato de storytelling emocionante e corporativo, escrito em primeira pessoa seguindo o tom especificado. O texto DEVE conter obrigatoriamente entre 2500 e 2600 caracteres considerando espaços. Fale sobre a jornada, marcos, diferenciais e o valor gerado].
+
+# HABILIDADES ESSENCIAIS
+[Liste exatamente 80 habilidades demandadas no mercado atual da área, divididas didaticamente em: Habilidades Técnicas (Hard Skills), Habilidades Comportamentais (Soft Skills) e Habilidades Tecnológicas].
+
+# EXPERIÊNCIAS PROFISSIONAIS
+[Descreva detalhadamente as experiências do currículo fornecido no padrão do LinkedIn, com cargo, período, contexto de desafio e conquistas quantificáveis estratégicas].
+
+# FORMAÇÃO E CERTIFICAÇÕES
+[Transponha os dados de educação].
+
+# RECOMENDAÇÕES
+[Sugira um modelo de texto diplomático para o usuário enviar para ex-colegas/gestores solicitando recomendações].
+
+# OUTRAS INFORMAÇÕES
+[Sugestões de projetos, causas ou materiais multimídia para enriquecer a vitrine].
+
+# DICAS DE ENGAJAMENTO
+[Sugira 3 temas de posts para o profissional atrair headhunters].`;
+
             const userMessage = `PROFISSIONAL:\nÁrea/Carreira: ${areaAtuacaoGlobal}\nCurrículo Base Otimizado pela Youp:\n${curriculoGeradoTexto}`;
 
             try {
