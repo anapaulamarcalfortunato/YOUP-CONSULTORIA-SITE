@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ferramentas de Inteligência Executiva | Youp Consultoria</title>
+    <meta name="description" content="Otimize seu currículo e seu perfil no LinkedIn com a Inteligência Artificial estruturada pela expertise de Executive Search da Youp Consultoria.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.6; }
+        
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; }
+        .brand-logo { color:var(--dourado); text-decoration:none; font-weight:800; letter-spacing:3px; font-size: 20px;}
+        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        .btn-voltar:hover { background: rgba(197, 160, 89, 0.1); }
+
+        .hero { background: var(--cinza-escuro); color: #fff; padding: 100px 20px; text-align: center; }
+        .hero h1 { font-size: 42px; color: var(--dourado); margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
+        .hero p { font-size: 18px; max-width: 700px; margin: 0 auto 40px; color: #ccc; }
+
+        .pricing-section { max-width: 1000px; margin: -50px auto 100px; display: flex; gap: 30px; padding: 0 20px; position: relative; z-index: 10; align-items: flex-start; justify-content: center; flex-wrap: wrap;}
+        
+        .pricing-card { background: var(--fundo-claro); flex: 1; min-width: 300px; border-radius: 8px; padding: 50px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; border-top: 5px solid var(--cinza-escuro); transition: transform 0.3s; }
+        .pricing-card:hover { transform: translateY(-10px); }
+        .pricing-card.premium { border-top: 5px solid var(--dourado); transform: scale(1.05); box-shadow: 0 30px 60px rgba(197, 160, 89, 0.15); }
+        .pricing-card.premium:hover { transform: scale(1.05) translateY(-10px); }
+        
+        .tag-premium { background: var(--dourado); color: #000; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 1px; }
+        
+        .plan-title { font-size: 24px; font-weight: 700; color: var(--cinza-escuro); margin-bottom: 10px; }
+        .plan-price { font-size: 48px; font-weight: 800; color: var(--dourado); margin: 20px 0; display: flex; justify-content: center; align-items: baseline; }
+        .plan-price span { font-size: 18px; color: #888; font-weight: 500; margin-right: 5px; }
+        
+        .plan-features { list-style: none; padding: 0; margin: 30px 0; text-align: left; }
+        .plan-features li { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; color: #555; display: flex; align-items: center; gap: 10px; }
+        .plan-features li::before { content: '✓'; color: var(--verde-youp); font-weight: 800; }
+        
+        .btn-buy { display: block; width: 100%; background: var(--cinza-escuro); color: var(--dourado); padding: 18px 0; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; font-size: 14px; border: 1px solid transparent;}
+        .premium .btn-buy { background: var(--dourado); color: #000; }
+        .btn-buy:hover { background: transparent; border-color: var(--cinza-escuro); color: var(--cinza-escuro); }
+        .premium .btn-buy:hover { background: transparent; border-color: var(--dourado); color: var(--dourado); }
+
+        .faq { max-width: 800px; margin: 0 auto 100px; padding: 0 20px; }
+        .faq h3 { text-align: center; font-size: 28px; margin-bottom: 40px; color: var(--cinza-escuro); }
+        .faq-item { background: #fff; margin-bottom: 15px; padding: 25px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .faq-item h4 { margin: 0 0 10px 0; color: var(--dourado); font-size: 16px; }
+        .faq-item p { margin: 0; color: #666; font-size: 15px; }
+
+        @media (max-width: 768px) {
+            .pricing-section { flex-direction: column; align-items: center; margin-top: -20px; }
+            .pricing-card.premium { transform: scale(1); }
+            .pricing-card.premium:hover { transform: translateY(-10px); }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand-logo">YOUP</a>
+        <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Inteligência Artificial Direcionada para o Mercado Oculto</h1>
+        <p>Desenvolvemos ferramentas com a visão de quem atua em Executive Search. Otimize seu currículo e seu perfil no LinkedIn com a precisão que os algoritmos e os Headhunters exigem.</p>
+    </header>
+
+    <section class="pricing-section">
+        <!-- TIER 1 -->
+        <div class="pricing-card">
+            <h2 class="plan-title">AI Resume Builder</h2>
+            <p style="color: #777; font-size: 14px; margin:0;">Estruture seu currículo de forma impecável.</p>
+            <div class="plan-price"><span>R$</span> 29,90</div>
+            
+            <ul class="plan-features">
+                <li>Acesso à ferramenta de criação de Currículo.</li>
+                <li>Mapeamento inteligente de palavras-chave.</li>
+                <li>Layouts aprovados por Headhunters.</li>
+                <li>Exportação em PDF otimizado para sistemas ATS.</li>
+            </ul>
+            
+            <!-- AQUI ENTRARÁ O LINK DO CHECKOUT DA KIWIFY/HOTMART -->
+            <a href="#" class="btn-buy">Liberar Acesso</a>
+        </div>
+
+        <!-- TIER 2 -->
+        <div class="pricing-card premium">
+            <span class="tag-premium">A Escolha dos Executivos</span>
+            <h2 class="plan-title">Pacote Autoridade</h2>
+            <p style="color: #777; font-size: 14px; margin:0;">Alinhamento total: Currículo + LinkedIn.</p>
+            <div class="plan-price"><span>R$</span> 79,90</div>
+            
+            <ul class="plan-features">
+                <li><strong>Tudo do plano anterior, mais:</strong></li>
+                <li>Acesso ao gerador de perfil para LinkedIn (IA).</li>
+                <li>Criação de Títulos e "Sobre" magnéticos.</li>
+                <li>Ajuste de tom de voz para governança C-Level.</li>
+                <li>Estratégia de ranqueamento no algoritmo.</li>
+            </ul>
+            
+            <!-- AQUI ENTRARÁ O LINK DO CHECKOUT DA KIWIFY/HOTMART -->
+            <a href="#" class="btn-buy">Garantir Pacote Completo</a>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h3>Perguntas Frequentes</h3>
+        <div class="faq-item">
+            <h4>Como vou receber o acesso às ferramentas?</h4>
+            <p>Assim que o seu pagamento for aprovado pelo nosso sistema seguro, você receberá automaticamente no seu e-mail o link e a senha para acessar a área restrita das nossas ferramentas de IA.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Quais as formas de pagamento?</h4>
+            <p>Aceitamos PIX (liberação imediata), Cartões de Crédito e Boleto Bancário. Todo o processamento é criptografado e seguro.</p>
+        </div>
+        <div class="faq-item">
+            <h4>As ferramentas substituem uma mentoria da Youp?</h4>
+            <p>Não. Nossas ferramentas de IA cuidam da excelência tática e do posicionamento técnico do seu material. Para estratégias complexas de governança de carreira e mercado oculto, recomendamos nossa Assessoria de Branding Executivo.</p>
+        </div>
+    </section>
+
+</body>
+</html>
