@@ -128,7 +128,6 @@
             <div id="alert-box"></div>
 
             <form id="autoridade-form">
-                <!-- CADEADO DIGITAL -->
                 <div class="form-group" style="border: 1px solid var(--dourado); padding: 20px; border-radius: 4px; background: #fffdf6;">
                     <label for="token" style="color: var(--dourado); font-weight: 800;">Código de Acesso Único</label>
                     <input type="text" id="token" placeholder="Insira seu código de transação da Hotmart (Ex: HP...)" required>
@@ -224,7 +223,6 @@
     <div class="print-footer-linkedin">YOUP CONSULTORIA</div>
 
     <script>
-        // --- CONFIGURAÇÃO DO SEU COFRE DO GOOGLE ---
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
 
         // Guardas de estado globais
@@ -232,8 +230,16 @@
         let areaAtuacaoGlobal = "";
         let nomeClienteGlobal = "Cliente";
         let savedToken = ""; 
+        let isUnsaved = false; // CAMADA 1: Controle de Segurança Antifechamento
 
-        // O PROMPT RIGOROSO RESTAURADO (COM CABEÇALHO COMPLETO DE DADOS)
+        // CAMADA 1: Trava o navegador se o cliente tentar fechar a aba
+        window.addEventListener('beforeunload', function (e) {
+            if (isUnsaved) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
         const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
 ETAPA 1: AUDITORIA DE QUALIDADE
 Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
@@ -277,6 +283,22 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             savedToken = document.getElementById('token').value.trim();
             nomeClienteGlobal = document.getElementById('name').value.trim();
             areaAtuacaoGlobal = document.getElementById('cargo').value;
+
+            // CAMADA 2: Puxa o backup da máquina se o usuário já tiver gerado o material
+            const backupLocal = localStorage.getItem('youp_autoridade_backup_' + savedToken);
+            if (backupLocal) {
+                const backupData = JSON.parse(backupLocal);
+                nomeClienteGlobal = backupData.name;
+                areaAtuacaoGlobal = backupData.cargo;
+                curriculoGeradoTexto = backupData.cv;
+                cvDocument.innerHTML = marked.parse(curriculoGeradoTexto);
+                
+                isUnsaved = true; // Ativa o aviso de antifechamento
+                loading.style.display = 'none';
+                cvSuccessScreen.style.display = 'block';
+                return; // Impede que o sistema gaste tempo indo até o servidor de novo
+            }
+
             const problem = document.getElementById('problem').value;
             const metrics = document.getElementById('metrics').value;
             const old_cv = document.getElementById('old_cv').value;
@@ -308,6 +330,15 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                         window.scrollTo(0, 0);
                     } else {
                         curriculoGeradoTexto = result;
+                        
+                        // CAMADA 2: Salva o texto gerado na memória
+                        localStorage.setItem('youp_autoridade_backup_' + savedToken, JSON.stringify({
+                            name: nomeClienteGlobal,
+                            cargo: areaAtuacaoGlobal,
+                            cv: curriculoGeradoTexto
+                        }));
+                        isUnsaved = true; // Ativa a trava antifechamento
+
                         cvDocument.innerHTML = marked.parse(result);
                         loading.style.display = 'none';
                         cvSuccessScreen.style.display = 'block';
@@ -328,6 +359,18 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             
             cvSuccessScreen.style.display = 'none';
             loading.style.display = 'block';
+
+            // CAMADA 2 (Verificação): Se ele já havia gerado o LinkedIn e fechou a aba sem querer, restaura direto.
+            const backupLocal = localStorage.getItem('youp_autoridade_backup_' + savedToken);
+            if (backupLocal) {
+                const backupData = JSON.parse(backupLocal);
+                if (backupData.li) {
+                    linkedinDocument.innerHTML = marked.parse(backupData.li);
+                    loading.style.display = 'none';
+                    linkedinSuccessScreen.style.display = 'block';
+                    return;
+                }
+            }
 
             const tomEscolhido = document.getElementById('tom-narrativa').value;
 
@@ -366,7 +409,6 @@ Formato de Entrega Exigido:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    // isFollowUp: true garante a liberação do cofre nesta etapa
                     body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: linkedinSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
@@ -377,6 +419,14 @@ Formato de Entrega Exigido:
                     cvSuccessScreen.style.display = 'block';
                 } else if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
                     const resultLinkedin = data.candidates[0].content.parts[0].text;
+                    
+                    // CAMADA 2 (Atualização): Salva também o texto do LinkedIn na memória do navegador
+                    if (backupLocal) {
+                        const backupData = JSON.parse(backupLocal);
+                        backupData.li = resultLinkedin;
+                        localStorage.setItem('youp_autoridade_backup_' + savedToken, JSON.stringify(backupData));
+                    }
+
                     linkedinDocument.innerHTML = marked.parse(resultLinkedin);
                     loading.style.display = 'none';
                     linkedinSuccessScreen.style.display = 'block';
@@ -398,6 +448,8 @@ Formato de Entrega Exigido:
         }
 
         function baixarLinkedInPDF() {
+            isUnsaved = false; // A Trava da Camada 1 é desfeita pois o cliente concluiu e salvou o último PDF.
+
             const originalTitle = document.title;
             document.title = nomeClienteGlobal + "-Currículo-linkedin";
             document.body.classList.add('printing-linkedin');
