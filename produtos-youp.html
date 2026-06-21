@@ -30,9 +30,10 @@
         .hero h1 { font-size: 42px; color: var(--dourado); margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; }
         .hero p { font-size: 18px; max-width: 700px; margin: 0 auto 40px; color: #ccc; }
 
-        .pricing-section { max-width: 1000px; margin: -50px auto 100px; display: flex; gap: 30px; padding: 0 20px; position: relative; z-index: 10; align-items: flex-start; justify-content: center; flex-wrap: wrap;}
+        /* Aumentei o max-width para 1200px para caberem os 3 planos lado a lado no desktop */
+        .pricing-section { max-width: 1200px; margin: -50px auto 100px; display: flex; gap: 30px; padding: 0 20px; position: relative; z-index: 10; align-items: flex-start; justify-content: center; flex-wrap: wrap;}
         
-        .pricing-card { background: var(--fundo-claro); flex: 1; min-width: 300px; border-radius: 8px; padding: 50px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; border-top: 5px solid var(--cinza-escuro); transition: transform 0.3s; }
+        .pricing-card { background: var(--fundo-claro); flex: 1; min-width: 300px; border-radius: 8px; padding: 50px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; border-top: 5px solid var(--cinza-escuro); transition: transform 0.3s; display: flex; flex-direction: column; }
         .pricing-card:hover { transform: translateY(-10px); }
         .pricing-card.premium { border-top: 5px solid var(--dourado); transform: scale(1.05); box-shadow: 0 30px 60px rgba(197, 160, 89, 0.15); }
         .pricing-card.premium:hover { transform: scale(1.05) translateY(-10px); }
@@ -43,11 +44,12 @@
         .plan-price { font-size: 48px; font-weight: 800; color: var(--dourado); margin: 20px 0; display: flex; justify-content: center; align-items: baseline; }
         .plan-price span { font-size: 18px; color: #888; font-weight: 500; margin-right: 5px; }
         
-        .plan-features { list-style: none; padding: 0; margin: 30px 0; text-align: left; }
-        .plan-features li { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; color: #555; display: flex; align-items: center; gap: 10px; }
+        .plan-features { list-style: none; padding: 0; margin: 30px 0; text-align: left; flex-grow: 1;}
+        .plan-features li { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #555; display: flex; align-items: center; gap: 10px; line-height: 1.4;}
         .plan-features li::before { content: '✓'; color: var(--verde-youp); font-weight: 800; }
+        .premium .plan-features li::before { color: var(--dourado); }
         
-        .btn-buy { display: block; width: 100%; background: var(--cinza-escuro); color: var(--dourado); padding: 18px 0; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; font-size: 14px; border: 1px solid transparent;}
+        .btn-buy { display: block; width: 100%; background: var(--cinza-escuro); color: var(--dourado); padding: 18px 0; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 4px; transition: 0.3s; letter-spacing: 1px; font-size: 14px; border: 1px solid transparent; margin-top: auto;}
         .premium .btn-buy { background: var(--dourado); color: #000; }
         .btn-buy:hover { background: transparent; border-color: var(--cinza-escuro); color: var(--cinza-escuro); }
         .premium .btn-buy:hover { background: transparent; border-color: var(--dourado); color: var(--dourado); }
@@ -58,10 +60,14 @@
         .faq-item h4 { margin: 0 0 10px 0; color: var(--dourado); font-size: 16px; }
         .faq-item p { margin: 0; color: #666; font-size: 15px; }
 
-        @media (max-width: 768px) {
-            .pricing-section { flex-direction: column; align-items: center; margin-top: -20px; }
+        @media (max-width: 1024px) {
             .pricing-card.premium { transform: scale(1); }
             .pricing-card.premium:hover { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-section { flex-direction: column; align-items: center; margin-top: -20px; }
+            .pricing-card { width: 100%; max-width: 400px; }
             .hero h1 { font-size: 32px; }
         }
     </style>
@@ -75,45 +81,60 @@
 
     <header class="hero">
         <h1>Inteligência Artificial Direcionada para o Mercado Oculto</h1>
-        <p>Desenvolvemos ferramentas com a visão de quem atua em Executive Search. Otimize seu currículo e seu perfil no LinkedIn com a precisão que os algoritmos e os Headhunters exigem.</p>
+        <p>Desenvolvemos ferramentas com a visão de quem atua em Executive Search. Otimize seu posicionamento com a precisão que os algoritmos e os Headhunters exigem.</p>
     </header>
 
     <section class="pricing-section">
+        
         <!-- TIER 1 -->
         <div class="pricing-card">
-            <h2 class="plan-title">AI Resume Builder</h2>
+            <h2 class="plan-title">Plano Essencial</h2>
             <p style="color: #777; font-size: 14px; margin:0;">Estruture seu currículo de forma impecável.</p>
             <div class="plan-price"><span>R$</span> 29,90</div>
             
             <ul class="plan-features">
-                <li>Acesso à ferramenta de criação de Currículo.</li>
+                <li>Reestruturação Estratégica de Currículo (IA).</li>
                 <li>Mapeamento inteligente de palavras-chave.</li>
-                <li>Layouts aprovados por Headhunters.</li>
-                <li>Exportação em PDF otimizado para sistemas ATS.</li>
+                <li>Layout estruturado para leitura de C-Level.</li>
+                <li>Exportação em PDF otimizado para ATS.</li>
             </ul>
             
-            <!-- AQUI ENTRARÁ O LINK DO CHECKOUT DA KIWIFY/HOTMART -->
-            <a href="#" class="btn-buy">Liberar Acesso</a>
+            <a href="LINK_DE_COMPRA_ESSENCIAL" class="btn-buy">Garantir Plano</a>
         </div>
 
         <!-- TIER 2 -->
-        <div class="pricing-card premium">
-            <span class="tag-premium">A Escolha dos Executivos</span>
-            <h2 class="plan-title">Pacote Autoridade</h2>
+        <div class="pricing-card">
+            <h2 class="plan-title">Plano Autoridade</h2>
             <p style="color: #777; font-size: 14px; margin:0;">Alinhamento total: Currículo + LinkedIn.</p>
             <div class="plan-price"><span>R$</span> 79,90</div>
             
             <ul class="plan-features">
-                <li><strong>Tudo do plano anterior, mais:</strong></li>
-                <li>Acesso ao gerador de perfil para LinkedIn (IA).</li>
+                <li><strong>Tudo do Plano Essencial, mais:</strong></li>
                 <li>Criação de Títulos e "Sobre" magnéticos.</li>
                 <li>Ajuste de tom de voz para governança C-Level.</li>
                 <li>Estratégia de ranqueamento no algoritmo.</li>
             </ul>
             
-            <!-- AQUI ENTRARÁ O LINK DO CHECKOUT DA KIWIFY/HOTMART -->
-            <a href="#" class="btn-buy">Garantir Pacote Completo</a>
+            <a href="LINK_DE_COMPRA_AUTORIDADE" class="btn-buy">Garantir Plano</a>
         </div>
+
+        <!-- TIER 3 (DESTAQUE PREMIUM) -->
+        <div class="pricing-card premium">
+            <span class="tag-premium">A Escolha dos Executivos</span>
+            <h2 class="plan-title">Plano Premium</h2>
+            <p style="color: #777; font-size: 14px; margin:0;">Mentoria Estratégica + Ferramentas de Posicionamento.</p>
+            <div class="plan-price"><span>R$</span> 189,90</div>
+            
+            <ul class="plan-features">
+                <li><strong>Tudo do Plano Autoridade, mais:</strong></li>
+                <li><strong>Termômetro de Liquidez:</strong> Análise profunda de risco e aderência ao mercado.</li>
+                <li><strong>Mentoria GTM:</strong> Plano Go-to-Market de 90 dias focado em tração executiva.</li>
+                <li>Conexão direta com a Headhunter para aprofundamento.</li>
+            </ul>
+            
+            <a href="LINK_DE_COMPRA_PREMIUM" class="btn-buy">Garantir Plano Premium</a>
+        </div>
+
     </section>
 
     <section class="faq">
@@ -127,8 +148,8 @@
             <p>Aceitamos PIX (liberação imediata), Cartões de Crédito e Boleto Bancário. Todo o processamento é criptografado e seguro.</p>
         </div>
         <div class="faq-item">
-            <h4>As ferramentas substituem uma mentoria da Youp?</h4>
-            <p>Não. Nossas ferramentas de IA cuidam da excelência tática e do posicionamento técnico do seu material. Para estratégias complexas de governança de carreira e mercado oculto, recomendamos nossa Assessoria de Branding Executivo.</p>
+            <h4>As ferramentas substituem uma mentoria individual da Youp?</h4>
+            <p>Não. Nossas ferramentas de IA e o Plano Premium oferecem um diagnóstico tático robusto e estruturação técnica do seu material. Para execução guiada e estratégias ativas de mercado oculto, você poderá usar os relatórios do Plano Premium para solicitar uma Sessão de Mentoria exclusiva com a nossa equipe.</p>
         </div>
     </section>
 
