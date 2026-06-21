@@ -71,7 +71,7 @@
 
         .btn-copy { background-color: var(--cinza-escuro); color: var(--dourado); }
 
-        /* Botões de Upsell Premium (Substituindo o antigo layout verde) */
+        /* Botões de Upsell Premium */
         .btn-upsell-1 { background-color: var(--cinza-escuro); color: var(--dourado); margin-top: 30px; }
         .btn-upsell-1:hover { background-color: #222; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
@@ -141,7 +141,6 @@
 
     <div class="container">
         
-        <!-- FLUXO 1: FORMULÁRIO -->
         <div id="form-screen">
             <h1>Pacote Premium Youp</h1>
             <p class="subtitle">A Jornada Completa: Currículo Estratégico + Perfil LinkedIn + Termômetro de Liquidez + Plano Go-to-Market (Mentoria Executiva).</p>
@@ -149,6 +148,11 @@
             <div id="alert-box"></div>
 
             <form id="autoridade-form">
+                <div class="form-group" style="border: 1px solid var(--dourado); padding: 20px; border-radius: 4px; background: #fffdf6;">
+                    <label for="token" style="color: var(--dourado); font-weight: 800;">Código de Acesso Único</label>
+                    <input type="text" id="token" placeholder="Insira seu código de transação da Hotmart (Ex: HP...)" required>
+                </div>
+
                 <div class="form-group">
                     <label for="name">Nome Completo</label>
                     <input type="text" id="name" placeholder="Ex: Ana Silva" required>
@@ -173,14 +177,12 @@
             </form>
         </div>
 
-        <!-- CARREGAMENTO -->
         <div id="loading">
             <div class="spinner" id="spinner-color"></div>
             <h3 style="color: var(--cinza-escuro);" id="loading-title">Processando Dados...</h3>
             <p style="color: #666;" id="loading-sub">Por favor, aguarde alguns segundos.</p>
         </div>
 
-        <!-- FLUXO 2: CURRÍCULO -->
         <div id="cv-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--verde-youp);">Etapa 1 Concluída!</h1>
@@ -188,6 +190,7 @@
             </div>
 
             <button onclick="baixarCVPDF()" class="btn-action btn-download">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 SALVAR CURRÍCULO EM PDF (ATS-FRIENDLY)
             </button>
 
@@ -214,7 +217,6 @@
             </button>
         </div>
 
-        <!-- FLUXO 3: LINKEDIN E BOTÃO PARA RELATÓRIOS -->
         <div id="linkedin-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--azul-linkedin);">Perfil LinkedIn Pronto!</h1>
@@ -222,10 +224,12 @@
             </div>
 
             <button onclick="copiarPerfil()" id="btn-copiar" class="btn-action btn-copy">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                 COPIAR TEXTO DO PERFIL COMPLETO
             </button>
 
             <button onclick="baixarLinkedInPDF()" class="btn-action btn-pdf-linkedin">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 BAIXAR PERFIL EM PDF
             </button>
 
@@ -243,7 +247,6 @@
             </button>
         </div>
 
-        <!-- FLUXO 4: RELATÓRIOS ESTRATÉGICOS E UPSELLS PREMIUM -->
         <div id="reports-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--dourado);">Sua Mentoria Está Pronta!</h1>
@@ -251,10 +254,10 @@
             </div>
 
             <button onclick="baixarRelatoriosPDF()" class="btn-action btn-pdf-reports">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 BAIXAR RELATÓRIO ESTRATÉGICO EM PDF
             </button>
 
-            <!-- NOVOS BOTÕES DE CONVERSÃO PREMIUM -->
             <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%21%20Acabei%20de%20gerar%20meu%20GTM%20e%20gostaria%20de%20aprofundar%20meu%20relat%C3%B3rio%20e%20desenvolver%20o%20plano%20de%20a%C3%A7%C3%A3o.%20%28J%C3%A1%20estou%20enviando%20meu%20PDF%20para%20voc%C3%AA%20conhecer%20meu%20perfil%21%29." target="_blank" class="btn-action btn-upsell-1">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                 APROFUNDAR MEU PLANO DE AÇÃO
@@ -274,16 +277,16 @@
 
     </div>
 
-    <!-- Elemento Global de Rodapé de Impressão -->
     <div class="print-footer">YOUP CONSULTORIA</div>
 
     <script>
         // --- CONFIGURAÇÃO ---
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
 
         let curriculoGeradoTexto = "";
         let areaAtuacaoGlobal = "";
         let nomeClienteGlobal = "Cliente";
+        let savedToken = ""; // Variável para armazenar o Token Validado
 
         const formScreen = document.getElementById('form-screen');
         const cvSuccessScreen = document.getElementById('cv-success-screen');
@@ -303,6 +306,7 @@
             loading.style.display = 'block';
             alertBox.style.display = 'none';
 
+            savedToken = document.getElementById('token').value.trim();
             nomeClienteGlobal = document.getElementById('name').value.trim();
             areaAtuacaoGlobal = document.getElementById('cargo').value;
             const problem = document.getElementById('problem').value;
@@ -339,11 +343,17 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ systemPrompt: cvSystemPrompt, userMessage: userMessage })
+                    body: JSON.stringify({ token: savedToken, systemPrompt: cvSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
 
-                if (data.candidates && data.candidates[0]) {
+                if (data.error) {
+                    alertBox.innerText = data.error.message;
+                    alertBox.style.display = 'block';
+                    loading.style.display = 'none';
+                    formScreen.style.display = 'block';
+                    window.scrollTo(0, 0);
+                } else if (data.candidates && data.candidates[0]) {
                     const result = data.candidates[0].content.parts[0].text;
                     if (result.includes('[INCOMPLETO]')) {
                         alertBox.innerText = result.replace('[INCOMPLETO]', '').trim();
@@ -359,7 +369,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     }
                 } else { throw new Error(); }
             } catch (error) {
-                alert('Erro no currículo. Tente novamente.');
+                alert('Erro no processamento. Tente novamente.');
                 loading.style.display = 'none';
                 formScreen.style.display = 'block';
             }
@@ -401,11 +411,16 @@ Siga este formato rigorosamente:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ systemPrompt: linkedinSystemPrompt, userMessage: userMessage })
+                    // isFollowUp: true -> Avisa o cofre para não bloquear a Etapa 2
+                    body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: linkedinSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
 
-                if (data.candidates && data.candidates[0]) {
+                if (data.error) {
+                    alert(data.error.message);
+                    loading.style.display = 'none';
+                    cvSuccessScreen.style.display = 'block';
+                } else if (data.candidates && data.candidates[0]) {
                     const resultLinkedin = data.candidates[0].content.parts[0].text;
                     linkedinDocument.innerHTML = marked.parse(resultLinkedin);
                     loading.style.display = 'none';
@@ -471,11 +486,16 @@ Como mentora, devo ser 100% transparente: ter este documento em mãos não garan
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ systemPrompt: reportsSystemPrompt, userMessage: userMessage })
+                    // isFollowUp: true -> Avisa o cofre para não bloquear a Etapa 3
+                    body: JSON.stringify({ token: savedToken, isFollowUp: true, systemPrompt: reportsSystemPrompt, userMessage: userMessage })
                 });
                 const data = await response.json();
 
-                if (data.candidates && data.candidates[0]) {
+                if (data.error) {
+                    alert(data.error.message);
+                    loading.style.display = 'none';
+                    linkedinSuccessScreen.style.display = 'block';
+                } else if (data.candidates && data.candidates[0]) {
                     const resultReports = data.candidates[0].content.parts[0].text;
                     reportsDocument.innerHTML = marked.parse(resultReports);
                     loading.style.display = 'none';
