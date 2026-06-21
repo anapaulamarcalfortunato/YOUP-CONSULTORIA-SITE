@@ -62,7 +62,6 @@
 
         .btn-copy { background-color: var(--cinza-escuro); color: var(--dourado); }
         
-        /* Botão Novo de PDF para o LinkedIn */
         .btn-pdf-linkedin { background-color: transparent; border: 2px solid var(--azul-linkedin); color: var(--azul-linkedin); }
         .btn-pdf-linkedin:hover { background-color: var(--azul-linkedin); color: #fff; }
 
@@ -87,21 +86,21 @@
         .section-divider { border: 0; height: 1px; background: #ddd; margin: 50px 0; }
 
         /* Rodapé de impressão oculto na tela */
-        .print-footer { display: none; }
+        .print-footer-linkedin { display: none; }
 
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
             
-            /* Define a exibição do rodapé fixo apenas no papel impresso */
-            .print-footer {
+            /* REGRA 1: Rodapé YOUP CONSULTORIA RESTRITO APENAS PARA O LINKEDIN */
+            body.printing-linkedin .print-footer-linkedin {
                 display: block; position: fixed; bottom: 0; left: 0; width: 100%;
                 text-align: center; font-size: 10pt; font-family: Arial, sans-serif;
                 font-weight: bold; color: #555; border-top: 1px solid #ccc; padding-top: 5px;
                 letter-spacing: 2px; visibility: visible;
             }
 
-            /* Se estiver imprimindo o CV */
+            /* Se estiver imprimindo o CV (Não ativa nenhum rodapé) */
             body.printing-cv #cv-document, body.printing-cv #cv-document * { visibility: visible; }
             body.printing-cv #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
             
@@ -219,15 +218,16 @@
 
     </div>
 
-    <div class="print-footer">YOUP CONSULTORIA</div>
+    <div class="print-footer-linkedin">YOUP CONSULTORIA</div>
 
     <script>
         // --- CONFIGURAÇÃO DO SEU COFRE DO GOOGLE ---
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
 
-        // Variáveis globais para reter o currículo processado e dados
+        // Guardas de estado globais
         let curriculoGeradoTexto = "";
         let areaAtuacaoGlobal = "";
+        let nomeClienteGlobal = "Cliente"; // Retém o nome para batizar os PDFs
 
         // PROMPT DO CURRÍCULO (Fase 1 com Guardião)
         const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
@@ -252,13 +252,13 @@
             loading.style.display = 'block';
             alertBox.style.display = 'none';
 
-            const name = document.getElementById('name').value;
+            nomeClienteGlobal = document.getElementById('name').value.trim();
             areaAtuacaoGlobal = document.getElementById('cargo').value;
             const problem = document.getElementById('problem').value;
             const metrics = document.getElementById('metrics').value;
             const old_cv = document.getElementById('old_cv').value;
 
-            const userMessage = `DADOS:\nNome: ${name}\nCargo Alvo: ${areaAtuacaoGlobal}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
+            const userMessage = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo Alvo: ${areaAtuacaoGlobal}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
@@ -278,7 +278,7 @@
                         formScreen.style.display = 'block';
                         window.scrollTo(0, 0);
                     } else {
-                        curriculoGeradoTexto = result; // Guarda o currículo para o LinkedIn ler
+                        curriculoGeradoTexto = result;
                         cvDocument.innerHTML = marked.parse(result);
                         loading.style.display = 'none';
                         cvSuccessScreen.style.display = 'block';
@@ -291,9 +291,8 @@
             }
         });
 
-        // GERAÇÃO DO LINKEDIN (Puxa os dados gerados na Fase 1)
+        // GERAÇÃO DO LINKEDIN
         async function gerarLinkedIn() {
-            // Ajusta o carregando para o tema do LinkedIn
             document.getElementById('spinner-color').style.borderTopColor = 'var(--azul-linkedin)';
             document.getElementById('loading-title').innerText = "Otimizando Perfil com SEO do LinkedIn...";
             document.getElementById('loading-sub').innerText = "Calculando densidade exata de palavras-chave estruturadas.";
@@ -303,7 +302,6 @@
 
             const tomEscolhido = document.getElementById('tom-narrativa').value;
 
-            // O SEU PROMPT RIGOROSO EXATO DE ENTRADA DO LINKEDIN
             const linkedinSystemPrompt = `Com base no currículo e nas competências exigidas pelo mercado para a área de atuação do profissional fornecida, crie um perfil do LinkedIn altamente otimizado e estratégico. Adote estritamente o seguinte tom de voz para a composição da narrativa: ${tomEscolhido}. 
 Siga rigorosamente o formato de entrega abaixo:
 
@@ -331,7 +329,7 @@ Formato de Entrega Exigido:
 [Sugestões de projetos, causas ou materiais multimídia para enriquecer a vitrine].
 
 # DICAS DE ENGAJAMENTO
-[Sugira 3 themes de posts para o profissional atrair headhunters].`;
+[Sugira 3 temas de posts para o profissional atrair headhunters].`;
 
             const userMessage = `PROFISSIONAL:\nÁrea/Carreira: ${areaAtuacaoGlobal}\nCurrículo Base Otimizado pela Youp:\n${curriculoGeradoTexto}`;
 
@@ -356,17 +354,35 @@ Formato de Entrega Exigido:
             }
         }
 
-        // CONTROLADORES DE IMPRESSÃO ESPECÍFICOS
+        // CONTROLADORES DE SALVAMENTO DINÂMICO DE ARQUIVO
         function baixarCVPDF() {
+            // Guarda o título original do site
+            const originalTitle = document.title;
+            
+            // REGRA 2: Força o nome do arquivo a virar 'Nome do Cliente'-Currículo
+            document.title = nomeClienteGlobal + "-Currículo";
+            
             document.body.classList.add('printing-cv');
             document.body.classList.remove('printing-linkedin');
+            
             window.print();
+            
+            // Restaura o título do site logo após abrir a janela de salvamento
+            setTimeout(() => { document.title = originalTitle; }, 1000);
         }
 
         function baixarLinkedInPDF() {
+            const originalTitle = document.title;
+            
+            // REGRA 2: Força o nome do arquivo a virar 'Nome do Cliente'-Currículo-linkedin
+            document.title = nomeClienteGlobal + "-Currículo-linkedin";
+            
             document.body.classList.add('printing-linkedin');
             document.body.classList.remove('printing-cv');
+            
             window.print();
+            
+            setTimeout(() => { document.title = originalTitle; }, 1000);
         }
 
         // FUNÇÃO COPIAR LINKEDIN
