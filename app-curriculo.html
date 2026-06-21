@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder | Youp Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos baseados na identidade visual da Youp */
+        :root {
+            --dourado: #c5a059;
+            --verde-youp: #5c8e82;
+            --cinza-escuro: #0a0a0a;
+            --fundo-claro: #ffffff;
+            --texto-corpo: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            color: var(--texto-corpo);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Barra de Navegação */
+        .navbar {
+            width: 100%;
+            background-color: var(--cinza-escuro);
+            padding: 15px 50px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .brand-logo {
+            color: var(--dourado);
+            text-decoration: none;
+            font-weight: 800;
+            letter-spacing: 3px;
+            font-size: 20px;
+        }
+
+        /* Container Principal */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: var(--fundo-claro);
+            margin: 50px 0;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: var(--cinza-escuro);
+            font-weight: 800;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        /* Área do Formulário */
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--cinza-escuro);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background-color: var(--cinza-escuro);
+            color: var(--dourado);
+            border: none;
+            padding: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--dourado);
+            color: var(--cinza-escuro);
+        }
+
+        /* Área do Resultado */
+        #result-area {
+            display: none;
+            margin-top: 50px;
+        }
+
+        #cv-output {
+            background-color: #fafafa;
+            border: 1px solid #eee;
+            padding: 40px;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            white-space: pre-wrap;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--texto-corpo);
+        }
+
+        /* Tela de Carregamento */
+        #loading {
+            display: none;
+            text-align: center;
+            font-weight: 600;
+            color: var(--verde-youp);
+            margin-top: 20px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 20px 0;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            .navbar {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand-logo">YOUP</a>
+    </nav>
+
+    <div class="container">
+        <div id="form-screen">
+            <h1>AI Resume Builder</h1>
+            <p class="subtitle">Insira seus dados abaixo para que nossa IA baseada em Executive Search reestruture seu currículo de alto impacto.</p>
+
+            <form id="cv-form">
+                <div class="form-group">
+                    <label for="cargo">Cargo Desejado</label>
+                    <input type="text" id="cargo" name="cargo" placeholder="Ex: Diretor Financeiro, CFO, Superintendente de Operações" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="problem">Qual o maior problema de negócio que você resolveu na sua última posição?</label>
+                    <textarea id="problem" name="problem" placeholder="Conte-nos sobre o desafio macro (financeiro, operacional ou de pessoas) e como você o mitigou..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="metrics">Quais métricas reais comprovam esse sucesso?</label>
+                    <textarea id="metrics" name="metrics" placeholder="Ex: Redução de 15% no custo operacional, aumento de R$ 2M na receita, liderança de equipe com 50 pessoas..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="old_cv">Cole aqui o texto do seu currículo atual</label>
+                    <textarea id="old_cv" name="old_cv" placeholder="Copie todo o texto do seu Word ou PDF e cole aqui..." style="height: 250px;" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Gerar Currículo Estratégico ➔</button>
+            </form>
+        </div>
+
+        <div id="loading">Orquestrando narrativa C-Level... Aguarde alguns segundos.</div>
+
+        <div id="result-area">
+            <h2 style="color: var(--verde-youp); text-align: center; margin-bottom: 30px;">Seu Novo Currículo Está Pronto!</h2>
+            <div id="cv-output"></div>
+            <p style="text-align:center; color:#777; font-size:14px; margin-top:20px;">Copie o texto acima e cole no seu template preferido da Youp.</p>
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURAÇÃO SEGURA ---
+        // Substitua o texto entre aspas abaixo pela URL gerada ao implantar o seu Google Apps Script
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
+
+        // --- O PROMPT SECRETO (Invisível para o cliente) ---
+        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. A sua missão é transformar os dados fornecidos pelo usuário em um Currículo Executivo de Alto Impacto, desenhado estritamente para leitura de decisores humanos C-Level e Boards. O tom deve ser assertivo, confiante, limpo e elegante, escrito estritamente em PRIMEIRA PESSOA. Não invente números. Se baseie apenas nos fatos fornecidos.
+
+ESTRUTURA DE SAÍDA EXIGIDA (Entregue apenas o currículo formatado):
+
+Cabeçalho Clean: Nome, Localização, LinkedIn e Cargo Alvo.
+Resumo Executivo (Storytelling): Um parágrafo de 4 a 5 linhas narrando a essência da trajetória e o principal diferencial competitivo.
+Destaques e Impacto no Negócio: 3 bullet points fortes com os maiores "gols" de carreira (foco em métricas fornecidas).
+Experiência Profissional: Contexto rápido do desafio da empresa + Bullet points de ações estratégicas e resultados.
+Formação e Certificações.`;
+
+        // --- LÓGICA DO FRONTEND ---
+        const formScreen = document.getElementById('form-screen');
+        const form = document.getElementById('cv-form');
+        const loading = document.getElementById('loading');
+        const resultArea = document.getElementById('result-area');
+        const cvOutput = document.getElementById('cv-output');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+
+            formScreen.style.display = 'none';
+            loading.style.display = 'block';
+            resultArea.style.display = 'none';
+
+            const cargo = document.getElementById('cargo').value;
+            const problem = document.getElementById('problem').value;
+            const metrics = document.getElementById('metrics').value;
+            const old_cv = document.getElementById('old_cv').value;
+
+            const userMessage = `DADOS DO PROFISSIONAL:\nCargo Alvo: ${cargo}\nMaior Problema Resolvido: ${problem}\nMétricas/Resultados: ${metrics}\nCurrículo Atual (Texto Raw):\n${old_cv}`;
+
+            try {
+                // Chamada segura para o seu cofre oculto no Google
+                const response = await fetch(googleScriptURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8' 
+                    },
+                    body: JSON.stringify({
+                        systemPrompt: systemPrompt,
+                        userMessage: userMessage
+                    })
+                });
+
+                const data = await response.json();
+
+                // Faz a leitura da resposta no formato do Google Gemini
+                if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
+                    const generatedCV = data.candidates[0].content.parts[0].text;
+                    cvOutput.textContent = generatedCV;
+                    loading.style.display = 'none';
+                    resultArea.style.display = 'block';
+                } else {
+                    console.error('Resposta recebida do script:', data);
+                    throw new Error('Resposta inválida do servidor.');
+                }
+
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Ocorreu um erro ao gerar seu currículo. Por favor, tente novamente.');
+                loading.style.display = 'none';
+                formScreen.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
