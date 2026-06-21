@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI LinkedIn Optimizer | Youp Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteca de Formatação de Texto -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        :root {
+            --dourado: #c5a059;
+            --verde-youp: #5c8e82;
+            --cinza-escuro: #0a0a0a;
+            --fundo-claro: #ffffff;
+            --texto-corpo: #2c2c2c;
+            --azul-linkedin: #0077b5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo);
+            margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+        }
+
+        .navbar { width: 100%; background-color: var(--cinza-escuro); padding: 15px 50px; box-sizing: border-box; display: flex; justify-content: flex-start; }
+        .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 20px; }
+
+        .container {
+            width: 90%; max-width: 800px; background-color: var(--fundo-claro);
+            margin: 50px 0; padding: 60px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); box-sizing: border-box;
+        }
+
+        h1 { color: var(--cinza-escuro); font-weight: 800; font-size: 32px; margin-bottom: 10px; text-align: center; }
+        .subtitle { color: #666; text-align: center; font-size: 16px; margin-bottom: 40px; font-weight: 400; }
+
+        .form-group { margin-bottom: 30px; }
+        label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--cinza-escuro); text-transform: uppercase; letter-spacing: 1px; }
+        input[type="text"], textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 15px; box-sizing: border-box; }
+        textarea { height: 180px; resize: vertical; }
+
+        .btn-submit, .btn-action {
+            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 15px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; margin-bottom: 15px;
+        }
+        
+        .btn-submit { background-color: var(--cinza-escuro); color: var(--dourado); }
+        .btn-submit:hover { background-color: var(--dourado); color: var(--cinza-escuro); }
+
+        .btn-copy { background-color: var(--azul-linkedin); color: #fff; margin-top: 20px; }
+        .btn-copy:hover { background-color: #005a8c; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 119, 181, 0.3); }
+
+        .btn-download { background-color: transparent; border: 2px solid var(--verde-youp); color: var(--verde-youp); }
+        .btn-download:hover { background-color: var(--verde-youp); color: #fff; }
+
+        #loading, #download-screen { display: none; }
+        #loading { text-align: center; padding: 40px 0; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--azul-linkedin); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .pdf-preview-box { background: #e9ecef; padding: 20px; border-radius: 6px; margin-top: 30px; max-height: 500px; overflow-y: auto; border: 1px solid #ddd; }
+        
+        #linkedin-document {
+            background-color: #fff; padding: 40px; color: #000;
+            font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.6; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        #linkedin-document h1, #linkedin-document h2 { color: var(--azul-linkedin); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 25px; margin-bottom: 15px; font-size: 16pt; font-weight: 700;}
+        #linkedin-document h3 { font-size: 13pt; color: #333; margin-top: 15px; margin-bottom: 5px;}
+        #linkedin-document p { margin-bottom: 15px; }
+        #linkedin-document ul { margin-top: 5px; margin-bottom: 15px; padding-left: 20px; }
+        #linkedin-document li { margin-bottom: 8px; }
+
+        /* Mágica da Impressão (ATS-Friendly / PDF Limpo) */
+        @media print {
+            body * { visibility: hidden; }
+            body { background-color: #fff; margin: 0; padding: 0; }
+            #linkedin-document, #linkedin-document * { visibility: visible; }
+            #linkedin-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+            h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
+            p, li { page-break-inside: avoid; break-inside: avoid; }
+            ul { page-break-before: avoid; break-before: avoid; }
+        }
+
+        @media (max-width: 768px) { .container { padding: 30px; margin: 20px 0; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand-logo">YOUP</a>
+    </nav>
+
+    <div class="container">
+        <!-- TELA 1: FORMULÁRIO -->
+        <div id="form-screen">
+            <h1>AI LinkedIn Optimizer</h1>
+            <p class="subtitle">O <b>Pacote Autoridade</b> entrou em ação. Cole o seu novo currículo abaixo para que a nossa IA estruture o seu perfil com as palavras-chave magnéticas para Headhunters.</p>
+
+            <form id="linkedin-form">
+                <div class="form-group">
+                    <label for="area">Área de Atuação / Cargo Alvo</label>
+                    <input type="text" id="area" placeholder="Ex: Diretor de Operações, CFO, Conselheiro Independente" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cv_text">Cole o seu Currículo (O que foi gerado no AI Resume Builder)</label>
+                    <textarea id="cv_text" placeholder="Cole aqui o texto do currículo que você acabou de estruturar na nossa ferramenta anterior..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Mapear e Otimizar Perfil ➔</button>
+            </form>
+        </div>
+
+        <!-- TELA 2: CARREGAMENTO -->
+        <div id="loading">
+            <div class="spinner"></div>
+            <h3 style="color: var(--cinza-escuro);">Indexando o Algoritmo do LinkedIn...</h3>
+            <p style="color: #666;">Traduzindo sua trajetória para a linguagem de buscas dos Headhunters.</p>
+        </div>
+
+        <!-- TELA 3: PÁGINA DE DOWNLOAD/CÓPIA -->
+        <div id="download-screen">
+            <div style="text-align: center;" class="hide-on-print">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--azul-linkedin)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <h1 style="color: var(--azul-linkedin);">Perfil Otimizado!</h1>
+                <p class="subtitle" style="margin-bottom: 20px;">Seu alinhamento de autoridade está completo. Copie as seções e cole diretamente no seu perfil.</p>
+            </div>
+
+            <button onclick="copiarTexto()" id="btn-copiar" class="btn-action btn-copy hide-on-print">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                COPIAR TEXTO DO PERFIL
+            </button>
+
+            <button onclick="window.print()" class="btn-action btn-download hide-on-print">
+                SALVAR BACKUP EM PDF
+            </button>
+
+            <div class="pdf-preview-box">
+                <p style="text-align: center; font-size: 12px; color: #888; margin-top: 0;" class="hide-on-print">Pré-visualização do Perfil</p>
+                <div id="linkedin-document"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURAÇÃO ---
+        // COLE A MESMA URL DO SEU GOOGLE APPS SCRIPT AQUI (É o mesmo cofre do currículo!)
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
+
+        // --- 2. O PROMPT DO LINKEDIN (O Segredo do SEO) ---
+        const systemPrompt = `Aja como um Headhunter Especialista em LinkedIn Recruiter da Youp Consultoria. Analise o currículo fornecido e transforme-o em um perfil magnético e otimizado para o algoritmo de buscas do LinkedIn. Siga rigorosamente este formato de saída em Markdown:
+
+# OPÇÕES DE TÍTULO (HEADLINE)
+Crie 3 opções de Títulos atraentes (até 220 caracteres cada). Eles devem mesclar o Cargo Alvo, palavras-chave da área e o valor gerado (Ex: Diretor Financeiro | CFO | Reestruturação Financeira & M&A).
+
+# SOBRE (ABOUT)
+Crie um resumo narrativo de alto impacto, escrito em primeira pessoa. O tom deve ser corporativo, humano e focado em liderança e resolução de dores. O texto deve ter de 3 a 4 parágrafos bem estruturados e finalizar com um "Call to Action" de contato profissional.
+
+# PALAVRAS-CHAVE PARA SEÇÃO "COMPETÊNCIAS" (SKILLS)
+Liste de 15 a 20 habilidades altamente demandadas para o Cargo Alvo, separadas por vírgula. Misture Hard Skills, Soft Skills e ferramentas da área.
+
+# EXPERIÊNCIA PROFISSIONAL OTIMIZADA
+Descreva as experiências. Para cada uma, crie:
+**[Cargo] | [Empresa]**
+*Contexto:* Uma linha sobre o desafio.
+*Impacto:* 2 a 3 bullet points curtos focados apenas nas grandes vitórias e métricas, desenhados para leitura rápida na tela do celular.`;
+
+        // --- 3. LÓGICA DO SISTEMA ---
+        const formScreen = document.getElementById('form-screen');
+        const form = document.getElementById('linkedin-form');
+        const loading = document.getElementById('loading');
+        const downloadScreen = document.getElementById('download-screen');
+        const linkedinDocument = document.getElementById('linkedin-document');
+
+        // Variável para armazenar o texto cru para o botão de copiar
+        let rawMarkdownText = "";
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            formScreen.style.display = 'none';
+            loading.style.display = 'block';
+
+            const area = document.getElementById('area').value;
+            const cv_text = document.getElementById('cv_text').value;
+
+            const userMessage = `Cargo Alvo: ${area}\nCurrículo Base:\n${cv_text}`;
+
+            try {
+                const response = await fetch(googleScriptURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ systemPrompt: systemPrompt, userMessage: userMessage })
+                });
+
+                const data = await response.json();
+
+                if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
+                    rawMarkdownText = data.candidates[0].content.parts[0].text;
+                    
+                    // Renderiza bonitinho na tela
+                    linkedinDocument.innerHTML = marked.parse(rawMarkdownText);
+                    
+                    loading.style.display = 'none';
+                    downloadScreen.style.display = 'block';
+                } else {
+                    throw new Error('Resposta inválida do servidor.');
+                }
+
+            } catch (error) {
+                alert('Ocorreu um erro ao otimizar o seu LinkedIn. Por favor, tente novamente.');
+                loading.style.display = 'none';
+                formScreen.style.display = 'block';
+            }
+        });
+
+        // Função para o botão copiar
+        function copiarTexto() {
+            // Cria um elemento temporário para converter o HTML de volta para texto simples (sem as tags do Markdown)
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = linkedinDocument.innerHTML;
+            const plainText = tempDiv.innerText;
+
+            navigator.clipboard.writeText(plainText).then(() => {
+                const btnCopiar = document.getElementById('btn-copiar');
+                btnCopiar.innerHTML = "TEXTO COPIADO COM SUCESSO! ✓";
+                btnCopiar.style.backgroundColor = "#5c8e82"; // Fica verde
+                setTimeout(() => {
+                    btnCopiar.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> COPIAR TEXTO DO PERFIL';
+                    btnCopiar.style.backgroundColor = "var(--azul-linkedin)";
+                }, 3000);
+            }).catch(err => {
+                alert("Erro ao copiar. Você pode selecionar o texto manualmente e copiar.");
+            });
+        }
+    </script>
+</body>
+</html>
