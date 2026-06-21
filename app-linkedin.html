@@ -61,6 +61,8 @@
         .btn-download:hover { background-color: var(--verde-youp); color: #fff; }
 
         .btn-copy { background-color: var(--cinza-escuro); color: var(--dourado); }
+        .btn-pdf-linkedin { background-color: var(--azul-linkedin); color: #fff; }
+        .btn-pdf-linkedin:hover { background-color: #005a8c; }
 
         /* Blocos de Fluxo */
         #loading, #cv-success-screen, #linkedin-success-screen { display: none; }
@@ -71,7 +73,12 @@
         .preview-box { background: #e9ecef; padding: 20px; border-radius: 6px; margin-top: 25px; max-height: 400px; overflow-y: auto; border: 1px solid #ddd; }
         
         .document-paper {
-            background-color: #fff; padding: 40px; color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #fff; padding: 40px; color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative;
+        }
+
+        /* Rodapé de marca exclusivo para a visualização na tela */
+        .preview-footer-brand {
+            margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #777; text-align: center; font-weight: 600; letter-spacing: 1px;
         }
 
         #cv-document { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; text-align: justify; }
@@ -82,11 +89,32 @@
 
         .section-divider { border: 0; height: 1px; background: #ddd; margin: 50px 0; }
 
+        /* Elemento de Rodapé de Impressão */
+        .print-footer { display: none; }
+
+        /* =========================================================
+           REGRAS RIGOROSAS DE IMPRESSÃO E QUEBRA DE PÁGINA COM RODAPÉ
+           ========================================================= */
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
-            #cv-document, #cv-document * { visibility: visible; }
-            #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+            
+            /* Ativa as regras de rodapé fixo para folha impressa */
+            .print-footer {
+                display: block; position: fixed; bottom: 0; left: 0; width: 100%;
+                text-align: center; font-size: 10pt; font-family: Arial, sans-serif;
+                font-weight: bold; color: #555; border-top: 1px solid #ccc; padding-top: 5px;
+                letter-spacing: 2px; visibility: visible;
+            }
+
+            /* Condicional de impressão do Currículo */
+            body.print-cv #cv-document, body.print-cv #cv-document * { visibility: visible; }
+            body.print-cv #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+            
+            /* Condicional de impressão do LinkedIn */
+            body.print-linkedin #linkedin-document, body.print-linkedin #linkedin-document * { visibility: visible; }
+            body.print-linkedin #linkedin-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+
             h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
@@ -149,18 +177,20 @@
                 <p class="subtitle" style="margin-bottom: 20px;">Seu Currículo Estratégico otimizado para ATS está pronto para download abaixo.</p>
             </div>
 
-            <button onclick="window.print()" class="btn-action btn-download">
+            <button onclick="imprimirCV()" class="btn-action btn-download">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                SALVAR CURRÍCULO EM PDF (ATS-FRIENDLY)
+                BAIXAR CURRÍCULO EM PDF
             </button>
 
             <div class="preview-box">
-                <div id="cv-document" class="document-paper"></div>
+                <div class="document-paper">
+                    <div id="cv-document"></div>
+                    <div class="preview-footer-brand">YOUP CONSULTORIA</div>
+                </div>
             </div>
 
             <hr class="section-divider">
 
-            <!-- CONFIGURAÇÃO DO LINKEDIN COM ESCOLA DE TOM -->
             <h2>Etapa 2: Customizar Perfil LinkedIn</h2>
             <p class="subtitle" style="text-align: left; margin-bottom: 25px;">Escolha abaixo o tom de voz da narrativa do seu <b>SOBRE</b> para refletir fielmente o seu estilo de comunicação executiva.</p>
             
@@ -182,30 +212,38 @@
         <div id="linkedin-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--azul-linkedin);">Perfil LinkedIn Pronto!</h1>
-                <p class="subtitle" style="margin-bottom: 20px;">O prompt estruturado e calibrado para SEO gerou as seções exatas para sua revisão e cópia.</p>
+                <p class="subtitle" style="margin-bottom: 20px;">O material de autoridade estratégica foi compilado e estruturado.</p>
             </div>
+
+            <button onclick="imprimirLinkedIn()" class="btn-action btn-pdf-linkedin">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                BAIXAR PERFIL EM PDF
+            </button>
 
             <button onclick="copiarPerfil()" id="btn-copiar" class="btn-action btn-copy">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                COPIAR TEXTO DO PERFIL COMPLETO
+                COPIAR TEXTO RÁPIDO DO PERFIL
             </button>
 
             <div class="preview-box">
-                <div id="linkedin-document" class="document-paper"></div>
+                <div class="document-paper">
+                    <div id="linkedin-document"></div>
+                    <div class="preview-footer-brand">YOUP CONSULTORIA</div>
+                </div>
             </div>
         </div>
 
     </div>
 
+    <!-- O Rodapé oficial invisível na tela que só o arquivo PDF capturará -->
+    <div class="print-footer">YOUP CONSULTORIA</div>
+
     <script>
-        // --- CONFIGURAÇÃO DO SEU COFRE DO GOOGLE ---
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
 
-        // Variáveis globais para reter o currículo processado e dados
         let curriculoGeradoTexto = "";
         let areaAtuacaoGlobal = "";
 
-        // PROMPT DO CURRÍCULO (Fase 1 com Guardião)
         const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
         ETAPA 1: AUDITORIA DE QUALIDADE
         Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais acompanhadas de DATAS, Formação Acadêmica, Cursos Complementares/Certificações e Nível de Idiomas.
@@ -221,7 +259,6 @@
         const linkedinDocument = document.getElementById('linkedin-document');
         const alertBox = document.getElementById('alert-box');
 
-        // GERAÇÃO DO CURRÍCULO
         document.getElementById('autoridade-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             formScreen.style.display = 'none';
@@ -254,7 +291,7 @@
                         formScreen.style.display = 'block';
                         window.scrollTo(0, 0);
                     } else {
-                        curriculoGeradoTexto = result; // Guarda o currículo para o LinkedIn ler
+                        curriculoGeradoTexto = result;
                         cvDocument.innerHTML = marked.parse(result);
                         loading.style.display = 'none';
                         cvSuccessScreen.style.display = 'block';
@@ -267,9 +304,7 @@
             }
         });
 
-        // GERAÇÃO DO LINKEDIN (Puxa os dados gerados na Fase 1)
         async function gerarLinkedIn() {
-            // Ajusta o carregando para o tema do LinkedIn
             document.getElementById('spinner-color').style.borderTopColor = 'var(--azul-linkedin)';
             document.getElementById('loading-title').innerText = "Otimizando Perfil com SEO do LinkedIn...";
             document.getElementById('loading-sub').innerText = "Calculando densidade exata de palavras-chave estruturadas.";
@@ -279,7 +314,6 @@
 
             const tomEscolhido = document.getElementById('tom-narrativa').value;
 
-            // O SEU PROMPT RIGOROSO EXATO DE ENTRADA DO LINKEDIN
             const linkedinSystemPrompt = `Com base no currículo e nas competências exigidas pelo mercado para a área de atuação do profissional fornecida, crie um perfil do LinkedIn altamente otimizado e estratégico. Adote estritamente o seguinte tom de voz para a composição da narrativa: ${tomEscolhido}. 
 Siga rigorosamente o formato de entrega abaixo:
 
@@ -307,7 +341,7 @@ Formato de Entrega Exigido:
 [Sugestões de projetos, causas ou materiais multimídia para enriquecer a vitrine].
 
 # DICAS DE ENGAJAMENTO
-[Sugira 3 themes de posts para o profissional atrair headhunters].`;
+[Sugira 3 temas de posts para o profissional atrair headhunters].`;
 
             const userMessage = `PROFISSIONAL:\nÁrea/Carreira: ${areaAtuacaoGlobal}\nCurrículo Base Otimizado pela Youp:\n${curriculoGeradoTexto}`;
 
@@ -332,7 +366,19 @@ Formato de Entrega Exigido:
             }
         }
 
-        // FUNÇÃO COPIAR LINKEDIN
+        // CONTROLADORES DE IMPRESSÃO INDIVIDUAIS
+        function imprimirCV() {
+            document.body.classList.add('print-cv');
+            document.body.classList.remove('print-linkedin');
+            window.print();
+        }
+
+        function imprimirLinkedIn() {
+            document.body.classList.add('print-linkedin');
+            document.body.classList.remove('print-cv');
+            window.print();
+        }
+
         function copiarPerfil() {
             const tempDiv = document.createElement("div");
             tempDiv.innerHTML = linkedinDocument.innerHTML;
@@ -342,9 +388,11 @@ Formato de Entrega Exigido:
                 const btn = document.getElementById('btn-copiar');
                 btn.innerHTML = "TEXTO COPIADO COM SUCESSO! ✓";
                 btn.style.backgroundColor = "var(--verde-youp)";
+                btn.style.color = "#fff";
                 setTimeout(() => {
-                    btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> COPIAR TEXTO DO PERFIL COMPLETO';
+                    btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> COPIAR TEXTO RÁPIDO DO PERFIL';
                     btn.style.backgroundColor = "var(--cinza-escuro)";
+                    btn.style.color = "var(--dourado)";
                 }, 3000);
             });
         }
