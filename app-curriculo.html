@@ -5,74 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume Builder | Youp Consultoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
     <style>
-        :root {
-            --dourado: #c5a059;
-            --verde-youp: #5c8e82;
-            --cinza-escuro: #0a0a0a;
-            --fundo-claro: #ffffff;
-            --texto-corpo: #2c2c2c;
-            --vermelho-alerta: #d32f2f;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo);
-            margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
-        }
-
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --vermelho-alerta: #d32f2f; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         .navbar { width: 100%; background-color: var(--cinza-escuro); padding: 15px 50px; box-sizing: border-box; display: flex; justify-content: flex-start; }
         .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 20px; }
-
-        .container {
-            width: 90%; max-width: 800px; background-color: var(--fundo-claro);
-            margin: 50px 0; padding: 60px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); box-sizing: border-box;
-        }
-
+        .container { width: 90%; max-width: 800px; background-color: var(--fundo-claro); margin: 50px 0; padding: 60px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); box-sizing: border-box; }
         h1 { color: var(--cinza-escuro); font-weight: 800; font-size: 32px; margin-bottom: 10px; text-align: center; }
         .subtitle { color: #666; text-align: center; font-size: 16px; margin-bottom: 40px; font-weight: 400; }
-
-        /* Caixa de Alerta para Currículo Incompleto */
-        #alert-box {
-            display: none; background-color: #ffebee; color: var(--vermelho-alerta);
-            padding: 20px; border-left: 5px solid var(--vermelho-alerta); border-radius: 4px;
-            margin-bottom: 30px; font-weight: 500; font-size: 14px; line-height: 1.6;
-        }
-
+        #alert-box { display: none; background-color: #ffebee; color: var(--vermelho-alerta); padding: 20px; border-left: 5px solid var(--vermelho-alerta); border-radius: 4px; margin-bottom: 30px; font-weight: 500; font-size: 14px; line-height: 1.6; }
         .form-group { margin-bottom: 30px; }
         label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--cinza-escuro); text-transform: uppercase; letter-spacing: 1px; }
         input[type="text"], textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 15px; box-sizing: border-box; }
         textarea { height: 150px; resize: vertical; }
-
-        .btn-submit, .btn-download {
-            display: block; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 16px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none;
-        }
-        
+        .btn-submit, .btn-download { display: block; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 16px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; }
         .btn-submit { background-color: var(--cinza-escuro); color: var(--dourado); }
         .btn-submit:hover { background-color: var(--dourado); color: var(--cinza-escuro); }
-
-        .btn-download { background-color: var(--verde-youp); color: #fff; margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 10px;}
-        .btn-download:hover { background-color: #4a756b; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(92, 142, 130, 0.3); }
-
+        .btn-download { background-color: var(--verde-youp); color: #fff; margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-download:hover { background-color: #4a756b; }
         #loading, #download-screen { display: none; }
         #loading { text-align: center; padding: 40px 0; }
         .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--dourado); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
         .pdf-preview-box { background: #e9ecef; padding: 20px; border-radius: 6px; margin-top: 30px; max-height: 400px; overflow-y: auto; border: 1px solid #ddd; }
-        
-        #cv-document {
-            background-color: #fff; padding: 40px; color: #000;
-            font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; text-align: justify; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
+        #cv-document { background-color: #fff; padding: 40px; color: #000; font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; text-align: justify; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         #cv-document h1, #cv-document h2, #cv-document h3 { color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 20px; margin-bottom: 10px; font-size: 14pt; }
         #cv-document p { margin-bottom: 10px; }
         #cv-document ul { margin-top: 5px; margin-bottom: 15px; padding-left: 20px; }
         #cv-document li { margin-bottom: 5px; }
-
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
@@ -82,180 +43,100 @@
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
         }
-
         @media (max-width: 768px) { .container { padding: 30px; margin: 20px 0; } }
     </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <a href="#" class="brand-logo">YOUP</a>
-    </nav>
-
+    <nav class="navbar"><a href="#" class="brand-logo">YOUP</a></nav>
     <div class="container">
-        <!-- TELA 1: FORMULÁRIO -->
         <div id="form-screen">
             <h1>AI Resume Builder</h1>
-            <p class="subtitle">Insira seus dados abaixo para que nossa IA baseada em Executive Search reestruture seu currículo.</p>
-
-            <!-- Caixa de Alerta (Invisível até a IA detectar um erro) -->
+            <p class="subtitle">Insira seu token de liberação e seus dados profissionais para estruturação imediata.</p>
             <div id="alert-box"></div>
-
             <form id="cv-form">
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" placeholder="Ex: Ana Silva" required>
+                <div class="form-group" style="border: 1px solid var(--dourado); padding: 20px; border-radius: 4px; background: #fffdf6;">
+                    <label for="token" style="color: var(--dourado); font-weight: 800;">Código de Acesso Único</label>
+                    <input type="text" id="token" placeholder="Insira seu código de transação da Hotmart (Ex: HP...)" required>
                 </div>
-                <div class="form-group">
-                    <label for="cargo">Cargo Desejado</label>
-                    <input type="text" id="cargo" placeholder="Ex: Diretor Financeiro, CFO" required>
-                </div>
-                <div class="form-group">
-                    <label for="problem">Maior problema de negócio resolvido</label>
-                    <textarea id="problem" placeholder="Conte-nos sobre o desafio macro..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="metrics">Métricas reais que comprovam o sucesso</label>
-                    <textarea id="metrics" placeholder="Ex: Redução de 15% no custo..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="old_cv">Cole o texto do seu currículo atual</label>
-                    <textarea id="old_cv" placeholder="Cole aqui seu histórico (Certifique-se de incluir Datas, Formação, Idiomas e Cursos)..." style="height: 200px;" required></textarea>
-                </div>
+                <div class="form-group"><label for="name">Nome Completo</label><input type="text" id="name" placeholder="Ex: Ana Silva" required></div>
+                <div class="form-group"><label for="cargo">Cargo Desejado</label><input type="text" id="cargo" placeholder="Ex: Diretor Financeiro, CFO" required></div>
+                <div class="form-group"><label for="problem">Maior problema de negócio resolvido</label><textarea id="problem" placeholder="Conte desafio enfrentado e como mitigou..." required></textarea></div>
+                <div class="form-group"><label for="metrics">Métricas reais de sucesso</label><textarea id="metrics" placeholder="Ex: Redução de 15% no custo..." required></textarea></div>
+                <div class="form-group"><label for="old_cv">Cole o texto do seu currículo atual</label><textarea id="old_cv" style="height: 200px;" required></textarea></div>
                 <button type="submit" class="btn-submit">Gerar Currículo Estratégico ➔</button>
             </form>
         </div>
-
-        <!-- TELA 2: CARREGAMENTO -->
-        <div id="loading">
-            <div class="spinner"></div>
-            <h3 style="color: var(--cinza-escuro);">Orquestrando e Validando Dados...</h3>
-            <p style="color: #666;">Por favor, aguarde alguns segundos.</p>
-        </div>
-
-        <!-- TELA 3: PÁGINA DE DOWNLOAD -->
+        <div id="loading"><div class="spinner"></div><h3>Orquestrando e Validando Licença...</h3></div>
         <div id="download-screen">
-            <div style="text-align: center;" class="hide-on-print">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--verde-youp)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                <h1 style="color: var(--verde-youp);">Currículo Finalizado!</h1>
-                <p class="subtitle" style="margin-bottom: 20px;">Seu material 100% otimizado para ATS está pronto. Clique abaixo para salvar.</p>
-            </div>
-
-            <button onclick="window.print()" class="btn-download hide-on-print">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                SALVAR CURRÍCULO EM PDF
-            </button>
-
-            <div class="pdf-preview-box">
-                <p style="text-align: center; font-size: 12px; color: #888; margin-top: 0;" class="hide-on-print">Pré-visualização do Documento</p>
-                <div id="cv-document"></div>
-            </div>
+            <div style="text-align: center;"><h1 style="color: var(--verde-youp);">Currículo Finalizado!</h1><p class="subtitle">Seu material 100% otimizado para ATS está pronto.</p></div>
+            <button onclick="baixarCVPDF()" class="btn-download">SALVAR CURRÍCULO EM PDF</button>
+            <div class="pdf-preview-box"><div id="cv-document"></div></div>
         </div>
     </div>
-
     <script>
-        // COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzbiwSSfw5NgsJQ94H9974ocnlgP40_Ha0bkG0LSiQ0gCMCFBEyR6_a9Lr0Kevalv6awQ/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
+        let nomeClienteGlobal = "Cliente";
+        const systemPrompt = `Aja como um Headhunter Executivo da Youp Consultoria. 
+ETAPA 1: AUDITORIA. O currículo deve conter obrigatoriamente Experiências com DATAS, Formação, Cursos e Idiomas. Se faltar algo, responda APENAS com [INCOMPLETO] e a lista de pendências.
+ETAPA 2: GERAÇÃO. Currículo C-Level em primeira pessoa. Markdown estrito (# nome, ## resumo executivo, ## destaques e impacto no negócio, ## experiência profissional [empresa|data|contexto|ações], ## formação acadêmica, ## cursos e idiomas).`;
 
-        // O NOVO PROMPT COM O GUARDIÃO DE DADOS
-        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
+        document.getElementById('cv-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const alertBox = document.getElementById('alert-box');
+            alertBox.style.display = 'none';
+            document.getElementById('form-screen').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
 
-ETAPA 1: AUDITORIA DE QUALIDADE
-Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE:
-1. Experiências Profissionais acompanhadas de DATAS.
-2. Formação Acadêmica.
-3. Cursos Complementares ou Certificações.
-4. Nível de Idiomas.
-
-Se alguma dessas 4 informações fundamentais estiver ausente, NÃO GERE O CURRÍCULO. Responda APENAS com a seguinte tag e uma mensagem profissional:
-[INCOMPLETO] Olá! Para que o seu currículo C-Level seja aprovado nos sistemas ATS, ele não pode ter lacunas. Notei que faltam as seguintes informações no texto enviado: [Liste o que faltou de forma clara]. Por favor, adicione esses dados no campo de texto e gere novamente.
-
-ETAPA 2: GERAÇÃO (Apenas se a auditoria passar)
-Se os dados estiverem completos, transforme as informações em um Currículo Executivo de Alto Impacto. Escreva em PRIMEIRA PESSOA. Não invente números. Use formatação Markdown.
-
-ESTRUTURA DE SAÍDA:
-# [Nome do Profissional]
-**Localização:** | **LinkedIn:** | **Cargo Alvo:** [Cargo Alvo]
-
-## Resumo Executivo
-[Storytelling de 4 a 5 linhas]
-
-## Destaques e Impacto no Negócio
-- [Bullet point 1]
-- [Bullet point 2]
-- [Bullet point 3]
-
-## Experiência Profissional
-**[Nome da Empresa]** | [Período com datas]
-*Contexto:* [Breve contexto do desafio]
-- [Ações estratégicas e resultados]
-
-## Formação Acadêmica e Certificações
-- [Formação]
-
-## Cursos e Idiomas
-- [Idiomas com nível]
-- [Cursos]`;
-
-        const formScreen = document.getElementById('form-screen');
-        const form = document.getElementById('cv-form');
-        const loading = document.getElementById('loading');
-        const downloadScreen = document.getElementById('download-screen');
-        const cvDocument = document.getElementById('cv-document');
-        const alertBox = document.getElementById('alert-box');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); 
-            formScreen.style.display = 'none';
-            loading.style.display = 'block';
-            alertBox.style.display = 'none'; // Reseta o alerta
-
-            const name = document.getElementById('name').value;
+            const token = document.getElementById('token').value.trim();
+            nomeClienteGlobal = document.getElementById('name').value.trim();
             const cargo = document.getElementById('cargo').value;
             const problem = document.getElementById('problem').value;
             const metrics = document.getElementById('metrics').value;
             const old_cv = document.getElementById('old_cv').value;
 
-            const userMessage = `DADOS:\nNome: ${name}\nCargo Alvo: ${cargo}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
+            const userMessage = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo: ${cargo}\nProblema: ${problem}\nMétricas: ${metrics}\nCurrículo:\n${old_cv}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ systemPrompt: systemPrompt, userMessage: userMessage })
+                    body: JSON.stringify({ token: token, systemPrompt: systemPrompt, userMessage: userMessage })
                 });
-
                 const data = await response.json();
 
-                if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
-                    const generatedMarkdown = data.candidates[0].content.parts[0].text;
-                    
-                    // A LÓGICA DO GUARDIÃO
-                    if (generatedMarkdown.includes('[INCOMPLETO]')) {
-                        // Se estiver incompleto, exibe o aviso em vermelho e volta para o formulário
-                        const errorMsg = generatedMarkdown.replace('[INCOMPLETO]', '').trim();
-                        alertBox.innerText = errorMsg;
+                if (data.error) {
+                    alertBox.innerText = data.error.message;
+                    alertBox.style.display = 'block';
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('form-screen').style.display = 'block';
+                    window.scrollTo(0, 0);
+                } else if (data.candidates && data.candidates[0]) {
+                    const result = data.candidates[0].content.parts[0].text;
+                    if (result.includes('[INCOMPLETO]')) {
+                        alertBox.innerText = result.replace('[INCOMPLETO]', '').trim();
                         alertBox.style.display = 'block';
-                        
-                        loading.style.display = 'none';
-                        formScreen.style.display = 'block';
-                        window.scrollTo(0, 0); // Rola a página para o topo para o cliente ver o erro
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('form-screen').style.display = 'block';
+                        window.scrollTo(0, 0);
                     } else {
-                        // Se passou na auditoria, gera o PDF perfeitamente
-                        cvDocument.innerHTML = marked.parse(generatedMarkdown);
-                        loading.style.display = 'none';
-                        downloadScreen.style.display = 'block';
+                        document.getElementById('cv-document').innerHTML = marked.parse(result);
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('download-screen').style.display = 'block';
                     }
-                } else {
-                    throw new Error('Resposta inválida do servidor.');
                 }
-
             } catch (error) {
-                alert('Ocorreu um erro ao gerar seu currículo. Por favor, tente novamente.');
-                loading.style.display = 'none';
-                formScreen.style.display = 'block';
+                alert('Erro na comunicação com o servidor.');
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('form-screen').style.display = 'block';
             }
         });
+
+        function baixarCVPDF() {
+            const originalTitle = document.title;
+            document.title = nomeClienteGlobal + "-Currículo";
+            window.print();
+            setTimeout(() => { document.title = originalTitle; }, 1000);
+        }
     </script>
 </body>
 </html>
