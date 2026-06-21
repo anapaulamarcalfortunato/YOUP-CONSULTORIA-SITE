@@ -61,6 +61,10 @@
         .btn-download:hover { background-color: var(--verde-youp); color: #fff; }
 
         .btn-copy { background-color: var(--cinza-escuro); color: var(--dourado); }
+        
+        /* Botão Novo de PDF para o LinkedIn */
+        .btn-pdf-linkedin { background-color: transparent; border: 2px solid var(--azul-linkedin); color: var(--azul-linkedin); }
+        .btn-pdf-linkedin:hover { background-color: var(--azul-linkedin); color: #fff; }
 
         /* Blocos de Fluxo */
         #loading, #cv-success-screen, #linkedin-success-screen { display: none; }
@@ -71,7 +75,7 @@
         .preview-box { background: #e9ecef; padding: 20px; border-radius: 6px; margin-top: 25px; max-height: 400px; overflow-y: auto; border: 1px solid #ddd; }
         
         .document-paper {
-            background-color: #fff; padding: 40px; color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #fff; padding: 40px; color: #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative;
         }
 
         #cv-document { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; text-align: justify; }
@@ -82,11 +86,29 @@
 
         .section-divider { border: 0; height: 1px; background: #ddd; margin: 50px 0; }
 
+        /* Rodapé de impressão oculto na tela */
+        .print-footer { display: none; }
+
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
-            #cv-document, #cv-document * { visibility: visible; }
-            #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+            
+            /* Define a exibição do rodapé fixo apenas no papel impresso */
+            .print-footer {
+                display: block; position: fixed; bottom: 0; left: 0; width: 100%;
+                text-align: center; font-size: 10pt; font-family: Arial, sans-serif;
+                font-weight: bold; color: #555; border-top: 1px solid #ccc; padding-top: 5px;
+                letter-spacing: 2px; visibility: visible;
+            }
+
+            /* Se estiver imprimindo o CV */
+            body.printing-cv #cv-document, body.printing-cv #cv-document * { visibility: visible; }
+            body.printing-cv #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+            
+            /* Se estiver imprimindo o LinkedIn */
+            body.printing-linkedin #linkedin-document, body.printing-linkedin #linkedin-document * { visibility: visible; }
+            body.printing-linkedin #linkedin-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+
             h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
@@ -103,7 +125,6 @@
 
     <div class="container">
         
-        <!-- FLUXO 1: FORMULÁRIO DE ENTRADA -->
         <div id="form-screen">
             <h1>Pacote Autoridade</h1>
             <p class="subtitle">Alinhamento total: Currículo Estratégico + Perfil LinkedIn Otimizado.</p>
@@ -135,21 +156,19 @@
             </form>
         </div>
 
-        <!-- TELA DE CARREGAMENTO DINÂMICA -->
         <div id="loading">
             <div class="spinner" id="spinner-color"></div>
             <h3 style="color: var(--cinza-escuro);" id="loading-title">Processando Dados...</h3>
             <p style="color: #666;" id="loading-sub">Por favor, aguarde alguns segundos.</p>
         </div>
 
-        <!-- FLUXO 2: CURRÍCULO GERADO COM OPÇÃO DO LINKEDIN -->
         <div id="cv-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--verde-youp);">Etapa 1 Concluída!</h1>
                 <p class="subtitle" style="margin-bottom: 20px;">Seu Currículo Estratégico otimizado para ATS está pronto para download abaixo.</p>
             </div>
 
-            <button onclick="window.print()" class="btn-action btn-download">
+            <button onclick="baixarCVPDF()" class="btn-action btn-download">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 SALVAR CURRÍCULO EM PDF (ATS-FRIENDLY)
             </button>
@@ -160,7 +179,6 @@
 
             <hr class="section-divider">
 
-            <!-- CONFIGURAÇÃO DO LINKEDIN COM ESCOLA DE TOM -->
             <h2>Etapa 2: Customizar Perfil LinkedIn</h2>
             <p class="subtitle" style="text-align: left; margin-bottom: 25px;">Escolha abaixo o tom de voz da narrativa do seu <b>SOBRE</b> para refletir fielmente o seu estilo de comunicação executiva.</p>
             
@@ -178,7 +196,6 @@
             </button>
         </div>
 
-        <!-- FLUXO 3: LINKEDIN GERADO (SAÍDA FINAL) -->
         <div id="linkedin-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--azul-linkedin);">Perfil LinkedIn Pronto!</h1>
@@ -190,12 +207,19 @@
                 COPIAR TEXTO DO PERFIL COMPLETO
             </button>
 
+            <button onclick="baixarLinkedInPDF()" class="btn-action btn-pdf-linkedin">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                BAIXAR PERFIL EM PDF
+            </button>
+
             <div class="preview-box">
                 <div id="linkedin-document" class="document-paper"></div>
             </div>
         </div>
 
     </div>
+
+    <div class="print-footer">YOUP CONSULTORIA</div>
 
     <script>
         // --- CONFIGURAÇÃO DO SEU COFRE DO GOOGLE ---
@@ -330,6 +354,19 @@ Formato de Entrega Exigido:
                 loading.style.display = 'none';
                 cvSuccessScreen.style.display = 'block';
             }
+        }
+
+        // CONTROLADORES DE IMPRESSÃO ESPECÍFICOS
+        function baixarCVPDF() {
+            document.body.classList.add('printing-cv');
+            document.body.classList.remove('printing-linkedin');
+            window.print();
+        }
+
+        function baixarLinkedInPDF() {
+            document.body.classList.add('printing-linkedin');
+            document.body.classList.remove('printing-cv');
+            window.print();
         }
 
         // FUNÇÃO COPIAR LINKEDIN
