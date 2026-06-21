@@ -16,6 +16,7 @@
             --fundo-claro: #ffffff;
             --texto-corpo: #2c2c2c;
             --azul-linkedin: #0077b5;
+            --verde-whatsapp: #25D366;
             --vermelho-alerta: #d32f2f;
         }
 
@@ -48,7 +49,7 @@
         select { background-color: #fff; cursor: pointer; font-weight: 500; }
 
         .btn-submit, .btn-action {
-            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 15px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; margin-bottom: 15px;
+            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 15px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-align: center; border: none; margin-bottom: 15px; text-decoration: none;
         }
         
         .btn-submit { background-color: var(--cinza-escuro); color: var(--dourado); }
@@ -58,7 +59,7 @@
         .btn-linkedin:hover { background-color: #005a8c; }
 
         .btn-reports { background-color: var(--dourado); color: var(--cinza-escuro); margin-top: 35px; }
-        .btn-reports:hover { background-color: #b08d4b; }
+        .btn-reports:hover { background-color: #b08d4b; color: #fff;}
 
         .btn-download { background-color: transparent; border: 2px solid var(--verde-youp); color: var(--verde-youp); }
         .btn-download:hover { background-color: var(--verde-youp); color: #fff; }
@@ -70,6 +71,16 @@
         .btn-pdf-reports:hover { background-color: var(--dourado); color: #fff; }
 
         .btn-copy { background-color: var(--cinza-escuro); color: var(--dourado); }
+
+        /* Botão Novo de Vendas WhatsApp */
+        .btn-whatsapp { background-color: var(--verde-whatsapp); color: #fff; margin-top: 25px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); animation: pulse 2s infinite; }
+        .btn-whatsapp:hover { background-color: #1ebe57; transform: translateY(-3px); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
         /* Blocos de Fluxo */
         #loading, #cv-success-screen, #linkedin-success-screen, #reports-success-screen { display: none; }
@@ -240,7 +251,7 @@
             </button>
         </div>
 
-        <!-- FLUXO 4: RELATÓRIOS ESTRATÉGICOS -->
+        <!-- FLUXO 4: RELATÓRIOS ESTRATÉGICOS E UPSELL WHATSAPP -->
         <div id="reports-success-screen">
             <div style="text-align: center;">
                 <h1 style="color: var(--dourado);">Sua Mentoria Está Pronta!</h1>
@@ -250,6 +261,13 @@
             <button onclick="baixarRelatoriosPDF()" class="btn-action btn-pdf-reports">
                 BAIXAR RELATÓRIO ESTRATÉGICO EM PDF
             </button>
+
+            <!-- O BOTÃO DE CONVERSÃO MATADOR -->
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20acabei%20de%20baixar%20meu%20GTM%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20com%20voc%C3%AA%20para%20evoluir%20neste%20processo.%20(J%C3%A1%20vou%20te%20enviar%20o%20meu%20PDF%20aqui%20no%20chat%20para%20voc%C3%AA%20analisar!).%20Podemos%20conversar%3F" target="_blank" class="btn-action btn-whatsapp">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                FALAR COM A ANA PAULA E AVANÇAR
+            </a>
+            <p style="text-align: center; font-size: 13px; color: #777; margin-top: -5px;"><i>Clique acima e não esqueça de arrastar o seu PDF no chat para agilizarmos sua análise!</i></p>
 
             <div class="preview-box">
                 <div id="reports-document" class="document-paper"></div>
@@ -280,7 +298,7 @@
         const reportsDocument = document.getElementById('reports-document');
         const alertBox = document.getElementById('alert-box');
 
-        // GERAÇÃO DO CURRÍCULO
+        // GERAÇÃO DO CURRÍCULO (AGORA COM O PROMPT RIGOROSO RESTAURADO)
         document.getElementById('autoridade-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             formScreen.style.display = 'none';
@@ -293,9 +311,29 @@
             const metrics = document.getElementById('metrics').value;
             const old_cv = document.getElementById('old_cv').value;
 
-            const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria.
-            ETAPA 1: Verifique se o currículo contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
-            ETAPA 2: Se completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS em Markdown.`;
+            const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
+ETAPA 1: AUDITORIA DE QUALIDADE
+Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
+ETAPA 2: GERAÇÃO
+Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números. Use Markdown (# para nome, ## para seções, ** para negrito, - para listas).
+ESTRUTURA DE SAÍDA EXIGIDA:
+# [Nome do Profissional]
+**Localização:** | **LinkedIn:** | **Cargo Alvo:** [Cargo Alvo]
+## Resumo Executivo
+[Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]
+## Destaques e Impacto no Negócio
+- [Bullet point 1 contendo a métrica de maior impacto]
+- [Bullet point 2 contendo métricas gerenciais/processos]
+- [Bullet point 3 contendo impacto financeiro/estratégico]
+## Experiência Profissional
+**[Nome da Empresa]** | [Período com datas]
+*Contexto:* [Breve contexto do desafio macro enfrentado na entrada]
+- [Ações estratégicas aplicadas e resultados operacionais]
+## Formação Acadêmica e Certificações
+- [Formação/Certificação 1]
+## Cursos e Idiomas
+- [Idiomas com respectivo nível]
+- [Cursos]`;
 
             const userMessage = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo Alvo: ${areaAtuacaoGlobal}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
 
@@ -401,7 +439,7 @@ Use EXATAMENTE a seguinte estrutura Markdown:
 **Score de Empregabilidade:** [Nota de 0 a 100 baseada na força do currículo e perfil]
 
 ## Análise de Risco e Potencial
-[Escreva 3 a 4 parágrafos profundos analisando as forças do candidato, aderência ao mercado, gaps (falta de idiomas, datas erradas se houver) e percepção de mercado.]
+[Escreva 3 a 4 parágrafos profundos analisando as forças do candidato, aderência ao mercado, gaps e percepção de mercado.]
 
 ## Plano de Ação Orientativo
 [Liste de 3 a 5 passos consultivos detalhados. Ex: "1. Como sua mentora, aconselho que você..."]
@@ -424,7 +462,10 @@ Use EXATAMENTE a seguinte estrutura Markdown:
 [Aconselhe sobre quem abordar (C-Level) e forneça um modelo de mensagem de abordagem (Pitch) consultivo, elegante e ancorado em resultados financeiros.]
 
 ## V. Roadmap de Execução (90 Dias)
-[Divida em 3 fases mensais claras, longas e acionáveis, orientando o cliente passo a passo.]`;
+[Divida em 3 fases mensais claras, longas e acionáveis, orientando o cliente passo a passo.]
+
+## VI. Próximo Passo: Sessão de Alinhamento
+Como mentora, devo ser honesta: ter este documento em mãos não garante o resultado se a execução não for impecável. O Go-to-Market é apenas o mapa; a tração vem da velocidade e da precisão da abordagem. Quero convidar você a agendar uma reunião de diagnóstico comigo. Me envie este PDF no WhatsApp para avaliarmos juntos como a Youp Consultoria pode acelerar essa jornada e colocar você na cadeira certa, pelo pacote de remuneração que a sua trajetória exige. Pressione o botão verde do WhatsApp e vamos conversar!`;
 
             const userMessage = `Perfil do Cliente: ${nomeClienteGlobal}\nCargo Alvo: ${areaAtuacaoGlobal}\nDados Extraídos do Currículo Base:\n${curriculoGeradoTexto}`;
 
