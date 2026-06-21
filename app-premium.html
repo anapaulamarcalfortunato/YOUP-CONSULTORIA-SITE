@@ -280,40 +280,23 @@
     <div class="print-footer">YOUP CONSULTORIA</div>
 
     <script>
-        // --- CONFIGURAÇÃO ---
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
 
         let curriculoGeradoTexto = "";
         let areaAtuacaoGlobal = "";
         let nomeClienteGlobal = "Cliente";
-        let savedToken = ""; // Variável para armazenar o Token Validado
+        let savedToken = ""; 
+        let isUnsaved = false; // CAMADA 1: Controle de Segurança Antifechamento
 
-        const formScreen = document.getElementById('form-screen');
-        const cvSuccessScreen = document.getElementById('cv-success-screen');
-        const linkedinSuccessScreen = document.getElementById('linkedin-success-screen');
-        const reportsSuccessScreen = document.getElementById('reports-success-screen');
-        const loading = document.getElementById('loading');
-        
-        const cvDocument = document.getElementById('cv-document');
-        const linkedinDocument = document.getElementById('linkedin-document');
-        const reportsDocument = document.getElementById('reports-document');
-        const alertBox = document.getElementById('alert-box');
+        // CAMADA 1: Trava o navegador se o cliente tentar fechar a aba
+        window.addEventListener('beforeunload', function (e) {
+            if (isUnsaved) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
 
-        // GERAÇÃO DO CURRÍCULO
-        document.getElementById('autoridade-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formScreen.style.display = 'none';
-            loading.style.display = 'block';
-            alertBox.style.display = 'none';
-
-            savedToken = document.getElementById('token').value.trim();
-            nomeClienteGlobal = document.getElementById('name').value.trim();
-            areaAtuacaoGlobal = document.getElementById('cargo').value;
-            const problem = document.getElementById('problem').value;
-            const metrics = document.getElementById('metrics').value;
-            const old_cv = document.getElementById('old_cv').value;
-
-            const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
+        const cvSystemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria. Sua missão tem duas etapas.
 ETAPA 1: AUDITORIA DE QUALIDADE
 Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. Se faltar, responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
 ETAPA 2: GERAÇÃO
@@ -336,6 +319,47 @@ ESTRUTURA DE SAÍDA EXIGIDA:
 ## Cursos e Idiomas
 - [Idiomas com respectivo nível]
 - [Cursos]`;
+
+        const formScreen = document.getElementById('form-screen');
+        const cvSuccessScreen = document.getElementById('cv-success-screen');
+        const linkedinSuccessScreen = document.getElementById('linkedin-success-screen');
+        const reportsSuccessScreen = document.getElementById('reports-success-screen');
+        const loading = document.getElementById('loading');
+        
+        const cvDocument = document.getElementById('cv-document');
+        const linkedinDocument = document.getElementById('linkedin-document');
+        const reportsDocument = document.getElementById('reports-document');
+        const alertBox = document.getElementById('alert-box');
+
+        // GERAÇÃO DO CURRÍCULO (ETAPA 1)
+        document.getElementById('autoridade-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            formScreen.style.display = 'none';
+            loading.style.display = 'block';
+            alertBox.style.display = 'none';
+
+            savedToken = document.getElementById('token').value.trim();
+            nomeClienteGlobal = document.getElementById('name').value.trim();
+            areaAtuacaoGlobal = document.getElementById('cargo').value;
+
+            // CAMADA 2: Puxa o backup da máquina se o usuário já tiver gerado o material
+            const backupLocal = localStorage.getItem('youp_premium_backup_' + savedToken);
+            if (backupLocal) {
+                const backupData = JSON.parse(backupLocal);
+                nomeClienteGlobal = backupData.name || nomeClienteGlobal;
+                areaAtuacaoGlobal = backupData.cargo || areaAtuacaoGlobal;
+                curriculoGeradoTexto = backupData.cv;
+                cvDocument.innerHTML = marked.parse(curriculoGeradoTexto);
+                
+                isUnsaved = true; // Ativa o aviso de antifechamento
+                loading.style.display = 'none';
+                cvSuccessScreen.style.display = 'block';
+                return; // Impede que o sistema gaste tempo indo até o servidor de novo
+            }
+
+            const problem = document.getElementById('problem').value;
+            const metrics = document.getElementById('metrics').value;
+            const old_cv = document.getElementById('old_cv').value;
 
             const userMessage = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo Alvo: ${areaAtuacaoGlobal}\nProblema Resolvido: ${problem}\nMétricas: ${metrics}\nCurrículo Atual:\n${old_cv}`;
 
@@ -363,6 +387,15 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                         window.scrollTo(0, 0);
                     } else {
                         curriculoGeradoTexto = result;
+
+                        // CAMADA 2: Salva o texto gerado na memória
+                        localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify({
+                            name: nomeClienteGlobal,
+                            cargo: areaAtuacaoGlobal,
+                            cv: curriculoGeradoTexto
+                        }));
+                        isUnsaved = true; // Ativa a trava antifechamento
+
                         cvDocument.innerHTML = marked.parse(result);
                         loading.style.display = 'none';
                         cvSuccessScreen.style.display = 'block';
@@ -375,7 +408,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             }
         });
 
-        // GERAÇÃO DO LINKEDIN
+        // GERAÇÃO DO LINKEDIN (ETAPA 2)
         async function gerarLinkedIn() {
             document.getElementById('spinner-color').style.borderTopColor = 'var(--azul-linkedin)';
             document.getElementById('loading-title').innerText = "Otimizando Perfil LinkedIn...";
@@ -383,6 +416,18 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             
             cvSuccessScreen.style.display = 'none';
             loading.style.display = 'block';
+
+            // CAMADA 2 (Verificação): Se ele já havia gerado o LinkedIn, restaura direto.
+            const backupLocal = localStorage.getItem('youp_premium_backup_' + savedToken);
+            if (backupLocal) {
+                const backupData = JSON.parse(backupLocal);
+                if (backupData.li) {
+                    linkedinDocument.innerHTML = marked.parse(backupData.li);
+                    loading.style.display = 'none';
+                    linkedinSuccessScreen.style.display = 'block';
+                    return;
+                }
+            }
 
             const tomEscolhido = document.getElementById('tom-narrativa').value;
 
@@ -422,6 +467,14 @@ Siga este formato rigorosamente:
                     cvSuccessScreen.style.display = 'block';
                 } else if (data.candidates && data.candidates[0]) {
                     const resultLinkedin = data.candidates[0].content.parts[0].text;
+                    
+                    // CAMADA 2 (Atualização): Salva também o texto do LinkedIn na memória do navegador
+                    if (backupLocal) {
+                        const backupData = JSON.parse(backupLocal);
+                        backupData.li = resultLinkedin;
+                        localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify(backupData));
+                    }
+
                     linkedinDocument.innerHTML = marked.parse(resultLinkedin);
                     loading.style.display = 'none';
                     linkedinSuccessScreen.style.display = 'block';
@@ -433,7 +486,7 @@ Siga este formato rigorosamente:
             }
         }
 
-        // GERAÇÃO DOS RELATÓRIOS (Termômetro + GTM)
+        // GERAÇÃO DOS RELATÓRIOS (ETAPA 3 - GTM)
         async function gerarRelatorios() {
             document.getElementById('spinner-color').style.borderTopColor = 'var(--dourado)';
             document.getElementById('loading-title').innerText = "Elaborando Análise de Mercado...";
@@ -441,6 +494,18 @@ Siga este formato rigorosamente:
             
             linkedinSuccessScreen.style.display = 'none';
             loading.style.display = 'block';
+
+            // CAMADA 2 (Verificação): Se ele já havia gerado o Relatório GTM, restaura direto.
+            const backupLocal = localStorage.getItem('youp_premium_backup_' + savedToken);
+            if (backupLocal) {
+                const backupData = JSON.parse(backupLocal);
+                if (backupData.gtm) {
+                    reportsDocument.innerHTML = marked.parse(backupData.gtm);
+                    loading.style.display = 'none';
+                    reportsSuccessScreen.style.display = 'block';
+                    return;
+                }
+            }
 
             const reportsSystemPrompt = `Aja como Ana Paula, Headhunter Sênior e Mentora Executiva da Youp Consultoria. Sua missão é entregar dois relatórios profundos, consultivos e acolhedores, baseados na realidade do mercado C-Level: o "Termômetro de Liquidez" e o "Plano Go-to-Market (GTM)".
             
@@ -497,6 +562,14 @@ Como mentora, devo ser 100% transparente: ter este documento em mãos não garan
                     linkedinSuccessScreen.style.display = 'block';
                 } else if (data.candidates && data.candidates[0]) {
                     const resultReports = data.candidates[0].content.parts[0].text;
+
+                    // CAMADA 2 (Atualização): Salva também o GTM na memória do navegador
+                    if (backupLocal) {
+                        const backupData = JSON.parse(backupLocal);
+                        backupData.gtm = resultReports;
+                        localStorage.setItem('youp_premium_backup_' + savedToken, JSON.stringify(backupData));
+                    }
+
                     reportsDocument.innerHTML = marked.parse(resultReports);
                     loading.style.display = 'none';
                     reportsSuccessScreen.style.display = 'block';
@@ -528,6 +601,8 @@ Como mentora, devo ser 100% transparente: ter este documento em mãos não garan
         }
 
         function baixarRelatoriosPDF() {
+            isUnsaved = false; // A Trava da Camada 1 é desfeita pois o cliente concluiu e salvou o último documento Premium.
+            
             const originalTitle = document.title;
             document.title = nomeClienteGlobal + "-Relatorio-Estrategico";
             document.body.classList.add('printing-reports');
