@@ -69,16 +69,15 @@
 
         <div id="loading"><div class="spinner"></div><h3>Processando Informações...</h3></div>
         
-        <!-- NOVA TELA DE CONSULTORIA DA ANA PAULA -->
         <div id="consultoria-screen">
             <div style="text-align: center; margin-bottom: 20px;">
-                <h2 style="color: var(--dourado); margin-bottom: 5px;">Mentoria Youp | Ana Paula</h2>
+                <h2 style="color: var(--dourado); margin-bottom: 5px;">Mentoria Youp | Aluara (Inteligência Artificial)</h2>
                 <p style="color: #666; font-size: 14px; margin-top: 0;">Sua consultora virtual identificou pontos de melhoria no seu perfil antes de gerar o currículo.</p>
             </div>
-            <div id="ana-message" style="background: #fff; padding: 25px; border-left: 4px solid var(--dourado); border-radius: 6px; margin-bottom: 25px; font-size: 15px; line-height: 1.6; box-shadow: 0 5px 15px rgba(0,0,0,0.05); color: #333;"></div>
+            <div id="ai-message" style="background: #fff; padding: 25px; border-left: 4px solid var(--dourado); border-radius: 6px; margin-bottom: 25px; font-size: 15px; line-height: 1.6; box-shadow: 0 5px 15px rgba(0,0,0,0.05); color: #333;"></div>
             <div class="form-group">
                 <label for="user-reply">Sua Resposta</label>
-                <textarea id="user-reply" placeholder="Responda aqui para a Ana Paula (Ex: 'Não possuo os cursos, pode seguir sem eles' / Ou: 'Eu tenho as competências 1, 3 e 4. E aumentei a receita em 20%...')" style="height: 120px;" required></textarea>
+                <textarea id="user-reply" placeholder="Responda aqui para a Aluara (Ex: 'Não possuo os cursos, pode seguir sem eles' / Ou: 'As datas simultâneas estão corretas, foram projetos paralelos...')" style="height: 120px;" required></textarea>
             </div>
             <button onclick="enviarRespostaConsultoria()" class="btn-submit">Enviar Resposta e Gerar Currículo ➔</button>
         </div>
@@ -100,18 +99,19 @@
             if (isUnsaved) { e.preventDefault(); e.returnValue = ''; }
         });
 
-        const cvSystemPrompt = `Você é Ana Paula, Headhunter Sênior e Mentora Executiva da Youp Consultoria.
-Sua missão é atuar como mentora consultiva ANTES de gerar o currículo C-Level final do cliente.
+        const cvSystemPrompt = `Você é Aluara, a Inteligência Artificial da Youp Consultoria especializada em recrutamento executivo.
+Sua missão é atuar como consultora ANTES de gerar o currículo C-Level final do cliente.
 
-REGRA DE EXECUÇÃO: Você atua em duas etapas. Faça a ETAPA 1 se notar lacunas no currículo. Faça a ETAPA 2 se o cliente já respondeu suas perguntas.
+REGRA DE EXECUÇÃO: Você atua em duas etapas. Faça a ETAPA 1 se notar lacunas no currículo. Faça a ETAPA 2 se o cliente já respondeu suas perguntas ou o currículo estiver perfeitamente completo.
 
 ETAPA 1: MENTORIA E CONSULTORIA
 Analise os dados. Verifique:
 1. Faltam idiomas, cursos ou formações? (Ele pode não ter, mas você precisa perguntar).
 2. Faltam competências técnicas e tecnológicas avançadas para o Cargo Alvo dele? (Sugira uma lista e peça para ele confirmar quais tem).
 3. Faltam resultados quantitativos nas experiências? (Peça métricas).
+4. Avalie as datas das experiências. Estamos no ano de 2026. NUNCA diga que anos como 2024, 2025 ou 2026 são datas futuras. Além disso, se houver sobreposição de datas entre empregos, considere que o profissional pode ter atuado em projetos paralelos/simultâneos. Não trate isso como um erro, apenas pergunte gentilmente para confirmar se as datas simultâneas estão corretas.
 Se notar ausências, NÃO GERE O CURRÍCULO. Responda INICIANDO com a OBRIGATÓRIA tag: [INCOMPLETO]. 
-Seja acolhedora, aja como mentora e converse com ele. Aponte o que faltou, sugira as competências e diga: "Você possui essas informações para incluirmos ou prefere que eu siga a criação do currículo sem elas?".
+Seja acolhedora, apresente-se como Aluara, a Inteligência Artificial da Youp, e converse com ele. Aponte o que faltou, sugira as competências e diga: "Você possui essas informações para incluirmos ou prefere que eu siga a criação do currículo sem elas?".
 
 ETAPA 2: GERAÇÃO DO CURRÍCULO FINAL
 Se o cliente já respondeu (mesmo dizendo "não tenho" ou "pode seguir"), ou se já estava perfeito, GERE O CURRÍCULO.
@@ -178,10 +178,9 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     const result = data.candidates[0].content.parts[0].text;
                     
                     if (result.includes('[INCOMPLETO]')) {
-                        // TELA DE CONSULTORIA
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `\n\n[Sua Mentora Ana Paula]:\n${msgAna}`;
-                        document.getElementById('ana-message').innerHTML = marked.parse(msgAna);
+                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
+                        document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('consultoria-screen').style.display = 'block';
                     } else {
@@ -224,8 +223,8 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     const result = data.candidates[0].content.parts[0].text;
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `\n\n[Sua Mentora Ana Paula]:\n${msgAna}`;
-                        document.getElementById('ana-message').innerHTML = marked.parse(msgAna);
+                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
+                        document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('user-reply').value = '';
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('consultoria-screen').style.display = 'block';
