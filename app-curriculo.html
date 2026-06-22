@@ -88,6 +88,16 @@
             <div class="pdf-preview-box"><div id="cv-document"></div></div>
         </div>
     </div>
+
+    <div style="text-align: center; margin-top: 20px; padding-bottom: 30px;">
+        <a href="https://wa.me/5512991322333?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20para%20o%20meu%20atendimento%20%28%20IA%2FMO%29." target="_blank" style="color: #888; text-decoration: none; font-size: 13px; font-family: 'Montserrat', sans-serif; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s ease;" onmouseover="this.style.color='#c5a059'" onmouseout="this.style.color='#888'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72(fuso) 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Precisa de suporte técnico? Fale com a nossa equipe
+        </a>
+    </div>
+
     <script>
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
         let nomeClienteGlobal = "Cliente";
@@ -99,7 +109,7 @@
             if (isUnsaved) { e.preventDefault(); e.returnValue = ''; }
         });
 
-        const cvSystemPrompt = `Você é Aluara, a Inteligência Artificial da Youp Consultoria especializada em recrutamento executivo.
+        const systemPrompt = `Você é Aluara, a Inteligência Artificial da Youp Consultoria especializada em recrutamento executivo.
 Sua missão é atuar como consultora ANTES de gerar o currículo C-Level final do cliente.
 
 REGRA DE EXECUÇÃO: Você atua em duas etapas. Faça a ETAPA 1 se notar lacunas no currículo. Faça a ETAPA 2 se o cliente já respondeu suas perguntas ou o currículo estiver perfeitamente completo.
@@ -109,7 +119,7 @@ Analise os dados. Verifique:
 1. Faltam idiomas, cursos ou formações? (Ele pode não ter, mas você precisa perguntar).
 2. Faltam competências técnicas e tecnológicas avançadas para o Cargo Alvo dele? (Sugira uma lista e peça para ele confirmar quais tem).
 3. Faltam resultados quantitativos nas experiências? (Peça métricas).
-4. Avalie as datas das experiências. Estamos no ano de 2026. NUNCA diga que anos como 2024, 2025 ou 2026 são datas futuras. Além disso, se houver sobreposição de datas entre empregos, considere que o profissional pode ter atuado em projetos paralelos/simultâneos. Não trate isso como um erro, apenas pergunte gentilmente para confirmar se as datas simultâneas estão corretas.
+4. Avalie as datas das experiências. Estamos no ano de 2026. NUNCA diga que anos como 2024, 2025 ou 2026 são datas futures. Além disso, se houver sobreposição de datas entre empregos, considere que o profissional pode ter atuado em projetos paralelos/simultâneos. Não trate isso como um erro, apenas pergunte gentilmente para confirmar se as datas simultâneas estão corretas.
 Se notar ausências, NÃO GERE O CURRÍCULO. Responda INICIANDO com a OBRIGATÓRIA tag: [INCOMPLETO]. 
 Seja acolhedora, apresente-se como Aluara, a Inteligência Artificial da Youp, e converse com ele. Aponte o que faltou, sugira as competências e diga: "Você possui essas informações para incluirmos ou prefere que eu siga a criação do currículo sem elas?".
 
@@ -126,7 +136,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
 **Cargo Alvo:** [Cargo Alvo]
 
 ## Resumo Executivo
-[Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]
+[Storytelling de 4 a 5 lines narrando a essência da trajetória e diferenciais competitivos]
 ## Destaques e Impacto no Negócio
 - [Bullet point 1 contendo a métrica de maior impacto]
 - [Bullet point 2 contendo métricas gerenciais/processos]
