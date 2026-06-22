@@ -219,7 +219,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ token: savedToken, systemPrompt: cvSystemPrompt, userMessage: cvConversationHistory })
+                    body: JSON.stringify({ token: savedToken, systemPrompt: systemPrompt, userMessage: cvConversationHistory })
                 });
                 const data = await response.json();
 
@@ -260,7 +260,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ token: savedToken, systemPrompt: cvSystemPrompt, userMessage: cvConversationHistory })
+                    body: JSON.stringify({ token: savedToken, systemPrompt: systemPrompt, userMessage: cvConversationHistory })
                 });
                 const data = await response.json();
                 
