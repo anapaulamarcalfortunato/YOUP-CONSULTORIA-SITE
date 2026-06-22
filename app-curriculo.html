@@ -24,7 +24,7 @@
         .btn-submit:hover { background-color: var(--dourado); color: var(--cinza-escuro); }
         .btn-download { background-color: var(--verde-youp); color: #fff; margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .btn-download:hover { background-color: #4a756b; }
-        #loading, #download-screen { display: none; }
+        #loading, #download-screen, #consultoria-screen { display: none; }
         #loading { text-align: center; padding: 40px 0; }
         .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--dourado); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -66,7 +66,23 @@
                 <button type="submit" class="btn-submit">Gerar Currículo Estratégico ➔</button>
             </form>
         </div>
-        <div id="loading"><div class="spinner"></div><h3>Orquestrando e Validando Licença...</h3></div>
+
+        <div id="loading"><div class="spinner"></div><h3>Processando Informações...</h3></div>
+        
+        <!-- NOVA TELA DE CONSULTORIA DA ANA PAULA -->
+        <div id="consultoria-screen">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2 style="color: var(--dourado); margin-bottom: 5px;">Mentoria Youp | Ana Paula</h2>
+                <p style="color: #666; font-size: 14px; margin-top: 0;">Sua consultora virtual identificou pontos de melhoria no seu perfil antes de gerar o currículo.</p>
+            </div>
+            <div id="ana-message" style="background: #fff; padding: 25px; border-left: 4px solid var(--dourado); border-radius: 6px; margin-bottom: 25px; font-size: 15px; line-height: 1.6; box-shadow: 0 5px 15px rgba(0,0,0,0.05); color: #333;"></div>
+            <div class="form-group">
+                <label for="user-reply">Sua Resposta</label>
+                <textarea id="user-reply" placeholder="Responda aqui para a Ana Paula (Ex: 'Não possuo os cursos, pode seguir sem eles' / Ou: 'Eu tenho as competências 1, 3 e 4. E aumentei a receita em 20%...')" style="height: 120px;" required></textarea>
+            </div>
+            <button onclick="enviarRespostaConsultoria()" class="btn-submit">Enviar Resposta e Gerar Currículo ➔</button>
+        </div>
+
         <div id="download-screen">
             <div style="text-align: center;"><h1 style="color: var(--verde-youp);">Currículo Finalizado!</h1><p class="subtitle">Seu material 100% otimizado para ATS está pronto.</p></div>
             <button onclick="baixarCVPDF()" class="btn-download">SALVAR CURRÍCULO EM PDF</button>
@@ -76,61 +92,65 @@
     <script>
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbySmskcaexL1RpV15N1yq4f-zXF_e20zeInwx8rKN9C-V2udrXo5XBw4GMuyCbYENX6/exec';
         let nomeClienteGlobal = "Cliente";
+        let savedToken = "";
         let isUnsaved = false; 
+        let cvConversationHistory = "";
 
         window.addEventListener('beforeunload', function (e) {
-            if (isUnsaved) {
-                e.preventDefault();
-                e.returnValue = '';
-            }
+            if (isUnsaved) { e.preventDefault(); e.returnValue = ''; }
         });
 
-        const systemPrompt = `Aja como um Headhunter Executivo de alto nível da Youp Consultoria.
-REGRA DE OURO: ZERO TEXTO INTRODUTÓRIO. NÃO DÊ OLÁ. SUA RESPOSTA DEVE SER APENAS A TAG DE ERRO OU DIRETAMENTE O CÓDIGO DO CURRÍCULO.
+        const cvSystemPrompt = `Você é Ana Paula, Headhunter Sênior e Mentora Executiva da Youp Consultoria.
+Sua missão é atuar como mentora consultiva ANTES de gerar o currículo C-Level final do cliente.
 
-ETAPA 1: AUDITORIA DE QUALIDADE
-Analise o "Currículo Atual" fornecido. Verifique se ele contém OBRIGATORIAMENTE: E-mail, Telefone, Experiências Profissionais com DATAS, Formação Acadêmica, Cursos/Certificações e Nível de Idiomas. 
-Se faltar QUALQUER UM DESTES, aborte e responda APENAS com a tag: [INCOMPLETO] seguido do motivo.
+REGRA DE EXECUÇÃO: Você atua em duas etapas. Faça a ETAPA 1 se notar lacunas no currículo. Faça a ETAPA 2 se o cliente já respondeu suas perguntas.
 
-ETAPA 2: GERAÇÃO
-Se estiver completo, monte um Currículo Executivo de Alto Impacto para leitura de C-Level e ATS. Escreva em PRIMEIRA PESSOA. Não invente números.
-ESTRUTURA DE SAÍDA EXIGIDA (Inicie sua resposta exatamente a partir do #):
+ETAPA 1: MENTORIA E CONSULTORIA
+Analise os dados. Verifique:
+1. Faltam idiomas, cursos ou formações? (Ele pode não ter, mas você precisa perguntar).
+2. Faltam competências técnicas e tecnológicas avançadas para o Cargo Alvo dele? (Sugira uma lista e peça para ele confirmar quais tem).
+3. Faltam resultados quantitativos nas experiências? (Peça métricas).
+Se notar ausências, NÃO GERE O CURRÍCULO. Responda INICIANDO com a OBRIGATÓRIA tag: [INCOMPLETO]. 
+Seja acolhedora, aja como mentora e converse com ele. Aponte o que faltou, sugira as competências e diga: "Você possui essas informações para incluirmos ou prefere que eu siga a criação do currículo sem elas?".
+
+ETAPA 2: GERAÇÃO DO CURRÍCULO FINAL
+Se o cliente já respondeu (mesmo dizendo "não tenho" ou "pode seguir"), ou se já estava perfeito, GERE O CURRÍCULO.
+REGRA DE OURO DA ETAPA 2: NUNCA USE A TAG [INCOMPLETO] NA ETAPA 2. NÃO dê texto de olá. Comece a resposta DIRETAMENTE pelo código Markdown abaixo.
+
+ESTRUTURA DE SAÍDA EXIGIDA:
 # [Nome do Profissional]
 **E-mail:** [Extrair do CV] | **Telefone:** [Extrair do CV] | **LinkedIn:** [Extrair do CV] | **Localização:** [Extrair do CV]
-
 **Cargo Alvo:** [Cargo Alvo]
-
 ## Resumo Executivo
 [Storytelling de 4 a 5 linhas narrando a essência da trajetória e diferenciais competitivos]
-
 ## Destaques e Impacto no Negócio
 - [Bullet point 1 contendo a métrica de maior impacto]
 - [Bullet point 2 contendo métricas gerenciais/processos]
 - [Bullet point 3 contendo impacto financeiro/estratégico]
-
 ## Experiência Profissional
 **[Nome da Empresa]** | [Período com datas]
 *Contexto:* [Breve contexto do desafio macro enfrentado na entrada]
 - [Ações estratégicas aplicadas e resultados operacionais]
-
 ## Formação Acadêmica e Certificações
 - [Formação/Certificação 1]
-
 ## Cursos e Idiomas
 - [Idiomas com respectivo nível]
 - [Cursos]`;
 
         document.getElementById('cv-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const alertBox = document.getElementById('alert-box');
-            alertBox.style.display = 'none';
+            document.getElementById('alert-box').style.display = 'none';
             document.getElementById('form-screen').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
 
-            const token = document.getElementById('token').value.trim();
+            savedToken = document.getElementById('token').value.trim();
             nomeClienteGlobal = document.getElementById('name').value.trim();
-            
-            const backupLocal = localStorage.getItem('youp_cv_backup_' + token);
+            const cargo = document.getElementById('cargo').value;
+            const problem = document.getElementById('problem').value;
+            const metrics = document.getElementById('metrics').value;
+            const old_cv = document.getElementById('old_cv').value;
+
+            const backupLocal = localStorage.getItem('youp_cv_backup_' + savedToken);
             if (backupLocal) {
                 document.getElementById('cv-document').innerHTML = marked.parse(backupLocal);
                 document.getElementById('loading').style.display = 'none';
@@ -139,37 +159,33 @@ ESTRUTURA DE SAÍDA EXIGIDA (Inicie sua resposta exatamente a partir do #):
                 return; 
             }
 
-            const cargo = document.getElementById('cargo').value;
-            const problem = document.getElementById('problem').value;
-            const metrics = document.getElementById('metrics').value;
-            const old_cv = document.getElementById('old_cv').value;
-
-            const userMessage = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo: ${cargo}\nProblema: ${problem}\nMétricas: ${metrics}\nCurrículo:\n${old_cv}`;
+            cvConversationHistory = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo: ${cargo}\nProblema: ${problem}\nMétricas: ${metrics}\nCurrículo:\n${old_cv}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ token: token, systemPrompt: systemPrompt, userMessage: userMessage })
+                    body: JSON.stringify({ token: savedToken, systemPrompt: cvSystemPrompt, userMessage: cvConversationHistory })
                 });
                 const data = await response.json();
 
                 if (data.error) {
-                    alertBox.innerText = data.error.message;
-                    alertBox.style.display = 'block';
+                    document.getElementById('alert-box').innerText = data.error.message;
+                    document.getElementById('alert-box').style.display = 'block';
                     document.getElementById('loading').style.display = 'none';
                     document.getElementById('form-screen').style.display = 'block';
-                    window.scrollTo(0, 0);
                 } else if (data.candidates && data.candidates[0]) {
                     const result = data.candidates[0].content.parts[0].text;
+                    
                     if (result.includes('[INCOMPLETO]')) {
-                        alertBox.innerText = result.replace('[INCOMPLETO]', '').trim();
-                        alertBox.style.display = 'block';
+                        // TELA DE CONSULTORIA
+                        const msgAna = result.replace('[INCOMPLETO]', '').trim();
+                        cvConversationHistory += `\n\n[Sua Mentora Ana Paula]:\n${msgAna}`;
+                        document.getElementById('ana-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('loading').style.display = 'none';
-                        document.getElementById('form-screen').style.display = 'block';
-                        window.scrollTo(0, 0);
+                        document.getElementById('consultoria-screen').style.display = 'block';
                     } else {
-                        localStorage.setItem('youp_cv_backup_' + token, result);
+                        localStorage.setItem('youp_cv_backup_' + savedToken, result);
                         isUnsaved = true; 
                         document.getElementById('cv-document').innerHTML = marked.parse(result);
                         document.getElementById('loading').style.display = 'none';
@@ -182,6 +198,52 @@ ESTRUTURA DE SAÍDA EXIGIDA (Inicie sua resposta exatamente a partir do #):
                 document.getElementById('form-screen').style.display = 'block';
             }
         });
+
+        async function enviarRespostaConsultoria() {
+            const userReply = document.getElementById('user-reply').value.trim();
+            if(!userReply) return;
+            
+            document.getElementById('consultoria-screen').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            cvConversationHistory += `\n\n[Resposta do Cliente]:\n${userReply}`;
+            
+            try {
+                const response = await fetch(googleScriptURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ token: savedToken, systemPrompt: cvSystemPrompt, userMessage: cvConversationHistory })
+                });
+                const data = await response.json();
+                
+                if (data.error) {
+                    alert(data.error.message);
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('consultoria-screen').style.display = 'block';
+                } else if (data.candidates && data.candidates[0]) {
+                    const result = data.candidates[0].content.parts[0].text;
+                    if (result.includes('[INCOMPLETO]')) {
+                        const msgAna = result.replace('[INCOMPLETO]', '').trim();
+                        cvConversationHistory += `\n\n[Sua Mentora Ana Paula]:\n${msgAna}`;
+                        document.getElementById('ana-message').innerHTML = marked.parse(msgAna);
+                        document.getElementById('user-reply').value = '';
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('consultoria-screen').style.display = 'block';
+                        window.scrollTo(0, 0);
+                    } else {
+                        localStorage.setItem('youp_cv_backup_' + savedToken, result);
+                        isUnsaved = true;
+                        document.getElementById('cv-document').innerHTML = marked.parse(result);
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('download-screen').style.display = 'block';
+                    }
+                }
+            } catch(e) {
+                alert('Erro ao enviar resposta.');
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('consultoria-screen').style.display = 'block';
+            }
+        }
 
         function baixarCVPDF() {
             isUnsaved = false; 
