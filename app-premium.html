@@ -243,8 +243,8 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     }
                 }
             } catch (error) {
-                alert('Erro operacional.'); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
-            }
+    alert(error); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
+}
         });
 
         async function enviarRespostaConsultoria() {
