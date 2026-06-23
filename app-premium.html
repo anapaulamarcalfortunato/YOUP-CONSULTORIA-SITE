@@ -243,8 +243,8 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     }
                 }
             } catch (error) {
-    alert(error); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
-}
+                alert('🕵️ Erro Detetive: ' + error.message); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
+            }
         });
 
         async function enviarRespostaConsultoria() {
@@ -288,7 +288,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     }
                 }
             } catch(e) {
-                alert('Erro ao enviar resposta.'); document.getElementById('loading').style.display = 'none'; document.getElementById('consultoria-screen').style.display = 'block';
+                alert('Erro ao enviar resposta: ' + e.message); document.getElementById('loading').style.display = 'none'; document.getElementById('consultoria-screen').style.display = 'block';
             }
         }
 
@@ -355,7 +355,7 @@ Siga rigorosamente o formato de entrega abaixo:
                     document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
                 }
             } catch (error) {
-                alert('Erro ao otimizar o perfil.'); document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
+                alert('Erro ao otimizar o perfil: ' + error.message); document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
             }
         }
 
@@ -432,7 +432,7 @@ Como mentora, devo ser 100% transparente: ter este documento em mãos não garan
                     document.getElementById('loading').style.display = 'none'; document.getElementById('reports-success-screen').style.display = 'block';
                 }
             } catch (error) {
-                alert('Erro ao gerar os relatórios.'); document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
+                alert('Erro ao gerar os relatórios: ' + error.message); document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
             }
         }
 
