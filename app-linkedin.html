@@ -117,7 +117,7 @@
         </div>
     </div>
     <div class="print-footer-linkedin">YOUP CONSULTORIA</div>
-    <script>
+<script>
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyJqveqBsCS_9L-AF6z1n7Fb14ktxoXtu98bTkhBceyE-wND58rmEq3Wxt4tWerW8W2/exec';
         let curriculoGeradoTexto = ""; let areaAtuacaoGlobal = ""; let nomeClienteGlobal = "Cliente"; let savedToken = ""; let isUnsaved = false; let cvConversationHistory = "";
 
@@ -216,7 +216,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     }
                 }
             } catch (error) {
-                alert('Erro operacional.'); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
+                alert('🕵️ Erro Detetive: ' + error.message); document.getElementById('loading').style.display = 'none'; document.getElementById('form-screen').style.display = 'block';
             }
         });
 
@@ -233,7 +233,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 const response = await fetch(googleScriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                   body: JSON.stringify({ token: savedToken, systemPrompt: systemPrompt, userMessage: cvConversationHistory })
+                    body: JSON.stringify({ token: savedToken, systemPrompt: systemPrompt, userMessage: cvConversationHistory })
                 });
                 const data = await response.json();
                 
@@ -261,7 +261,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     }
                 }
             } catch(e) {
-                alert('Erro ao enviar resposta.'); document.getElementById('loading').style.display = 'none'; document.getElementById('consultoria-screen').style.display = 'block';
+                alert('🕵️ Erro Detetive: ' + e.message); document.getElementById('loading').style.display = 'none'; document.getElementById('consultoria-screen').style.display = 'block';
             }
         }
 
@@ -328,7 +328,7 @@ Siga rigorosamente o formato de entrega abaixo:
                     document.getElementById('loading').style.display = 'none'; document.getElementById('linkedin-success-screen').style.display = 'block';
                 }
             } catch (error) {
-                alert('Erro ao otimizar o perfil.'); document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
+                alert('🕵️ Erro Detetive: ' + error.message); document.getElementById('loading').style.display = 'none'; document.getElementById('cv-success-screen').style.display = 'block';
             }
         }
 
