@@ -211,7 +211,7 @@ const talentosYoup = [
                             <div style="color: #ccc; font-size: 13px;">Ibmec (2013)</div>
                         </div>
                         <div>
-                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Análise Executiva: Mkt e Estratégia Digital</div>
+                            <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Extensão Executiva: Mkt e Estratégia Digital</div>
                             <div style="color: #ccc; font-size: 13px;">ESPM</div>
                         </div>
                         <div>
