@@ -224,5 +224,116 @@ const talentosYoup = [
                 <p style="font-size: 13px; color: #888;"><strong>EMPRESAS QUE JÁ ATUOU:</strong> Banco do Brasil (BB), Centro Cultural Banco do Brasil (CCBB RJ), CASSI, Consultoria Independente de Patrocínios.</p>
             </div>
         `
-    }        
+    };
+
+{
+id: "YP-205",
+localizacao: "Nacional / Internacional",
+area: ["Engenharia Aeronáutica", "Gestão de Projetos", "Liderança de Equipes", "Melhoria Contínua"],
+nivel: "Média Liderança",
+perfil: "Engenheiro Aeronáutico e Coordenador Técnico",
+cargo: "Engenharia Aeronáutica & Gestão de Projetos | +11 Anos de Experiência",
+objetivo: "Engenheiro Aeronáutico / Coordenador Técnico",
+resumo: "Engenheiro com mais de 11 anos de atuação na Safran Cabin em projetos globais para Airbus e Boeing. Especialista em interiores aeronáuticos, liderança técnica de equipes (até 50 pessoas) e aplicação de metodologias Lean Six Sigma, garantindo 100% de OTD.",
+conteudo: `
+
+
+Engenheiro Aeronáutico e Coordenador Técnico | Desenvolvimento e Inovação
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px;">
+            <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">✦</div>
+                <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Aviation Expertise</h4>
+                <p style="margin: 0; font-size: 12px; color: #aaa;">Desenvolvimento de interiores (Airbus/Boeing) com foco em compliance regulatório e FDA.</p>
+            </div>
+            <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">◓</div>
+                <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Team Leadership</h4>
+                <p style="margin: 0; font-size: 12px; color: #aaa;">Gestão técnica de até 50 profissionais, alocação de recursos e controle de headcount.</p>
+            </div>
+            <div style="background: rgba(92, 142, 130, 0.08); padding: 20px; border-radius: 10px; border-top: 3px solid #5c8e82;">
+                <div style="color: #5c8e82; font-size: 20px; margin-bottom: 10px;">►</div>
+                <h4 style="margin: 0 0 5px 0; color: #5c8e82; font-size: 14px; text-transform: uppercase;">Lean & Eficiência</h4>
+                <p style="margin: 0; font-size: 12px; color: #aaa;">Liderança em projetos Greenbelt para otimização de processos produtivos e redução de desperdícios.</p>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 40px; margin-bottom: 40px;">
+            <div>
+                <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Perfil Executivo</h3>
+                <p style="font-size: 14px; color: #ccc; text-align: justify;">Engenheiro com sólida trajetória de mais de 11 anos no setor aeronáutico, com atuação de destaque no desenvolvimento e certificação de interiores para aeronaves globais (Boeing 777, Airbus A330 e A350-XWB). Possui forte perfil de liderança técnica, coordenando equipes multidisciplinares e gerenciando cronogramas críticos para assegurar a qualidade e o rigoroso cumprimento de prazos regulatórios.</p>
+                <p style="font-size: 14px; color: #ccc; text-align: justify;">Especialista na aplicação de metodologias de melhoria contínua (Lean Six Sigma, Kaizen), alia visão estratégica a um profundo conhecimento técnico em sistemas CAD (CATIA V5, SolidWorks) e gestão de dados via SAP/Smarteam. Com vivência internacional e fluência em inglês, atua como ponto focal junto a clientes de alto nível na Europa e Ásia, garantindo o alinhamento de requisitos complexos e a excelência operacional.</p>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                <h3 style="color: #c5a059; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; margin-bottom: 15px;">Competências-Chave</h3>
+                <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #bbb; line-height: 1.8;">
+                    <li>Desenvolvimento de Interiores Aeronáuticos</li>
+                    <li>Gestão de Projetos (WBS, PERT/CPM)</li>
+                    <li>Metodologias Ágeis e Lean Six Sigma (Greenbelt)</li>
+                    <li>CATIA V5, SolidWorks & Smarteam</li>
+                    <li>Liderança Técnica de Equipes de Engenharia</li>
+                    <li>Conformidade Regulatória e FDA</li>
+                    <li>GD&T e Leitura de Desenhos Mecânicos</li>
+                    <li>Inglês Fluente (Reuniões Internacionais)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 20px; margin-bottom: 50px;">
+            <div>
+                <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">+11</div>
+                <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Anos de Experiência na Indústria</div>
+            </div>
+            <div>
+                <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">100%</div>
+                <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">On-Time Delivery (OTD)</div>
+            </div>
+            <div>
+                <div style="font-size: 48px; font-weight: 800; color: #c5a059; line-height: 1;">50</div>
+                <div style="font-size: 11px; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-top: 5px;">Profissionais Liderados</div>
+            </div>
+        </div>
+
+        <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 25px;">Conquistas e Impacto Operacional</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 50px;">
+            <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Excelência em Entregas (KPIs)</h4>
+                <p style="margin: 0; font-size: 13px; color: #aaa;">Gestão rigorosa de cronogramas globais assegurando índice de 90% de qualidade técnica e 100% de entregas no prazo (OTD).</p>
+            </div>
+            <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Projeto Estratégico Greenbelt</h4>
+                <p style="margin: 0; font-size: 13px; color: #aaa;">Liderou projeto de otimização de processos com redução de desperdícios na produção e sincronização de dados via ERP (SAP).</p>
+            </div>
+            <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Padronização Global de Engenharia</h4>
+                <p style="margin: 0; font-size: 13px; color: #aaa;">Desenvolveu diretrizes via mini-Kaizens que foram adotadas corporativamente, mitigando falhas na modelagem 3D e desenhos de fabricação.</p>
+            </div>
+            <div style="border-left: 2px solid #c5a059; padding-left: 15px;">
+                <h4 style="margin: 0 0 5px 0; color: #c5a059; font-size: 15px;">Implementação de TPM</h4>
+                <p style="margin: 0; font-size: 13px; color: #aaa;">Na Cebrace, aplicou a metodologia de Manutenção Produtiva Total, resultando em redução de perdas materiais e ganhos diretos no caixa da operação.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 40px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 10px;">
+            <h3 style="color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">Background Acadêmico</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div>
+                    <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Pós-Graduação em Automação e Controle Industrial</div>
+                    <div style="color: #ccc; font-size: 13px;">Universidade de Taubaté - UNITAU (2018)</div>
+                </div>
+                <div>
+                    <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Graduação em Engenharia Industrial Mecânica</div>
+                    <div style="color: #ccc; font-size: 13px;">ETEP Faculdades (2013)</div>
+                </div>
+                <div>
+                    <div style="color: #5c8e82; font-weight: 600; font-size: 14px;">Certificação em Gestão de Projetos</div>
+                    <div style="color: #ccc; font-size: 13px;">Fundação Getúlio Vargas - FGV</div>
+                </div>
+            </div>
+        </div>
+
+        <p style="font-size: 13px; color: #888;"><strong>EMPRESAS QUE JÁ ATUOU:</strong> Safran Cabin, Cebrace Cristal Plano.</p>
+    </div>
+`
+}
 ];
