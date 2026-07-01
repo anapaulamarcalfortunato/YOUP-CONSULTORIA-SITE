@@ -3,39 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book de Talentos Premium - Youp</title>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6JTWLMZBRS');
-    </script>
+    <title>Board de Talentos Premium | Youp</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script src="dados-book.js"></script>
 
     <style>
         :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0a0a0a; --cinza: #141414; --texto: #fdfdfd; --texto-mute: #a0a0a0; }
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); overflow-x: hidden; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); }
         
         .hero { text-align: center; padding: 80px 20px 50px; background: linear-gradient(180deg, var(--preto) 0%, var(--cinza) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); position: relative; }
         .hero h1 { color: var(--dourado); font-size: 32px; font-weight: 800; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
         .hero p { color: var(--texto-mute); font-size: 15px; max-width: 600px; margin: 15px auto 0; line-height: 1.6; font-weight: 300; }
-        .btn-back-home { position: absolute; top: 30px; left: 40px; color: var(--texto-mute); text-decoration: none; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .btn-back-home:hover { color: var(--dourado); }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px 40px 60px; }
         
-        .area-section { margin-top: 50px; }
-        .area-title { font-size: 22px; color: #fff; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
-        .area-title::before { content: ''; width: 20px; height: 2px; background: var(--dourado); display: block; }
-
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 40px 100px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
         
-        .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 30px; transition: 0.3s; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+        /* ESTILO DO BOTÃO (CARD) */
+        .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 30px; transition: 0.3s; display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; }
         .card:hover { border-color: rgba(197, 160, 89, 0.4); transform: translateY(-5px); background: rgba(255,255,255,0.04); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
         
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
@@ -43,80 +28,43 @@
         
         .title { font-size: 20px; margin: 0 0 5px; color: var(--texto); line-height: 1.3; font-weight: 700; }
         .cargo { font-size: 13px; color: var(--texto-mute); font-weight: 500; margin-bottom: 20px; }
-        
-        .resumo { font-size: 14px; color: #888; line-height: 1.6; margin: 0 0 25px 0; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         .read-more { margin-top: auto; font-size: 11px; font-weight: 700; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; transition: 0.3s; }
         .card:hover .read-more { transform: translateX(5px); }
-
-        @media (max-width: 768px) {
-            .hero { padding: 60px 20px 40px; }
-            .btn-back-home { position: static; display: block; margin-bottom: 20px; }
-            .container { padding: 20px; }
-        }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <a href="index.html" class="btn-back-home">← Voltar</a>
         <h1>Board de Talentos</h1>
-        <p>Catálogo executivo segmentado por áreas estratégicas. Acesse os perfis detalhados para conhecer as trajetórias confidenciais mapeadas pela Youp.</p>
+        <p>Catálogo executivo. Clique no ID do profissional para acessar o histórico detalhado e confidencial.</p>
     </div>
 
-    <div class="container" id="hub-areas">
-        </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            if (typeof talentosYoup === 'undefined') {
-                document.getElementById('hub-areas').innerHTML = "<p style='text-align:center; color:red;'>Erro: Arquivo dados-book.js não encontrado!</p>";
-                return;
-            }
-
-            // Agrupa os talentos por área de atuação
-            const categorias = {};
+    <div class="container">
+        <div class="grid">
             
-            talentosYoup.forEach(t => {
-                const areasArray = Array.isArray(t.area) ? t.area : [t.area];
-                areasArray.forEach(a => {
-                    if (a) {
-                        const areaLimpa = a.trim();
-                        if (!categorias[areaLimpa]) categorias[areaLimpa] = [];
-                        categorias[areaLimpa].push(t);
-                    }
-                });
-            });
+            <a href="YP-227.html" class="card">
+                <div class="card-header"><span class="id-badge">ID: YP-227</span></div>
+                <h3 class="title">Especialista em ITSM e Governança de TI</h3>
+                <div class="cargo">Coordenação de Governança & Operações | +30 Anos</div>
+                <div class="read-more">Acessar Perfil Completo ➔</div>
+            </a>
 
-            // Ordena as áreas em ordem alfabética e gera o HTML
-            const areasOrdenadas = Object.keys(categorias).sort();
-            const hubContainer = document.getElementById('hub-areas');
-            let htmlFinal = "";
+            <a href="YP-226.html" class="card">
+                <div class="card-header"><span class="id-badge">ID: YP-226</span></div>
+                <h3 class="title">Gerente Sênior de Patrocínios e Marcas</h3>
+                <div class="cargo">Branding & Relações Institucionais | +19 Anos</div>
+                <div class="read-more">Acessar Perfil Completo ➔</div>
+            </a>
 
-            areasOrdenadas.forEach(area => {
-                const talentosDaArea = categorias[area];
-                
-                let cardsHTML = talentosDaArea.map(t => `
-                    <a href="perfil.html?id=${t.id}" class="card">
-                        <div class="card-header">
-                            <span class="id-badge">ID: ${t.id}</span>
-                        </div>
-                        <h3 class="title">${t.perfil}</h3>
-                        <div class="cargo">${t.cargo}</div>
-                        <p class="resumo">${t.resumo}</p>
-                        <div class="read-more">Acessar URL do Perfil ➔</div>
-                    </a>
-                `).join('');
+            <a href="YP-205.html" class="card">
+                <div class="card-header"><span class="id-badge">ID: YP-205</span></div>
+                <h3 class="title">Engenheiro Aeronáutico e Coordenador Técnico</h3>
+                <div class="cargo">Gestão de Projetos & Inovação | +11 Anos</div>
+                <div class="read-more">Acessar Perfil Completo ➔</div>
+            </a>
 
-                htmlFinal += `
-                    <div class="area-section">
-                        <h2 class="area-title">${area}</h2>
-                        <div class="grid">${cardsHTML}</div>
-                    </div>
-                `;
-            });
+        </div>
+    </div>
 
-            hubContainer.innerHTML = htmlFinal;
-        });
-    </script>
 </body>
 </html>
