@@ -73,7 +73,7 @@
         .lang-switch span.active { color: var(--dourado); cursor: default; border-bottom: 1px solid var(--dourado); }
         
         /* BOTÕES CORPORATIVOS (CANTOS RETOS, SEM SOMBRA) */
-        .btn-contact, .btn-hub, .btn-ai {
+        .btn-contact, .btn-hub {
             padding: 10px 22px; border-radius: 4px; font-size: 11px; text-transform: uppercase;
             letter-spacing: 1px; font-weight: 700; text-decoration: none; transition: all 0.3s ease;
         }
@@ -83,9 +83,6 @@
 
         .btn-hub { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
         .btn-hub:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
-
-        .btn-ai { background: var(--verde-youp); color: #fff; border: 1px solid var(--verde-youp); }
-        .btn-ai:hover { background: transparent; color: var(--verde-youp); }
 
         /* HERO SECTION */
         .hero { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 20px; }
@@ -118,19 +115,32 @@
         .link-item::after { content: '→'; opacity: 0; transition: 0.3s; color: var(--dourado); font-size: 12px; }
         .link-item:hover::after { opacity: 1; transform: translateX(-5px); }
 
+        /* BOTÃO INSIGHTS CHAMATIVO E PREMIUM */
         .link-blog-highlight {
             color: var(--dourado);
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 10px;
             margin-top: auto; 
-            transition: 0.3s;
-            padding-top: 15px;
+            transition: all 0.3s ease;
+            padding: 14px 20px;
+            border: 1px solid var(--dourado);
+            border-radius: 4px;
+            background: transparent;
+            width: 100%;
+            text-align: center;
         }
-        .link-blog-highlight:hover { color: #dfb668; transform: translateX(5px); }
+        .link-blog-highlight:hover { 
+            background: rgba(197, 160, 89, 0.08);
+            color: #fff;
+            border-color: #fff;
+        }
 
         /* BANNER PALESTRANTE (LINHAS SUTIS, SEM CAIXA) */
         .speaker-banner {
@@ -177,7 +187,7 @@
             .nav-actions { width: 100%; flex-direction: column; gap: 12px; align-items: center; }
             .lang-switch { margin-right: 0; margin-bottom: 10px; justify-content: center; }
             
-            .btn-contact, .btn-hub, .btn-ai { width: 100%; max-width: 320px; text-align: center; box-sizing: border-box; padding: 14px 20px; font-size: 12px; }
+            .btn-contact, .btn-hub { width: 100%; max-width: 320px; text-align: center; box-sizing: border-box; padding: 14px 20px; font-size: 12px; }
             
             .hero { padding: 50px 20px; flex: none; }
             .headline { font-size: 36px; line-height: 1.3; }
@@ -188,7 +198,7 @@
             .column:last-child { border-bottom: none; }
             
             .link-item { padding: 8px 0; }
-            .link-blog-highlight { padding-top: 25px; }
+            .link-blog-highlight { margin-top: 20px; padding: 14px; }
             
             .speaker-banner { flex-direction: column; text-align: center; gap: 20px; padding: 30px 10px; }
             .btn-speaker { width: 100%; max-width: 320px; box-sizing: border-box; text-align: center; padding: 14px; }
@@ -207,7 +217,6 @@
                 <span class="active">PT</span>
                 <span onclick="definirIdiomaGlobal('en')">EN</span>
             </div>
-            <a href="produtos-youp.html" class="btn-ai">Planos de IA ✦</a>
             <a href="area-parceiro.html" class="btn-hub">Hub Exclusivo</a>
             <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estava%20no%20seu%20site%20e%20quero%20mudar%20a%20minha%20carreira%2C%20voc%C3%AA%20me%20ajuda%3F" target="_blank" class="btn-contact">Falar com Consultor</a>
         </div>
@@ -241,54 +250,23 @@
                     <a href="carreira.html" class="link-item">Transição e Recolocação</a>
                     <a href="reputacao.html" class="link-item">Gestão de Reputação de Marca</a>
                     <a href="portal-talentos.html" class="link-item">Acesso ao Board de Vagas</a>
-                    <a href="produtos-youp.html" class="link-item" style="color: var(--dourado); font-weight: 500;">Ferramentas de IA (Novo)</a>
+                    <a href="produtos-youp.html" class="link-item">Ferramentas de IA</a>
                 </div>
             </div>
 
             <div class="column">
-                <h2 class="col-title">O Padrão Youp</h2>
-                <div class="link-list">
-                    <a href="sobre.html" class="link-item">Nossa Filosofia e História</a>
-                    <a href="blog.html" class="link-blog-highlight">Acessar Insights Corporativos ➔</a>
+                <h2 class="col-title">Conexões</h2>
+                <div class="grid" style="display:block;">
+                    <a href="blog.html" style="text-decoration:none; display:block; margin-bottom:20px;">
+                        <h3 class="title" style="font-size:18px;">Artigos & Insights</h3>
+                        <p style="color:var(--texto-mute); font-size:13px; margin:5px 0 0 0;">Análises de mercado e tendências de Executive Search.</p>
+                    </a>
+                    <a href="https://blog.youpconsultoria.com" class="read-more" style="margin-top:20px;">Acessar o Blog ➔</a>
                 </div>
             </div>
 
         </div>
+    </div>
 
-        <div class="speaker-banner">
-            <div class="speaker-info">
-                <h3 class="speaker-title">Eventos Corporativos & In Company</h3>
-                <p class="speaker-desc">Ana Paula Marçal Fortunato possui agenda aberta para palestras e convenções focadas em Liderança e Executive Search.</p>
-            </div>
-            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20a%20agenda%20da%20Ana%20Paula%20para%20palestrar%20em%20um%20evento%20corporativo." target="_blank" class="btn-speaker">Consultar Agenda</a>
-        </div>
-
-        <footer class="footer-links">
-            <a href="contatos.html">Contatos & Ouvidoria</a>
-            <a href="privacidade.html">Política de Privacidade</a>
-            <span style="color: #555; font-size: 10px; letter-spacing: 1px; font-weight: 500;">&copy; 2026 Youp Consultoria. Tailor-Made Executive Search.</span>
-        </footer>
-    </section>
-
-    <script>
-        localStorage.setItem('youp_idioma', 'pt');
-
-        function definirIdiomaGlobal(lang) {
-            if (lang === 'en') {
-                const urlIngles = 'index-en.html';
-                fetch(urlIngles, { method: 'HEAD' })
-                .then(response => {
-                    if (response.ok) {
-                        localStorage.setItem('youp_idioma', 'en');
-                        window.location.href = urlIngles; 
-                    } else {
-                        alert("English version coming soon! 🌎");
-                    }
-                })
-                .catch(error => alert("English version coming soon! 🌎"));
-            }
-        }
-    </script>
-
-</body>
+    </body>
 </html>
