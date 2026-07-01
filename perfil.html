@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Executivo Confidencial | Youp</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="dados-book.js"></script>
+
+    <style>
+        :root { --dourado: #c5a059; --verde: #5c8e82; --preto: #0a0a0a; --cinza: #141414; --texto: #fdfdfd; --texto-mute: #a0a0a0; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); line-height: 1.6; }
+        
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 25px 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 5px; font-size: 16px; }
+        .btn-voltar { color: var(--texto-mute); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 600; transition: 0.3s; letter-spacing: 1px;}
+        .btn-voltar:hover { color: #fff; }
+
+        .profile-container { max-width: 900px; margin: 50px auto; padding: 0 30px 100px; }
+        
+        .header-confidential { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 30px; margin-bottom: 40px; }
+        .id-badge { display: inline-block; color: var(--dourado); font-size: 12px; font-weight: 800; letter-spacing: 2px; background: rgba(197,160,89,0.1); padding: 6px 15px; border-radius: 4px; margin-bottom: 20px; }
+        
+        .perfil-title { font-size: 42px; font-weight: 700; margin: 0 0 10px 0; color: #fff; line-height: 1.2; letter-spacing: -1px; }
+        .perfil-cargo { font-size: 16px; color: var(--texto-mute); font-weight: 400; letter-spacing: 1px; margin-bottom: 25px; }
+        
+        .objetivo-box { display: inline-flex; flex-direction: column; background: rgba(255,255,255,0.02); border-left: 2px solid var(--dourado); padding: 15px 20px; border-radius: 0 4px 4px 0; }
+        .objetivo-box .label { color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-weight: 600; }
+        .objetivo-box .valor { color: var(--dourado); font-weight: 600; font-size: 14px; }
+
+        .perfil-conteudo { color: #d0d0d0; font-size: 15px; font-weight: 300; line-height: 1.8; }
+        
+        /* Formatação de textos vindos do seu JS (títulos, listas) */
+        .perfil-conteudo h3, .perfil-conteudo h4 { color: #fff; font-weight: 600; margin-top: 40px; margin-bottom: 15px; font-size: 18px; }
+        .perfil-conteudo ul { padding-left: 20px; }
+        .perfil-conteudo li { margin-bottom: 10px; }
+        
+        .action-box { margin-top: 60px; padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; text-align: center; }
+        .action-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+        .action-desc { font-size: 14px; color: #888; margin-bottom: 30px; }
+        
+        .btn-contato { display: inline-block; padding: 15px 35px; background: var(--verde); color: #fff; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; border: 1px solid var(--verde); }
+        .btn-contato:hover { background: transparent; color: var(--verde); }
+
+        #error-msg { text-align: center; padding: 100px 20px; color: #888; font-size: 18px; display: none; }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 20px; }
+            .perfil-title { font-size: 32px; }
+            .profile-container { padding: 0 20px 60px; margin-top: 30px; }
+            .action-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand-logo">YOUP</a>
+        <a href="book.html" class="btn-voltar">← Voltar ao Board</a>
+    </nav>
+
+    <div id="error-msg">Perfil confidencial não encontrado ou link inválido.</div>
+
+    <div class="profile-container" id="profile-content" style="display: none;">
+        <div class="header-confidential">
+            <span class="id-badge" id="p-id"></span>
+            <h1 class="perfil-title" id="p-titulo"></h1>
+            <div class="perfil-cargo" id="p-cargo"></div>
+            
+            <div class="objetivo-box">
+                <span class="label">🎯 Busca Posição de</span>
+                <span class="valor" id="p-objetivo"></span>
+            </div>
+        </div>
+        
+        <div class="perfil-conteudo" id="p-texto"></div>
+        
+        <div class="action-box">
+            <div class="action-title">Interesse no Executivo?</div>
+            <div class="action-desc">Entre em contato com nossa equipe de Executive Search para quebrar a confidencialidade e agendar uma entrevista com este profissional.</div>
+            <a id="p-zap-link" href="#" target="_blank" class="btn-contato">
+                Solicitar Apresentação via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Pega o ID da URL (ex: perfil.html?id=FIN-01)
+            const urlParams = new URLSearchParams(window.location.search);
+            const idTarget = urlParams.get('id');
+
+            const errorBox = document.getElementById('error-msg');
+            const profileBox = document.getElementById('profile-content');
+
+            if (!idTarget || typeof talentosYoup === 'undefined') {
+                errorBox.style.display = 'block';
+                return;
+            }
+
+            // Procura o talento no dados-book.js
+            const t = talentosYoup.find(item => item.id === idTarget);
+
+            if (!t) {
+                errorBox.style.display = 'block';
+                return;
+            }
+
+            // Preenche os dados da tela
+            document.title = `${t.id} - Perfil Executivo | Youp`;
+            document.getElementById('p-id').innerText = `ID: ${t.id}`;
+            document.getElementById('p-titulo').innerText = t.perfil;
+            document.getElementById('p-cargo').innerText = t.cargo;
+            document.getElementById('p-objetivo').innerText = t.objetivo || 'Não especificado';
+            document.getElementById('p-texto').innerHTML = t.conteudo;
+
+            // Gera o link do WhatsApp dinâmico
+            const textoZap = encodeURIComponent(`Olá Ana, tenho interesse em solicitar a apresentação do perfil confidencial ${t.id} - ${t.perfil} do Board de Talentos.`);
+            document.getElementById('p-zap-link').href = `https://wa.me/5512991322333?text=${textoZap}`;
+
+            // Exibe a página
+            profileBox.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
