@@ -12,7 +12,13 @@
         * { box-sizing: border-box; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--preto); color: var(--texto); }
         
-        .hero { text-align: center; padding: 80px 20px 50px; background: linear-gradient(180deg, var(--preto) 0%, var(--cinza) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); position: relative; }
+        /* AJUSTES DA BARRA DO TRADUTOR */
+        .top-bar { display: flex; justify-content: flex-end; padding: 15px 40px; background: var(--preto); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .goog-te-gadget { font-family: 'Montserrat', sans-serif !important; }
+        .goog-te-gadget-simple { background-color: var(--cinza) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 4px !important; padding: 4px !important; }
+        .goog-te-gadget-simple span { color: var(--texto-mute) !important; }
+
+        .hero { text-align: center; padding: 60px 20px 50px; background: linear-gradient(180deg, var(--preto) 0%, var(--cinza) 100%); border-bottom: 1px solid rgba(197, 160, 89, 0.1); position: relative; }
         .hero h1 { color: var(--dourado); font-size: 32px; font-weight: 800; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
         .hero p { color: var(--texto-mute); font-size: 15px; max-width: 600px; margin: 15px auto 0; line-height: 1.6; font-weight: 300; }
         
@@ -33,6 +39,10 @@
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <div id="google_translate_element"></div>
+    </div>
 
     <div class="hero">
         <h1>Board de Talentos</h1>
@@ -64,21 +74,28 @@
             </a>
 
             <a href="YP-211.html" class="card">
-            <div class="card-header"><span class="id-badge">ID: YP-211</span></div>
-            <h3 class="title">COORDENADORA DE PROJETOS INDUSTRIAIS & CAPEX</h3>
-            <div class="cargo">Liderança Multidisciplinar e Engenharia de Campo | +15 Anos de Experiência</div>
-             <div class="read-more">Acessar Perfil Completo ➔</div>
+                <div class="card-header"><span class="id-badge">ID: YP-211</span></div>
+                <h3 class="title">COORDENADORA DE PROJETOS INDUSTRIAIS & CAPEX</h3>
+                <div class="cargo">Liderança Multidisciplinar e Engenharia de Campo | +15 Anos de Experiência</div>
+                <div class="read-more">Acessar Perfil Completo ➔</div>
             </a>
 
             <a href="YP-210.html" class="card">
-        <div class="card-header"><span class="id-badge">ID: YP-210</span></div>
-        <h3 class="title">Head Comercial & Operações C-Level</h3>
-        <div class="cargo">Diretor Nacional de Vendas e Negócios | +20 Anos de Experiência</div>
-        <div class="read-more">Acessar Perfil Completo ➔</div>
-        </a>
+                <div class="card-header"><span class="id-badge">ID: YP-210</span></div>
+                <h3 class="title">Head Comercial & Operações C-Level</h3>
+                <div class="cargo">Diretor Nacional de Vendas e Negócios | +20 Anos de Experiência</div>
+                <div class="read-more">Acessar Perfil Completo ➔</div>
+            </a>
 
         </div>
     </div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
