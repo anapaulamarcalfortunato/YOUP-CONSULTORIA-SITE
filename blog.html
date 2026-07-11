@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Insights Corporativos | Transição C-Level e Headhunter</title>
+    <title>Insights Corporativos | Portal Executivo YOUP</title>
     <meta name="description" content="Artigos, tendências e inteligência de mercado sobre Executive Search, Outplacement e transição de carreira para alta liderança.">
     <meta name="robots" content="index, follow">
     
@@ -21,106 +21,108 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        :root { --verde-youp: #5c8e82; --verde-claro: #84a98c; --dourado: #c5a059; --cinza-escuro: #0a0a0a; --texto-claro: #f0f0f0; --texto-mute: #888888; }
-        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--cinza-escuro); background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600'); background-size: cover; background-position: center; background-attachment: fixed; color: var(--texto-claro); min-height: 100vh; display: flex; flex-direction: column; }
+        :root { --verde-youp: #5c8e82; --dourado: #c5a059; --cinza-escuro: #0a0a0a; --cinza-card: rgba(20, 20, 20, 0.7); --texto-claro: #fcfcfc; --texto-mute: #a0a0a0; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--cinza-escuro); background-image: radial-gradient(circle at 50% 0%, rgba(30,30,30,1) 0%, rgba(10,10,10,1) 80%); color: var(--texto-claro); min-height: 100vh; display: flex; flex-direction: column; top: 0px !important; }
         
         /* NAVBAR E BUSCA */
-        .navbar { display: flex; justify-content: space-between; align-items: flex-start; padding: 15px 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
-        .brand-text { color: var(--dourado); font-size: 14px; font-weight: 700; letter-spacing: 4px; text-decoration: none; margin-top: 10px; }
-        .nav-controls { display: flex; gap: 15px; align-items: flex-start; }
-        .nav-right-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; border-bottom: 1px solid rgba(197, 160, 89, 0.15); background: rgba(10,10,10,0.8); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000;}
+        .brand-text { color: var(--dourado); font-size: 16px; font-weight: 800; letter-spacing: 5px; text-decoration: none; }
+        .nav-controls { display: flex; gap: 20px; align-items: center; }
         
-        .btn-voltar { background: transparent; color: var(--cinza-claro); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn-voltar { background: transparent; color: var(--texto-claro); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s; }
         .btn-voltar:hover { border-color: var(--dourado); color: var(--dourado); }
 
-        .search-input { padding: 8px 15px; border-radius: 20px; border: 1px solid rgba(197, 160, 89, 0.3); background: rgba(255,255,255,0.05); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 11px; outline: none; transition: 0.3s; width: 200px; }
-        .search-input:focus { border-color: var(--dourado); background: rgba(255,255,255,0.1); width: 250px; }
+        .search-input { padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.3); background: rgba(0,0,0,0.5); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 12px; outline: none; transition: 0.4s; width: 220px; }
+        .search-input:focus { border-color: var(--dourado); box-shadow: 0 0 15px rgba(197, 160, 89, 0.2); width: 280px; }
         .search-input::placeholder { color: rgba(255,255,255,0.4); }
 
         /* Ajustes Google Translate */
         .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
-        #google_translate_element select { background: rgba(255, 255, 255, 0.05); color: var(--dourado); border: 1px solid rgba(197, 160, 89, 0.4); padding: 6px 10px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; outline: none; cursor: pointer; backdrop-filter: blur(5px); }
+        #google_translate_element select { background: transparent; color: var(--dourado); border: 1px solid rgba(197, 160, 89, 0.4); padding: 8px 12px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; outline: none; cursor: pointer; }
         #google_translate_element select option { background: var(--cinza-escuro); color: var(--dourado); }
-        .goog-logo-link { display: none !important; }
-        .goog-te-gadget { color: transparent !important; margin-bottom: -5px; }
+        .goog-logo-link, .goog-te-gadget span { display: none !important; }
+        .goog-te-gadget { color: transparent !important; margin: 0; font-size: 0; }
 
-        /* HEADER OTIMIZADO (Menos espaço em branco) */
-        .page-header { text-align: center; padding: 25px 20px 10px; }
-        .page-title { font-size: 32px; font-weight: 300; margin: 0 0 10px; letter-spacing: 1px; color: #fff; }
-        .page-title b { font-weight: 600; color: var(--dourado); }
+        /* HEADER & FILTROS */
+        .page-header { text-align: center; padding: 50px 20px 30px; }
+        .page-title { font-size: 42px; font-weight: 300; margin: 0 0 15px; letter-spacing: -1px; color: #fff; }
+        .page-title b { font-weight: 800; color: var(--dourado); }
+        .page-subtitle { font-size: 14px; color: var(--texto-mute); max-width: 600px; margin: 0 auto; line-height: 1.6; }
         
-        /* FILTROS OTIMIZADOS */
-        .filter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; padding: 0 20px; }
-        .filter-btn { background: rgba(255,255,255,0.05); color: #ccc; border: 1px solid rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.4s; backdrop-filter: blur(5px); }
-        .filter-btn:hover { border-color: rgba(197, 160, 89, 0.5); color: #fff; }
-        .filter-btn.active { background: var(--dourado); color: #000; border-color: var(--dourado); }
+        .filter-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; padding: 0 20px; }
+        .filter-btn { background: rgba(255,255,255,0.03); color: #bbb; border: 1px solid rgba(255,255,255,0.1); padding: 10px 24px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
+        .filter-btn:hover { border-color: rgba(197, 160, 89, 0.5); color: #fff; transform: translateY(-2px); }
+        .filter-btn.active { background: var(--dourado); color: #000; border-color: var(--dourado); font-weight: 800; }
 
-        .container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 20px 80px; box-sizing: border-box; flex: 1; }
+        .container { max-width: 1300px; margin: 0 auto; width: 100%; padding: 0 20px 80px; box-sizing: border-box; }
 
         /* ========================================= */
-        /* CARROSSEL DE DESTAQUES (SLIDER)           */
+        /* PORTAL EDITORIAL GRID (MAGAZINE STYLE)    */
         /* ========================================= */
-        .carousel-container { position: relative; width: 100%; max-width: 1000px; height: 380px; margin: 0 auto 35px; overflow: hidden; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; text-decoration: none; background: var(--cinza-escuro); z-index: 0; pointer-events: none; }
-        .carousel-slide.active { opacity: 1; z-index: 1; pointer-events: auto; }
+        .portal-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; auto-rows: minmax(180px, auto); align-items: stretch; }
         
-        .carousel-img-wrapper { flex: 1.2; overflow: hidden; position: relative; }
-        .carousel-img-wrapper::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, transparent, var(--cinza-escuro)); }
-        .carousel-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
-        .carousel-slide:hover .carousel-img { transform: scale(1.05); opacity: 1; }
-
-        .carousel-content { flex: 1; padding: 30px 40px; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
-        .carousel-meta { font-size: 11px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; margin-bottom: 12px; font-weight: 700; }
-        .carousel-title { font-size: 24px; font-weight: 800; color: #fff; margin: 0 0 12px 0; line-height: 1.2; }
-        .carousel-excerpt { font-size: 13px; color: #ccc; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
-        .carousel-read-more { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--dourado); font-weight: 700; margin-top: auto; }
-
-        /* Controles do Carrossel */
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: 1px solid rgba(255,255,255,0.2); width: 40px; height: 40px; border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 10; transition: 0.3s; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .carousel-btn:hover { background: var(--dourado); color: #000; border-color: var(--dourado); }
-        .prev-btn { left: 20px; }
-        .next-btn { right: 20px; }
-        .carousel-dots { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--dourado); transform: scale(1.3); }
-
-        /* ========================================= */
-        /* CARDS REGULARES (ARQUIVO MENOR)           */
-        /* ========================================= */
-        .section-title { font-size: 14px; color: var(--dourado); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; text-align: left; font-weight: 700; border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 10px;}
-        .blog-grid-regular { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .portal-card { background: var(--cinza-card); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; position: relative; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .portal-card:hover { transform: translateY(-5px); border-color: rgba(197, 160, 89, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
         
-        .blog-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; backdrop-filter: blur(10px); transition: 0.4s; display: flex; flex-direction: column; text-decoration: none; }
-        .blog-card:hover { transform: translateY(-5px); border-color: rgba(197, 160, 89, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card-img-box { width: 100%; height: 220px; overflow: hidden; position: relative; flex-shrink: 0; }
+        .card-img-box::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.9) 100%); }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .portal-card:hover .card-img { transform: scale(1.08); }
         
-        .card-img { width: 100%; height: 140px; object-fit: cover; opacity: 0.8; transition: 0.4s; }
-        .blog-card:hover .card-img { opacity: 1; }
-        
-        .card-content { padding: 20px; display: flex; flex-direction: column; flex: 1; }
-        .card-meta { display: flex; justify-content: space-between; font-size: 9px; text-transform: uppercase; color: var(--verde-claro); letter-spacing: 1px; margin-bottom: 10px; font-weight: 700; }
-        .card-title { font-size: 14px; font-weight: 700; margin: 0 0 10px; line-height: 1.4; color: #fff; }
-        .card-excerpt { font-size: 11px; color: var(--texto-mute); line-height: 1.6; margin: 0 0 15px; font-weight: 400; flex: 1; }
-        .read-more { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--dourado); font-weight: 700; margin-top: auto; }
+        .card-info { padding: 25px; display: flex; flex-direction: column; flex: 1; z-index: 2; position: relative; }
+        .card-tag { display: inline-block; font-size: 10px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; font-weight: 800; margin-bottom: 12px; background: rgba(197,160,89,0.1); padding: 4px 10px; border-radius: 4px; width: fit-content;}
+        .card-title { font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.4; color: #fff; }
+        .card-excerpt { font-size: 13px; color: var(--texto-mute); line-height: 1.6; margin: 0 0 20px; font-weight: 400; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-link { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--dourado); font-weight: 700; margin-top: auto; display: flex; align-items: center; gap: 5px; transition: 0.3s;}
+        .portal-card:hover .card-link { gap: 10px; }
 
-        @media (max-width: 900px) {
-            .carousel-slide { flex-direction: column; }
-            .carousel-img-wrapper { flex: auto; height: 180px; }
-            .carousel-img-wrapper::after { background: linear-gradient(to bottom, transparent, var(--cinza-escuro)); }
-            .carousel-content { padding: 20px 20px; }
-            .carousel-title { font-size: 20px; }
-            .carousel-excerpt { font-size: 13px; }
-            .carousel-container { height: 420px; }
+        /* --- CLASSES DINÂMICAS DO GRID --- */
+        
+        /* Capa Principal (Hero) */
+        .portal-card.hero { grid-column: span 8; grid-row: span 2; display: flex; flex-direction: column; justify-content: flex-end; }
+        .portal-card.hero .card-img-box { position: absolute; top:0; left:0; width:100%; height:100%; }
+        .portal-card.hero .card-img-box::after { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(10,10,10,0.95) 90%); }
+        .portal-card.hero .card-info { padding: 40px; margin-top: 250px; }
+        .portal-card.hero .card-title { font-size: 32px; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .portal-card.hero .card-excerpt { font-size: 15px; color: #ddd; -webkit-line-clamp: 2; max-width: 80%; }
+
+        /* Destaques Laterais (Side) */
+        .portal-card.side { grid-column: span 4; grid-row: span 1; }
+        .portal-card.side .card-img-box { height: 180px; }
+        .portal-card.side .card-title { font-size: 16px; }
+
+        /* Cards Largos (Wide - quebram a monotonia) */
+        .portal-card.wide { grid-column: span 6; flex-direction: row; align-items: stretch; }
+        .portal-card.wide .card-img-box { width: 40%; height: auto; }
+        .portal-card.wide .card-img-box::after { background: linear-gradient(to right, transparent 50%, var(--cinza-card) 100%); }
+        .portal-card.wide .card-info { width: 60%; justify-content: center; }
+
+        /* Cards Normais (Regular) */
+        .portal-card.regular { grid-column: span 4; }
+
+        /* Estado Vazio */
+        .no-results { grid-column: span 12; text-align: center; padding: 60px; color: var(--texto-mute); font-size: 18px; font-style: italic; display: none; }
+
+        @media (max-width: 1024px) {
+            .portal-card.hero { grid-column: span 12; grid-row: span 1; }
+            .portal-card.hero .card-info { margin-top: 150px; padding: 30px; }
+            .portal-card.side { grid-column: span 6; }
+            .portal-card.wide { grid-column: span 12; }
+            .portal-card.regular { grid-column: span 6; }
         }
         @media (max-width: 768px) { 
-            .navbar { padding: 15px 20px; flex-direction: column; align-items: center; gap: 15px; }
-            .nav-controls { width: 100%; justify-content: space-between; }
-            .nav-right-stack { align-items: center; width: 100%; }
-            .search-input { width: 100%; }
+            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-controls { width: 100%; justify-content: space-between; flex-wrap: wrap;}
+            .search-input { width: 100%; margin-top: 10px;}
             .search-input:focus { width: 100%; }
-            .page-title { font-size: 24px; } 
-            .filter-container { gap: 10px; } 
-            .blog-grid-regular { grid-template-columns: 1fr; }
+            .page-title { font-size: 32px; } 
+            .portal-card.hero .card-title { font-size: 24px; }
+            .portal-card.hero .card-excerpt { max-width: 100%; }
+            .portal-card.side, .portal-card.regular, .portal-card.wide { grid-column: span 12; }
+            .portal-card.wide { flex-direction: column; }
+            .portal-card.wide .card-img-box { width: 100%; height: 200px; }
+            .portal-card.wide .card-img-box::after { background: linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.9) 100%); }
+            .portal-card.wide .card-info { width: 100%; }
         }
     </style>
 </head>
@@ -130,624 +132,178 @@
         <a href="index.html" class="brand-text">YOUP</a>
         <div class="nav-controls">
             <div id="google_translate_element"></div>
-            <div class="nav-right-stack">
-                <a href="index.html" class="btn-voltar">← Início</a>
-                <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
-            </div>
+            <a href="index.html" class="btn-voltar">← Início</a>
+            <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar por tema, autor ou empresa..." onkeyup="pesquisarArtigos()">
         </div>
     </nav>
 
     <header class="page-header">
-        <h1 class="page-title">Insights <b>Corporativos</b></h1>
+        <h1 class="page-title">Portal <b>Executivo</b></h1>
+        <p class="page-subtitle">A curadoria definitiva de inteligência de mercado, movimentações C-Level e arquitetura de carreira para a alta liderança.</p>
     </header>
 
     <div class="filter-container">
-        <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todos</button>
-        <button class="filter-btn" onclick="filtrarBlog('carreira', this)">Carreira C-Level</button>
-        <button class="filter-btn" onclick="filtrarBlog('rh', this)">Recrutamento & RH</button>
-        <button class="filter-btn" onclick="filtrarBlog('governanca', this)">Governança</button>
-        <button class="filter-btn" onclick="filtrarBlog('mercado', this)">Mercado</button>
+        <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todas as Editorias</button>
+        <button class="filter-btn" onclick="filtrarBlog('radar-executivo', this)">Radar Executivo</button>
         <button class="filter-btn" onclick="filtrarBlog('elas-no-radar', this)">Elas no Radar</button>
-        <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button></div>
+        <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
+        <button class="filter-btn" onclick="filtrarBlog('rh', this)">Estratégia de RH</button>
+        <button class="filter-btn" onclick="filtrarBlog('carreira', this)">Governança & Carreira</button>
+        <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
+    </div>
 
     <main class="container">
-        
-        <div class="carousel-container" id="destaquesCarousel">
-        
-           <a href="artigo-lideranca-jovem-volume-4-maio.html" class="carousel-slide search-item" data-category="jovem-lideranca">
-    <div class="carousel-img-wrapper">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80" class="carousel-img" alt="Painel Jovem Liderança">
-    </div>
-    <div class="carousel-content">
-        <div class="carousel-meta">Jovem Liderança</div>
-        <h2 class="carousel-title">Painel Jovem Liderança: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h2>
-        <p class="carousel-excerpt">A nossa curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão.</p>
-        <span class="carousel-read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-
-           
-            <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" class="carousel-slide active search-item" data-category="elas-no-radar">
-                <div class="carousel-img-wrapper">
-                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800" class="carousel-img" alt="Liderança Feminina no C-Level">
-                </div>
-                <div class="carousel-content">
-                    <div class="carousel-meta">Série Youp • Elas no Radar</div>
-                    <h2 class="carousel-title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h2>
-                    <p class="carousel-excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia estratégica destrói o Valuation da empresa.</p>
-                    <span class="carousel-read-more">Ler Artigo ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-radar-executivo-vol1-maio-2026.html" class="carousel-slide search-item" data-category="mercado">
-                <div class="carousel-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800" class="carousel-img" alt="Painel Corporativo">
-                </div>
-                <div class="carousel-content">
-                    <div class="carousel-meta">Série Youp • Radar Executivo Vol. 1</div>
-                    <h2 class="carousel-title">A Dança das Cadeiras no C-Level: O Novo Mapa do Mercado</h2>
-                    <p class="carousel-excerpt">Dossiê Informativo: Acompanhe e entenda os fatos por trás das recentes transições executivas na Braskem, Unico, Jirau Energia e TO ALL GAMES.</p>
-                    <span class="carousel-read-more">Ler Dossiê Completo ➔</span>
-                </div>
-            </a>
-
-            <a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" class="carousel-slide search-item" data-category="carreira" style="border: 2px solid var(--dourado);">
-                <div class="carousel-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" class="carousel-img" alt="Curso IA">
-                </div>
-                <div class="carousel-content">
-                    <div class="carousel-meta">Recomendação Youp • Curso Gratuito</div>
-                    <h2 class="carousel-title">IA Express: Domine a Inteligência Artificial na Gestão de Negócios</h2>
-                    <p class="carousel-excerpt">Aprenda na prática a implementar ChatGPT, Gemini, Copilot e outras ferramentas de IA para escalar sua produtividade e análise de dados. Aulas ao vivo.</p>
-                    <span class="carousel-read-more">Garantir Vaga Gratuita ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-apagao-tech-rh-estrategico.html" class="carousel-slide search-item" data-category="rh">
-                <div class="carousel-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800" class="carousel-img" alt="Equipe Tech">
-                </div>
-                <div class="carousel-content">
-                    <div class="carousel-meta">RH Estratégico</div>
-                    <h2 class="carousel-title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h2>
-                    <p class="carousel-excerpt">A Ford/Datafolha revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap do CHRO para resolver o gap via upskilling.</p>
-                    <span class="carousel-read-more">Ler Artigo ➔</span>
-                </div>
-            </a>
-
-            <button class="carousel-btn prev-btn" onclick="mudarSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next-btn" onclick="mudarSlide(1)">&#10095;</button>
-            <div class="carousel-dots" id="dotsContainer"></div>
-        </div>
-
-        <div class="section-title" id="tituloArquivo">Arquivo de Publicações</div>
-
-<a href="artigo-moeda-oculta-lideranca-autorregulacao.html" class="card" aria-label="Ler artigo: A Moeda Oculta da Liderança: Como a Autorregulação e os Limites Digitais Definem o Valuation do Executivo">
-    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=600');"></div>
-    <div class="card-content">
-        <span class="card-category">Estratégia de Carreira</span>
-        <h3 class="card-title">A Moeda Oculta da Liderança: Como a Autorregulação e os Limites Digitais Definem o Valuation do Executivo no Mercado C-Level</h3>
-        <p class="card-excerpt">A hiperdisponibilidade digital não projeta alto comprometimento; ela sinaliza falha estrutural de governança pessoal. Descubra como os Headhunters e Boards analisam sua capacidade de desconexão para definir o seu real valor de mercado.</p>
-        <span class="card-readmore">Ler Insights ➔</span>
-    </div>
-</a>
-        
-        <a href="entrevista-elas-no-cafezinho.html" class="blog-card search-item" data-category="entrevistas">
-    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg" class="card-img" alt="Elas no Cafezinho - Entrevista Especial">
-    <div class="card-content">
-        <div class="card-meta"><span>Entrevistas & Conexões</span><span>18 min</span></div>
-        <h2 class="card-title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h2>
-        <p class="card-excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica. Uma entrevista exclusiva com Simone Sommariva, Lilian Leal e Rosana Oliveira.</p>
-        <span class="read-more">Ler Entrevista ➔</span>
-    </div>
-</a>
-        
-<a href="artigo-nao-te-demores-no-menos.html" class="blog-card search-item" data-category="insights">
-    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?fm=webp&w=800&q=80" class="card-img" alt="Radar Executivo - O Macro Impacto">
-    <div class="card-content">
-        <div class="card-meta"><span>Radar Executivo</span><span>7 min</span></div>
-        <h2 class="card-title">Não Te Demores no Menos: O Macro Cenário Não Espera o Executivo Tático</h2>
-        <p class="card-excerpt">Edição especial analisando as grandes movimentações da semana e como os verdadeiros líderes se desapegam do microgerenciamento.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>        
-        
-<a href="artigo-indicacao-premio-ibest-2026.html" class="blog-card search-item" data-category="insights">
-    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem13%20(5).JPG" class="card-img" alt="Indicação Ana Paula Prêmio iBest 2026">
-    <div class="card-content">
-        <div class="card-meta"><span>Conquistas</span><span>5 min</span></div>
-        <h2 class="card-title">A Relevância Além do Algoritmo: Indicação Consecutiva ao Prêmio iBest 2026</h2>
-        <p class="card-excerpt">Ana Paula Marçal Fortunato é finalista pelo segundo ano consecutivo nas categorias RH e LinkedIn Influencer. Conheça a jornada e vote.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-
-<a href="artigo-networking-alta-gestao-gerar-negocios.html" class="blog-card search-item" data-category="insights">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80" class="card-img" alt="Networking de Alta Gestão">
-    <div class="card-content">
-        <div class="card-meta"><span>Corporate Insights</span><span>6 min</span></div>
-        <h2 class="card-title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h2>
-        <p class="card-excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como o C-Level constrói alianças estratégicas focadas em resolver problemas.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-
-
-<a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" class="blog-card search-item" data-category="entrevistas">
-    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg" class="card-img" alt="Entrevista Carlos Henrique Instituto Reciclar">
-    <div class="card-content">
-        <div class="card-meta"><span>Entrevistas</span><span>35 min</span></div>
-        <h2 class="card-title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h2>
-        <p class="card-excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência de alinhar ESG à estratégia de negócios.</p>
-        <span class="read-more">Ler Entrevista ➔</span>
-    </div>
-</a>        
-<a href="artigo-lideranca-jovem-volume-4-maio.html" class="blog-card search-item" data-category="insights">
-    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80" class="card-img" alt="Painel Jovem Liderança">
-    <div class="card-content">
-        <div class="card-meta"><span>Jovem Liderança</span><span>Painel de Vagas</span></div>
-        <h2 class="card-title">Painel Jovem Liderança: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h2>
-        <p class="card-excerpt">A nossa curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão.</p>
-        <span class="read-more">Acessar Painel ➔</span>
-    </div>
-</a>
-
-
-<a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" class="blog-card search-item radar-executivo" data-category="radar-executivo">
-    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=800&q=80" class="card-img" alt="Radar Executivo C-Level 2026">
-    <div class="card-content">
-        <div class="card-meta"><span>Radar Executivo</span><span>28 min</span></div>
-        <h2 class="card-title">A Nova Arquitetura do Poder C-Level: Inter, Vamos, Loggi e a Ascensão de Ana Sanches</h2>
-        <p class="card-excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia do Soft Power corporativo.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-
-
-
-<a href="artigo-danca-cadeiras-recorde-ceos-maio-2026.html" class="blog-card search-item radar-executivo" data-category="radar-executivo">
-    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80" class="card-img" alt="Dança das Cadeiras CEOs">
-    <div class="card-content">
-        <div class="card-meta"><span>Radar Executivo</span><span>25 min</span></div>
-        <h2 class="card-title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h2>
-        <p class="card-excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão dos Headhunters sobre os movimentos na BMW, B3, Pão de Açúcar e Vivara.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-<a href="artigo-microgerenciamento-alta-lideranca-diretores.html" class="blog-card search-item" data-category="insights">
-    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?fm=webp&w=800&q=80" class="card-img" alt="Microgerenciamento na Alta Liderança">
-    <div class="card-content">
-        <div class="card-meta"><span>Corporate Insights</span><span>18 min</span></div>
-        <h2 class="card-title">O Teto de Vidro da Autonomia: Lidando com o Microgerenciamento</h2>
-        <p class="card-excerpt">Gerentes podados por Diretores: por que a falta de autonomia existe no C-Level e como aplicar o "Managing Up" para resgatar sua carreira.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-<a href="artigo-lideranca-feminina-mulheres-clevel-mercado-corporativo.html" class="blog-card search-item" data-category="insights">
-    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80" class="card-img" alt="Liderança Feminina de Elite">
-    <div class="card-content">
-        <div class="card-meta"><span>Elas no Radar</span><span>20 min</span></div>
-        <h2 class="card-title">O Impacto da Liderança Feminina na Blindagem de Riscos C-Level</h2>
-        <p class="card-excerpt">A ascensão feminina no Venture Capital e o peso de ter mulheres no Conselho para frear litígios corporativos e perdas de valuation.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-<a href="artigo-manipulacao-ia-curriculos-judiciario.html" class="blog-card search-item" data-category="insights">
-    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fm=webp&w=800&q=80" class="card-img" alt="Manipulação de IA">
-    <div class="card-content">
-        <div class="card-meta"><span>Ética Corporativa</span><span>20 min</span></div>
-        <h2 class="card-title">Prompt Injection e o Fim dos Currículos Manipulados</h2>
-        <p class="card-excerpt">Juiz multa advogadas em R$ 84 mil por hackear IA. Entenda a punição para profissionais que mentem e manipulam sistemas ATS no recrutamento.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-<a href="artigo-novo-c-level-agronegocio-agrobrasilia-2026.html" class="blog-card search-item radar-executivo" data-category="radar-executivo">
-    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80" class="card-img" alt="Nova Liderança do Agro">
-    <div class="card-content">
-        <div class="card-meta"><span>Radar Executivo</span><span>25 min</span></div>
-        <h2 class="card-title">O Novo C-Level do Agronegócio e a AgroBrasília 2026</h2>
-        <p class="card-excerpt">A migração de executivos Tech e da Faria Lima para o campo: a nova guerra de talentos das gigantes do Agro.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
+        <div class="portal-grid" id="portalGrid">
             
-<a href="artigo-elas-no-radar-vol-5-maio.html" class="blog-card search-item elas-no-radar" data-category="elas-no-radar">
-    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80" class="card-img" alt="Case Sabin e Lupo">
-    <div class="card-content">
-        <div class="card-meta"><span>Elas no Radar</span><span>28 min</span></div>
-        <h2 class="card-title">Vol 5 Maio: Da Base ao Bilhão e a Governança Lupo</h2>
-        <p class="card-excerpt">As lições de Lídia Abdalla (Grupo Sabin) e o marco de sucessão familiar de Liliana Aufiero (Lupo).</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>       
-           
-<a href="entrevista-gislaine-righi.html" class="blog-card search-item entrevista" data-category="entrevista">
-    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem8.jpg" class="card-img" alt="Gislaine Righi">
-    <div class="card-content">
-        <div class="card-meta"><span>Entrevista</span><span>28 min</span></div>
-        <h2 class="card-title">Gislaine Righi: Liderança Humanizada e o "Jeito Disney"</h2>
-        <p class="card-excerpt">A especialista debate os desafios de unir 5 gerações, os impactos da NR-1 na saúde mental e como encantar colaboradores e clientes.</p>
-        <span class="read-more">Ler Entrevista ➔</span>
-    </div>
-</a>
-            
-<a href="artigo-jovem-lideranca-vol-2-maio.html" class="blog-card search-item jovem-lideranca" data-category="jovem-lideranca">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?fm=webp&w=800&q=80" class="card-img" alt="Radar Trainee Vol 2">
-    <div class="card-content">
-        <div class="card-meta"><span>Jovem Liderança</span><span>25 min</span></div>
-        <h2 class="card-title">Volume 2 Maio: Trainees Eneva, ICC, Mazars</h2>
-        <p class="card-excerpt">As 7 gigantes da infraestrutura, saúde e auditoria que estão moldando os CEOs de amanhã.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
+            <div class="no-results" id="noResultsMsg">Nenhum artigo encontrado para a sua busca.</div>
 
-<a href="artigo-elas-no-radar-vol-4-maio2026.html" class="blog-card search-item elas-no-radar" data-category="elas-no-radar">
-    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?fm=webp&w=800&q=80" class="card-img" alt="Contratação Liderança Feminina">
-    <div class="card-content">
-        <div class="card-meta"><span>Elas no Radar</span><span>38 min</span></div>
-        <h2 class="card-title">Vol 4 Maio: O Manual de Contratação C-Level</h2>
-        <p class="card-excerpt">A meta de 50% de Luiza Trajano e as 4 táticas infalíveis para Conselhos recrutarem mulheres.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-<a href="artigo-nr1-risco-governanca-c-level.html" class="blog-card search-item" data-category="governanca">
-                <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=800" class="card-img" alt="C-Level em Risco">
-                <div class="card-content">
-                    <div class="card-meta"><span>Governança de Risco</span><span>18 min</span></div>
-                    <h2 class="card-title">NR-1: O Fim do "Mimimi Corporativo" na Alta Liderança</h2>
-                    <p class="card-excerpt">Como a tolerância com líderes tóxicos no C-Level causa a Degradação do Capital Intelectual e gera passivos incalculáveis.</p>
-                    <span class="read-more">Ler Artigo ➔</span>
+            <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" class="portal-card search-item" data-category="radar-executivo">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80" class="card-img" alt="Radar Executivo C-Level 2026"></div>
+                <div class="card-info">
+                    <span class="card-tag">Radar Executivo</span>
+                    <h3 class="card-title">A Nova Arquitetura do Poder C-Level: Inter, Vamos e a Ascensão de Ana Sanches</h3>
+                    <p class="card-excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia do Soft Power corporativo nos Conselhos.</p>
+                    <span class="card-link">Ler Análise Completa ➔</span>
                 </div>
             </a>
 
-            <a href="artigo-c-level-diretoria-nao-e-time.html" class="blog-card search-item" data-category="governanca">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="card-img" alt="C-Level em Reunião">
-                <div class="card-content">
-                    <div class="card-meta"><span>Governança e Mercado</span><span>18 min</span></div>
-                    <h2 class="card-title">A Ilusão do C-Level: Por que a sua Diretoria não é um Time</h2>
-                    <p class="card-excerpt">Silos, guerra de egos e falta de segurança psicológica. Como a falta de coesão na diretoria destrói a sua vantagem competitiva.</p>
-                    <span class="read-more">Ler Artigo ➔</span>
+            <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" class="portal-card search-item" data-category="elas-no-radar">
+                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800" class="card-img" alt="Liderança Feminina no C-Level"></div>
+                <div class="card-info">
+                    <span class="card-tag">Elas no Radar</span>
+                    <h3 class="card-title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h3>
+                    <p class="card-excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia estratégica destrói o Valuation da empresa.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-apagao-tech-rh-estrategico.html" class="portal-card search-item" data-category="rh">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800" class="card-img" alt="Equipe Tech"></div>
+                <div class="card-info">
+                    <span class="card-tag">Estratégia de RH</span>
+                    <h3 class="card-title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
+                    <p class="card-excerpt">A Ford/Datafolha revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap do CHRO para resolver o gap via upskilling.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-lideranca-jovem-volume-4-maio.html" class="portal-card search-item" data-category="jovem-lideranca">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80" class="card-img" alt="Painel Jovem Liderança"></div>
+                <div class="card-info">
+                    <span class="card-tag">Jovem Liderança</span>
+                    <h3 class="card-title">Painel: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h3>
+                    <p class="card-excerpt">A nossa curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão e ao C-Level.</p>
+                    <span class="card-link">Acessar Painel ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-moeda-oculta-lideranca-autorregulacao.html" class="portal-card search-item" data-category="carreira">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800" class="card-img" alt="Moeda oculta da liderança"></div>
+                <div class="card-info">
+                    <span class="card-tag">Governança & Carreira</span>
+                    <h3 class="card-title">A Moeda Oculta: Como a Autorregulação Define o Valuation do Executivo</h3>
+                    <p class="card-excerpt">A hiperdisponibilidade digital não projeta alto comprometimento; ela sinaliza falha estrutural de governança pessoal. Saiba como os Boards analisam isso.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="entrevista-elas-no-cafezinho.html" class="portal-card search-item" data-category="entrevistas">
+                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg" class="card-img" alt="Elas no Cafezinho"></div>
+                <div class="card-info">
+                    <span class="card-tag">Entrevistas Exclusivas</span>
+                    <h3 class="card-title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h3>
+                    <p class="card-excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica. Uma entrevista exclusiva com Simone Sommariva e Lilian Leal.</p>
+                    <span class="card-link">Ler Entrevista ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-danca-cadeiras-recorde-ceos-maio-2026.html" class="portal-card search-item" data-category="radar-executivo">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80" class="card-img" alt="Dança das Cadeiras CEOs"></div>
+                <div class="card-info">
+                    <span class="card-tag">Radar Executivo</span>
+                    <h3 class="card-title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h3>
+                    <p class="card-excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão dos Headhunters sobre os movimentos na BMW, B3, Pão de Açúcar e Vivara.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-networking-alta-gestao-gerar-negocios.html" class="portal-card search-item" data-category="carreira">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80" class="card-img" alt="Networking de Alta Gestão"></div>
+                <div class="card-info">
+                    <span class="card-tag">Governança & Carreira</span>
+                    <h3 class="card-title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
+                    <p class="card-excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como o C-Level constrói alianças estratégicas focadas em resolver problemas setoriais.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" class="portal-card search-item" data-category="entrevistas">
+                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg" class="card-img" alt="Entrevista Carlos Henrique"></div>
+                <div class="card-info">
+                    <span class="card-tag">Entrevistas Exclusivas</span>
+                    <h3 class="card-title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
+                    <p class="card-excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência de alinhar ESG à estratégia de negócios real.</p>
+                    <span class="card-link">Ler Entrevista ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-rh-ma-capital-humano.html" class="portal-card search-item" data-category="rh">
+                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800" class="card-img" alt="M&A e Capital Humano"></div>
+                <div class="card-info">
+                    <span class="card-tag">Estratégia de RH</span>
+                    <h3 class="card-title">Fusões e Aquisições (M&A): O Guia Definitivo do Capital Humano</h3>
+                    <p class="card-excerpt">Como evitar o colapso cultural pós-fusão, auditar lideranças e proteger o Valuation da empresa durante integrações complexas.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-elas-no-radar-vol-5-maio.html" class="portal-card search-item" data-category="elas-no-radar">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80" class="card-img" alt="Case Sabin e Lupo"></div>
+                <div class="card-info">
+                    <span class="card-tag">Elas no Radar</span>
+                    <h3 class="card-title">Série Vol. 5: Da Base ao Bilhão e a Governança Lupo</h3>
+                    <p class="card-excerpt">As lições inestimáveis de Lídia Abdalla na escalada do Grupo Sabin e o marco histórico de sucessão familiar capitaneado por Liliana Aufiero (Lupo).</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-novo-c-level-agronegocio-agrobrasilia-2026.html" class="portal-card search-item" data-category="radar-executivo">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80" class="card-img" alt="Nova Liderança do Agro"></div>
+                <div class="card-info">
+                    <span class="card-tag">Radar Executivo</span>
+                    <h3 class="card-title">O Novo C-Level do Agronegócio e os Ecos da AgroBrasília 2026</h3>
+                    <p class="card-excerpt">A migração agressiva de executivos da Faria Lima e Big Techs para o campo: mapeamos a nova guerra de talentos das gigantes do Agro.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-nr1-risco-governanca-c-level.html" class="portal-card search-item" data-category="carreira">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=800" class="card-img" alt="C-Level em Risco"></div>
+                <div class="card-info">
+                    <span class="card-tag">Governança & Carreira</span>
+                    <h3 class="card-title">NR-1: O Fim da Tolerância Corporativa na Alta Liderança</h3>
+                    <p class="card-excerpt">Como a conivência com líderes de traços tóxicos no C-Level causa a degradação acelerada do capital intelectual e gera passivos jurídicos incalculáveis.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
+                </div>
+            </a>
+
+            <a href="artigo-rh-onboarding-elite.html" class="portal-card search-item" data-category="rh">
+                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/taking-notes-and-working-on-laptop.jpg" class="card-img" alt="Onboarding Executivo de Elite"></div>
+                <div class="card-info">
+                    <span class="card-tag">Estratégia de RH</span>
+                    <h3 class="card-title">O Manual do Onboarding de Elite para Diretoria e Conselhos</h3>
+                    <p class="card-excerpt">Evite a síndrome da "rejeição do transplante" corporativo. O passo a passo para integrar um novo C-Level protegendo o investimento do hunting.</p>
+                    <span class="card-link">Ler Artigo ➔</span>
                 </div>
             </a>
             
-            <a href="artigo-blog-linkedin-top-companies.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800" class="card-img" alt="Top Companies Corporate">
-                <div class="card-content">
-                    <div class="card-meta"><span>Mercado e Carreira</span><span>20 min</span></div>
-                    <h2 class="card-title">O Código Aberto do 'Top Companies 2026' no C-Suite</h2>
-                    <p class="card-excerpt">Afinal, que vantagens únicas de carreira essas empresas têm a oferecer que o dinheiro não compra?</p>
-                    <span class="read-more">Ler Artigo ➔</span>
-                </div>
-            </a>
-<a href="artigo-elas-no-radar-vol-1-maio.html" class="blog-card search-item elas-no-radar" data-category="elas-no-radar">
-    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80" class="card-img" alt="Elas no Radar Volume 1">
-    <div class="card-content">
-        <div class="card-meta"><span>Elas no Radar</span><span>26 min</span></div>
-        <h2 class="card-title">Elas no Radar Volume 1 Maio</h2>
-        <p class="card-excerpt">A força da Geração X Feminina e os dados reais do relatório LinkedIn 2026.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-
-
-
-<a href="artigo-top-companies-2026-competencias-c-level.html" class="blog-card search-item mercado" data-category="mercado">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?fm=webp&w=800&q=80" class="card-img" alt="Top Companies 2026">
-    <div class="card-content">
-        <div class="card-meta"><span>Mercado</span><span>32 min</span></div>
-        <h2 class="card-title">Top Companies 2026: O impeditivo nº 1 para o C-Level</h2>
-        <p class="card-excerpt">A "Arrogância de Playbook" e a nova matriz de liderança exigida pela elite do mercado.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-
-
-<a href="artigo-jovem-lideranca-era-trainee-10k.html" class="blog-card search-item jovem-lideranca" data-category="jovem-lideranca">
-    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?fm=webp&w=800&q=80" class="card-img" alt="Trainee e Liderança">
-    <div class="card-content">
-        <div class="card-meta"><span>Jovem Liderança</span><span>28 min</span></div>
-        <h2 class="card-title">Por que o C-Level está pagando 14k para Trainees?</h2>
-        <p class="card-excerpt">A nova exigência por orquestração de cultura e resiliência emocional na base.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-            
-<a href="artigo-competencias-c-level-futuro-lideranca.html" class="blog-card search-item" data-category="carreira">
-    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?fm=webp&w=800&q=80" class="card-img" alt="Liderança">
-    <div class="card-content">
-        <div class="card-meta"><span>Liderança</span><span>22 min</span></div>
-        <h2 class="card-title">Quais competências o Executivo realmente precisa?</h2>
-        <p class="card-excerpt">A ilusão técnica e a necessidade de agilidade política na alta gestão.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-                
-<a href="artigo-crise-silenciosa-lideranca-retencao-c-level.html" class="blog-card search-item" data-category="rh">
-    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80" class="card-img" alt="Reunião de RH">
-    <div class="card-content">
-        <div class="card-meta"><span>Gestão de Talentos</span><span>16 min</span></div>
-        <h2 class="card-title">Por que pagar acima do mercado não retém o Top 1%</h2>
-        <p class="card-excerpt">A quebra do contrato psicológico e o turnover executivo em 2026.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-            
-<a href="artigo-elas-no-radar-cfos-blindagem-valuation.html" class="blog-card search-item" data-category="elas-no-radar">
-    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80" class="card-img" alt="Executiva CFO C-Level">
-    <div class="card-content">
-        <div class="card-meta"><span>Elas no Radar</span><span>24 min</span></div>
-        <h2 class="card-title">As CFOs de 2026 e a Blindagem do Valuation</h2>
-        <p class="card-excerpt">A psicologia do risco financeiro e por que o Headhunting de elite exige Culture Add para M&A.</p>
-        <span class="read-more">Ler Artigo ➔</span>
-    </div>
-</a>
-            <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" class="blog-card search-item" data-category="elas-no-radar">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800" class="card-img" alt="Liderança Feminina no C-Level">
-                <div class="card-content">
-                    <div class="card-meta"><span>Elas no Radar</span><span>22 min</span></div>
-                    <h2 class="card-title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h2>
-                    <p class="card-excerpt">Como a obsessão por marcadores obsoletos exclui executivas e causa a erosão do EBITDA das companhias.</p>
-                    <span class="read-more">Ler Artigo ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-radar-executivo-vol1-maio-2026.html" class="blog-card search-item" data-category="mercado">
-                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800" class="card-img" alt="Painel Corporativo">
-                <div class="card-content">
-                    <div class="card-meta"><span>Governança & Mercado</span><span>24 min</span></div>
-                    <h2 class="card-title">Radar Executivo Vol. 1: Movimentações no Topo do Mercado</h2>
-                    <p class="card-excerpt">Compilado detalhado sobre as transições de presidentes, CEOs e conselheiros, e o que elas indicam sobre o capital de cada setor.</p>
-                    <span class="read-more">Ler Dossiê Completo ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-turnover-selo-qualidade.html" class="blog-card search-item" data-category="rh">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" class="card-img" alt="Reunião de Governança">
-                <div class="card-content">
-                    <div class="card-meta"><span>Governança</span><span>22 min</span></div>
-                    <h2 class="card-title">O Novo Valuation do Talento: Baixo Turnover no C-Suite</h2>
-                    <p class="card-excerpt">Por que reter líderes excepcionais tornou-se o atestado definitivo de maturidade e blindagem para investidores.</p>
-                    <span class="read-more">Ler Artigo ➔</span>
-                </div>
-            </a>            
-            
-            <a href="entrevista-debora-boscolo.html" class="blog-card search-item" data-category="entrevistas">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png" class="card-img" alt="Débora Boscolo">
-                <div class="card-content">
-                    <div class="card-meta"><span>Entrevistas</span><span>22 min</span></div>
-                    <h2 class="card-title">Liderança Consciente: A Trajetória de Débora Boscolo até o Top 1 do RH</h2>
-                    <p class="card-excerpt">A especialista discute sua transição do mercado financeiro e por que humanizar empresas gera resultados imbatíveis.</p>
-                    <span class="read-more">Ler Entrevista ➔</span>
-                </div>
-            </a>
-
-            <a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" class="blog-card search-item" data-category="carreira" style="border: 1px solid var(--dourado);">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" class="card-img" alt="Curso IA">
-                <div class="card-content">
-                    <div class="card-meta" style="color: var(--dourado);"><span>Recomendação</span><span>Gratuito</span></div>
-                    <h2 class="card-title">IA Express: Domine a Inteligência Artificial na Gestão de Negócios</h2>
-                    <p class="card-excerpt">Aprenda na prática a implementar ChatGPT, Gemini, Copilot e outras ferramentas de IA para escalar sua produtividade.</p>
-                    <span class="read-more" style="color: var(--dourado);">Garantir Vaga ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-apagao-tech-rh-estrategico.html" class="blog-card search-item" data-category="rh">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800" class="card-img" alt="Equipe Tech">
-                <div class="card-content">
-                    <div class="card-meta"><span>RH Estratégico</span><span>20 min</span></div>
-                    <h2 class="card-title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h2>
-                    <p class="card-excerpt">A Ford/Datafolha revelou o colapso na atração de talentos de TI. Entenda o roadmap do CHRO para resolver o gap.</p>
-                    <span class="read-more">Ler Artigo ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-quando-abordar-headhunter-c-level.html" class="blog-card search-item" data-category="rh">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem4.jpg" class="card-img" alt="Headhunter">
-                <div class="card-content">
-                    <div class="card-meta"><span>Dinâmica de Mercado</span><span>18 min</span></div>
-                    <h2 class="card-title">Quando abordar um Headhunter C-Level (e quando jamais fazê-lo)</h2>
-                    <p class="card-excerpt">A falsa vulnerabilidade destrói seu Valuation. Descubra como operar no mercado oculto com governança.</p>
-                    <span class="read-more">Ler Artigo ➔</span>
-                </div>
-            </a>
-
-            <a href="entrevista-romulo-correa.html" class="blog-card search-item" data-category="entrevistas">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem3.jpg" class="card-img" alt="Romulo Correa">
-                <div class="card-content">
-                    <div class="card-meta"><span>Entrevistas</span><span>25 min</span></div>
-                    <h2 class="card-title">O Fim do "SEO Tradicional" no LinkedIn e a Era da IA na Carreira</h2>
-                    <p class="card-excerpt">Entrevista com Romulo Correa, LinkedIn Top Voice, sobre o novo algoritmo da rede e o framework 360Brew.</p>
-                    <span class="read-more">Ler Entrevista ➔</span>
-                </div>
-            </a>
-
-            <a href="entrevista-aline-barbara.html" class="blog-card search-item" data-category="entrevistas">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem5.jpg" class="card-img" alt="Entrevista Aline Barbara">
-                <div class="card-content">
-                    <div class="card-meta"><span>Entrevistas</span><span>18 min</span></div>
-                    <h2 class="card-title">A Humanização como Vantagem: O RH Estratégico e a Marca Pessoal</h2>
-                    <p class="card-excerpt">Aline Barbara discute o impacto do Employer Branding e o combate ao etarismo.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-momento-promocao.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem2.jpg" class="card-img" alt="Promoção Executiva C-Level">
-                <div class="card-content">
-                    <div class="card-meta"><span>Desenvolvimento</span><span>22 min</span></div>
-                    <h2 class="card-title">O Momento Certo de Pleitear uma Promoção</h2>
-                    <p class="card-excerpt">Saiba identificar os indicadores de maturidade profissional e construir o Business Case.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>         
-            
-            <a href="artigo-recrutamento-elite-top-1-porcento.html" class="blog-card search-item" data-category="rh">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="card-img" alt="Recrutamento de Elite RH">
-                <div class="card-content">
-                    <div class="card-meta"><span>Recrutamento</span><span>18 min</span></div>
-                    <h2 class="card-title">Como Atrair o Top 1% dos Candidatos</h2>
-                    <p class="card-excerpt">Por que anúncios de vagas não funcionam para a alta liderança.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-plano-90-dias.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800" class="card-img" alt="Plano de 90 dias C-Level">
-                <div class="card-content">
-                    <div class="card-meta"><span>Performance</span><span>15 min</span></div>
-                    <h2 class="card-title">O Plano de 90 Dias: Diferencial na entrevista</h2>
-                    <p class="card-excerpt">Deixe de ser um candidato para se tornar um consultor estratégico.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-entrevista-socios-private-equity.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800" class="card-img" alt="Entrevista com Private Equity">
-                <div class="card-content">
-                    <div class="card-meta"><span>Alta Liderança</span><span>15 min</span></div>
-                    <h2 class="card-title">Sobrevivendo à Entrevista com Sócios (PE)</h2>
-                    <p class="card-excerpt">Aprenda a navegar na política da última barreira entre você e a cadeira.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-mercado-oculto-vagas.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600" class="card-img" alt="Mercado Oculto de Vagas Executivas">
-                <div class="card-content">
-                    <div class="card-meta"><span>Mercado Oculto</span><span>18 min</span></div>
-                    <h2 class="card-title">As melhores vagas nunca são publicadas</h2>
-                    <p class="card-excerpt">A mecânica corporativa do Stealth Search e as vagas confidenciais.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-rh-remuneracao-estrategica.html" class="blog-card search-item" data-category="rh">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/business-man-checks-mobile.jpg" class="card-img" alt="Remuneração Estratégica Executiva">
-                <div class="card-content">
-                    <div class="card-meta"><span>RH Estratégico</span><span>20 min</span></div>
-                    <h2 class="card-title">Remuneração Estratégica para o C-Suite</h2>
-                    <p class="card-excerpt">Vá além do salário base: saiba como desenhar pacotes de Equity e LTI.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-linkedin-atrai-headhunters.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800" class="card-img" alt="LinkedIn para C-Level">
-                <div class="card-content">
-                    <div class="card-meta"><span>Posicionamento</span><span>18 min</span></div>
-                    <h2 class="card-title">O LinkedIn que atrai Headhunters</h2>
-                    <p class="card-excerpt">O que os recrutadores de elite procuram e como estruturar o seu Valuation.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-negociacao-salario-c-level.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800" class="card-img" alt="Negociação salarial executiva">
-                <div class="card-content">
-                    <div class="card-meta"><span>Negociação</span><span>17 min</span></div>
-                    <h2 class="card-title">Negociação de Pacotes C-Level</h2>
-                    <p class="card-excerpt">Entenda a mecânica de Equity, LTI, STI e as luvas de contratação.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-entrevista-como-rodada-investimentos.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="card-img" alt="Entrevista como Pitch Deck">
-                <div class="card-content">
-                    <div class="card-meta"><span>Posicionamento</span><span>16 min</span></div>
-                    <h2 class="card-title">A entrevista como rodada de investimentos</h2>
-                    <p class="card-excerpt">Trate a sua transição de carreira como o roadshow de uma startup.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-armadilha-da-vulnerabilidade.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800" class="card-img" alt="Falar de Fracassos">
-                <div class="card-content">
-                    <div class="card-meta"><span>Performance</span><span>12 min</span></div>
-                    <h2 class="card-title">Como falar de fracassos reais</h2>
-                    <p class="card-excerpt">Por que responder 'sou perfeccionista' é atestado de falta de senioridade.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-follow-up-executivo.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800" class="card-img" alt="Follow up executivo">
-                <div class="card-content">
-                    <div class="card-meta"><span>Performance</span><span>14 min</span></div>
-                    <h2 class="card-title">O Follow-up Executivo: Estratégia</h2>
-                    <p class="card-excerpt">A linha tênue entre demonstrar garra comercial e queimar o Valuation.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-culture-add-comites.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://www.sct.ce.gov.br/wp-content/uploads/sites/34/2019/10/Resultado.png" class="card-img" alt="Culture Add vs Cultural Fit">
-                <div class="card-content">
-                    <div class="card-meta"><span>Mercado</span><span>15 min</span></div>
-                    <h2 class="card-title">Cultural Fit x Culture Add</h2>
-                    <p class="card-excerpt">Por que empresas buscam líderes que desafiem o status quo.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-senioridade-executiva-etarismo.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800" class="card-img" alt="Senioridade e Etarismo">
-                <div class="card-content">
-                    <div class="card-meta"><span>Liderança</span><span>12 min</span></div>
-                    <h2 class="card-title">O Paradoxo da Senioridade e o Etarismo</h2>
-                    <p class="card-excerpt">Como combater o etarismo provando que 30 anos de carreira significam gestão de crises.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-entrevista-conselho-board.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800" class="card-img" alt="Entrevista para Conselho de Administração">
-                <div class="card-content">
-                    <div class="card-meta"><span>Alta Liderança</span><span>14 min</span></div>
-                    <h2 class="card-title">A Entrevista para Conselho (Board)</h2>
-                    <p class="card-excerpt">Por que mostrar 'capacidade de execução' pode te eliminar sumariamente.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-backchanneling-referencias.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800" class="card-img" alt="Checagem de Referências Executivas">
-                <div class="card-content">
-                    <div class="card-meta"><span>Mercado</span><span>14 min</span></div>
-                    <h2 class="card-title">Backchanneling: A checagem invisível</h2>
-                    <p class="card-excerpt">Como os Headhunters investigam a sua reputação conversando em "off".</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-executivo-polvo-operacao.html" class="blog-card search-item" data-category="carreira">
-                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800" class="card-img" alt="Microgerenciamento executivo">
-                <div class="card-content">
-                    <div class="card-meta"><span>Liderança</span><span>16 min</span></div>
-                    <h2 class="card-title">O Executivo Polvo e a armadilha da operação</h2>
-                    <p class="card-excerpt">Por que resolver tudo está destruindo o seu valuation no mercado.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-rh-ma-capital-humano.html" class="blog-card search-item" data-category="rh">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800" class="card-img" alt="M&A e Capital Humano">
-                <div class="card-content">
-                    <div class="card-meta"><span>RH Estratégico</span><span>22 min</span></div>
-                    <h2 class="card-title">M&A e Capital Humano</h2>
-                    <p class="card-excerpt">Como evitar o colapso cultural pós-fusão e proteger o Valuation da empresa.</p>
-                    <span class="read-more">Ler ➔</span>
-                </div>
-            </a>
-
-            <a href="artigo-rh-onboarding-elite.html" class="blog-card search-item" data-category="rh">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/taking-notes-and-working-on-laptop.jpg" class="card-img" alt="Onboarding Executivo de Elite">
-                <div class="card-content">
-                    <div class="card-meta"><span>RH Estratégico</span><span>20 min</span></div>
-                    <h2 class="card-title">Onboarding de Elite para Diretoria</h2>
-                    <p class="card-excerpt">Evite a rejeição do transplante corporativo ao contratar um novo C-Level.</p>
-                    <span class="read-more">Ler ➔</span>
+            <a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" class="portal-card search-item" data-category="carreira" style="border: 1px solid var(--dourado);">
+                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" class="card-img" alt="Curso IA"></div>
+                <div class="card-info">
+                    <span class="card-tag" style="background: var(--dourado); color:#000;">Recomendação Especial</span>
+                    <h3 class="card-title">IA Express: Domine a Inteligência Artificial na Gestão de Negócios</h3>
+                    <p class="card-excerpt">Aprenda na prática a implementar ChatGPT, Gemini, Copilot e outras ferramentas de IA para escalar sua produtividade executiva e análise de dados. Curso Gratuito.</p>
+                    <span class="card-link" style="color: var(--dourado);">Garantir Vaga (Externa) ➔</span>
                 </div>
             </a>
 
@@ -755,139 +311,78 @@
     </main>
 
     <script>
-        // ==========================================
-        // LÓGICA DO CARROSSEL (SLIDER)
-        // ==========================================
-        let indiceSlideAtual = 0;
-        let slides = document.querySelectorAll('.carousel-slide');
-        let timerCarrossel;
-
-        const dotsContainer = document.getElementById('dotsContainer');
-        slides.forEach((_, index) => {
-            let dot = document.createElement('span');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.onclick = () => irParaSlide(index);
-            dotsContainer.appendChild(dot);
-        });
-        let dots = document.querySelectorAll('.dot');
-
-        function mostrarSlide(n) {
-            let currentSlides = document.querySelectorAll('#destaquesCarousel .search-item');
+        // Função principal que orquestra a inteligência do layout editorial
+        function applyEditorialGrid() {
+            const cards = Array.from(document.querySelectorAll('.portal-card'));
+            const visibleCards = cards.filter(card => card.style.display !== 'none');
             
-            currentSlides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
-            
-            indiceSlideAtual = n;
-            if (indiceSlideAtual >= currentSlides.length) indiceSlideAtual = 0;
-            if (indiceSlideAtual < 0) indiceSlideAtual = currentSlides.length - 1;
+            // Limpa as classes de tamanho antigas de todos os cards
+            cards.forEach(card => card.classList.remove('hero', 'side', 'wide', 'regular'));
 
-            if(currentSlides[indiceSlideAtual]) {
-                currentSlides[indiceSlideAtual].classList.add('active');
-                dots[indiceSlideAtual].classList.add('active');
-            }
+            // Aplica as novas classes matemáticas baseadas na visibilidade
+            visibleCards.forEach((card, index) => {
+                if(index === 0) {
+                    card.classList.add('hero'); // O primeiro visível sempre vira capa gigante
+                } 
+                else if(index === 1 || index === 2) {
+                    card.classList.add('side'); // O 2º e 3º viram os blocos laterais topo
+                } 
+                else if (index % 5 === 0 || index % 5 === 4) {
+                    card.classList.add('wide'); // Cria assimetria no grid quebrando a monotonia
+                } 
+                else {
+                    card.classList.add('regular'); // Preenche o restante
+                }
+            });
+
+            // Mensagem de "nada encontrado"
+            document.getElementById('noResultsMsg').style.display = visibleCards.length === 0 ? 'block' : 'none';
         }
 
-        function mudarSlide(passo) {
-            clearInterval(timerCarrossel);
-            mostrarSlide(indiceSlideAtual + passo);
-            iniciarCarrossel();
-        }
-
-        function irParaSlide(n) {
-            clearInterval(timerCarrossel);
-            mostrarSlide(n);
-            iniciarCarrossel();
-        }
-
-        function iniciarCarrossel() {
-            clearInterval(timerCarrossel); 
-            timerCarrossel = setInterval(() => {
-                mostrarSlide(indiceSlideAtual + 1);
-            }, 5000); 
-        }
-        
-        iniciarCarrossel();
-
-        // ==========================================
-        // LÓGICA DE FILTRO E PESQUISA (CORRIGIDA)
-        // ==========================================
         function filtrarBlog(categoria, botaoClicado) {
-            const botoes = document.querySelectorAll('.filter-btn');
-            botoes.forEach(btn => btn.classList.remove('active'));
+            // Controle de Botões Ativos
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             botaoClicado.classList.add('active');
-
+            
+            // Limpa o campo de busca
             document.getElementById('searchInput').value = '';
-            const cards = document.querySelectorAll('.search-item');
 
-            if (categoria === 'todos') {
-                // VOLTA O CARROSSEL A FUNCIONAR
-                document.getElementById('destaquesCarousel').style.display = 'block';
-                document.getElementById('tituloArquivo').innerText = 'Arquivo de Publicações';
-                
-                document.querySelectorAll('#destaquesCarousel .search-item').forEach(card => {
-                    card.classList.add('carousel-slide');
-                    card.classList.remove('blog-card', 'card-regular');
-                    card.style.position = '';
-                    card.style.opacity = '';
-                    card.style.display = ''; 
-                });
+            const cards = document.querySelectorAll('.portal-card');
+            
+            cards.forEach(card => {
+                if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
 
-                document.querySelectorAll('#regularGrid .search-item').forEach(card => card.style.display = 'flex');
-
-                mostrarSlide(0);
-                iniciarCarrossel();
-
-            } else {
-                // MODO FILTRO
-                document.getElementById('destaquesCarousel').style.display = 'none';
-                document.getElementById('tituloArquivo').innerText = 'Resultados do Filtro';
-                document.getElementById('regularGrid').style.display = 'grid';
-
-                cards.forEach(card => {
-                    if (card.getAttribute('data-category') === categoria) {
-                        card.style.display = 'flex';
-                        if (card.parentElement.id === 'destaquesCarousel') {
-                            card.classList.remove('carousel-slide', 'active');
-                            card.classList.add('blog-card', 'card-regular');
-                            card.style.position = 'relative';
-                            card.style.opacity = '1';
-                        }
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
+            // Reestrutura o layout imediatamente após o filtro
+            applyEditorialGrid();
         }
 
         function pesquisarArtigos() {
             let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.search-item');
+            let cards = document.querySelectorAll('.portal-card');
 
-            if(input.length > 0) {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                document.getElementById('destaquesCarousel').style.display = 'none';
-                document.getElementById('tituloArquivo').innerText = 'Resultados da Pesquisa';
+            // Remove marcação dos botões de filtro
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
 
-                cards.forEach(card => {
-                    let textoCard = card.innerText.toLowerCase();
-                    if (textoCard.includes(input)) {
-                        card.style.display = "flex";
-                        if (card.parentElement.id === 'destaquesCarousel') {
-                            card.classList.remove('carousel-slide', 'active');
-                            card.classList.add('blog-card', 'card-regular');
-                            card.style.position = 'relative';
-                            card.style.opacity = '1';
-                        }
-                    } else {
-                        card.style.display = "none";
-                    }
-                });
-            } else {
-                // CLICA NO BOTÃO "TODOS" AUTOMATICAMENTE
-                document.querySelector('.filter-btn').click();
-            }
+            cards.forEach(card => {
+                let textoCard = card.innerText.toLowerCase();
+                if (textoCard.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Reestrutura o layout baseado no que foi encontrado na busca
+            applyEditorialGrid();
         }
+
+        // Inicializa o layout no carregamento da página
+        document.addEventListener("DOMContentLoaded", applyEditorialGrid);
     </script>
 
     <script type="text/javascript">
