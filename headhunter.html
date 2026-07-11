@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeadHunter de Precisão - Youp Consultoria</title>
-    
+    <!-- Script de Redirecionamento EN -->
     <script>
         if (localStorage.getItem('youp_idioma') === 'en') {
             const paginaAtual = window.location.pathname.split("/").pop();
@@ -16,6 +13,7 @@
         }
     </script>
     
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -23,10 +21,37 @@
       gtag('js', new Date());
       gtag('config', 'G-6JTWLMZBRS');
     </script>
+
+    <!-- Schema Markup (SEO Avançado para Serviços de Hunting) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Executive Search & Headhunting",
+      "provider": {
+        "@type": "Organization",
+        "name": "Youp Consultoria",
+        "url": "https://www.youpconsultoria.com.br"
+      },
+      "description": "Headhunting de alta performance e precisão cirúrgica para C-Level. Encontre líderes com o DNA de solução para os gargalos da sua empresa.",
+      "areaServed": "BR"
+    }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadHunter de Precisão - Youp Consultoria</title>
+    <meta name="description" content="Nós não buscamos apenas nomes; mapeamos líderes com o 'DNA de solução'. Headhunting de precisão para alta liderança e diretoria.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (Compartilhamento B2B) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HeadHunter de Alta Performance | Youp Consultoria">
+    <meta property="og:description" content="Um currículo impecável não garante um problema resolvido. Conheça nossa metodologia de hunting C-Level.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -42,7 +67,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-image: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600');
+            /* Imagem otimizada com WebP e degradê elegante */
+            background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.92), rgba(25, 25, 25, 0.96)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&fm=webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -50,34 +76,35 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
         }
 
+        /* ANIMAÇÃO DE ENTRADA */
+        .fade-in { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CONTAINER PREMIUM (GLASSMORPHISM) */
         .glass-container {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 15px;
-            max-width: 900px;
-            width: 95%;
-            padding: 30px 45px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            background: rgba(20, 20, 20, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 12px;
+            max-width: 1000px;
+            width: 90%;
+            padding: 50px 60px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
             box-sizing: border-box;
-            max-height: 92vh;
-            overflow-y: auto;
-            position: relative;
+            margin: 40px 0;
         }
-
-        .glass-container::-webkit-scrollbar { width: 5px; }
-        .glass-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
-        .glass-container::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
 
         .header-top {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .btn-back {
             color: var(--dourado);
@@ -85,81 +112,89 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 600;
-            transition: opacity 0.3s;
+            font-weight: 700;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
         }
-        .btn-back:hover { opacity: 0.7; }
+        .btn-back:hover { color: #fff; border-color: #fff; }
 
         .page-title {
             color: var(--dourado);
             margin: 0;
-            font-size: 28px;
+            font-size: 38px;
             text-align: center;
-            font-weight: 600;
+            font-weight: 800;
             letter-spacing: -1px;
+            line-height: 1.2;
         }
         .page-subtitle {
-            color: var(--verde-claro);
-            font-size: 13px;
+            color: var(--texto-claro);
+            font-size: 14px;
             font-weight: 400;
             text-align: center;
-            margin: 10px 0 30px 0;
+            margin: 15px 0 40px 0;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
+            opacity: 0.8;
         }
+        
         .highlight-box {
-            background: rgba(197, 160, 89, 0.05);
-            border-left: 3px solid var(--dourado);
-            padding: 20px;
-            margin-bottom: 40px;
-            text-align: center;
-            font-size: 16px;
+            background: linear-gradient(90deg, rgba(197, 160, 89, 0.08) 0%, transparent 100%);
+            border-left: 4px solid var(--dourado);
+            padding: 30px;
+            margin-bottom: 50px;
+            font-size: 18px;
             line-height: 1.6;
             font-style: italic;
-            color: #f0f0f0;
+            color: #fdfdfd;
+            font-weight: 300;
         }
 
         .section-title {
             color: var(--dourado);
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
             display: block;
             text-align: center;
+            font-weight: 700;
         }
 
         .grid-impact {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
         .impact-card {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            padding: 35px 30px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
         }
         .impact-card:hover {
-            border-color: var(--dourado);
+            border-color: rgba(197, 160, 89, 0.4);
             background: rgba(197, 160, 89, 0.02);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .card-header {
             color: var(--verde-claro);
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .card-body {
-            font-size: 13px;
-            color: var(--cinza-claro);
+            font-size: 14px;
+            color: #d0d0d0;
             line-height: 1.8;
             font-weight: 300;
         }
@@ -167,64 +202,61 @@
 
         .action-footer {
             text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .action-footer-text {
+            font-size: 12px; 
+            color: var(--cinza-claro); 
+            margin-bottom: 25px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-weight: 500;
         }
         .btn-main {
             display: inline-block;
-            padding: 18px 45px;
-            background: var(--dourado);
-            color: var(--cinza-escuro);
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--dourado);
+            border: 1px solid var(--dourado);
             text-decoration: none;
             border-radius: 4px;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.3s ease;
         }
         .btn-main:hover {
-            background: #fff;
-            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
-            transform: scale(1.02);
+            background: var(--dourado);
+            color: #000;
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.3);
         }
 
         /* ========================================= */
-        /* PATCH DE RESPONSIVIDADE MOBILE (CELULAR)  */
+        /* RESPONSIVIDADE MOBILE (CELULAR)           */
         /* ========================================= */
-        @media (max-width: 768px) {
-            .page-title, .hero h1, .welcome-title, .divas-title { font-size: 24px !important; line-height: 1.2; }
-            .page-subtitle, .welcome-subtitle, .section-sub { font-size: 10px !important; line-height: 1.4; }
-            .intro-text, .page-intro, .text-block { font-size: 13px !important; text-align: left; padding: 0 5px; }
-            
-            .impact-section, .grid-impact, .services-grid, .plans-grid, .youp-grid, .portal-grid, .awards-grid, .grid { 
-                grid-template-columns: 1fr !important; 
-            }
-            
-            .glass-container { padding: 25px 20px !important; width: 90% !important; margin-top: 20px; max-height: 85vh; }
-            .modal-body { padding: 25px !important; border: none !important; }
-            .modal-content-inner { padding: 20px 10px !important; }
-            
-            .btn-main, .btn-action, .btn-pink, .btn-wa, .btn-plan { 
-                padding: 15px 10px !important; 
-                font-size: 11px !important; 
-                width: 100%; 
-                box-sizing: border-box; 
-                text-align: center;
-            }
-            .btn-group { flex-direction: column; width: 100%; }
+        @media (max-width: 900px) {
+            .glass-container { padding: 40px 30px; width: 95%; margin: 30px 0; }
+            .grid-impact { grid-template-columns: 1fr; }
+            .page-title { font-size: 32px; }
+            .highlight-box { font-size: 16px; padding: 25px; }
+        }
 
-            .hero { padding-top: 80px !important; }
-            .header-tools { top: 10px !important; right: 10px !important; flex-direction: column; align-items: flex-end; gap: 8px; }
-            .btn-back-home { top: 15px !important; left: 10px !important; }
-            
-            .login-box { width: 90% !important; padding: 25px !important; margin: 50px auto !important; }
+        @media (max-width: 768px) {
+            .glass-container { padding: 30px 20px; width: 100%; border-radius: 0; border: none; border-top: 2px solid var(--dourado); margin: 0; min-height: 100vh; }
+            .page-title { font-size: 28px; line-height: 1.2; }
+            .page-subtitle { font-size: 11px; letter-spacing: 3px; }
+            .highlight-box { font-size: 15px; padding: 20px 15px; }
+            .impact-card { padding: 25px 20px; }
+            .btn-main { padding: 16px 20px; width: 100%; box-sizing: border-box; text-align: center; }
+            .header-top { justify-content: center; margin-bottom: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glass-container">
+    <div class="glass-container fade-in">
         
         <div class="header-top">
             <a href="index.html" class="btn-back">Sair da página ×</a>
@@ -270,7 +302,7 @@
         </div>
 
         <div class="action-footer">
-            <p style="font-size: 12px; color: var(--cinza-claro); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
+            <p class="action-footer-text">
                 Sua empresa não pode esperar. Vamos encontrar a solução?
             </p>
             <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estava%20na%20p%C3%A1gina%20de%20Headhunter.%20Tenho%20um%20desafio%20estrat%C3%A9gico%20na%20minha%20empresa%20e%20preciso%20de%20um%20l%C3%ADder%20que%20resolva." target="_blank" class="btn-main">Agendar Diagnóstico Executivo</a>
