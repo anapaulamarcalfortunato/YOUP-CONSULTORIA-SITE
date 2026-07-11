@@ -24,7 +24,7 @@
         :root { --dourado: #c5a059; --fundo: #ffffff; --texto-escuro: #111111; --texto-cinza: #666666; --borda: #e5e5e5; }
         body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fundo); color: var(--texto-escuro); min-height: 100vh; top: 0px !important; }
         
-        /* HEADER EDITORIAL (Estilo Business Week) */
+        /* HEADER EDITORIAL */
         .top-bar { border-bottom: 1px solid var(--borda); padding: 10px 50px; display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
         .top-bar-links a { color: var(--texto-escuro); text-decoration: none; margin-left: 20px; transition: 0.3s; }
         .top-bar-links a:hover { color: var(--dourado); }
@@ -35,7 +35,7 @@
 
         /* MENUS & FILTROS */
         .editorial-nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--borda); margin-bottom: 40px; }
-        .filter-container { display: flex; gap: 30px; }
+        .filter-container { display: flex; gap: 30px; flex-wrap: wrap;}
         .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-cinza); cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
         .filter-btn:hover { color: var(--texto-escuro); }
         .filter-btn.active { color: var(--texto-escuro); }
@@ -80,11 +80,10 @@
         .list-article .article-img { width: 100%; height: 100%; }
         .list-article .content-wrapper { flex: 1; }
         .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
-        .list-article .article-excerpt { display: none; /* Esconde o resumo na lista pequena para ficar clean */ }
+        .list-article .article-excerpt { display: none; }
 
         .no-results { text-align: center; padding: 60px; color: var(--texto-cinza); font-style: italic; display: none; width: 100%; }
 
-        /* Ajustes Google Translate no tema claro */
         .goog-te-banner-frame.skiptranslate { display: none !important; }
         #google_translate_element select { background: transparent; color: var(--texto-escuro); border: 1px solid var(--borda); padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; outline: none; cursor: pointer; }
 
@@ -101,7 +100,7 @@
             .filter-container { flex-wrap: wrap; gap: 15px; }
             .container { padding: 0 20px; }
             .grid-articles-wrapper { grid-template-columns: 1fr; }
-            .list-article .img-wrapper { display: none; /* Esconde imagem na lista pequena no celular */ }
+            .list-article .img-wrapper { display: none; }
         }
     </style>
 </head>
@@ -126,6 +125,7 @@
             <button class="filter-btn" onclick="filtrarBlog('elas-no-radar', this)">Elas no Radar</button>
             <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
             <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
+            <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
         </div>
         <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
     </nav>
@@ -134,20 +134,21 @@
         
         <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado.</div>
 
+        <!-- Renderização do Layout -->
         <div class="editorial-feed">
             <div id="heroZone"></div>
             <div id="gridZone" class="grid-articles-wrapper"></div>
             <div id="listZone" class="list-articles-wrapper"></div>
         </div>
 
+        <!-- REPOSITÓRIO COMPLETO DE ARTIGOS -->
         <div id="sourceArticles" style="display: none;">
 
             <!-- ========================================================================================== -->
-            <!-- 🚨🚨 ALERTA ANA PAULA: SEUS ARTIGOS FICAM AQUI ABAIXO 🚨🚨 -->
+            <!-- 🚨🚨 ALERTA ANA PAULA: COLE O CÓDIGO DO NOVO ARTIGO EXATAMENTE ABAIXO DESTA LINHA 🚨🚨 -->
             <!-- Lembre-se: O 1º da lista é a CAPA GIGANTE. Do 2º ao 5º formam a GRADE com foto. -->
             <!-- ========================================================================================== -->
 
-            <!-- 👇 1º LUGAR (A CAPA GIGANTE ATUAL) 👇 -->
             <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" data-category="radar-executivo">
                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80">
                 <span class="tag">Radar Executivo</span>
@@ -155,7 +156,6 @@
                 <p class="excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia corporativa.</p>
             </a>
 
-            <!-- 👇 2º LUGAR (O PRIMEIRO DA GRADE DE FOTOS) 👇 -->
             <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" data-category="elas-no-radar">
                 <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800">
                 <span class="tag">Elas no Radar</span>
@@ -163,15 +163,6 @@
                 <p class="excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia destrói o Valuation da empresa.</p>
             </a>
 
-            <!-- 👇 3º LUGAR 👇 -->
-            <a href="artigo-apagao-tech-rh-estrategico.html" data-category="dica-de-hunter">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800">
-                <span class="tag">Dica de Hunter</span>
-                <h3 class="title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
-                <p class="excerpt">A Ford revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap de Hunting.</p>
-            </a>
-
-            <!-- 👇 4º LUGAR 👇 -->
             <a href="artigo-lideranca-jovem-volume-4-maio.html" data-category="jovem-lideranca">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80">
                 <span class="tag">Jovem Liderança</span>
@@ -179,78 +170,356 @@
                 <p class="excerpt">A curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão.</p>
             </a>
 
-            <!-- 👇 5º LUGAR 👇 -->
-            <a href="artigo-moeda-oculta-lideranca-autorregulacao.html" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">A Moeda Oculta: Como a Autorregulação Define o Valuation do Executivo</h3>
-                <p class="excerpt">A hiperdisponibilidade digital não projeta comprometimento; sinaliza falha de governança. Saiba como Conselhos analisam isso.</p>
+            <a href="artigo-apagao-tech-rh-estrategico.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
+                <p class="excerpt">A Ford revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap do CHRO.</p>
             </a>
 
-            <!-- 👇 6º LUGAR EM DIANTE (DAQUI PRA BAIXO TODOS VIRAM LISTA COMPACTA) 👇 -->
-            <a href="entrevista-elas-no-cafezinho.html" data-category="elas-no-radar">
+            <a href="artigo-moeda-oculta-lideranca-autorregulacao.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=600">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Moeda Oculta da Liderança: Como a Autorregulação Define o Valuation</h3>
+                <p class="excerpt">A hiperdisponibilidade digital não projeta comprometimento; sinaliza falha estrutural de governança pessoal. Descubra a análise dos Headhunters.</p>
+            </a>
+
+            <a href="entrevista-elas-no-cafezinho.html" data-category="entrevistas">
                 <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg">
-                <span class="tag">Elas no Radar</span>
+                <span class="tag">Entrevistas Exclusivas</span>
                 <h3 class="title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h3>
-                <p class="excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica feminina.</p>
+                <p class="excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica. Uma entrevista exclusiva.</p>
+            </a>
+
+            <a href="artigo-nao-te-demores-no-menos.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?fm=webp&w=800&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Não Te Demores no Menos: O Macro Cenário Não Espera o Executivo Tático</h3>
+                <p class="excerpt">Edição especial analisando as grandes movimentações da semana e como líderes se desapegam do microgerenciamento.</p>
+            </a>
+
+            <a href="artigo-indicacao-premio-ibest-2026.html" data-category="radar-executivo">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem13%20(5).JPG">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Relevância Além do Algoritmo: Indicação Consecutiva ao Prêmio iBest 2026</h3>
+                <p class="excerpt">Ana Paula Marçal Fortunato é finalista pelo segundo ano consecutivo nas categorias RH e LinkedIn Influencer.</p>
+            </a>
+
+            <a href="artigo-networking-alta-gestao-gerar-negocios.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
+                <p class="excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como o C-Level constrói alianças estratégicas focadas em resolver problemas.</p>
+            </a>
+
+            <a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" data-category="entrevistas">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg">
+                <span class="tag">Entrevistas Exclusivas</span>
+                <h3 class="title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
+                <p class="excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência de alinhar ESG à estratégia.</p>
+            </a>
+
+            <a href="artigo-radar-executivo-vol1-maio-2026.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Dança das Cadeiras no C-Level: O Novo Mapa do Mercado (Vol 1)</h3>
+                <p class="excerpt">Acompanhe e entenda os fatos por trás das recentes transições executivas na Braskem, Unico e Jirau Energia.</p>
             </a>
 
             <a href="artigo-danca-cadeiras-recorde-ceos-maio-2026.html" data-category="radar-executivo">
                 <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
                 <h3 class="title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h3>
-                <p class="excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão do mercado sobre a BMW e B3.</p>
+                <p class="excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão dos Headhunters sobre os movimentos na BMW e Pão de Açúcar.</p>
             </a>
 
-            <a href="artigo-networking-alta-gestao-gerar-negocios.html" data-category="dica-de-hunter">
-                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80">
-                <span class="tag">Dica de Hunter</span>
-                <h3 class="title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
-                <p class="excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como construir alianças focadas em resolver problemas.</p>
-            </a>
-
-            <a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" data-category="radar-executivo">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg">
+            <a href="artigo-microgerenciamento-alta-lideranca-diretores.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
-                <h3 class="title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
-                <p class="excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência do ESG.</p>
+                <h3 class="title">O Teto de Vidro da Autonomia: Lidando com o Microgerenciamento</h3>
+                <p class="excerpt">Gerentes podados por Diretores: por que a falta de autonomia existe no C-Level e como aplicar o "Managing Up".</p>
             </a>
 
-            <a href="artigo-rh-ma-capital-humano.html" data-category="dica-de-hunter">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800">
-                <span class="tag">Dica de Hunter</span>
-                <h3 class="title">Fusões e Aquisições (M&A): O Guia Definitivo do Capital Humano</h3>
-                <p class="excerpt">Como evitar o colapso cultural pós-fusão, auditar lideranças e proteger a integração.</p>
-            </a>
-
-            <a href="artigo-elas-no-radar-vol-5-maio.html" data-category="elas-no-radar">
+            <a href="artigo-lideranca-feminina-mulheres-clevel-mercado-corporativo.html" data-category="elas-no-radar">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80">
                 <span class="tag">Elas no Radar</span>
-                <h3 class="title">Série Vol. 5: Da Base ao Bilhão e a Governança Lupo</h3>
-                <p class="excerpt">As lições de Lídia Abdalla na escalada do Sabin e o marco de sucessão familiar de Liliana Aufiero.</p>
+                <h3 class="title">O Impacto da Liderança Feminina na Blindagem de Riscos C-Level</h3>
+                <p class="excerpt">A ascensão feminina no Venture Capital e o peso de ter mulheres no Conselho para frear litígios corporativos.</p>
+            </a>
+
+            <a href="artigo-manipulacao-ia-curriculos-judiciario.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fm=webp&w=800&q=80">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Prompt Injection e o Fim dos Currículos Manipulados</h3>
+                <p class="excerpt">Juiz multa advogadas por hackear IA. Entenda a punição para profissionais que mentem em sistemas ATS.</p>
             </a>
 
             <a href="artigo-novo-c-level-agronegocio-agrobrasilia-2026.html" data-category="radar-executivo">
                 <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
-                <h3 class="title">O Novo C-Level do Agronegócio e os Ecos da AgroBrasília 2026</h3>
-                <p class="excerpt">A migração agressiva de executivos da Faria Lima e Big Techs para o campo.</p>
+                <h3 class="title">O Novo C-Level do Agronegócio e a AgroBrasília 2026</h3>
+                <p class="excerpt">A migração de executivos Tech e da Faria Lima para o campo: a nova guerra de talentos das gigantes do Agro.</p>
+            </a>
+
+            <a href="artigo-elas-no-radar-vol-5-maio.html" data-category="elas-no-radar">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Vol 5 Maio: Da Base ao Bilhão e a Governança Lupo</h3>
+                <p class="excerpt">As lições de Lídia Abdalla (Grupo Sabin) e o marco de sucessão familiar de Liliana Aufiero (Lupo).</p>
+            </a>
+
+            <a href="entrevista-gislaine-righi.html" data-category="elas-no-radar">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem8.jpg">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Gislaine Righi: Liderança Humanizada e o "Jeito Disney"</h3>
+                <p class="excerpt">A especialista debate os desafios de unir 5 gerações e como encantar colaboradores e clientes.</p>
+            </a>
+
+            <a href="artigo-jovem-lideranca-vol-2-maio.html" data-category="jovem-lideranca">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?fm=webp&w=800&q=80">
+                <span class="tag">Jovem Liderança</span>
+                <h3 class="title">Volume 2 Maio: Trainees Eneva, ICC, Mazars</h3>
+                <p class="excerpt">As 7 gigantes da infraestrutura, saúde e auditoria que estão moldando os CEOs de amanhã.</p>
+            </a>
+
+            <a href="artigo-elas-no-radar-vol-4-maio2026.html" data-category="elas-no-radar">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?fm=webp&w=800&q=80">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Vol 4 Maio: O Manual de Contratação C-Level</h3>
+                <p class="excerpt">A meta de 50% de Luiza Trajano e as 4 táticas infalíveis para Conselhos recrutarem mulheres.</p>
             </a>
 
             <a href="artigo-nr1-risco-governanca-c-level.html" data-category="radar-executivo">
                 <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=800">
                 <span class="tag">Radar Executivo</span>
-                <h3 class="title">NR-1: O Fim da Tolerância Corporativa na Alta Liderança</h3>
-                <p class="excerpt">Como a conivência com líderes tóxicos no C-Level causa passivos jurídicos incalculáveis.</p>
+                <h3 class="title">NR-1: O Fim do "Mimimi Corporativo" na Alta Liderança</h3>
+                <p class="excerpt">Como a tolerância com líderes tóxicos causa a Degradação do Capital Intelectual e gera passivos.</p>
+            </a>
+
+            <a href="artigo-c-level-diretoria-nao-e-time.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Ilusão do C-Level: Por que a sua Diretoria não é um Time</h3>
+                <p class="excerpt">Silos, guerra de egos e falta de segurança psicológica. Como a falta de coesão destrói a sua vantagem competitiva.</p>
+            </a>
+
+            <a href="artigo-blog-linkedin-top-companies.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Código Aberto do 'Top Companies 2026' no C-Suite</h3>
+                <p class="excerpt">Afinal, que vantagens únicas de carreira essas empresas têm a oferecer que o dinheiro não compra?</p>
+            </a>
+
+            <a href="artigo-elas-no-radar-vol-1-maio.html" data-category="elas-no-radar">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Elas no Radar Volume 1 Maio</h3>
+                <p class="excerpt">A força da Geração X Feminina e os dados reais do relatório LinkedIn 2026.</p>
+            </a>
+
+            <a href="artigo-top-companies-2026-competencias-c-level.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?fm=webp&w=800&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Top Companies 2026: O impeditivo nº 1 para o C-Level</h3>
+                <p class="excerpt">A "Arrogância de Playbook" e a nova matriz de liderança exigida pela elite do mercado.</p>
+            </a>
+
+            <a href="artigo-jovem-lideranca-era-trainee-10k.html" data-category="jovem-lideranca">
+                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?fm=webp&w=800&q=80">
+                <span class="tag">Jovem Liderança</span>
+                <h3 class="title">Por que o C-Level está pagando 14k para Trainees?</h3>
+                <p class="excerpt">A nova exigência por orquestração de cultura e resiliência emocional na base.</p>
+            </a>
+
+            <a href="artigo-competencias-c-level-futuro-lideranca.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?fm=webp&w=800&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Quais competências o Executivo realmente precisa?</h3>
+                <p class="excerpt">A ilusão técnica e a necessidade de agilidade política na alta gestão.</p>
+            </a>
+
+            <a href="artigo-crise-silenciosa-lideranca-retencao-c-level.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Por que pagar acima do mercado não retém o Top 1%</h3>
+                <p class="excerpt">A quebra do contrato psicológico e o turnover executivo em 2026.</p>
+            </a>
+
+            <a href="artigo-elas-no-radar-cfos-blindagem-valuation.html" data-category="elas-no-radar">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">As CFOs de 2026 e a Blindagem do Valuation</h3>
+                <p class="excerpt">A psicologia do risco financeiro e por que o Headhunting exige Culture Add para M&A.</p>
+            </a>
+
+            <a href="artigo-turnover-selo-qualidade.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">O Novo Valuation do Talento: Baixo Turnover no C-Suite</h3>
+                <p class="excerpt">Por que reter líderes excepcionais tornou-se o atestado de maturidade para investidores.</p>
+            </a>
+
+            <a href="entrevista-debora-boscolo.html" data-category="entrevistas">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png">
+                <span class="tag">Entrevistas Exclusivas</span>
+                <h3 class="title">Liderança Consciente: A Trajetória de Débora Boscolo</h3>
+                <p class="excerpt">A especialista discute sua transição do mercado financeiro e a humanização de empresas.</p>
+            </a>
+
+            <a href="https://simplificaedu.com.br/ia-express-paula" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">IA Express: Domine a Inteligência Artificial na Gestão de Negócios</h3>
+                <p class="excerpt">Aprenda na prática a implementar ChatGPT e Gemini para escalar produtividade.</p>
+            </a>
+
+            <a href="artigo-quando-abordar-headhunter-c-level.html" data-category="radar-executivo">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem4.jpg">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Quando abordar um Headhunter C-Level (e quando jamais fazê-lo)</h3>
+                <p class="excerpt">A falsa vulnerabilidade destrói seu Valuation. Descubra como operar no mercado oculto com governança.</p>
+            </a>
+
+            <a href="entrevista-romulo-correa.html" data-category="entrevistas">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem3.jpg">
+                <span class="tag">Entrevistas Exclusivas</span>
+                <h3 class="title">O Fim do "SEO Tradicional" no LinkedIn e a Era da IA na Carreira</h3>
+                <p class="excerpt">Entrevista com Romulo Correa, LinkedIn Top Voice, sobre o novo algoritmo da rede.</p>
+            </a>
+
+            <a href="entrevista-aline-barbara.html" data-category="entrevistas">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem5.jpg">
+                <span class="tag">Entrevistas Exclusivas</span>
+                <h3 class="title">A Humanização como Vantagem: O RH Estratégico e a Marca Pessoal</h3>
+                <p class="excerpt">Aline Barbara discute o impacto do Employer Branding e o combate ao etarismo.</p>
+            </a>
+
+            <a href="artigo-momento-promocao.html" data-category="radar-executivo">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem2.jpg">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Momento Certo de Pleitear uma Promoção</h3>
+                <p class="excerpt">Saiba identificar os indicadores de maturidade profissional e construir o Business Case.</p>
+            </a>
+
+            <a href="artigo-recrutamento-elite-top-1-porcento.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Como Atrair o Top 1% dos Candidatos</h3>
+                <p class="excerpt">Por que anúncios de vagas não funcionam para a alta liderança.</p>
+            </a>
+
+            <a href="artigo-plano-90-dias.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Plano de 90 Dias: Diferencial na entrevista</h3>
+                <p class="excerpt">Deixe de ser um candidato para se tornar um consultor estratégico.</p>
+            </a>
+
+            <a href="artigo-entrevista-socios-private-equity.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Sobrevivendo à Entrevista com Sócios (PE)</h3>
+                <p class="excerpt">Aprenda a navegar na política da última barreira entre você e a cadeira.</p>
+            </a>
+
+            <a href="artigo-mercado-oculto-vagas.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">As melhores vagas nunca são publicadas</h3>
+                <p class="excerpt">A mecânica corporativa do Stealth Search e as vagas confidenciais.</p>
+            </a>
+
+            <a href="artigo-rh-remuneracao-estrategica.html" data-category="dica-de-hunter">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/business-man-checks-mobile.jpg">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Remuneração Estratégica para o C-Suite</h3>
+                <p class="excerpt">Vá além do salário base: saiba como desenhar pacotes de Equity e LTI.</p>
+            </a>
+
+            <a href="artigo-linkedin-atrai-headhunters.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">O LinkedIn que atrai Headhunters</h3>
+                <p class="excerpt">O que os recrutadores de elite procuram e como estruturar o seu Valuation.</p>
+            </a>
+
+            <a href="artigo-negociacao-salario-c-level.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Negociação de Pacotes C-Level</h3>
+                <p class="excerpt">Entenda a mecânica de Equity, LTI, STI e as luvas de contratação.</p>
+            </a>
+
+            <a href="artigo-entrevista-como-rodada-investimentos.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A entrevista como rodada de investimentos</h3>
+                <p class="excerpt">Trate a sua transição de carreira como o roadshow de uma startup.</p>
+            </a>
+
+            <a href="artigo-armadilha-da-vulnerabilidade.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Como falar de fracassos reais</h3>
+                <p class="excerpt">Por que responder 'sou perfeccionista' é atestado de falta de senioridade.</p>
+            </a>
+
+            <a href="artigo-follow-up-executivo.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Follow-up Executivo: Estratégia</h3>
+                <p class="excerpt">A linha tênue entre demonstrar garra comercial e queimar o Valuation.</p>
+            </a>
+
+            <a href="artigo-culture-add-comites.html" data-category="dica-de-hunter">
+                <img src="https://www.sct.ce.gov.br/wp-content/uploads/sites/34/2019/10/Resultado.png">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Cultural Fit x Culture Add</h3>
+                <p class="excerpt">Por que empresas buscam líderes que desafiem o status quo.</p>
+            </a>
+
+            <a href="artigo-senioridade-executiva-etarismo.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Paradoxo da Senioridade e o Etarismo</h3>
+                <p class="excerpt">Como combater o etarismo provando que 30 anos de carreira significam gestão de crises.</p>
+            </a>
+
+            <a href="artigo-entrevista-conselho-board.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Entrevista para Conselho (Board)</h3>
+                <p class="excerpt">Por que mostrar 'capacidade de execução' pode te eliminar sumariamente.</p>
+            </a>
+
+            <a href="artigo-backchanneling-referencias.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Backchanneling: A checagem invisível</h3>
+                <p class="excerpt">Como os Headhunters investigam a sua reputação conversando em "off".</p>
+            </a>
+
+            <a href="artigo-executivo-polvo-operacao.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Executivo Polvo e a armadilha da operação</h3>
+                <p class="excerpt">Por que resolver tudo está destruindo o seu valuation no mercado.</p>
+            </a>
+
+            <a href="artigo-rh-ma-capital-humano.html" data-category="dica-de-hunter">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">M&A e Capital Humano</h3>
+                <p class="excerpt">Como evitar o colapso cultural pós-fusão e proteger o Valuation da empresa.</p>
             </a>
 
             <a href="artigo-rh-onboarding-elite.html" data-category="dica-de-hunter">
                 <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/taking-notes-and-working-on-laptop.jpg">
                 <span class="tag">Dica de Hunter</span>
-                <h3 class="title">O Manual do Onboarding de Elite para Diretoria e Conselhos</h3>
-                <p class="excerpt">Evite a síndrome da "rejeição do transplante" corporativo. O passo a passo para integrar um novo C-Level.</p>
+                <h3 class="title">Onboarding de Elite para Diretoria</h3>
+                <p class="excerpt">Evite a rejeição do transplante corporativo ao contratar um novo C-Level.</p>
             </a>
-            
+
         </div>
     </main>
 
@@ -262,10 +531,8 @@
             const listZone = document.getElementById('listZone');
             const noResultsMsg = document.getElementById('noResultsMsg');
             
-            // Limpa as zonas
             heroZone.innerHTML = ''; gridZone.innerHTML = ''; listZone.innerHTML = '';
             
-            // Coleta e filtra dados da div escondida
             const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
             let visibleArticles = sources.filter(a => {
                 const matchFiltro = filtro === 'todos' || a.getAttribute('data-category') === filtro;
@@ -279,7 +546,6 @@
             }
             noResultsMsg.style.display = 'none';
 
-            // Cria o HTML baseado na posição (Hero -> Grid -> Lista)
             visibleArticles.forEach((item, index) => {
                 const url = item.getAttribute('href');
                 const imgSrc = item.querySelector('img').src;
@@ -341,7 +607,6 @@
             renderArticles('todos', input);
         }
 
-        // Roda a montagem inicial quando a página carrega
         document.addEventListener("DOMContentLoaded", () => renderArticles('todos', ''));
     </script>
 
