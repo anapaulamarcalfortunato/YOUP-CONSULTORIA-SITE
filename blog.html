@@ -13,376 +13,327 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Insights Corporativos | Portal Executivo YOUP</title>
-    <meta name="description" content="Artigos, tendências e inteligência de mercado sobre Executive Search, Outplacement e transição de carreira para alta liderança.">
+    <meta name="description" content="Artigos, tendências e inteligência de mercado sobre Executive Search e liderança.">
     <meta name="robots" content="index, follow">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        :root { --verde-youp: #5c8e82; --dourado: #c5a059; --cinza-escuro: #0a0a0a; --cinza-card: rgba(20, 20, 20, 0.7); --texto-claro: #fcfcfc; --texto-mute: #a0a0a0; }
-        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--cinza-escuro); background-image: radial-gradient(circle at 50% 0%, rgba(30,30,30,1) 0%, rgba(10,10,10,1) 80%); color: var(--texto-claro); min-height: 100vh; display: flex; flex-direction: column; top: 0px !important; }
+        :root { --dourado: #c5a059; --fundo: #ffffff; --texto-escuro: #111111; --texto-cinza: #666666; --borda: #e5e5e5; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fundo); color: var(--texto-escuro); min-height: 100vh; top: 0px !important; }
         
-        /* NAVBAR E BUSCA */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; border-bottom: 1px solid rgba(197, 160, 89, 0.15); background: rgba(10,10,10,0.8); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000;}
-        .brand-text { color: var(--dourado); font-size: 16px; font-weight: 800; letter-spacing: 5px; text-decoration: none; }
-        .nav-controls { display: flex; gap: 20px; align-items: center; }
+        /* HEADER EDITORIAL (Estilo Business Week) */
+        .top-bar { border-bottom: 1px solid var(--borda); padding: 10px 50px; display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+        .top-bar-links a { color: var(--texto-escuro); text-decoration: none; margin-left: 20px; transition: 0.3s; }
+        .top-bar-links a:hover { color: var(--dourado); }
+
+        .header-brand { text-align: center; padding: 40px 20px; border-bottom: 2px solid var(--texto-escuro); margin: 0 50px; }
+        .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
+        .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
+
+        /* MENUS & FILTROS */
+        .editorial-nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--borda); margin-bottom: 40px; }
+        .filter-container { display: flex; gap: 30px; }
+        .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-cinza); cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
+        .filter-btn:hover { color: var(--texto-escuro); }
+        .filter-btn.active { color: var(--texto-escuro); }
+        .filter-btn.active::after { content: ''; position: absolute; bottom: -23px; left: 0; width: 100%; height: 2px; background: var(--dourado); }
+
+        .search-input { border: none; border-bottom: 1px solid var(--borda); padding: 5px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; outline: none; width: 200px; transition: 0.3s; background: transparent; }
+        .search-input:focus { border-color: var(--dourado); width: 250px; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
+
+        /* ========================================= */
+        /* LAYOUT EDITORIAL DINÂMICO                 */
+        /* ========================================= */
+        .editorial-feed { display: flex; flex-direction: column; gap: 40px; }
         
-        .btn-voltar { background: transparent; color: var(--texto-claro); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: 0.3s; }
-        .btn-voltar:hover { border-color: var(--dourado); color: var(--dourado); }
+        .article-card { text-decoration: none; color: var(--texto-escuro); display: flex; transition: opacity 0.3s; }
+        .article-card:hover { opacity: 0.85; }
+        
+        .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 10px; display: block; }
+        .article-img { object-fit: cover; background: #eee; }
+        
+        /* 1. DESTAQUE PRINCIPAL (HERO) */
+        .hero-article { flex-direction: row; gap: 40px; border-bottom: 1px solid var(--borda); padding-bottom: 40px; }
+        .hero-article .img-wrapper { width: 65%; height: 450px; flex-shrink: 0; }
+        .hero-article .article-img { width: 100%; height: 100%; }
+        .hero-article .content-wrapper { width: 35%; display: flex; flex-direction: column; justify-content: center; }
+        .hero-article .article-title { font-size: 38px; font-weight: 800; line-height: 1.1; margin: 0 0 20px; letter-spacing: -1px; }
+        .hero-article .article-excerpt { font-size: 16px; color: var(--texto-cinza); line-height: 1.6; margin: 0; }
 
-        .search-input { padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(197, 160, 89, 0.3); background: rgba(0,0,0,0.5); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 12px; outline: none; transition: 0.4s; width: 220px; }
-        .search-input:focus { border-color: var(--dourado); box-shadow: 0 0 15px rgba(197, 160, 89, 0.2); width: 280px; }
-        .search-input::placeholder { color: rgba(255,255,255,0.4); }
+        /* 2. GRADE DE 4 ARTIGOS COM IMAGEM */
+        .grid-articles-wrapper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; border-bottom: 2px solid var(--texto-escuro); padding-bottom: 40px; margin-top: -10px;}
+        .grid-article { flex-direction: column; gap: 15px; }
+        .grid-article .img-wrapper { width: 100%; height: 180px; }
+        .grid-article .article-img { width: 100%; height: 100%; }
+        .grid-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px; }
+        .grid-article .article-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
 
-        /* Ajustes Google Translate */
+        /* 3. LISTA COMPACTA (OS DEMAIS) */
+        .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: x 40px; column-gap: 50px; row-gap: 0; }
+        .list-article { flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; }
+        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
+        .list-article .article-img { width: 100%; height: 100%; }
+        .list-article .content-wrapper { flex: 1; }
+        .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
+        .list-article .article-excerpt { display: none; /* Esconde o resumo na lista pequena para ficar clean */ }
+
+        .no-results { text-align: center; padding: 60px; color: var(--texto-cinza); font-style: italic; display: none; width: 100%; }
+
+        /* Ajustes Google Translate no tema claro */
         .goog-te-banner-frame.skiptranslate { display: none !important; }
-        #google_translate_element select { background: transparent; color: var(--dourado); border: 1px solid rgba(197, 160, 89, 0.4); padding: 8px 12px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; outline: none; cursor: pointer; }
-        #google_translate_element select option { background: var(--cinza-escuro); color: var(--dourado); }
-        .goog-logo-link, .goog-te-gadget span { display: none !important; }
-        .goog-te-gadget { color: transparent !important; margin: 0; font-size: 0; }
-
-        /* HEADER & FILTROS */
-        .page-header { text-align: center; padding: 50px 20px 30px; }
-        .page-title { font-size: 42px; font-weight: 300; margin: 0 0 15px; letter-spacing: -1px; color: #fff; }
-        .page-title b { font-weight: 800; color: var(--dourado); }
-        .page-subtitle { font-size: 14px; color: var(--texto-mute); max-width: 600px; margin: 0 auto; line-height: 1.6; }
-        
-        .filter-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; padding: 0 20px; }
-        .filter-btn { background: rgba(255,255,255,0.03); color: #bbb; border: 1px solid rgba(255,255,255,0.1); padding: 10px 24px; border-radius: 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
-        .filter-btn:hover { border-color: rgba(197, 160, 89, 0.5); color: #fff; transform: translateY(-2px); }
-        .filter-btn.active { background: var(--dourado); color: #000; border-color: var(--dourado); font-weight: 800; }
-
-        .container { max-width: 1300px; margin: 0 auto; width: 100%; padding: 0 20px 80px; box-sizing: border-box; }
-
-        /* ========================================= */
-        /* PORTAL EDITORIAL GRID (MAGAZINE STYLE)    */
-        /* ========================================= */
-        .portal-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; auto-rows: minmax(180px, auto); align-items: stretch; }
-        
-        .portal-card { background: var(--cinza-card); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; position: relative; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .portal-card:hover { transform: translateY(-5px); border-color: rgba(197, 160, 89, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-        
-        .card-img-box { width: 100%; height: 220px; overflow: hidden; position: relative; flex-shrink: 0; }
-        .card-img-box::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.9) 100%); }
-        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-        .portal-card:hover .card-img { transform: scale(1.08); }
-        
-        .card-info { padding: 25px; display: flex; flex-direction: column; flex: 1; z-index: 2; position: relative; }
-        .card-tag { display: inline-block; font-size: 10px; text-transform: uppercase; color: var(--dourado); letter-spacing: 2px; font-weight: 800; margin-bottom: 12px; background: rgba(197,160,89,0.1); padding: 4px 10px; border-radius: 4px; width: fit-content;}
-        .card-title { font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.4; color: #fff; }
-        .card-excerpt { font-size: 13px; color: var(--texto-mute); line-height: 1.6; margin: 0 0 20px; font-weight: 400; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .card-link { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--dourado); font-weight: 700; margin-top: auto; display: flex; align-items: center; gap: 5px; transition: 0.3s;}
-        .portal-card:hover .card-link { gap: 10px; }
-
-        /* --- CLASSES DINÂMICAS DO GRID --- */
-        
-        /* Capa Principal (Hero) */
-        .portal-card.hero { grid-column: span 8; grid-row: span 2; display: flex; flex-direction: column; justify-content: flex-end; }
-        .portal-card.hero .card-img-box { position: absolute; top:0; left:0; width:100%; height:100%; }
-        .portal-card.hero .card-img-box::after { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(10,10,10,0.95) 90%); }
-        .portal-card.hero .card-info { padding: 40px; margin-top: 250px; }
-        .portal-card.hero .card-title { font-size: 32px; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .portal-card.hero .card-excerpt { font-size: 15px; color: #ddd; -webkit-line-clamp: 2; max-width: 80%; }
-
-        /* Destaques Laterais (Side) */
-        .portal-card.side { grid-column: span 4; grid-row: span 1; }
-        .portal-card.side .card-img-box { height: 180px; }
-        .portal-card.side .card-title { font-size: 16px; }
-
-        /* Cards Largos (Wide - quebram a monotonia) */
-        .portal-card.wide { grid-column: span 6; flex-direction: row; align-items: stretch; }
-        .portal-card.wide .card-img-box { width: 40%; height: auto; }
-        .portal-card.wide .card-img-box::after { background: linear-gradient(to right, transparent 50%, var(--cinza-card) 100%); }
-        .portal-card.wide .card-info { width: 60%; justify-content: center; }
-
-        /* Cards Normais (Regular) */
-        .portal-card.regular { grid-column: span 4; }
-
-        /* Estado Vazio */
-        .no-results { grid-column: span 12; text-align: center; padding: 60px; color: var(--texto-mute); font-size: 18px; font-style: italic; display: none; }
+        #google_translate_element select { background: transparent; color: var(--texto-escuro); border: 1px solid var(--borda); padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; outline: none; cursor: pointer; }
 
         @media (max-width: 1024px) {
-            .portal-card.hero { grid-column: span 12; grid-row: span 1; }
-            .portal-card.hero .card-info { margin-top: 150px; padding: 30px; }
-            .portal-card.side { grid-column: span 6; }
-            .portal-card.wide { grid-column: span 12; }
-            .portal-card.regular { grid-column: span 6; }
+            .hero-article { flex-direction: column; }
+            .hero-article .img-wrapper, .hero-article .content-wrapper { width: 100%; height: auto; }
+            .grid-articles-wrapper { grid-template-columns: repeat(2, 1fr); }
+            .list-articles-wrapper { grid-template-columns: 1fr; }
         }
-        @media (max-width: 768px) { 
-            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-controls { width: 100%; justify-content: space-between; flex-wrap: wrap;}
-            .search-input { width: 100%; margin-top: 10px;}
-            .search-input:focus { width: 100%; }
-            .page-title { font-size: 32px; } 
-            .portal-card.hero .card-title { font-size: 24px; }
-            .portal-card.hero .card-excerpt { max-width: 100%; }
-            .portal-card.side, .portal-card.regular, .portal-card.wide { grid-column: span 12; }
-            .portal-card.wide { flex-direction: column; }
-            .portal-card.wide .card-img-box { width: 100%; height: 200px; }
-            .portal-card.wide .card-img-box::after { background: linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.9) 100%); }
-            .portal-card.wide .card-info { width: 100%; }
+        @media (max-width: 768px) {
+            .header-brand { margin: 0 20px; padding: 30px 10px; }
+            .page-title { font-size: 36px; }
+            .editorial-nav { flex-direction: column; gap: 20px; padding: 20px; align-items: flex-start; }
+            .filter-container { flex-wrap: wrap; gap: 15px; }
+            .container { padding: 0 20px; }
+            .grid-articles-wrapper { grid-template-columns: 1fr; }
+            .list-article .img-wrapper { display: none; /* Esconde imagem na lista pequena no celular */ }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="index.html" class="brand-text">YOUP</a>
-        <div class="nav-controls">
-            <div id="google_translate_element"></div>
-            <a href="index.html" class="btn-voltar">← Início</a>
-            <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar por tema, autor ou empresa..." onkeyup="pesquisarArtigos()">
+    <div class="top-bar">
+        <div id="google_translate_element"></div>
+        <div class="top-bar-links">
+            <a href="index.html">← Voltar ao Início</a>
         </div>
-    </nav>
-
-    <header class="page-header">
-        <h1 class="page-title">Portal <b>Executivo</b></h1>
-        <p class="page-subtitle">A curadoria definitiva de inteligência de mercado, movimentações C-Level e arquitetura de carreira para a alta liderança.</p>
-    </header>
-
-    <div class="filter-container">
-        <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todas as Editorias</button>
-        <button class="filter-btn" onclick="filtrarBlog('radar-executivo', this)">Radar Executivo</button>
-        <button class="filter-btn" onclick="filtrarBlog('elas-no-radar', this)">Elas no Radar</button>
-        <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
-        <button class="filter-btn" onclick="filtrarBlog('rh', this)">Estratégia de RH</button>
-        <button class="filter-btn" onclick="filtrarBlog('carreira', this)">Governança & Carreira</button>
-        <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
     </div>
 
+    <header class="header-brand">
+        <h1 class="page-title">Insights Corporativos</h1>
+        <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
+    </header>
+
+    <nav class="editorial-nav">
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filtrarBlog('radar-executivo', this)">Radar Executivo</button>
+            <button class="filter-btn" onclick="filtrarBlog('elas-no-radar', this)">Elas no Radar</button>
+            <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
+            <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
+        </div>
+        <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
+    </nav>
+
     <main class="container">
-        <div class="portal-grid" id="portalGrid">
+        
+        <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado.</div>
+
+        <!-- O Javascript usará essas divs para distribuir os artigos -->
+        <div class="editorial-feed">
+            <div id="heroZone"></div>
+            <div id="gridZone" class="grid-articles-wrapper"></div>
+            <div id="listZone" class="list-articles-wrapper"></div>
+        </div>
+
+        <!-- REPOSITÓRIO DE ARTIGOS (Escondido, apenas fornece dados para o JS) -->
+        <div id="sourceArticles" style="display: none;">
             
-            <div class="no-results" id="noResultsMsg">Nenhum artigo encontrado para a sua busca.</div>
-
-            <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" class="portal-card search-item" data-category="radar-executivo">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80" class="card-img" alt="Radar Executivo C-Level 2026"></div>
-                <div class="card-info">
-                    <span class="card-tag">Radar Executivo</span>
-                    <h3 class="card-title">A Nova Arquitetura do Poder C-Level: Inter, Vamos e a Ascensão de Ana Sanches</h3>
-                    <p class="card-excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia do Soft Power corporativo nos Conselhos.</p>
-                    <span class="card-link">Ler Análise Completa ➔</span>
-                </div>
+            <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Nova Arquitetura do Poder C-Level: Inter, Vamos e a Ascensão de Ana Sanches</h3>
+                <p class="excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia corporativa.</p>
             </a>
 
-            <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" class="portal-card search-item" data-category="elas-no-radar">
-                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800" class="card-img" alt="Liderança Feminina no C-Level"></div>
-                <div class="card-info">
-                    <span class="card-tag">Elas no Radar</span>
-                    <h3 class="card-title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h3>
-                    <p class="card-excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia estratégica destrói o Valuation da empresa.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" data-category="elas-no-radar">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h3>
+                <p class="excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia destrói o Valuation da empresa.</p>
             </a>
 
-            <a href="artigo-apagao-tech-rh-estrategico.html" class="portal-card search-item" data-category="rh">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800" class="card-img" alt="Equipe Tech"></div>
-                <div class="card-info">
-                    <span class="card-tag">Estratégia de RH</span>
-                    <h3 class="card-title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
-                    <p class="card-excerpt">A Ford/Datafolha revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap do CHRO para resolver o gap via upskilling.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-apagao-tech-rh-estrategico.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
+                <p class="excerpt">A Ford revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap de Hunting.</p>
             </a>
 
-            <a href="artigo-lideranca-jovem-volume-4-maio.html" class="portal-card search-item" data-category="jovem-lideranca">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80" class="card-img" alt="Painel Jovem Liderança"></div>
-                <div class="card-info">
-                    <span class="card-tag">Jovem Liderança</span>
-                    <h3 class="card-title">Painel: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h3>
-                    <p class="card-excerpt">A nossa curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão e ao C-Level.</p>
-                    <span class="card-link">Acessar Painel ➔</span>
-                </div>
+            <a href="artigo-lideranca-jovem-volume-4-maio.html" data-category="jovem-lideranca">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80">
+                <span class="tag">Jovem Liderança</span>
+                <h3 class="title">Painel: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h3>
+                <p class="excerpt">A curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão.</p>
             </a>
 
-            <a href="artigo-moeda-oculta-lideranca-autorregulacao.html" class="portal-card search-item" data-category="carreira">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800" class="card-img" alt="Moeda oculta da liderança"></div>
-                <div class="card-info">
-                    <span class="card-tag">Governança & Carreira</span>
-                    <h3 class="card-title">A Moeda Oculta: Como a Autorregulação Define o Valuation do Executivo</h3>
-                    <p class="card-excerpt">A hiperdisponibilidade digital não projeta alto comprometimento; ela sinaliza falha estrutural de governança pessoal. Saiba como os Boards analisam isso.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-moeda-oculta-lideranca-autorregulacao.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Moeda Oculta: Como a Autorregulação Define o Valuation do Executivo</h3>
+                <p class="excerpt">A hiperdisponibilidade digital não projeta comprometimento; sinaliza falha de governança. Saiba como Conselhos analisam isso.</p>
             </a>
 
-            <a href="entrevista-elas-no-cafezinho.html" class="portal-card search-item" data-category="entrevistas">
-                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg" class="card-img" alt="Elas no Cafezinho"></div>
-                <div class="card-info">
-                    <span class="card-tag">Entrevistas Exclusivas</span>
-                    <h3 class="card-title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h3>
-                    <p class="card-excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica. Uma entrevista exclusiva com Simone Sommariva e Lilian Leal.</p>
-                    <span class="card-link">Ler Entrevista ➔</span>
-                </div>
+            <a href="entrevista-elas-no-cafezinho.html" data-category="elas-no-radar">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h3>
+                <p class="excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica feminina.</p>
             </a>
 
-            <a href="artigo-danca-cadeiras-recorde-ceos-maio-2026.html" class="portal-card search-item" data-category="radar-executivo">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80" class="card-img" alt="Dança das Cadeiras CEOs"></div>
-                <div class="card-info">
-                    <span class="card-tag">Radar Executivo</span>
-                    <h3 class="card-title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h3>
-                    <p class="card-excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão dos Headhunters sobre os movimentos na BMW, B3, Pão de Açúcar e Vivara.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-danca-cadeiras-recorde-ceos-maio-2026.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h3>
+                <p class="excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão do mercado sobre a BMW e B3.</p>
             </a>
 
-            <a href="artigo-networking-alta-gestao-gerar-negocios.html" class="portal-card search-item" data-category="carreira">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80" class="card-img" alt="Networking de Alta Gestão"></div>
-                <div class="card-info">
-                    <span class="card-tag">Governança & Carreira</span>
-                    <h3 class="card-title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
-                    <p class="card-excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como o C-Level constrói alianças estratégicas focadas em resolver problemas setoriais.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-networking-alta-gestao-gerar-negocios.html" data-category="dica-de-hunter">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
+                <p class="excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como construir alianças focadas em resolver problemas.</p>
             </a>
 
-            <a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" class="portal-card search-item" data-category="entrevistas">
-                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg" class="card-img" alt="Entrevista Carlos Henrique"></div>
-                <div class="card-info">
-                    <span class="card-tag">Entrevistas Exclusivas</span>
-                    <h3 class="card-title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
-                    <p class="card-excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência de alinhar ESG à estratégia de negócios real.</p>
-                    <span class="card-link">Ler Entrevista ➔</span>
-                </div>
+            <a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" data-category="radar-executivo">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
+                <p class="excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência do ESG.</p>
             </a>
 
-            <a href="artigo-rh-ma-capital-humano.html" class="portal-card search-item" data-category="rh">
-                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800" class="card-img" alt="M&A e Capital Humano"></div>
-                <div class="card-info">
-                    <span class="card-tag">Estratégia de RH</span>
-                    <h3 class="card-title">Fusões e Aquisições (M&A): O Guia Definitivo do Capital Humano</h3>
-                    <p class="card-excerpt">Como evitar o colapso cultural pós-fusão, auditar lideranças e proteger o Valuation da empresa durante integrações complexas.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-rh-ma-capital-humano.html" data-category="dica-de-hunter">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">Fusões e Aquisições (M&A): O Guia Definitivo do Capital Humano</h3>
+                <p class="excerpt">Como evitar o colapso cultural pós-fusão, auditar lideranças e proteger a integração.</p>
             </a>
 
-            <a href="artigo-elas-no-radar-vol-5-maio.html" class="portal-card search-item" data-category="elas-no-radar">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80" class="card-img" alt="Case Sabin e Lupo"></div>
-                <div class="card-info">
-                    <span class="card-tag">Elas no Radar</span>
-                    <h3 class="card-title">Série Vol. 5: Da Base ao Bilhão e a Governança Lupo</h3>
-                    <p class="card-excerpt">As lições inestimáveis de Lídia Abdalla na escalada do Grupo Sabin e o marco histórico de sucessão familiar capitaneado por Liliana Aufiero (Lupo).</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-elas-no-radar-vol-5-maio.html" data-category="elas-no-radar">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fm=webp&w=800&q=80">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Série Vol. 5: Da Base ao Bilhão e a Governança Lupo</h3>
+                <p class="excerpt">As lições de Lídia Abdalla na escalada do Sabin e o marco de sucessão familiar de Liliana Aufiero.</p>
             </a>
 
-            <a href="artigo-novo-c-level-agronegocio-agrobrasilia-2026.html" class="portal-card search-item" data-category="radar-executivo">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80" class="card-img" alt="Nova Liderança do Agro"></div>
-                <div class="card-info">
-                    <span class="card-tag">Radar Executivo</span>
-                    <h3 class="card-title">O Novo C-Level do Agronegócio e os Ecos da AgroBrasília 2026</h3>
-                    <p class="card-excerpt">A migração agressiva de executivos da Faria Lima e Big Techs para o campo: mapeamos a nova guerra de talentos das gigantes do Agro.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-novo-c-level-agronegocio-agrobrasilia-2026.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O Novo C-Level do Agronegócio e os Ecos da AgroBrasília 2026</h3>
+                <p class="excerpt">A migração agressiva de executivos da Faria Lima e Big Techs para o campo.</p>
             </a>
 
-            <a href="artigo-nr1-risco-governanca-c-level.html" class="portal-card search-item" data-category="carreira">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=800" class="card-img" alt="C-Level em Risco"></div>
-                <div class="card-info">
-                    <span class="card-tag">Governança & Carreira</span>
-                    <h3 class="card-title">NR-1: O Fim da Tolerância Corporativa na Alta Liderança</h3>
-                    <p class="card-excerpt">Como a conivência com líderes de traços tóxicos no C-Level causa a degradação acelerada do capital intelectual e gera passivos jurídicos incalculáveis.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-nr1-risco-governanca-c-level.html" data-category="radar-executivo">
+                <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=800">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">NR-1: O Fim da Tolerância Corporativa na Alta Liderança</h3>
+                <p class="excerpt">Como a conivência com líderes tóxicos no C-Level causa passivos jurídicos incalculáveis.</p>
             </a>
 
-            <a href="artigo-rh-onboarding-elite.html" class="portal-card search-item" data-category="rh">
-                <div class="card-img-box"><img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/taking-notes-and-working-on-laptop.jpg" class="card-img" alt="Onboarding Executivo de Elite"></div>
-                <div class="card-info">
-                    <span class="card-tag">Estratégia de RH</span>
-                    <h3 class="card-title">O Manual do Onboarding de Elite para Diretoria e Conselhos</h3>
-                    <p class="card-excerpt">Evite a síndrome da "rejeição do transplante" corporativo. O passo a passo para integrar um novo C-Level protegendo o investimento do hunting.</p>
-                    <span class="card-link">Ler Artigo ➔</span>
-                </div>
+            <a href="artigo-rh-onboarding-elite.html" data-category="dica-de-hunter">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/taking-notes-and-working-on-laptop.jpg">
+                <span class="tag">Dica de Hunter</span>
+                <h3 class="title">O Manual do Onboarding de Elite para Diretoria e Conselhos</h3>
+                <p class="excerpt">Evite a síndrome da "rejeição do transplante" corporativo. O passo a passo para integrar um novo C-Level.</p>
             </a>
             
-            <a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" class="portal-card search-item" data-category="carreira" style="border: 1px solid var(--dourado);">
-                <div class="card-img-box"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" class="card-img" alt="Curso IA"></div>
-                <div class="card-info">
-                    <span class="card-tag" style="background: var(--dourado); color:#000;">Recomendação Especial</span>
-                    <h3 class="card-title">IA Express: Domine a Inteligência Artificial na Gestão de Negócios</h3>
-                    <p class="card-excerpt">Aprenda na prática a implementar ChatGPT, Gemini, Copilot e outras ferramentas de IA para escalar sua produtividade executiva e análise de dados. Curso Gratuito.</p>
-                    <span class="card-link" style="color: var(--dourado);">Garantir Vaga (Externa) ➔</span>
-                </div>
-            </a>
-
         </div>
     </main>
 
     <script>
-        // Função principal que orquestra a inteligência do layout editorial
-        function applyEditorialGrid() {
-            const cards = Array.from(document.querySelectorAll('.portal-card'));
-            const visibleCards = cards.filter(card => card.style.display !== 'none');
+        // Inteligência de Distribuição Editorial
+        function renderArticles(filtro, termoPesquisa) {
+            const heroZone = document.getElementById('heroZone');
+            const gridZone = document.getElementById('gridZone');
+            const listZone = document.getElementById('listZone');
+            const noResultsMsg = document.getElementById('noResultsMsg');
             
-            // Limpa as classes de tamanho antigas de todos os cards
-            cards.forEach(card => card.classList.remove('hero', 'side', 'wide', 'regular'));
-
-            // Aplica as novas classes matemáticas baseadas na visibilidade
-            visibleCards.forEach((card, index) => {
-                if(index === 0) {
-                    card.classList.add('hero'); // O primeiro visível sempre vira capa gigante
-                } 
-                else if(index === 1 || index === 2) {
-                    card.classList.add('side'); // O 2º e 3º viram os blocos laterais topo
-                } 
-                else if (index % 5 === 0 || index % 5 === 4) {
-                    card.classList.add('wide'); // Cria assimetria no grid quebrando a monotonia
-                } 
-                else {
-                    card.classList.add('regular'); // Preenche o restante
-                }
+            // Limpa as zonas
+            heroZone.innerHTML = ''; gridZone.innerHTML = ''; listZone.innerHTML = '';
+            
+            // Coleta e filtra dados da div escondida
+            const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
+            let visibleArticles = sources.filter(a => {
+                const matchFiltro = filtro === 'todos' || a.getAttribute('data-category') === filtro;
+                const matchTexto = termoPesquisa === '' || a.innerText.toLowerCase().includes(termoPesquisa);
+                return matchFiltro && matchTexto;
             });
 
-            // Mensagem de "nada encontrado"
-            document.getElementById('noResultsMsg').style.display = visibleCards.length === 0 ? 'block' : 'none';
+            if (visibleArticles.length === 0) {
+                noResultsMsg.style.display = 'block';
+                return;
+            }
+            noResultsMsg.style.display = 'none';
+
+            // Cria o HTML baseado na posição (Hero -> Grid -> Lista)
+            visibleArticles.forEach((item, index) => {
+                const url = item.getAttribute('href');
+                const imgSrc = item.querySelector('img').src;
+                const tag = item.querySelector('.tag').innerText;
+                const title = item.querySelector('.title').innerText;
+                const excerpt = item.querySelector('.excerpt').innerText;
+
+                let cardHTML = '';
+                
+                if (index === 0) { // O Primeiro é sempre a Capa (Hero)
+                    cardHTML = `
+                    <a href="${url}" class="article-card hero-article">
+                        <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
+                        <div class="content-wrapper">
+                            <span class="article-tag">${tag}</span>
+                            <h2 class="article-title">${title}</h2>
+                            <p class="article-excerpt">${excerpt}</p>
+                        </div>
+                    </a>`;
+                    heroZone.innerHTML += cardHTML;
+                } 
+                else if (index >= 1 && index <= 4) { // Do 2 ao 5 formam o Grid de imagens
+                    cardHTML = `
+                    <a href="${url}" class="article-card grid-article">
+                        <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
+                        <div class="content-wrapper">
+                            <span class="article-tag">${tag}</span>
+                            <h3 class="article-title">${title}</h3>
+                            <p class="article-excerpt">${excerpt}</p>
+                        </div>
+                    </a>`;
+                    gridZone.innerHTML += cardHTML;
+                } 
+                else { // Todos os demais viram a Lista Compacta
+                    cardHTML = `
+                    <a href="${url}" class="article-card list-article">
+                        <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
+                        <div class="content-wrapper">
+                            <span class="article-tag">${tag}</span>
+                            <h3 class="article-title">${title}</h3>
+                            <p class="article-excerpt">${excerpt}</p>
+                        </div>
+                    </a>`;
+                    listZone.innerHTML += cardHTML;
+                }
+            });
         }
 
         function filtrarBlog(categoria, botaoClicado) {
-            // Controle de Botões Ativos
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             botaoClicado.classList.add('active');
-            
-            // Limpa o campo de busca
             document.getElementById('searchInput').value = '';
-
-            const cards = document.querySelectorAll('.portal-card');
-            
-            cards.forEach(card => {
-                if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // Reestrutura o layout imediatamente após o filtro
-            applyEditorialGrid();
+            renderArticles(categoria, '');
         }
 
         function pesquisarArtigos() {
             let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.portal-card');
-
-            // Remove marcação dos botões de filtro
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-
-            cards.forEach(card => {
-                let textoCard = card.innerText.toLowerCase();
-                if (textoCard.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-
-            // Reestrutura o layout baseado no que foi encontrado na busca
-            applyEditorialGrid();
+            renderArticles('todos', input);
         }
 
-        // Inicializa o layout no carregamento da página
-        document.addEventListener("DOMContentLoaded", applyEditorialGrid);
+        // Roda a montagem inicial quando a página carrega
+        document.addEventListener("DOMContentLoaded", () => renderArticles('todos', ''));
     </script>
 
     <script type="text/javascript">
