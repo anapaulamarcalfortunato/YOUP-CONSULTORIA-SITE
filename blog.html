@@ -74,7 +74,7 @@
         .grid-article .article-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
 
         /* 3. LISTA COMPACTA (OS DEMAIS) */
-        .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: x 40px; column-gap: 50px; row-gap: 0; }
+        .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
         .list-article { flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; }
         .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
         .list-article .article-img { width: 100%; height: 100%; }
@@ -134,16 +134,14 @@
         
         <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado.</div>
 
-        <!-- O Javascript usará essas divs para distribuir os artigos -->
         <div class="editorial-feed">
             <div id="heroZone"></div>
             <div id="gridZone" class="grid-articles-wrapper"></div>
             <div id="listZone" class="list-articles-wrapper"></div>
         </div>
 
-        <!-- REPOSITÓRIO DE ARTIGOS (Escondido, apenas fornece dados para o JS) -->
         <div id="sourceArticles" style="display: none;">
-            
+
             <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" data-category="radar-executivo">
                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80">
                 <span class="tag">Radar Executivo</span>
