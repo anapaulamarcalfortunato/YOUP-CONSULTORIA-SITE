@@ -84,6 +84,11 @@
 
         .no-results { text-align: center; padding: 60px; color: var(--texto-cinza); font-style: italic; display: none; width: 100%; }
 
+        /* BOTÃO CARREGAR MAIS */
+        .load-more-container { text-align: center; padding: 40px 0; margin-top: 20px; border-top: 1px solid var(--borda); }
+        .btn-load-more { background: transparent; color: var(--texto-escuro); border: 1px solid var(--texto-escuro); padding: 12px 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; border-radius: 4px;}
+        .btn-load-more:hover { background: var(--texto-escuro); color: var(--fundo); }
+
         .goog-te-banner-frame.skiptranslate { display: none !important; }
         #google_translate_element select { background: transparent; color: var(--texto-escuro); border: 1px solid var(--borda); padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; outline: none; cursor: pointer; }
 
@@ -101,6 +106,7 @@
             .container { padding: 0 20px; }
             .grid-articles-wrapper { grid-template-columns: 1fr; }
             .list-article .img-wrapper { display: none; }
+            .btn-load-more { width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -132,13 +138,18 @@
 
     <main class="container">
         
-        <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado.</div>
+        <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado para esta pesquisa.</div>
 
         <!-- Renderização do Layout -->
         <div class="editorial-feed">
             <div id="heroZone"></div>
             <div id="gridZone" class="grid-articles-wrapper"></div>
             <div id="listZone" class="list-articles-wrapper"></div>
+        </div>
+
+        <!-- Botão Carregar Mais -->
+        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+            <button class="btn-load-more" onclick="carregarMaisArtigos()">Carregar Mais Artigos ⬇</button>
         </div>
 
         <!-- REPOSITÓRIO COMPLETO DE ARTIGOS -->
@@ -524,29 +535,38 @@
     </main>
 
     <script>
-        // Inteligência de Distribuição Editorial
-        function renderArticles(filtro, termoPesquisa) {
+        // Inteligência de Paginação
+        let limiteAtual = 13; // 1 Capa + 4 Grade + 8 Lista Compacta
+        let filtroAtual = 'todos';
+        let pesquisaAtual = '';
+
+        function renderArticles() {
             const heroZone = document.getElementById('heroZone');
             const gridZone = document.getElementById('gridZone');
             const listZone = document.getElementById('listZone');
             const noResultsMsg = document.getElementById('noResultsMsg');
+            const btnLoadMore = document.getElementById('loadMoreContainer');
             
             heroZone.innerHTML = ''; gridZone.innerHTML = ''; listZone.innerHTML = '';
             
             const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
             let visibleArticles = sources.filter(a => {
-                const matchFiltro = filtro === 'todos' || a.getAttribute('data-category') === filtro;
-                const matchTexto = termoPesquisa === '' || a.innerText.toLowerCase().includes(termoPesquisa);
+                const matchFiltro = filtroAtual === 'todos' || a.getAttribute('data-category') === filtroAtual;
+                const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
                 return matchFiltro && matchTexto;
             });
 
             if (visibleArticles.length === 0) {
                 noResultsMsg.style.display = 'block';
+                btnLoadMore.style.display = 'none';
                 return;
             }
             noResultsMsg.style.display = 'none';
 
-            visibleArticles.forEach((item, index) => {
+            // Pega apenas a quantidade baseada no limite atual
+            let artigosParaExibir = visibleArticles.slice(0, limiteAtual);
+
+            artigosParaExibir.forEach((item, index) => {
                 const url = item.getAttribute('href');
                 const imgSrc = item.querySelector('img').src;
                 const tag = item.querySelector('.tag').innerText;
@@ -592,22 +612,41 @@
                     listZone.innerHTML += cardHTML;
                 }
             });
+
+            // Mostra o botão "Carregar Mais" se houver mais artigos escondidos
+            if (visibleArticles.length > limiteAtual) {
+                btnLoadMore.style.display = 'block';
+            } else {
+                btnLoadMore.style.display = 'none';
+            }
+        }
+
+        function carregarMaisArtigos() {
+            limiteAtual += 10; // Adiciona +10 artigos na tela
+            renderArticles();
         }
 
         function filtrarBlog(categoria, botaoClicado) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
-            renderArticles(categoria, '');
+            
+            limiteAtual = 13; // Reseta o limite ao trocar de filtro
+            filtroAtual = categoria;
+            pesquisaAtual = '';
+            renderArticles();
         }
 
         function pesquisarArtigos() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            renderArticles('todos', input);
+            
+            limiteAtual = 13; // Reseta o limite ao pesquisar
+            filtroAtual = 'todos';
+            pesquisaAtual = document.getElementById('searchInput').value.toLowerCase();
+            renderArticles();
         }
 
-        document.addEventListener("DOMContentLoaded", () => renderArticles('todos', ''));
+        document.addEventListener("DOMContentLoaded", () => renderArticles());
     </script>
 
     <script type="text/javascript">
