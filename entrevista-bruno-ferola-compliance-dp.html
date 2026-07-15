@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- INDEXAÇÃO E TAG MANAGER -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,60 +8,17 @@
       gtag('js', new Date());
       gtag('config', 'G-6JTWLMZBRS');
     </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- META TAGS DE SEO -->
-    <title>O Departamento Pessoal como Radar de Risco: Entrevista com Bruno Galvão Ferola</title>
+    <title>O Departamento Pessoal como Radar de Risco | Youp Consultoria</title>
     <meta name="description" content="Descubra como o Departamento Pessoal e o Compliance formam o centro da estratégia corporativa em nossa entrevista exclusiva com Bruno Galvão Ferola.">
-    <meta name="keywords" content="compliance trabalhista, departamento pessoal, auditoria, esg, governança corporativa, bruno galvão ferola, inteligência artificial, gestão de riscos, ana paula marçal fortunato">
+    <meta name="keywords" content="compliance trabalhista, departamento pessoal, auditoria, esg, governança corporativa, bruno galvão ferola, inteligência artificial, gestão de riscos">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.youpconsultoria.com/entrevista-bruno-ferola-compliance-dp.html" />
-
-    <!-- OPEN GRAPH (SOCIAL MEDIA) -->
-    <meta property="og:title" content="O Departamento Pessoal como Radar de Risco: Entrevista Exclusiva">
-    <meta property="og:description" content="Descubra como o Departamento Pessoal e o Compliance formam o centro da estratégia corporativa em nossa entrevista exclusiva com Bruno Galvão Ferola.">
-    <meta property="og:image" content="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem20.jpeg?raw=true">
-    <meta property="og:url" content="https://www.youpconsultoria.com/entrevista-bruno-ferola-compliance-dp.html">
-    <meta property="og:type" content="article">
-
-    <!-- FONTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- DADOS ESTRUTURADOS (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://www.youpconsultoria.com/entrevista-bruno-ferola-compliance-dp.html"
-      },
-      "headline": "O Departamento Pessoal como Radar de Risco: Entrevista com Bruno Galvão Ferola",
-      "description": "Descubra como o Departamento Pessoal e o Compliance formam o centro da estratégia corporativa em nossa entrevista exclusiva com Bruno Galvão Ferola.",
-      "image": "https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem20.jpeg?raw=true",
-      "author": {
-        "@type": "Person",
-        "name": "Ana Paula Marçal Fortunato",
-        "url": "https://www.youpconsultoria.com/sobre.html"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Youp Consultoria",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.youpconsultoria.com/logo.png"
-        }
-      },
-      "datePublished": "2026-07-15",
-      "dateModified": "2026-07-15"
-    }
-    </script>
-
-    <!-- CSS ESTILIZAÇÃO E IDENTIDADE VISUAL -->
     <style>
         :root { 
             --dourado: #c5a059; 
@@ -71,347 +27,242 @@
             --fundo-claro: #ffffff; 
             --texto-corpo: #2c2c2c; 
             --texto-titulo: #1a1a1a;
-            --texto-mute: #777777;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.9; }
         
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: #f9f9f9; 
-            color: var(--texto-corpo); 
-            line-height: 1.9; 
-            font-size: 17px;
+        .progress-container { width: 100%; height: 5px; background: #e0e0e0; position: fixed; top: 0; left: 0; z-index: 1002; }
+        .progress-bar { height: 5px; background: var(--dourado); width: 0%; transition: width 0.1s; }
+
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; margin-top: 5px; }
+        .brand-logo { color:var(--dourado); text-decoration:none; font-weight:800; letter-spacing:3px; }
+        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; cursor: pointer; background: transparent;}
+        .btn-voltar:hover { background: var(--dourado); color: var(--cinza-escuro); }
+
+        /* HERO (TOPO) */
+        .article-hero { 
+            width: 100%; height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem20.jpeg?raw=true') center center/cover; 
+            display: flex; align-items: center; justify-content: center;
         }
 
-        /* NAVBAR & PROGRESS BAR */
-        .navbar { 
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background-color: var(--cinza-escuro); 
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 2px; font-size: 20px;}
-        .nav-right { display: flex; align-items: center; gap: 20px; }
+        /* CAIXA PRINCIPAL SOBREPONDO A IMAGEM */
+        .article-main { max-width: 900px; margin: -100px auto 100px; background: var(--fundo-claro); padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); position: relative; z-index: 10; }
         
-        .btn-ouvir {
-            background: transparent; color: #fff; border: 1px solid var(--dourado);
-            padding: 8px 16px; border-radius: 20px; font-size: 12px; font-family: 'Montserrat';
-            cursor: pointer; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;
-            transition: 0.3s; display: flex; align-items: center; gap: 8px;
-        }
-        .btn-ouvir:hover { background: var(--dourado); color: var(--cinza-escuro); }
-
-        .progress-container { width: 100%; height: 4px; background: #222; position: absolute; bottom: 0; left: 0; }
-        .progress-bar { height: 4px; background: var(--dourado); width: 0%; }
-
-        /* LAYOUT PRINCIPAL */
-        .container-master { display: flex; max-width: 1200px; margin: 40px auto; gap: 40px; padding: 0 20px; }
-        .main-content { flex: 1; background: var(--fundo-claro); padding: 50px 60px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .sidebar { width: 320px; position: relative; }
-        .sticky-wrapper { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 30px; }
-
-        /* HERO & HEADERS */
-        .hero-image { width: 100%; height: auto; max-height: 450px; object-fit: cover; border-radius: 8px; margin-bottom: 30px; }
-        .mid-image { width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 30px 0; }
-        .linha-editorial { display: inline-block; background-color: rgba(92, 142, 130, 0.1); color: var(--verde-youp); padding: 5px 15px; border-radius: 4px; font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 20px; }
-        .article-title { font-size: 38px; color: var(--texto-titulo); font-weight: 800; line-height: 1.3; margin-bottom: 20px; letter-spacing: -1px; }
-        .article-meta { color: var(--texto-mute); font-size: 13px; font-weight: 500; margin-bottom: 40px; display: block; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-
-        /* TABLE OF CONTENTS */
-        .toc-box { background: #fafafa; border-left: 4px solid var(--dourado); padding: 25px; margin-bottom: 40px; border-radius: 0 8px 8px 0; }
-        .toc-box h4 { font-size: 16px; color: var(--texto-titulo); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 700; }
-        .toc-box ul { list-style: none; padding-left: 0; }
-        .toc-box li { margin-bottom: 10px; }
-        .toc-box a { color: var(--verde-youp); text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.2s; }
-        .toc-box a:hover { color: var(--dourado); }
-
-        /* TIPOGRAFIA E ELEMENTOS DO ARTIGO */
-        article h2 { font-size: 26px; color: var(--texto-titulo); margin: 50px 0 20px; font-weight: 700; border-bottom: 1px solid #eee; padding-bottom: 10px; scroll-margin-top: 100px; }
-        article h3 { font-size: 20px; color: var(--verde-youp); margin: 35px 0 15px; font-weight: 600; }
-        article p { margin-bottom: 20px; text-align: justify; color: #444; }
-        article ul, article ol { margin-bottom: 25px; padding-left: 20px; }
-        article li { margin-bottom: 10px; color: #444; }
-        article strong { color: var(--texto-titulo); }
+        .article-meta { color: var(--verde-youp); font-size: 12px; text-transform: uppercase; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; display: block; }
+        .article-title { font-size: 42px; color: var(--texto-titulo); font-weight: 800; line-height: 1.2; margin-bottom: 40px; letter-spacing: -1px; }
         
-        /* BLOCOS DE ENTREVISTA */
-        .pergunta-box { font-weight: 700; font-size: 18px; color: var(--texto-titulo); margin: 40px 0 15px 0; }
-        .resposta-box { border-left: 4px solid var(--dourado); background: #fdfbf7; padding: 25px; font-size: 17px; color: var(--texto-corpo); margin: 0 0 30px 0; border-radius: 0 8px 8px 0; }
-        .insight-headhunter { background: #f2f7f6; padding: 20px; border-radius: 6px; margin-bottom: 40px; font-size: 15px; border-left: 4px solid var(--verde-youp); color: #333;}
+        .interviewee-portrait-container { text-align: center; margin: 50px 0; }
+        .inline-img { max-width: 700px; width: 100%; display: block; margin: 50px auto; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+
+        .article-content h2 { font-size: 28px; color: var(--texto-titulo); border-left: 5px solid var(--dourado); padding-left: 20px; margin: 60px 0 20px; font-weight: 700; }
+        .article-content h3 { font-size: 18px; color: var(--verde-youp); margin-bottom: 30px; font-weight: 600; padding-left: 25px; }
+        
+        .interview-q { font-size: 20px; color: var(--texto-titulo); font-weight: 700; margin: 50px 0 20px; border-left: 4px solid var(--dourado); padding-left: 20px; }
+        .interview-a { font-size: 18px; color: var(--texto-corpo); margin-bottom: 30px; text-align: justify; padding-left: 24px; }
+        
+        .article-content p { margin-bottom: 30px; font-size: 18px; text-align: justify; }
+
+        .insight-headhunter { background: #f2f7f6; padding: 25px; border-radius: 6px; margin: 40px 0 40px 24px; font-size: 16px; border-left: 4px solid var(--verde-youp); color: #333; text-align: justify;}
         .insight-headhunter strong { color: var(--verde-youp); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;}
 
-        /* TEIA DE CONTEÚDOS (INTERNAL LINKING) */
-        .teia-box { background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 25px; margin: 35px 0; display: flex; flex-direction: column; gap: 8px; border-left: 4px solid var(--verde-youp); transition: 0.3s; text-decoration: none; }
-        .teia-box:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--verde-youp); transform: translateY(-2px); }
-        .teia-label { font-size: 10px; text-transform: uppercase; font-weight: 700; color: var(--texto-mute); letter-spacing: 1px; }
-        .teia-title { font-size: 18px; font-weight: 600; color: var(--texto-titulo); margin: 0; }
-        .teia-cta { font-size: 13px; color: var(--verde-youp); font-weight: 600; margin-top: 5px; }
+        .author-box { display: flex; align-items: center; background-color: #fdfdfd; border: 1px solid #f0f0f0; border-left: 5px solid var(--dourado); padding: 35px 30px; margin: 40px 0; border-radius: 4px; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .author-photo { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .author-info { display: flex; flex-direction: column; }
+        .author-name { font-size: 22px; color: var(--texto-titulo); margin: 0 0 5px 0; font-weight: 800; }
+        .author-title { font-size: 11px; color: var(--dourado); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
+        .author-bio { font-size: 15px !important; color: #555 !important; line-height: 1.7 !important; margin-bottom: 15px !important; text-align: left !important; }
+        .author-linkedin { font-size: 13px; color: var(--verde-youp); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; }
 
-        /* SIDEBAR WIDGETS */
-        .widget-share { background: #fff; padding: 25px; border-radius: 8px; text-align: center; border: 1px solid #eee; }
-        .widget-share h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-mute); margin-bottom: 15px; }
-        .share-btns { display: flex; flex-direction: column; gap: 10px; }
-        .btn-share { padding: 12px 15px; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; color: #fff; font-size: 13px; transition: 0.3s; font-family: 'Montserrat'; width: 100%; }
-        .btn-linkedin { background-color: #0077b5; }
-        .btn-whatsapp { background-color: #25d366; color: #0a0a0a;}
-        .btn-share:hover { opacity: 0.9; }
+        .sticky-ad { position: fixed; right: 40px; top: 200px; width: 260px; background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 30px 20px; border-radius: 4px; z-index: 999; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .sticky-ad h4 { color: var(--dourado); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px 0; font-weight: 700; }
+        .sticky-ad p { color: #fff; font-size: 13px; line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
+        .btn-ad { display: block; background: var(--dourado); color: #000; text-align: center; text-decoration: none; padding: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; border-radius: 2px; transition: 0.3s; }
 
-        .widget-ad { background: linear-gradient(135deg, var(--cinza-escuro), #222); padding: 30px 20px; border-radius: 8px; text-align: center; color: #fff; border-bottom: 4px solid var(--dourado); }
-        .widget-ad h4 { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: var(--dourado); line-height: 1.3; }
-        .widget-ad p { font-size: 14px; color: #ccc; margin-bottom: 25px; line-height: 1.6; }
-        .btn-ad { display: inline-block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; padding: 12px 20px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; transition: 0.3s; }
-        .btn-ad:hover { background: #dfb668; }
+        .cta-box { background: var(--cinza-escuro); color: #fff; padding: 60px; text-align: center; border-radius: 8px; margin-top: 40px; }
+        .cta-box h3 { color: var(--dourado); font-size: 32px; margin: 0 0 20px 0; }
+        .btn-cta { display: inline-block; background: var(--dourado); color: #000; padding: 20px 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 50px; margin-top: 30px; transition: 0.3s; }
 
-        /* BANNERS FINAIS */
-        .cta-whatsapp-bottom { background: #f4f9f8; border: 1px solid rgba(92, 142, 130, 0.2); padding: 40px; text-align: center; border-radius: 8px; margin-top: 50px; }
-        .cta-whatsapp-bottom h3 { font-size: 26px; color: var(--texto-titulo); margin-bottom: 15px; font-weight: 700; }
-        .cta-whatsapp-bottom p { font-size: 16px; color: #555; margin-bottom: 30px; }
-        .btn-cta-zap { display: inline-block; background: var(--verde-youp); color: #fff; text-decoration: none; padding: 15px 35px; border-radius: 50px; font-weight: 600; font-size: 15px; transition: 0.3s; }
-        .btn-cta-zap:hover { background: #4a756b; }
+        .share-sidebar { position: fixed; left: 30px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 15px; z-index: 998; }
+        .share-btn { width: 45px; height: 45px; background: var(--cinza-escuro); color: var(--dourado); display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; font-weight: 800; border: 1px solid var(--dourado); transition: 0.3s; font-size: 14px; cursor: pointer; }
 
-        .author-box { display: flex; align-items: center; background-color: var(--cinza-escuro); color: #fff; padding: 40px; margin-top: 40px; border-radius: 8px; gap: 30px; }
-        .author-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--dourado); }
-        .author-info h4 { font-size: 22px; color: var(--dourado); margin-bottom: 5px; font-weight: 700; }
-        .author-info span { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 15px; display: block; }
-        .author-info p { font-size: 15px; color: #ddd; line-height: 1.7; text-align: left; margin-bottom: 0; }
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; }
+            .article-hero { height: 40vh; }
+            .article-main { padding: 30px 20px; margin: -40px 15px 60px; }
+            .article-title { font-size: 28px; line-height: 1.3; }
+            .article-content p, .interview-a { font-size: 16px; text-align: left; padding-left: 0; }
+            .interview-q { font-size: 18px; padding-left: 10px; }
+            .insight-headhunter { margin-left: 0; padding: 15px; }
+            .author-box { flex-direction: column; text-align: center; padding: 20px; }
+            .btn-cta { width: 100%; box-sizing: border-box; }
+            .share-sidebar { display: none; }
 
-        @media (max-width: 992px) {
-            .container-master { flex-direction: column; }
-            .sidebar { width: 100%; }
-            .sticky-wrapper { position: static; flex-direction: row; flex-wrap: wrap; }
-            .widget-share, .widget-ad { flex: 1; min-width: 280px; }
-            .hero-image { height: 250px; }
-            .article-title { font-size: 32px; }
-            .main-content { padding: 30px 20px; }
-            .author-box { flex-direction: column; text-align: center; padding: 30px 20px; }
-            .author-info p { text-align: center; }
+            .sticky-ad { 
+                position: fixed; 
+                bottom: 0; 
+                top: auto; 
+                left: 0; 
+                right: 0; 
+                width: 100%; 
+                border-radius: 0; 
+                border: none; 
+                border-top: 2px solid var(--dourado); 
+                padding: 15px 20px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: space-between; 
+                box-sizing: border-box; 
+                z-index: 1100;
+            }
+            .sticky-ad p { display: none; }
+            .sticky-ad h4 { margin: 0; font-size: 11px; }
+            .btn-ad { padding: 8px 15px; font-size: 10px; margin: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR COM TEXT-TO-SPEECH E PROGRESS BAR -->
-    <nav class="navbar" role="navigation" aria-label="Navegação Principal">
-        <a href="https://www.youpconsultoria.com/" class="brand-logo">YOUP</a>
-        <div class="nav-right">
-            <button class="btn-ouvir" onclick="lerArtigo()" aria-label="Ouvir Artigo em Áudio">
-                ▶ Ouvir Artigo
-            </button>
-        </div>
-        <div class="progress-container">
-            <div class="progress-bar" id="myBar"></div>
-        </div>
-    </nav>
-
-    <div class="container-master">
-        <!-- CONTEÚDO PRINCIPAL -->
-        <main class="main-content">
-            <article id="conteudo-artigo">
-                <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem20.jpeg?raw=true" alt="Profissionais discutindo compliance, governança e riscos corporativos em ambiente executivo" class="hero-image">
-                
-                <header>
-                    <span class="linha-editorial">Linha Editorial: Entrevistas Exclusivas</span>
-                    <h1 class="article-title">O Departamento Pessoal como Radar de Risco: Entrevista Exclusiva com Bruno Galvão Ferola</h1>
-                    <span class="article-meta">Por Ana Paula Marçal Fortunato • Mentoria de Carreira e Liderança • Leitura de 20 min</span>
-                </header>
-
-                <div class="toc-box">
-                    <h4>Índice da Entrevista</h4>
-                    <ul>
-                        <li><a href="#introducao-bio">1. Introdução e Perfil do Entrevistado</a></li>
-                        <li><a href="#contextualizacao-dp">2. Contextualização: O DP como Centro da Estratégia e Risco</a></li>
-                        <li><a href="#inteligencia-aplicada">3. Inteligência Aplicada, IA e Data Analytics</a></li>
-                        <li><a href="#fator-humano-esg">4. O Fator Humano e o Pilar "S" do ESG</a></li>
-                        <li><a href="#proposito-crise">5. Propósito, Família e Gestão de Crise</a></li>
-                        <li><a href="#conselho-pratico">6. A Dica de Ouro para a Diretoria</a></li>
-                    </ul>
-                </div>
-
-                <h2 id="introducao-bio">1. Introdução e Perfil do Entrevistado</h2>
-                <p>Oie! Retomar essa conversa é fundamental. Nosso papo no RH Summit 2026, em São Paulo, deixou muitos pontos importantes no ar, e agora temos a oportunidade de aprofundar essa visão estratégica para quem está nos acompanhando online. O mercado corporativo exige líderes que olhem além dos processos operacionais, compreendendo as raízes financeiras e de governança que sustentam as grandes companhias.</p>
-                
-                <p>Para contextualizar todos que estão chegando agora e dar continuidade ao que discutimos presencialmente, vamos repassar os quatro pilares fundamentais que abriram nossa mesa, explorando como a conformidade (Compliance) e a análise de dados estão redefinindo as cadeiras de alta gestão.</p>
-
-                <p><strong>Quem é Bruno Galvão Ferola?</strong><br>
-                Bruno Galvão Ferola é advogado, especialista em Compliance, mestre em Direito Público e doutorando pela FGV Direito SP. Atua como Diretor de Compliance e Sustentabilidade da Protiviti Brasil, Diretor do Projeto Constituição nas Escolas, Coordenador do Comitê de Compliance e Anticorrupção da Rede Governança Brasil (RGB) e professor do Instituto de Governança, Compliance e Performance (IGCP). É palestrante e pesquisador nas áreas de governança, gestão de riscos, controles internos, investigações corporativas e Inteligência Artificial aplicada ao Compliance. Acima de todos esses títulos, é marido da Michelle e pai do Thomas e da Giovanna, que são sua maior inspiração para promover uma cultura de integridade e construir organizações mais éticas e humanas.</p>
-
-                <h2 id="contextualizacao-dp">2. Contextualização: O DP como Centro da Estratégia e Risco</h2>
-                
-                <p class="pergunta-box">Ana Paula Marçal Fortunato: Bruno, no evento, começamos falando sobre como o Departamento Pessoal está no olho do furacão, conectando as camadas trabalhista, fiscal, contábil e financeira. Por que, na sua visão de especialista em Compliance, as empresas ainda insistem em operar essas informações de forma isolada, como se o dado da folha não tivesse um impacto direto no caixa e na governança?</p>
-                
-                <div class="resposta-box">
-                    <p>— A falha não é apenas operacional, mas de governança, de desenho de controles internos e de integração de processos. O problema persiste porque muitas organizações ainda estruturam suas atividades por departamentos, e não a partir de uma visão integrada de riscos. A folha de pagamento, por exemplo, não se limita a uma rotina do Departamento Pessoal: ela envolve obrigações legais e regulatórias, impactos financeiros, reflexos contábeis, fluxo de caixa, aspectos tributários e evidências essenciais para a prestação de contas e a governança corporativa. Sob a perspectiva de compliance, sua gestão exige controles integrados, definição clara de responsabilidades e compartilhamento tempestivo de informações entre as áreas. Assim, a integração deixa de ser uma questão operacional e passa a constituir um elemento estratégico do sistema de governança, da gestão de riscos e da efetividade dos controles internos.</p>
-                </div>
-
-                <div class="insight-headhunter">
-                    <strong>Visão de Headhunter</strong>
-                    Ao conduzir um processo de Executive Search para posições de diretoria de Recursos Humanos, o mercado não procura mais profissionais que apenas garantem o pagamento no quinto dia útil. O Conselho busca executivos capazes de enxergar o impacto desses números no Valuation da companhia. A fragmentação de dados é um risco que custa caro na alta gestão.
-                </div>
-
-                <p class="pergunta-box">Ana Paula: Você trouxe um ponto excelente sobre a "falta de leitura conectada". Para quem está na operação, quais seriam os primeiros sinais operacionais — aqueles pequenos ruídos no dia a dia do DP — que indicam que um risco trabalhista ou fiscal está prestes a se tornar um passivo financeiro real?</p>
-
-                <div class="resposta-box">
-                    <p>— Costumo dizer que, quando um processo depende de esforço excessivo para funcionar, há um forte indicativo de fragilidade em seu desenho ou em seus controles internos. Os primeiros sinais costumam aparecer na forma de retrabalho recorrente, intervenções manuais frequentes, divergências entre ponto, folha de pagamento, contabilidade e eSocial, concentração atípica de horas extras, alterações salariais sem justificativa formal, pagamentos fora do padrão e reclamações recorrentes. Isoladamente, esses eventos podem parecer apenas ocorrências operacionais. Entretanto, sob a perspectiva da gestão de riscos e do compliance, seu conjunto constitui importantes indicadores de alerta (red flags), evidenciando deficiências de controle, fragilidades na governança do processo e aumento da exposição a riscos operacionais, trabalhistas, financeiros e reputacionais.</p>
-                </div>
-
-                <p class="pergunta-box">Ana Paula: Muitas vezes, a liderança enxerga erros em folha ou gestão de jornada apenas como "problemas operacionais". Como você explica para um conselho de administração ou para um CFO o efeito dominó que esses erros causam na exposição jurídica e na distorção da contabilidade da empresa?</p>
-
-                <div class="resposta-box">
-                    <p>— Um erro no controle de jornada pode desencadear uma cadeia de impactos que vai muito além da folha de pagamento: diferenças salariais, recolhimentos incorretos de encargos, multas administrativas, passivos trabalhistas, provisões contábeis inadequadas, distorções no fluxo de caixa e até riscos reputacionais. Por essa razão, o Conselho de Administração, a alta administração e o CFO devem acompanhar o Departamento Pessoal não apenas por indicadores de produtividade, mas, principalmente, por indicadores de risco, conformidade, efetividade dos controles internos e impacto financeiro. Mais do que receber relatórios sobre problemas, o conselho deve fomentar um ambiente de discussão de soluções, questionando as causas estruturais, avaliando oportunidades de melhoria e incentivando a adoção de tecnologias que fortaleçam a governança. Nesse contexto, a Inteligência Artificial surge como uma importante aliada, permitindo a análise contínua de dados, a identificação de padrões e anomalias, a automação de controles, a geração de alertas preventivos e o apoio à tomada de decisão baseada em evidências. A governança agrega valor quando transforma informações em decisões e riscos em oportunidades de aprimoramento.</p>
-                </div>
-
-                <!-- LINK INTERNO ESTRATÉGICO 1 -->
-                <a href="https://www.youpconsultoria.com/artigo-nr1-risco-governanca-c-level.html" class="teia-box">
-                    <span class="teia-label">Artigo Recomendado</span>
-                    <h3 class="teia-title">O Risco Número 1 na Governança C-Level</h3>
-                    <span class="teia-cta">Entenda como falhas estruturais expõem o Conselho de Administração ➔</span>
-                </a>
-
-                <p class="pergunta-box">Ana Paula: Para fecharmos essa retrospectiva do nosso encontro presencial e avançarmos: o que precisa mudar, de fato, na governança das organizações para que o DP deixe de ser um executor de tarefas e passe a ser um "radar de risco", protegendo o resultado antes que o erro vire custo?</p>
-
-                <div class="resposta-box">
-                    <p>— A efetividade dos controles internos depende de uma arquitetura de governança bem estruturada, que contemple a definição clara de responsabilidades, a integração entre sistemas e processos, a adequada segregação de funções, a manutenção de trilhas de auditoria confiáveis e o monitoramento contínuo por meio de indicadores de risco e desempenho. Nesse contexto, o Departamento Pessoal exerce papel fundamental como gestor dos controles operacionais (primeira linha), sendo responsável pela execução dos processos e pela gestão dos riscos inerentes às suas atividades. A função de Compliance atua na segunda linha, apoiando a definição de diretrizes, assessorando na gestão dos riscos e monitorando a aderência às normas internas e externas, enquanto a Auditoria Interna, como terceira linha, fornece avaliação independente sobre a efetividade da governança, da gestão de riscos e dos controles internos, promovendo maior confiança para a alta administração e para o Conselho.</p>
-                </div>
-
-                <h2 id="inteligencia-aplicada">3. Inteligência Aplicada, IA e Data Analytics</h2>
-
-                <p class="pergunta-box">Ana Paula: Bruno, na sua atuação em Forensics, você lida com a investigação de fraudes e desvios. Muitas vezes, a folha de pagamento é utilizada como um veículo para irregularidades que passam despercebidas por anos. Como o uso de Data Analytics e inteligência aplicada à conformidade pode ajudar o DP a identificar "fantasmas" ou desvios de conduta antes que uma auditoria externa seja necessária?</p>
-
-                <div class="resposta-box">
-                    <p>— A experiência em investigações mostra que praticamente nenhuma fraude relevante acontece de forma totalmente aleatória. Ela deixa rastros nos dados. O desafio é que esses sinais costumam estar dispersos entre sistemas de folha, ponto, RH, ERP, benefícios e financeiro. Quando analisados isoladamente, passam despercebidos; quando conectados, revelam padrões de risco. É justamente nesse ponto que Data Analytics e Inteligência Artificial mudam a lógica de atuação. Em vez de esperar uma denúncia ou uma auditoria externa, a organização passa a monitorar continuamente seus processos, identificando anomalias e gerando alertas preventivos.</p>
-                    <p>Na folha de pagamento, por exemplo, é possível detectar pagamentos fora do padrão, alterações salariais sem o fluxo adequado de aprovação, contas bancárias compartilhadas entre colaboradores, empregados sem registro de jornada, benefícios incompatíveis com o cargo, concentração de horas extras em determinados gestores, admissões ou desligamentos atípicos, além de acessos e alterações realizadas fora dos perfis autorizados. Individualmente, esses eventos nem sempre representam fraude, mas constituem importantes red flags que merecem análise.</p>
-                    <p>O grande ganho é que a tecnologia não substitui o julgamento humano; ela amplia a capacidade de prevenção. Enquanto uma auditoria tradicional trabalha por amostragem e em momentos específicos, a análise contínua de dados permite monitorar 100% das transações, em tempo quase real, direcionando os esforços da gestão para aquilo que efetivamente representa maior risco.</p>
-                    <p>Por isso, costumo dizer que o futuro da conformidade é menos baseado em inspeção e mais em inteligência. O Departamento Pessoal deixa de ser apenas um executor de rotinas e passa a atuar como uma área estratégica, utilizando dados para fortalecer controles internos, prevenir fraudes, apoiar decisões e gerar confiança para a administração e para o Conselho. Afinal, o melhor caso de fraude é aquele que nunca chega a acontecer porque os controles foram capazes de identificá-lo antes. Compliance não é esperar a auditoria encontrar o problema; é utilizar inteligência para impedir que ele aconteça.</p>
-                </div>
-
-                <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem21.jpeg?raw=true" alt="Dashboard analítico demonstrando a aplicação de inteligência artificial em dados corporativos" class="mid-image">
-
-                <p class="pergunta-box">Ana Paula: Você mencionou que o problema não é a falta de dado, mas a falta de leitura conectada. Do ponto de vista de Governança Corporativa, quem deve ser o "dono" dessa integração? Deve partir do RH, do Compliance ou o CFO precisa chamar a responsabilidade para garantir que o dado do DP não morra em uma planilha isolada?</p>
-
-                <div class="resposta-box">
-                    <p>— Eu diria que o verdadeiro "dono" é a governança. Esse é justamente o erro que muitas organizações cometem: imaginar que a integração dos dados é um problema do RH, do Compliance ou da TI. Na realidade, trata-se de uma responsabilidade da alta administração, que deve assegurar que as informações circulem de forma confiável entre as áreas para apoiar a tomada de decisão.</p>
-                    <p>Cada área possui um papel específico. O Departamento Pessoal é responsável pela qualidade e tempestividade dos dados que produz. O RH contribui com a gestão de pessoas e dos processos. A TI garante a integração tecnológica e a segurança da informação. O Compliance estabelece diretrizes, monitora riscos e questiona inconsistências. O CFO transforma esses dados em informações para a gestão financeira e para o planejamento da organização. Já a Auditoria Interna avalia, de forma independente, se esse modelo está funcionando adequadamente.</p>
-                    <p>Mas alguém precisa exercer o papel de patrocinador dessa integração. Na minha visão, esse papel deve ser assumido pela alta administração, com forte liderança do CFO, especialmente porque muitos dos riscos decorrentes de falhas na folha de pagamento acabam se materializando em impactos financeiros, contábeis, tributários e de caixa. Quando a liderança demonstra que os dados são um ativo estratégico, a integração deixa de ser um projeto de tecnologia e passa a fazer parte da cultura de governança da organização.</p>
-                    <p>Além disso, a Inteligência Artificial pode atuar como um importante elemento integrador. Em vez de cada área analisar seus dados de forma isolada, soluções de IA conseguem cruzar informações provenientes do RH, da folha, do financeiro, da contabilidade, do ERP, do eSocial e de outros sistemas, identificando inconsistências, padrões de risco e oportunidades de melhoria que dificilmente seriam percebidos em análises fragmentadas. A tecnologia, porém, é um meio. O fator decisivo continua sendo a governança, que define responsabilidades, promove a colaboração entre as áreas e garante que os dados sejam utilizados para gerar decisões melhores. O problema não é quem é dono do dado. O problema é quando ninguém se sente responsável pelo risco que esse dado representa.</p>
-                </div>
-
-                <p class="pergunta-box">Ana Paula: Estamos em 2026, e a IA Generativa já é realidade no fluxo de trabalho de lideranças, como você mesmo defende. No cenário de compliance trabalhista, a tecnologia deve ser usada apenas para processar dados ou você já enxerga a IA atuando como uma "auditoria em tempo real", bloqueando pagamentos ou jornadas que firam a governança antes mesmo de ocorrerem?</p>
-
-                <div class="resposta-box">
-                    <p>— Sem dúvida, ela já pode atuar como uma auditoria contínua. A diferença é que a auditoria tradicional analisa fatos passados, geralmente por amostragem. A Inteligência Artificial monitora 100% das transações, em tempo real, identificando exceções, padrões de risco e falhas de controle antes que se transformem em prejuízos.</p>
-                    <p>No compliance trabalhista, isso significa detectar automaticamente alterações salariais sem aprovação, jornadas incompatíveis, pagamentos atípicos, inconsistências entre folha, eSocial e contabilidade, além de violações à segregação de funções e aos fluxos de aprovação. Mas é importante destacar: a IA não substitui a auditoria nem o julgamento humano. Ela amplia a capacidade de monitoramento, gera alertas e apoia decisões baseadas em evidências. A responsabilidade continua sendo da gestão.</p>
-                    <p>Acredito que o futuro não está em auditar mais, mas em monitorar continuamente. A IA transforma o compliance de uma função reativa em uma função preventiva, fortalecendo a governança e os controles internos. A Inteligência Artificial não substitui a governança; ela torna a governança mais inteligente.</p>
-                </div>
-
-                <!-- LINK INTERNO ESTRATÉGICO 2 -->
-                <a href="https://www.youpconsultoria.com/artigo-rh-remuneracao-estrategica.html" class="teia-box">
-                    <span class="teia-label">Artigo Recomendado</span>
-                    <h3 class="teia-title">RH e Remuneração Estratégica: O Equilíbrio da Alta Gestão</h3>
-                    <span class="teia-cta">Aprenda a estruturar pacotes que engajam líderes sem ferir a governança ➔</span>
-                </a>
-
-                <h2 id="fator-humano-esg">4. O Fator Humano e o Pilar "S" do ESG</h2>
-
-                <p class="pergunta-box">Ana Paula: O DP é, essencialmente, a base do pilar "S" (Social) do ESG. Além do risco financeiro, como uma gestão de DP falha — que ignora horas extras excessivas ou irregularidades de encargos — impacta a reputação da marca e a percepção de investidores e parceiros de negócios hoje?</p>
-
-                <div class="resposta-box">
-                    <p>— Hoje, investidores, clientes e parceiros não avaliam apenas os resultados financeiros de uma organização; eles avaliam como esses resultados são alcançados. O Departamento Pessoal é uma das principais evidências da dimensão social da governança. Quando a empresa convive com jornadas excessivas, passivos trabalhistas recorrentes, falhas no recolhimento de encargos ou descumprimento da legislação, o problema deixa de ser apenas operacional. Ele passa a representar um risco cultural, reputacional, regulatório e de negócios.</p>
-                    <p>Cada vez mais, esses aspectos influenciam processos de due diligence, decisões de investimento, acesso a crédito e até a contratação por grandes empresas, que exigem padrões mínimos de integridade e responsabilidade social em toda a cadeia de valor. No fim, o DP não administra apenas pessoas. Ele administra confiança. E confiança é um dos ativos mais valiosos de qualquer organização. A forma como uma empresa trata seus colaboradores é uma das evidências mais concretas da sua cultura de integridade.</p>
-                </div>
-
-                <div class="insight-headhunter">
-                    <strong>Visão de Headhunter</strong>
-                    Em processos de fusões e aquisições (M&A), o "Backchanneling" muitas vezes revela passivos ocultos na gestão de pessoas que destroem o valor da transação. Um líder forte protege a empresa desse risco sistêmico, e isso é o que define o seu sucesso em entrevistas para cadeiras no C-Suite.
-                </div>
-
-                <p class="pergunta-box">Ana Paula: Bruno, você tem uma forte atuação acadêmica e institucional (OAB, ABNT, FGV). Como você avalia a maturidade das empresas brasileiras em relação ao Compliance Trabalhista? Ainda estamos na fase de "apagar incêndios" ou já percebe um movimento real em direção à prevenção por meio da educação e cultura ética?</p>
-
-                <div class="resposta-box">
-                    <p>— Vejo uma evolução importante, mas a maturidade ainda é bastante desigual. Grandes organizações já compreenderam que compliance trabalhista não se resume a cumprir a legislação; trata-se de gerir riscos, proteger pessoas e fortalecer a governança. Por outro lado, muitas empresas ainda atuam de forma reativa, investindo em controles apenas depois de uma fiscalização, uma ação trabalhista ou uma crise. O que mais me anima é perceber uma mudança de mentalidade. Cada vez mais, conselhos de administração, diretores e gestores entendem que a prevenção gera mais valor do que a correção. Isso significa investir em educação, fortalecer a cultura ética, utilizar dados e Inteligência Artificial para monitorar riscos e incorporar o compliance às decisões do dia a dia, e não apenas aos momentos de crise.</p>
-                    <p>Na academia, nas entidades de classe e na prática profissional, tenho defendido que o futuro do compliance não será medido pela quantidade de normas ou políticas, mas pela capacidade de influenciar comportamentos e criar organizações mais íntegras, éticas, resilientes e sustentáveis. Afinal, cultura não é aquilo que está escrito no Código de Ética; é aquilo que as pessoas fazem quando ninguém está olhando. O maior indicador de maturidade em compliance não é a ausência de problemas. É a capacidade da organização de preveni-los, identificá-los rapidamente e aprender com eles.</p>
-                </div>
-
-                <h2 id="proposito-crise">5. Propósito, Família e Gestão de Crise</h2>
-
-                <p class="pergunta-box">Ana Paula: Em uma investigação corporativa onde se descobre um erro sistêmico no DP que gerou um passivo milionário, qual deve ser a primeira atitude da liderança para mitigar o dano sem destruir o clima organizacional e a confiança dos colaboradores?</p>
-
-                <div class="resposta-box">
-                    <p>— A primeira atitude é resistir à tentação de procurar um culpado antes de compreender a causa. Em investigações corporativas, é comum que um erro individual revele, na verdade, uma falha sistêmica de processos, controles ou governança. A liderança deve agir em três frentes, simultaneamente: conter o risco, investigar os fatos com independência e transparência e corrigir a causa raiz do problema para que a situação não ocorra novamente. Paralelamente, é fundamental comunicar com clareza o que aconteceu, quais medidas estão sendo adotadas e como os colaboradores eventualmente afetados serão tratados.</p>
-                    <p>Quando a organização reage apenas punindo pessoas, ela gera medo. Quando reage fortalendo controles, corrigindo processos e aprendendo com o ocorrido, ela fortalece a confiança e a cultura de integridade. Uma crise bem gerida pode, inclusive, fortalecer a organização, porque demonstra compromisso com a ética, a transparência e a melhoria contínua. Em compliance, o maior erro não é descobrir uma falha. É desperdiçar a oportunidade de aprender com ela e fortalecer a governança.</p>
-                </div>
-
-                <p class="pergunta-box">Ana Paula: Fora dos tribunais e das salas de diretoria, você mencionou que sua família e seus filhos são sua maior motivação. Como essa busca por integridade e propósito no ambiente de casa influencia a forma como você conduz investigações tão sensíveis, onde, no final do dia, estamos lidando com a carreira e o sustento de outras pessoas?</p>
-
-                <div class="resposta-box">
-                    <p>— Eu gosto de pensar que compliance é, antes de tudo, sobre pessoas. Por trás de uma investigação, de uma folha de pagamento ou de um processo disciplinar existem famílias, histórias e sonhos. Nunca podemos perder essa perspectiva. Ser pai mudou profundamente a minha forma de exercer a profissão, inclusive com a perda de uma gestação da nossa primeira filha que me fez olhar para dentro e encarar aquela dor de forma profunda. Quando chego em casa e vejo meus filhos, lembro que cada decisão que tomo pode impactar a vida de alguém que também é filho, pai, mãe ou responsável pelo sustento de uma família. Isso não significa ser conivente com irregularidades, mas significa conduzir cada investigação da melhor forma possível com respeito, imparcialidade, dignidade e senso de justiça.</p>
-                    <p>Integridade não é apenas aplicar regras; é ter coragem para fazer o que é certo da forma certa. É proteger a organização sem esquecer das pessoas que fazem parte dela. No fim do dia, acredito que o nosso maior legado não são as investigações que conduzimos nem os pareceres que assinamos. É a confiança que conseguimos construir. Porque empresas são feitas de processos, mas organizações verdadeiramente íntegras são feitas de pessoas. Toda decisão de compliance alcança uma família. Por isso, técnica e humanidade precisam caminhar juntas.</p>
-                </div>
-
-                <h2 id="conselho-pratico">6. A Dica de Ouro para a Diretoria</h2>
-
-                <p class="pergunta-box">Ana Paula: Se você pudesse dar um único conselho prático para um Diretor de RH que sente que seu DP está operando no "escuro" em relação aos riscos fiscais e contábeis, qual seria o primeiro passo para iluminar essa operação amanhã?</p>
-
-                <div class="resposta-box">
-                    <p>— Meu conselho seria simples: pare de olhar apenas para processos e comece a olhar para riscos. Pergunte quais são os cinco maiores riscos da folha de pagamento, quais controles existem para mitigá-los e quais evidências demonstram que esses controles realmente funcionam. Se essas respostas não estiverem claras, esse já é o primeiro sinal de alerta. Em seguida, reúna RH - Departamento Pessoal, Contabilidade, Fiscal, Financeiro, Compliance e TI. Os maiores riscos surgem justamente nas interfaces entre as áreas, e não dentro delas.</p>
-                    <p>Por fim, use a tecnologia a seu favor e peça ajuda a especialistas. Data Analytics e Inteligência Artificial permitem monitorar riscos de forma contínua, identificar exceções e transformar dados em decisões. A governança começa quando deixamos de administrar tarefas e passamos a administrar riscos. Esse é o passo que ilumina qualquer operação.</p>
-                    <p>O futuro das organizações não será definido pela quantidade de controles que possuem, mas pela inteligência com que utilizam seus dados, pela integridade de sua cultura e pela coragem de prevenir riscos antes que eles se tornem crises. Quem enxerga apenas processos administra o presente. Quem enxerga riscos constrói o futuro de maneira sustentável e alinhado aos objetivos da instituição.</p>
-                </div>
-            </article>
-
-            <!-- BANNER AUTHOR -->
-            <div class="author-box">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="author-photo">
-                <div class="author-info">
-                    <h4>Ana Paula Marçal Fortunato</h4>
-                    <span>CEO Youp • Headhunter & Mentora Executiva</span>
-                    <p>Especialista em recrutamento estratégico e atração de líderes de alta performance, auxilio empresas a estruturarem Conselhos e Diretorias capazes de conduzir a verdadeira Governança. Como Headhunter e LinkedIn Top Voice, oriento executivos a compreenderem as raízes financeiras e de risco de suas áreas, maximizando seu valor perante o mercado.</p>
-                </div>
-            </div>
-
-            <!-- BANNER WHATSAPP CTA -->
-            <div class="cta-whatsapp-bottom">
-                <h3>Sua liderança está gerenciando processos ou prevenindo riscos?</h3>
-                <p>Se você ocupa uma cadeira de liderança ou almeja o C-Level, dominar a conexão entre os dados operacionais e o risco corporativo é fundamental. Podemos agendar uma conversa confidencial para mapear como o seu posicionamento atual dialoga com as expectativas dos Conselhos de Administração.</p>
-                <a href="https://api.whatsapp.com/send?phone=5512991322333&text=Ol%C3%A1%20Ana%20Paula%2C%20li%20a%20entrevista%20com%20o%20Bruno%20Ferola%20no%20blog%20da%20Youp%20e%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20posicionamento%20estrat%C3%A9gico%20e%20carreira." class="btn-cta-zap" target="_blank">Falar com a Youp no WhatsApp ➔</a>
-            </div>
-
-        </main>
-
-        <!-- SIDEBAR COM WIDGETS -->
-        <aside class="sidebar">
-            <div class="sticky-wrapper">
-                
-                <!-- WIDGET DE COMPARTILHAMENTO -->
-                <div class="widget-share">
-                    <h4>Compartilhe com sua rede</h4>
-                    <div class="share-btns">
-                        <button class="btn-share btn-linkedin" onclick="shareLinkedIn()">Compartilhar no LinkedIn</button>
-                        <button class="btn-share btn-whatsapp" onclick="shareWhatsApp()">Enviar via WhatsApp</button>
-                    </div>
-                </div>
-
-                <!-- WIDGET AD B2B / B2C CONVERSÃO -->
-                <div class="widget-ad">
-                    <h4>Contrate melhor seus líderes com a Youp.</h4>
-                    <p>Mapeamos talentos capazes de conectar estratégia operacional com gestão de riscos sólida. Traga para a sua Diretoria líderes preparados para proteger o caixa e promover a integridade organizacional.</p>
-                    <a href="https://www.youpconsultoria.com/headhunter.html" class="btn-ad">Conheça nossa Metodologia</a>
-                </div>
-
-            </div>
-        </aside>
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
     </div>
 
-    <!-- SCRIPTS JS: PROGRESS BAR E COMPARTILHAMENTO -->
+    <nav class="navbar">
+        <a href="index.html" class="brand-logo">YOUP</a>
+        <button class="btn-voltar" onclick="lerArtigo()">▶ Ouvir Artigo</button>
+    </nav>
+
+    <div class="sticky-ad">
+        <h4>Mentoria Youp</h4>
+        <p>Desenvolva sua Liderança e transforme sua bagagem em autoridade estratégica no mercado.</p>
+        <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estou%20lendo%20a%20entrevista%20do%20Bruno%20Ferola%20e%20quero%20desenvolver%20meu%20posicionamento." class="btn-ad" target="_blank">Falar com Especialista</a>
+    </div>
+
+    <div class="share-sidebar">
+        <a onclick="shareLinkedIn()" class="share-btn" title="Compartilhar no LinkedIn">in</a>
+        <a onclick="shareWhatsApp()" class="share-btn" title="Enviar por WhatsApp">WA</a>
+    </div>
+
+    <div class="article-hero" title="Bruno Ferola"></div>
+
+    <main class="article-main" id="conteudo-artigo">
+        <span class="article-meta">Entrevistas Exclusivas • 20 min de leitura</span>
+        <h1 class="article-title">O Departamento Pessoal como Radar de Risco: Entrevista Exclusiva com Bruno Galvão Ferola</h1>
+        
+        <div class="article-content">
+            
+            <p>Durante o <a href="https://rhsummit.com/" target="_blank" style="color: var(--dourado); text-decoration: none; border-bottom: 1px solid var(--dourado);">RH Summit 2026</a>, em São Paulo, conduzi um painel com o <a href="https://www.linkedin.com/in/bruno-galv%C3%A3o-ferola-9312244b/" target="_blank" style="color: var(--dourado); text-decoration: none; border-bottom: 1px solid var(--dourado);">Bruno Galvão Ferola</a> que deixou provocações valiosíssimas no ar. Como o tempo em eventos ao vivo voa, decidi trazer essa oportunidade para o nosso blog, aprofundando a discussão com todos vocês que me acompanham por aqui. O mercado corporativo exige líderes que olhem além das rotinas operacionais, compreendendo as raízes financeiras e de governança que de fato sustentam as grandes companhias.</p>
+            
+            <p>Para contextualizar quem não esteve no evento e dar continuidade ao que debatemos presencialmente, trago na sequência uma entrevista exclusiva e na íntegra. Vamos repassar os quatro pilares fundamentais que abriram a nossa mesa de discussões, explorando como o Compliance e a análise de dados estão redefinindo as cadeiras de alta gestão. Boa leitura!</p>
+
+            <p><strong>Quem é Bruno Galvão Ferola?</strong><br>
+            Bruno Galvão Ferola é advogado, especialista em Compliance, mestre em Direito Público e doutorando pela FGV Direito SP. Atua como Diretor de Compliance e Sustentabilidade da Protiviti Brasil, Diretor do Projeto Constituição nas Escolas, Coordenador do Comitê de Compliance e Anticorrupção da Rede Governança Brasil (RGB) e professor do Instituto de Governança, Compliance e Performance (IGCP). É palestrante e pesquisador nas áreas de governança, gestão de riscos, controles internos, investigações corporativas e Inteligência Artificial aplicada ao Compliance. Acima de todos esses títulos, é marido da Michelle e pai do Thomas e da Giovanna, que são sua maior inspiração para promover uma cultura de integridade e construir organizações mais éticas e humanas.</p>
+
+            <hr style="border: 0; border-top: 1px solid #ddd; margin: 50px 0;">
+
+            <h2>Contextualização: O DP como Centro da Estratégia e Risco</h2>
+
+            <div class="interview-q">1. Bruno, no evento, começamos falando sobre como o Departamento Pessoal está no olho do furacão, conectando as camadas trabalhista, fiscal, contábil e financeira. Por que, na sua visão de especialista em Compliance, as empresas ainda insistem em operar essas informações de forma isolada, como se o dado da folha não tivesse um impacto direto no caixa e na governança?</div>
+            <div class="interview-a">A falha não é apenas operacional, mas de governança, de desenho de controles internos e de integração de processos. O problema persiste porque muitas organizações ainda estruturam suas atividades por departamentos, e não a partir de uma visão integrada de riscos. A folha de pagamento, por exemplo, não se limita a uma rotina do Departamento Pessoal: ela envolve obrigações legais e regulatórias, impactos financeiros, reflexos contábeis, fluxo de caixa, aspectos tributários e evidências essenciais para a prestação de contas e a governança corporativa. Sob a perspectiva de compliance, sua gestão exige controles integrados, definição clara de responsabilidades e compartilhamento tempestivo de informações entre as áreas. Assim, a integração deixa de ser uma questão operacional e passa a constituir um elemento estratégico do sistema de governança, da gestão de riscos e da efetividade dos controles internos.</div>
+
+            <div class="insight-headhunter">
+                <strong>Visão de Headhunter</strong>
+                Ao conduzir um processo de Executive Search para posições de diretoria de Recursos Humanos, o mercado não procura mais profissionais que apenas garantem o pagamento no quinto dia útil. O Conselho busca executivos capazes de enxergar o impacto desses números no Valuation da companhia.
+            </div>
+
+            <div class="interview-q">2. Você trouxe um ponto excelente sobre a "falta de leitura conectada". Para quem está na operação, quais seriam os primeiros sinais operacionais — aqueles pequenos ruídos no dia a dia do DP — que indicam que um risco trabalhista ou fiscal está prestes a se tornar um passivo financeiro real?</div>
+            <div class="interview-a">Costumo dizer que, quando um processo depende de esforço excessivo para funcionar, há um forte indicativo de fragilidade em seu desenho ou em seus controles internos. Os primeiros sinais costumam aparecer na forma de retrabalho recorrente, intervenções manuais frequentes, divergências entre ponto, folha de pagamento, contabilidade e eSocial, concentração atípica de horas extras, alterações salariais sem justificativa formal, pagamentos fora do padrão e reclamações recorrentes. Isoladamente, esses eventos podem parecer apenas ocorrências operacionais. Entretanto, sob a perspectiva da gestão de riscos e do compliance, seu conjunto constitui importantes indicadores de alerta (red flags), evidenciando deficiências de controle, fragilidades na governança do processo e aumento da exposição a riscos operacionais, trabalhistas, financeiros e reputacionais.</div>
+
+            <div class="interview-q">3. Muitas vezes, a liderança enxerga erros em folha ou gestão de jornada apenas como "problemas operacionais". Como você explica para um conselho de administração ou para um CFO o efeito dominó que esses erros causam na exposição jurídica e na distorção da contabilidade da empresa?</div>
+            <div class="interview-a">Um erro no controle de jornada pode desencadear uma cadeia de impactos que vai muito além da folha de pagamento: diferenças salariais, recolhimentos incorretos de encargos, multas administrativas, passivos trabalhistas, provisões contábeis inadequadas, distorções no fluxo de caixa e até riscos reputacionais. Por essa razão, o Conselho de Administração, a alta administração e o CFO devem acompanhar o Departamento Pessoal não apenas por indicadores de produtividade, mas, principalmente, por indicadores de risco, conformidade, efetividade dos controles internos e impacto financeiro. Mais do que receber relatórios sobre problemas, o conselho deve fomentar um ambiente de discussão de soluções, questionando as causas estruturais, avaliando oportunidades de melhoria e incentivando a adoção de tecnologias que fortaleçam a governança. Nesse contexto, a Inteligência Artificial surge como uma importante aliada, permitindo a análise contínua de dados, a identificação de padrões e anomalias, a automação de controles, a geração de alertas preventivos e o apoio à tomada de decisão baseada em evidências. A governança agrega valor quando transforma informações em decisões e riscos em oportunidades de aprimoramento.</div>
+
+            <div class="interview-q">4. Para fecharmos essa retrospectiva do nosso encontro presencial e avançarmos: o que precisa mudar, de fato, na governança das organizações para que o DP deixe de ser um executor de tarefas e passe a ser um "radar de risco", protegendo o resultado antes que o erro vire custo?</div>
+            <div class="interview-a">A efetividade dos controles internos depende de uma arquitetura de governança bem estruturada, que contemple a definição clara de responsabilidades, a integração entre sistemas e processos, a adequada segregação de funções, a manutenção de trilhas de auditoria confiáveis e o monitoramento contínuo por meio de indicadores de risco e desempenho. Nesse contexto, o Departamento Pessoal exerce papel fundamental como gestor dos controles operacionais (primeira linha), sendo responsável pela execução dos processos e pela gestão dos riscos inerentes às suas atividades. A função de Compliance atua na segunda linha, apoiando a definição de diretrizes, assessorando na gestão dos riscos e monitorando a aderência às normas internas e externas, enquanto a Auditoria Interna, como terceira linha, fornece avaliação independente sobre a efetividade da governança, da gestão de riscos e dos controles internos, promovendo maior confiança para a alta administração e para o Conselho.</div>
+
+            <hr style="border: 0; border-top: 1px solid #ddd; margin: 50px 0;">
+
+            <h2>Inteligência Aplicada e Data Analytics</h2>
+
+            <div class="interview-q">5. Bruno, na sua atuação em Forensics, você lida com a investigação de fraudes e desvios. Muitas vezes, a folha de pagamento é utilizada como um veículo para irregularidades que passam despercebidas por anos. Como o uso de Data Analytics e inteligência aplicada à conformidade pode ajudar o DP a identificar "fantasmas" ou desvios de conduta antes que uma auditoria externa seja necessária?</div>
+            <div class="interview-a">A experiência em investigações mostra que praticamente nenhuma fraude relevante acontece de forma totalmente aleatória. Ela deixa rastros nos dados. O desafio é que esses sinais costumam estar dispersos entre sistemas de folha, ponto, RH, ERP, benefícios e financeiro. Quando analisados isoladamente, passam despercebidos; quando conectados, revelam padrões de risco. <br><br> É justamente nesse ponto que Data Analytics e Inteligência Artificial mudam a lógica de atuação. Em vez de esperar uma denúncia ou uma auditoria externa, a organização passa a monitorar continuamente seus processos, identificando anomalias e gerando alertas preventivos.<br><br>Na folha de pagamento, por exemplo, é possível detectar pagamentos fora do padrão, alterações salariais sem o fluxo adequado de aprovação, contas bancárias compartilhadas entre colaboradores, empregados sem registro de jornada, benefícios incompatíveis com o cargo, concentração de horas extras em determinados gestores, admissões ou desligamentos atípicos, além de acessos e alterações realizadas fora dos perfis autorizados. Individualmente, esses eventos nem sempre representam fraude, mas constituem importantes red flags que merecem análise.<br><br>O grande ganho é que a tecnologia não substitui o julgamento humano; ela amplia a capacidade de prevenção. Enquanto uma auditoria tradicional trabalha por amostragem e em momentos específicos, a análise contínua de dados permite monitorar 100% das transações, em tempo quase real, direcionando os esforços da gestão para aquilo que efetivamente representa maior risco.<br><br>Por isso, costumo dizer que o futuro da conformidade é menos baseado em inspeção e mais em inteligência. O Departamento Pessoal deixa de ser apenas um executor de rotinas e passa a atuar como uma área estratégica, utilizando dados para fortalecer controles internos, prevenir fraudes, apoiar decisões e gerar confiança para a administração e para o Conselho. Afinal, o melhor caso de fraude é aquele que nunca chega a acontecer porque os controles foram capazes de identificá-lo antes. Compliance não é esperar a auditoria encontrar o problema; é utilizar inteligência para impedir que ele aconteça.</div>
+
+            <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem21.jpeg?raw=true" alt="Análise de Dados" class="inline-img">
+
+            <div class="interview-q">6. Você mencionou que o problema não é a falta de dado, mas a falta de leitura conectada. Do ponto de vista de Governança Corporativa, quem deve ser o "dono" dessa integração? Deve partir do RH, do Compliance ou o CFO precisa chamar a responsabilidade para garantir que o dado do DP não morra em uma planilha isolada?</div>
+            <div class="interview-a">Eu diria que o verdadeiro "dono" é a governança. Esse é justamente o erro que muitas organizações cometem: imaginar que a integração dos dados é um problema do RH, do Compliance ou da TI. Na realidade, trata-se de uma responsabilidade da alta administração, que deve assegurar que as informações circulem de forma confiável entre as áreas para apoiar a tomada de decisão.<br><br>Cada área possui um papel específico. O Departamento Pessoal é responsável pela qualidade e tempestividade dos dados que produz. O RH contribui com a gestão de pessoas e dos processos. A TI garante a integração tecnológica e a segurança da informação. O Compliance estabelece diretrizes, monitora riscos e questiona inconsistências. O CFO transforma esses dados em informações para a gestão financeira e para o planejamento da organização. Já a Auditoria Interna avalia, de forma independente, se esse modelo está funcionando adequadamente.<br><br>Mas alguém precisa exercer o papel de patrocinador dessa integração. Na minha visão, esse papel deve ser assumido pela alta administração, com forte liderança do CFO, especialmente porque muitos dos riscos decorrentes de falhas na folha de pagamento acabam se materializando em impactos financeiros, contábeis, tributários e de caixa. Quando a liderança demonstra que os dados são um ativo estratégico, a integração deixa de ser um projeto de tecnologia e passa a fazer parte da cultura de governança da organização.<br><br>Além disso, a Inteligência Artificial pode atuar como um importante elemento integrador. Em vez de cada área analisar seus dados de forma isolada, soluções de IA conseguem cruzar informações provenientes do RH, da folha, do financeiro, da contabilidade, do ERP, do eSocial e de outros sistemas, identificando inconsistências, padrões de risco e oportunidades de melhoria que dificilmente seriam percebidos em análises fragmentadas. A tecnologia, porém, é um meio. O fator decisivo continua sendo a governança, que define responsabilidades, promove a colaboração entre as áreas e garante que os dados sejam utilizados para gerar decisões melhores. <br><br>O problema não é quem é dono do dado. O problema é quando ninguém se sente responsável pelo risco que esse dado representa.</div>
+
+            <div class="interview-q">7. Estamos em 2026, e a IA Generativa já é realidade no fluxo de trabalho de lideranças. No cenário de compliance trabalhista, a tecnologia deve ser usada apenas para processar dados ou você já enxerga a IA atuando como uma "auditoria em tempo real", bloqueando pagamentos ou jornadas que firam a governança antes mesmo de ocorrerem?</div>
+            <div class="interview-a">Sem dúvida, ela já pode atuar como uma auditoria contínua. A diferença é que a auditoria tradicional analisa fatos passados, geralmente por amostragem. A Inteligência Artificial monitora 100% das transações, em tempo real, identificando exceções, padrões de risco e falhas de controle antes que se transformem em prejuízos.<br><br>No compliance trabalhista, isso significa detectar automaticamente alterações salariais sem aprovação, jornadas incompatíveis, pagamentos atípicos, inconsistências entre folha, eSocial e contabilidade, além de violações à segregação de funções e aos fluxos de aprovação.<br><br>Mas é importante destacar: a IA não substitui a auditoria nem o julgamento humano. Ela amplia a capacidade de monitoramento, gera alertas e apoia decisões baseadas em evidências. A responsabilidade continua sendo da gestão.<br><br>Acredito que o futuro não está em auditar mais, mas em monitorar continuamente. A IA transforma o compliance de uma função reativa em uma função preventiva, fortalecendo a governança e os controles internos. A Inteligência Artificial não substitui a governança; ela torna a governança mais inteligente.</div>
+
+            <hr style="border: 0; border-top: 1px solid #ddd; margin: 50px 0;">
+
+            <h2>O Fator Humano e o ESG</h2>
+
+            <div class="interview-q">8. O DP é, essencialmente, a base do pilar "S" (Social) do ESG. Além do risco financeiro, como uma gestão de DP falha — que ignora horas extras excessivas ou irregularidades de encargos — impacta a reputação da marca e a percepção de investidores e parceiros de negócios hoje?</div>
+            <div class="interview-a">Hoje, investidores, clientes e parceiros não avaliam apenas os resultados financeiros de uma organização; eles avaliam como esses resultados são alcançados. O Departamento Pessoal é uma das principais evidências da dimensão social da governança. Quando a empresa convive com jornadas excessivas, passivos trabalhistas recorrentes, falhas no recolhimento de encargos ou descumprimento da legislação, o problema deixa de ser apenas operacional. Ele passa a representar um risco cultural, reputacional, regulatório e de negócios.<br><br>Cada vez mais, esses aspectos influenciam processos de due diligence, decisões de investimento, acesso a crédito e até a contratação por grandes empresas, que exigem padrões mínimos de integridade e responsabilidade social em toda a cadeia de valor. No fim, o DP não administra apenas pessoas. Ele administra confiança. E confiança é um dos ativos mais valiosos de qualquer organização. A forma como uma empresa trata seus colaboradores é uma das evidências mais concretas da sua cultura de integridade.</div>
+
+            <div class="insight-headhunter">
+                <strong>Visão de Headhunter</strong>
+                Em processos de fusões e aquisições (M&A), o "Backchanneling" muitas vezes revela passivos ocultos na gestão de pessoas que destroem o valor da transação. Um líder forte protege a empresa desse risco sistêmico.
+            </div>
+
+            <div class="interview-q">9. Bruno, você tem uma forte atuação acadêmica e institucional (OAB, ABNT, FGV). Como você avalia a maturidade das empresas brasileiras em relação ao Compliance Trabalhista? Ainda estamos na fase de "apagar incêndios" ou já percebe um movimento real em direção à prevenção por meio da educação e cultura ética?</div>
+            <div class="interview-a">Vejo uma evolução importante, mas a maturidade ainda é bastante desigual. Grandes organizações já compreenderam que compliance trabalhista não se resume a cumprir a legislação; trata-se de gerir riscos, proteger pessoas e fortalecer a governança. Por outro lado, muitas empresas ainda atuam de forma reativa, investindo em controles apenas depois de uma fiscalização, uma ação trabalhista ou uma crise. O que mais me anima é perceber uma mudança de mentalidade. Cada vez mais, conselhos de administração, diretores e gestores entendem que a prevenção gera mais valor do que a correção. Isso significa investir em educação, fortalecer a cultura ética, utilizar dados e Inteligência Artificial para monitorar riscos e incorporar o compliance às decisões do dia a dia, e não apenas aos momentos de crise.<br><br>Na academia, nas entidades de classe e na prática profissional, tenho defendido que o futuro do compliance não será medido pela quantidade de normas ou políticas, mas pela capacidade de influenciar comportamentos e criar organizações mais íntegras, éticas, resilientes e sustentáveis. Afinal, cultura não é aquilo que está escrito no Código de Ética; é aquilo que as pessoas fazem quando ninguém está olhando. O maior indicador de maturidade em compliance não é a ausência de problemas. É a capacidade da organização de preveni-los, identificá-los rapidamente e aprender com eles.</div>
+
+            <hr style="border: 0; border-top: 1px solid #ddd; margin: 50px 0;">
+
+            <h2>Propósito e Gestão de Crise</h2>
+
+            <div class="interview-q">10. Em uma investigação corporativa onde se descobre um erro sistêmico no DP que gerou um passivo milionário, qual deve ser a primeira atitude da liderança para mitigar o dano sem destruir o clima organizacional e a confiança dos colaboradores?</div>
+            <div class="interview-a">A primeira atitude é resistir à tentação de procurar um culpado antes de compreender a causa. Em investigações corporativas, é comum que um erro individual revele, na verdade, uma falha sistêmica de processos, controles ou governança. A liderança deve agir em três frentes, simultaneamente: conter o risco, investigar os fatos com independência e transparência e corrigir a causa raiz do problema para que a situação não ocorra novamente. Paralelamente, é fundamental comunicar com clareza o que aconteceu, quais medidas estão sendo adotadas e como os colaboradores eventualmente afetados serão tratados.<br><br>Quando a organização reage apenas punindo pessoas, ela gera medo. Quando reage fortalecendo controles, corrigindo processos e aprendendo com o ocorrido, ela fortalece a confiança e a cultura de integridade. Uma crise bem gerida pode, inclusive, fortalecer a organização, porque demonstra compromisso com a ética, a transparência e a melhoria contínua. Em compliance, o maior erro não é descobrir uma falha. É desperdiçar a oportunidade de aprender com ela e fortalecer a governança.</div>
+
+            <div class="interview-q">11. Fora dos tribunais e das salas de diretoria, você mencionou que sua família e seus filhos são sua maior motivação. Como essa busca por integridade e propósito no ambiente de casa influencia a forma como você conduz investigações tão sensíveis, onde, no final do dia, estamos lidando com a carreira e o sustento de outras pessoas?</div>
+            <div class="interview-a">Eu gosto de pensar que compliance é, antes de tudo, sobre pessoas. Por trás de uma investigação, de uma folha de pagamento ou de um processo disciplinar existem famílias, histórias e sonhos. Nunca podemos perder essa perspectiva. Ser pai mudou profundamente a minha forma de exercer a profissão, inclusive com a perda de uma gestação da nossa primeira filha que me fez olhar para dentro e encarar aquela dor de forma profunda. Quando chego em casa e vejo meus filhos, lembro que cada decisão que tomo pode impactar a vida de alguém que também é filho, pai, mãe ou responsável pelo sustento de uma família. Isso não significa ser conivente com irregularidades, mas significa conduzir cada investigação da melhor forma possível com respeito, imparcialidade, dignidade e senso de justiça.<br><br>Integridade não é apenas aplicar regras; é ter coragem para fazer o que é certo da forma certa. É proteger a organização sem esquecer das pessoas que fazem parte dela. No fim do dia, acredito que o nosso maior legado não são as investigações que conduzimos nem os pareceres que assinamos. É a confiança que conseguimos construir. Porque empresas são feitas de processos, mas organizações verdadeiramente íntegras são feitas de pessoas. Toda decisão de compliance alcança uma família. Por isso, técnica e humanidade precisam caminhar juntas.</div>
+
+            <div class="interview-q">12. Se você pudesse dar um único conselho prático para um Diretor de RH que sente que seu DP está operando no "escuro" em relação aos riscos fiscais e contábeis, qual seria o primeiro passo para iluminar essa operação amanhã?</div>
+            <div class="interview-a">Meu conselho seria simples: pare de olhar apenas para processos e comece a olhar para riscos. Pergunte quais são os cinco maiores riscos da folha de pagamento, quais controles existem para mitigá-los e quais evidências demonstram que esses controles realmente funcionam. Se essas respostas não estiverem claras, esse já é o primeiro sinal de alerta.<br><br>Em seguida, reúna RH - Departamento Pessoal, Contabilidade, Fiscal, Financeiro, Compliance e TI. Os maiores riscos surgem justamente nas interfaces entre as áreas, e não dentro delas.<br><br>Por fim, use a tecnologia a seu favor e peça ajuda a especialistas. Data Analytics e Inteligência Artificial permitem monitorar riscos de forma contínua, identificar exceções e transformar dados em decisões. A governança começa quando deixamos de administrar tarefas e passamos a administrar riscos. Esse é o passo que ilumina qualquer operação.<br><br>O futuro das organizações não será definido pela quantidade de controles que possuem, mas pela inteligência com que utilizam seus dados, pela integridade de sua cultura e pela coragem de prevenir riscos antes que eles se tornem crises. Quem enxerga apenas processos administra o presente. Quem enxerga riscos constrói o futuro de maneira sustentável e alinhado aos objetivos da instituição.</div>
+
+        </div>
+        
+        <div class="mobile-share">
+            <span style="font-size: 13px; font-weight: 700; color: #888; align-self: center; text-transform: uppercase;">Compartilhe:</span>
+            <a onclick="shareLinkedIn()" class="share-btn" title="LinkedIn">in</a>
+            <a onclick="shareWhatsApp()" class="share-btn" title="WhatsApp">WA</a>
+        </div>
+
+        <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; margin-bottom: 30px;">
+            <h4 style="font-size: 14px; text-transform: uppercase; color: #888; letter-spacing: 1px;">Outras Leituras Estratégicas:</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 12px;"><a href="artigo-nr1-risco-governanca-c-level.html" style="color: #c5a059; text-decoration: none; font-weight: 600;">➔ O Risco Número 1 na Governança C-Level</a></li>
+                <li style="margin-bottom: 12px;"><a href="artigo-rh-remuneracao-estrategica.html" style="color: #c5a059; text-decoration: none; font-weight: 600;">➔ RH e Remuneração Estratégica na Alta Gestão</a></li>
+                <li style="margin-bottom: 12px;"><a href="artigo-quiet-firing-lideranca.html" style="color: #c5a059; text-decoration: none; font-weight: 600;">➔ O "Quiet Firing": Os Sinais Silenciosos</a></li>
+            </ul>
+        </div>
+
+        <div class="author-box">
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="author-photo">
+            <div class="author-info">
+                <h4 class="author-name">Ana Paula Marçal Fortunato</h4>
+                <span class="author-title">CEO Youp • Headhunter & Mentora Executiva</span>
+                <p class="author-bio">Especialista em recrutamento estratégico e atração de líderes de alta performance, auxilio empresas a estruturarem Conselhos e Diretorias capazes de conduzir a verdadeira Governança. Como Headhunter e LinkedIn Top Voice, oriento executivos a compreenderem as raízes financeiras e de risco de suas áreas, maximizando seu valor perante o mercado.</p>
+                <a href="https://www.linkedin.com/in/anapaulamarcalfortunato" class="author-linkedin" target="_blank">Conectar no LinkedIn ➔</a>
+            </div>
+        </div>
+
+        <section class="cta-box">
+            <h3>Sua liderança gerencia processos ou previne riscos?</h3>
+            <p>Se você ocupa uma cadeira de liderança ou almeja o C-Level, dominar a conexão entre os dados operacionais e o risco corporativo é fundamental. Agende uma conversa confidencial para mapear como o seu posicionamento atual dialoga com as expectativas dos Conselhos de Administração.</p>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20li%20a%20entrevista%20com%20o%20Bruno%20Ferola%20e%20gostaria%20de%20falar%20sobre%20posicionamento." class="btn-cta" target="_blank">Falar com a Youp Consultoria</a>
+        </section>
+    </main>
+
     <script>
-        // Progress Bar Script
-        window.onscroll = function() { updateProgressBar() };
-        function updateProgressBar() {
+        window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             var scrolled = (winScroll / height) * 100;
             document.getElementById("myBar").style.width = scrolled + "%";
-        }
-
-        // Text-to-Speech Script
+        };
         function lerArtigo() {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
@@ -421,22 +272,13 @@
                 utterance.lang = 'pt-BR';
                 utterance.rate = 1.0;
                 window.speechSynthesis.speak(utterance);
-                alert("A leitura de áudio foi iniciada. Certifique-se de que o volume do seu dispositivo está ligado.");
+                alert("A leitura de áudio foi iniciada. Certifique-se de que o volume está ligado.");
             } else {
                 alert("Desculpe, seu navegador não suporta a funcionalidade de leitura de tela.");
             }
         }
-
-        // Share Scripts
-        function shareLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank', 'width=600,height=600');
-        }
-        function shareWhatsApp() {
-            const url = encodeURIComponent(window.location.href);
-            const texto = encodeURIComponent("Imperdível essa entrevista conduzida pela Ana Paula Marçal Fortunato com o especialista Bruno Ferola sobre Compliance e gestão de riscos na alta liderança. Dá uma olhada: ");
-            window.open('https://api.whatsapp.com/send?text=' + texto + url, '_blank');
-        }
+        function shareLinkedIn() { var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + url, '_blank'); }
+        function shareWhatsApp() { var title = encodeURIComponent(document.title); var url = encodeURIComponent(window.location.href); window.open('https://api.whatsapp.com/send?text=Recomendo esta entrevista incrível: ' + title + ' - ' + url, '_blank'); }
     </script>
 </body>
 </html>
