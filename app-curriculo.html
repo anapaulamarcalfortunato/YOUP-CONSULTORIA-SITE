@@ -42,6 +42,8 @@
             h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
+            @page { margin: 0; }
+            body { margin: 1.5cm; }
         }
         @media (max-width: 768px) { .container { padding: 30px; margin: 20px 0; } }
     </style>
@@ -169,11 +171,17 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 document.getElementById('cv-document').innerHTML = marked.parse(backupLocal);
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('download-screen').style.display = 'block';
-                isUnsaved = true;
+                isUnsaved = true; 
                 return; 
             }
 
-            cvConversationHistory = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo: ${cargo}\nProblema: ${problem}\nMétricas: ${metrics}\nCurrículo:\n${old_cv}`;
+            cvConversationHistory = `DADOS:
+Nome: ${nomeClienteGlobal}
+Cargo: ${cargo}
+Problema: ${problem}
+Métricas: ${metrics}
+Currículo:
+${old_cv}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
@@ -193,7 +201,10 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
+                        cvConversationHistory += `
+
+[Aluara - IA da Youp]:
+${msgAna}`;
                         document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('consultoria-screen').style.display = 'block';
@@ -219,7 +230,10 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             document.getElementById('consultoria-screen').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
             
-            cvConversationHistory += `\n\n[Resposta do Cliente]:\n${userReply}`;
+            cvConversationHistory += `
+
+[Resposta do Cliente]:
+${userReply}`;
             
             try {
                 const response = await fetch(googleScriptURL, {
@@ -237,7 +251,10 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     const result = data.candidates[0].content.parts[0].text;
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
+                        cvConversationHistory += `
+
+[Aluara - IA da Youp]:
+${msgAna}`;
                         document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('user-reply').value = '';
                         document.getElementById('loading').style.display = 'none';
