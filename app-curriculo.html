@@ -34,16 +34,30 @@
         #cv-document p { margin-bottom: 10px; }
         #cv-document ul { margin-top: 5px; margin-bottom: 15px; padding-left: 20px; }
         #cv-document li { margin-bottom: 5px; }
+        
+        /* AJUSTE DAS MARGENS DE IMPRESSÃO AQUI */
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; }
             #cv-document, #cv-document * { visibility: visible; }
-            #cv-document { position: absolute; left: 0; top: 0; width: 100%; max-width: 100%; padding: 0; margin: 0; box-shadow: none; border: none; }
+            #cv-document { 
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100%; 
+                max-width: 100%; 
+                box-sizing: border-box; /* Fundamental para o padding não estourar a folha */
+                padding: 1.5cm 2cm; /* AQUI ESTÁ A NOVA MARGEM (1.5cm topo/baixo e 2cm laterais) */
+                margin: 0; 
+                box-shadow: none; 
+                border: none; 
+            }
             h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; margin-top: 25px;}
             p, li { page-break-inside: avoid; break-inside: avoid; }
             ul { page-break-before: avoid; break-before: avoid; }
+            
+            /* Remove os cabeçalhos/rodapés automáticos do navegador */
             @page { margin: 0; }
-            body { margin: 1.5cm; }
         }
         @media (max-width: 768px) { .container { padding: 30px; margin: 20px 0; } }
     </style>
@@ -175,7 +189,13 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 return; 
             }
 
-            cvConversationHistory = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo: ${cargo}\nProblema: ${problem}\nMétricas: ${metrics}\nCurrículo:\n${old_cv}`;
+            cvConversationHistory = `DADOS:
+Nome: ${nomeClienteGlobal}
+Cargo: ${cargo}
+Problema: ${problem}
+Métricas: ${metrics}
+Currículo:
+${old_cv}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
@@ -195,7 +215,10 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
+                        cvConversationHistory += `
+
+[Aluara - IA da Youp]:
+${msgAna}`;
                         document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('consultoria-screen').style.display = 'block';
@@ -221,7 +244,10 @@ ESTRUTURA DE SAÍDA EXIGIDA:
             document.getElementById('consultoria-screen').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
             
-            cvConversationHistory += `\n\n[Resposta do Cliente]:\n${userReply}`;
+            cvConversationHistory += `
+
+[Resposta do Cliente]:
+${userReply}`;
             
             try {
                 const response = await fetch(googleScriptURL, {
@@ -239,7 +265,10 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                     const result = data.candidates[0].content.parts[0].text;
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
+                        cvConversationHistory += `
+
+[Aluara - IA da Youp]:
+${msgAna}`;
                         document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('user-reply').value = '';
                         document.getElementById('loading').style.display = 'none';
