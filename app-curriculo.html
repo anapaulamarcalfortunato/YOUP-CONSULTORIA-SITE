@@ -189,13 +189,7 @@ ESTRUTURA DE SAÍDA EXIGIDA:
                 return; 
             }
 
-            cvConversationHistory = `DADOS:
-Nome: ${nomeClienteGlobal}
-Cargo: ${cargo}
-Problema: ${problem}
-Métricas: ${metrics}
-Currículo:
-${old_cv}`;
+            cvConversationHistory = `DADOS:\nNome: ${nomeClienteGlobal}\nCargo: ${cargo}\nProblema: ${problem}\nMétricas: ${metrics}\nCurrículo:\n${old_cv}`;
 
             try {
                 const response = await fetch(googleScriptURL, {
@@ -215,10 +209,7 @@ ${old_cv}`;
                     
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `
-
-[Aluara - IA da Youp]:
-${msgAna}`;
+                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
                         document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('consultoria-screen').style.display = 'block';
@@ -244,10 +235,7 @@ ${msgAna}`;
             document.getElementById('consultoria-screen').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
             
-            cvConversationHistory += `
-
-[Resposta do Cliente]:
-${userReply}`;
+            cvConversationHistory += `\n\n[Resposta do Cliente]:\n${userReply}`;
             
             try {
                 const response = await fetch(googleScriptURL, {
@@ -265,10 +253,7 @@ ${userReply}`;
                     const result = data.candidates[0].content.parts[0].text;
                     if (result.includes('[INCOMPLETO]')) {
                         const msgAna = result.replace('[INCOMPLETO]', '').trim();
-                        cvConversationHistory += `
-
-[Aluara - IA da Youp]:
-${msgAna}`;
+                        cvConversationHistory += `\n\n[Aluara - IA da Youp]:\n${msgAna}`;
                         document.getElementById('ai-message').innerHTML = marked.parse(msgAna);
                         document.getElementById('user-reply').value = '';
                         document.getElementById('loading').style.display = 'none';
