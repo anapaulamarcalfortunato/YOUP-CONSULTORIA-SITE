@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrevista Estratégica | Youp Consultoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #f7f7f7; --texto-corpo: #2c2c2c; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--fundo-claro); color: var(--texto-corpo); height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+        .navbar { background-color: var(--cinza-escuro); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 10; flex-shrink: 0; }
+        .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 18px; }
+        .header-title { color: #fff; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+        .status-dot { width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #4CAF50; }
+
+        #token-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .token-box { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--dourado); max-width: 450px; width: 100%; text-align: center; }
+        .token-box h1 { font-size: 22px; font-weight: 800; color: var(--cinza-escuro); margin-bottom: 10px; }
+        .token-box p { font-size: 13px; color: #666; margin-bottom: 20px; }
+        .token-box input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; margin-bottom: 15px; text-align: center; outline: none; }
+        .btn-start { width: 100%; padding: 16px; background-color: var(--cinza-escuro); color: var(--dourado); font-weight: 800; font-size: 14px; border: none; border-radius: 6px; cursor: pointer; text-transform: uppercase; }
+
+        #chat-screen { display: none; flex: 1; flex-direction: column; max-width: 900px; width: 100%; margin: 0 auto; background: #fff; min-height: 0; overflow: hidden; }
+        .chat-area { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+        .message-row { display: flex; width: 100%; }
+        .message-row.bot { justify-content: flex-start; }
+        .message-row.user { justify-content: flex-end; }
+        .bubble { max-width: 80%; padding: 18px 25px; border-radius: 12px; font-size: 15px; line-height: 1.6; word-wrap: break-word; }
+        .bubble.bot { background-color: #f8f9fa; color: #333; border: 1px solid #eee; }
+        .bubble.user { background-color: var(--cinza-escuro); color: #fff; }
+
+        .input-area { padding: 20px 30px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 15px; }
+        .input-area textarea { flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 15px; resize: none; outline: none; height: 55px; }
+        .btn-send { background-color: var(--dourado); color: #fff; border: none; width: 55px; height: 55px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+        .typing-indicator { display: none; padding: 10px 20px; background: #f8f9fa; border-radius: 20px; align-self: flex-start; margin-left: 30px; }
+        .typing-dots span { width: 8px; height: 8px; background-color: #bbb; border-radius: 50%; display: inline-block; animation: blink 1.4s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 0.2; } 20% { opacity: 1; } }
+        .chat-ended-msg { text-align: center; padding: 20px; width: 100%; background: #f0fdf4; border: 1px solid #c6f6d5; border-radius: 8px; color: var(--verde-youp); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="brand-logo">YOUP</a>
+        <div class="header-title"><span class="status-dot"></span> Aluara | Headhunter</div>
+    </nav>
+
+    <div id="token-screen">
+        <div class="token-box">
+            <h1>Mapeamento Estratégico</h1>
+            <p>Insira o seu Código de Acesso recebido por e-mail para iniciar a entrevista de alinhamento à vaga.</p>
+            <form onsubmit="startChat(event)">
+                <input type="text" id="tokenInput" placeholder="Ex: STARE-12-170000000" required>
+                <button type="submit" id="startBtn" class="btn-start">Iniciar Entrevista</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="chat-screen">
+        <div class="chat-area" id="chatArea"></div>
+        <div class="typing-indicator" id="typingIndicator"><div class="typing-dots"><span></span> <span></span> <span></span></div></div>
+        <div class="input-area" id="inputArea">
+            <textarea id="chatInput" placeholder="Digite sua resposta..." onkeypress="handleEnter(event)"></textarea>
+            <button class="btn-send" onclick="sendMessage()" id="sendBtn">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // COLE AQUI A URL DA SUA WEB APP DO APPS SCRIPT
+        const scriptUrl = 'https://script.google.com/macros/s/SUA_WEB_APP_URL_AQUI/exec';
+        
+        let userToken = "";
+        let conversationHistory = "";
+
+        // Captura automática do Token da URL se existir (?token=STARE-...)
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tokenParam = urlParams.get('token');
+            if (tokenParam) {
+                document.getElementById('tokenInput').value = tokenParam;
+                document.getElementById('startBtn').click();
+            }
+        };
+
+        async function startChat(e) {
+            if(e) e.preventDefault();
+            userToken = document.getElementById("tokenInput").value.trim();
+            const btn = document.getElementById("startBtn");
+            btn.innerText = "Conectando com Aluara...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(scriptUrl, {
+                    method: "POST",
+                    body: JSON.stringify({ token: userToken, conversationHistory: "" })
+                });
+                const data = await response.json();
+
+                if (data.error) {
+                    alert(data.error.message);
+                    btn.innerText = "Iniciar Entrevista";
+                    btn.disabled = false;
+                    return;
+                }
+
+                document.getElementById("token-screen").style.display = "none";
+                document.getElementById("chat-screen").style.display = "flex";
+
+                const botMsg = data.response;
+                conversationHistory += `[Aluara]: ${botMsg}\n`;
+                appendMessage("bot", botMsg);
+
+            } catch (err) {
+                alert("Erro de conexão. Verifique se o código é válido.");
+                btn.innerText = "Iniciar Entrevista";
+                btn.disabled = false;
+            }
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById("chatInput");
+            const msg = inputField.value.trim();
+            if (!msg) return;
+
+            appendMessage("user", msg);
+            conversationHistory += `\n[Candidato]: ${msg}\n`;
+            inputField.value = "";
+
+            showTyping(true);
+            disableInput(true);
+
+            try {
+                const response = await fetch(scriptUrl, {
+                    method: "POST",
+                    body: JSON.stringify({ token: userToken, conversationHistory: conversationHistory })
+                });
+                const data = await response.json();
+
+                showTyping(false);
+
+                if (data.error) {
+                    appendMessage("bot", "Ocorreu um erro de conexão. Repita sua resposta.");
+                    disableInput(false);
+                    return;
+                }
+
+                let botMsg = data.response;
+
+                if (botMsg.includes("[DIAGNOSTICO_FINAL]")) {
+                    appendMessage("bot", "Obrigado pelas respostas! Seu mapeamento estratégico foi finalizado e enviado com sucesso ao nosso time de Executive Search.");
+                    document.getElementById("inputArea").innerHTML = `<div class="chat-ended-msg">✅ Entrevista Concluída com Sucesso! Seu perfil está em análise.</div>`;
+                } else {
+                    appendMessage("bot", botMsg);
+                    conversationHistory += `\n[Aluara]: ${botMsg}\n`;
+                    disableInput(false);
+                    document.getElementById("chatInput").focus();
+                }
+
+            } catch (err) {
+                showTyping(false);
+                disableInput(false);
+                appendMessage("bot", "A conexão oscilou. Tente reenviar.");
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const chatArea = document.getElementById("chatArea");
+            const row = document.createElement("div");
+            row.className = `message-row ${sender}`;
+            const bubble = document.createElement("div");
+            bubble.className = `bubble ${sender}`;
+            bubble.innerHTML = (sender === "bot") ? marked.parse(text) : text;
+            row.appendChild(bubble);
+            chatArea.appendChild(row);
+            setTimeout(() => { chatArea.scrollTop = chatArea.scrollHeight; }, 50);
+        }
+
+        function showTyping(show) { document.getElementById("typingIndicator").style.display = show ? "block" : "none"; }
+        function disableInput(disabled) { document.getElementById("chatInput").disabled = disabled; document.getElementById("sendBtn").disabled = disabled; }
+        function handleEnter(e) { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+    </script>
+</body>
+</html>
