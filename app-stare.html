@@ -9,16 +9,18 @@
     <style>
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #f7f7f7; --texto-corpo: #2c2c2c; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--fundo-claro); color: var(--texto-corpo); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        
+        /* Ajuste de altura dinâmica para mobile (100dvh) com fallback para 100vh */
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--fundo-claro); color: var(--texto-corpo); height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
         
         /* Navbar / Header */
-        .navbar { background-color: var(--cinza-escuro); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 10; }
+        .navbar { background-color: var(--cinza-escuro); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 10; flex-shrink: 0; }
         .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 18px; }
         .header-title { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
         .status-dot { width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #4CAF50; }
 
         /* Tela de Token (Acesso) */
-        #token-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        #token-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .token-box { background: #fff; padding: 50px 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--dourado); max-width: 450px; width: 100%; text-align: center; }
         .token-box h1 { font-size: 24px; font-weight: 800; color: var(--cinza-escuro); margin-bottom: 15px; }
         .token-box p { font-size: 14px; color: #666; margin-bottom: 30px; line-height: 1.5; }
@@ -28,17 +30,38 @@
         .btn-start:hover { background-color: var(--dourado); color: #fff; }
         .btn-start:disabled { background-color: #ccc; color: #888; cursor: not-allowed; }
 
-        /* Tela de Chat */
-        #chat-screen { display: none; flex: 1; flex-direction: column; max-width: 900px; width: 100%; margin: 0 auto; background: #fff; box-shadow: 0 0 30px rgba(0,0,0,0.03); border-left: 1px solid #eee; border-right: 1px solid #eee; }
+        /* Tela de Chat CORRIGIDA */
+        #chat-screen { 
+            display: none; 
+            flex: 1; 
+            flex-direction: column; 
+            max-width: 900px; 
+            width: 100%; 
+            margin: 0 auto; 
+            background: #fff; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.03); 
+            border-left: 1px solid #eee; 
+            border-right: 1px solid #eee; 
+            min-height: 0; /* Trava de ouro: Impede o container de crescer infinitamente */
+            overflow: hidden; /* Força o scroll a acontecer na div interna */
+        }
         
-        .chat-area { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
+        .chat-area { 
+            flex: 1; 
+            padding: 30px; 
+            overflow-y: auto; /* Aqui a rolagem acontece */
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+            scroll-behavior: smooth; 
+        }
         
         /* Balões de Mensagem */
         .message-row { display: flex; width: 100%; }
         .message-row.bot { justify-content: flex-start; }
         .message-row.user { justify-content: flex-end; }
         
-        .bubble { max-width: 80%; padding: 18px 25px; border-radius: 12px; font-size: 15px; line-height: 1.6; position: relative; }
+        .bubble { max-width: 80%; padding: 18px 25px; border-radius: 12px; font-size: 15px; line-height: 1.6; position: relative; word-wrap: break-word; }
         .bubble.bot { background-color: #f8f9fa; color: #333; border-top-left-radius: 2px; border: 1px solid #eee; }
         .bubble.user { background-color: var(--cinza-escuro); color: #fff; border-top-right-radius: 2px; }
         
@@ -50,7 +73,7 @@
         .bubble.bot li { margin-bottom: 5px; }
         
         /* Área de Input do Chat */
-        .input-area { padding: 20px 30px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 15px; align-items: flex-end; }
+        .input-area { padding: 20px 30px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 15px; align-items: flex-end; flex-shrink: 0; z-index: 5; }
         .input-area textarea { flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 15px; resize: none; outline: none; max-height: 150px; min-height: 55px; transition: 0.3s; }
         .input-area textarea:focus { border-color: var(--dourado); }
         .btn-send { background-color: var(--dourado); color: #fff; border: none; width: 55px; height: 55px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; flex-shrink: 0; }
@@ -58,7 +81,7 @@
         .btn-send svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* Indicador de digitação */
-        .typing-indicator { display: none; padding: 10px 20px; background: #f8f9fa; border-radius: 20px; align-self: flex-start; margin-left: 30px; border: 1px solid #eee; margin-bottom: 10px; }
+        .typing-indicator { display: none; padding: 10px 20px; background: #f8f9fa; border-radius: 20px; align-self: flex-start; margin-left: 30px; border: 1px solid #eee; margin-bottom: 10px; flex-shrink: 0; }
         .typing-dots { display: flex; gap: 5px; }
         .typing-dots span { width: 8px; height: 8px; background-color: #bbb; border-radius: 50%; animation: blink 1.4s infinite both; }
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
@@ -218,14 +241,16 @@
             bubble.className = `bubble ${sender}`;
             
             if (sender === "bot") {
-                bubble.innerHTML = marked.parse(text); // Converte Markdown (negrito, listas) para HTML
+                bubble.innerHTML = marked.parse(text); // Converte Markdown para HTML
             } else {
-                bubble.innerText = text; // Texto puro para o usuário
+                bubble.innerText = text; 
             }
             
             row.appendChild(bubble);
             chatArea.appendChild(row);
-            scrollToBottom();
+            
+            // Força a rolagem sempre que uma nova mensagem entra
+            setTimeout(scrollToBottom, 50);
         }
 
         function showTyping(show) {
@@ -251,13 +276,14 @@
             }
         }
 
-        // Auto-ajuste da caixa de texto conforme o usuário digita
+        // Auto-ajuste da caixa de texto
         const tx = document.getElementById('chatInput');
         tx.setAttribute('style', 'height:' + (tx.scrollHeight) + 'px;overflow-y:hidden;');
         tx.addEventListener("input", OnInput, false);
         function OnInput() {
             this.style.height = '55px';
             this.style.height = (this.scrollHeight) + 'px';
+            scrollToBottom(); // Rola caso a caixa de texto empurre o conteúdo pra cima
         }
     </script>
 </body>
