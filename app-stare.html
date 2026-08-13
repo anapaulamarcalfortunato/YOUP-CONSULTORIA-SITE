@@ -10,16 +10,13 @@
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #f7f7f7; --texto-corpo: #2c2c2c; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Ajuste de altura dinâmica para mobile (100dvh) com fallback para 100vh */
         body { font-family: 'Montserrat', sans-serif; background-color: var(--fundo-claro); color: var(--texto-corpo); height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
         
-        /* Navbar / Header */
         .navbar { background-color: var(--cinza-escuro); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 10; flex-shrink: 0; }
         .brand-logo { color: var(--dourado); text-decoration: none; font-weight: 800; letter-spacing: 3px; font-size: 18px; }
         .header-title { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
         .status-dot { width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #4CAF50; }
 
-        /* Tela de Token (Acesso) */
         #token-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .token-box { background: #fff; padding: 50px 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--dourado); max-width: 450px; width: 100%; text-align: center; }
         .token-box h1 { font-size: 24px; font-weight: 800; color: var(--cinza-escuro); margin-bottom: 15px; }
@@ -30,33 +27,10 @@
         .btn-start:hover { background-color: var(--dourado); color: #fff; }
         .btn-start:disabled { background-color: #ccc; color: #888; cursor: not-allowed; }
 
-        /* Tela de Chat CORRIGIDA */
-        #chat-screen { 
-            display: none; 
-            flex: 1; 
-            flex-direction: column; 
-            max-width: 900px; 
-            width: 100%; 
-            margin: 0 auto; 
-            background: #fff; 
-            box-shadow: 0 0 30px rgba(0,0,0,0.03); 
-            border-left: 1px solid #eee; 
-            border-right: 1px solid #eee; 
-            min-height: 0; /* Trava de ouro: Impede o container de crescer infinitamente */
-            overflow: hidden; /* Força o scroll a acontecer na div interna */
-        }
+        #chat-screen { display: none; flex: 1; flex-direction: column; max-width: 900px; width: 100%; margin: 0 auto; background: #fff; box-shadow: 0 0 30px rgba(0,0,0,0.03); border-left: 1px solid #eee; border-right: 1px solid #eee; min-height: 0; overflow: hidden; }
         
-        .chat-area { 
-            flex: 1; 
-            padding: 30px; 
-            overflow-y: auto; /* Aqui a rolagem acontece */
-            display: flex; 
-            flex-direction: column; 
-            gap: 20px; 
-            scroll-behavior: smooth; 
-        }
+        .chat-area { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
         
-        /* Balões de Mensagem */
         .message-row { display: flex; width: 100%; }
         .message-row.bot { justify-content: flex-start; }
         .message-row.user { justify-content: flex-end; }
@@ -65,30 +39,60 @@
         .bubble.bot { background-color: #f8f9fa; color: #333; border-top-left-radius: 2px; border: 1px solid #eee; }
         .bubble.user { background-color: var(--cinza-escuro); color: #fff; border-top-right-radius: 2px; }
         
-        /* Renderização Markdown dentro do balão da IA */
         .bubble.bot p { margin-bottom: 10px; }
         .bubble.bot p:last-child { margin-bottom: 0; }
         .bubble.bot strong { color: var(--cinza-escuro); font-weight: 700; }
         .bubble.bot ul { margin-left: 20px; margin-bottom: 10px; }
         .bubble.bot li { margin-bottom: 5px; }
         
-        /* Área de Input do Chat */
-        .input-area { padding: 20px 30px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 15px; align-items: flex-end; flex-shrink: 0; z-index: 5; }
-        .input-area textarea { flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 15px; resize: none; outline: none; max-height: 150px; min-height: 55px; transition: 0.3s; }
-        .input-area textarea:focus { border-color: var(--dourado); }
+        .input-area { padding: 20px 30px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 15px; align-items: flex-end; flex-shrink: 0; z-index: 5; flex-direction: column; }
+        .input-wrapper { display: flex; gap: 15px; width: 100%; align-items: flex-end; }
+        .input-wrapper textarea { flex: 1; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 15px; resize: none; outline: none; max-height: 150px; min-height: 55px; transition: 0.3s; }
+        .input-wrapper textarea:focus { border-color: var(--dourado); }
         .btn-send { background-color: var(--dourado); color: #fff; border: none; width: 55px; height: 55px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s; flex-shrink: 0; }
         .btn-send:hover { background-color: #b38e4a; transform: translateY(-2px); }
         .btn-send svg { width: 20px; height: 20px; fill: currentColor; }
 
-        /* Indicador de digitação */
         .typing-indicator { display: none; padding: 10px 20px; background: #f8f9fa; border-radius: 20px; align-self: flex-start; margin-left: 30px; border: 1px solid #eee; margin-bottom: 10px; flex-shrink: 0; }
         .typing-dots { display: flex; gap: 5px; }
         .typing-dots span { width: 8px; height: 8px; background-color: #bbb; border-radius: 50%; animation: blink 1.4s infinite both; }
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
 
-        .chat-ended-msg { text-align: center; color: var(--verde-youp); font-weight: 700; font-size: 16px; padding: 20px; width: 100%; background: #f0fdf4; border-radius: 8px; }
+        .chat-ended-msg { text-align: center; padding: 20px; width: 100%; background: #f0fdf4; border: 1px solid #c6f6d5; border-radius: 8px; }
+        .chat-ended-msg h3 { color: var(--verde-youp); margin-bottom: 5px; font-size: 18px; }
+        .chat-ended-msg p { color: #333; font-size: 14px; margin-bottom: 15px; }
+        .btn-download { width: 100%; padding: 18px; background-color: var(--verde-youp); color: #fff; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+        .btn-download:hover { background-color: #4a756b; }
+
+        /* Esconde a área do PDF na tela */
+        #pdf-container { display: none; }
+
+        /* Ajustes de Impressão */
+        @media print {
+            body * { visibility: hidden; }
+            body { background-color: #fff; margin: 0; padding: 0; display: block; overflow: visible; height: auto; }
+            #pdf-container, #pdf-container * { visibility: visible; }
+            #pdf-container { 
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100%; 
+                max-width: 100%; 
+                box-sizing: border-box; 
+                padding: 2.5cm 2cm; 
+                margin: 0; 
+                display: block !important;
+            }
+            #pdf-container h1 { color: #0a0a0a; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-bottom: 20px; text-align: left; font-size: 24px; }
+            #pdf-container h2 { color: #0a0a0a; margin-top: 25px; margin-bottom: 10px; font-size: 18px; }
+            #pdf-container p { font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
+            #pdf-container li { font-size: 14px; line-height: 1.6; margin-bottom: 8px; }
+            h1, h2, h3 { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+            p, li { page-break-inside: avoid; break-inside: avoid; }
+            ul { page-break-before: avoid; break-before: avoid; margin-left: 20px; margin-bottom: 15px; }
+            @page { margin: 0; }
+        }
 
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; }
@@ -107,7 +111,6 @@
         </div>
     </nav>
 
-    <!-- Tela de Validação do Token -->
     <div id="token-screen">
         <div class="token-box">
             <h1>Assessment S.T.A.R.E.</h1>
@@ -119,22 +122,25 @@
         </div>
     </div>
 
-    <!-- Tela do Chatbot -->
     <div id="chat-screen">
-        <div class="chat-area" id="chatArea">
-            <!-- As mensagens aparecerão aqui -->
-        </div>
-        
+        <div class="chat-area" id="chatArea"></div>
         <div class="typing-indicator" id="typingIndicator">
             <div class="typing-dots"><span></span><span></span><span></span></div>
         </div>
-
         <div class="input-area" id="inputArea">
-            <textarea id="chatInput" placeholder="Escreva sua resposta aqui... (Shift+Enter para pular linha)" onkeypress="handleEnter(event)"></textarea>
-            <button class="btn-send" onclick="sendMessage()" id="sendBtn">
-                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
-            </button>
+            <div class="input-wrapper" id="inputWrapper">
+                <textarea id="chatInput" placeholder="Escreva sua resposta aqui... (Shift+Enter para pular linha)" onkeypress="handleEnter(event)"></textarea>
+                <button class="btn-send" onclick="sendMessage()" id="sendBtn">
+                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                </button>
+            </div>
         </div>
+    </div>
+
+    <!-- Div oculta que será usada na hora de gerar o PDF do Plano de Ação -->
+    <div id="pdf-container">
+        <h1>Plano Go-To-Market | 90 Dias</h1>
+        <div id="pdf-content"></div>
     </div>
 
     <script>
@@ -151,7 +157,6 @@
             btn.disabled = true;
 
             try {
-                // Envia histórico vazio para acionar o PASSO 1 da Aluara
                 const response = await fetch(scriptUrl, {
                     method: "POST",
                     body: JSON.stringify({ token: userToken, conversationHistory: "" })
@@ -165,11 +170,9 @@
                     return;
                 }
 
-                // Troca de tela
                 document.getElementById("token-screen").style.display = "none";
                 document.getElementById("chat-screen").style.display = "flex";
 
-                // Adiciona a primeira mensagem da IA
                 const botMsg = data.response;
                 conversationHistory += `[Aluara]: ${botMsg}\n`;
                 appendMessage("bot", botMsg);
@@ -186,13 +189,11 @@
             const msg = inputField.value.trim();
             if (!msg) return;
 
-            // Renderiza mensagem do usuário
             appendMessage("user", msg);
             conversationHistory += `\n[Candidato]: ${msg}\n`;
             inputField.value = "";
-            inputField.style.height = "55px"; // reseta altura
+            inputField.style.height = "55px"; 
 
-            // Mostra digitando
             showTyping(true);
             disableInput(true);
 
@@ -213,11 +214,20 @@
 
                 let botMsg = data.response;
 
-                // Verifica se a IA gerou o diagnóstico final
                 if (botMsg.includes("[DIAGNOSTICO_FINAL]")) {
                     botMsg = botMsg.replace("[DIAGNOSTICO_FINAL]", "").trim();
                     appendMessage("bot", botMsg);
-                    document.getElementById("inputArea").innerHTML = `<div class="chat-ended-msg">🚀 Assessment S.T.A.R.E. Concluído! O seu dossiê foi salvo com sucesso.</div>`;
+                    
+                    // Prepara o PDF e troca a área de input pelo botão de Download
+                    document.getElementById("pdf-content").innerHTML = marked.parse(botMsg);
+                    
+                    document.getElementById("inputArea").innerHTML = `
+                        <div class="chat-ended-msg">
+                            <h3>🚀 Assessment S.T.A.R.E. Concluído!</h3>
+                            <p>O seu diagnóstico foi gerado com sucesso. Clique abaixo para salvar seu material estratégico.</p>
+                            <button class="btn-download" onclick="downloadReport()">📥 BAIXAR MEU PLANO EM PDF</button>
+                        </div>
+                    `;
                 } else {
                     appendMessage("bot", botMsg);
                     conversationHistory += `\n[Aluara]: ${botMsg}\n`;
@@ -241,7 +251,7 @@
             bubble.className = `bubble ${sender}`;
             
             if (sender === "bot") {
-                bubble.innerHTML = marked.parse(text); // Converte Markdown para HTML
+                bubble.innerHTML = marked.parse(text); 
             } else {
                 bubble.innerText = text; 
             }
@@ -249,7 +259,6 @@
             row.appendChild(bubble);
             chatArea.appendChild(row);
             
-            // Força a rolagem sempre que uma nova mensagem entra
             setTimeout(scrollToBottom, 50);
         }
 
@@ -276,14 +285,20 @@
             }
         }
 
-        // Auto-ajuste da caixa de texto
         const tx = document.getElementById('chatInput');
         tx.setAttribute('style', 'height:' + (tx.scrollHeight) + 'px;overflow-y:hidden;');
         tx.addEventListener("input", OnInput, false);
         function OnInput() {
             this.style.height = '55px';
             this.style.height = (this.scrollHeight) + 'px';
-            scrollToBottom(); // Rola caso a caixa de texto empurre o conteúdo pra cima
+            scrollToBottom(); 
+        }
+
+        function downloadReport() {
+            const originalTitle = document.title;
+            document.title = "Plano Go-To-Market_" + userToken;
+            window.print();
+            setTimeout(() => { document.title = originalTitle; }, 1000);
         }
     </script>
 </body>
