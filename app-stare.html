@@ -18,11 +18,16 @@
         .status-dot { width: 8px; height: 8px; background-color: #4CAF50; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #4CAF50; }
 
         #token-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
-        .token-box { background: #fff; padding: 50px 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--dourado); max-width: 450px; width: 100%; text-align: center; }
-        .token-box h1 { font-size: 24px; font-weight: 800; color: var(--cinza-escuro); margin-bottom: 15px; }
-        .token-box p { font-size: 14px; color: #666; margin-bottom: 30px; line-height: 1.5; }
-        .token-box input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 15px; margin-bottom: 20px; outline: none; transition: 0.3s; text-align: center; }
-        .token-box input:focus { border-color: var(--dourado); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
+        .token-box { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--dourado); max-width: 500px; width: 100%; text-align: center; }
+        .token-box h1 { font-size: 24px; font-weight: 800; color: var(--cinza-escuro); margin-bottom: 10px; }
+        .token-box p { font-size: 14px; color: #666; margin-bottom: 25px; line-height: 1.5; }
+        
+        /* Grid para alinhar os novos campos */
+        .form-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 25px; text-align: left; }
+        .form-grid label { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; margin-bottom: -10px; display: block; }
+        .token-box input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 14px; outline: none; transition: 0.3s; background-color: #fafafa; }
+        .token-box input:focus { border-color: var(--dourado); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); background-color: #fff; }
+        
         .btn-start { width: 100%; padding: 18px; background-color: var(--cinza-escuro); color: var(--dourado); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
         .btn-start:hover { background-color: var(--dourado); color: #fff; }
         .btn-start:disabled { background-color: #ccc; color: #888; cursor: not-allowed; }
@@ -65,10 +70,8 @@
         .btn-download { width: 100%; padding: 18px; background-color: var(--verde-youp); color: #fff; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
         .btn-download:hover { background-color: #4a756b; }
 
-        /* Esconde a área do PDF na tela */
         #pdf-container { display: none; }
 
-        /* Ajustes de Impressão */
         @media print {
             body * { visibility: hidden; }
             body { background-color: #fff; margin: 0; padding: 0; display: block; overflow: visible; height: auto; }
@@ -99,6 +102,7 @@
             .bubble { max-width: 90%; padding: 15px; font-size: 14px; }
             .input-area { padding: 15px; }
             .chat-area { padding: 20px 15px; }
+            .token-box { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -111,17 +115,40 @@
         </div>
     </nav>
 
+    <!-- Tela de Validação do Token e Dados -->
     <div id="token-screen">
         <div class="token-box">
             <h1>Assessment S.T.A.R.E.</h1>
-            <p>Insira seu código de acesso exclusivo para iniciar sua avaliação de Liderança e Posicionamento Go-To-Market.</p>
+            <p>Insira seu código de acesso e seus dados para iniciar a avaliação Go-To-Market.</p>
             <form onsubmit="startChat(event)">
-                <input type="text" id="tokenInput" placeholder="Ex: YOUP-ABC1234" required>
+                <div class="form-grid">
+                    <div>
+                        <label>Código de Acesso</label>
+                        <input type="text" id="tokenInput" placeholder="Ex: YOUP-ABC1234" required>
+                    </div>
+                    <div>
+                        <label>Nome Completo</label>
+                        <input type="text" id="nameInput" placeholder="Como devemos chamá-lo?" required>
+                    </div>
+                    <div>
+                        <label>E-mail</label>
+                        <input type="email" id="emailInput" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div>
+                        <label>WhatsApp (com DDD)</label>
+                        <input type="tel" id="phoneInput" placeholder="(11) 90000-0000" required>
+                    </div>
+                    <div>
+                        <label>LinkedIn</label>
+                        <input type="url" id="linkedinInput" placeholder="Link do seu perfil" required>
+                    </div>
+                </div>
                 <button type="submit" id="startBtn" class="btn-start">Iniciar Sessão</button>
             </form>
         </div>
     </div>
 
+    <!-- Tela do Chatbot -->
     <div id="chat-screen">
         <div class="chat-area" id="chatArea"></div>
         <div class="typing-indicator" id="typingIndicator">
@@ -137,7 +164,6 @@
         </div>
     </div>
 
-    <!-- Div oculta que será usada na hora de gerar o PDF do Plano de Ação -->
     <div id="pdf-container">
         <h1>Plano Go-To-Market | 90 Dias</h1>
         <div id="pdf-content"></div>
@@ -145,21 +171,41 @@
 
     <script>
         const scriptUrl = 'https://script.google.com/macros/s/AKfycby2_hTv1r_AR7IL9P5PgW6BdcOXULbGBKgRPQ5zm2QepMpMZblVmOet5QdQaCXeAqrX/exec';
+        
         let userToken = "";
+        let userName = "";
+        let userEmail = "";
+        let userPhone = "";
+        let userLinkedin = "";
         let conversationHistory = "";
 
         async function startChat(e) {
             e.preventDefault();
+            
             userToken = document.getElementById("tokenInput").value.trim();
+            userName = document.getElementById("nameInput").value.trim();
+            userEmail = document.getElementById("emailInput").value.trim();
+            userPhone = document.getElementById("phoneInput").value.trim();
+            userLinkedin = document.getElementById("linkedinInput").value.trim();
+            
             const btn = document.getElementById("startBtn");
             
             btn.innerText = "Conectando com Aluara...";
             btn.disabled = true;
 
+            const payload = {
+                token: userToken,
+                nome: userName,
+                email: userEmail,
+                phone: userPhone,
+                linkedin: userLinkedin,
+                conversationHistory: ""
+            };
+
             try {
                 const response = await fetch(scriptUrl, {
                     method: "POST",
-                    body: JSON.stringify({ token: userToken, conversationHistory: "" })
+                    body: JSON.stringify(payload)
                 });
                 const data = await response.json();
 
@@ -197,10 +243,19 @@
             showTyping(true);
             disableInput(true);
 
+            const payload = {
+                token: userToken,
+                nome: userName,
+                email: userEmail,
+                phone: userPhone,
+                linkedin: userLinkedin,
+                conversationHistory: conversationHistory
+            };
+
             try {
                 const response = await fetch(scriptUrl, {
                     method: "POST",
-                    body: JSON.stringify({ token: userToken, conversationHistory: conversationHistory })
+                    body: JSON.stringify(payload)
                 });
                 const data = await response.json();
 
@@ -218,7 +273,6 @@
                     botMsg = botMsg.replace("[DIAGNOSTICO_FINAL]", "").trim();
                     appendMessage("bot", botMsg);
                     
-                    // Prepara o PDF e troca a área de input pelo botão de Download
                     document.getElementById("pdf-content").innerHTML = marked.parse(botMsg);
                     
                     document.getElementById("inputArea").innerHTML = `
@@ -296,7 +350,7 @@
 
         function downloadReport() {
             const originalTitle = document.title;
-            document.title = "Plano Go-To-Market_" + userToken;
+            document.title = "Plano_GoToMarket_" + userName;
             window.print();
             setTimeout(() => { document.title = originalTitle; }, 1000);
         }
