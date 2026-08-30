@@ -9,6 +9,10 @@
       gtag('config', 'G-6JTWLMZBRS');
     </script>
 
+    <!-- GOOGLE ADSENSE SCRIPT PRINCIPAL -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1434753673886142"
+     crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -33,6 +37,30 @@
         .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
         .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
 
+        /* ESPAÇO RESERVADO PARA ANÚNCIOS (ADSENSE) */
+        .ad-space-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #fafafa;
+            border: 1px dashed var(--borda);
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .ad-space-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
         /* MENUS & FILTROS */
         .editorial-nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--borda); margin-bottom: 40px; }
         .filter-container { display: flex; gap: 30px; flex-wrap: wrap;}
@@ -46,9 +74,7 @@
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
 
-        /* ========================================= */
-        /* LAYOUT EDITORIAL DINÂMICO                 */
-        /* ========================================= */
+        /* LAYOUT EDITORIAL DINÂMICO */
         .editorial-feed { display: flex; flex-direction: column; gap: 40px; }
         
         .article-card { text-decoration: none; color: var(--texto-escuro); display: flex; transition: opacity 0.3s; }
@@ -124,6 +150,19 @@
         <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
     </header>
 
+    <!-- ANÚNCIO 1: TOPO DO SITE -->
+    <div class="ad-space-container">
+        <span class="ad-space-label">Publicidade</span>
+        <ins class="adsbygoogle"
+             style="display:block; width:100%"
+             data-ad-client="ca-pub-1434753673886142"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <nav class="editorial-nav">
         <div class="filter-container">
             <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todos</button>
@@ -143,6 +182,20 @@
         <!-- Renderização do Layout -->
         <div class="editorial-feed">
             <div id="heroZone"></div>
+
+            <!-- ANÚNCIO 2: MEIO DO FEED -->
+            <div class="ad-space-container">
+                <span class="ad-space-label">Publicidade</span>
+                <ins class="adsbygoogle"
+                     style="display:block; width:100%"
+                     data-ad-client="ca-pub-1434753673886142"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
             <div id="gridZone" class="grid-articles-wrapper"></div>
             <div id="listZone" class="list-articles-wrapper"></div>
         </div>
@@ -159,88 +212,98 @@
             <!-- 🚨🚨 ALERTA ANA PAULA: COLE O CÓDIGO DO NOVO ARTIGO EXATAMENTE ABAIXO DESTA LINHA 🚨🚨 -->
             <!-- Lembre-se: O 1º da lista é a CAPA GIGANTE. Do 2º ao 5º formam a GRADE com foto. -->
             <!-- ========================================================================================== -->
-            
+
             <a href="artigo-como-avaliar-inteligencia-relacional-mediacao-conflitos-lideres.html" data-category="dica-de-hunter">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Como avaliar a maturidade de inteligência relacional e mediação de conflitos entre pares em candidatos à liderança?">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Como avaliar a maturidade de inteligência relacional e mediação de conflitos entre pares em candidatos à liderança?</h3>
             <p class="excerpt">Aprenda a mapear a diplomacia executiva, a negociação de prioridades interdepartamentais e o autocontrole relacional com a Metodologia S.T.A.R.E.</p>
             </a>
+
             <a href="artigo-brag-book-executivo-autoridade-clevel.html" data-category="radar-executivo">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/Captura%20de%20tela%202026-08-28%20181704.png" alt="O Brag Book Executivo: A Prova Material da Sua Autoridade C-Level">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">O Brag Book Executivo: A Prova Material da Sua Autoridade C-Level</h3>
             <p class="excerpt">Como transformar sua trajetória corporativa em um dossiê estratégico de resultados incontestáveis para sabatinas de mercado e conselhos de administração.</p>
             </a>
+
             <a href="artigo-excelencia-sem-medo-lideranca.html" data-category="radar-executivo">
             <img src="https://saude.abril.com.br/wp-content/uploads/2024/04/saude-mental-mente-saudavel-medo-fobia.jpg?quality=85&amp;strip=info&amp;w=1024&amp;h=682&amp;crop=1" alt="A Excelência sem Medo: Como a Liderança Protege o P&amp;L sem Asfixiar a Inovação">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">A Excelência sem Medo: Como a Liderança Protege o P&amp;L sem Asfixiar a Inovação</h3>
             <p class="excerpt">A busca pela excelência corporativa frequentemente cria uma cultura de medo. Descubra como a alta liderança equilibra inovação, resultados e segurança psicológica.</p>
             </a>
+
             <a href="artigo-identificar-lider-centralizador.html" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem28.jpg?raw=true" alt="Como identificar se um líder é muito centralizador antes de contratá-lo?">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Como identificar se um líder é muito centralizador antes de contratá-lo?</h3>
             <p class="excerpt">Descubra como o RH pode identificar líderes centralizadores na entrevista, evitando gargalos e perda de talentos.</p>
             </a>
+
             <a href="artigo-desatrelar-marca-pessoal-empresa.html" data-category="radar-executivo">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem26.jpg?raw=true" alt="Como desatrelar a sua marca pessoal do nome da sua empresa atual">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Como desatrelar a sua marca pessoal do nome da sua empresa atual</h3>
             <p class="excerpt">Muitos executivos perdem a própria identidade e o poder de barganha porque a sua autoridade depende 100% da marca do empregador. Saiba como construir um Branding independente.</p>
             </a>
+
             <a href="artigo-por-que-lideres-seniores-pedem-demissao-rh.html" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem23.jpg?raw=true" alt="Por que líderes sêniores realmente pedem demissão? O erro do RH">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Por que líderes sêniores realmente pedem demissão? O erro do RH</h3>
             <p class="excerpt">Dinheiro não segura talento no C-Level. Descubra como a falta de autonomia e falhas de governança são os verdadeiros motivadores do turnover na alta gestão.</p>
             </a>
+
             <a href="artigo-marca-pessoal-linkedin-sem-arrogancia.html" data-category="radar-executivo">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem1.png?raw=true" alt="Como construir uma marca pessoal forte no LinkedIn sem parecer arrogante">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Como construir uma marca pessoal forte no LinkedIn sem parecer arrogante</h3>
             <p class="excerpt">Você já deixou de postar conquistas por medo de parecer arrogante? Descubra como construir uma marca pessoal forte e magnética para a alta gestão.</p>
             </a>
+
             <a href="artigo-curriculo-perfeito-nao-garante-bom-gestor.html" data-category="dica-de-hunter">
-            <img src=https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem25.jpg?raw=true" alt="Por que o currículo perfeito nem sempre garante um bom gestor?">
+            <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem25.jpg?raw=true" alt="Por que o currículo perfeito nem sempre garante um bom gestor?">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Por que o currículo perfeito nem sempre garante um bom gestor?</h3>
             <p class="excerpt">Você já contratou um executivo brilhante no papel que falhou na operação? Entenda como headhunters avaliam a liderança real além do currículo perfeito.</p>
             </a>
+
             <a href="entrevista-bruno-ferola-compliance-dp.html" data-category="entrevistas">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem20.jpeg?raw=true">
             <span class="tag">Entrevistas Exclusivas</span>
             <h3 class="title">O Departamento Pessoal como Radar de Risco: Entrevista Exclusiva com Bruno Galvão Ferola</h3>
             <p class="excerpt">Descubra como o Departamento Pessoal e o Compliance formam o centro da estratégia corporativa em nossa entrevista exclusiva com Bruno Galvão Ferola.</p>
             </a>
+
             <a href="artigo-ilusao-contraproposta-rh.html" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem19.jpg?raw=true">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">A Ilusão da Contraproposta: Por Que o RH Não Deve Tentar "Comprar" o Executivo de Volta</h3>
             <p class="excerpt">Dados de 2026 mostram que reter líderes com contrapropostas falha em meses. Aprenda como o RH deve agir na retenção preventiva antes da busca pelo mercado.</p>
             </a>
+
             <a href="artigo-quiet-firing-lideranca.html" data-category="radar-executivo">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem17.png">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">O "Quiet Firing": Os sinais de que o seu líder já desistiu de você</h3>
             <p class="excerpt">Descubra como identificar o Quiet Firing e saiba o que fazer quando orçamentos são cortados e reuniões importantes acontecem sem a sua presença.</p>
             </a>
-            
+
             <a href="artigo-capital-politico-vs-networking.html" data-category="radar-executivo">
             <img src="https://famart.edu.br/wp-content/uploads/2021/12/networking-e1640197874637.jpg">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Networking de Cafezinho vs. Capital Político Real: O Peso Estratégico no C-Level</h3>
             <p class="excerpt">Conhecer muita gente não garante promoção. Entenda a diferença entre networking superficial e o Capital Político que destrava as cadeiras C-Level.</p>
             </a>
-            
+
             <a href="artigo-algemas-de-ouro-carreira-c-level.html" data-category="radar-executivo">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem14.png">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">As "Algemas de Ouro": Quando o seu alto salário é o que está travando a sua carreira</h3>
             <p class="excerpt">Descubra como bônus, benefícios e pacotes de retenção mantêm executivos sêniores reféns do conforto, impedindo o salto real para o C-Suite e a mesa de decisão.</p>
             </a>
-            
+
             <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" data-category="radar-executivo">
                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80">
                 <span class="tag">Radar Executivo</span>
@@ -730,6 +793,7 @@
         document.addEventListener("DOMContentLoaded", () => renderArticles());
     </script>
 
+    <!-- GOOGLE TRANSLATE FUNCTIONALITY -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -742,4 +806,4 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
-</html>
+</html>v
