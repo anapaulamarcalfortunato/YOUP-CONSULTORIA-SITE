@@ -37,27 +37,34 @@
         .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
         .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
 
-        /* ESPAÇO RESERVADO PARA ANÚNCIOS (ADSENSE) - COMPACTO E DISCRETO */
+        /* ESPAÇO RESERVADO PARA ANÚNCIOS (DINÂMICO E INVISÍVEL SEM ANÚNCIO) */
         .ad-space-container {
             width: 100%;
             max-width: 1200px;
-            margin: 15px auto;
+            margin: 0 auto;
             padding: 0;
             text-align: center;
             background-color: transparent;
-            min-height: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             overflow: hidden;
         }
         .ad-space-label {
+            display: none; /* Escondido por padrão */
             font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #ccc;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+        }
+        /* Exibe a legenda e margem apenas quando o AdSense preencher o anúncio com sucesso */
+        .ad-space-container:has(ins[data-ad-status="filled"]) {
+            margin: 15px auto;
+        }
+        .ad-space-container:has(ins[data-ad-status="filled"]) .ad-space-label {
+            display: block;
+        }
+        /* Esconde o container caso o AdSense não entregue anúncio */
+        .ad-space-container:has(ins[data-ad-status="unfilled"]) {
+            display: none !important;
         }
 
         /* MENUS & FILTROS */
@@ -149,7 +156,7 @@
         <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
     </header>
 
-    <!-- ANÚNCIO 1: TOPO DO SITE (COMPACTO) -->
+    <!-- ANÚNCIO 1: TOPO DO SITE (DINÂMICO) -->
     <div class="ad-space-container">
         <span class="ad-space-label">Publicidade</span>
         <ins class="adsbygoogle"
@@ -182,7 +189,7 @@
         <div class="editorial-feed">
             <div id="heroZone"></div>
 
-            <!-- ANÚNCIO 2: MEIO DO FEED -->
+            <!-- ANÚNCIO 2: MEIO DO FEED (DINÂMICO) -->
             <div class="ad-space-container">
                 <span class="ad-space-label">Publicidade</span>
                 <ins class="adsbygoogle"
@@ -489,7 +496,7 @@
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
                 <h3 class="title">Quais competências o Executivo realmente precisa?</h3>
-                <p class="excerpt">A ilusão técnica e a necessidade de agilidade política na alta gestão.</p>
+                <p class="excerpt">A入手 technical e a necessidade de agilidade política na alta gestão.</p>
             </a>
 
             <a href="artigo-crise-silenciosa-lideranca-retencao-c-level.html" data-category="dica-de-hunter">
