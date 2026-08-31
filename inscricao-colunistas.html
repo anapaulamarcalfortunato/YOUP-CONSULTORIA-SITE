@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição de Colunistas | YOUP Consultoria</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dourado: #c5a059;
+            --verde-youp: #5c8e82;
+            --cinza-escuro: #0a0a0a;
+            --cinza-card: #141414;
+            --cinza-input: #1f1f1f;
+            --fundo-claro: #ffffff;
+            --texto-corpo: #cccccc;
+            --texto-titulo: #ffffff;
+            --borda-suave: rgba(197, 160, 89, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cinza-escuro);
+            color: var(--texto-corpo);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .dash-container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--cinza-card);
+            border: 1px solid var(--borda-suave);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .dash-header {
+            background: linear-gradient(135deg, #111111 0%, #1a2421 100%);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--dourado);
+        }
+
+        .dash-header h1 {
+            color: var(--dourado);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .dash-header p {
+            color: #dddddd;
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .dash-body {
+            padding: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            color: var(--dourado);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            background: var(--cinza-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 14px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--dourado);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+        }
+
+        /* Área de Seleção de Colunas */
+        .columns-section {
+            margin-top: 10px;
+        }
+
+        .columns-instruction {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .columns-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .column-card {
+            background: var(--cinza-input);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .column-card:hover {
+            border-color: var(--verde-youp);
+            transform: translateY(-2px);
+        }
+
+        .column-card.selected {
+            border-color: var(--dourado);
+            background: rgba(197, 160, 89, 0.08);
+        }
+
+        .column-card h4 {
+            color: var(--texto-titulo);
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .column-card .badge {
+            font-size: 10px;
+            background: var(--verde-youp);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .column-card p {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        .column-card .profile-target {
+            margin-top: 8px;
+            font-size: 11px;
+            color: var(--dourado);
+            font-style: italic;
+        }
+
+        /* Banner de Aviso de Voluntariado */
+        .voluntario-notice {
+            background: rgba(92, 142, 130, 0.1);
+            border-left: 4px solid var(--verde-youp);
+            padding: 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 30px 0;
+        }
+
+        .voluntario-notice h4 {
+            color: var(--verde-youp);
+            font-size: 14px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .voluntario-notice p {
+            font-size: 12px;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .checkbox-group span {
+            font-size: 12px;
+            color: #dddddd;
+        }
+
+        /* Botão de Envio */
+        .btn-submit {
+            background: var(--dourado);
+            color: var(--cinza-escuro);
+            border: none;
+            width: 100%;
+            padding: 18px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #e2ba6e;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-submit:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Feedback de Sucesso */
+        #msg-sucesso {
+            display: none;
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid #25D366;
+            color: #25D366;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .columns-grid {
+                grid-template-columns: 1fr;
+            }
+            .dash-body {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dash-container">
+        <div class="dash-header">
+            <h1>Processo Seletivo de Colunistas</h1>
+            <p>Portal YOUP Consultoria | Faça parte do nosso conselho de especialistas corporativos</p>
+        </div>
+
+        <div class="dash-body">
+            <form id="form-colunista">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Ana Paula Fortunato" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail Corporativo *</label>
+                        <input type="email" id="email" name="email" placeholder="seu.nome@empresa.com.br" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">Link do LinkedIn *</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/seu-perfil" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nascimento">Data de Nascimento *</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cargo_atual">Cargo Atual &amp; Empresa *</label>
+                        <input type="text" id="cargo_atual" name="cargo_atual" placeholder="Ex: CFO na Empresa X ou Conselheiro" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="bio">Minibiografia Executiva (Resumo da sua trajetória) *</label>
+                        <textarea id="bio" name="bio" rows="3" placeholder="Apresente brevemente sua bagagem executiva, principais conquistas e temas que domina..." required></textarea>
+                    </div>
+
+                    <!-- Seleção de Colunas com Limite de 3 -->
+                    <div class="form-group full-width columns-section">
+                        <label>Escolha as Colunas de Interesse (Selecione até 3 opções) *</label>
+                        <p class="columns-instruction">Clique nos cards abaixo para selecionar. Selecionadas: <span id="contador-selecao" style="color:var(--dourado); font-weight:700;">0</span>/3</p>
+
+                        <div class="columns-grid">
+                            <div class="column-card" data-coluna="Diretoria & Board">
+                                <h4>Diretoria &amp; Board <span class="badge">Governança</span></h4>
+                                <p><strong>Foco:</strong> Relação com acionistas, preparação de executivos para conselhos, governança e proteção do Valuation.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Conselheiro (IBGC), ex-CEO ou especialista em Governança.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Liderança Feminina e Equidade">
+                                <h4>Liderança Feminina <span class="badge">Equidade</span></h4>
+                                <p><strong>Foco:</strong> Quebra do teto de vidro, equidade de gênero na alta gestão e mulheres em boards.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Mulheres C-Level, especialistas em D&amp;I ou Headhunters.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Jovem Liderança">
+                                <h4>Jovem Liderança <span class="badge">Desenvolvimento</span></h4>
+                                <p><strong>Foco:</strong> Transição de especialista para gestor, programas de trainee e transição geracional.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Mentores de carreira, novos diretores ou especialistas em D&amp;O.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Visão de P&L">
+                                <h4>Visão de P&L <span class="badge">Finanças</span></h4>
+                                <p><strong>Foco:</strong> Consciência orçamentária, métricas de EBITDA, alocação de capital e M&amp;A.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> CFOs, sócios de Private Equity ou consultores financeiros.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Liderança 4.0 & Tech">
+                                <h4>Liderança 4.0 &amp; Tech <span class="badge">Inovação</span></h4>
+                                <p><strong>Foco:</strong> Impacto da IA na gestão, automação humanizada e cultura orientada a dados.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> CTOs, CIOs ou especialistas em Transformação Digital.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Mente Executiva">
+                                <h4>Mente Executiva <span class="badge">Saúde Mental</span></h4>
+                                <p><strong>Foco:</strong> Gestão de ansiedade sob pressão, inteligência emocional e prevenção de Burnout.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Psicólogos organizacionais, coaches C-Level ou médicos.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Capital Político">
+                                <h4>Capital Político <span class="badge">Branding</span></h4>
+                                <p><strong>Foco:</strong> Branding pessoal no LinkedIn sem arrogância, networking e gestão de reputação.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Especialistas em Personal Branding ou PR de C-Suite.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Blindagem & Compliance">
+                                <h4>Blindagem &amp; Compliance <span class="badge">A Empresa</span></h4>
+                                <p><strong>Foco:</strong> Prevenção de passivos trabalhistas, LGPD, NR1 e segurança jurídica patronal.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Advogados trabalhistas empresariais ou diretores de Compliance.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Pluralidade & Pertencimento">
+                                <h4>Pluralidade &amp; Pertencimento <span class="badge">Inclusão</span></h4>
+                                <p><strong>Foco:</strong> Lideranças LGBTQIA+, neurodivergência (TDAH/Autismo no C-Suite) e etarismo.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Lideranças representativas ou consultores de D&amp;I.</p>
+                            </div>
+
+                            <div class="column-card" data-coluna="Defesa do Executivo">
+                                <h4>Defesa do Executivo <span class="badge">O Líder</span></h4>
+                                <p><strong>Foco:</strong> Proteção contratual do executivo, golden parachutes, Stock Options e não concorrência.</p>
+                                <p class="profile-target"><strong>Perfil:</strong> Advogados especialistas na defesa do trabalhador sênior.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aviso Termo Voluntário -->
+                <div class="voluntario-notice">
+                    <h4>Termo de Participação Voluntária</h4>
+                    <p>A colaboração como colunista no portal da <strong>YOUP Consultoria</strong> é estritamente voluntária e não remunerada, pautada no ganho de visibilidade, autoridade e posicionamento de mercado. A submissão deste formulário não garante a aprovação automática do perfil, o qual passará por avaliação do nosso comitê editorial conforme os critérios de senioridade e alinhamento de nicho.</p>
+                    
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="aceite_termo" name="aceite_termo" required>
+                        <span>Estou ciente e de acordo que a participação é voluntária, não remunerada e sujeita à aprovação da curadoria da YOUP Consultoria. *</span>
+                    </label>
+                </div>
+
+                <button type="submit" id="btn-enviar" class="btn-submit">Submeter Candidatura</button>
+            </form>
+
+            <div id="msg-sucesso">
+                ✓ Candidatura enviada com sucesso! Nosso comitê editorial analisará o seu perfil e entrará em contato via WhatsApp/E-mail em breve.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Seleção das Colunas (Até 3)
+        const cards = document.querySelectorAll('.column-card');
+        const contador = document.getElementById('contador-selecao');
+        let colunasSelecionadas = [];
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const coluna = card.getAttribute('data-coluna');
+
+                if (card.classList.contains('selected')) {
+                    card.classList.remove('selected');
+                    colunasSelecionadas = colunasSelecionadas.filter(item => item !== coluna);
+                } else {
+                    if (colunasSelecionadas.length < 3) {
+                        card.classList.add('selected');
+                        colunasSelecionadas.push(coluna);
+                    } else {
+                        alert('Você pode selecionar no máximo 3 colunas de interesse.');
+                    }
+                }
+                contador.textContent = colunasSelecionadas.length;
+            });
+        });
+
+        // Integração com Google Apps Script
+        const form = document.getElementById('form-colunista');
+        const btnEnviar = document.getElementById('btn-enviar');
+        const msgSucesso = document.getElementById('msg-sucesso');
+
+        // COLE A URL DO SEU GOOGLE APPS SCRIPT AQUI ABAIXO
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyvf11QABdhSm9F8oGdBeFsgWaf8E9a8Id7tW_79GcxrIXP26CGjc2sFOe7i19wjNv91g/exec";
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            if (colunasSelecionadas.length === 0) {
+                alert('Por favor, selecione pelo menos 1 coluna de interesse.');
+                return;
+            }
+
+            btnEnviar.disabled = true;
+            btnEnviar.textContent = "Processando Inscrição...";
+
+            const formData = new FormData(form);
+            formData.append('colunas_selecionadas', colunasSelecionadas.join(' | '));
+
+            fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                .then(response => {
+                    form.reset();
+                    cards.forEach(c => c.classList.remove('selected'));
+                    colunasSelecionadas = [];
+                    contador.textContent = "0";
+                    btnEnviar.style.display = "none";
+                    msgSucesso.style.display = "block";
+                })
+                .catch(error => {
+                    console.error('Erro!', error.message);
+                    alert('Houve um erro ao enviar sua candidatura. Tente novamente ou entre em contato direto.');
+                    btnEnviar.disabled = false;
+                    btnEnviar.textContent = "Submeter Candidatura";
+                });
+        });
+    </script>
+</body>
+</html>
