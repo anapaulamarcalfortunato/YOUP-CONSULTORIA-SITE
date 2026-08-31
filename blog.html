@@ -48,21 +48,19 @@
             overflow: hidden;
         }
         .ad-space-label {
-            display: none; /* Escondido por padrão */
+            display: none;
             font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #ccc;
             margin-bottom: 4px;
         }
-        /* Exibe a legenda e margem apenas quando o AdSense preencher o anúncio com sucesso */
         .ad-space-container:has(ins[data-ad-status="filled"]) {
             margin: 15px auto;
         }
         .ad-space-container:has(ins[data-ad-status="filled"]) .ad-space-label {
             display: block;
         }
-        /* Esconde o container caso o AdSense não entregue anúncio */
         .ad-space-container:has(ins[data-ad-status="unfilled"]) {
             display: none !important;
         }
@@ -79,6 +77,91 @@
         .search-input:focus { border-color: var(--dourado); width: 250px; }
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
+
+        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL */
+        .live-news-section {
+            background: #fafafa;
+            border: 1px solid var(--borda);
+            border-left: 4px solid var(--dourado);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+        .live-news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 10px;
+        }
+        .live-news-title {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--texto-escuro);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .live-news-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--dourado);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--dourado);
+        }
+        .live-news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .live-news-card {
+            background: #ffffff;
+            border: 1px solid var(--borda);
+            padding: 18px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+            color: var(--texto-escuro);
+        }
+        .live-news-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--dourado);
+        }
+        .live-news-card-tag {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--dourado);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .live-news-card-title {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0 0 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .live-news-card-meta {
+            font-size: 10px;
+            color: var(--texto-cinza);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--borda);
+        }
 
         /* LAYOUT EDITORIAL DINÂMICO */
         .editorial-feed { display: flex; flex-direction: column; gap: 40px; }
@@ -129,6 +212,7 @@
             .hero-article .img-wrapper, .hero-article .content-wrapper { width: 100%; height: auto; }
             .grid-articles-wrapper { grid-template-columns: repeat(2, 1fr); }
             .list-articles-wrapper { grid-template-columns: 1fr; }
+            .live-news-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .header-brand { margin: 0 20px; padding: 30px 10px; }
@@ -139,6 +223,7 @@
             .grid-articles-wrapper { grid-template-columns: 1fr; }
             .list-article .img-wrapper { display: none; }
             .btn-load-more { width: 100%; box-sizing: border-box; }
+            .live-news-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -188,6 +273,18 @@
         <!-- Renderização do Layout -->
         <div class="editorial-feed">
             <div id="heroZone"></div>
+
+            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL -->
+            <section class="live-news-section">
+                <div class="live-news-header">
+                    <div class="live-news-title">
+                        <span class="live-news-pulse"></span> Radar de Mercado • Notícias em Tempo Real
+                    </div>
+                </div>
+                <div class="live-news-grid" id="liveNewsContainer">
+                    <!-- Cards dinâmicos serão inseridos aqui via JS -->
+                </div>
+            </section>
 
             <!-- ANÚNCIO 2: MEIO DO FEED (DINÂMICO) -->
             <div class="ad-space-container">
@@ -419,7 +516,7 @@
                 <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
                 <h3 class="title">O Novo C-Level do Agronegócio e a AgroBrasília 2026</h3>
-                <p class="excerpt">A migração de executivos Tech e da Faria Lima para o campo: a nova guerra de talentos das gigantes do Agro.</p>
+                <p class="excerpt">A migração de executivos Tech e da Faria Lima para o campo: a nova guerra de talentos das gigante do Agro.</p>
             </a>
 
             <a href="artigo-elas-no-radar-vol-5-maio.html" data-category="elas-no-radar">
@@ -496,7 +593,7 @@
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
                 <h3 class="title">Quais competências o Executivo realmente precisa?</h3>
-                <p class="excerpt">A入手 technical e a necessidade de agilidade política na alta gestão.</p>
+                <p class="excerpt">A visão técnica e a necessidade de agilidade política na alta gestão.</p>
             </a>
 
             <a href="artigo-crise-silenciosa-lideranca-retencao-c-level.html" data-category="dica-de-hunter">
@@ -713,7 +810,6 @@
             }
             noResultsMsg.style.display = 'none';
 
-            // Pega apenas a quantidade baseada no limite atual
             let artigosParaExibir = visibleArticles.slice(0, limiteAtual);
 
             artigosParaExibir.forEach((item, index) => {
@@ -725,7 +821,7 @@
 
                 let cardHTML = '';
                 
-                if (index === 0) { // O Primeiro é sempre a Capa (Hero)
+                if (index === 0) {
                     cardHTML = `
                     <a href="${url}" class="article-card hero-article">
                         <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
@@ -737,7 +833,7 @@
                     </a>`;
                     heroZone.innerHTML += cardHTML;
                 } 
-                else if (index >= 1 && index <= 4) { // Do 2 ao 5 formam o Grid de imagens
+                else if (index >= 1 && index <= 4) {
                     cardHTML = `
                     <a href="${url}" class="article-card grid-article">
                         <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
@@ -749,7 +845,7 @@
                     </a>`;
                     gridZone.innerHTML += cardHTML;
                 } 
-                else { // Todos os demais viram a Lista Compacta
+                else {
                     cardHTML = `
                     <a href="${url}" class="article-card list-article">
                         <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
@@ -763,7 +859,6 @@
                 }
             });
 
-            // Mostra o botão "Carregar Mais" se houver mais artigos escondidos
             if (visibleArticles.length > limiteAtual) {
                 btnLoadMore.style.display = 'block';
             } else {
@@ -772,7 +867,7 @@
         }
 
         function carregarMaisArtigos() {
-            limiteAtual += 10; // Adiciona +10 artigos na tela
+            limiteAtual += 10;
             renderArticles();
         }
 
@@ -781,7 +876,7 @@
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
             
-            limiteAtual = 13; // Reseta o limite ao trocar de filtro
+            limiteAtual = 13;
             filtroAtual = categoria;
             pesquisaAtual = '';
             renderArticles();
@@ -790,13 +885,57 @@
         function pesquisarArtigos() {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             
-            limiteAtual = 13; // Reseta o limite ao pesquisar
+            limiteAtual = 13;
             filtroAtual = 'todos';
             pesquisaAtual = document.getElementById('searchInput').value.toLowerCase();
             renderArticles();
         }
 
-        document.addEventListener("DOMContentLoaded", () => renderArticles());
+        // BUSCA DE NOTÍCIAS EXTERNAS VIA RSS EM TEMPO REAL
+        function carregarNoticiasEmTempoReal() {
+            const query = encodeURIComponent('Liderança Executiva OR C-Level OR Executive Search');
+            const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${query}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        const container = document.getElementById('liveNewsContainer');
+                        container.innerHTML = '';
+                        const noticias = data.items.slice(0, 4);
+
+                        noticias.forEach(item => {
+                            const dataPublicacao = new Date(item.pubDate).toLocaleDateString('pt-BR', {
+                                day: '2-digit', month: 'short'
+                            });
+                            const fonte = item.author || 'Mercado';
+
+                            container.innerHTML += `
+                                <a href="${item.link}" class="live-news-card" target="_blank" rel="noopener noreferrer">
+                                    <div>
+                                        <span class="live-news-card-tag">${fonte}</span>
+                                        <h4 class="live-news-card-title">${item.title}</h4>
+                                    </div>
+                                    <div class="live-news-card-meta">
+                                        <span>${dataPublicacao}</span>
+                                        <span>Ler no portal ↗</span>
+                                    </div>
+                                </a>
+                            `;
+                        });
+                    }
+                })
+                .catch(err => {
+                    const sec = document.querySelector('.live-news-section');
+                    if (sec) sec.style.display = 'none';
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderArticles();
+            carregarNoticiasEmTempoReal();
+        });
     </script>
 
     <!-- GOOGLE TRANSLATE FUNCTIONALITY -->
