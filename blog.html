@@ -78,11 +78,10 @@
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
 
-        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL COM THUMBNAIL */
+        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL (SEM IMAGENS, LAYOUT EXECUTIVO) */
         .live-news-section {
             background: #fafafa;
             border: 1px solid var(--borda);
-            border-left: 4px solid var(--dourado);
             padding: 30px;
             margin: 40px 0;
             border-radius: 4px;
@@ -91,9 +90,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid var(--borda);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
         .live-news-title {
             font-size: 13px;
@@ -108,10 +107,16 @@
         .live-news-pulse {
             width: 8px;
             height: 8px;
-            background-color: var(--dourado);
+            background-color: #25D366; /* Cor verde para dar ideia de feed 'ao vivo' */
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 8px var(--dourado);
+            box-shadow: 0 0 8px rgba(37, 211, 102, 0.6);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
         .live-news-grid {
             display: grid;
@@ -121,31 +126,20 @@
         .live-news-card {
             background: #ffffff;
             border: 1px solid var(--borda);
-            padding: 15px;
+            border-left: 3px solid var(--dourado);
+            padding: 20px;
             border-radius: 4px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: var(--texto-escuro);
+            min-height: 120px;
         }
         .live-news-card:hover {
             transform: translateY(-3px);
-            border-color: var(--dourado);
-        }
-        .live-news-img-wrapper {
-            width: 100%;
-            height: 120px;
-            border-radius: 2px;
-            overflow: hidden;
-            margin-bottom: 12px;
-            background: #eee;
-        }
-        .live-news-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
         .live-news-card-tag {
             font-size: 9px;
@@ -153,15 +147,15 @@
             text-transform: uppercase;
             color: var(--dourado);
             letter-spacing: 1px;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
         .live-news-card-title {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
-            line-height: 1.4;
-            margin: 0 0 10px;
+            line-height: 1.5;
+            margin: 0 0 15px;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -171,9 +165,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
-            padding-top: 8px;
-            border-top: 1px dashed var(--borda);
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+            font-weight: 600;
         }
 
         /* LAYOUT EDITORIAL DINÂMICO */
@@ -287,11 +282,11 @@
         <div class="editorial-feed">
             <div id="heroZone"></div>
 
-            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL -->
+            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL (SEM IMAGENS) -->
             <section class="live-news-section">
                 <div class="live-news-header">
                     <div class="live-news-title">
-                        <span class="live-news-pulse"></span> Radar de Mercado • Notícias em Tempo Real
+                        <span class="live-news-pulse"></span> Radar de Mercado • Em Tempo Real
                     </div>
                 </div>
                 <div class="live-news-grid" id="liveNewsContainer">
@@ -910,65 +905,38 @@
                 title: "Dança das Cadeiras no C-Level: Aceleração nas trocas de CEOs e diretores em 2026",
                 link: "artigo-danca-cadeiras-recorde-ceos-maio-2026.html",
                 fonte: "Radar YOUP",
-                pubDate: new Date().toISOString(),
-                imgUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=800&q=80"
+                pubDate: new Date().toISOString()
             },
             {
                 title: "M&A e Capital Humano: O papel das lideranças na preservação do Valuation pós-fusão",
                 link: "artigo-rh-ma-capital-humano.html",
                 fonte: "Gestão & M&A",
-                pubDate: new Date().toISOString(),
-                imgUrl: "https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800"
+                pubDate: new Date().toISOString()
             },
             {
                 title: "A ascensão da Liderança Feminina e a desconstrução do gargalo nos Conselhos",
                 link: "artigo-elas-no-radar-gargalo-prestigio-boards.html",
                 fonte: "Elas no Radar",
-                pubDate: new Date().toISOString(),
-                imgUrl: "https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800"
+                pubDate: new Date().toISOString()
             },
             {
                 title: "Transição de Carreira Executiva: Como desatrelar sua marca pessoal da empresa atual",
                 link: "artigo-desatrelar-marca-pessoal-empresa.html",
                 fonte: "Carreira & Reputação",
-                pubDate: new Date().toISOString(),
-                imgUrl: "https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem26.jpg?raw=true"
+                pubDate: new Date().toISOString()
             }
         ];
 
-        // EXTRATOR INTELIGENTE DE IMAGEM DA MATÉRIA
-        function extrairImagemNoticia(item) {
-            const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
-            
-            if (item.thumbnail && item.thumbnail !== '') {
-                return item.thumbnail;
-            }
-            if (item.enclosure && item.enclosure.link && item.enclosure.type && item.enclosure.type.startsWith('image')) {
-                return item.enclosure.link;
-            }
-            
-            const conteudoHTML = (item.description || '') + (item.content || '');
-            const matchImg = conteudoHTML.match(/<img[^>]+src=["']([^"']+)["']/i);
-            if (matchImg && matchImg[1]) {
-                return matchImg[1];
-            }
-            
-            return fallbackImg;
-        }
-
-        // RENDERIZAÇÃO DOS CARDS DE NOTÍCIAS
+        // RENDERIZAÇÃO DOS CARDS DE NOTÍCIAS (SEM IMAGEM)
         function renderNoticiasCards(items) {
             const container = document.getElementById('liveNewsContainer');
             if (!container) return;
             container.innerHTML = '';
 
-            const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
-
             items.forEach(item => {
                 const title = item.title;
                 const link = item.link;
                 const fonte = item.fonte || item.author || 'Mercado';
-                const imgUrl = item.imgUrl || extrairImagemNoticia(item);
                 
                 let dataPublicacao = 'Hoje';
                 if (item.pubDate) {
@@ -982,9 +950,6 @@
                 container.innerHTML += `
                     <a href="${link}" class="live-news-card" target="_blank" rel="noopener noreferrer">
                         <div>
-                            <div class="live-news-img-wrapper">
-                                <img src="${imgUrl}" class="live-news-img" alt="${title}" onerror="this.onerror=null;this.src='${fallbackImg}';">
-                            </div>
                             <span class="live-news-card-tag">${fonte}</span>
                             <h4 class="live-news-card-title">${title}</h4>
                         </div>
@@ -999,10 +964,8 @@
 
         // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS VIA RSS (SEM ACENTOS NA QUERY)
         function carregarNoticiasEmTempoReal() {
-            // Renderiza o fallback imediatamente para a caixa nunca aparecer em branco
             renderNoticiasCards(noticiasFallback);
 
-            // Query otimizada sem acentos para evitar erro 400 no RSS
             const query = 'CEO OR "C-Level" OR Carreira OR Executivo OR Executiva';
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
@@ -1020,7 +983,7 @@
                     }
                 })
                 .catch(err => {
-                    // Se houver AdBlock, erro de conexão ou timeout, o fallback permanece na tela perfeitamente
+                    // Mantém o fallback
                 });
         }
 
