@@ -78,7 +78,7 @@
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
 
-        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL */
+        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL COM THUMBNAIL */
         .live-news-section {
             background: #fafafa;
             border: 1px solid var(--borda);
@@ -121,7 +121,7 @@
         .live-news-card {
             background: #ffffff;
             border: 1px solid var(--borda);
-            padding: 18px;
+            padding: 15px;
             border-radius: 4px;
             display: flex;
             flex-direction: column;
@@ -134,13 +134,26 @@
             transform: translateY(-3px);
             border-color: var(--dourado);
         }
+        .live-news-img-wrapper {
+            width: 100%;
+            height: 120px;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            background: #eee;
+        }
+        .live-news-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .live-news-card-tag {
             font-size: 9px;
             font-weight: 800;
             text-transform: uppercase;
             color: var(--dourado);
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .live-news-card-title {
             font-size: 13px;
@@ -282,7 +295,7 @@
                     </div>
                 </div>
                 <div class="live-news-grid" id="liveNewsContainer">
-                    <!-- Cards dinâmicos serão inseridos aqui via JS -->
+                    <!-- Cards dinâmicos com thumbnails serão inseridos aqui via JS -->
                 </div>
             </section>
 
@@ -516,7 +529,7 @@
                 <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?fm=webp&w=800&q=80">
                 <span class="tag">Radar Executivo</span>
                 <h3 class="title">O Novo C-Level do Agronegócio e a AgroBrasília 2026</h3>
-                <p class="excerpt">A migração de executivos Tech e da Faria Lima para o campo: a nova guerra de talentos das gigante do Agro.</p>
+                <p class="excerpt">A migração de executivos Tech e da Faria Lima para o campo: a nova guerra de talentos das gigantes do Agro.</p>
             </a>
 
             <a href="artigo-elas-no-radar-vol-5-maio.html" data-category="elas-no-radar">
@@ -891,10 +904,30 @@
             renderArticles();
         }
 
-        // BUSCA DE NOTÍCIAS EXTERNAS VIA RSS EM TEMPO REAL
+        // EXTRATOR INTELIGENTE DE IMAGEM DA MATÉRIA
+        function extrairImagemNoticia(item) {
+            const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
+            
+            if (item.thumbnail && item.thumbnail !== '') {
+                return item.thumbnail;
+            }
+            if (item.enclosure && item.enclosure.link && item.enclosure.type && item.enclosure.type.startsWith('image')) {
+                return item.enclosure.link;
+            }
+            
+            const conteudoHTML = (item.description || '') + (item.content || '');
+            const matchImg = conteudoHTML.match(/<img[^>]+src=["']([^"']+)["']/i);
+            if (matchImg && matchImg[1]) {
+                return matchImg[1];
+            }
+            
+            return fallbackImg;
+        }
+
+        // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS VIA RSS
         function carregarNoticiasEmTempoReal() {
-            const query = encodeURIComponent('Liderança Executiva OR C-Level OR Executive Search');
-            const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${query}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
+            const termos = '("Novo CEO" OR "Fusões e Aquisições" OR "C-Level" OR "Carreira Executiva" OR "Executivo" OR "Executiva")';
+            const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${termos}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
             fetch(apiUrl)
@@ -910,10 +943,15 @@
                                 day: '2-digit', month: 'short'
                             });
                             const fonte = item.author || 'Mercado';
+                            const imgUrl = extrairImagemNoticia(item);
+                            const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
 
                             container.innerHTML += `
                                 <a href="${item.link}" class="live-news-card" target="_blank" rel="noopener noreferrer">
                                     <div>
+                                        <div class="live-news-img-wrapper">
+                                            <img src="${imgUrl}" class="live-news-img" alt="${item.title}" onerror="this.onerror=null;this.src='${fallbackImg}';">
+                                        </div>
                                         <span class="live-news-card-tag">${fonte}</span>
                                         <h4 class="live-news-card-title">${item.title}</h4>
                                     </div>
