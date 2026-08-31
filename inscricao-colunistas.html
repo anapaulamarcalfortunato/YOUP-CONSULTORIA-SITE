@@ -418,70 +418,73 @@
             </div>
         </div>
     </div>
+<script>
+    // Lógica de Seleção das Colunas (Até 3)
+    const cards = document.querySelectorAll('.column-card');
+    const contador = document.getElementById('contador-selecao');
+    let colunasSelecionadas = [];
 
-    <script>
-        // Lógica de Seleção das Colunas (Até 3)
-        const cards = document.querySelectorAll('.column-card');
-        const contador = document.getElementById('contador-selecao');
-        let colunasSelecionadas = [];
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const coluna = card.getAttribute('data-coluna');
 
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const coluna = card.getAttribute('data-coluna');
-
-                if (card.classList.contains('selected')) {
-                    card.classList.remove('selected');
-                    colunasSelecionadas = colunasSelecionadas.filter(item => item !== coluna);
+            if (card.classList.contains('selected')) {
+                card.classList.remove('selected');
+                colunasSelecionadas = colunasSelecionadas.filter(item => item !== coluna);
+            } else {
+                if (colunasSelecionadas.length < 3) {
+                    card.classList.add('selected');
+                    colunasSelecionadas.push(coluna);
                 } else {
-                    if (colunasSelecionadas.length < 3) {
-                        card.classList.add('selected');
-                        colunasSelecionadas.push(coluna);
-                    } else {
-                        alert('Você pode selecionar no máximo 3 colunas de interesse.');
-                    }
+                    alert('Você pode selecionar no máximo 3 colunas de interesse.');
                 }
-                contador.textContent = colunasSelecionadas.length;
-            });
-        });
-
-        // Integração com Google Apps Script
-        const form = document.getElementById('form-colunista');
-        const btnEnviar = document.getElementById('btn-enviar');
-        const msgSucesso = document.getElementById('msg-sucesso');
-
-        // COLE A URL DO SEU GOOGLE APPS SCRIPT AQUI ABAIXO
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyvf11QABdhSm9F8oGdBeFsgWaf8E9a8Id7tW_79GcxrIXP26CGjc2sFOe7i19wjNv91g/exec";
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-
-            if (colunasSelecionadas.length === 0) {
-                alert('Por favor, selecione pelo menos 1 coluna de interesse.');
-                return;
             }
-
-            btnEnviar.disabled = true;
-            btnEnviar.textContent = "Processando Inscrição...";
-
-            const formData = new FormData(form);
-            formData.append('colunas_selecionadas', colunasSelecionadas.join(' | '));
-
-            fetch(SCRIPT_URL, { method: 'POST', body: formData })
-                .then(response => {
-                    form.reset();
-                    cards.forEach(c => c.classList.remove('selected'));
-                    colunasSelecionadas = [];
-                    contador.textContent = "0";
-                    btnEnviar.style.display = "none";
-                    msgSucesso.style.display = "block";
-                })
-                .catch(error => {
-                    console.error('Erro!', error.message);
-                    alert('Houve um erro ao enviar sua candidatura. Tente novamente ou entre em contato direto.');
-                    btnEnviar.disabled = false;
-                    btnEnviar.textContent = "Submeter Candidatura";
-                });
+            contador.textContent = colunasSelecionadas.length;
         });
-    </script>
+    });
+
+    // Integração com Google Apps Script
+    const form = document.getElementById('form-colunista');
+    const btnEnviar = document.getElementById('btn-enviar');
+    const msgSucesso = document.getElementById('msg-sucesso');
+
+    // COLE A SUA URL DO GOOGLE APPS SCRIPT ATUALIZADA AQUI ABAIXO
+    const SCRIPT_URL = "https://script.google.com/macros/s/SEU_NOVO_SCRIPT_ID_AQUI/exec";
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        if (colunasSelecionadas.length === 0) {
+            alert('Por favor, selecione pelo menos 1 coluna de interesse.');
+            return;
+        }
+
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = "Processando Inscrição...";
+
+        const formData = new FormData(form);
+        formData.append('colunas_selecionadas', colunasSelecionadas.join(' | '));
+
+        fetch(SCRIPT_URL, { 
+            method: 'POST', 
+            body: formData,
+            mode: 'no-cors'
+        })
+        .then(() => {
+            form.reset();
+            cards.forEach(c => c.classList.remove('selected'));
+            colunasSelecionadas = [];
+            contador.textContent = "0";
+            btnEnviar.style.display = "none";
+            msgSucesso.style.display = "block";
+        })
+        .catch(error => {
+            console.error('Erro de envio:', error);
+            alert('Houve um erro ao enviar sua candidatura. Tente novamente ou entre em contato direto.');
+            btnEnviar.disabled = false;
+            btnEnviar.textContent = "Submeter Candidatura";
+        });
+    });
+</script>
 </body>
 </html>
