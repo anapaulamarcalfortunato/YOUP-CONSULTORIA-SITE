@@ -295,7 +295,7 @@
                     </div>
                 </div>
                 <div class="live-news-grid" id="liveNewsContainer">
-                    <!-- Cards dinâmicos com thumbnails serão inseridos aqui via JS -->
+                    <!-- Cards com Fallback e Atualização Dinâmica -->
                 </div>
             </section>
 
@@ -796,7 +796,7 @@
 
     <script>
         // Inteligência de Paginação
-        let limiteAtual = 13; // 1 Capa + 4 Grade + 8 Lista Compacta
+        let limiteAtual = 13;
         let filtroAtual = 'todos';
         let pesquisaAtual = '';
 
@@ -904,6 +904,38 @@
             renderArticles();
         }
 
+        // NOTÍCIAS DE BACKUP (GARANTEM QUE A CAIXA NUNCA FIQUE VAZIA)
+        const noticiasFallback = [
+            {
+                title: "Dança das Cadeiras no C-Level: Aceleração nas trocas de CEOs e diretores em 2026",
+                link: "artigo-danca-cadeiras-recorde-ceos-maio-2026.html",
+                fonte: "Radar YOUP",
+                pubDate: new Date().toISOString(),
+                imgUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=800&q=80"
+            },
+            {
+                title: "M&A e Capital Humano: O papel das lideranças na preservação do Valuation pós-fusão",
+                link: "artigo-rh-ma-capital-humano.html",
+                fonte: "Gestão & M&A",
+                pubDate: new Date().toISOString(),
+                imgUrl: "https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/image1.jpg?q=80&w=800"
+            },
+            {
+                title: "A ascensão da Liderança Feminina e a desconstrução do gargalo nos Conselhos",
+                link: "artigo-elas-no-radar-gargalo-prestigio-boards.html",
+                fonte: "Elas no Radar",
+                pubDate: new Date().toISOString(),
+                imgUrl: "https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800"
+            },
+            {
+                title: "Transição de Carreira Executiva: Como desatrelar sua marca pessoal da empresa atual",
+                link: "artigo-desatrelar-marca-pessoal-empresa.html",
+                fonte: "Carreira & Reputação",
+                pubDate: new Date().toISOString(),
+                imgUrl: "https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem26.jpg?raw=true"
+            }
+        ];
+
         // EXTRATOR INTELIGENTE DE IMAGEM DA MATÉRIA
         function extrairImagemNoticia(item) {
             const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
@@ -924,49 +956,71 @@
             return fallbackImg;
         }
 
-        // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS VIA RSS
+        // RENDERIZAÇÃO DOS CARDS DE NOTÍCIAS
+        function renderNoticiasCards(items) {
+            const container = document.getElementById('liveNewsContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
+
+            items.forEach(item => {
+                const title = item.title;
+                const link = item.link;
+                const fonte = item.fonte || item.author || 'Mercado';
+                const imgUrl = item.imgUrl || extrairImagemNoticia(item);
+                
+                let dataPublicacao = 'Hoje';
+                if (item.pubDate) {
+                    try {
+                        dataPublicacao = new Date(item.pubDate).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' });
+                    } catch(e) {
+                        dataPublicacao = 'Recente';
+                    }
+                }
+
+                container.innerHTML += `
+                    <a href="${link}" class="live-news-card" target="_blank" rel="noopener noreferrer">
+                        <div>
+                            <div class="live-news-img-wrapper">
+                                <img src="${imgUrl}" class="live-news-img" alt="${title}" onerror="this.onerror=null;this.src='${fallbackImg}';">
+                            </div>
+                            <span class="live-news-card-tag">${fonte}</span>
+                            <h4 class="live-news-card-title">${title}</h4>
+                        </div>
+                        <div class="live-news-card-meta">
+                            <span>${dataPublicacao}</span>
+                            <span>Ler matéria ↗</span>
+                        </div>
+                    </a>
+                `;
+            });
+        }
+
+        // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS VIA RSS (SEM ACENTOS NA QUERY)
         function carregarNoticiasEmTempoReal() {
-            const termos = '("Novo CEO" OR "Fusões e Aquisições" OR "C-Level" OR "Carreira Executiva" OR "Executivo" OR "Executiva")';
-            const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${termos}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
+            // Renderiza o fallback imediatamente para a caixa nunca aparecer em branco
+            renderNoticiasCards(noticiasFallback);
+
+            // Query otimizada sem acentos para evitar erro 400 no RSS
+            const query = 'CEO OR "C-Level" OR Carreira OR Executivo OR Executiva';
+            const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
-            fetch(apiUrl)
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 3500);
+
+            fetch(apiUrl, { signal: controller.signal })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.status === 'ok') {
-                        const container = document.getElementById('liveNewsContainer');
-                        container.innerHTML = '';
+                    clearTimeout(timeoutId);
+                    if (data.status === 'ok' && data.items && data.items.length > 0) {
                         const noticias = data.items.slice(0, 4);
-
-                        noticias.forEach(item => {
-                            const dataPublicacao = new Date(item.pubDate).toLocaleDateString('pt-BR', {
-                                day: '2-digit', month: 'short'
-                            });
-                            const fonte = item.author || 'Mercado';
-                            const imgUrl = extrairImagemNoticia(item);
-                            const fallbackImg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&fm=webp';
-
-                            container.innerHTML += `
-                                <a href="${item.link}" class="live-news-card" target="_blank" rel="noopener noreferrer">
-                                    <div>
-                                        <div class="live-news-img-wrapper">
-                                            <img src="${imgUrl}" class="live-news-img" alt="${item.title}" onerror="this.onerror=null;this.src='${fallbackImg}';">
-                                        </div>
-                                        <span class="live-news-card-tag">${fonte}</span>
-                                        <h4 class="live-news-card-title">${item.title}</h4>
-                                    </div>
-                                    <div class="live-news-card-meta">
-                                        <span>${dataPublicacao}</span>
-                                        <span>Ler no portal ↗</span>
-                                    </div>
-                                </a>
-                            `;
-                        });
+                        renderNoticiasCards(noticias);
                     }
                 })
                 .catch(err => {
-                    const sec = document.querySelector('.live-news-section');
-                    if (sec) sec.style.display = 'none';
+                    // Se houver AdBlock, erro de conexão ou timeout, o fallback permanece na tela perfeitamente
                 });
         }
 
