@@ -78,8 +78,13 @@
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
 
-        /* SEÇÃO: PRATELEIRA DE COLUNISTAS */
-        .columnists-wrapper { margin: -10px auto 40px; border-bottom: 1px solid var(--borda); padding-bottom: 25px; }
+        /* SEÇÃO: PRATELEIRA DE COLUNISTAS (OCULTA POR PADRÃO) */
+        .columnists-wrapper { 
+            display: none; /* Só aparece quando o filtro Colunas está ativo */
+            margin: -10px auto 40px; 
+            border-bottom: 1px solid var(--borda); 
+            padding-bottom: 25px; 
+        }
         .columnists-header { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
         .columnists-list { display: flex; gap: 35px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
         .columnists-list::-webkit-scrollbar { display: none; }
@@ -283,7 +288,9 @@
             <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
             <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
             <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
-            <button class="filter-btn" onclick="filtrarBlog('colunistas', this)" style="color: var(--dourado);">Colunistas</button>
+            
+            <!-- BOTÃO DA CATEGORIA GERAL COLUNAS -->
+            <button class="filter-btn" onclick="filtrarBlog('colunas', this)" style="color: var(--dourado);">Colunas</button>
         </div>
         <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
     </nav>
@@ -294,7 +301,7 @@
         <!-- 🚨🚨 ALERTA ANA PAULA: PRATELEIRA DE COLUNISTAS CONVIDADOS 🚨🚨 -->
         <!-- Adicione novos autores copiando a div 'columnist-item'. Mude foto, nome, tema e o id do onclick -->
         <!-- ========================================================================================== -->
-        <div class="columnists-wrapper">
+        <div class="columnists-wrapper" id="columnistsWrapper">
             <div class="columnists-header">✦ Colunistas Convidados</div>
             <div class="columnists-list">
                 
@@ -366,7 +373,7 @@
             <!-- ========================================================================================== -->
 
             <!-- EXEMPLO DE ARTIGO DE COLUNISTA -->
-            <a href="#" data-category="colunistas" data-author="carlos-oliveira">
+            <a href="#" data-category="colunas" data-author="carlos-oliveira">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" alt="Exemplo Coluna">
                 <span class="tag">Governança & Conselhos</span>
                 <h3 class="title">O Papel do Conselho de Administração na Gestão de Crises</h3>
@@ -840,13 +847,26 @@
     </main>
 
     <script>
-        // Inteligência de Paginação
+        // Inteligência de Paginação e Exibição Condicional da Prateleira
         let limiteAtual = 13;
         let filtroAtual = 'todos';
         let autorAtual = 'todos'; // Controle de Colunistas
         let pesquisaAtual = '';
 
+        function toggleColumnistsWrapper() {
+            const wrapper = document.getElementById('columnistsWrapper');
+            if (!wrapper) return;
+            // Só exibe a prateleira com fotos quando o filtro ativo for 'colunas'
+            if (filtroAtual === 'colunas') {
+                wrapper.style.display = 'block';
+            } else {
+                wrapper.style.display = 'none';
+            }
+        }
+
         function renderArticles() {
+            toggleColumnistsWrapper();
+
             const heroZone = document.getElementById('heroZone');
             const gridZone = document.getElementById('gridZone');
             const listZone = document.getElementById('listZone');
@@ -952,7 +972,7 @@
             document.getElementById('searchInput').value = '';
             
             limiteAtual = 13;
-            filtroAtual = 'colunistas';
+            filtroAtual = 'colunas';
             autorAtual = autor;
             pesquisaAtual = '';
             renderArticles();
