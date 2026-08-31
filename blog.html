@@ -78,7 +78,20 @@
 
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px 80px; }
 
-        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL (SEM IMAGENS, LAYOUT EXECUTIVO) */
+        /* SEÇÃO: PRATELEIRA DE COLUNISTAS */
+        .columnists-wrapper { margin: -10px auto 40px; border-bottom: 1px solid var(--borda); padding-bottom: 25px; }
+        .columnists-header { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .columnists-list { display: flex; gap: 35px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+        .columnists-list::-webkit-scrollbar { display: none; }
+        .columnist-item { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; opacity: 0.65; }
+        .columnist-item:hover, .columnist-item.active { opacity: 1; transform: translateY(-2px); }
+        .columnist-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid transparent; transition: 0.3s; }
+        .columnist-item.active .columnist-img { border-color: var(--dourado); }
+        .columnist-info { display: flex; flex-direction: column; }
+        .columnist-name { font-size: 12px; font-weight: 800; color: var(--texto-escuro); }
+        .columnist-theme { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin-top: 2px; }
+
+        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL (LAYOUT EXECUTIVO) */
         .live-news-section {
             background: #fafafa;
             border: 1px solid var(--borda);
@@ -107,7 +120,7 @@
         .live-news-pulse {
             width: 8px;
             height: 8px;
-            background-color: #25D366; /* Cor verde para dar ideia de feed 'ao vivo' */
+            background-color: #25D366;
             border-radius: 50%;
             display: inline-block;
             box-shadow: 0 0 8px rgba(37, 211, 102, 0.6);
@@ -270,19 +283,47 @@
             <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
             <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
             <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
+            <button class="filter-btn" onclick="filtrarBlog('colunistas', this)" style="color: var(--dourado);">Colunistas</button>
         </div>
         <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
     </nav>
 
     <main class="container">
         
+        <!-- ========================================================================================== -->
+        <!-- 🚨🚨 ALERTA ANA PAULA: PRATELEIRA DE COLUNISTAS CONVIDADOS 🚨🚨 -->
+        <!-- Adicione novos autores copiando a div 'columnist-item'. Mude foto, nome, tema e o id do onclick -->
+        <!-- ========================================================================================== -->
+        <div class="columnists-wrapper">
+            <div class="columnists-header">✦ Colunistas Convidados</div>
+            <div class="columnists-list">
+                
+                <div class="columnist-item" onclick="filtrarPorAutor('carlos-oliveira', this)">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" class="columnist-img" alt="Carlos Oliveira">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Carlos Oliveira</span>
+                        <span class="columnist-theme">Governança & Conselhos</span>
+                    </div>
+                </div>
+
+                <div class="columnist-item" onclick="filtrarPorAutor('fernanda-lima', this)">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200" class="columnist-img" alt="Fernanda Lima">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Fernanda Lima</span>
+                        <span class="columnist-theme">Inovação C-Level</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
         <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado para esta pesquisa.</div>
 
         <!-- Renderização do Layout -->
         <div class="editorial-feed">
             <div id="heroZone"></div>
 
-            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL (SEM IMAGENS E COM FILTRO) -->
+            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL -->
             <section class="live-news-section">
                 <div class="live-news-header">
                     <div class="live-news-title">
@@ -324,6 +365,15 @@
             <!-- Lembre-se: O 1º da lista é a CAPA GIGANTE. Do 2º ao 5º formam a GRADE com foto. -->
             <!-- ========================================================================================== -->
 
+            <!-- EXEMPLO DE ARTIGO DE COLUNISTA -->
+            <a href="#" data-category="colunistas" data-author="carlos-oliveira">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" alt="Exemplo Coluna">
+                <span class="tag">Governança & Conselhos</span>
+                <h3 class="title">O Papel do Conselho de Administração na Gestão de Crises</h3>
+                <p class="excerpt">Como estruturar a governança para proteger o caixa e a reputação da companhia em tempos de incerteza.</p>
+            </a>
+
+            <!-- SEUS ARTIGOS NORMAIS -->
             <a href="artigo-como-avaliar-inteligencia-relacional-mediacao-conflitos-lideres.html" data-category="dica-de-hunter">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Como avaliar a maturidade de inteligência relacional e mediação de conflitos entre pares em candidatos à liderança?">
             <span class="tag">Dica de Hunter</span>
@@ -793,6 +843,7 @@
         // Inteligência de Paginação
         let limiteAtual = 13;
         let filtroAtual = 'todos';
+        let autorAtual = 'todos'; // Controle de Colunistas
         let pesquisaAtual = '';
 
         function renderArticles() {
@@ -807,8 +858,9 @@
             const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
             let visibleArticles = sources.filter(a => {
                 const matchFiltro = filtroAtual === 'todos' || a.getAttribute('data-category') === filtroAtual;
+                const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
                 const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
-                return matchFiltro && matchTexto;
+                return matchFiltro && matchAutor && matchTexto;
             });
 
             if (visibleArticles.length === 0) {
@@ -881,20 +933,38 @@
 
         function filtrarBlog(categoria, botaoClicado) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.columnist-item').forEach(btn => btn.classList.remove('active'));
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
             
             limiteAtual = 13;
             filtroAtual = categoria;
+            autorAtual = 'todos';
+            pesquisaAtual = '';
+            renderArticles();
+        }
+
+        function filtrarPorAutor(autor, botaoClicado) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.columnist-item').forEach(btn => btn.classList.remove('active'));
+            
+            botaoClicado.classList.add('active');
+            document.getElementById('searchInput').value = '';
+            
+            limiteAtual = 13;
+            filtroAtual = 'colunistas';
+            autorAtual = autor;
             pesquisaAtual = '';
             renderArticles();
         }
 
         function pesquisarArtigos() {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.columnist-item').forEach(btn => btn.classList.remove('active'));
             
             limiteAtual = 13;
             filtroAtual = 'todos';
+            autorAtual = 'todos';
             pesquisaAtual = document.getElementById('searchInput').value.toLowerCase();
             renderArticles();
         }
