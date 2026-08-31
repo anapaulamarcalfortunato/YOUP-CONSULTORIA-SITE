@@ -282,7 +282,7 @@
         <div class="editorial-feed">
             <div id="heroZone"></div>
 
-            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL (SEM IMAGENS) -->
+            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL (SEM IMAGENS E COM FILTRO) -->
             <section class="live-news-section">
                 <div class="live-news-header">
                     <div class="live-news-title">
@@ -902,13 +902,13 @@
         // NOTÍCIAS DE BACKUP (GARANTEM QUE A CAIXA NUNCA FIQUE VAZIA)
         const noticiasFallback = [
             {
-                title: "Dança das Cadeiras no C-Level: Aceleração nas trocas de CEOs e diretores em 2026",
+                title: "Aceleração nas trocas de CEOs e a Nova Dança das Cadeiras",
                 link: "artigo-danca-cadeiras-recorde-ceos-maio-2026.html",
                 fonte: "Radar YOUP",
                 pubDate: new Date().toISOString()
             },
             {
-                title: "M&A e Capital Humano: O papel das lideranças na preservação do Valuation pós-fusão",
+                title: "M&A e Capital Humano: O papel da liderança na preservação do Valuation pós-fusão",
                 link: "artigo-rh-ma-capital-humano.html",
                 fonte: "Gestão & M&A",
                 pubDate: new Date().toISOString()
@@ -920,9 +920,9 @@
                 pubDate: new Date().toISOString()
             },
             {
-                title: "Transição de Carreira Executiva: Como desatrelar sua marca pessoal da empresa atual",
+                title: "Como desatrelar a sua marca pessoal do nome da empresa atual",
                 link: "artigo-desatrelar-marca-pessoal-empresa.html",
-                fonte: "Carreira & Reputação",
+                fonte: "Carreira Executiva",
                 pubDate: new Date().toISOString()
             }
         ];
@@ -936,7 +936,7 @@
             items.forEach(item => {
                 const title = item.title;
                 const link = item.link;
-                const fonte = item.fonte || item.author || 'Mercado';
+                const fonte = item.fonte || item.author || 'Mercado Corporativo';
                 
                 let dataPublicacao = 'Hoje';
                 if (item.pubDate) {
@@ -962,13 +962,25 @@
             });
         }
 
-        // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS VIA RSS (SEM ACENTOS NA QUERY)
+        // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS COM DUPLO FILTRO DE SEGURANÇA
         function carregarNoticiasEmTempoReal() {
             renderNoticiasCards(noticiasFallback);
 
-            const query = 'CEO OR "C-Level" OR Carreira OR Executivo OR Executiva';
+            // 1. FILTRO NO GOOGLE: Remove palavras ruins direto na fonte
+            const query = '("CEO" OR "C-Level" OR "Transição de Carreira" OR "Mercado Corporativo" OR "Conselho de Administração") -preso -crime -polícia -morte -futebol -cantor';
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+            // ==========================================================================================
+            // 🚨🚨 ALERTA ANA PAULA: LISTA DE PALAVRAS BLOQUEADAS (BLACKLIST) 🚨🚨
+            // Insira novas palavras ruins aqui. Sempre minúsculas, entre aspas e separadas por vírgula.
+            // ==========================================================================================
+            const palavrasBloqueadas = [
+                "preso", "prisão", "polícia", "assassinato", "crime", 
+                "tráfico", "golpe", "futebol", "cantor", "atriz", 
+                "ator", "namoro", "morte", "morre", "acidente", 
+                "presos", "homicídio", "facção", "roubo", "fraude"
+            ];
 
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 3500);
@@ -978,12 +990,22 @@
                 .then(data => {
                     clearTimeout(timeoutId);
                     if (data.status === 'ok' && data.items && data.items.length > 0) {
-                        const noticias = data.items.slice(0, 4);
-                        renderNoticiasCards(noticias);
+                        
+                        // Passa pelo filtro final no próprio site
+                        const noticiasLimpas = data.items.filter(item => {
+                            const tituloValido = item.title.toLowerCase();
+                            return !palavrasBloqueadas.some(palavra => tituloValido.includes(palavra));
+                        });
+
+                        if (noticiasLimpas.length >= 4) {
+                            renderNoticiasCards(noticiasLimpas.slice(0, 4));
+                        } else if (noticiasLimpas.length > 0) {
+                            renderNoticiasCards(noticiasLimpas);
+                        }
                     }
                 })
                 .catch(err => {
-                    // Mantém o fallback
+                    // Mantém o fallback de segurança sem exibir nenhum erro
                 });
         }
 
