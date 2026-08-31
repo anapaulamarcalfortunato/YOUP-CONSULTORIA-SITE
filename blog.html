@@ -966,8 +966,8 @@
         function carregarNoticiasEmTempoReal() {
             renderNoticiasCards(noticiasFallback);
 
-            // 1. FILTRO NO GOOGLE: Remove palavras ruins direto na fonte
-            const query = '("CEO" OR "C-Level" OR "Transição de Carreira" OR "Mercado Corporativo" OR "Conselho de Administração") -preso -crime -polícia -morte -futebol -cantor';
+            // 1. FILTRO NO GOOGLE: Remove crimes, fofocas e política direto na fonte
+            const query = '("CEO" OR "C-Level" OR "Transição de Carreira" OR "Mercado Corporativo" OR "Conselho de Administração") -preso -crime -polícia -morte -futebol -cantor -política -político -eleições -governo';
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
@@ -976,10 +976,18 @@
             // Insira novas palavras ruins aqui. Sempre minúsculas, entre aspas e separadas por vírgula.
             // ==========================================================================================
             const palavrasBloqueadas = [
+                // Violência, Crimes e Fofocas
                 "preso", "prisão", "polícia", "assassinato", "crime", 
                 "tráfico", "golpe", "futebol", "cantor", "atriz", 
                 "ator", "namoro", "morte", "morre", "acidente", 
-                "presos", "homicídio", "facção", "roubo", "fraude"
+                "presos", "homicídio", "facção", "roubo", "fraude",
+
+                // Política, Eleições e Partidarismo (BLINDAGEM CORPORATIVA)
+                "política", "político", "políticos", "partido", "partidos",
+                "eleição", "eleições", "eleitoral", "candidato", "candidatos",
+                "deputado", "senador", "ministro", "stf", "congresso", 
+                "governo", "prefeito", "vereador", "votação", "urna", 
+                "lula", "bolsonaro", "cpi", "tse"
             ];
 
             const controller = new AbortController();
