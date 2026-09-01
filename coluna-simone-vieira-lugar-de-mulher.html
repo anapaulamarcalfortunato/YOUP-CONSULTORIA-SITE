@@ -186,7 +186,7 @@
         /* Imagem Meio do Texto */
         .article-middle-img {
             width: 100%;
-            height: auto;
+            height: auto; /* Evita que a imagem seja cortada */
             border-radius: 8px;
             margin: 40px 0 10px 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -257,9 +257,48 @@
             margin-top: 10px;
         }
 
+        /* Mais Colunas (Para quando o JS carregar) */
+        .more-columns {
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            padding-top: 40px;
+        }
+        .more-columns h3 {
+            font-size: 20px;
+            color: var(--texto-titulo);
+            margin-bottom: 25px;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .card h4 {
+            margin: 0 0 10px 0;
+            color: var(--verde-youp);
+            font-size: 16px;
+        }
+        .card p {
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+        }
+
         @media (max-width: 768px) {
             .article-main { margin: -50px 5% 30px 5%; padding: 30px 5%; }
             h1 { font-size: 28px; }
+            .cards-grid { grid-template-columns: 1fr; }
             .author-box { flex-direction: column; text-align: center; align-items: center; }
         }
     </style>
@@ -352,10 +391,16 @@
             </div>
         </div>
 
+        <!-- CONTAINER DINÂMICO PARA MAIS COLUNAS -->
+        <div id="mais-colunas-container" class="more-columns" style="display: none;">
+            <h3 id="mais-colunas-titulo">Mais Colunas</h3>
+            <div id="mais-colunas-grid" class="cards-grid"></div>
+        </div>
+
     </main>
 
     <script>
-        // Progress Bar
+        // --- 1. Lógica Progress Bar ---
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -363,7 +408,7 @@
             document.getElementById("progressBar").style.width = scrolled + "%";
         };
 
-        // Ouvir Artigo (Web Speech API)
+        // --- 2. Lógica Ouvir Artigo (Web Speech API) ---
         function ouvirArtigo() {
             if ('speechSynthesis' in window) {
                 const texto = document.getElementById('conteudo-artigo').innerText;
@@ -375,6 +420,48 @@
                 alert("Desculpe, seu navegador não suporta a leitura de texto em voz alta.");
             }
         }
+
+        // --- 3. Lógica Dinâmica para "Mais Colunas" (Lendo do JSON) ---
+        // Variáveis da página atual para não recomendar o próprio artigo
+        const autorAtualSlug = "simone-vieira";
+        const autorAtualNome = "Simone Sommariva Vieira";
+        const urlArtigoAtual = "coluna-simone-vieira-lugar-de-mulher.html";
+
+        fetch('colunistas-artigos.json')
+            .then(response => {
+                if (!response.ok) throw new Error("JSON não encontrado.");
+                return response.json();
+            })
+            .then(artigos => {
+                // Filtra os artigos que são do mesmo autor, mas exclui o artigo em que o usuário está
+                const artigosFiltrados = artigos.filter(artigo => 
+                    artigo.id_colunista === autorAtualSlug && 
+                    artigo.url !== urlArtigoAtual
+                );
+
+                // Se houver artigos para exibir, montamos o layout
+                if (artigosFiltrados.length > 0) {
+                    document.getElementById('mais-colunas-container').style.display = 'block';
+                    document.getElementById('mais-colunas-titulo').innerText = `Mais Colunas de ${autorAtualNome}`;
+                    
+                    const grid = document.getElementById('mais-colunas-grid');
+                    
+                    // Limita a exibição de, no máximo, os 2 artigos mais recentes do JSON
+                    artigosFiltrados.slice(0, 2).forEach(artigo => {
+                        const cardHTML = `
+                            <a href="${artigo.url}" class="card">
+                                <h4>${artigo.titulo}</h4>
+                                <p>${artigo.descricao}</p>
+                            </a>
+                        `;
+                        grid.innerHTML += cardHTML;
+                    });
+                }
+            })
+            .catch(error => {
+                // Se o JSON não existir ainda, o container simplesmente ficará oculto (display: none)
+                console.log("Sistema de colunas relacionadas aguardando artigos.");
+            });
     </script>
 </body>
 </html>
