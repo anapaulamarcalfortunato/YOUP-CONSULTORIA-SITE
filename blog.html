@@ -888,7 +888,23 @@
                 const matchFiltro = filtroAtual === 'todos' || a.getAttribute('data-category') === filtroAtual;
                 const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
                 const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
-                return matchFiltro && matchAutor && matchTexto;
+                
+                // NOVA LÓGICA DE AGENDAMENTO (TRAVA DE TEMPO)
+                let matchData = true; // Por padrão, o artigo está liberado
+                const dataAgendada = a.getAttribute('data-publish-date'); 
+                
+                if (dataAgendada) {
+                    // Converte a data para o fuso horário do Brasil (Garante que vira à meia-noite correta)
+                    const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00'); 
+                    const dataAtual = new Date();
+                    
+                    // Se o dia de hoje for menor que a data de publicação, esconde o artigo
+                    if (dataAtual < dataPublicacao) {
+                        matchData = false; 
+                    }
+                }
+
+                return matchFiltro && matchAutor && matchTexto && matchData;
             });
 
             if (visibleArticles.length === 0) {
