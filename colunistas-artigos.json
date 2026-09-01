@@ -1,0 +1,20 @@
+[
+  {
+    "id_colunista": "simone-vieira",
+    "url": "coluna-simone-vieira-lugar-de-mulher.html",
+    "titulo": "Liderança Feminina: Lugar de Mulher é Onde Ela Decide",
+    "descricao": "Descubra por que lugar de mulher é onde ela decide."
+  },
+  {
+    "id_colunista": "simone-vieira",
+    "url": "coluna-simone-vieira-negociacao-feminina.html",
+    "titulo": "A Arte da Negociação para Mulheres Líderes",
+    "descricao": "Estratégias para comunicar seu valor e conquistar o espaço que você merece."
+  },
+  {
+    "id_colunista": "carlos-oliveira",
+    "url": "coluna-carlos-oliveira-governanca-crises.html",
+    "titulo": "O Papel do Conselho na Gestão de Crises",
+    "descricao": "Como estruturar a governança para proteger o caixa em tempos de incerteza."
+  }
+]
