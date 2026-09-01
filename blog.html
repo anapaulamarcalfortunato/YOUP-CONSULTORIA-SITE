@@ -30,8 +30,28 @@
         
         /* HEADER EDITORIAL */
         .top-bar { border-bottom: 1px solid var(--borda); padding: 10px 50px; display: flex; justify-content: space-between; align-items: center; background: #fdfdfd; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
-        .top-bar-links a { color: var(--texto-escuro); text-decoration: none; margin-left: 20px; transition: 0.3s; }
+        .top-bar-links { display: flex; align-items: center; gap: 15px; }
+        .top-bar-links a { color: var(--texto-escuro); text-decoration: none; transition: 0.3s; }
         .top-bar-links a:hover { color: var(--dourado); }
+
+        /* BOTÃO QUERO SER COLUNISTA */
+        .btn-colunista-whatsapp {
+            background-color: var(--dourado);
+            color: #111111 !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800 !important;
+            font-size: 10px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-colunista-whatsapp:hover {
+            background-color: #111111;
+            color: var(--dourado) !important;
+        }
 
         .header-brand { text-align: center; padding: 40px 20px; border-bottom: 2px solid var(--texto-escuro); margin: 0 50px; }
         .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
@@ -241,6 +261,7 @@
             .live-news-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
+            .top-bar { padding: 10px 20px; }
             .header-brand { margin: 0 20px; padding: 30px 10px; }
             .page-title { font-size: 36px; }
             .editorial-nav { flex-direction: column; gap: 20px; padding: 20px; align-items: flex-start; }
@@ -258,6 +279,7 @@
     <div class="top-bar">
         <div id="google_translate_element"></div>
         <div class="top-bar-links">
+            <a href="https://wa.me/5512991322333?text=Eu%20quero%20ser%20um%20colunista%20Youp." target="_blank" class="btn-colunista-whatsapp">✦ Quero ser um Colunista</a>
             <a href="index.html">← Voltar ao Início</a>
         </div>
     </div>
