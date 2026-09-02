@@ -92,7 +92,7 @@
             margin-bottom: 8px;
             font-weight: 800;
         }
-        /* ESSA REGRA ESCONDE TOTALMENTE O ESPAÇO SE O GOOGLE NÃO MANDAR ANÚNCIO */
+        /* ESCONDE A CAIXA SE O GOOGLE NÃO ENVIAR ANÚNCIO */
         .ad-space-container:has(ins[data-ad-status="unfilled"]) {
             display: none !important;
             margin: 0 !important;
@@ -142,13 +142,23 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            display: flex;
-            justify-content: center;
+            max-height: 300px; 
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.3s ease;
+            display: block;
+            text-align: center;
+            opacity: 1;
         }
-        
         /* BLINDAGEM TOTAL: Se estiver com a classe 'closed', some e derruba o botão pro pé da tela */
         .sticky-ad-content.closed {
-            display: none !important;
+            max-height: 0 !important;
+            min-height: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            border-top: none !important;
+            opacity: 0;
+            pointer-events: none;
         }
 
         /* MENUS & FILTROS */
@@ -200,7 +210,7 @@
             padding-bottom: 45px;
             border-bottom: 2px solid var(--texto-escuro);
             margin-bottom: 45px;
-            align-items: start;
+            align-items: stretch;
         }
 
         /* COLUNA 1 - LATERAL ESQUERDA COM FOTO */
@@ -741,7 +751,7 @@
                 <button class="btn-load-more" onclick="carregarMaisArtigos()">Carregar Mais Artigos ⬇</button>
             </div>
 
-            <!-- ANÚNCIO 2: MEIO DO FEED (FAIXA HORIZONTAL) ANTES DAS NOTICIAS EXTERNAS -->
+            <!-- ANÚNCIO NO MEIO DO FEED -->
             <div class="ad-space-container">
                 <p class="ad-space-label">Continua após a publicidade ▼</p>
                 <ins class="adsbygoogle"
@@ -1534,6 +1544,12 @@
                 title: "A ascensão da Liderança Feminina e a desconstrução do gargalo nos Conselhos",
                 link: "artigo-elas-no-radar-gargalo-prestigio-boards.html",
                 fonte: "Elas no Radar",
+                pubDate: new Date().toISOString()
+            },
+            {
+                title: "Como desatrelar a sua marca pessoal do nome da empresa atual",
+                link: "artigo-desatrelar-marca-pessoal-empresa.html",
+                fonte: "Carreira Executiva",
                 pubDate: new Date().toISOString()
             }
         ];
