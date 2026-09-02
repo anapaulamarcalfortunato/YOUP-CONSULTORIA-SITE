@@ -34,7 +34,7 @@
         .top-bar-links a { color: var(--texto-escuro); text-decoration: none; transition: 0.3s; }
         .top-bar-links a:hover { color: var(--dourado); }
 
-        /* BOTÃO QUERO SER COLUNISTA */
+        /* BOTÃO QUERO SER COLUNISTA E BOOK */
         .btn-colunista-whatsapp {
             background-color: var(--dourado);
             color: #111111 !important;
@@ -51,6 +51,21 @@
         .btn-colunista-whatsapp:hover {
             background-color: #111111;
             color: var(--dourado) !important;
+        }
+
+        .btn-book-colunistas {
+            border: 1px solid var(--dourado);
+            color: var(--dourado) !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700 !important;
+            font-size: 10px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease !important;
+        }
+        .btn-book-colunistas:hover {
+            background-color: var(--dourado);
+            color: #111111 !important;
         }
 
         .header-brand { text-align: center; padding: 40px 20px; border-bottom: 2px solid var(--texto-escuro); margin: 0 50px; }
@@ -105,7 +120,7 @@
             border-bottom: 1px solid var(--borda); 
             padding-bottom: 25px; 
         }
-        .columnists-header { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .columnists-header { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 2px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
         .columnists-list { 
             display: flex; 
             gap: 35px; 
@@ -287,6 +302,7 @@
     <div class="top-bar">
         <div id="google_translate_element"></div>
         <div class="top-bar-links">
+            <a href="book-colunistas.html" class="btn-book-colunistas">📖 Book de Colunistas</a>
             <a href="https://wa.me/5512991322333?text=Eu%20quero%20ser%20um%20colunista%20Youp." target="_blank" class="btn-colunista-whatsapp">✦ Quero ser um Colunista</a>
             <a href="index.html">← Voltar ao Início</a>
         </div>
@@ -328,10 +344,14 @@
     <main class="container">
         
         <!-- ========================================================================================== -->
-        <!-- PRATELEIRA DE COLUNISTAS CONVIDADOS (COMPLETA E SEM CORTE DE TAGS) -->
+        <!-- 🚨🚨 ALERTA ANA PAULA: PRATELEIRA DE COLUNISTAS CONVIDADOS 🚨🚨 -->
+        <!-- Adicione novos autores copiando a div 'columnist-item'. Mude foto, nome, tema e o id do onclick -->
         <!-- ========================================================================================== -->
         <div class="columnists-wrapper" id="columnistsWrapper">
-            <div class="columnists-header">✦ Colunistas Convidados</div>
+            <div class="columnists-header">
+                <span>✦ Colunistas Convidados</span>
+                <a href="book-colunistas.html" style="color: var(--dourado); text-decoration: none; font-size: 10px; font-weight: 800;">Conhecer todos no Book Digital ➔</a>
+            </div>
             <div class="columnists-list">
                 
                 <div class="columnist-item" onclick="filtrarPorAutor('alessandra-miliatti', this)">
@@ -462,8 +482,11 @@
         <div id="sourceArticles" style="display: none;">
 
             <!-- ========================================================================================== -->
-            <!-- ARTIGOS E COLUNAS -->
+            <!-- 🚨🚨 ALERTA ANA PAULA: COLE O CÓDIGO DO NOVO ARTIGO EXATAMENTE ABAIXO DESTA LINHA 🚨🚨 -->
+            <!-- Lembre-se: O 1º da lista é a CAPA GIGANTE. Do 2º ao 5º formam a GRADE com foto. -->
             <!-- ========================================================================================== -->
+
+            <!-- SEUS ARTIGOS NORMAIS -->
 
             <a href="coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html" data-category="colunas" data-author="felipe-almeida" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida">
