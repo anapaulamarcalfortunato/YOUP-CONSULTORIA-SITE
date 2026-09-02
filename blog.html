@@ -92,7 +92,7 @@
             margin-bottom: 8px;
             font-weight: 800;
         }
-        /* ESSA REGRA ESCONDE TOTALMENTE O ESPAÇO SE O GOOGLE NÃO MANDAR ANÚNCIO */
+        /* ESCONDE A CAIXA SE O GOOGLE NÃO ENVIAR ANÚNCIO */
         .ad-space-container:has(ins[data-ad-status="unfilled"]) {
             display: none !important;
             margin: 0 !important;
@@ -110,7 +110,7 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 970px;
-            z-index: 9999;
+            z-index: 99999; /* Camada alta para não sobrepor nada */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -121,15 +121,16 @@
             border-bottom: none;
             color: var(--texto-cinza);
             font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
+            font-size: 11px; /* Um pouco maior para o mobile */
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 6px 20px;
+            padding: 10px 25px; /* Margem de toque maior para facilitar clique */
             border-radius: 8px 8px 0 0;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+            -webkit-tap-highlight-color: transparent;
         }
         .sticky-toggle:hover {
             color: var(--dourado);
@@ -141,17 +142,23 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            max-height: 250px;
+            max-height: 300px; /* Limite de segurança */
             overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            display: flex;
-            justify-content: center;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.3s ease;
+            display: block;
+            text-align: center;
+            opacity: 1;
         }
+        /* REGRAS BLINDADAS PARA O CELULAR ENCOLHER TOTALMENTE A CAIXA */
         .sticky-ad-content.closed {
-            max-height: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-            border: none;
+            max-height: 0 !important;
+            min-height: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            border-top: none !important;
+            opacity: 0;
+            pointer-events: none;
         }
 
         /* MENUS & FILTROS */
@@ -381,7 +388,7 @@
             transition: width 0.1s linear;
         }
 
-        /* COLUNA 3 - MANCHETES LATERAL DIREITA (7 ITENS) */
+        /* COLUNA 3 - MANCHETES LATERAL DIREITA */
         .side-col-right {
             display: flex;
             flex-direction: column;
@@ -724,19 +731,6 @@
         <!-- ========================================================================================== -->
         <div class="editorial-feed">
 
-            <!-- ANÚNCIO 1: NO MEIO DO FEED -->
-            <div class="ad-space-container">
-                <p class="ad-space-label">Publicidade</p>
-                <ins class="adsbygoogle"
-                     style="display:block; width:100%;"
-                     data-ad-client="ca-pub-1434753673886142"
-                     data-ad-format="horizontal"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-
             <div id="listZone" class="list-articles-wrapper"></div>
             
             <!-- Botão Carregar Mais FICA LOGO ABAIXO DA LISTA DE ARTIGOS AUTORAIS -->
@@ -744,7 +738,7 @@
                 <button class="btn-load-more" onclick="carregarMaisArtigos()">Carregar Mais Artigos ⬇</button>
             </div>
 
-            <!-- ANÚNCIO 2: MEIO DO FEED (FAIXA HORIZONTAL) ANTES DAS NOTICIAS EXTERNAS -->
+            <!-- ANÚNCIO NO MEIO DO FEED -->
             <div class="ad-space-container">
                 <p class="ad-space-label">Continua após a publicidade ▼</p>
                 <ins class="adsbygoogle"
@@ -881,7 +875,7 @@
             <img src="https://famart.edu.br/wp-content/uploads/2021/12/networking-e1640197874637.jpg">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Networking de Cafezinho vs. Capital Político Real: O Peso Estratégico no C-Level</h3>
-            <p class="excerpt">Conhecer muita gente não garante promoção. Entenda a diferença entre networking superficial e o Capital Político que destrava as chairs C-Level.</p>
+            <p class="excerpt">Conhecer muita gente não garante promoção. Entenda a diferença entre networking superficial e o Capital Político que destrava as cadeiras C-Level.</p>
             </a>
 
             <a href="artigo-algemas-de-ouro-carreira-c-level.html" data-category="radar-executivo">
