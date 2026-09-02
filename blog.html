@@ -34,7 +34,6 @@
         .top-bar-links a { color: var(--texto-escuro); text-decoration: none; transition: 0.3s; }
         .top-bar-links a:hover { color: var(--dourado); }
 
-        /* BOTÃO QUERO SER COLUNISTA E BOOK */
         .btn-colunista-whatsapp {
             background-color: var(--dourado);
             color: #111111 !important;
@@ -72,10 +71,10 @@
         .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
         .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
 
-        /* ESPAÇO RESERVADO PARA ANÚNCIOS (DINÂMICO E INVISÍVEL SEM ANÚNCIO) */
+        /* ESPAÇO RESERVADO PARA ANÚNCIOS */
         .ad-space-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0;
             text-align: center;
@@ -115,7 +114,7 @@
 
         /* SEÇÃO: PRATELEIRA DE COLUNISTAS (OCULTA POR PADRÃO) */
         .columnists-wrapper { 
-            display: none; /* Só aparece quando o filtro Colunas está ativo */
+            display: none; 
             margin: -10px auto 40px; 
             border-bottom: 1px solid var(--borda); 
             padding-bottom: 25px; 
@@ -139,7 +138,240 @@
         .columnist-name { font-size: 12px; font-weight: 800; color: var(--texto-escuro); white-space: nowrap; }
         .columnist-theme { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin-top: 2px; white-space: nowrap; }
 
-        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL (LAYOUT EXECUTIVO) */
+        /* ========================================================================= */
+        /* ESTRUTURA TRIAD EDITORIAL (3 COLUNAS) */
+        /* ========================================================================= */
+        .exame-hero-triad {
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            gap: 35px;
+            padding-bottom: 45px;
+            border-bottom: 2px solid var(--texto-escuro);
+            margin-bottom: 45px;
+            align-items: start;
+        }
+
+        /* COLUNA 1 - LATERAL ESQUERDA COM FOTO */
+        .side-col-left {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .side-news-card-left {
+            text-decoration: none;
+            color: var(--texto-escuro);
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .side-news-card-left:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .side-news-card-left:hover .side-news-title {
+            color: var(--dourado);
+        }
+
+        .side-news-img-wrapper {
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            background: #eee;
+        }
+
+        .side-news-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .side-news-card-left:hover .side-news-img {
+            transform: scale(1.04);
+        }
+
+        /* COLUNA 2 - HERO CENTRAL ROTATIVO */
+        .center-hero-rotator {
+            position: relative;
+            background: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--borda);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #rotatorSlidesWrapper {
+            display: flex;
+            flex: 1; 
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .rotator-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(17, 11, 11, 0.85);
+            color: var(--dourado);
+            border: 1px solid var(--dourado);
+            padding: 4px 10px;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 3px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rotator-live-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px #25D366;
+        }
+
+        .rotator-slide {
+            display: none;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--texto-escuro);
+            transition: opacity 0.5s ease-in-out;
+            flex: 1;
+        }
+
+        .rotator-slide.active {
+            display: flex;
+            animation: fadeInSlide 0.6s ease;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .rotator-img-container {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* TRAVADO EXATAMENTE NA PROPORÇÃO 16:9 */
+            overflow: hidden;
+            background: #111;
+        }
+
+        .rotator-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .rotator-slide:hover .rotator-img {
+            transform: scale(1.03);
+        }
+
+        .rotator-body {
+            padding: 25px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .rotator-tag {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--dourado);
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .rotator-title {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0 0 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .rotator-excerpt {
+            font-size: 14px;
+            color: var(--texto-cinza);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .rotator-progress-bar {
+            height: 3px;
+            background: #e5e5e5;
+            width: 100%;
+            position: relative;
+        }
+
+        .rotator-progress-fill {
+            height: 100%;
+            background: var(--dourado);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* COLUNA 3 - MANCHETES LATERAL DIREITA (7 ITENS) */
+        .side-col-right {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: 100%;
+        }
+
+        .side-news-item {
+            text-decoration: none;
+            color: var(--texto-escuro);
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .side-news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .side-news-item:hover .side-news-title {
+            color: var(--dourado);
+        }
+
+        .side-news-tag {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--texto-cinza);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .side-news-title {
+            font-size: 14px; 
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 0 0 6px;
+            transition: color 0.3s;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL */
         .live-news-section {
             background: #fafafa;
             border: 1px solid var(--borda);
@@ -232,39 +464,16 @@
             font-weight: 600;
         }
 
-        /* LAYOUT EDITORIAL DINÂMICO */
+        /* LAYOUT EDITORIAL DINÂMICO DOS DEMAIS ARTIGOS */
         .editorial-feed { display: flex; flex-direction: column; gap: 40px; }
-        
-        .article-card { text-decoration: none; color: var(--texto-escuro); display: flex; transition: opacity 0.3s; }
-        .article-card:hover { opacity: 0.85; }
-        
-        .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 10px; display: block; }
-        .article-img { object-fit: cover; background: #eee; }
-        
-        /* 1. DESTAQUE PRINCIPAL (HERO) */
-        .hero-article { flex-direction: row; gap: 40px; border-bottom: 1px solid var(--borda); padding-bottom: 40px; }
-        .hero-article .img-wrapper { width: 65%; height: 450px; flex-shrink: 0; }
-        .hero-article .article-img { width: 100%; height: 100%; }
-        .hero-article .content-wrapper { width: 35%; display: flex; flex-direction: column; justify-content: center; }
-        .hero-article .article-title { font-size: 38px; font-weight: 800; line-height: 1.1; margin: 0 0 20px; letter-spacing: -1px; }
-        .hero-article .article-excerpt { font-size: 16px; color: var(--texto-cinza); line-height: 1.6; margin: 0; }
-
-        /* 2. GRADE DE 4 ARTIGOS COM IMAGEM */
-        .grid-articles-wrapper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; border-bottom: 2px solid var(--texto-escuro); padding-bottom: 40px; margin-top: -10px;}
-        .grid-article { flex-direction: column; gap: 15px; }
-        .grid-article .img-wrapper { width: 100%; height: 180px; }
-        .grid-article .article-img { width: 100%; height: 100%; }
-        .grid-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px; }
-        .grid-article .article-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
-
-        /* 3. LISTA COMPACTA (OS DEMAIS) */
         .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
-        .list-article { flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; }
+        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; }
+        .list-article:hover { opacity: 0.85; }
         .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
-        .list-article .article-img { width: 100%; height: 100%; }
+        .list-article .article-img { width: 100%; height: 100%; object-fit: cover; background: #eee; }
         .list-article .content-wrapper { flex: 1; }
+        .list-article .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 5px; display: block; }
         .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
-        .list-article .article-excerpt { display: none; }
 
         .no-results { text-align: center; padding: 60px; color: var(--texto-cinza); font-style: italic; display: none; width: 100%; }
 
@@ -276,12 +485,13 @@
         .goog-te-banner-frame.skiptranslate { display: none !important; }
         #google_translate_element select { background: transparent; color: var(--texto-escuro); border: 1px solid var(--borda); padding: 4px 10px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; outline: none; cursor: pointer; }
 
-        @media (max-width: 1024px) {
-            .hero-article { flex-direction: column; }
-            .hero-article .img-wrapper, .hero-article .content-wrapper { width: 100%; height: auto; }
-            .grid-articles-wrapper { grid-template-columns: repeat(2, 1fr); }
-            .list-articles-wrapper { grid-template-columns: 1fr; }
+        @media (max-width: 1100px) {
+            .exame-hero-triad { grid-template-columns: 1fr; gap: 30px; align-items: stretch; }
+            .side-col-left, .side-col-right { border-bottom: 1px solid var(--borda); padding-bottom: 25px; }
             .live-news-grid { grid-template-columns: repeat(2, 1fr); }
+            .center-hero-rotator { height: auto; }
+            .rotator-img-container { height: 280px; }
+            .side-col-right { justify-content: flex-start; gap: 20px; }
         }
         @media (max-width: 768px) {
             .top-bar { padding: 10px 20px; }
@@ -290,7 +500,7 @@
             .editorial-nav { flex-direction: column; gap: 20px; padding: 20px; align-items: flex-start; }
             .filter-container { flex-wrap: wrap; gap: 15px; }
             .container { padding: 0 20px; }
-            .grid-articles-wrapper { grid-template-columns: 1fr; }
+            .list-articles-wrapper { grid-template-columns: 1fr; }
             .list-article .img-wrapper { display: none; }
             .btn-load-more { width: 100%; box-sizing: border-box; }
             .live-news-grid { grid-template-columns: 1fr; }
@@ -313,13 +523,13 @@
         <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
     </header>
 
-    <!-- ANÚNCIO 1: TOPO DO SITE (DINÂMICO) -->
-    <div class="ad-space-container">
-        <span class="ad-space-label">Publicidade</span>
+    <!-- ANÚNCIO 1: TOPO DO SITE (FAIXA HORIZONTAL) -->
+    <div class="ad-space-container" style="padding: 10px 0; margin: 20px auto 30px; text-align: center; border-bottom: 1px solid var(--borda);">
+        <p style="font-size: 8px; font-weight: 700; text-transform: uppercase; color: #bbb; letter-spacing: 2px; margin: 0 0 5px 0;">Publicidade</p>
         <ins class="adsbygoogle"
-             style="display:block; width:100%"
+             style="display:block; width:100%;"
              data-ad-client="ca-pub-1434753673886142"
-             data-ad-format="auto"
+             data-ad-format="horizontal"
              data-full-width-responsive="true"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
@@ -439,13 +649,35 @@
 
         <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado para esta pesquisa.</div>
 
-        <!-- Renderização do Layout -->
+        <!-- ========================================================================================== -->
+        <!-- 🚨🚨 ALERTA ANA PAULA: ESTRUTURA EDITORIAL TRIAD (ESTILO EXAME COM SLIDER ROTATIVO) 🚨🚨 -->
+        <!-- O bloco central (center-hero-rotator) alterna sozinho os 4 artigos mais recentes! -->
+        <!-- ========================================================================================== -->
+        <section class="exame-hero-triad" id="exameTriadContainer">
+            
+            <!-- ESQUERDA: 2 MANCHETES COM FOTO E BULLETS -->
+            <div class="side-col-left" id="triadLeftCol"></div>
+
+            <!-- CENTRO: CAPA PRINCIPAL ROTATIVA COM BARRA DE PROGRESSO E ALTURA TRAVADA -->
+            <div class="center-hero-rotator" id="triadCenterCol">
+                <div class="rotator-badge">
+                    <span class="rotator-live-dot"></span> Destaque da Semana
+                </div>
+                <div id="rotatorSlidesWrapper"></div>
+                <div class="rotator-progress-bar">
+                    <div class="rotator-progress-fill" id="rotatorProgress"></div>
+                </div>
+            </div>
+
+            <!-- DIREITA: AGORA COM 7 NOTÍCIAS COMPACTAS EM LISTA -->
+            <div class="side-col-right" id="triadRightCol"></div>
+
+        </section>
+
+        <!-- Renderização do Restante do Feed -->
         <div class="editorial-feed">
-            <div id="heroZone"></div>
 
-            <div id="gridZone" class="grid-articles-wrapper"></div>
-
-            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL (AGORA DEPOIS DOS DESTAQUES E ANTES DA LISTA) -->
+            <!-- SEÇÃO DINÂMICA DE NOTÍCIAS EM TEMPO REAL -->
             <section class="live-news-section">
                 <div class="live-news-header">
                     <div class="live-news-title">
@@ -457,13 +689,13 @@
                 </div>
             </section>
 
-            <!-- ANÚNCIO 2: MEIO DO FEED (DINÂMICO) -->
-            <div class="ad-space-container">
-                <span class="ad-space-label">Publicidade</span>
+            <!-- ANÚNCIO 2: MEIO DO FEED (FAIXA HORIZONTAL) -->
+            <div class="ad-space-container" style="border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); padding: 15px 0; margin: 20px auto 40px; text-align: center;">
+                <p style="font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--texto-cinza); margin: 0 0 10px 0;">Continua após a publicidade ▼</p>
                 <ins class="adsbygoogle"
-                     style="display:block; width:100%"
+                     style="display:block; width:100%;"
                      data-ad-client="ca-pub-1434753673886142"
-                     data-ad-format="auto"
+                     data-ad-format="horizontal"
                      data-full-width-responsive="true"></ins>
                 <script>
                      (adsbygoogle = window.adsbygoogle || []).push({});
@@ -483,29 +715,27 @@
 
             <!-- ========================================================================================== -->
             <!-- 🚨🚨 ALERTA ANA PAULA: COLE O CÓDIGO DO NOVO ARTIGO EXATAMENTE ABAIXO DESTA LINHA 🚨🚨 -->
-            <!-- Lembre-se: O 1º da lista é a CAPA GIGANTE. Do 2º ao 5º formam a GRADE com foto. -->
+            <!-- Lembre-se: O 1º da lista entra no topo. Os 4 primeiros rodam na Capa Central Dinâmica. -->
             <!-- ========================================================================================== -->
-
-            <!-- SEUS ARTIGOS NORMAIS -->
 
             <a href="coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html" data-category="colunas" data-author="felipe-almeida" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida">
             <span class="tag">Jovem Liderança</span>
             <h3 class="title">JEDIP: Quando o P muda tudo</h3>
-            <p class="excerpt">Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional.</p>
+            <p class="excerpt">Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional e retém jovens talentos.</p>
             </a>
 
             <a href="coluna-debora-boscolo-o-poder-nao-revela.html" data-category="colunas" data-author="debora-boscolo" data-publish-date="2026-09-04">
             <img src="https://lh3.googleusercontent.com/d/1VDJFWhNooKNtcMpEu4hL6kObl243OC_v" alt="O poder não revela quem você é, revela o que você deixou de vigiar">
             <span class="tag">Comportamento Humano</span>
             <h3 class="title">O poder não revela quem você é, revela o que você deixou de vigiar</h3>
-            <p class="excerpt">A autoconsciência na alta liderança. Entenda o perigo silencioso do poder e como ele dissolve a percepção sobre nossas próprias atitudes.</p>
+            <p class="excerpt">A autoconsciência na alta liderança. Entenda o perigo silencioso do poder e como ele dissolve a percepção sobre nossas próprias atitudes no ambiente corporativo.</p>
             </a>
 
             <a href="artigo-como-avaliar-inteligencia-relacional-mediacao-conflitos-lideres.html" data-category="dica-de-hunter">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Como avaliar a maturidade de inteligência relacional e mediação de conflitos entre pares em candidatos à liderança?">
             <span class="tag">Dica de Hunter</span>
-            <h3 class="title">Como avaliar a maturidade de inteligência relacional e mediação de conflitos entre pares em candidatos à liderança?</h3>
+            <h3 class="title">Como avaliar a inteligência relacional e mediação de conflitos em líderes?</h3>
             <p class="excerpt">Aprenda a mapear a diplomacia executiva, a negociação de prioridades interdepartamentais e o autocontrole relacional com a Metodologia S.T.A.R.E.</p>
             </a>
 
@@ -513,7 +743,7 @@
             <img src="https://lh3.googleusercontent.com/d/1PABxyV5h13Wx6ORzoz4dzupUz3NpaQsg" alt="Lugar de Mulher é Onde Ela Decide">
             <span class="tag">Lugar de Mulher é Onde Ela Decide</span>
             <h3 class="title">Liderança Feminina: Lugar de Mulher é Onde Ela Decide</h3>
-            <p class="excerpt">Descubra por que lugar de mulher é onde ela decide. A importância do protagonismo, da visibilidade e de ocupar espaços de decisão.</p>
+            <p class="excerpt">Descubra por que lugar de mulher é onde ela decide. A importância do protagonismo, da visibilidade e de ocupar espaços estratégicos de decisão nos conselhos.</p>
             </a>
 
             <a href="artigo-brag-book-executivo-autoridade-clevel.html" data-category="radar-executivo">
@@ -975,16 +1205,21 @@
     </main>
 
     <script>
-        // Inteligência de Paginação e Exibição Condicional da Prateleira
-        let limiteAtual = 13;
+        // INTELIGÊNCIA EDITORIAL E CONTROLE DO SLIDER ROTATIVO
+        let limiteAtual = 17; // GARANTE NÚMERO PAR PARA ALINHAMENTO DA GRADE (4+2+7 = 13 triad; 17-13 = 4 lista)
         let filtroAtual = 'todos';
-        let autorAtual = 'todos'; // Controle de Colunistas
+        let autorAtual = 'todos';
         let pesquisaAtual = '';
+
+        // VARIÁVEIS DO SLIDER ROTATIVO AUTOMÁTICO
+        let slideIndexAtual = 0;
+        let slideTimer = null;
+        let progressTimer = null;
+        const TEMPO_SLIDE = 6000; // Alterna a cada 6 segundos
 
         function toggleColumnistsWrapper() {
             const wrapper = document.getElementById('columnistsWrapper');
             if (!wrapper) return;
-            // Só exibe a prateleira com fotos quando o filtro ativo for 'colunas'
             if (filtroAtual === 'colunas') {
                 wrapper.style.display = 'block';
             } else {
@@ -995,13 +1230,19 @@
         function renderArticles() {
             toggleColumnistsWrapper();
 
-            const heroZone = document.getElementById('heroZone');
-            const gridZone = document.getElementById('gridZone');
+            const triadContainer = document.getElementById('exameTriadContainer');
+            const triadLeftCol = document.getElementById('triadLeftCol');
+            const triadCenterWrapper = document.getElementById('rotatorSlidesWrapper');
+            const triadRightCol = document.getElementById('triadRightCol');
+
             const listZone = document.getElementById('listZone');
             const noResultsMsg = document.getElementById('noResultsMsg');
             const btnLoadMore = document.getElementById('loadMoreContainer');
             
-            heroZone.innerHTML = ''; gridZone.innerHTML = ''; listZone.innerHTML = '';
+            triadLeftCol.innerHTML = ''; 
+            triadCenterWrapper.innerHTML = ''; 
+            triadRightCol.innerHTML = '';
+            listZone.innerHTML = '';
             
             const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
             let visibleArticles = sources.filter(a => {
@@ -1009,16 +1250,12 @@
                 const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
                 const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
                 
-                // NOVA LÓGICA DE AGENDAMENTO (TRAVA DE TEMPO)
-                let matchData = true; // Por padrão, o artigo está liberado
+                let matchData = true;
                 const dataAgendada = a.getAttribute('data-publish-date'); 
                 
                 if (dataAgendada) {
-                    // Converte a data para o fuso horário do Brasil (Garante que vira à meia-noite correta)
                     const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00'); 
                     const dataAtual = new Date();
-                    
-                    // Se o dia de hoje for menor que a data de publicação, esconde o artigo
                     if (dataAtual < dataPublicacao) {
                         matchData = false; 
                     }
@@ -1029,65 +1266,150 @@
 
             if (visibleArticles.length === 0) {
                 noResultsMsg.style.display = 'block';
+                triadContainer.style.display = 'none';
                 btnLoadMore.style.display = 'none';
                 return;
             }
             noResultsMsg.style.display = 'none';
 
-            let artigosParaExibir = visibleArticles.slice(0, limiteAtual);
-
-            artigosParaExibir.forEach((item, index) => {
-                const url = item.getAttribute('href');
-                const imgSrc = item.querySelector('img').src;
-                const tag = item.querySelector('.tag').innerText;
-                const title = item.querySelector('.title').innerText;
-                const excerpt = item.querySelector('.excerpt').innerText;
-
-                let cardHTML = '';
+            // Se o usuário aplicar um filtro específico, esconde a Capa Triad e mostra direto em lista
+            if (filtroAtual !== 'todos' || autorAtual !== 'todos' || pesquisaAtual !== '') {
+                triadContainer.style.display = 'none';
                 
-                if (index === 0) {
-                    cardHTML = `
-                    <a href="${url}" class="article-card hero-article">
-                        <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
-                        <div class="content-wrapper">
-                            <span class="article-tag">${tag}</span>
-                            <h2 class="article-title">${title}</h2>
-                            <p class="article-excerpt">${excerpt}</p>
-                        </div>
-                    </a>`;
-                    heroZone.innerHTML += cardHTML;
-                } 
-                else if (index >= 1 && index <= 4) {
-                    cardHTML = `
-                    <a href="${url}" class="article-card grid-article">
-                        <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
-                        <div class="content-wrapper">
-                            <span class="article-tag">${tag}</span>
-                            <h3 class="article-title">${title}</h3>
-                            <p class="article-excerpt">${excerpt}</p>
-                        </div>
-                    </a>`;
-                    gridZone.innerHTML += cardHTML;
-                } 
-                else {
-                    cardHTML = `
-                    <a href="${url}" class="article-card list-article">
-                        <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
-                        <div class="content-wrapper">
-                            <span class="article-tag">${tag}</span>
-                            <h3 class="article-title">${title}</h3>
-                            <p class="article-excerpt">${excerpt}</p>
-                        </div>
-                    </a>`;
-                    listZone.innerHTML += cardHTML;
+                // Garante que a quantidade exibida seja sempre par para não sobrar espaço
+                let totalParaExibir = limiteAtual;
+                if (totalParaExibir % 2 !== 0 && visibleArticles.length >= totalParaExibir + 1) {
+                    totalParaExibir += 1;
                 }
-            });
+
+                visibleArticles.slice(0, totalParaExibir).forEach(item => {
+                    renderArticleInList(item, listZone);
+                });
+            } else {
+                triadContainer.style.display = 'grid';
+
+                // 1. MONTA O SLIDER ROTATIVO NO CENTRO (OS 4 PRIMEIROS ARTIGOS)
+                const DestaquesRotativos = visibleArticles.slice(0, 4);
+                DestaquesRotativos.forEach((item, index) => {
+                    const url = item.getAttribute('href');
+                    const imgSrc = item.querySelector('img').src;
+                    const tag = item.querySelector('.tag').innerText;
+                    const title = item.querySelector('.title').innerText;
+                    const excerpt = item.querySelector('.excerpt').innerText;
+
+                    triadCenterWrapper.innerHTML += `
+                        <a href="${url}" class="rotator-slide ${index === 0 ? 'active' : ''}">
+                            <div class="rotator-img-container">
+                                <img src="${imgSrc}" class="rotator-img" alt="${title}">
+                            </div>
+                            <div class="rotator-body">
+                                <span class="rotator-tag">${tag}</span>
+                                <h2 class="rotator-title">${title}</h2>
+                                <p class="rotator-excerpt">${excerpt}</p>
+                            </div>
+                        </a>
+                    `;
+                });
+
+                // Inicia o Slider Automático
+                iniciarSliderRotativo(DestaquesRotativos.length);
+
+                // 2. MONTA A COLUNA ESQUERDA (DO 5º E 6º ARTIGOS) - COM FOTO
+                const LeftItems = visibleArticles.slice(4, 6);
+                LeftItems.forEach(item => {
+                    const url = item.getAttribute('href');
+                    const imgSrc = item.querySelector('img').src;
+                    const tag = item.querySelector('.tag').innerText;
+                    const title = item.querySelector('.title').innerText;
+                    const excerpt = item.querySelector('.excerpt').innerText;
+
+                    triadLeftCol.innerHTML += `
+                        <a href="${url}" class="side-news-card-left">
+                            <div class="side-news-img-wrapper">
+                                <img src="${imgSrc}" class="side-news-img" alt="${title}">
+                            </div>
+                            <span class="side-news-tag">${tag}</span>
+                            <h3 class="side-news-title">${title}</h3>
+                            <p class="side-news-bullet">${excerpt}</p>
+                        </a>
+                    `;
+                });
+
+                // 3. MONTA A COLUNA DIREITA (DO 7º AO 13º ARTIGO - AGORA SÃO 7 ITENS)
+                const RightItems = visibleArticles.slice(6, 13);
+                RightItems.forEach(item => {
+                    const url = item.getAttribute('href');
+                    const tag = item.querySelector('.tag').innerText;
+                    const title = item.querySelector('.title').innerText;
+
+                    triadRightCol.innerHTML += `
+                        <a href="${url}" class="side-news-item">
+                            <span class="side-news-tag">${tag}</span>
+                            <h4 class="side-news-title">${title}</h4>
+                        </a>
+                    `;
+                });
+
+                // 4. MONTA O RESTANTE EM LISTA DUPLA PAR (DO 14º EM DIANTE)
+                let totalRestante = limiteAtual;
+                if ((totalRestante - 13) % 2 !== 0 && visibleArticles.length >= totalRestante + 1) {
+                    totalRestante += 1;
+                }
+
+                const DemaisArtigos = visibleArticles.slice(13, totalRestante);
+                DemaisArtigos.forEach(item => {
+                    renderArticleInList(item, listZone);
+                });
+            }
 
             if (visibleArticles.length > limiteAtual) {
                 btnLoadMore.style.display = 'block';
             } else {
                 btnLoadMore.style.display = 'none';
             }
+        }
+
+        function renderArticleInList(item, container) {
+            const url = item.getAttribute('href');
+            const imgSrc = item.querySelector('img').src;
+            const tag = item.querySelector('.tag').innerText;
+            const title = item.querySelector('.title').innerText;
+
+            container.innerHTML += `
+                <a href="${url}" class="list-article">
+                    <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
+                    <div class="content-wrapper">
+                        <span class="article-tag">${tag}</span>
+                        <h3 class="article-title">${title}</h3>
+                    </div>
+                </a>
+            `;
+        }
+
+        // CONTROLADOR DO SLIDER ROTATIVO AUTOMÁTICO
+        function iniciarSliderRotativo(totalSlides) {
+            if (slideTimer) clearInterval(slideTimer);
+            if (progressTimer) clearInterval(progressTimer);
+            slideIndexAtual = 0;
+
+            const progressFill = document.getElementById('rotatorProgress');
+            let progresso = 0;
+
+            progressTimer = setInterval(() => {
+                progresso += (100 / (TEMPO_SLIDE / 100));
+                if (progressFill) progressFill.style.width = `${progresso}%`;
+            }, 100);
+
+            slideTimer = setInterval(() => {
+                const slides = document.querySelectorAll('.rotator-slide');
+                if (slides.length === 0) return;
+
+                slides[slideIndexAtual].classList.remove('active');
+                slideIndexAtual = (slideIndexAtual + 1) % totalSlides;
+                slides[slideIndexAtual].classList.add('active');
+
+                progresso = 0;
+            }, TEMPO_SLIDE);
         }
 
         function carregarMaisArtigos() {
@@ -1101,7 +1423,7 @@
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
             
-            limiteAtual = 13;
+            limiteAtual = 17;
             filtroAtual = categoria;
             autorAtual = 'todos';
             pesquisaAtual = '';
@@ -1115,7 +1437,7 @@
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
             
-            limiteAtual = 13;
+            limiteAtual = 17;
             filtroAtual = 'colunas';
             autorAtual = autor;
             pesquisaAtual = '';
@@ -1126,14 +1448,14 @@
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.columnist-item').forEach(btn => btn.classList.remove('active'));
             
-            limiteAtual = 13;
+            limiteAtual = 17;
             filtroAtual = 'todos';
             autorAtual = 'todos';
             pesquisaAtual = document.getElementById('searchInput').value.toLowerCase();
             renderArticles();
         }
 
-        // NOTÍCIAS DE BACKUP (GARANTEM QUE A CAIXA NUNCA FIQUE VAZIA)
+        // NOTÍCIAS DE BACKUP
         const noticiasFallback = [
             {
                 title: "Aceleração nas trocas de CEOs e a Nova Dança das Cadeiras",
@@ -1161,7 +1483,6 @@
             }
         ];
 
-        // RENDERIZAÇÃO DOS CARDS DE NOTÍCIAS (SEM IMAGEM)
         function renderNoticiasCards(items) {
             const container = document.getElementById('liveNewsContainer');
             if (!container) return;
@@ -1196,27 +1517,18 @@
             });
         }
 
-        // BUSCA AVANÇADA DE NOTÍCIAS EXTERNAS COM DUPLO FILTRO DE SEGURANÇA
         function carregarNoticiasEmTempoReal() {
             renderNoticiasCards(noticiasFallback);
 
-            // 1. FILTRO NO GOOGLE: Remove crimes, fofocas e política direto na fonte
             const query = '("CEO" OR "C-Level" OR "Transição de Carreira" OR "Mercado Corporativo" OR "Conselho de Administração") -preso -crime -polícia -morte -futebol -cantor -política -político -eleições -governo';
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
-            // ==========================================================================================
-            // 🚨🚨 ALERTA ANA PAULA: LISTA DE PALAVRAS BLOQUEADAS (BLACKLIST) 🚨🚨
-            // Insira novas palavras ruins aqui. Sempre minúsculas, entre aspas e separadas por vírgula.
-            // ==========================================================================================
             const palavrasBloqueadas = [
-                // Violência, Crimes e Fofocas
                 "preso", "prisão", "polícia", "assassinato", "crime", 
                 "tráfico", "golpe", "futebol", "cantor", "atriz", 
                 "ator", "namoro", "morte", "morre", "acidente", 
                 "presos", "homicídio", "facção", "roubo", "fraude",
-
-                // Política, Eleições e Partidarismo (BLINDAGEM CORPORATIVA)
                 "política", "político", "políticos", "partido", "partidos",
                 "eleição", "eleições", "eleitoral", "candidato", "candidatos",
                 "deputado", "senador", "ministro", "stf", "congresso", 
@@ -1232,8 +1544,6 @@
                 .then(data => {
                     clearTimeout(timeoutId);
                     if (data.status === 'ok' && data.items && data.items.length > 0) {
-                        
-                        // Passa pelo filtro final no próprio site
                         const noticiasLimpas = data.items.filter(item => {
                             const tituloValido = item.title.toLowerCase();
                             return !palavrasBloqueadas.some(palavra => tituloValido.includes(palavra));
@@ -1246,9 +1556,7 @@
                         }
                     }
                 })
-                .catch(err => {
-                    // Mantém o fallback de segurança sem exibir nenhum erro
-                });
+                .catch(err => {});
         }
 
         document.addEventListener("DOMContentLoaded", () => {
