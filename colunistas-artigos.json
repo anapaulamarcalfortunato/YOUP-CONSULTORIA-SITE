@@ -6,15 +6,14 @@
     "descricao": "Descubra por que lugar de mulher é onde ela decide."
   },
   {
-    "id_colunista": "TESTE",
-    "url": "coluna-simone-vieira-negociacao-feminina.html",
-    "titulo": "A Arte da Negociação para Mulheres Líderes",
-    "descricao": "Estratégias para comunicar seu valor e conquistar o espaço que você merece."
-  },
-  {
     "id_colunista": "carlos-oliveira",
     "url": "coluna-carlos-oliveira-governanca-crises.html",
     "titulo": "O Papel do Conselho na Gestão de Crises",
     "descricao": "Como estruturar a governança para proteger o caixa em tempos de incerteza."
+  },
+  { "id_colunista": "felipe-almeida", 
+  "url": "coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html", 
+    "titulo": "JEDIP: Quando o P muda tudo", 
+    "descricao": "Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional." 
   }
 ]
