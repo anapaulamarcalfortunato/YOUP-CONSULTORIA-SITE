@@ -92,7 +92,7 @@
             margin-bottom: 8px;
             font-weight: 800;
         }
-        /* ESCONDE A CAIXA SE O GOOGLE NÃO ENVIAR ANÚNCIO */
+        /* ESSA REGRA ESCONDE TOTALMENTE O ESPAÇO SE O GOOGLE NÃO MANDAR ANÚNCIO */
         .ad-space-container:has(ins[data-ad-status="unfilled"]) {
             display: none !important;
             margin: 0 !important;
@@ -110,7 +110,7 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 970px;
-            z-index: 99999; /* Camada alta para não sobrepor nada */
+            z-index: 99999;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -121,11 +121,11 @@
             border-bottom: none;
             color: var(--texto-cinza);
             font-family: 'Montserrat', sans-serif;
-            font-size: 11px; /* Um pouco maior para o mobile */
+            font-size: 11px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 10px 25px; /* Margem de toque maior para facilitar clique */
+            padding: 10px 25px;
             border-radius: 8px 8px 0 0;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -142,23 +142,13 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            max-height: 300px; /* Limite de segurança */
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.3s ease;
-            display: block;
-            text-align: center;
-            opacity: 1;
+            display: flex;
+            justify-content: center;
         }
-        /* REGRAS BLINDADAS PARA O CELULAR ENCOLHER TOTALMENTE A CAIXA */
+        
+        /* BLINDAGEM TOTAL: Se estiver com a classe 'closed', some e derruba o botão pro pé da tela */
         .sticky-ad-content.closed {
-            max-height: 0 !important;
-            min-height: 0 !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            margin: 0 !important;
-            border-top: none !important;
-            opacity: 0;
-            pointer-events: none;
+            display: none !important;
         }
 
         /* MENUS & FILTROS */
@@ -210,7 +200,7 @@
             padding-bottom: 45px;
             border-bottom: 2px solid var(--texto-escuro);
             margin-bottom: 45px;
-            align-items: stretch;
+            align-items: start;
         }
 
         /* COLUNA 1 - LATERAL ESQUERDA COM FOTO */
@@ -588,6 +578,19 @@
         <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
     </header>
 
+    <!-- ANÚNCIO 1: TOPO DO SITE (FAIXA HORIZONTAL) -->
+    <div class="ad-space-container" style="padding: 10px 0; margin: 20px auto 30px; text-align: center; border-bottom: 1px solid var(--borda);">
+        <p class="ad-space-label">Publicidade</p>
+        <ins class="adsbygoogle"
+             style="display:block; width:100%;"
+             data-ad-client="ca-pub-1434753673886142"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <nav class="editorial-nav">
         <div class="filter-container">
             <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todos</button>
@@ -738,7 +741,7 @@
                 <button class="btn-load-more" onclick="carregarMaisArtigos()">Carregar Mais Artigos ⬇</button>
             </div>
 
-            <!-- ANÚNCIO NO MEIO DO FEED -->
+            <!-- ANÚNCIO 2: MEIO DO FEED (FAIXA HORIZONTAL) ANTES DAS NOTICIAS EXTERNAS -->
             <div class="ad-space-container">
                 <p class="ad-space-label">Continua após a publicidade ▼</p>
                 <ins class="adsbygoogle"
@@ -1531,12 +1534,6 @@
                 title: "A ascensão da Liderança Feminina e a desconstrução do gargalo nos Conselhos",
                 link: "artigo-elas-no-radar-gargalo-prestigio-boards.html",
                 fonte: "Elas no Radar",
-                pubDate: new Date().toISOString()
-            },
-            {
-                title: "Como desatrelar a sua marca pessoal do nome da empresa atual",
-                link: "artigo-desatrelar-marca-pessoal-empresa.html",
-                fonte: "Carreira Executiva",
                 pubDate: new Date().toISOString()
             }
         ];
