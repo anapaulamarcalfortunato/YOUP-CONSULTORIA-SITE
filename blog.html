@@ -71,20 +71,54 @@
         .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
         .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; border-bottom: 2px solid var(--texto-escuro); padding-bottom: 40px; }
 
-        /* PUSHDOWN BANNER ANIMADO */
-        .pushdown-wrapper {
+        /* ========================================================================= */
+        /* COMPORTAMENTO INTELIGENTE DAS CAIXAS DE PUBLICIDADE NO MEIO DA PÁGINA */
+        /* ========================================================================= */
+        .ad-space-container {
             width: 100%;
             max-width: 1400px;
-            margin: 0 auto 20px auto;
+            margin: 30px auto;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #fafafa;
+            border-top: 1px dashed var(--borda);
+            border-bottom: 1px dashed var(--borda);
+        }
+        .ad-space-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--texto-cinza);
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        /* ESSA REGRA ESCONDE TOTALMENTE O ESPAÇO SE O GOOGLE NÃO MANDAR ANÚNCIO */
+        .ad-space-container:has(ins[data-ad-status="unfilled"]) {
+            display: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        /* ========================================================================= */
+        /* ANCHOR AD / BANNER FIXO NO RODAPÉ DA TELA */
+        /* ========================================================================= */
+        .sticky-bottom-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 970px;
+            z-index: 9999;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
         }
-        .pushdown-toggle {
+        .sticky-toggle {
             background-color: #fdfdfd;
             border: 1px solid var(--borda);
-            border-top: none;
+            border-bottom: none;
             color: var(--texto-cinza);
             font-family: 'Montserrat', sans-serif;
             font-size: 10px;
@@ -92,47 +126,32 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             padding: 6px 20px;
-            border-radius: 0 0 8px 8px;
+            border-radius: 8px 8px 0 0;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            z-index: 10;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
         }
-        .pushdown-toggle:hover {
+        .sticky-toggle:hover {
             color: var(--dourado);
-            background-color: #fafafa;
         }
-        .pushdown-content {
-            width: 100%;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
+        .sticky-ad-content {
             background-color: #fdfdfd;
-            border-left: 1px solid transparent;
-            border-right: 1px solid transparent;
-            border-bottom: 1px solid transparent;
-            border-radius: 0 0 4px 4px;
+            border-top: 1px solid var(--borda);
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            padding: 10px;
             box-sizing: border-box;
+            max-height: 250px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
-        .pushdown-content.open {
-            max-height: 500px; /* Suficiente para banners grandes */
-            padding: 20px;
-            border-color: var(--borda);
-            background-color: #fafafa;
-        }
-
-        /* ESPAÇO RESERVADO PARA ANÚNCIOS */
-        .ad-space-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0;
-            text-align: center;
-            background-color: transparent;
-            overflow: hidden;
+        .sticky-ad-content.closed {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            border: none;
         }
 
         /* MENUS & FILTROS */
@@ -184,7 +203,7 @@
             padding-bottom: 45px;
             border-bottom: 2px solid var(--texto-escuro);
             margin-bottom: 45px;
-            align-items: stretch;
+            align-items: start;
         }
 
         /* COLUNA 1 - LATERAL ESQUERDA COM FOTO */
@@ -362,7 +381,7 @@
             transition: width 0.1s linear;
         }
 
-        /* COLUNA 3 - MANCHETES LATERAL DIREITA (7 ITENS) */
+        /* COLUNA 3 - MANCHETES LATERAL DIREITA */
         .side-col-right {
             display: flex;
             flex-direction: column;
@@ -542,6 +561,7 @@
             .list-article .img-wrapper { display: none; }
             .btn-load-more { width: 100%; box-sizing: border-box; }
             .live-news-grid { grid-template-columns: 1fr; }
+            .sticky-bottom-wrapper { max-width: 100%; }
         }
     </style>
 </head>
@@ -561,27 +581,9 @@
         <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
     </header>
 
-    <!-- ========================================================================================== -->
-    <!-- PUSHDOWN BANNER DE PUBLICIDADE (ESTILO EXAME) NO TOPO DA PÁGINA (COMEÇA ABERTO) -->
-    <!-- ========================================================================================== -->
-    <div class="pushdown-wrapper">
-        <div class="pushdown-content open" id="pushdownContent">
-            <!-- ANÚNCIO DO GOOGLE DENTRO DA ABA -->
-            <ins class="adsbygoogle"
-                 style="display:block; width:100%;"
-                 data-ad-client="ca-pub-1434753673886142"
-                 data-ad-format="horizontal"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        <button class="pushdown-toggle" onclick="togglePushdown()">FECHAR ▲</button>
-    </div>
-
-    <!-- ANÚNCIO 1: TOPO DO SITE (FAIXA HORIZONTAL CONVENCIONAL MANTIDA) -->
-    <div class="ad-space-container" style="padding: 10px 0; margin: 20px auto 30px; text-align: center; border-bottom: 1px solid var(--borda);">
-        <p style="font-size: 8px; font-weight: 700; text-transform: uppercase; color: #bbb; letter-spacing: 2px; margin: 0 0 5px 0;">Publicidade</p>
+    <!-- ANÚNCIO 1: TOPO DO SITE (FAIXA HORIZONTAL CONVENCIONAL) -->
+    <div class="ad-space-container">
+        <p class="ad-space-label">Publicidade</p>
         <ins class="adsbygoogle"
              style="display:block; width:100%;"
              data-ad-client="ca-pub-1434753673886142"
@@ -743,8 +745,8 @@
             </div>
 
             <!-- ANÚNCIO 2: MEIO DO FEED (FAIXA HORIZONTAL) ANTES DAS NOTICIAS EXTERNAS -->
-            <div class="ad-space-container" style="border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); padding: 15px 0; margin: 40px auto; text-align: center;">
-                <p style="font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--texto-cinza); margin: 0 0 10px 0;">Continua após a publicidade ▼</p>
+            <div class="ad-space-container">
+                <p class="ad-space-label">Continua após a publicidade ▼</p>
                 <ins class="adsbygoogle"
                      style="display:block; width:100%;"
                      data-ad-client="ca-pub-1434753673886142"
@@ -1264,21 +1266,20 @@
     </main>
 
     <script>
-        // SCRIPT DO PUSHDOWN BANNER (PUBLICIDADE EXAME)
-        function togglePushdown() {
-            const content = document.getElementById('pushdownContent');
-            const btn = document.querySelector('.pushdown-toggle');
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                btn.innerHTML = 'PUBLICIDADE ▼';
+        // SCRIPT DO BANNER FIXO NO RODAPÉ DA TELA
+        function toggleStickyAd() {
+            const ad = document.getElementById('stickyAdContent');
+            const btn = document.querySelector('.sticky-toggle');
+            ad.classList.toggle('closed');
+            if (ad.classList.contains('closed')) {
+                btn.innerHTML = 'PUBLICIDADE ▲';
             } else {
-                content.classList.add('open');
-                btn.innerHTML = 'FECHAR ▲';
+                btn.innerHTML = 'FECHAR ▼';
             }
         }
 
         // INTELIGÊNCIA EDITORIAL E CONTROLE DO SLIDER ROTATIVO
-        let limiteAtual = 17; // GARANTE NÚMERO PAR PARA ALINHAMENTO DA GRADE (4+2+7 = 13 triad; 17-13 = 4 lista)
+        let limiteAtual = 17;
         let filtroAtual = 'todos';
         let autorAtual = 'todos';
         let pesquisaAtual = '';
@@ -1287,7 +1288,7 @@
         let slideIndexAtual = 0;
         let slideTimer = null;
         let progressTimer = null;
-        const TEMPO_SLIDE = 6000; // Alterna a cada 6 segundos
+        const TEMPO_SLIDE = 6000; 
 
         function toggleColumnistsWrapper() {
             const wrapper = document.getElementById('columnistsWrapper');
@@ -1344,11 +1345,9 @@
             }
             noResultsMsg.style.display = 'none';
 
-            // Se o usuário aplicar um filtro específico, esconde a Capa Triad e mostra direto em lista
             if (filtroAtual !== 'todos' || autorAtual !== 'todos' || pesquisaAtual !== '') {
                 triadContainer.style.display = 'none';
                 
-                // Garante que a quantidade exibida seja sempre par para não sobrar espaço
                 let totalParaExibir = limiteAtual;
                 if (totalParaExibir % 2 !== 0 && visibleArticles.length >= totalParaExibir + 1) {
                     totalParaExibir += 1;
@@ -1360,7 +1359,6 @@
             } else {
                 triadContainer.style.display = 'grid';
 
-                // 1. MONTA O SLIDER ROTATIVO NO CENTRO (OS 4 PRIMEIROS ARTIGOS)
                 const DestaquesRotativos = visibleArticles.slice(0, 4);
                 DestaquesRotativos.forEach((item, index) => {
                     const url = item.getAttribute('href');
@@ -1383,10 +1381,8 @@
                     `;
                 });
 
-                // Inicia o Slider Automático
                 iniciarSliderRotativo(DestaquesRotativos.length);
 
-                // 2. MONTA A COLUNA ESQUERDA (DO 5º E 6º ARTIGOS) - COM FOTO
                 const LeftItems = visibleArticles.slice(4, 6);
                 LeftItems.forEach(item => {
                     const url = item.getAttribute('href');
@@ -1407,7 +1403,6 @@
                     `;
                 });
 
-                // 3. MONTA A COLUNA DIREITA (DO 7º AO 13º ARTIGO - AGORA SÃO 7 ITENS)
                 const RightItems = visibleArticles.slice(6, 13);
                 RightItems.forEach(item => {
                     const url = item.getAttribute('href');
@@ -1422,7 +1417,6 @@
                     `;
                 });
 
-                // 4. MONTA O RESTANTE EM LISTA DUPLA PAR (DO 14º EM DIANTE)
                 let totalRestante = limiteAtual;
                 if ((totalRestante - 13) % 2 !== 0 && visibleArticles.length >= totalRestante + 1) {
                     totalRestante += 1;
@@ -1458,7 +1452,6 @@
             `;
         }
 
-        // CONTROLADOR DO SLIDER ROTATIVO AUTOMÁTICO
         function iniciarSliderRotativo(totalSlides) {
             if (slideTimer) clearInterval(slideTimer);
             if (progressTimer) clearInterval(progressTimer);
@@ -1527,7 +1520,6 @@
             renderArticles();
         }
 
-        // NOTÍCIAS DE BACKUP
         const noticiasFallback = [
             {
                 title: "Aceleração nas trocas de CEOs e a Nova Dança das Cadeiras",
@@ -1545,12 +1537,6 @@
                 title: "A ascensão da Liderança Feminina e a desconstrução do gargalo nos Conselhos",
                 link: "artigo-elas-no-radar-gargalo-prestigio-boards.html",
                 fonte: "Elas no Radar",
-                pubDate: new Date().toISOString()
-            },
-            {
-                title: "Como desatrelar a sua marca pessoal do nome da empresa atual",
-                link: "artigo-desatrelar-marca-pessoal-empresa.html",
-                fonte: "Carreira Executiva",
                 pubDate: new Date().toISOString()
             }
         ];
@@ -1648,6 +1634,24 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- ========================================================================================== -->
+    <!-- ANCHOR AD: BANNER FIXO NO RODAPÉ DA TELA (INICIA ABERTO) -->
+    <!-- ========================================================================================== -->
+    <div class="sticky-bottom-wrapper" id="stickyBottomAd">
+        <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
+        <div class="sticky-ad-content" id="stickyAdContent">
+            <!-- ANÚNCIO DO GOOGLE -->
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-1434753673886142"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
 
 </body>
 </html>
