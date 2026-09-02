@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEDIP: Quando o P muda tudo</title>
     <meta name="description" content="Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional e o framework JEDI.">
-    <link rel="canonical" href="https://www.youpconsultoria.com.br/jedip-quando-o-p-muda-tudo-felipe-almeida.html">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.youpconsultoria.com.br/coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html">
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="JEDIP: Quando o P muda tudo">
     <meta property="og:description" content="Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional e o framework JEDI.">
     <meta property="og:image" content="https://lh3.googleusercontent.com/d/1UxcHB8pveWaCadMZwtkHJn2wFPYmy0Wh">
-    <meta property="og:url" content="https://www.youpconsultoria.com.br/jedip-quando-o-p-muda-tudo-felipe-almeida.html">
+    <meta property="og:url" content="https://www.youpconsultoria.com.br/coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +41,7 @@
     })();
     </script>
 
-    <!-- JSON-LD Schema.org -->
+    <!-- JSON-LD Schema.org (Indexação no Google) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -88,7 +90,9 @@
             top: 0px !important;
         }
 
-        .goog-te-banner-frame.skiptranslate {
+        /* Oculta a barra amarela nativa do Google Translate */
+        .goog-te-banner-frame.skiptranslate,
+        body > .skiptranslate {
             display: none !important;
         }
 
@@ -109,27 +113,61 @@
             width: 0%;
         }
 
-        /* Navbar */
+        /* Navbar Padronizada */
         .article-nav {
             position: sticky;
             top: 0;
-            background: #ffffff;
+            background: #0a0a0a;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
             z-index: 999;
+            border-top: 4px solid var(--verde-youp);
         }
 
-        .article-nav img {
-            max-height: 40px;
+        .brand-link {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
         }
+
+        .brand-link .white-text { color: #ffffff; }
+        .brand-link .gold-text { color: var(--dourado); margin-left: 5px; }
 
         .nav-controls {
             display: flex;
             align-items: center;
             gap: 15px;
+        }
+
+        /* Estilização do Widget do Tradutor Google */
+        #google_translate_element {
+            display: inline-block;
+        }
+
+        #google_translate_element select {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: 1px solid var(--verde-youp);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .goog-te-gadget {
+            font-size: 0px !important;
+            color: transparent !important;
+        }
+
+        .goog-te-gadget span {
+            display: none !important;
         }
 
         .btn-listen {
@@ -146,6 +184,33 @@
 
         .btn-listen:hover {
             background-color: #4a756b;
+        }
+
+        /* Botão Voltar para o Blog */
+        .btn-back-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: transparent;
+            color: var(--verde-youp);
+            border: 2px solid var(--verde-youp);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+        }
+
+        .btn-back-blog:hover {
+            background-color: var(--verde-youp);
+            color: #ffffff;
+        }
+
+        .btn-back-bottom {
+            margin-top: 40px;
+            margin-bottom: 0;
         }
 
         /* Hero Banner */
@@ -251,7 +316,7 @@
             display: block;
         }
 
-        /* Caixas de Cores JEDIP (Igual ao PDF) */
+        /* Caixas de Cores JEDIP */
         .jedip-card-grid {
             display: flex;
             flex-direction: column;
@@ -287,7 +352,6 @@
             margin-bottom: 0;
         }
 
-        /* Cores temáticas das caixas JEDIP */
         .card-j { background-color: #f3f0e6; border-left: 5px solid #d4a373; }
         .card-j .letter-badge, .card-j .subtitle { color: #bc6c25; }
 
@@ -385,7 +449,7 @@
             background: #f4f4f4;
             padding: 30px;
             border-radius: 8px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
 
         .author-box img {
@@ -414,12 +478,12 @@
             font-weight: 600;
         }
 
-        /* CSS AdSense Dinâmico */
+        /* CSS Obrigatorio AdSense (Oculta se nao carregar) */
         .ad-space-container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0; text-align: center; background-color: transparent; overflow: hidden; }
         .ad-space-label { display: none; font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: #ccc; margin-bottom: 4px; }
         .ad-space-container:has(ins[data-ad-status="filled"]) { margin: 25px auto; }
         .ad-space-container:has(ins[data-ad-status="filled"]) .ad-space-label { display: block; }
-        .ad-space-container:has(ins[data-ad-status="unfilled"]) { display:none !important; }
+        .ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; }
 
         @media (max-width: 768px) {
             .hero-banner { height: 50vh; padding: 0 5% 80px 5%; }
@@ -434,8 +498,11 @@
     <div id="progress-container"><div id="progress-bar"></div></div>
 
     <nav class="article-nav">
-        <a href="https://www.youpconsultoria.com.br"><img src="https://www.youpconsultoria.com.br/logo.png" alt="YOUP Consultoria"></a>
+        <a href="https://www.youpconsultoria.com/" class="brand-link">
+            <span class="white-text">YOUP</span><span class="gold-text">CONSULTORIA</span>
+        </a>
         <div class="nav-controls">
+            <!-- WIDGET GOOGLE TRANSLATE -->
             <div id="google_translate_element"></div>
             <button class="btn-listen" onclick="ouvirArtigo()">▶ Ouvir Artigo</button>
         </div>
@@ -450,6 +517,9 @@
     </header>
 
     <main class="article-main">
+        <!-- BOTÃO VOLTAR NO INÍCIO DA PÁGINA -->
+        <a href="https://www.youpconsultoria.com/blog.html" class="btn-back-blog">← Voltar para o Blog</a>
+
         <span class="article-tag">Coluna Exclusiva: Jovem Liderança • por Felipe Almeida</span>
 
         <article class="article-body">
@@ -473,7 +543,6 @@
             
             <p>Um dos maiores problemas que vejo em programas de DEI é que as pessoas usam palavras diferentes para falar da mesma coisa, ou a mesma palavra para falar de coisas completamente diferentes. Antes de avançar, preciso que a gente esteja falando a mesma língua.</p>
 
-            <!-- CAIXAS COM CORES JEDIP -->
             <div class="jedip-card-grid">
                 <div class="jedip-card card-j">
                     <span class="letter-badge">J: JUSTIÇA</span>
@@ -511,7 +580,7 @@
                 <br><small>Adaptado de Verna Myers, referência global em DEI</small>
             </blockquote>
 
-            <!-- ANÚNCIO 1 -->
+            <!-- BANNER DE ANÚNCIO ADSENSE 1 -->
             <div class="ad-space-container"><span class="ad-space-label">Publicidade</span><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1434753673886142" data-ad-slot="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 
             <span class="section-category">MAPEAMENTO ESTRUTURAL</span>
@@ -530,7 +599,7 @@
             <span class="section-category">A PROPOSTA</span>
             <h2>Por que eu defendo o P de Pertencimento como estrutura, não como sentimento</h2>
             
-            <p>A maioria das organizações trata Pertencimento como consequência. A lógica implícita é: fazemos a inclusão, e o pertencimento vem naturally.</p>
+            <p>A maioria das organizações trata Pertencimento como consequência. A lógica implícita é: fazemos a inclusão, e o pertencimento vem naturalmente.</p>
             <p>Não vem.</p>
             <p>A experiência de dezenas de profissionais que passaram por programas de DEI bem-intencionados e mal-executados mostra o contrário. Pertencimento não é o resultado automático de uma política. É uma construção ativa, intencional, que exige arquitetura própria.</p>
             <p>Foi com essa convicção que propus o P como quinta dimensão do framework. Não como apêndice simbólico, mas como a dimensão que dá sentido a todas as outras. Programas de DEI que não chegam ao nível do pertencimento são programas incompletos. Mudam os números dos relatórios. Não mudam a cultura.</p>
@@ -578,7 +647,7 @@
 
             <p>Esses números não são coincidência. Pertencimento reduz o custo silencioso que toda organização paga quando seus talentos estão presentes fisicamente, mas ausentes emocionalmente. O chamado quiet quitting tem pertencimento baixo como um dos seus principais preditores.</p>
 
-            <!-- ANÚNCIO 2 -->
+            <!-- BANNER DE ANÚNCIO ADSENSE 2 -->
             <div class="ad-space-container"><span class="ad-space-label">Publicidade</span><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1434753673886142" data-ad-slot="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 
             <span class="section-category">O CASO NUMEN</span>
@@ -588,7 +657,6 @@
             <p>Na NUMEN, maior consultoria 100% brasileira de SAP, liderei a construção do feNUMENalls: o Comitê de Diversidade, Equidade e Inclusão da empresa. Foram três meses de estudos internos, escuta ativa com colaboradores, alinhamentos estratégicos e construção participativa antes de lançar qualquer estrutura.</p>
             <p>Porque um programa de pertencimento que não ouve as pessoas que precisa representar já nasce com contradição.</p>
 
-            <!-- QUADRO FENUMENALLS COMPLETO -->
             <div class="comite-box">
                 <h3 style="margin-top:0;">feNUMENalls</h3>
                 <p style="font-size:0.9rem; font-weight:700; color:var(--verde-youp); margin-bottom:15px;">COMITÊ DE DIVERSIDADE, EQUIDADE E INCLUSÃO · NUMEN</p>
@@ -673,7 +741,7 @@
             <h2>De programa a DNA: a transição que separa o que dura do que passa</h2>
             
             <p>A última fronteira, e a mais difícil, é a passagem de JEDIP como programa para JEDIP como cultura. Programas têm início, meio e fim. Cultura é o conjunto de comportamentos que se repetem mesmo quando ninguém está olhando.</p>
-            <p>Três condições tornam essa transição possível:</p>
+            <p>Três condições tornam essa transição possible:</p>
             <p><strong>Liderança que modela, não que proclama.</strong> Cultura é o que os líderes fazem, não o que eles dizem em entrevistas. Um CEO que fala sobre diversidade e não patrocina nenhum comitê, não aplica leis de equidade nas decisões de promoção e não abre espaço para vozes dissidentes na reunião de diretoria está produzindo cultura. Só que a cultura errada.</p>
             <p><strong>Linguagem que normaliza.</strong> Pertencimento também se constrói no vocabulário cotidiano. Comunicação interna que reconhece pronomes, lideranças que nomeiam os grupos marginalizados sem eufemismos, e uma cultura onde diversidade não é adjetivo decorativo. Tudo isso compõe o ambiente linguístico onde a diferença é tratada como dado factual, não como exceção.</p>
             <p><strong>Sistemas que sustentam o que o discurso proclama.</strong> Avaliações de desempenho com critérios livres de viés, programas de mentoria que conectam talentos diversos a líderes sêniores, políticas de remuneração auditadas com lens de equidade. Sem sistemas alinhados, o discurso de pertencimento é só discurso.</p>
@@ -690,6 +758,9 @@
             <p>JEDIP não é framework de comunicação. É framework de cultura. E cultura não muda com campanhas. Muda com decisões repetidas, lideranças responsáveis, estruturas que sustentam o discurso e, acima de tudo, com o compromisso de ouvir quem mais precisa ser ouvido.</p>
             <p>Tenho trabalhado nisso todos os dias. Sei que é possível. Sei que é necessário. E sei que começa sempre com a pergunta mais simples e mais difícil de responder honestamente:</p>
             <p style="font-size:1.2rem; font-weight:700; color:var(--verde-youp); margin-top:20px;">As pessoas aqui sentem que pertencem?</p>
+
+            <!-- BOTÃO VOLTAR NO FINAL DO ARTIGO -->
+            <a href="https://www.youpconsultoria.com/blog.html" class="btn-back-blog btn-back-bottom">← Voltar para o Blog</a>
         </article>
 
         <!-- Box do Autor -->
@@ -705,6 +776,7 @@
         <div id="mais-colunas" style="display:none;"></div>
     </main>
 
+    <!-- SCRIPTS DO FILTRO E TRADUTOR DO GOOGLE -->
     <script>
         // Progress Bar
         window.onscroll = function() {
@@ -722,9 +794,12 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        // Google Translate Init
+        // Inicialização do Google Translate
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'pt'}, 'google_translate_element');
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                autoDisplay: false
+            }, 'google_translate_element');
         }
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
