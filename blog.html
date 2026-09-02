@@ -67,9 +67,62 @@
             color: #111111 !important;
         }
 
-        .header-brand { text-align: center; padding: 40px 20px; border-bottom: 2px solid var(--texto-escuro); margin: 0 50px; }
+        .header-brand { text-align: center; padding: 40px 20px 0 20px; margin: 0 50px; }
         .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; }
-        .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
+        .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; border-bottom: 2px solid var(--texto-escuro); padding-bottom: 40px; }
+
+        /* PUSHDOWN BANNER ANIMADO */
+        .pushdown-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .pushdown-toggle {
+            background-color: #fdfdfd;
+            border: 1px solid var(--borda);
+            border-top: none;
+            color: var(--texto-cinza);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 20px;
+            border-radius: 0 0 8px 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            z-index: 10;
+        }
+        .pushdown-toggle:hover {
+            color: var(--dourado);
+            background-color: #fafafa;
+        }
+        .pushdown-content {
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
+            background-color: #fdfdfd;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            border-radius: 0 0 4px 4px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pushdown-content.open {
+            max-height: 500px; /* Suficiente para banners grandes */
+            padding: 20px;
+            border-color: var(--borda);
+            background-color: #fafafa;
+        }
 
         /* ESPAÇO RESERVADO PARA ANÚNCIOS */
         .ad-space-container {
@@ -80,23 +133,6 @@
             text-align: center;
             background-color: transparent;
             overflow: hidden;
-        }
-        .ad-space-label {
-            display: none;
-            font-size: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #ccc;
-            margin-bottom: 4px;
-        }
-        .ad-space-container:has(ins[data-ad-status="filled"]) {
-            margin: 15px auto;
-        }
-        .ad-space-container:has(ins[data-ad-status="filled"]) .ad-space-label {
-            display: block;
-        }
-        .ad-space-container:has(ins[data-ad-status="unfilled"]) {
-            display: none !important;
         }
 
         /* MENUS & FILTROS */
@@ -148,7 +184,7 @@
             padding-bottom: 45px;
             border-bottom: 2px solid var(--texto-escuro);
             margin-bottom: 45px;
-            align-items: start;
+            align-items: stretch;
         }
 
         /* COLUNA 1 - LATERAL ESQUERDA COM FOTO */
@@ -263,7 +299,7 @@
 
         .rotator-img-container {
             width: 100%;
-            aspect-ratio: 16 / 9; /* TRAVADO EXATAMENTE NA PROPORÇÃO 16:9 */
+            aspect-ratio: 16 / 9; 
             overflow: hidden;
             background: #111;
         }
@@ -326,7 +362,7 @@
             transition: width 0.1s linear;
         }
 
-        /* COLUNA 3 - MANCHETES LATERAL DIREITA */
+        /* COLUNA 3 - MANCHETES LATERAL DIREITA (7 ITENS) */
         .side-col-right {
             display: flex;
             flex-direction: column;
@@ -525,7 +561,25 @@
         <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
     </header>
 
-    <!-- ANÚNCIO 1: TOPO DO SITE (FAIXA HORIZONTAL) -->
+    <!-- ========================================================================================== -->
+    <!-- PUSHDOWN BANNER DE PUBLICIDADE (ESTILO EXAME) NO TOPO DA PÁGINA (COMEÇA ABERTO) -->
+    <!-- ========================================================================================== -->
+    <div class="pushdown-wrapper">
+        <div class="pushdown-content open" id="pushdownContent">
+            <!-- ANÚNCIO DO GOOGLE DENTRO DA ABA -->
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-1434753673886142"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <button class="pushdown-toggle" onclick="togglePushdown()">FECHAR ▲</button>
+    </div>
+
+    <!-- ANÚNCIO 1: TOPO DO SITE (FAIXA HORIZONTAL CONVENCIONAL MANTIDA) -->
     <div class="ad-space-container" style="padding: 10px 0; margin: 20px auto 30px; text-align: center; border-bottom: 1px solid var(--borda);">
         <p style="font-size: 8px; font-weight: 700; text-transform: uppercase; color: #bbb; letter-spacing: 2px; margin: 0 0 5px 0;">Publicidade</p>
         <ins class="adsbygoogle"
@@ -1210,8 +1264,21 @@
     </main>
 
     <script>
+        // SCRIPT DO PUSHDOWN BANNER (PUBLICIDADE EXAME)
+        function togglePushdown() {
+            const content = document.getElementById('pushdownContent');
+            const btn = document.querySelector('.pushdown-toggle');
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                btn.innerHTML = 'PUBLICIDADE ▼';
+            } else {
+                content.classList.add('open');
+                btn.innerHTML = 'FECHAR ▲';
+            }
+        }
+
         // INTELIGÊNCIA EDITORIAL E CONTROLE DO SLIDER ROTATIVO
-        let limiteAtual = 16; // GARANTE NÚMERO PAR PARA ALINHAMENTO DA GRADE (4+2+7 = 13 triad; 17-13 = 4 lista)
+        let limiteAtual = 17; // GARANTE NÚMERO PAR PARA ALINHAMENTO DA GRADE (4+2+7 = 13 triad; 17-13 = 4 lista)
         let filtroAtual = 'todos';
         let autorAtual = 'todos';
         let pesquisaAtual = '';
@@ -1428,7 +1495,7 @@
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
             
-            limiteAtual = 16;
+            limiteAtual = 17;
             filtroAtual = categoria;
             autorAtual = 'todos';
             pesquisaAtual = '';
@@ -1442,7 +1509,7 @@
             botaoClicado.classList.add('active');
             document.getElementById('searchInput').value = '';
             
-            limiteAtual = 16;
+            limiteAtual = 17;
             filtroAtual = 'colunas';
             autorAtual = autor;
             pesquisaAtual = '';
@@ -1453,7 +1520,7 @@
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.columnist-item').forEach(btn => btn.classList.remove('active'));
             
-            limiteAtual = 16;
+            limiteAtual = 17;
             filtroAtual = 'todos';
             autorAtual = 'todos';
             pesquisaAtual = document.getElementById('searchInput').value.toLowerCase();
