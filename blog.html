@@ -106,15 +106,23 @@
             padding-bottom: 25px; 
         }
         .columnists-header { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .columnists-list { display: flex; gap: 35px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
-        .columnists-list::-webkit-scrollbar { display: none; }
-        .columnist-item { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; opacity: 0.65; }
+        .columnists-list { 
+            display: flex; 
+            gap: 35px; 
+            overflow-x: auto; 
+            padding-bottom: 15px; 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--dourado) var(--borda);
+        }
+        .columnists-list::-webkit-scrollbar { height: 6px; }
+        .columnists-list::-webkit-scrollbar-thumb { background-color: var(--dourado); border-radius: 3px; }
+        .columnist-item { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; opacity: 0.75; flex-shrink: 0; }
         .columnist-item:hover, .columnist-item.active { opacity: 1; transform: translateY(-2px); }
-        .columnist-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid transparent; transition: 0.3s; }
+        .columnist-img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid transparent; transition: 0.3s; }
         .columnist-item.active .columnist-img { border-color: var(--dourado); }
         .columnist-info { display: flex; flex-direction: column; }
-        .columnist-name { font-size: 12px; font-weight: 800; color: var(--texto-escuro); }
-        .columnist-theme { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin-top: 2px; }
+        .columnist-name { font-size: 12px; font-weight: 800; color: var(--texto-escuro); white-space: nowrap; }
+        .columnist-theme { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin-top: 2px; white-space: nowrap; }
 
         /* SEÇÃO DE NOTÍCIAS EM TEMPO REAL (LAYOUT EXECUTIVO) */
         .live-news-section {
@@ -320,96 +328,94 @@
     <main class="container">
         
         <!-- ========================================================================================== -->
-        <!-- 🚨🚨 ALERTA ANA PAULA: PRATELEIRA DE COLUNISTAS CONVIDADOS 🚨🚨 -->
-        <!-- Adicione novos autores copiando a div 'columnist-item'. Mude foto, nome, tema e o id do onclick -->
+        <!-- PRATELEIRA DE COLUNISTAS CONVIDADOS (COMPLETA E SEM CORTE DE TAGS) -->
         <!-- ========================================================================================== -->
         <div class="columnists-wrapper" id="columnistsWrapper">
             <div class="columnists-header">✦ Colunistas Convidados</div>
             <div class="columnists-list">
                 
-               <div class="columnist-item" onclick="filtrarPorAutor('alessandra-miliatti', this)">
-                <img src="https://lh3.googleusercontent.com/d/1Hmxz7q6gYW6vou-8XpbEFFcfPu0uSh_N" class="columnist-img" alt="Alessandra Miliatti">
-                <div class="columnist-info">
-                <span class="columnist-name">Alessandra Miliatti</span>
-                <span class="columnist-theme">Mente Executiva</span>
-                </div>
+                <div class="columnist-item" onclick="filtrarPorAutor('alessandra-miliatti', this)">
+                    <img src="https://lh3.googleusercontent.com/d/1Hmxz7q6gYW6vou-8XpbEFFcfPu0uSh_N" class="columnist-img" alt="Alessandra Miliatti">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Alessandra Miliatti</span>
+                        <span class="columnist-theme">Mente Executiva</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('daniele-avelino', this)">
-                <img src="https://lh3.googleusercontent.com/d/10AVB7EHyw1Ys3eoR1PVp3cGNyds61Qhg" class="columnist-img" alt="Daniele Avelino">
-                <div class="columnist-info">
-                <span class="columnist-name">Daniele Avelino</span>
-                <span class="columnist-theme">Posicionamento Executivo</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/10AVB7EHyw1Ys3eoR1PVp3cGNyds61Qhg" class="columnist-img" alt="Daniele Avelino">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Daniele Avelino</span>
+                        <span class="columnist-theme">Posicionamento Executivo</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('debora-boscolo', this)">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png" class="columnist-img" alt="Debora Boscolo">
-                <div class="columnist-info">
-                <span class="columnist-name">Debora Boscolo</span>
-                <span class="columnist-theme">Comportamento Humano</span>
-                </div>
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png" class="columnist-img" alt="Debora Boscolo">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Debora Boscolo</span>
+                        <span class="columnist-theme">Comportamento Humano</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('felipe-almeida', this)">
-                <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" class="columnist-img" alt="Felipe Almeida">
-                <div class="columnist-info">
-                <span class="columnist-name">Felipe Almeida</span>
-                <span class="columnist-theme">Jovem Liderança</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" class="columnist-img" alt="Felipe Almeida">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Felipe Almeida</span>
+                        <span class="columnist-theme">Jovem Liderança</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('fernanda-santarini', this)">
-                <img src="https://lh3.googleusercontent.com/d/1_3o2_TKYAxZ1QRNbvLXKV3clMqDEPE5E" class="columnist-img" alt="Fernanda Santarini">
-                <div class="columnist-info">
-                <span class="columnist-name">Fernanda Santarini</span>
-                <span class="columnist-theme">Marca Pessoal</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/1_3o2_TKYAxZ1QRNbvLXKV3clMqDEPE5E" class="columnist-img" alt="Fernanda Santarini">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Fernanda Santarini</span>
+                        <span class="columnist-theme">Marca Pessoal</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('joana-darc', this)">
-                <img src="https://lh3.googleusercontent.com/d/1cCqKPb5HChna65YrWadgpoyyhcGa0tZg" class="columnist-img" alt="Joana D'arc">
-                <div class="columnist-info">
-                <span class="columnist-name">Joana D'arc</span>
-                <span class="columnist-theme">ENTRELINHAS</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/1cCqKPb5HChna65YrWadgpoyyhcGa0tZg" class="columnist-img" alt="Joana D'arc">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Joana D'arc</span>
+                        <span class="columnist-theme">ENTRELINHAS</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('jose-reale', this)">
-                <img src="https://lh3.googleusercontent.com/d/1LBhszWFK43j0mItY2K0cCQECbqQxuN85" class="columnist-img" alt="José Roberto Reale">
-                <div class="columnist-info">
-                <span class="columnist-name">José Roberto Reale</span>
-                <span class="columnist-theme">Defesa do Executivo</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/1LBhszWFK43j0mItY2K0cCQECbqQxuN85" class="columnist-img" alt="José Roberto Reale">
+                    <div class="columnist-info">
+                        <span class="columnist-name">José Roberto Reale</span>
+                        <span class="columnist-theme">Defesa do Executivo</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('liliane-silva', this)">
-                <img src="https://lh3.googleusercontent.com/d/1s9rD2M-NUlbaUZYQiFNS7lPRuyIw8rgN" class="columnist-img" alt="Liliane Silva">
-                <div class="columnist-info">
-                <span class="columnist-name">Liliane Silva</span>
-                <span class="columnist-theme">Saúde & Governança</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/1s9rD2M-NUlbaUZYQiFNS7lPRuyIw8rgN" class="columnist-img" alt="Liliane Silva">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Liliane Silva</span>
+                        <span class="columnist-theme">Saúde & Governança</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('rogerio-pires', this)">
-                <img src="https://lh3.googleusercontent.com/d/1cvvT_l4IyS3XiLyus4QezMShT5iCdQEl" class="columnist-img" alt="Rogério Pires">
-                <div class="columnist-info">
-                <span class="columnist-name">Rogério Pires</span>
-                <span class="columnist-theme">Liderança 4.0 & Tech</span>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/1cvvT_l4IyS3XiLyus4QezMShT5iCdQEl" class="columnist-img" alt="Rogério Pires">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Rogério Pires</span>
+                        <span class="columnist-theme">Liderança 4.0 & Tech</span>
+                    </div>
                 </div>
 
                 <div class="columnist-item" onclick="filtrarPorAutor('simone-vieira', this)">
-                <img src="https://lh3.googleusercontent.com/d/1PABxyV5h13Wx6ORzoz4dzupUz3NpaQsg" class="columnist-img" alt="Simone Sommariva Vieira">
-                <div class="columnist-info">
-                <span class="columnist-name">Simone Sommariva Vieira</span>
-                <span class="columnist-theme">Lugar de Mulher</span>
+                    <img src="https://lh3.googleusercontent.com/d/1PABxyV5h13Wx6ORzoz4dzupUz3NpaQsg" class="columnist-img" alt="Simone Sommariva Vieira">
+                    <div class="columnist-info">
+                        <span class="columnist-name">Simone Sommariva Vieira</span>
+                        <span class="columnist-theme">Lugar de Mulher</span>
+                    </div>
                 </div>
-                </div>  
 
-                
-                </div>
-                </div>
+            </div>
+        </div>
 
         <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado para esta pesquisa.</div>
 
@@ -456,23 +462,23 @@
         <div id="sourceArticles" style="display: none;">
 
             <!-- ========================================================================================== -->
-            <!-- 🚨🚨 ALERTA ANA PAULA: COLE O CÓDIGO DO NOVO ARTIGO EXATAMENTE ABAIXO DESTA LINHA 🚨🚨 -->
-            <!-- Lembre-se: O 1º da lista é a CAPA GIGANTE. Do 2º ao 5º formam a GRADE com foto. -->
+            <!-- ARTIGOS E COLUNAS -->
             <!-- ========================================================================================== -->
 
-            <!-- SEUS ARTIGOS NORMAIS -->
             <a href="coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html" data-category="colunas" data-author="felipe-almeida" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida">
             <span class="tag">Jovem Liderança</span>
             <h3 class="title">JEDIP: Quando o P muda tudo</h3>
             <p class="excerpt">Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional.</p>
             </a>
+
             <a href="coluna-debora-boscolo-o-poder-nao-revela.html" data-category="colunas" data-author="debora-boscolo" data-publish-date="2026-09-04">
             <img src="https://lh3.googleusercontent.com/d/1VDJFWhNooKNtcMpEu4hL6kObl243OC_v" alt="O poder não revela quem você é, revela o que você deixou de vigiar">
             <span class="tag">Comportamento Humano</span>
             <h3 class="title">O poder não revela quem você é, revela o que você deixou de vigiar</h3>
             <p class="excerpt">A autoconsciência na alta liderança. Entenda o perigo silencioso do poder e como ele dissolve a percepção sobre nossas próprias atitudes.</p>
             </a>
+
             <a href="artigo-como-avaliar-inteligencia-relacional-mediacao-conflitos-lideres.html" data-category="dica-de-hunter">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Como avaliar a maturidade de inteligência relacional e mediação de conflitos entre pares em candidatos à liderança?">
             <span class="tag">Dica de Hunter</span>
