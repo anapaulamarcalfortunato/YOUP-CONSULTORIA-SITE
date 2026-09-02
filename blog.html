@@ -832,7 +832,7 @@
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem28.jpg?raw=true" alt="Como identificar se um líder é muito centralizador antes de contratá-lo?">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Como identificar se um líder é muito centralizador antes de contratá-lo?</h3>
-            <p class="excerpt">Descubra como o RH pode identificar líderes centralizadores na entrevista, evitando gargalos e perda de talentos.</p>
+            <p class="excerpt">Descubra como o RH pode identify líderes centralizadores na entrevista, evitando gargalos e perda de talentos.</p>
             </a>
 
             <a href="artigo-desatrelar-marca-pessoal-empresa.html" data-category="radar-executivo">
@@ -1527,29 +1527,30 @@
             renderArticles();
         }
 
+        // NOTÍCIAS DE BACKUP (AGORA COM LINKS EXTERNOS REAIS PARA MANTER O CONCEITO)
         const noticiasFallback = [
             {
-                title: "Aceleração nas trocas de CEOs e a Nova Dança das Cadeiras",
-                link: "artigo-danca-cadeiras-recorde-ceos-maio-2026.html",
-                fonte: "Radar YOUP",
+                title: "Como a inteligência artificial está redefinindo o C-Level em 2026",
+                link: "https://exame.com/",
+                fonte: "Exame",
                 pubDate: new Date().toISOString()
             },
             {
-                title: "M&A e Capital Humano: O papel da liderança na preservação do Valuation pós-fusão",
-                link: "artigo-rh-ma-capital-humano.html",
-                fonte: "Gestão & M&A",
+                title: "Os novos desafios da governança corporativa e sucessão",
+                link: "https://forbes.com.br/",
+                fonte: "Forbes",
                 pubDate: new Date().toISOString()
             },
             {
-                title: "A ascensão da Liderança Feminina e a desconstrução do gargalo nos Conselhos",
-                link: "artigo-elas-no-radar-gargalo-prestigio-boards.html",
-                fonte: "Elas no Radar",
+                title: "Mercado corporativo: As competências mais buscadas por Headhunters",
+                link: "https://valor.globo.com/",
+                fonte: "Valor Econômico",
                 pubDate: new Date().toISOString()
             },
             {
-                title: "Como desatrelar a sua marca pessoal do nome da empresa atual",
-                link: "artigo-desatrelar-marca-pessoal-empresa.html",
-                fonte: "Carreira Executiva",
+                title: "O impacto do ESG no Valuation das grandes companhias",
+                link: "https://infomoney.com.br/",
+                fonte: "InfoMoney",
                 pubDate: new Date().toISOString()
             }
         ];
@@ -1589,9 +1590,11 @@
         }
 
         function carregarNoticiasEmTempoReal() {
+            // Mostra o fallback genérico externo enquanto a API pensa
             renderNoticiasCards(noticiasFallback);
 
-            const query = '("CEO" OR "C-Level" OR "Transição de Carreira" OR "Mercado Corporativo" OR "Conselho de Administração") -preso -crime -polícia -morte -futebol -cantor -política -político -eleições -governo';
+            // Query focada em portais de negócios premium e bloqueando termos ruins
+            const query = '("CEO" OR "C-Level" OR "Mercado Corporativo") (site:exame.com OR site:forbes.com.br OR site:valor.globo.com OR site:infomoney.com.br) -preso -crime -polícia -morte -futebol -cantor -política -político -eleições -governo -religião -igreja';
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
@@ -1604,7 +1607,7 @@
                 "eleição", "eleições", "eleitoral", "candidato", "candidatos",
                 "deputado", "senador", "ministro", "stf", "congresso", 
                 "governo", "prefeito", "vereador", "votação", "urna", 
-                "lula", "bolsonaro", "cpi", "tse"
+                "lula", "bolsonaro", "cpi", "tse", "religião", "igreja", "pastor"
             ];
 
             const controller = new AbortController();
