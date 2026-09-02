@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book de Colunistas | YOUP Consultoria</title>
+    <meta name="description" content="Conheça a rede de colunistas especialistas da YOUP Consultoria. Inteligência de mercado, liderança e visão estratégica para o C-Suite.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+
+    <!-- Tipografia Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dourado: #c5a059;
+            --verde-youp: #5c8e82;
+            --cinza-escuro: #0a0a0a;
+            --fundo-claro: #ffffff;
+            --fundo-offwhite: #f8f9fa;
+            --texto-corpo: #2c2c2c;
+            --texto-titulo: #1a1a1a;
+            --borda: #e5e5e5;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--fundo-offwhite);
+            color: var(--texto-corpo);
+            line-height: 1.8;
+        }
+
+        /* HEADER / NAVBAR */
+        .header-nav {
+            background-color: var(--cinza-escuro);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--dourado);
+        }
+
+        .header-nav .logo-link {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .header-nav .logo-link:hover {
+            opacity: 0.85;
+        }
+
+        .header-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-nav a.btn-nav-colunista {
+            background-color: var(--dourado);
+            color: var(--cinza-escuro);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--dourado);
+        }
+
+        .header-nav a.btn-nav-colunista:hover {
+            background-color: transparent;
+            color: var(--dourado);
+        }
+
+        .header-nav a.btn-nav-blog {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 8px 16px;
+            border: 1px solid var(--dourado);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .header-nav a.btn-nav-blog:hover {
+            background-color: var(--dourado);
+            color: var(--cinza-escuro);
+        }
+
+        /* HERO INSTITUCIONAL */
+        .hero-section {
+            background: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.92)), url('https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg') center center/cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 20px 80px;
+        }
+
+        .hero-tag {
+            color: var(--dourado);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: #dddddd;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        /* SEÇÃO DE COLUNISTAS */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--texto-titulo);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* GRID DE COLUNISTAS */
+        .columnists-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 90px;
+        }
+
+        .columnist-card {
+            background-color: var(--fundo-claro);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .columnist-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+            border-color: var(--dourado);
+        }
+
+        .columnist-avatar-wrapper {
+            text-align: center;
+        }
+
+        .columnist-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 3px solid var(--dourado);
+            margin-bottom: 15px;
+        }
+
+        .columnist-theme-tag {
+            display: inline-block;
+            background-color: rgba(92, 142, 130, 0.1);
+            color: var(--verde-youp);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--verde-youp);
+        }
+
+        .columnist-info h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--cinza-escuro);
+            margin: 0 0 15px 0;
+        }
+
+        .columnist-bio {
+            font-size: 14px;
+            color: #444444;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            white-space: pre-line;
+        }
+
+        .btn-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #0077b5;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #005582;
+        }
+
+        /* SEÇÃO SOBRE A YOUP E ANA PAULA (NO FINAL) */
+        .about-box {
+            background-color: var(--fundo-claro);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            align-items: center;
+            border-top: 4px solid var(--verde-youp);
+            border-bottom: 1px solid var(--borda);
+            margin-top: 40px;
+        }
+
+        .about-profile-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 6px;
+            border: 3px solid var(--dourado);
+        }
+
+        .about-content h2 {
+            color: var(--texto-titulo);
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+
+        .about-content h3 {
+            color: var(--verde-youp);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: var(--texto-corpo);
+            margin-bottom: 20px;
+        }
+
+        .services-highlight {
+            background-color: #fafafa;
+            border-left: 3px solid var(--dourado);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 25px;
+        }
+
+        .services-highlight h4 {
+            margin: 0 0 10px 0;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--cinza-escuro);
+        }
+
+        .services-highlight p {
+            margin: 0;
+            font-size: 13px;
+            color: #555555;
+        }
+
+        /* FOOTER */
+        .footer-brand {
+            background-color: var(--cinza-escuro);
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 3px solid var(--dourado);
+            margin-top: 60px;
+        }
+
+        .footer-brand .footer-logo-link {
+            color: var(--dourado);
+            font-size: 20px;
+            font-weight: 900;
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-brand .footer-logo-link:hover {
+            opacity: 0.85;
+        }
+
+        .footer-brand p {
+            font-size: 12px;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 900px) {
+            .header-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-nav-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .about-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 40px 25px;
+            }
+            .about-profile-img {
+                height: 280px;
+                max-width: 240px;
+                margin: 0 auto;
+            }
+            .columnist-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .columnist-avatar-wrapper {
+                margin: 0 auto;
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header-nav">
+        <a href="https://www.youpconsultoria.com/index.html" class="logo-link">YOUP Consultoria</a>
+        <div class="header-nav-actions">
+            <a href="https://api.whatsapp.com/send/?phone=5512991322333&text=Eu+quero+ser+um+colunista+Youp.&type=phone_number&app_absent=0" target="_blank" class="btn-nav-colunista">✦ Quero ser um Colunista</a>
+            <a href="https://www.youpconsultoria.com/blog.html" class="btn-nav-blog">← Acessar Portal de Artigos</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="hero-tag">Corpo Editorial & Curadoria Executiva</div>
+        <h1 class="hero-title">Book de Colunistas</h1>
+        <p class="hero-subtitle">Vozes de autoridade, liderança sênior e inteligência de mercado unidas para transformar trajetórias corporativas e ambientes de decisão.</p>
+    </section>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container">
+
+        <!-- CABEÇALHO DO CORPO EDITORIAL -->
+        <div class="section-header">
+            <h2>Nossos Colunistas Convidados</h2>
+        </div>
+
+        <!-- PRIMEIRA PARTE: LISTA DE COLUNISTAS -->
+        <div class="columnists-grid">
+
+            <!-- 1. ALESSANDRA MILIATTI -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1Hmxz7q6gYW6vou-8XpbEFFcfPu0uSh_N" alt="Alessandra Miliatti" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Mente Executiva</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Alessandra Miliatti</h3>
+                    <div class="columnist-bio">
+                        Alessandra Miliatti é profissional de Recursos Humanos, especialista em Cultura, DE&I, Gestão de Talentos e Desenvolvimento de Lideranças, com mais de 20 anos de experiência em grandes empresas como Nissin Foods, Azul Linhas Aéreas, Grupo Baumgart, iFood e Raia Drogasil. 
+
+                        Professora convidada de instituições como FDC, Senac SP e Unidrumond, também atua como mentora voluntária em iniciativas do Pacto Global da ONU e do Instituto Semear. Reconhecida como Top Voice do LinkedIn nas temáticas de Carreira e Pontos Fortes, palestrante em importantes eventos nacionais e fundadora da Tudo Talentos.
+                    </div>
+                    <a href="https://www.linkedin.com/in/alemiliatti/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 2. DANIELE AVELINO -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/10AVB7EHyw1Ys3eoR1PVp3cGNyds61Qhg" alt="Daniele Avelino" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Posicionamento Executivo</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Daniele Avelino</h3>
+                    <div class="columnist-bio">
+                        LinkedIn Top Voice. Conselheira na área de Pessoas, especialista em Recursos Humanos e Diversidade & Inclusão, e Parceira Estratégica de Negócios. 
+
+                        Palestrante, Mentora e Consultora com mais de 23 anos de mercado, atuando com propósito no posicionamento executivo e no desenvolvimento de líderes, além da construção de culturas mais humanas, diversas e sustentáveis.
+                    </div>
+                    <a href="https://www.linkedin.com/in/danieleavelino/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 3. DEBORA BOSCOLO -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png" alt="Debora Boscolo" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Comportamento Humano</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Debora Boscolo</h3>
+                    <div class="columnist-bio">
+                        Ao longo de mais de 27 anos no mercado corporativo — com passagem por bancos de investimento, varejo, indústria, e-commerce e consultoria —, validei uma premissa fundamental: resultados sustentáveis são construídos por pessoas.
+
+                        Hoje atuo como executiva de RH, consultora e palestrante, apoiando empresas e líderes na criação de culturas onde alta performance e bem-estar caminham lado a lado. Reconhecida como Top 1 HR Influencer Brasil (GOintegro 2024/2025), Top 10 Favikon, iBest e Top 100 Mulheres de Impacto, levo provocação e ferramentas práticas sobre Gestão de Pessoas, Inteligência Emocional e Futuro do Trabalho.
+                    </div>
+                    <a href="https://www.linkedin.com/in/deboraboscolo/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 4. FELIPE ALMEIDA -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Jovem Liderança</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Felipe Almeida</h3>
+                    <div class="columnist-bio">
+                        Felipe dos Anjos Almeida é Head de Diversidade, Equidade, Inclusão e Employer Branding na Numen, especialista em cultura, marca empregadora e transformação social. 
+
+                        Autor, professor e criador de conteúdo, construiu uma comunidade de mais de 500 mil pessoas no LinkedIn e utiliza sua trajetória e experiência para provocar discussões sobre pertencimento, liderança, carreira e inclusão no mundo corporativo. Acredita que DEI precisa ultrapassar o discurso e se transformar em estratégia e impacto real.
+                    </div>
+                    <a href="https://www.linkedin.com/in/almeidafelipe88" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 5. FERNANDA SANTARINI -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1_3o2_TKYAxZ1QRNbvLXKV3clMqDEPE5E" alt="Fernanda Santarini" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Marca Pessoal</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Fernanda Santarini</h3>
+                    <div class="columnist-bio">
+                        Fernanda Santarini é mentora e consultora de carreira, recrutadora e Gupy Expert, reconhecida como LinkedIn Top Voice. 
+
+                        Engenheira de formação e fundadora da FS Carreiras, é especialista em posicionamento profissional, recolocação e desenvolvimento de carreira para líderes e especialistas. Em sua atuação, ajuda profissionais a construírem um posicionamento de valor no mercado de trabalho e a conquistarem novas oportunidades de carreira.
+                    </div>
+                    <a href="https://www.linkedin.com/in/fernandasantarini/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 6. JOANA D'ARC -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1cCqKPb5HChna65YrWadgpoyyhcGa0tZg" alt="Joana D'arc" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">ENTRELINHAS</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Joana D’arc</h3>
+                    <div class="columnist-bio">
+                        Joana D’arc Souza é jornalista, escritora e profissional do mercado editorial. Autora de <em>Amar é Fácil – Reflexões nos Relacionamentos</em>, atua com escrita, preparação de textos e desenvolvimento de projetos editoriais. 
+
+                        À frente da Boas Palavras Agência Editorial, tem nas palavras, nas histórias e nas relações humanas o centro de sua trajetória profissional e autoral.
+                    </div>
+                    <a href="https://www.linkedin.com/in/joana-darc-souza-/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 7. JOSÉ ROBERTO REALE -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1LBhszWFK43j0mItY2K0cCQECbqQxuN85" alt="José Roberto Reale" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Defesa do Executivo</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>José Roberto Reale</h3>
+                    <div class="columnist-bio">
+                        Advogado, formado pela UEL em 1990, procurador do município aposentado e ex-professor universitário de Direito. 
+
+                        Atualmente integra o escritório Pullin de Araújo Advogados Associados, com atuação voltada à proteção, governança jurídica e defesa estratégica de executivos e empresas.
+                    </div>
+                    <a href="https://www.linkedin.com/in/joserobertoreale/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 8. LILIANE SILVA -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1s9rD2M-NUlbaUZYQiFNS7lPRuyIw8rgN" alt="Liliane Silva" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Saúde & Governança</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Liliane Silva</h3>
+                    <div class="columnist-bio">
+                        Liliane Silva é enfermeira, especialista em Gestão da Qualidade e Segurança do Paciente, com mais de 15 anos de experiência na área da saúde. 
+
+                        Atua na gestão da qualidade hospitalar, avaliação para acreditação ONA e consultoria para instituições de saúde e ILPIs. Também desenvolve treinamentos e conteúdos voltados à melhoria de processos, segurança do paciente e excelência na assistência.
+                    </div>
+                    <a href="https://www.linkedin.com/in/liliane-silva-a5072834/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 9. ROGÉRIO PIRES -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1cvvT_l4IyS3XiLyus4QezMShT5iCdQEl" alt="Rogério Pires" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Liderança 4.0 & Tech</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Rogério Pires</h3>
+                    <div class="columnist-bio">
+                        Executivo de Tecnologia e Operações com mais de 20 anos de experiência conectando estratégia, tecnologia, processos e pessoas aos resultados do negócio. 
+
+                        Trajetória construída em empresas como The Walt Disney Company, JHSF, Cyrela, Grupo TV1 e SoldaLider, liderando transformação digital, ERP, dados, IA, cloud, cibersegurança, governança e eficiência operacional no Brasil, América Latina e Estados Unidos.
+                    </div>
+                    <a href="https://www.linkedin.com/in/rogerio-pires/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+            <!-- 10. SIMONE SOMMARIVA VIEIRA -->
+            <article class="columnist-card">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://lh3.googleusercontent.com/d/1PABxyV5h13Wx6ORzoz4dzupUz3NpaQsg" alt="Simone Sommariva Vieira" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Lugar de Mulher</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Simone Sommariva Vieira</h3>
+                    <div class="columnist-bio">
+                        Simone Sommariva Vieira é especialista em Desenvolvimento de Pessoas, Carreira e Potencial Humano, com mais de 20 anos de experiência em Recursos Humanos. Atua conectando pessoas, talentos e organizações por meio de estratégias de desenvolvimento, liderança, empregabilidade e resultados.
+
+                        É idealizadora do projeto <em>Elas no Cafezinho</em>, dedicando especial atenção à liderança feminina, equidade de gênero e presença de mulheres em espaços de decisão. Seu propósito é abrir espaço para que mais mulheres ocupem, com protagonismo, os lugares onde decisões acontecem.
+                    </div>
+                    <a href="https://www.linkedin.com/in/simone-sommariva-vieira/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- SEGUNDA PARTE: APRESENTAÇÃO INSTITUCIONAL / ANA PAULA MARÇAL (NO FINAL) -->
+        <section class="about-box">
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="about-profile-img">
+            <div class="about-content">
+                <h2>YOUP Consultoria</h2>
+                <h3>por Ana Paula Marçal Fortunato</h3>
+                <p>A <strong>YOUP Consultoria</strong> é um ecossistema estratégico especializado em <em>Executive Search</em>, Mapeamento de Mercado, Transição de Carreira e Governança Executiva. Conectamos organizações de alta performance aos talentos que definem o futuro do mercado.</p>
+                <p>À frente da YOUP, atuo na mentoria de lideranças C-Level e na estruturação de Capital Político inabalável, fundamentando nossas análises e soluções na <strong>Metodologia S.T.A.R.E.</strong> (Senso de Negócio, Target Corporativo, Autoridade Executiva, Resultados & Riscos e Executive Presence).</p>
+                
+                <div class="services-highlight">
+                    <h4>Para quem é o nosso serviço?</h4>
+                    <p>Atendemos <strong>Conselhos de Administração, Executivos C-Level, Diretores, Gerentes Seniores</strong> e profissionais em ascensão estratégica que buscam construir autoridade sustentável, gerenciar transições de carreira com blindagem de risco e acelerar resultados corporativos atrelados ao P&L.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer class="footer-brand">
+        <a href="https://www.youpconsultoria.com/index.html" class="footer-logo-link">YOUP CONSULTORIA</a>
+        <p>Inteligência de Mercado • Executive Search • Governança Executiva</p>
+    </footer>
+
+</body>
+</html>
