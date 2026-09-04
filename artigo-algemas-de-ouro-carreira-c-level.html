@@ -55,7 +55,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- TRAVA DE TEMPO (REDIRECIONA PARA O INDEX CASO SEJA ACESSADO ANTES DA DATA) -->
+    <!-- TRAVA DE TEMPO -->
     <script>
         (function() { 
             const d = new Date('2026-07-11T00:00:00-03:00'); 
@@ -71,11 +71,10 @@
         #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1000; }
         #progress-bar { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s ease-out; }
         
-        /* CABEÇALHO FIXO PREMIUM (ESTILOS COMPATÍVEIS PARA RECEBER A INJEÇÃO DO INDEX) */
+        /* ESTILOS SUPORTE PARA CONTAINER DE INJEÇÃO */
         .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo-claro); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--borda-suave); height: 60px; box-sizing: border-box; }
         .article-nav .logo-text { color: var(--texto-titulo); font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
         .article-nav .logo-text span { color: var(--dourado); }
-
         .nav-actions { display: flex; gap: 12px; align-items: center; }
         .btn-action { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; text-decoration: none; gap: 8px; white-space: nowrap;}
         .btn-action:hover { background: var(--dourado); color: var(--texto-titulo); }
@@ -84,7 +83,6 @@
         #google_translate_element select:hover { background: var(--dourado); color: var(--fundo-claro); }
         .goog-te-banner-frame.skiptranslate { display: none !important; }
 
-        /* MENU DE CATEGORIAS STICKY DUPLO */
         .editorial-nav-wrapper { position: sticky; top: 60px; z-index: 999; background: var(--fundo-claro); padding: 0 5%; border-top: 2px solid var(--texto-titulo); border-bottom: 1px solid var(--borda-suave); box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 30px;}
         .editorial-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 15px 0; }
         .filter-container { display: flex; gap: 25px; flex-wrap: wrap; align-items: center;}
@@ -270,7 +268,7 @@
 
             <p>O processo de <strong>Backchanneling</strong> (a checagem profunda, invisível e confidencial de referências que fazemos no mercado) frequentemente revela que a imagem desse profissional não é a de um "líder altamente leal à sua corporação". A imagem real projetada é a de um profissional engessado pelo medo.</p>
 
-            <p>Se você não está sequer disposto a ouvir uma proposta de disrupção de carreira, a negociar o seu pacote, a estruturar um <i>buyout</i> (quando a empresa contratante "compra" o bônus que você deixou na mesa) ou a aceitar um risco calculado em troca de <i>Equity</i> agressivo, você demonstra que o seu perfil é focado na manutenção do status quo.</p>
+            <p>Se você não está sequer disposto a ouvir uma proposta de disrupção de carreira, a negociar o seu pacote, a estruturar um <i>buyout</i> (quando a empresa contratante "compra" o bônus que você deixou na mesa) ou a aceitar um risco calculated em troca de <i>Equity</i> agressivo, você demonstra que o seu perfil é focado na manutenção do status quo.</p>
 
             <!-- BINDING DE PARCEIRO COMERCIAL (IA SIMPLIFICA) -->
             <div style="background: var(--cinza-escuro); border-left: 4px solid var(--dourado); padding: 20px 30px; border-radius: 6px; margin: 40px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
@@ -378,7 +376,7 @@
                     if (headerContainer && nav && catNav) {
                         headerContainer.innerHTML = nav.outerHTML + catNav.outerHTML;
 
-                        // INJEÇÃO AUTOMÁTICA DO BOTÃO "OUVIR ARTIGO" NO NAV-ACTIONS DO HEADER
+                        // 1.1 Injeção do Botão "Ouvir Artigo"
                         const navActions = headerContainer.querySelector('.nav-actions');
                         if (navActions && !navActions.querySelector('.btn-audio')) {
                             const audioBtn = document.createElement('button');
@@ -386,6 +384,18 @@
                             audioBtn.setAttribute('onclick', 'toggleAudio()');
                             audioBtn.innerHTML = '▶ Ouvir Artigo';
                             navActions.insertBefore(audioBtn, navActions.children[1] || null);
+                        }
+
+                        // 1.2 Reescrita das ações do menu de categorias para direcionar ao index.html
+                        const filterBtns = headerContainer.querySelectorAll('.filter-btn');
+                        filterBtns.forEach(btn => {
+                            btn.setAttribute('onclick', "window.location.href='https://www.youpconsultoria.com/index.html'");
+                        });
+
+                        // 1.3 Reescrita do campo de pesquisa para direcionar ao index.html
+                        const searchInput = headerContainer.querySelector('#searchInput');
+                        if (searchInput) {
+                            searchInput.setAttribute('onkeyup', "window.location.href='https://www.youpconsultoria.com/index.html'");
                         }
                     }
 
@@ -481,7 +491,7 @@
 
         window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
         var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
-        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "⏹ Parar Áudio"; } }
+        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; const btn = document.querySelector('.btn-audio').innerText = "⏹ Parar Áudio"; } }
         function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
         function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
         function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
