@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+
+    <!-- Google AdSense - Tag de Verificação -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1434753673886142" crossorigin="anonymous"></script>
+
+    <!-- Schema Markup (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Youp Consultoria",
+      "url": "https://www.youpconsultoria.com",
+      "description": "Boutique estratégica de RH e Carreira. Especialistas em Executive Search, Outplacement, Headhunter e Gestão de Reputação para líderes e diretores.",
+      "founder": {
+        "@type": "Person",
+        "name": "Ana Paula Marçal Fortunato"
+      },
+      "knowsAbout": ["Executive Search", "Transição de Carreira", "Outplacement", "Headhunting", "C-Level", "Metodologia S.T.A.R.E."]
+    }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Youp Consultoria | Executive Search, Headhunter e Carreira C-Level</title>
+    <meta name="description" content="Boutique estratégica de RH e Carreira. Especialistas em Executive Search, Outplacement, Headhunter e Gestão de Reputação para líderes e diretores.">
+    <meta name="keywords" content="Headhunter, Transição de Carreira, C-Level, RH Estratégico, Executive Search Brasil, Recolocação Executiva, Outplacement, Mentoria de Carreira">
+    <meta name="author" content="Youp Consultoria">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Youp Consultoria | Executive Search e Carreira C-Level">
+    <meta property="og:description" content="Onde líderes excepcionais encontram empresas visionárias. Acelere o seu próximo passo profissional conosco.">
+    <meta property="og:site_name" content="Youp Consultoria">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-youp: #5c8e82;
+            --verde-claro: #84a98c;
+            --dourado: #c5a059;
+            --dourado-hover: #dfb668;
+            --cinza-escuro: #0a0a0a; 
+            --texto-claro: #fdfdfd;
+            --texto-mute: #a0a0a0;
+            --borda-suave: rgba(197, 160, 89, 0.25);
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cinza-escuro);
+            background-image: linear-gradient(135deg, rgba(10, 10, 10, 0.90), rgba(5, 5, 5, 0.98)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&fm=webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: var(--texto-claro);
+            min-height: 100vh; 
+            display: flex; flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* ANIMAÇÃO DE ENTRADA & BRILHO */
+        .fade-in { animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BANNER DINÂMICO CONTINUO (LETREIRO EM MOVIMENTO) */
+        .ticker-wrap {
+            width: 100%;
+            background: rgba(197, 160, 89, 0.1);
+            border-bottom: 1px solid var(--borda-suave);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+        }
+        .ticker {
+            display: inline-block;
+            animation: ticker 35s linear infinite;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 30px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--dourado);
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 40px; 
+            border-bottom: 1px solid var(--borda-suave);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--dourado);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .nav-logo:hover { opacity: 0.8; }
+        
+        .nav-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        
+        .lang-switch { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--texto-mute); display: flex; gap: 12px; margin-right: 5px; }
+        .lang-switch span { cursor: pointer; transition: 0.3s; padding-bottom: 4px; }
+        .lang-switch span:hover { color: #fff; }
+        .lang-switch span.active { color: var(--dourado); cursor: default; border-bottom: 1px solid var(--dourado); }
+        
+        /* BOTÕES CORPORATIVOS DA NAVBAR */
+        .btn-contact, .btn-hub, .btn-book-nav, .btn-blog-nav {
+            padding: 9px 18px; border-radius: 20px; font-size: 10px; text-transform: uppercase;
+            letter-spacing: 1.2px; font-weight: 800; text-decoration: none; transition: all 0.4s ease;
+        }
+
+        .btn-blog-nav {
+            background: var(--dourado);
+            color: #111111 !important;
+            border: 1px solid var(--dourado);
+            box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
+        }
+        .btn-blog-nav:hover {
+            background: transparent;
+            color: var(--dourado) !important;
+        }
+        
+        .btn-contact { background: transparent; color: var(--dourado); border: 1px solid var(--dourado); }
+        .btn-contact:hover { background: var(--dourado); color: var(--cinza-escuro); box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); }
+
+        .btn-hub { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+        .btn-hub:hover { background: #fff; color: var(--cinza-escuro); }
+
+        .btn-book-nav { background: transparent; color: var(--texto-mute); border: 1px solid rgba(255,255,255,0.2); }
+        .btn-book-nav:hover { border-color: var(--dourado); color: var(--dourado); }
+
+        /* HERO SECTION */
+        .hero { text-align: center; padding: 80px 20px 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        
+        .hero-brand-container { margin-bottom: 25px; display: inline-block; border-bottom: 1px solid var(--borda-suave); padding-bottom: 12px; }
+        .hero-brand { display: block; color: var(--dourado); font-size: 13px; font-weight: 800; letter-spacing: 8px; margin-bottom: 5px; text-shadow: 0 0 15px rgba(197, 160, 89, 0.2); }
+        .hero-brand-sub { display: block; color: var(--texto-mute); font-size: 9px; text-transform: uppercase; letter-spacing: 5px; font-weight: 500; }
+
+        .headline { font-size: 52px; font-weight: 200; line-height: 1.25; max-width: 950px; margin: 0 auto 25px; letter-spacing: -1px; }
+        .headline b { font-weight: 800; color: #fff; display: inline-block; position: relative; }
+        .headline b::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 8px; background: rgba(197, 160, 89, 0.35); z-index: -1; }
+        
+        .sub-headline { font-size: 16px; font-weight: 300; color: var(--texto-mute); max-width: 700px; margin: 0 auto; line-height: 1.8; }
+
+        /* BLOCO METRICAS INSTITUCIONAIS COM CONTADOR ANIMADO */
+        .metrics-bar {
+            display: flex; justify-content: center; gap: 60px;
+            margin: 40px 0 50px; padding: 22px 40px;
+            background: rgba(20, 20, 20, 0.55);
+            border-top: 1px solid var(--borda-suave);
+            border-bottom: 1px solid var(--borda-suave);
+            backdrop-filter: blur(10px);
+        }
+        .metric-item { text-align: center; }
+        .metric-num { font-size: 26px; font-weight: 900; color: var(--dourado); display: block; }
+        .metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--texto-mute); }
+
+        /* GRID DE SERVIÇOS */
+        .container { max-width: 1300px; margin: 0 auto; width: 100%; padding: 0 40px 60px; box-sizing: border-box; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
+        
+        .card { 
+            background: rgba(20, 20, 20, 0.5); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 8px; 
+            padding: 40px; 
+            display: flex; flex-direction: column; 
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { transform: translateY(-8px); border-color: var(--dourado); box-shadow: 0 20px 40px rgba(0,0,0,0.6); background: rgba(25, 25, 25, 0.7); }
+
+        .col-title { font-size: 12px; text-transform: uppercase; color: var(--dourado); letter-spacing: 3px; margin: 0 0 30px 0; font-weight: 800; display: flex; align-items: center; gap: 15px; }
+        .col-title::before { content: ''; width: 25px; height: 1px; background: var(--dourado); display: block; }
+
+        .link-list { display: flex; flex-direction: column; gap: 18px; flex: 1; }
+        .link-item { color: var(--texto-claro); text-decoration: none; font-size: 14px; font-weight: 300; transition: 0.3s; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px; }
+        .link-item:hover { color: var(--dourado); padding-left: 8px; border-color: rgba(197, 160, 89, 0.3); }
+        .link-item::after { content: '↗'; opacity: 0; transition: 0.3s; color: var(--dourado); font-size: 13px; transform: translateX(-10px); }
+        .link-item:hover::after { opacity: 1; transform: translateX(0); }
+
+        /* BOTÃO ULTRA CHAMATIVO PARA "NOSSAS VAGAS" */
+        .link-vagas-highlight {
+            color: #0a0a0a !important; 
+            background: linear-gradient(135deg, #c5a059 0%, #f3e5ab 50%, #c5a059 100%);
+            background-size: 200% auto;
+            font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px;
+            text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            margin-top: auto; padding: 18px 20px; border-radius: 6px; transition: all 0.4s ease; width: 100%; box-sizing: border-box;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+            animation: pulseGlow 2.5s infinite;
+        }
+        .link-vagas-highlight:hover {
+            background-position: right center;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.7);
+        }
+        .arrow-animated { display: inline-block; transition: transform 0.3s; font-size: 16px; }
+        .link-vagas-highlight:hover .arrow-animated { transform: translateX(6px); }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(197, 160, 89, 0.7); }
+            100% { box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); }
+        }
+
+        /* SEÇÃO ANA PAULA & METODOLOGIA S.T.A.R.E. */
+        .founder-section {
+            background: linear-gradient(90deg, rgba(20,20,20,0.85) 0%, rgba(197, 160, 89, 0.05) 100%);
+            border: 1px solid var(--borda-suave);
+            border-radius: 8px;
+            padding: 50px;
+            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        .founder-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 6px;
+            border: 2px solid var(--dourado);
+        }
+        .founder-info h3 {
+            color: var(--dourado);
+            font-size: 22px;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+        }
+        .founder-info h4 {
+            color: var(--verde-youp);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+        .founder-info p {
+            font-size: 14px;
+            font-weight: 300;
+            color: #ddd;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* BANNER PALESTRANTE PREMIUM */
+        .speaker-banner {
+            background: rgba(15, 15, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 40px 50px;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+        .speaker-banner:hover { border-color: var(--dourado); box-shadow: 0 10px 40px rgba(197, 160, 89, 0.1); }
+        
+        .speaker-info { display: flex; flex-direction: column; gap: 8px; max-width: 600px; }
+        .speaker-title { color: var(--dourado); font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+        .speaker-desc { color: var(--texto-claro); font-size: 13px; font-weight: 300; line-height: 1.6; margin: 0; }
+        
+        .btn-speaker {
+            background: #fff; color: #000;
+            padding: 14px 28px; border-radius: 4px; font-size: 11px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 1.5px; text-decoration: none; transition: 0.3s; white-space: nowrap; border: none;
+        }
+        .btn-speaker:hover { background: var(--dourado); color: #fff; }
+
+        /* FOOTER */
+        .footer-links { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 35px; flex-wrap: wrap; }
+        .footer-links a { color: var(--texto-mute); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; transition: 0.3s; }
+        .footer-links a:hover { color: var(--dourado); }
+        .copyright { color: #555; font-size: 10px; letter-spacing: 1.5px; font-weight: 500; width: 100%; margin-top: 10px; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1100px) {
+            .headline { font-size: 44px; }
+            .grid { gap: 20px; }
+            .card { padding: 30px; }
+            .metrics-bar { gap: 30px; }
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+            .founder-section { grid-template-columns: 1fr; text-align: center; }
+            .founder-img { max-width: 200px; margin: 0 auto; }
+            .speaker-banner { flex-direction: column; text-align: center; gap: 25px; padding: 35px 25px; }
+            .speaker-info { align-items: center; }
+            .metrics-bar { flex-wrap: wrap; gap: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; background: rgba(10,10,10,0.95); }
+            .nav-actions { width: 100%; flex-direction: column; gap: 10px; align-items: center; }
+            .lang-switch { margin-right: 0; margin-bottom: 5px; justify-content: center; }
+            
+            .btn-contact, .btn-hub, .btn-book-nav, .btn-blog-nav { width: 100%; max-width: 320px; text-align: center; box-sizing: border-box; }
+            
+            .hero { padding: 50px 20px 30px; }
+            .headline { font-size: 34px; line-height: 1.3; }
+            
+            .container { padding: 0 20px 40px; }
+            .card { padding: 25px 20px; }
+            
+            .btn-speaker { width: 100%; box-sizing: border-box; text-align: center; }
+            .footer-links { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LETREIRO DINÂMICO CONTINUO -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item">Executive Search Tailor-Made</span> •
+            <span class="ticker-item">Outplacement Estratégico</span> •
+            <span class="ticker-item">Mapeamento de Carreira C-Level</span> •
+            <span class="ticker-item">Metodologia S.T.A.R.E.</span> •
+            <span class="ticker-item">Gestão de Reputação Executiva</span> •
+            <span class="ticker-item">Executive Search Tailor-Made</span> •
+            <span class="ticker-item">Outplacement Estratégico</span> •
+            <span class="ticker-item">Mapeamento de Carreira C-Level</span> •
+            <span class="ticker-item">Metodologia S.T.A.R.E.</span> •
+            <span class="ticker-item">Gestão de Reputação Executiva</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar fade-in">
+        <a href="https://www.youpconsultoria.com/index.html" class="nav-logo">YOUP</a>
+        
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <span class="active">PT</span>
+                <span onclick="definirIdiomaGlobal('en')">EN</span>
+            </div>
+            <a href="https://www.youpconsultoria.com/blog.html" class="btn-blog-nav">Insights Corporativos</a>
+            <a href="https://www.youpconsultoria.com/book-colunistas.html" class="btn-book-nav">Book de Colunistas</a>
+            <a href="https://www.youpconsultoria.com/area-parceiro.html" class="btn-hub">Hub Exclusivo</a>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%20Ana%2C%20estava%20no%20seu%20site%20e%20quero%20mudar%20a%20minha%20carreira%2C%20voc%C3%AA%20me%20ajuda%3F" target="_blank" class="btn-contact" aria-label="Falar com Consultor via WhatsApp">Falar com Consultor</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <main class="hero fade-in delay-1">
+        <div class="hero-brand-container">
+            <span class="hero-brand">YOUP CONSULTORIA</span>
+            <span class="hero-brand-sub">Carreira, Reputação e RH</span>
+        </div>
+
+        <h1 class="headline">Onde líderes excepcionais encontram <br><b>empresas visionárias.</b></h1>
+        <p class="sub-headline">Inteligência de mercado, agenciamento executivo de alto impacto e estruturação de boards para o novo cenário corporativo.</p>
+
+        <!-- BARRA DE MÉTRICAS COM CONTADOR SUBINDO DE 10 EM 10 -->
+        <div class="metrics-bar">
+            <div class="metric-item">
+                <span class="metric-num" id="counter-lideres">+0</span>
+                <span class="metric-label">Líderes Conectados</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-num">+20 Anos</span>
+                <span class="metric-label">de Expertise no Mercado</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-num">Metodologia S.T.A.R.E.</span>
+                <span class="metric-label">Selo Autoral</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- GRID PRINCIPAL DE NAVEGAÇÃO -->
+    <section class="container fade-in delay-2">
+        <div class="grid">
+            
+            <!-- CARD 1: PARA EMPRESAS (LINKS CORRIGIDOS) -->
+            <div class="card">
+                <h2 class="col-title">Para Empresas</h2>
+                <div class="link-list">
+                    <a href="https://www.youpconsultoria.com/headhunter.html" class="link-item">HeadHunter Executivo</a>
+                    <a href="https://www.youpconsultoria.com/outplacement.html" class="link-item">Outplacement Estratégico</a>
+                    <a href="https://www.youpconsultoria.com/book.html" class="link-item">Book de Talentos Mapeados</a>
+                </div>
+            </div>
+
+            <!-- CARD 2: PARA EXECUTIVOS COM "NOSSAS VAGAS" EM DESTAQUE -->
+            <div class="card">
+                <h2 class="col-title">Para Executivos</h2>
+                <div class="link-list" style="justify-content: space-between;">
+                    <a href="https://www.youpconsultoria.com/carreira.html" class="link-item">Transição e Recolocação</a>
+                    <a href="https://www.youpconsultoria.com/reputacao.html" class="link-item">Gestão de Reputação</a>
+                    
+                    <!-- BOTÃO "NOSSAS VAGAS" EM ULTRA DESTAQUE -->
+                    <a href="https://www.youpconsultoria.com/portal-talentos.html" class="link-vagas-highlight" aria-label="Acessar Nossas Vagas">
+                        Nossas Vagas <span class="arrow-animated">➔</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 3: O PADRÃO YOUP -->
+            <div class="card">
+                <h2 class="col-title">O Padrão Youp</h2>
+                <div class="link-list">
+                    <a href="https://www.youpconsultoria.com/sobre.html" class="link-item">Nossa Filosofia e História</a>
+                    <a href="https://www.youpconsultoria.com/book-colunistas.html" class="link-item" style="color: var(--dourado); font-weight: 500;">Corpo Editorial & Book</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SEÇÃO DE APRESENTAÇÃO INSTITUCIONAL DA FUNDADORA -->
+        <div class="founder-section">
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato" class="founder-img">
+            <div class="founder-info">
+                <h3>Ana Paula Marçal Fortunato</h3>
+                <h4>Fundadora & Headhunter C-Level</h4>
+                <p>Especialista em recrutamento confidencial, estruturação de governança e transição de carreira executiva. À frente da YOUP Consultoria, aplico a <strong>Metodologia S.T.A.R.E.</strong> para transformar trajetórias corporativas e conectar conselhos de administração a líderes de alta performance.</p>
+                <a href="https://www.youpconsultoria.com/sobre.html" style="color: var(--dourado); text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;">Conhecer Trajetória Completa ➔</a>
+            </div>
+        </div>
+
+        <!-- BANNER DE EVENTOS / PALESTRAS -->
+        <div class="speaker-banner">
+            <div class="speaker-info">
+                <h3 class="speaker-title">Eventos Corporativos & In Company</h3>
+                <p class="speaker-desc">Ana Paula Marçal Fortunato possui agenda aberta para palestras e convenções focadas em Liderança de Alto Impacto e Executive Search.</p>
+            </div>
+            <a href="https://wa.me/5512991322333?text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20a%20agenda%20da%20Ana%20Paula%20para%20palestrar%20em%20um%20evento%20corporativo." target="_blank" class="btn-speaker" aria-label="Consultar agenda de palestras via WhatsApp">Consultar Agenda</a>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer-links">
+            <a href="https://www.youpconsultoria.com/contatos.html">Contatos & Ouvidoria</a>
+            <a href="https://www.youpconsultoria.com/book-colunistas.html">Book de Colunistas</a>
+            <span class="copyright">&copy; 2026 Youp Consultoria. Tailor-Made Executive Search.</span>
+        </footer>
+    </section>
+
+    <!-- SCRIPT DO CONTADOR ANIMADO (+2.500 LÍDERES) -->
+    <script>
+        localStorage.setItem('youp_idioma', 'pt');
+
+        function animarContador() {
+            const el = document.getElementById('counter-lideres');
+            const alvo = 2500;
+            const incremento = 10;
+            const tempoIntervalo = 8; // velocidade suave
+            let atual = 0;
+
+            const timer = setInterval(() => {
+                atual += incremento;
+                if (atual >= alvo) {
+                    atual = alvo;
+                    clearInterval(timer);
+                }
+                el.innerText = '+' + atual.toLocaleString('pt-BR');
+            }, tempoIntervalo);
+        }
+
+        document.addEventListener('DOMContentLoaded', animarContador);
+
+        function definirIdiomaGlobal(lang) {
+            if (lang === 'en') {
+                const urlIngles = 'index-en.html';
+                fetch(urlIngles, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        localStorage.setItem('youp_idioma', 'en');
+                        window.location.href = urlIngles; 
+                    } else {
+                        alert("English version coming soon! 🌎");
+                    }
+                })
+                .catch(error => alert("English version coming soon! 🌎"));
+            }
+        }
+    </script>
+
+</body>
+</html>
