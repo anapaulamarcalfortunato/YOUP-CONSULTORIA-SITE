@@ -68,11 +68,19 @@
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; --bg-destaque: #f8f9fa; --borda-suave: #e9ecef; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.9; font-size: 17px; -webkit-font-smoothing: antialiased; top: 0px !important; }
-        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1000; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1001; }
         #progress-bar { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s ease-out; }
         
-        /* ESTILOS SUPORTE PARA CONTAINER DE INJEÇÃO */
-        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo-claro); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--borda-suave); height: 60px; box-sizing: border-box; }
+        /* CONTAINER DO CABEÇALHO GLOBAL FIXADO NO TOPO */
+        #header-global {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--fundo-claro);
+            width: 100%;
+        }
+
+        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo-claro); border-bottom: 1px solid var(--borda-suave); height: 60px; box-sizing: border-box; }
         .article-nav .logo-text { color: var(--texto-titulo); font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
         .article-nav .logo-text span { color: var(--dourado); }
         .nav-actions { display: flex; gap: 12px; align-items: center; }
@@ -83,7 +91,7 @@
         #google_translate_element select:hover { background: var(--dourado); color: var(--fundo-claro); }
         .goog-te-banner-frame.skiptranslate { display: none !important; }
 
-        .editorial-nav-wrapper { position: sticky; top: 60px; z-index: 999; background: var(--fundo-claro); padding: 0 5%; border-top: 2px solid var(--texto-titulo); border-bottom: 1px solid var(--borda-suave); box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 30px;}
+        .editorial-nav-wrapper { background: var(--fundo-claro); padding: 0 5%; border-top: 2px solid var(--texto-titulo); border-bottom: 1px solid var(--borda-suave); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
         .editorial-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 15px 0; }
         .filter-container { display: flex; gap: 25px; flex-wrap: wrap; align-items: center;}
         .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #666; cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
@@ -166,11 +174,10 @@
             .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) { 
-            .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; }
             .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;}
             .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
             #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
-            .editorial-nav-wrapper { top: 60px; padding: 0 15px; } 
+            .editorial-nav-wrapper { padding: 0 15px; } 
             .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;}
             .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;}
             .article-main { padding: 40px 25px; margin-top: -60px; } 
@@ -268,7 +275,7 @@
 
             <p>O processo de <strong>Backchanneling</strong> (a checagem profunda, invisível e confidencial de referências que fazemos no mercado) frequentemente revela que a imagem desse profissional não é a de um "líder altamente leal à sua corporação". A imagem real projetada é a de um profissional engessado pelo medo.</p>
 
-            <p>Se você não está sequer disposto a ouvir uma proposta de disrupção de carreira, a negociar o seu pacote, a estruturar um <i>buyout</i> (quando a empresa contratante "compra" o bônus que você deixou na mesa) ou a aceitar um risco calculated em troca de <i>Equity</i> agressivo, você demonstra que o seu perfil é focado na manutenção do status quo.</p>
+            <p>Se você não está sequer disposto a ouvir uma proposta de disrupção de carreira, a negociar o seu pacote, a estruturar um <i>buyout</i> (quando a empresa contratante "compra" o bônus que você deixou na mesa) ou a aceitar um risco calculado em troca de <i>Equity</i> agressivo, você demonstra que o seu perfil é focado na manutenção do status quo.</p>
 
             <!-- BINDING DE PARCEIRO COMERCIAL (IA SIMPLIFICA) -->
             <div style="background: var(--cinza-escuro); border-left: 4px solid var(--dourado); padding: 20px 30px; border-radius: 6px; margin: 40px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
