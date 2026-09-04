@@ -54,15 +54,7 @@
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Script de Trava de Tempo -->
-    <script>
-        (function() { 
-            const d = new Date('2026-09-04T00:00:00-03:00'); 
-            if (new Date() < d) { window.location.href = "https://www.youpconsultoria.com/blog.html"; } 
-        })();
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ESTILOS CSS OBRIGATÓRIOS (BLINDADOS) -->
     <style>
@@ -72,21 +64,34 @@
         #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1000; }
         #progress-bar { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s ease-out; }
         
-        /* HEADER PREMIUM BI-COLOR E BOTÕES VAZADOS */
-        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: var(--fundo-claro); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 999; }
-        .article-nav .logo-text { color: var(--cinza-escuro); font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
+        /* CABEÇALHO FIXO PREMIUM */
+        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo-claro); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--borda-suave); height: 60px; box-sizing: border-box; }
+        .article-nav .logo-text { color: var(--texto-titulo); font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
         .article-nav .logo-text span { color: var(--dourado); }
-        .nav-actions { display: flex; gap: 15px; align-items: center; }
-        .btn-action { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; text-decoration: none; gap: 8px; }
-        .btn-action:hover { background: var(--dourado); color: var(--cinza-escuro); }
+
+        .nav-actions { display: flex; gap: 12px; align-items: center; }
+        .btn-action { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; text-decoration: none; gap: 8px; white-space: nowrap;}
+        .btn-action:hover { background: var(--dourado); color: var(--texto-titulo); }
         
-        #google_translate_element select { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; outline: none; text-transform: uppercase; letter-spacing: 1px; }
+        #google_translate_element select { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; outline: none; text-transform: uppercase; letter-spacing: 1px; }
         #google_translate_element select:hover { background: var(--dourado); color: var(--fundo-claro); }
         .goog-te-banner-frame.skiptranslate { display: none !important; }
+
+        /* MENU DE CATEGORIAS (FIXO LOGO ABAIXO DO CABEÇALHO) - STICKY DUPLO */
+        .editorial-nav-wrapper { position: sticky; top: 60px; z-index: 999; background: var(--fundo-claro); padding: 0 5%; border-top: 2px solid var(--texto-titulo); border-bottom: 1px solid var(--borda-suave); box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 30px;}
+        .editorial-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 15px 0; }
+        
+        .filter-container { display: flex; gap: 25px; flex-wrap: wrap; align-items: center;}
+        .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #666; cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
+        .filter-btn:hover { color: var(--texto-titulo); }
+        .filter-btn.active { color: var(--texto-titulo); }
+        
+        .search-input { border: none; border-bottom: 1px solid var(--borda-suave); padding: 5px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; outline: none; width: 180px; transition: 0.3s; background: transparent; }
+        .search-input:focus { border-color: var(--dourado); width: 230px; }
         
         /* HERO E CONTEÚDO ALINHADO */
         .article-hero { width: 100%; height: 60vh; display: flex; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://lh3.googleusercontent.com/d/1VDJFWhNooKNtcMpEu4hL6kObl243OC_v') center center/cover; }
-        .article-main { max-width: 900px; margin: -100px auto 100px; background: var(--fundo-claro); position: relative; z-index: 10; padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .article-main { max-width: 900px; margin: -100px auto 100px auto; background: var(--fundo-claro); position: relative; z-index: 10; padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
         .editorial-badge { display: inline-block; background: var(--verde-youp); color: #ffffff; padding: 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; margin-bottom: 20px; text-align: left; }
         
         h1 { font-size: 38px; color: var(--texto-titulo); margin-bottom: 40px; line-height: 1.3; font-weight: 800; text-align: left; letter-spacing: -1px; }
@@ -102,58 +107,120 @@
         .author-box { display: flex; align-items: flex-start; gap: 25px; background-color: var(--bg-destaque); border: 1px solid var(--borda-suave); padding: 40px; border-radius: 6px; margin-top: 80px; border-left: 4px solid var(--verde-youp); }
         .author-box img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--dourado); flex-shrink: 0; }
         .author-info h4 { margin: 0 0 6px 0; color: var(--texto-titulo); font-size: 20px; font-weight: 700; }
-        .author-info p { font-size: 14px; margin-bottom: 15px; color: #555; line-height: 1.7; text-align: left; }
+        .author-info p { font-size: 14px; margin-bottom: 15px; color: #555; line-height: 1.7; text-align: left;}
         .btn-linkedin { display: inline-block; background-color: #0077b5; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 4px; text-transform: uppercase; transition: background 0.3s; margin-top: 15px;}
         .btn-linkedin:hover { background-color: #005582; }
-
-        /* RECOMENDAÇÃO: MAIS COLUNAS */
+        
+        /* RECOMENDAÇÃO: MAIS COLUNAS / LEIA TAMBÉM */
+        .related-articles-section { max-width: 900px; margin: 60px auto 20px auto; padding: 0; border-top: 1px solid var(--borda-suave); padding-top: 40px; }
         .more-columns { margin-top: 60px; border-top: 1px solid #ddd; padding-top: 50px; }
-        .more-columns h3 { font-size: 24px; color: var(--texto-titulo); margin-bottom: 30px; }
-        .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .card { border: 1px solid var(--borda-suave); border-radius: 8px; padding: 25px; text-decoration: none; color: inherit; transition: box-shadow 0.3s, transform 0.3s; }
-        .card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.08); transform: translateY(-5px); }
-        .card h4 { margin: 0 0 12px 0; color: var(--verde-youp); font-size: 18px; line-height: 1.4; }
-        .card p { margin: 0; font-size: 14px; color: #666; line-height: 1.5; }
-
-        .btn-back-blog { display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 40px; padding: 15px; background: transparent; border: 1px solid var(--verde-youp); color: var(--verde-youp); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; text-decoration: none; border-radius: 4px; transition: 0.3s; }
-        .btn-back-blog:hover { background: var(--verde-youp); color: #fff; }
+        .more-columns h3, .related-articles-section h3 { font-size: 24px; color: var(--texto-titulo); margin-bottom: 30px; }
+        .cards-grid, .ultimas-colunas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .card, .coluna-news-card { border: 1px solid var(--borda-suave); background: #fff; border-radius: 8px; padding: 0; text-decoration: none; color: inherit; transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; overflow: hidden;}
+        .card:hover, .coluna-news-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.08); transform: translateY(-5px); border-color: var(--dourado); }
+        .card h4, .coluna-news-title { margin: 0 0 10px 0; color: var(--texto-titulo); font-size: 15px; line-height: 1.3; font-weight: 700; padding: 0 20px 20px 20px;}
+        .card p { margin: 0; font-size: 14px; color: #666; line-height: 1.5; padding: 0 20px 20px 20px;}
+        .coluna-news-img { width: 100%; height: 160px; object-fit: cover; }
+        .coluna-news-body { padding: 20px 20px 0 20px; display: flex; flex-direction: column; flex: 1;}
+        .coluna-news-tag { font-size: 10px; font-weight: 800; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;}
 
         /* WIDGETS LATERAIS */
         .social-share-fixed { position: fixed; left: 20px; top: 250px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
-        .social-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--cinza-escuro); color: var(--fundo-claro); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; border: 1px solid var(--dourado); transition: all 0.3s ease; cursor: pointer; }
+        .social-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--cinza-escuro); color: var(--fundo-claro); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; border: 1px solid var(--dourado); transition: all 0.3s ease; cursor: pointer;}
         .social-btn:hover { background: var(--dourado); color: var(--cinza-escuro); transform: translateY(-3px); }
         
         .sticky-ad { position: fixed; right: 20px; top: 120px; width: 200px; background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 20px 15px; border-radius: 4px; z-index: 999; box-shadow: 0 15px 30px rgba(0,0,0,0.2); text-align: center; }
         .sticky-ad h4 { color: var(--dourado); font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .sticky-ad p { color: #ccc; font-size: 11px; line-height: 1.4; margin-bottom: 12px; text-align: center; }
+        .sticky-ad p { color: #ccc; font-size: 11px; line-height: 1.4; margin-bottom: 12px; }
         .sticky-ad .btn-ad { display: block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; padding: 8px 10px; font-size: 10px; font-weight: 700; border-radius: 2px; text-transform: uppercase; transition: background 0.2s; }
         .sticky-ad .btn-ad:hover { background: #e2ba6e; }
 
         /* PUBLICIDADE DINÂMICA (ADSENSE E ANCHOR AD) */
-        .ad-space-container { width: 100%; max-width: 900px; margin: 30px auto; padding: 20px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda); border-bottom: 1px dashed var(--borda); }
-        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--texto-cinza); margin-bottom: 8px; font-weight: 800; display: block; }
+        .ad-space-container { width: 100%; max-width: 900px; margin: 30px auto; padding: 20px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda-suave); border-bottom: 1px dashed var(--borda-suave); }
+        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: #666; margin-bottom: 8px; font-weight: 800; display: block; }
         .ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; margin: 0 !important; padding: 0 !important; border: none !important; }
         
         .sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
-        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda); border-bottom: none; color: var(--texto-cinza); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
+        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda-suave); border-bottom: none; color: #666; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
         .sticky-toggle:hover { color: var(--dourado); }
-        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda-suave); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
         .sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
 
-        @media (max-width: 1100px) { .sticky-ad, .social-share-fixed { display: none; } }
-        @media (max-width: 768px) { .article-main { padding: 40px 25px; margin-top: -60px; } h1 { font-size: 28px; } h2 { font-size: 21px; } .cards-grid { grid-template-columns: 1fr; } .author-box { flex-direction: column; text-align: center; align-items: center; } .author-box img { margin: 0 auto; } }
+        /* FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO (PADRÃO BLOG) */
+        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
+        
+        .footer-brand { max-width: 350px; }
+        .footer-brand h2 { color: var(--fundo-claro); font-size: 26px; margin: 0 0 15px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-brand h2 span { color: var(--dourado); }
+        .footer-brand p { font-size: 13px; line-height: 1.8; color: #999; margin: 0; }
+        
+        .footer-nav { display: flex; gap: 80px; flex-wrap: wrap; flex: 1; justify-content: flex-end;}
+        .footer-col h4 { color: var(--dourado); font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 25px; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 10px;}
+        .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px; }
+        .footer-col ul li a { color: #bbb; text-decoration: none; font-size: 13px; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px;}
+        .footer-col ul li a:hover { color: var(--fundo-claro); padding-left: 5px;}
+        
+        .footer-bottom { max-width: 1400px; margin: 50px auto 0; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 12px; color: #666; letter-spacing: 1px; }
+
+        @media (max-width: 1100px) { 
+            .sticky-ad, .social-share-fixed { display: none; } 
+            .footer-nav { justify-content: flex-start; gap: 40px;}
+            .cards-grid, .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) { 
+            .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; }
+            .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;}
+            .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
+            #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
+            .editorial-nav-wrapper { top: 60px; padding: 0 15px; } 
+            .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;}
+            .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;}
+            .article-main { padding: 40px 25px; margin-top: -60px; } 
+            h1 { font-size: 28px; } 
+            h2 { font-size: 21px; } 
+            .cards-grid, .ultimas-colunas-grid { grid-template-columns: 1fr; } 
+            .author-box { flex-direction: column; text-align: center; align-items: center; } 
+            .author-box img { margin: 0 auto; } 
+            .footer-content { flex-direction: column; gap: 40px;}
+            .footer-nav { flex-direction: column; gap: 30px;}
+            .site-footer { padding: 50px 20px 100px; }
+            .sticky-bottom-wrapper { max-width: 100%; }
+        }
     </style>
 </head>
 <body>
     <div id="progress-container"><div id="progress-bar"></div></div>
     
+    <!-- ========================================================================================== -->
+    <!-- 1. CABEÇALHO SUPERIOR (FIXO) -->
+    <!-- ========================================================================================== -->
     <nav class="article-nav">
         <a href="https://www.youpconsultoria.com/index.html" class="logo-text" style="text-decoration:none;">YOUP <span>CONSULTORIA</span></a>
         <div class="nav-actions">
             <div id="google_translate_element"></div>
-            <button class="btn-action" onclick="toggleAudio()">▶ Ouvir Artigo</button>
+            <button class="btn-action btn-audio" onclick="toggleAudio()">▶ Ouvir Artigo</button>
+            <a href="https://www.youpconsultoria.com/consultoria" class="btn-action">Nossa Consultoria</a>
+            <a href="https://wa.me/5512991322333?text=Quero%20anunciar%20com%20a%20Youp" target="_blank" class="btn-action">Anuncie Aqui</a>
         </div>
     </nav>
+
+    <!-- ========================================================================================== -->
+    <!-- 2. MENU DE CATEGORIAS (FIXO LOGO ABAIXO DO CABEÇALHO) - "STICKY DUPLO" -->
+    <!-- ========================================================================================== -->
+    <div class="editorial-nav-wrapper">
+        <nav class="editorial-nav">
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Todos</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Radar Executivo</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Elas no Radar</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Jovem Liderança</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Dica de Hunter</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Entrevistas Exclusivas</button>
+            </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="window.location.href='https://www.youpconsultoria.com/index.html'">
+        </nav>
+    </div>
 
     <div class="social-share-fixed">
         <a onclick="shareLinkedIn(event)" class="social-btn" title="Compartilhar no LinkedIn">in</a>
@@ -235,7 +302,7 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <a href="https://www.youpconsultoria.com/blog.html" class="btn-back-blog">← Voltar para o Blog</a>
+            <a href="https://www.youpconsultoria.com/index.html" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 40px; padding: 15px; background: transparent; border: 1px solid var(--verde-youp); color: var(--verde-youp); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; text-decoration: none; border-radius: 4px; transition: 0.3s; box-sizing: border-box;" onmouseover="this.style.background='var(--verde-youp)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--verde-youp)';">← Voltar para a Página Inicial</a>
         </article>
 
         <!-- BOX DO AUTOR -->
@@ -248,34 +315,80 @@
             </div>
         </div>
 
-        <!-- MAIS COLUNAS DO MESMO AUTOR -->
+        <!-- ========================================================================================== -->
+        <!-- LEIA TAMBÉM (PUXADO INTELIGENTEMENTE DO INDEX.HTML E DO JSON) -->
+        <!-- ========================================================================================== -->
+        
+        <!-- Colunas do mesmo autor (puxadas via JSON) -->
         <div id="mais-colunas-container" class="more-columns" style="display: none;">
             <h3 id="mais-colunas-titulo">Mais Colunas</h3>
             <div id="mais-colunas-grid" class="cards-grid"></div>
         </div>
+
+        <!-- Outras matérias gerais (puxadas do Index) -->
+        <section class="related-articles-section">
+            <h3 class="section-title" style="margin-top: 40px; font-size: 22px;">Recomendados para você</h3>
+            <div class="ultimas-colunas-grid" id="relatedArticlesGrid">
+                <!-- Cards injetados via JavaScript -->
+            </div>
+        </section>
+
     </main>
 
-    <!-- SCRIPTS OBRIGATÓRIOS -->
-    <script>
-        window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
-        var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
-        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; document.querySelector('.btn-action').innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; document.querySelector('.btn-action').innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; document.querySelector('.btn-action').innerText = "⏹ Parar Áudio"; } }
-        function shareLinkedIn(e) { if(e) e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
-        function shareWhatsApp(e) { if(e) e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
-        
-        const autorAtualSlug = "debora-boscolo";
-        const autorAtualNome = "Debora Boscolo";
-        const urlArtigoAtual = "coluna-debora-boscolo-o-poder-nao-revela.html";
-        fetch('colunistas-artigos.json').then(res => res.json()).then(artigos => { const filtrados = artigos.filter(a => a.id_colunista === autorAtualSlug && a.url !== urlArtigoAtual); if (filtrados.length > 0) { document.getElementById('mais-colunas-container').style.display = 'block'; document.getElementById('mais-colunas-titulo').innerText = `Mais Colunas de ${autorAtualNome}`; const grid = document.getElementById('mais-colunas-grid'); filtrados.slice(0, 2).forEach(a => { grid.innerHTML += `<a href="${a.url}" class="card"><h4>${a.titulo}</h4><p>${a.descricao}</p></a>`; }); } }).catch(() => {});
+    <!-- FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO (PADRÃO BLOG) -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>YOUP<span>.</span></h2>
+                <p>Executive Search e Inteligência de Mercado. Estruturando o C-Suite e Conselhos de Administração das organizações que lideram o futuro.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Para Sua Carreira</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/portal-talentos.html">Nossas Vagas</a></li>
+                        <li><a href="https://www.youpconsultoria.com/carreira.html">Transição e Recolocação</a></li>
+                        <li><a href="https://www.youpconsultoria.com/reputacao.html">Gestão de Reputação</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Para Sua Empresa</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/headhunter.html">Headhunter Executivo</a></li>
+                        <li><a href="https://www.youpconsultoria.com/outplacement.html">Outplacement Estratégico</a></li>
+                        <li><a href="https://www.youpconsultoria.com/book.html">Book de Talentos Mapeados</a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone=5512991322333&text=Ol%C3%A1%2C+gostaria+de+consultar+a+agenda+da+Ana+Paula+para+palestrar+em+um+evento+corporativo.&type=phone_number&app_absent=0" target="_blank">Eventos & In Company</a></li>
+                        <li><a href="https://www.youpconsultoria.com/area-parceiro.html" style="color: var(--dourado);">✦ Hub Exclusivo</a></li>
+                    </ul>
+                </div>
 
-        function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
-        function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
-    </script>
-    
-    <!-- SCRIPT EXTERNO DO TRADUTOR -->
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                <div class="footer-col">
+                    <h4>Editorial</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/book-colunistas.html">Colunistas</a></li>
+                        <li><a href="https://wa.me/5512991322333?text=Quero%20ser%20colunista" target="_blank">Seja um Colunista</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/sobre.html">Quem Somos</a></li>
+                        <li><a href="https://www.youpconsultoria.com/contatos.html">Contatos</a></li>
+                        <li><a href="https://www.youpconsultoria.com/privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Youp Consultoria.
+        </div>
+    </footer>
 
-    <!-- ANCHOR AD RODAPÉ (INICIA ABERTO) -->
+    <!-- BANNER FIXO NO RODAPÉ DA TELA (INICIA ABERTO) -->
     <div class="sticky-bottom-wrapper" id="stickyBottomAd">
         <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
         <div class="sticky-ad-content" id="stickyAdContent">
@@ -283,5 +396,85 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </div>
+
+    <!-- SCRIPTS OBRIGATÓRIOS -->
+    <script>
+        // SCRIPT DE ARTIGOS RECOMENDADOS (BUSCA NO INDEX)
+        function carregarRecomendados() {
+            fetch('index.html')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const todosArtigos = Array.from(doc.querySelectorAll('#sourceArticles a'));
+                    
+                    const urlAtual = window.location.pathname.split('/').pop() || window.location.pathname;
+                    
+                    const artigosFiltrados = todosArtigos.filter(a => {
+                        const href = a.getAttribute('href');
+                        return href && !href.includes(urlAtual);
+                    });
+                    
+                    const recomendados = artigosFiltrados.slice(0, 3);
+                    const grid = document.getElementById('relatedArticlesGrid');
+                    
+                    if (!grid) return;
+                    
+                    recomendados.forEach(item => {
+                        const url = item.getAttribute('href');
+                        const imgSrc = item.querySelector('img').src;
+                        const tag = item.querySelector('.tag').innerText;
+                        const title = item.querySelector('.title').innerText;
+                        
+                        grid.innerHTML += `
+                            <a href="${url}" class="coluna-news-card">
+                                <img src="${imgSrc}" class="coluna-news-img" alt="${title}">
+                                <div class="coluna-news-body">
+                                    <span class="coluna-news-tag">${tag}</span>
+                                    <h4 class="coluna-news-title">${title}</h4>
+                                </div>
+                            </a>
+                        `;
+                    });
+                })
+                .catch(err => console.log('Aviso: Rodando localmente ou erro ao buscar index.html', err));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            carregarRecomendados();
+            
+            // Script para buscar mais colunas do autor via JSON
+            const autorAtualSlug = "debora-boscolo";
+            const autorAtualNome = "Debora Boscolo";
+            const urlArtigoAtual = "coluna-debora-boscolo-o-poder-nao-revela.html";
+            
+            fetch('colunistas-artigos.json')
+                .then(res => res.json())
+                .then(artigos => { 
+                    const filtrados = artigos.filter(a => a.id_colunista === autorAtualSlug && a.url !== urlArtigoAtual); 
+                    if (filtrados.length > 0) { 
+                        document.getElementById('mais-colunas-container').style.display = 'block'; 
+                        document.getElementById('mais-colunas-titulo').innerText = `Mais Colunas de ${autorAtualNome}`; 
+                        const grid = document.getElementById('mais-colunas-grid'); 
+                        filtrados.slice(0, 2).forEach(a => { 
+                            grid.innerHTML += `<a href="${a.url}" class="card"><h4>${a.titulo}</h4><p>${a.descricao}</p></a>`; 
+                        }); 
+                    } 
+                })
+                .catch(() => {});
+        });
+
+        window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
+        var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
+        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; document.querySelector('.btn-audio').innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; document.querySelector('.btn-audio').innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; document.querySelector('.btn-audio').innerText = "⏹ Parar Áudio"; } }
+        function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
+        function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
+        function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
+        function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
+    </script>
+    
+    <!-- SCRIPT EXTERNO DO TRADUTOR -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
