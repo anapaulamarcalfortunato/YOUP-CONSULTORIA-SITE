@@ -57,6 +57,14 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- TRAVA DE TEMPO (REDIRECIONA PARA O INDEX CASO SEJA ACESSADO ANTES DA DATA) -->
+    <script>
+        (function() {
+            const dataLiberacao = new Date('2026-09-07T00:00:00-03:00');
+            if (new Date() < dataLiberacao) { window.location.href = "https://www.youpconsultoria.com/index.html"; }
+        })();
+    </script>
+
     <!-- ESTILOS CSS OBRIGATÓRIOS (BLINDADOS) -->
     <style>
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; --bg-destaque: #f8f9fa; --borda-suave: #e9ecef; }
@@ -302,7 +310,7 @@
 
             <h2>3. Auditoria sem "Caça às Bruxas" e a Cultura do Aprendizado</h2>
 
-            <p>Em ambientes imaturos, auditorias e não conformidades são recebidas como acusações, culminando na busca por "quem fez errado?". Em organizações com governança madura, a pergunta muda para: <b>“O que no nosso sistema permitiu que isso acontecesse?”</b>. Responsabilização e governança andarão juntas, mas procurar um culpado pontual não corrige processos frágeis.</p>
+            <p>Em ambientes imaturos, auditorias e não conformidades são recebidas como acusações, culminando na busca por "quem fez errado?". Em organizações com governança madura, a pergunta muda para: <b>“O que no nosso sistema permitiu que isso acontecesse?”</b>. Responsabilização e governança andam juntas, mas procurar um culpado pontual não corrige processos frágeis.</p>
 
             <p>Auditorias, avaliações externas e processos de acreditação (como ONA) não devem ser encarados como eventos pontuais para "receber visitas", mas como instrumentos contínuos de leitura da organização. Uma não conformidade é a oportunidade valiosa de enxergar aquilo que a rotina normalizou.</p>
 
