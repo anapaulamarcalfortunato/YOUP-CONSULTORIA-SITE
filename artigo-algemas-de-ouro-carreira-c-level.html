@@ -377,6 +377,16 @@
                     
                     if (headerContainer && nav && catNav) {
                         headerContainer.innerHTML = nav.outerHTML + catNav.outerHTML;
+
+                        // INJEÇÃO AUTOMÁTICA DO BOTÃO "OUVIR ARTIGO" NO NAV-ACTIONS DO HEADER
+                        const navActions = headerContainer.querySelector('.nav-actions');
+                        if (navActions && !navActions.querySelector('.btn-audio')) {
+                            const audioBtn = document.createElement('button');
+                            audioBtn.className = 'btn-action btn-audio';
+                            audioBtn.setAttribute('onclick', 'toggleAudio()');
+                            audioBtn.innerHTML = '▶ Ouvir Artigo';
+                            navActions.insertBefore(audioBtn, navActions.children[1] || null);
+                        }
                     }
 
                     // Puxa o rodapé do index
@@ -471,7 +481,7 @@
 
         window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
         var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
-        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; document.querySelector('.btn-audio').innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; document.querySelector('.btn-audio').innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; document.querySelector('.btn-audio').innerText = "⏹ Parar Áudio"; } }
+        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "⏹ Parar Áudio"; } }
         function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
         function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
         function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
