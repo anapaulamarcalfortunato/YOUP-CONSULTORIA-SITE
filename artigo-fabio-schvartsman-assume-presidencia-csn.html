@@ -64,7 +64,9 @@
         #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1000; }
         #progress-bar { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s ease-out; }
         
-        /* CABEÇALHO FIXO PREMIUM (ALINHADO COM O INDEX) */
+        /* ========================================================================= */
+        /* CABEÇALHO SUPERIOR (FIXO) */
+        /* ========================================================================= */
         .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo-claro); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--borda-suave); height: 60px; box-sizing: border-box; }
         
         .article-nav .logo-text { color: var(--texto-titulo); font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
@@ -77,6 +79,20 @@
         #google_translate_element select { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; outline: none; text-transform: uppercase; letter-spacing: 1px; }
         #google_translate_element select:hover { background: var(--dourado); color: var(--fundo-claro); }
         .goog-te-banner-frame.skiptranslate { display: none !important; }
+
+        /* ========================================================================= */
+        /* MENU DE CATEGORIAS (FIXO LOGO ABAIXO DO CABEÇALHO) - STICKY DUPLO */
+        /* ========================================================================= */
+        .editorial-nav-wrapper { position: sticky; top: 60px; z-index: 999; background: var(--fundo-claro); padding: 0 5%; border-top: 2px solid var(--texto-titulo); border-bottom: 1px solid var(--borda-suave); box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 30px;}
+        .editorial-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 15px 0; }
+        
+        .filter-container { display: flex; gap: 25px; flex-wrap: wrap; align-items: center;}
+        .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #666; cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
+        .filter-btn:hover { color: var(--texto-titulo); }
+        .filter-btn.active { color: var(--texto-titulo); }
+        
+        .search-input { border: none; border-bottom: 1px solid var(--borda-suave); padding: 5px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; outline: none; width: 180px; transition: 0.3s; background: transparent; }
+        .search-input:focus { border-color: var(--dourado); width: 230px; }
         
         /* HERO E CONTEÚDO ALINHADO */
         .article-hero { width: 100%; height: 60vh; display: flex; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600') center center/cover; }
@@ -147,6 +163,9 @@
             .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;}
             .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
             #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
+            .editorial-nav-wrapper { top: 60px; padding: 0 15px; } 
+            .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;}
+            .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;}
             .article-main { padding: 40px 25px; margin-top: -60px; } 
             h1 { font-size: 28px; } 
             h2 { font-size: 21px; } 
@@ -163,7 +182,9 @@
 <body>
     <div id="progress-container"><div id="progress-bar"></div></div>
     
-    <!-- CABEÇALHO FIXO (PADRÃO BLOG) -->
+    <!-- ========================================================================================== -->
+    <!-- 1. CABEÇALHO SUPERIOR (FIXO) -->
+    <!-- ========================================================================================== -->
     <nav class="article-nav">
         <a href="https://www.youpconsultoria.com/index.html" class="logo-text">YOUP <span>CONSULTORIA</span></a>
         <div class="nav-actions">
@@ -173,6 +194,23 @@
             <a href="https://wa.me/5512991322333?text=Quero%20anunciar%20com%20a%20Youp" target="_blank" class="btn-action">Anuncie Aqui</a>
         </div>
     </nav>
+
+    <!-- ========================================================================================== -->
+    <!-- 2. MENU DE CATEGORIAS (FIXO LOGO ABAIXO DO CABEÇALHO) - "STICKY DUPLO" -->
+    <!-- ========================================================================================== -->
+    <div class="editorial-nav-wrapper">
+        <nav class="editorial-nav">
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Todos</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Radar Executivo</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Elas no Radar</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Jovem Liderança</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Dica de Hunter</button>
+                <button class="filter-btn" onclick="window.location.href='https://www.youpconsultoria.com/index.html'">Entrevistas Exclusivas</button>
+            </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="window.location.href='https://www.youpconsultoria.com/index.html'">
+        </nav>
+    </div>
 
     <div class="social-share-fixed">
         <a href="#" class="social-btn" onclick="shareLinkedIn(event)" title="Compartilhar no LinkedIn">in</a>
@@ -401,12 +439,8 @@
         function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
     </script>
     
-    <!-- SCRIPT EXTERNO DO TRADUTOR -->
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- GOOGLE TRANSLATE (ISOLADO PARA GARANTIR FUNCIONAMENTO) -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
-"""
-with open("artigo_updated_v7.html", "w") as f:
-    f.write(html_code)
-print("File saved")}Sou apenas um modelo de linguagem. Não posso ajudar com isso.
