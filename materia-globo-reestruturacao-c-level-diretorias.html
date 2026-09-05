@@ -43,8 +43,8 @@
       "headline": "Grupo Globo anuncia reorganização no C-Level e unificação de diretorias",
       "image": "https://lh3.googleusercontent.com/d/1icCfLTDjB_Jtveajezy37p5yLOYRcKWL",
       "author": {
-        "@type": "Person",
-        "name": "Ana Paula Marçal Fortunato"
+        "@type": "Organization",
+        "name": "Equipe Editorial Youp"
       },
       "publisher": {
         "@type": "Organization",
@@ -71,7 +71,7 @@
         })();
     </script>
 
-    <!-- ESTILOS CSS OBRIGATÓRIOS (BLINDADOS DO CÓDIGO 2) -->
+    <!-- ESTILOS CSS OBRIGATÓRIOS -->
     <style>
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; --bg-destaque: #f8f9fa; --borda-suave: #e9ecef; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -112,18 +112,12 @@
         .article-hero { width: 100%; height: 60vh; display: flex; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://lh3.googleusercontent.com/d/1icCfLTDjB_Jtveajezy37p5yLOYRcKWL') center center/cover; }
         .article-main { max-width: 900px; margin: -100px auto 100px auto; background: var(--fundo-claro); position: relative; z-index: 10; padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
         .editorial-badge { display: inline-block; background: var(--verde-youp); color: #ffffff; padding: 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; margin-bottom: 20px; text-align: left; }
-        
+        .article-author-credit { font-size: 13px; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: 1px; margin-top: -25px; margin-bottom: 35px; }
+
         h1 { font-size: 38px; color: var(--texto-titulo); margin-bottom: 40px; line-height: 1.3; font-weight: 800; text-align: left; letter-spacing: -1px; }
         h2 { font-size: 26px; color: var(--texto-titulo); margin-top: 55px; margin-bottom: 25px; font-weight: 700; line-height: 1.3; border-left: 4px solid var(--verde-youp); padding-left: 15px; }
         p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size: 18px; }
         .article-middle-img { max-width: 100%; height: auto; display: block; margin: 50px auto; border-radius: 4px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        
-        .author-box { display: flex; align-items: flex-start; gap: 25px; background-color: var(--bg-destaque); border: 1px solid var(--borda-suave); padding: 40px; border-radius: 6px; margin-top: 80px; border-left: 4px solid var(--verde-youp); }
-        .author-box img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--dourado); flex-shrink: 0; }
-        .author-info h4 { margin: 0 0 6px 0; color: var(--texto-titulo); font-size: 20px; font-weight: 700; }
-        .author-info p { font-size: 14px; margin-bottom: 15px; color: #555; line-height: 1.7; }
-        .btn-linkedin { display: inline-block; background-color: #0077b5; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 4px; text-transform: uppercase; transition: background 0.3s; margin-top: 15px;}
-        .btn-linkedin:hover { background-color: #005582; }
         
         /* RECOMENDAÇÃO: LEIA TAMBÉM */
         .related-articles-section { max-width: 900px; margin: 60px auto 20px auto; padding: 0; border-top: 1px solid var(--borda-suave); padding-top: 40px; }
@@ -187,8 +181,6 @@
             h1 { font-size: 28px; } 
             h2 { font-size: 21px; } 
             .ultimas-colunas-grid { grid-template-columns: 1fr; } 
-            .author-box { flex-direction: column; text-align: center; align-items: center; } 
-            .author-box img { margin: 0 auto; } 
             .footer-content { flex-direction: column; gap: 40px;}
             .footer-nav { flex-direction: column; gap: 30px;}
             .site-footer { padding: 50px 20px 100px; }
@@ -218,6 +210,7 @@
     <main class="article-main">
         <span class="editorial-badge">RADAR EXECUTIVO</span>
         <h1>Grupo Globo anuncia reorganização no C-Level e unificação de diretorias</h1>
+        <p class="article-author-credit">Por Equipe Editorial Youp</p>
         
         <article id="conteudo-artigo">
             <p>O Grupo Globo oficializou, nesta sexta-feira no Rio de Janeiro, uma ampla reorganização de seu organograma executivo com o objetivo de integrar as operações da TV aberta aos Estúdios Globo e acelerar a expansão digital do portfólio. As mudanças abrangem a criação de uma diretoria focada em Consumidor e Marketing, a migração de frentes de Relações Institucionais, Jurídico e Compliance para a holding e a transição programada de executivos sêniores da companhia.</p>
@@ -280,16 +273,6 @@
             
             <a href="https://www.youpconsultoria.com/index.html" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 40px; padding: 15px; background: transparent; border: 1px solid var(--verde-youp); color: var(--verde-youp); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; text-decoration: none; border-radius: 4px; transition: 0.3s; box-sizing: border-box;" onmouseover="this.style.background='var(--verde-youp)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--verde-youp)';">← Voltar para a Página Inicial</a>
         </article>
-
-        <!-- BOX DA ANA PAULA (DINÂMICO VIA JSON - FORMATO TEXTO 2) -->
-        <div class="author-box" id="author-box-anapaula">
-            <img id="author-img" src="" alt="Ana Paula Marçal Fortunato">
-            <div class="author-info">
-                <h4 id="author-nome">Ana Paula Marçal Fortunato</h4>
-                <p id="author-bio">Carregando dados da autora...</p>
-                <a id="author-linkedin" href="#" target="_blank" class="btn-linkedin">Conectar no LinkedIn</a>
-            </div>
-        </div>
 
         <!-- ========================================================================================== -->
         <!-- LEIA TAMBÉM (PUXADO INTELIGENTEMENTE DO INDEX.HTML COM FILTRO DE DATA E LINK PRECISO) -->
@@ -367,22 +350,7 @@
                 .catch(err => console.error('Erro ao carregar layout global:', err));
         }
 
-        // 2. SCRIPT DE AUTOR VIA JSON
-        fetch('autor-anapaula.json')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('author-img').src = data.foto;
-                document.getElementById('author-nome').innerText = data.nome;
-                document.getElementById('author-bio').innerText = data.bio;
-                document.getElementById('author-linkedin').href = data.linkedin;
-            })
-            .catch(err => {
-                document.getElementById('author-img').src = "https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg";
-                document.getElementById('author-bio').innerText = "Especialista em Executive Search, atração de C-Level e estruturação de posições estratégicas de liderança. Com mais de 50 posições conduzidas com sucesso, possui taxa de retenção de 89% e é criadora da Metodologia S.T.A.R.E. para avaliação e posicionamento executivo.";
-                document.getElementById('author-linkedin').href = "https://www.linkedin.com/in/anapaulamarcalfortunato/";
-            });
-
-        // 3. SCRIPT DE ARTIGOS RECOMENDADOS (BUSCA NO INDEX COM FILTRO DE DATA E LINK PRECISO)
+        // 2. SCRIPT DE ARTIGOS RECOMENDADOS (BUSCA NO INDEX COM FILTRO DE DATA E LINK PRECISO)
         function carregarRecomendados() {
             fetch('index.html')
                 .then(response => response.text())
