@@ -76,7 +76,7 @@
         })();
     </script>
 
-    <!-- ESTILOS CSS OBRIGATÓRIOS (BLINDADOS) -->
+    <!-- ESTILOS CSS OBRIGATÓRIOS (BLINDADOS E CORRIGIDOS PARA O MENU IGUAL AO CÓDIGO 2) -->
     <style>
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; --bg-destaque: #f8f9fa; --borda-suave: #e9ecef; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -118,7 +118,7 @@
         blockquote { background: #f9f6f0; border-radius: 8px; padding: 40px; margin: 50px 0; border: 1px solid #eee; font-style: italic; font-size: 20px; line-height: 1.8; color: var(--texto-corpo); }
         .article-middle-img { max-width: 100%; height: auto; display: block; margin: 50px auto; border-radius: 4px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
         
-        /* BOX DO AUTOR ESTÁTICO (NÃO ALTERADO) */
+        /* BOX DO AUTOR ESTÁTICO */
         .author-box { display: flex; align-items: flex-start; gap: 25px; background-color: var(--bg-destaque); border: 1px solid var(--borda-suave); padding: 40px; border-radius: 6px; margin-top: 80px; border-left: 4px solid var(--verde-youp); }
         .author-box img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--dourado); flex-shrink: 0; }
         .author-info h4 { margin: 0 0 6px 0; color: var(--texto-titulo); font-size: 20px; font-weight: 700; }
@@ -177,21 +177,33 @@
             .footer-nav { justify-content: flex-start; gap: 40px;}
             .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); }
         }
+        
+        /* AQUI FOI INCLUÍDA A RESPONSIVIDADE CORRETA DO MENU, IGUAL AO CÓDIGO 2 */
         @media (max-width: 768px) { 
+            .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; } 
+            .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;} 
+            .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } 
+            #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } 
+            .editorial-nav-wrapper { padding: 0 15px; } 
+            .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;} 
+            .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;} 
             .article-main { padding: 40px 25px; margin-top: -60px; } 
             h1 { font-size: 28px; } 
             h2 { font-size: 21px; } 
             .ultimas-colunas-grid { grid-template-columns: 1fr; } 
             .author-box { flex-direction: column; text-align: center; align-items: center; } 
             .author-box img { margin: 0 auto; } 
-            .sticky-bottom-wrapper { max-width: 100%; }
+            .footer-content { flex-direction: column; gap: 40px;} 
+            .footer-nav { flex-direction: column; gap: 30px;} 
+            .site-footer { padding: 50px 20px 100px; } 
+            .sticky-bottom-wrapper { max-width: 100%; } 
         }
     </style>
 </head>
 <body>
     <div id="progress-container"><div id="progress-bar"></div></div>
     
-    <!-- MARCADOR: O CABEÇALHO E O MENU DO INDEX SERÃO INJETADOS AQUI AUTOMATICAMENTE -->
+    <!-- INJEÇÃO GLOBAL DE HEADER -->
     <div id="header-global"></div>
 
     <div class="social-share-fixed">
@@ -329,7 +341,7 @@
             <a href="https://www.youpconsultoria.com/index.html" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 40px; padding: 15px; background: transparent; border: 1px solid var(--verde-youp); color: var(--verde-youp); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; text-decoration: none; border-radius: 4px; transition: 0.3s; box-sizing: border-box;" onmouseover="this.style.background='var(--verde-youp)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--verde-youp)';">← Voltar para a Página Inicial</a>
         </article>
 
-        <!-- BOX DA ANA PAULA (NÃO ALTERE) -->
+        <!-- BOX DA ANA PAULA ESTÁTICO (MANTIDO INTACTO) -->
         <div class="author-box">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/IMG_0516.jpeg" alt="Ana Paula Marçal Fortunato">
             <div class="author-info">
@@ -339,9 +351,7 @@
             </div>
         </div>
 
-        <!-- ========================================================================================== -->
-        <!-- LEIA TAMBÉM (PUXADO INTELIGENTEMENTE DO INDEX.HTML COM FILTRO DE DATA E LINK PRECISO) -->
-        <!-- ========================================================================================== -->
+        <!-- Recomendados via Script -->
         <section class="related-articles-section">
             <h3 class="section-title" style="margin-top: 40px; font-size: 22px;">Recomendados para você</h3>
             <div class="ultimas-colunas-grid" id="relatedArticlesGrid">
@@ -365,7 +375,7 @@
 
     <!-- SCRIPTS OBRIGATÓRIOS -->
     <script>
-        // 1. SCRIPT DE CARREGAMENTO DINÂMICO DO LAYOUT GLOBAL (HEADER E FOOTER DO INDEX)
+        // SCRIPT DE CARREGAMENTO DINÂMICO DO LAYOUT GLOBAL (EXATAMENTE COMO O CÓDIGO 2)
         function carregarLayoutGlobal() {
             fetch('index.html')
                 .then(response => response.text())
@@ -373,7 +383,6 @@
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
 
-                    // Puxa o cabeçalho superior e o menu de categorias do index
                     const nav = doc.querySelector('.article-nav');
                     const catNav = doc.querySelector('.editorial-nav-wrapper');
                     const headerContainer = document.getElementById('header-global');
@@ -381,7 +390,6 @@
                     if (headerContainer && nav && catNav) {
                         headerContainer.innerHTML = nav.outerHTML + catNav.outerHTML;
 
-                        // 1.1 Injeção do Botão "Ouvir Artigo"
                         const navActions = headerContainer.querySelector('.nav-actions');
                         if (navActions && !navActions.querySelector('.btn-audio')) {
                             const audioBtn = document.createElement('button');
@@ -391,21 +399,18 @@
                             navActions.insertBefore(audioBtn, navActions.children[1] || null);
                         }
 
-                        // 1.2 Reescrita das ações do menu de categorias para direcionar ao index.html
                         const filterBtns = headerContainer.querySelectorAll('.filter-btn');
                         filterBtns.forEach(btn => {
                             btn.setAttribute('onclick', "window.location.href='https://www.youpconsultoria.com/index.html'");
                         });
 
-                        // 1.3 Reescrita do campo de pesquisa para direcionar ao index.html
                         const searchInput = headerContainer.querySelector('#searchInput');
                         if (searchInput) {
                             searchInput.setAttribute('onkeyup', "window.location.href='https://www.youpconsultoria.com/index.html'");
                         }
                     }
 
-                    // Puxa o rodapé do index (suporta <footer class="site-footer"> ou apenas <footer>)
-                    const footer = doc.querySelector('footer') || doc.querySelector('.site-footer');
+                    const footer = doc.querySelector('.site-footer') || doc.querySelector('footer');
                     const footerContainer = document.getElementById('footer-global');
                     
                     if (footerContainer && footer) {
@@ -415,7 +420,6 @@
                 .catch(err => console.error('Erro ao carregar layout global:', err));
         }
 
-        // 2. SCRIPT DE ARTIGOS RECOMENDADOS (BUSCA NO INDEX COM FILTRO DE DATA E LINK PRECISO)
         function carregarRecomendados() {
             fetch('index.html')
                 .then(response => response.text())
@@ -429,17 +433,14 @@
                     const artigosFiltrados = todosArtigos.filter(a => {
                         const href = a.getAttribute('href');
                         if (!href) return false;
-                        
-                        // 1. Oculta o próprio artigo atual
                         if (href.includes(urlAtual) || urlAtual.includes(href)) return false;
                         
-                        // 2. Trava de Data: Oculta matérias agendadas para o futuro
                         const dataAgendada = a.getAttribute('data-publish-date');
                         if (dataAgendada) {
                             const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00');
                             const dataAtual = new Date();
                             if (dataAtual < dataPublicacao) {
-                                return false; // Bloqueado para o futuro
+                                return false;
                             }
                         }
                         return true;
@@ -491,7 +492,7 @@
     </script>
     
     <!-- SCRIPT EXTERNO DO TRADUTOR -->
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
