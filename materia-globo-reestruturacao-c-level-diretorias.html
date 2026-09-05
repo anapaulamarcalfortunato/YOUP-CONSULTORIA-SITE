@@ -16,13 +16,6 @@
     <meta property="og:url" content="https://www.youpconsultoria.com/materia-globo-reestruturacao-c-level-diretorias.html">
     <meta property="og:type" content="article">
 
-    <!-- Twitter Tags -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.youpconsultoria.com/materia-globo-reestruturacao-c-level-diretorias.html">
-    <meta property="twitter:title" content="Grupo Globo anuncia reorganização no C-Level e unificação de diretorias">
-    <meta property="twitter:description" content="Grupo reorganizou o comando de marketing, conteúdo e distribuição digital com a saída de três executivos sêniores.">
-    <meta property="twitter:image" content="https://lh3.googleusercontent.com/d/1icCfLTDjB_Jtveajezy37p5yLOYRcKWL">
-
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
     <script>
@@ -32,7 +25,7 @@
       gtag('config', 'G-6JTWLMZBRS');
     </script>
 
-    <!-- AdSense no Head -->
+    <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1434753673886142" crossorigin="anonymous"></script>
 
     <!-- Schema JSON-LD -->
@@ -71,7 +64,7 @@
         })();
     </script>
 
-    <!-- ESTILOS CSS OBRIGATÓRIOS -->
+    <!-- ESTILOS CSS OBRIGATÓRIOS E RESPONSIVOS (ALINHADOS COM O INDEX) -->
     <style>
         :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; --bg-destaque: #f8f9fa; --borda-suave: #e9ecef; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -171,12 +164,18 @@
             .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) { 
+            .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; }
             .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;}
             .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
             #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
-            .editorial-nav-wrapper { padding: 0 15px; } 
-            .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;}
-            .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;}
+            
+            .editorial-nav-wrapper { top: 60px; padding: 0 15px; } 
+            .editorial-nav { flex-direction: row; overflow-x: auto; white-space: nowrap; scrollbar-width: none;}
+            .editorial-nav::-webkit-scrollbar { display: none; }
+            .filter-container { flex-wrap: nowrap; gap: 15px; padding-bottom: 5px; flex: 1;}
+            .search-input { width: 120px; }
+            .search-input:focus { width: 150px; }
+
             .article-main { padding: 40px 25px; margin-top: -60px; } 
             h1 { font-size: 28px; } 
             h2 { font-size: 21px; } 
@@ -340,7 +339,7 @@
                     }
 
                     // Puxa o rodapé do index
-                    const footer = doc.querySelector('.site-footer');
+                    const footer = doc.querySelector('.site-footer') || doc.querySelector('footer');
                     const footerContainer = document.getElementById('footer-global');
                     
                     if (footerContainer && footer) {
@@ -365,14 +364,16 @@
                         const href = a.getAttribute('href');
                         if (!href) return false;
                         
+                        // 1. Oculta o próprio artigo atual
                         if (href.includes(urlAtual) || urlAtual.includes(href)) return false;
                         
+                        // 2. Trava de Data: Oculta matérias agendadas para o futuro
                         const dataAgendada = a.getAttribute('data-publish-date');
                         if (dataAgendada) {
                             const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00');
                             const dataAtual = new Date();
                             if (dataAtual < dataPublicacao) {
-                                return false;
+                                return false; // Bloqueado para o futuro
                             }
                         }
                         return true;
