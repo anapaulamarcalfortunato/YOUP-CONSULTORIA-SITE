@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo. - Rogerio Pires | YOUP Consultoria</title>
+    <meta name="description" content="A Inteligência Artificial não é mais exclusiva da TI. Entenda como ela impacta os negócios, lideranças e exige responsabilidade e senso crítico.">
+    <meta name="keywords" content="Inteligência Artificial, IA nos negócios, Liderança 4.0, Governança de IA, Tecnologia da Informação, Transformação Digital, Rogerio Pires">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.youpconsultoria.com/coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.">
+    <meta property="og:description" content="A Inteligência Artificial não é mais exclusiva da TI. Entenda como ela impacta os negócios, lideranças e exige responsabilidade e senso crítico.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7">
+    <meta property="og:url" content="https://www.youpconsultoria.com/coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.youpconsultoria.com/coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html">
+    <meta property="twitter:title" content="A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.">
+    <meta property="twitter:description" content="A Inteligência Artificial não é mais exclusiva da TI. Entenda como ela impacta os negócios, lideranças e exige responsabilidade e senso crítico.">
+    <meta property="twitter:image" content="https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1434753673886142" crossorigin="anonymous"></script>
+
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.",
+      "image": "https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7",
+      "author": {
+        "@type": "Person",
+        "name": "Rogerio Pires"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "YOUP Consultoria",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.youpconsultoria.com/logo.png"
+        }
+      },
+      "datePublished": "2026-09-11",
+      "dateModified": "2026-09-11"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- TRAVA DE TEMPO -->
+    <script>
+        (function() { 
+            const d = new Date('2026-09-11T00:00:00-03:00'); 
+            if (new Date() < d) { window.location.href = "https://www.youpconsultoria.com/index.html"; } 
+        })();
+    </script>
+
+    <!-- ESTILOS CSS OBRIGATÓRIOS -->
+    <style>
+        :root { --dourado: #c5a059; --verde-youp: #5c8e82; --cinza-escuro: #0a0a0a; --fundo-claro: #ffffff; --texto-corpo: #2c2c2c; --texto-titulo: #1a1a1a; --bg-destaque: #f8f9fa; --borda-suave: #e9ecef; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.9; font-size: 17px; -webkit-font-smoothing: antialiased; top: 0px !important; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1001; }
+        #progress-bar { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s ease-out; }
+        
+        /* CONTAINER DO CABEÇALHO GLOBAL FIXADO NO TOPO */
+        #header-global { position: sticky; top: 0; z-index: 1000; background-color: var(--fundo-claro); width: 100%; }
+
+        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo-claro); border-bottom: 1px solid var(--borda-suave); height: 60px; box-sizing: border-box; }
+        .article-nav .logo-text { color: var(--texto-titulo); font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
+        .article-nav .logo-text span { color: var(--dourado); }
+        .nav-actions { display: flex; gap: 12px; align-items: center; }
+        .btn-action { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; text-decoration: none; gap: 8px; white-space: nowrap;}
+        .btn-action:hover { background: var(--dourado); color: var(--texto-titulo); }
+        
+        #google_translate_element select { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; outline: none; text-transform: uppercase; letter-spacing: 1px; }
+        #google_translate_element select:hover { background: var(--dourado); color: var(--fundo-claro); }
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+
+        .editorial-nav-wrapper { background: var(--fundo-claro); padding: 0 5%; border-top: 2px solid var(--texto-titulo); border-bottom: 1px solid var(--borda-suave); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .editorial-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 15px 0; }
+        .filter-container { display: flex; gap: 25px; flex-wrap: wrap; align-items: center;}
+        .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #666; cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
+        .filter-btn:hover { color: var(--texto-titulo); }
+        .filter-btn.active { color: var(--texto-titulo); }
+        .search-input { border: none; border-bottom: 1px solid var(--borda-suave); padding: 5px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; outline: none; width: 180px; transition: 0.3s; background: transparent; }
+        .search-input:focus { border-color: var(--dourado); width: 230px; }
+        
+        /* HERO E CONTEÚDO ALINHADO */
+        .article-hero { width: 100%; height: 60vh; display: flex; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7') center center/cover; }
+        .article-main { max-width: 900px; margin: -100px auto 100px auto; background: var(--fundo-claro); position: relative; z-index: 10; padding: 80px 100px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .editorial-badge { display: inline-block; background: var(--verde-youp); color: #ffffff; padding: 6px 16px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; margin-bottom: 20px; text-align: left; }
+        
+        h1 { font-size: 38px; color: var(--texto-titulo); margin-bottom: 40px; line-height: 1.3; font-weight: 800; text-align: left; letter-spacing: -1px; }
+        h2 { font-size: 26px; color: var(--texto-titulo); margin-top: 55px; margin-bottom: 25px; font-weight: 700; line-height: 1.3; border-left: 4px solid var(--verde-youp); padding-left: 15px; }
+        h3 { font-size: 22px; color: var(--verde-youp); margin-top: 40px; font-weight: 700; }
+        p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size: 18px; }
+        ul, ol { margin-bottom: 30px; padding-left: 20px; font-size: 17px; }
+        li { margin-bottom: 15px; }
+        blockquote { background: #f9f6f0; border-radius: 8px; padding: 40px; margin: 50px 0; border: 1px solid #eee; font-style: italic; font-size: 20px; line-height: 1.8; color: var(--texto-corpo); }
+        .article-middle-img { max-width: 100%; height: auto; display: block; margin: 50px auto; border-radius: 4px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        
+        /* BOX DO AUTOR ESTÁTICO */
+        .author-box { display: flex; align-items: flex-start; gap: 25px; background-color: var(--bg-destaque); border: 1px solid var(--borda-suave); padding: 40px; border-radius: 6px; margin-top: 80px; border-left: 4px solid var(--verde-youp); }
+        .author-box img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--dourado); flex-shrink: 0; }
+        .author-info h4 { margin: 0 0 6px 0; color: var(--texto-titulo); font-size: 20px; font-weight: 700; }
+        .author-info p { font-size: 14px; margin-bottom: 15px; color: #555; line-height: 1.7; text-align: left; }
+        .btn-linkedin { display: inline-block; background-color: #0077b5; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 4px; text-transform: uppercase; transition: background 0.3s; margin-top: 15px;}
+        .btn-linkedin:hover { background-color: #005582; }
+
+        /* RECOMENDAÇÃO: MAIS COLUNAS / LEIA TAMBÉM */
+        .related-articles-section { max-width: 900px; margin: 60px auto 20px auto; padding: 0; border-top: 1px solid var(--borda-suave); padding-top: 40px; }
+        .more-columns { margin-top: 60px; border-top: 1px solid #ddd; padding-top: 50px; }
+        .more-columns h3, .related-articles-section h3 { font-size: 24px; color: var(--texto-titulo); margin-bottom: 30px; }
+        .cards-grid, .ultimas-colunas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .card, .coluna-news-card { border: 1px solid var(--borda-suave); background: #fff; border-radius: 8px; padding: 0; text-decoration: none; color: inherit; transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; overflow: hidden;}
+        .card:hover, .coluna-news-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.08); transform: translateY(-5px); border-color: var(--dourado); }
+        .card h4, .coluna-news-title { margin: 0 0 10px 0; color: var(--texto-titulo); font-size: 15px; line-height: 1.3; font-weight: 700; padding: 0 20px 20px 20px;}
+        .card p { margin: 0; font-size: 14px; color: #666; line-height: 1.5; padding: 0 20px 20px 20px;}
+        .coluna-news-img { width: 100%; height: 160px; object-fit: cover; }
+        .coluna-news-body { padding: 20px 20px 0 20px; display: flex; flex-direction: column; flex: 1;}
+        .coluna-news-tag { font-size: 10px; font-weight: 800; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;}
+
+        /* WIDGETS LATERAIS */
+        .social-share-fixed { position: fixed; left: 20px; top: 250px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
+        .social-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--cinza-escuro); color: var(--fundo-claro); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; border: 1px solid var(--dourado); transition: all 0.3s ease; cursor: pointer; }
+        .social-btn:hover { background: var(--dourado); color: var(--cinza-escuro); transform: translateY(-3px); }
+        
+        .sticky-ad { position: fixed; right: 20px; top: 120px; width: 200px; background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 20px 15px; border-radius: 4px; z-index: 999; box-shadow: 0 15px 30px rgba(0,0,0,0.2); text-align: center; }
+        .sticky-ad h4 { color: var(--dourado); font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .sticky-ad p { color: #ccc; font-size: 11px; line-height: 1.4; margin-bottom: 12px; text-align: center; }
+        .sticky-ad .btn-ad { display: block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; padding: 8px 10px; font-size: 10px; font-weight: 700; border-radius: 2px; text-transform: uppercase; transition: background 0.2s; }
+        .sticky-ad .btn-ad:hover { background: #e2ba6e; }
+
+        /* PUBLICIDADE DINÂMICA */
+        .ad-space-container { width: 100%; max-width: 900px; margin: 30px auto; padding: 20px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda-suave); border-bottom: 1px dashed var(--borda-suave); }
+        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: #666; margin-bottom: 8px; font-weight: 800; display: block; }
+        .ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; margin: 0 !important; padding: 0 !important; border: none !important; }
+        
+        .sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda-suave); border-bottom: none; color: #666; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
+        .sticky-toggle:hover { color: var(--dourado); }
+        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda-suave); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
+
+        /* FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO (PADRÃO BLOG) */
+        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
+        .footer-brand { max-width: 350px; }
+        .footer-brand h2 { color: var(--fundo-claro); font-size: 26px; margin: 0 0 15px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-brand h2 span { color: var(--dourado); }
+        .footer-brand p { font-size: 13px; line-height: 1.8; color: #999; margin: 0; }
+        .footer-nav { display: flex; gap: 80px; flex-wrap: wrap; flex: 1; justify-content: flex-end;}
+        .footer-col h4 { color: var(--dourado); font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 25px; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 10px;}
+        .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px; }
+        .footer-col ul li a { color: #bbb; text-decoration: none; font-size: 13px; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px;}
+        .footer-col ul li a:hover { color: var(--fundo-claro); padding-left: 5px;}
+        .footer-bottom { max-width: 1400px; margin: 50px auto 0; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 12px; color: #666; letter-spacing: 1px; }
+
+        @media (max-width: 1100px) { 
+            .sticky-ad, .social-share-fixed { display: none; } 
+            .footer-nav { justify-content: flex-start; gap: 40px;}
+            .cards-grid, .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) { 
+            .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; } 
+            .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;} 
+            .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } 
+            #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } 
+            .editorial-nav-wrapper { padding: 0 15px; } 
+            .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;} 
+            .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;} 
+            .article-main { padding: 40px 25px; margin-top: -60px; } 
+            h1 { font-size: 28px; } 
+            h2 { font-size: 21px; } 
+            .cards-grid, .ultimas-colunas-grid { grid-template-columns: 1fr; } 
+            .author-box { flex-direction: column; text-align: center; align-items: center; } 
+            .author-box img { margin: 0 auto; } 
+            .footer-content { flex-direction: column; gap: 40px;} 
+            .footer-nav { flex-direction: column; gap: 30px;} 
+            .site-footer { padding: 50px 20px 100px; } 
+            .sticky-bottom-wrapper { max-width: 100%; } 
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+    
+    <!-- MARCADOR: O CABEÇALHO E O MENU DO INDEX SERÃO INJETADOS AQUI AUTOMATICAMENTE -->
+    <div id="header-global"></div>
+
+    <div class="social-share-fixed">
+        <a onclick="shareLinkedIn(event)" class="social-btn" title="Compartilhar no LinkedIn">in</a>
+        <a onclick="shareWhatsApp(event)" class="social-btn" title="Compartilhar no WhatsApp">wa</a>
+    </div>
+
+    <div class="sticky-ad">
+        <h4>Mapeamento Executivo</h4>
+        <p>Precisa de suporte em Executive Search e avaliação de lideranças sêniores?</p>
+        <a href="https://www.youpconsultoria.com/headhunter.html" class="btn-ad">Falar com Headhunter</a>
+    </div>
+
+    <div class="article-hero"></div>
+
+    <main class="article-main">
+        <span class="editorial-badge">Coluna Exclusiva: LIDERANÇA 4.0 & TECH • por Rogerio Pires</span>
+        <h1>A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.</h1>
+        
+        <article id="conteudo-artigo">
+            <p>Trabalho com tecnologia há mais de 20 anos e, nesse período, acompanhei algumas transformações importantes.</p>
+            <p>Vi a internet mudar a forma como empresas e clientes se relacionam. Vi os ERPs integrarem áreas que antes trabalhavam de forma praticamente isolada. Acompanhei a evolução da computação em nuvem, do mobile, dos dados, da automação e de tantas outras tecnologias que, em algum momento, foram apresentadas como grandes revoluções.</p>
+            <p>Agora estamos vivendo a Inteligência Artificial. E existe algo diferente desta vez. <strong>Poucas tecnologias chegaram tão rapidamente às mãos de tantas pessoas.</strong></p>
+            <p>Hoje, qualquer profissional pode abrir uma ferramenta de IA e, em poucos minutos, utilizá-la para escrever, pesquisar, analisar informações, organizar ideias, resumir documentos ou apoiar uma decisão.</p>
+            <p>Mesmo assim, ainda encontro muitas pessoas que olham para Inteligência Artificial como se fosse um assunto essencialmente de TI. <strong>Não é.</strong> IA está se tornando um assunto de negócios, de liderança e, cada vez mais, do nosso próprio trabalho.</p>
+
+            <div class="ad-space-container">
+                <p class="ad-space-label">Continua após a publicidade ▼</p>
+                <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <h2>O Que É Inteligência Artificial?</h2>
+            <p>Sem entrar em algoritmos, modelos ou termos técnicos, podemos pensar de maneira simples: <em>“Inteligência Artificial permite que sistemas realizem tarefas que normalmente associamos a capacidades humanas, como interpretar informações, reconhecer padrões, gerar conteúdos, fazer previsões, recomendar alternativas e apoiar decisões.”</em></p>
+            <p>Mas existe uma diferença importante. <strong>A IA não precisa “pensar” como nós para produzir respostas que parecem extremamente inteligentes.</strong> E isso exige atenção.</p>
+            <p>Quem já utilizou uma IA generativa provavelmente experimentou aquela sensação de receber uma resposta tão bem construída que parece impossível estar errada. Só que pode estar. <strong>Uma resposta convincente não é necessariamente uma resposta correta.</strong></p>
+            <p>Talvez essa seja uma das primeiras coisas que todos deveríamos aprender sobre IA: ela pode ampliar muito nossa capacidade, mas não deveria substituir nosso senso crítico.</p>
+
+            <h2>Onde a IA Pode Gerar Valor Para Uma Empresa?</h2>
+            <p>Tenho uma visão bastante pragmática sobre tecnologia. Tecnologia precisa gerar valor. Com Inteligência Artificial não deveria ser diferente.</p>
+            <p>Imagine algumas situações bastante comuns:</p>
+            <ul>
+                <li><strong>CEO:</strong> Pode utilizar IA para organizar informações antes de uma decisão estratégica.</li>
+                <li><strong>Área Comercial:</strong> Pode analisar clientes, oportunidades e propostas.</li>
+                <li><strong>RH:</strong> Pode utilizá-la para apoiar atividades de recrutamento, desenvolvimento e análise de informações.</li>
+                <li><strong>Financeiro:</strong> Pode identificar padrões, desvios e apoiar projeções.</li>
+                <li><strong>Marketing:</strong> Pode produzir, analisar e testar conteúdos com muito mais velocidade.</li>
+                <li><strong>Atendimento:</strong> Pode responder perguntas, classificar solicitações e direcionar demandas.</li>
+                <li><strong>Operações:</strong> Podem identificar gargalos e oportunidades de melhoria.</li>
+                <li><strong>TI:</strong> Pode automatizar atividades, apoiar desenvolvimento, analisar incidentes e aumentar produtividade.</li>
+            </ul>
+            <p>E esses são apenas alguns exemplos. O valor não está simplesmente em “ter IA”. Está em encontrar problemas reais nos quais ela consiga <strong>aumentar produtividade, reduzir custos, melhorar a experiência do cliente, diminuir riscos ou permitir decisões melhores e mais rápidas.</strong></p>
+
+            <h2>Uma Mudança Importante Já Aconteceu</h2>
+            <p>Durante muitos anos, grande parte das tecnologias corporativas seguia um caminho relativamente previsível. A empresa escolhia uma solução, a área de TI implementava e, depois, a tecnologia chegava aos usuários.</p>
+            <p>Com a IA generativa aconteceu algo diferente. <strong>Em muitos casos, a tecnologia chegou primeiro às pessoas.</strong></p>
+            <p>Funcionários começaram a utilizar ferramentas de IA antes mesmo de suas empresas terem uma estratégia definida para isso. E isso cria uma situação interessante. Enquanto algumas organizações ainda discutem se devem utilizar IA, seus profissionais provavelmente já estão utilizando.</p>
+            <p>A discussão, portanto, precisa evoluir. Talvez a pergunta já não seja: <em>“Devemos usar Inteligência Artificial?”</em> Mas: <em>“Como podemos utilizá-la para gerar valor de maneira segura e responsável?”</em></p>
+
+            <h2>Porque a IA Também Exige Responsabilidade</h2>
+            <p>Esse talvez seja o ponto que mais me preocupa quando vejo a velocidade com que estamos adotando essas ferramentas. A facilidade de utilização pode criar uma falsa sensação de simplicidade.</p>
+            <p>Copiar informações confidenciais de uma empresa para uma ferramenta pública, utilizar uma resposta sem verificar sua origem, tomar decisões sobre pessoas com base exclusivamente em algoritmos ou confiar cegamente em uma análise produzida por IA pode gerar consequências importantes. Existem questões relacionadas a privacidade, segurança, propriedade intelectual, vieses, qualidade das informações e responsabilidade pelas decisões.</p>
+            <p>Por isso, <strong>quanto mais utilizarmos IA, mais precisaremos falar sobre governança.</strong> E governança não deveria significar impedir o uso. Deveria significar estabelecer critérios claros para utilizá-la bem:</p>
+            <ul>
+                <li>Quais informações podem ser utilizadas?</li>
+                <li>Quais ferramentas são permitidas?</li>
+                <li>Quais decisões precisam necessariamente de validação humana?</li>
+                <li>Como verificamos a qualidade das respostas?</li>
+                <li>Quem responde quando uma decisão apoiada por IA causa um problema?</li>
+            </ul>
+            <p>São perguntas que começam a fazer parte da gestão das empresas, e não apenas da agenda da área de tecnologia.</p>
+
+            <h2>A IA Não Elimina Nossa Responsabilidade</h2>
+            <p>Existe uma frase que tenho utilizado cada vez mais: <strong>IA pode ajudar a produzir uma resposta. A responsabilidade por utilizá-la continua sendo nossa.</strong></p>
+            <p>Isso vale para um relatório, uma análise financeira, um currículo, uma decisão comercial ou uma recomendação estratégica. A ferramenta pode pesquisar, organizar, sugerir, comparar e produzir. Mas alguém ainda precisa perguntar:</p>
+            <ul>
+                <li>Isso faz sentido?</li>
+                <li>Essa informação é verdadeira?</li>
+                <li>Existe algo importante que não foi considerado?</li>
+                <li>Eu tomaria essa decisão sem a recomendação da IA?</li>
+            </ul>
+            <p>Talvez o profissional mais preparado para trabalhar com Inteligência Artificial não seja aquele que simplesmente sabe utilizar mais ferramentas. Pode ser aquele que sabe fazer melhores perguntas e, principalmente, <strong>questionar as respostas que recebe</strong>.</p>
+
+            <h2>Você Não Precisa se Tornar Especialista em IA</h2>
+            <p>Da mesma forma que um executivo não precisa entender todos os detalhes de um ERP para compreender sua importância para a empresa, também não precisa saber como um grande modelo de linguagem funciona para começar a utilizar Inteligência Artificial.</p>
+            <p>Mas precisa entender suas possibilidades e seus limites. Precisa saber onde ela pode gerar valor. Precisa reconhecer os riscos. E precisa desenvolver senso crítico para decidir quando confiar, quando verificar e quando simplesmente não utilizar aquela recomendação.</p>
+            <p>Estamos provavelmente apenas no início dessa transformação. Novas ferramentas surgirão, algumas profissões mudarão, atividades serão automatizadas e outras que ainda nem conhecemos serão criadas.</p>
+            <p>Por isso, talvez a pergunta mais importante não seja se a Inteligência Artificial fará parte do nosso trabalho. Ela provavelmente fará. A pergunta é: <strong>Que tipo de profissional queremos ser quando trabalhar com Inteligência Artificial deixar de ser novidade e passar a ser simplesmente parte do trabalho?</strong></p>
+            <p>Você não precisa entender de tecnologia para entender de IA.</p>
+            <p>Até a próxima!!!</p>
+            
+            <a href="https://www.youpconsultoria.com/index.html" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 40px; padding: 15px; background: transparent; border: 1px solid var(--verde-youp); color: var(--verde-youp); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; text-decoration: none; border-radius: 4px; transition: 0.3s; box-sizing: border-box;" onmouseover="this.style.background='var(--verde-youp)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--verde-youp)';">← Voltar para a Página Inicial</a>
+        </article>
+
+        <!-- BOX DO AUTOR (ESTRUTURA OBRIGATÓRIA PARA COLUNISTAS CONVIDADOS) -->
+        <div class="author-box">
+            <img src="https://lh3.googleusercontent.com/d/1cvvT_l4IyS3XiLyus4QezMShT5iCdQEl" alt="Rogerio Pires">
+            <div class="author-info">
+                <h4>Rogerio Pires</h4>
+                <p>Executivo de Tecnologia e Operações com mais de 20 anos de experiência conectando estratégia, tecnologia, processos e pessoas aos resultados do negócio. Trajetória construída em empresas como The Walt Disney Company, JHSF, Cyrela, Grupo TV1, e SoldaLider, liderando transformação digital, ERP, dados, IA, cloud, cibersegurança, governança e eficiência operacional no Brasil, América Latina e Estados Unidos. Experiência em ambientes de alta complexidade, gestão de equipes, orçamento, fornecedores e operações multidisciplinares, com entregas relacionadas à produtividade, redução de custos, geração de caixa e crescimento.</p>
+                <a href="https://www.linkedin.com/in/rogerio-pires/" target="_blank" class="btn-linkedin">Conectar no LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Colunas do mesmo autor (puxadas via JSON) -->
+        <div id="mais-colunas-container" class="more-columns" style="display: none;">
+            <h3 id="mais-colunas-titulo">Mais Colunas</h3>
+            <div id="mais-colunas-grid" class="cards-grid"></div>
+        </div>
+
+        <!-- Outras matérias gerais (puxadas do Index) -->
+        <section class="related-articles-section">
+            <h3 class="section-title" style="margin-top: 40px; font-size: 22px;">Recomendados para você</h3>
+            <div class="ultimas-colunas-grid" id="relatedArticlesGrid">
+                <!-- Cards injetados via JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MARCADOR: O RODAPÉ DO INDEX SERÁ INJETADO AQUI AUTOMATICAMENTE -->
+    <div id="footer-global"></div>
+
+    <!-- BANNER FIXO NO RODAPÉ DA TELA (INICIA ABERTO) -->
+    <div class="sticky-bottom-wrapper" id="stickyBottomAd">
+        <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
+        <div class="sticky-ad-content" id="stickyAdContent">
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <!-- SCRIPTS OBRIGATÓRIOS DO LAYOUT GLOBAL E RECOMENDADOS -->
+    <script>
+        function carregarLayoutGlobal() {
+            fetch('index.html')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    const nav = doc.querySelector('.article-nav');
+                    const catNav = doc.querySelector('.editorial-nav-wrapper');
+                    const headerContainer = document.getElementById('header-global');
+                    
+                    if (headerContainer && nav && catNav) {
+                        headerContainer.innerHTML = nav.outerHTML + catNav.outerHTML;
+
+                        const navActions = headerContainer.querySelector('.nav-actions');
+                        if (navActions && !navActions.querySelector('.btn-audio')) {
+                            const audioBtn = document.createElement('button');
+                            audioBtn.className = 'btn-action btn-audio';
+                            audioBtn.setAttribute('onclick', 'toggleAudio()');
+                            audioBtn.innerHTML = '▶ Ouvir Artigo';
+                            navActions.insertBefore(audioBtn, navActions.children[1] || null);
+                        }
+
+                        const filterBtns = headerContainer.querySelectorAll('.filter-btn');
+                        filterBtns.forEach(btn => {
+                            btn.setAttribute('onclick', "window.location.href='https://www.youpconsultoria.com/index.html'");
+                        });
+
+                        const searchInput = headerContainer.querySelector('#searchInput');
+                        if (searchInput) {
+                            searchInput.setAttribute('onkeyup', "window.location.href='https://www.youpconsultoria.com/index.html'");
+                        }
+                    }
+
+                    const footer = doc.querySelector('.site-footer') || doc.querySelector('footer');
+                    const footerContainer = document.getElementById('footer-global');
+                    
+                    if (footerContainer && footer) {
+                        footerContainer.innerHTML = footer.outerHTML;
+                    }
+                })
+                .catch(err => console.error('Erro ao carregar layout global:', err));
+        }
+
+        function carregarRecomendados() {
+            fetch('index.html')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const todosArtigos = Array.from(doc.querySelectorAll('#sourceArticles a'));
+                    
+                    const urlAtual = window.location.pathname.split('/').pop() || window.location.pathname;
+                    
+                    const artigosFiltrados = todosArtigos.filter(a => {
+                        const href = a.getAttribute('href');
+                        if (!href) return false;
+                        if (href.includes(urlAtual) || urlAtual.includes(href)) return false;
+                        
+                        const dataAgendada = a.getAttribute('data-publish-date');
+                        if (dataAgendada) {
+                            const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00');
+                            const dataAtual = new Date();
+                            if (dataAtual < dataPublicacao) {
+                                return false; 
+                            }
+                        }
+                        return true;
+                    });
+                    
+                    const recomendados = artigosFiltrados.slice(0, 3);
+                    const grid = document.getElementById('relatedArticlesGrid');
+                    
+                    if (!grid) return;
+                    grid.innerHTML = '';
+                    
+                    recomendados.forEach(item => {
+                        const url = item.getAttribute('href');
+                        const imgEl = item.querySelector('img');
+                        const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
+                        
+                        const tagEl = item.querySelector('.tag');
+                        const tag = tagEl ? tagEl.innerText : 'YOUP';
+                        
+                        const titleEl = item.querySelector('.title') || item.querySelector('h3') || item.querySelector('h4');
+                        const title = titleEl ? titleEl.innerText : item.innerText;
+                        
+                        grid.innerHTML += `
+                            <a href="${url}" class="coluna-news-card">
+                                <img src="${imgSrc}" class="coluna-news-img" alt="${title}">
+                                <div class="coluna-news-body">
+                                    <span class="coluna-news-tag">${tag}</span>
+                                    <h4 class="coluna-news-title">${title}</h4>
+                                </div>
+                            </a>
+                        `;
+                    });
+                })
+                .catch(err => console.log('Aviso: Erro ao buscar index.html', err));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            carregarLayoutGlobal();
+            carregarRecomendados();
+            
+            // Script dinâmico para buscar outras colunas do autor
+            const autorAtualSlug = "rogerio-pires";
+            const autorAtualNome = "Rogerio Pires";
+            const urlArtigoAtual = "coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html";
+            
+            fetch('colunistas-artigos.json')
+                .then(res => res.json())
+                .then(artigos => { 
+                    const filtrados = artigos.filter(a => a.id_colunista === autorAtualSlug && a.url !== urlArtigoAtual); 
+                    if (filtrados.length > 0) { 
+                        document.getElementById('mais-colunas-container').style.display = 'block'; 
+                        document.getElementById('mais-colunas-titulo').innerText = `Mais Colunas de ${autorAtualNome}`; 
+                        const grid = document.getElementById('mais-colunas-grid'); 
+                        filtrados.slice(0, 2).forEach(a => { 
+                            grid.innerHTML += `<a href="${a.url}" class="card"><h4>${a.titulo}</h4><p>${a.descricao}</p></a>`; 
+                        }); 
+                    } 
+                })
+                .catch(() => {});
+        });
+
+        window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
+        var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
+        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "⏹ Parar Áudio"; } }
+        function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
+        function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
+        function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
+        function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
