@@ -440,7 +440,14 @@
             <!-- COLE O CARD DO NOVO ARTIGO, COLUNA OU NOTÍCIA EXATAMENTE NA LINHA ABAIXO DESTA -->
             <!-- Lembre de conferir se o card tem data-type="materia", "artigo" ou "coluna" -->
             <!-- ========================================================================================== -->
-      <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+ 
+    <a href="coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html" data-type="coluna" data-author="rogerio-pires" data-category="lideranca-4-0-tech" data-publish-date="2026-09-11">
+        <img src="https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7" alt="A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.">
+        <span class="tag">Liderança 4.0 & Tech</span>
+        <h3 class="title">A IA Não É Mais Assunto da TI</h3>
+        <p class="excerpt">Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças.</p>
+    </a>       
+    <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
         <img src="https://lh3.googleusercontent.com/d/16XUrAESVZ12HCKPHx7UFu1BcEvFnKYX_" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
         <span class="tag">Radar Executivo</span>
         <h3 class="title">CSN nomeia novo CEO e Arezzo anuncia cisão de negócios</h3>
