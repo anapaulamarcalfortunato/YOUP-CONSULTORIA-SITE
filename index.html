@@ -1278,7 +1278,28 @@
                 });
                 if(DestaquesRotativos.length > 0) iniciarSliderRotativo(DestaquesRotativos.length);
 
+                /* ==========================================================================================
+                   CORREÇÃO APLICADA AQUI (bug dos 2 cards com imagem abrindo o mesmo link):
+                   Antes, cada card era inserido individualmente via triadLeftCol.innerHTML += `...`
+                   dentro do loop. Quando a URL da imagem (imgSrc) continha um caractere "&" sem
+                   escapar (ex: ...unsplash.com/photo-xxxx?q=80&w=1600), o HTML gerado ficava mal
+                   formado, e o navegador acabava fundindo a tag <a> dos dois cards, fazendo o
+                   segundo card herdar o link do primeiro.
+                   A correção: 1) escapar os valores usados em atributos (href, src, alt) com a
+                   função escapeAttr(); 2) montar todo o HTML em uma variável (leftHtml) e escrever
+                   no DOM apenas uma vez ao final do loop, evitando problemas de parsing incremental.
+                   Nenhuma outra lógica, classe ou configuração foi alterada.
+                ========================================================================================== */
+                function escapeAttr(str) {
+                    return String(str)
+                        .replace(/&/g, '&amp;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;');
+                }
+
                 const LeftItems = triadItems.slice(10, 12);
+                let leftHtml = '';
                 LeftItems.forEach(item => {
                     const url = item.getAttribute('href');
                     const imgSrc = item.querySelector('img').src;
@@ -1286,10 +1307,10 @@
                     const title = item.querySelector('.title').innerText;
                     const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                    triadLeftCol.innerHTML += `
-                        <a href="${url}" class="side-news-card-left">
+                    leftHtml += `
+                        <a href="${escapeAttr(url)}" class="side-news-card-left">
                             <div class="side-news-img-wrapper">
-                                <img src="${imgSrc}" class="side-news-img" alt="${title}">
+                                <img src="${escapeAttr(imgSrc)}" class="side-news-img" alt="${escapeAttr(title)}">
                             </div>
                             <span class="side-news-tag">${tag}</span>
                             <h3 class="side-news-title">${title}</h3>
@@ -1297,6 +1318,8 @@
                         </a>
                     `;
                 });
+                triadLeftCol.innerHTML = leftHtml;
+                /* ========================================================================================== */
 
                 const RightItems = triadItems.slice(12, 19);
                 RightItems.forEach(item => {
@@ -1610,4 +1633,3 @@
 
 </body>
 </html>
-
