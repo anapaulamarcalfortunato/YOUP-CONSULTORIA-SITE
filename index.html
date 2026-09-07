@@ -96,12 +96,16 @@
         /* PRINCIPAIS NOTÍCIAS (TRIAD) */
         .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 10px;}
         .side-col-left { display: flex; flex-direction: column; gap: 25px; width: 280px; flex-shrink: 0; order: 1; }
-        .side-news-card-left { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; }
+        
+        /* BLINDAGEM DE CLIQUE NOS CARDS DA ESQUERDA (Resolvendo o problema de toque no Mobile) */
+        .side-news-card-left { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; position: relative; z-index: 1; overflow: hidden; }
         .side-news-card-left:last-child { border-bottom: none; padding-bottom: 0; }
+        .side-news-card-left:hover { z-index: 2; }
         .side-news-card-left:hover .side-news-title { color: var(--dourado); }
-        .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; }
-        .side-news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; pointer-events: none; }
+        .side-news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; pointer-events: none; }
         .side-news-card-left:hover .side-news-img { transform: scale(1.04); }
+        .side-news-tag, .side-news-title, .side-news-bullet { pointer-events: none; /* Garante que o clique registre apenas na tag <a> principal */ }
 
         .center-hero-rotator { position: relative; background: #ffffff; border-radius: 4px; overflow: hidden; border: 1px solid var(--borda); display: flex; flex-direction: column; flex: 1; order: 2;}
         #rotatorSlidesWrapper { display: flex; flex: 1; flex-direction: column; width: 100%; }
@@ -124,9 +128,11 @@
         .rotator-progress-fill { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s linear; }
 
         .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; height: 100%; order: 3;}
-        .side-news-item { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; }
+        .side-news-item { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; position: relative; z-index: 1;}
         .side-news-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .side-news-item:hover { z-index: 2; }
         .side-news-item:hover .side-news-title { color: var(--dourado); }
+        .side-news-tag, .side-news-title { pointer-events: none; }
         .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin-bottom: 6px; display: block; }
         .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
@@ -141,8 +147,8 @@
         .colunistas-track:active { cursor: grabbing; }
         .colunistas-track::-webkit-scrollbar { display: none; }
         
-        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; }
-        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); }
+        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; z-index: 1; }
+        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); z-index: 2;}
         .colunista-card-img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--dourado); margin-bottom: 15px; pointer-events: none; }
         .colunista-card-name { font-size: 15px; font-weight: 800; color: var(--texto-escuro); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; pointer-events: none;}
         .colunista-card-theme { font-size: 11px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; pointer-events: none;}
@@ -150,10 +156,10 @@
         /* ÚLTIMAS COLUNAS */
         .ultimas-colunas-section { margin-bottom: 20px;}
         .ultimas-colunas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column;}
-        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); }
-        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; }
-        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1;}
+        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column; position: relative; z-index: 1;}
+        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); z-index: 2;}
+        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; pointer-events: none;}
+        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1; pointer-events: none;}
         .coluna-news-tag { font-size: 10px; font-weight: 800; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;}
         .coluna-news-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px;}
         .coluna-news-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0;}
@@ -161,11 +167,11 @@
         /* ACERVO (O RESTO DO FEED) */
         .editorial-feed { display: flex; flex-direction: column; }
         .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
-        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; }
-        .list-article:hover { opacity: 0.85; }
-        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
+        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; position: relative; z-index: 1;}
+        .list-article:hover { opacity: 0.85; z-index: 2;}
+        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; pointer-events: none;}
         .list-article .article-img { width: 100%; height: 100%; object-fit: cover; background: #eee; }
-        .list-article .content-wrapper { flex: 1; }
+        .list-article .content-wrapper { flex: 1; pointer-events: none;}
         .list-article .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 5px; display: block; }
         .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
 
@@ -463,7 +469,7 @@
         <span class="tag">Liderança 4.0 & Tech</span>
         <h3 class="title">A IA Não É Mais Assunto da TI</h3>
         <p class="excerpt">Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças.</p>
-    </a>       
+    </a>        
     <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
         <img src="https://lh3.googleusercontent.com/d/16XUrAESVZ12HCKPHx7UFu1BcEvFnKYX_" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
         <span class="tag">Radar Executivo</span>
@@ -556,28 +562,6 @@
             <h3 class="title">Como avaliar a inteligência relacional e mediação de conflitos em líderes?</h3>
             <p class="excerpt">Aprenda a mapear a diplomacia executiva, a negociação de prioridades interdepartamentais e o autocontrole relacional com a Metodologia S.T.A.R.E.</p>
             </a>
-   <a href="artigo-excelencia-sem-medo-lideranca.html" data-type="artigo" data-category="radar-executivo">
-        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Excelência Sem Medo na Liderança">
-        <span class="tag">Radar Executivo</span>
-        <h3 class="title">Excelência Sem Medo na Liderança</h3>
-        <p class="excerpt">Como criar ambientes de alta performance sem cultivar a cultura do medo no C-Suite.</p>
-    </a>
-
-
-    <a href="artigo-rh-planejamento-sucessao.html" data-type="artigo" data-category="dica-de-hunter">
-        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem7.jpg" alt="Planejamento de Sucessão no RH">
-        <span class="tag">Dica de Hunter</span>
-        <h3 class="title">Planejamento de Sucessão: A Blindagem do C-Suite</h3>
-        <p class="excerpt">Como o RH Estratégico deve mapear e preparar substitutos para cadeiras críticas da alta gestão.</p>
-    </a>
-
-
-    <a href="artigo-jovem-lideranca-jbs-trainee-agro.html" data-type="materia" data-category="jovem-lideranca">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?fm=webp&w=800&q=80" alt="JBS abre programa de Trainee no Agro">
-        <span class="tag">Jovem Liderança</span>
-        <h3 class="title">JBS lança programa de Trainee voltado ao Agrobusiness</h3>
-        <p class="excerpt">Oportunidade para jovens líderes acelerarem a carreira em um dos maiores setores da economia.</p>
-    </a>
 
             <a href="coluna-simone-vieira-lugar-de-mulher.html" data-type="coluna" data-category="colunas" data-author="simone-vieira">
             <img src="https://lh3.googleusercontent.com/d/15utt1Lxgcw2xYawC84OIOIrD5Ikil88t" alt="Lugar de Mulher é Onde Ela Decide">
@@ -627,6 +611,28 @@
             <h3 class="title">O Departamento Pessoal como Radar de Risco: Entrevista Exclusiva com Bruno Galvão Ferola</h3>
             <p class="excerpt">Descubra como o Departamento Pessoal e o Compliance formam o centro da estratégia corporativa em nossa entrevista exclusiva com Bruno Galvão Ferola.</p>
             </a>
+            <a href="artigo-excelencia-sem-medo-lideranca.html" data-type="artigo" data-category="radar-executivo">
+        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Excelência Sem Medo na Liderança">
+        <span class="tag">Radar Executivo</span>
+        <h3 class="title">Excelência Sem Medo na Liderança</h3>
+        <p class="excerpt">Como criar ambientes de alta performance sem cultivar a cultura do medo no C-Suite.</p>
+    </a>
+
+
+    <a href="artigo-rh-planejamento-sucessao.html" data-type="artigo" data-category="dica-de-hunter">
+        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem7.jpg" alt="Planejamento de Sucessão no RH">
+        <span class="tag">Dica de Hunter</span>
+        <h3 class="title">Planejamento de Sucessão: A Blindagem do C-Suite</h3>
+        <p class="excerpt">Como o RH Estratégico deve mapear e preparar substitutos para cadeiras críticas da alta gestão.</p>
+    </a>
+
+
+    <a href="artigo-jovem-lideranca-jbs-trainee-agro.html" data-type="materia" data-category="jovem-lideranca">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?fm=webp&w=800&q=80" alt="JBS abre programa de Trainee no Agro">
+        <span class="tag">Jovem Liderança</span>
+        <h3 class="title">JBS lança programa de Trainee voltado ao Agrobusiness</h3>
+        <p class="excerpt">Oportunidade para jovens líderes acelerarem a carreira em um dos maiores setores da economia.</p>
+    </a>
 
             <a href="artigo-ilusao-contraproposta-rh.html" data-type="artigo" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem19.jpg?raw=true">
@@ -1030,6 +1036,32 @@
         </div>
     </main>
 
+    <!-- INSERIR A SEÇÃO DE NEWSLETTER AQUI, ANTES DO FOOTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <span class="newsletter-tag">YOUP EXECUTIVE CLUB</span>
+            <h2 class="newsletter-title">A inteligência que os headhunters não contam.</h2>
+            <p class="newsletter-desc">Assine nossa Newsletter gratuita e receba, direto no seu e-mail, as movimentações confidenciais do C-Level, análises táticas de M&A e os bastidores do mercado corporativo.</p>
+            
+            <form class="newsletter-form" onsubmit="event.preventDefault(); assinarNewsletter();">
+                <div class="nl-input-group">
+                    <label>Seu Nome Completo</label>
+                    <input type="text" id="nlNome" class="nl-input" placeholder="Ex: Carlos Silva" required>
+                </div>
+                <div class="nl-input-group">
+                    <label>E-mail Corporativo ou Pessoal</label>
+                    <input type="email" id="nlEmail" class="nl-input" placeholder="carlos@empresa.com.br" required>
+                </div>
+                <div class="nl-input-group">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="nlDataNasc" class="nl-input" required>
+                </div>
+                <button type="submit" class="nl-btn" id="nlSubmitBtn">Quero Receber o Conteúdo Premium</button>
+            </form>
+            <p class="nl-privacy">Respeitamos a LGPD. Você pode se descadastrar a qualquer momento. Suas informações estão seguras. <a href="privacidade.html">Política de Privacidade</a></p>
+        </div>
+    </section>
+
     <!-- FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO -->
     <footer class="site-footer">
         <div class="footer-content">
@@ -1286,6 +1318,7 @@
                 const triadItems = newsAndArticles.slice(0, 19);
 
                 const DestaquesRotativos = triadItems.slice(0, 10);
+                let rotatorHtml = '';
                 DestaquesRotativos.forEach((item, index) => {
                     const url = item.getAttribute('href');
                     const imgSrc = item.querySelector('img').src;
@@ -1293,7 +1326,7 @@
                     const title = item.querySelector('.title').innerText;
                     const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                    triadCenterWrapper.innerHTML += `
+                    rotatorHtml += `
                         <a href="${url}" class="rotator-slide ${index === 0 ? 'active' : ''}">
                             <div class="rotator-img-container">
                                 <img src="${imgSrc}" class="rotator-img" alt="${title}">
@@ -1306,9 +1339,11 @@
                         </a>
                     `;
                 });
+                triadCenterWrapper.innerHTML = rotatorHtml;
                 if(DestaquesRotativos.length > 0) iniciarSliderRotativo(DestaquesRotativos.length);
 
                 const LeftItems = triadItems.slice(10, 12);
+                let leftHtml = '';
                 LeftItems.forEach(item => {
                     const url = item.getAttribute('href');
                     const imgSrc = item.querySelector('img').src;
@@ -1316,7 +1351,7 @@
                     const title = item.querySelector('.title').innerText;
                     const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                    triadLeftCol.innerHTML += `
+                    leftHtml += `
                         <a href="${url}" class="side-news-card-left">
                             <div class="side-news-img-wrapper">
                                 <img src="${imgSrc}" class="side-news-img" alt="${title}">
@@ -1327,23 +1362,27 @@
                         </a>
                     `;
                 });
+                triadLeftCol.innerHTML = leftHtml;
 
                 const RightItems = triadItems.slice(12, 19);
+                let rightHtml = '';
                 RightItems.forEach(item => {
                     const url = item.getAttribute('href');
                     const tag = item.querySelector('.tag').innerText;
                     const title = item.querySelector('.title').innerText;
 
-                    triadRightCol.innerHTML += `
+                    rightHtml += `
                         <a href="${url}" class="side-news-item">
                             <span class="side-news-tag">${tag}</span>
                             <h4 class="side-news-title">${title}</h4>
                         </a>
                     `;
                 });
+                triadRightCol.innerHTML = rightHtml;
 
                 const top3Colunas = colunas.slice(0, 3);
                 if (ultimasColunasGrid) {
+                    let top3Html = '';
                     top3Colunas.forEach(item => {
                         const url = item.getAttribute('href');
                         const imgSrc = item.querySelector('img').src;
@@ -1351,7 +1390,7 @@
                         const title = item.querySelector('.title').innerText;
                         const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                        ultimasColunasGrid.innerHTML += `
+                        top3Html += `
                             <a href="${url}" class="coluna-news-card">
                                 <img src="${imgSrc}" class="coluna-news-img" alt="${title}">
                                 <div class="coluna-news-body">
@@ -1362,6 +1401,7 @@
                             </a>
                         `;
                     });
+                    ultimasColunasGrid.innerHTML = top3Html;
                 }
 
                 const usedElements = new Set([...triadItems, ...top3Colunas]);
