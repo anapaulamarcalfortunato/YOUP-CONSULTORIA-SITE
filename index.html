@@ -95,15 +95,21 @@
 
         /* PRINCIPAIS NOTÍCIAS (TRIAD) */
         .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 10px;}
-        .side-col-left { display: flex; flex-direction: column; gap: 25px; width: 280px; flex-shrink: 0; order: 1; }
+        .side-col-left { display: flex; flex-direction: column; gap: 20px; width: 280px; flex-shrink: 0; order: 1; }
         
-        /* CORREÇÃO DO BLOCO DE LINK NOS CARDS DA ESQUERDA */
-        .side-news-card-left { display: flex; flex-direction: column; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; position: relative; }
+        /* CORREÇÃO DO BLOCO DE LINK NOS CARDS DA ESQUERDA (BLINDAGEM CONTRA SOBREPOSIÇÃO) */
+        .side-news-card-left { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: transform 0.3s ease; }
         .side-news-card-left:last-child { border-bottom: none; padding-bottom: 0; }
+        .side-news-card-left:hover { transform: translateY(-3px); }
         .side-news-card-left:hover .side-news-title { color: var(--dourado); }
+        
         .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; }
-        .side-news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .side-news-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
         .side-news-card-left:hover .side-news-img { transform: scale(1.04); }
+        
+        .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin: 0 0 6px 0; display: block; }
+        .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px 0; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .side-news-bullet { font-size: 12px; color: var(--texto-cinza); line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
         .center-hero-rotator { position: relative; background: #ffffff; border-radius: 4px; overflow: hidden; border: 1px solid var(--borda); display: flex; flex-direction: column; flex: 1; order: 2;}
         #rotatorSlidesWrapper { display: flex; flex: 1; flex-direction: column; width: 100%; }
@@ -126,11 +132,11 @@
         .rotator-progress-fill { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s linear; }
 
         .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; height: 100%; order: 3;}
-        .side-news-item { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; }
+        .side-news-item { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; position: relative;}
         .side-news-item:last-child { border-bottom: none; padding-bottom: 0; }
         .side-news-item:hover .side-news-title { color: var(--dourado); }
-        .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin-bottom: 6px; display: block; }
-        .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin: 0 0 6px 0; display: block; }
+        .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px 0; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
         /* FAIXA DE COLUNISTAS (CARROSSEL COM ARRASTO) */
         .colunistas-carousel-section { padding: 0; margin-bottom: 20px;}
@@ -143,8 +149,8 @@
         .colunistas-track:active { cursor: grabbing; }
         .colunistas-track::-webkit-scrollbar { display: none; }
         
-        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; }
-        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); }
+        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; z-index: 1; }
+        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); z-index: 2;}
         .colunista-card-img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--dourado); margin-bottom: 15px; pointer-events: none; }
         .colunista-card-name { font-size: 15px; font-weight: 800; color: var(--texto-escuro); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; pointer-events: none;}
         .colunista-card-theme { font-size: 11px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; pointer-events: none;}
@@ -152,10 +158,10 @@
         /* ÚLTIMAS COLUNAS */
         .ultimas-colunas-section { margin-bottom: 20px;}
         .ultimas-colunas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column;}
-        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); }
-        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; }
-        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1;}
+        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column; position: relative; z-index: 1;}
+        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); z-index: 2;}
+        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; pointer-events: none;}
+        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1; pointer-events: none;}
         .coluna-news-tag { font-size: 10px; font-weight: 800; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;}
         .coluna-news-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px;}
         .coluna-news-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0;}
@@ -163,11 +169,11 @@
         /* ACERVO (O RESTO DO FEED) */
         .editorial-feed { display: flex; flex-direction: column; }
         .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
-        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; }
-        .list-article:hover { opacity: 0.85; }
-        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
+        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; position: relative; z-index: 1;}
+        .list-article:hover { opacity: 0.85; z-index: 2;}
+        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; pointer-events: none;}
         .list-article .article-img { width: 100%; height: 100%; object-fit: cover; background: #eee; }
-        .list-article .content-wrapper { flex: 1; }
+        .list-article .content-wrapper { flex: 1; pointer-events: none;}
         .list-article .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 5px; display: block; }
         .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
 
@@ -176,8 +182,27 @@
         .btn-load-more { background: transparent; color: var(--texto-escuro); border: 1px solid var(--texto-escuro); padding: 12px 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; border-radius: 4px;}
         .btn-load-more:hover { background: var(--texto-escuro); color: var(--fundo); }
 
+        /* ========================================================================= */
+        /* SESSÃO DE CAPTURA DE LEADS (NEWSLETTER) */
+        /* ========================================================================= */
+        .newsletter-section { background-color: var(--cinza-escuro); color: var(--fundo); padding: 60px 20px; margin-top: 60px; text-align: center; position: relative; overflow: hidden; }
+        .newsletter-container { max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+        .newsletter-tag { color: var(--dourado); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: inline-block; }
+        .newsletter-title { font-size: 32px; font-weight: 900; margin: 0 0 15px 0; line-height: 1.2; letter-spacing: -1px; }
+        .newsletter-desc { color: #aaaaaa; font-size: 14px; margin-bottom: 30px; line-height: 1.6; }
+        
+        .newsletter-form { display: grid; grid-template-columns: 1fr; gap: 15px; text-align: left; }
+        .nl-input-group { display: flex; flex-direction: column; }
+        .nl-input-group label { font-size: 10px; font-weight: 700; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .nl-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 14px; outline: none; transition: border-color 0.3s; }
+        .nl-input:focus { border-color: var(--dourado); }
+        .nl-btn { background: var(--dourado); color: var(--cinza-escuro); border: none; padding: 18px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
+        .nl-btn:hover { background: #d4af37; }
+        .nl-privacy { font-size: 10px; color: #666; text-align: center; margin-top: 15px; }
+        .nl-privacy a { color: var(--dourado); text-decoration: none; }
+
         /* FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO */
-        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
+        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); position: relative; z-index: 10; padding-bottom: 120px; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
         
         .footer-brand { max-width: 350px; }
@@ -244,6 +269,7 @@
             .side-col-left { flex-direction: column; }
             .side-news-card-left { width: 100%; border-bottom: 1px solid var(--borda); padding-bottom: 15px;}
             
+            .newsletter-title { font-size: 26px; }
             .sticky-bottom-wrapper { max-width: 100%; }
             .footer-content { flex-direction: column; gap: 40px;}
             .footer-nav { flex-direction: column; gap: 30px;}
@@ -353,7 +379,6 @@
                 <div class="colunistas-track" id="colunistasContainer">
                     <!-- ========================================================================================== -->
                     <!-- 🚨🚨 ALERTA ANA PAULA 1: COLUNISTAS (ADICIONE NOVOS AQUI) 🚨🚨 -->
-                    <!-- Copie um bloco abaixo e altere NOME, TEMA e FOTO -->
                     <!-- ========================================================================================== -->
                     <a href="javascript:void(0)" onclick="filtrarPorAutor('alessandra-miliatti', this, event)" class="colunista-card">
                         <img src="https://lh3.googleusercontent.com/d/1Hmxz7q6gYW6vou-8XpbEFFcfPu0uSh_N" alt="Alessandra Miliatti" class="colunista-card-img">
@@ -437,11 +462,6 @@
         <!-- ========================================================================================== -->
         <div id="sourceArticles" style="display: none;">
             
-            <!-- ========================================================================================== -->
-            <!-- 🚨🚨 ALERTA ANA PAULA 2: REPOSITÓRIO GERAL (COLE TUDO AQUI) 🚨🚨 -->
-            <!-- COLE O CARD DO NOVO ARTIGO, COLUNA OU NOTÍCIA EXATAMENTE NA LINHA ABAIXO DESTA -->
-            <!-- Lembre de conferir se o card tem data-type="materia", "artigo" ou "coluna" -->
-            <!-- ========================================================================================== -->
     <a href="materia-premio-carolina-bori-meninas-ciencia-inscricoes.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-07">
         <img src="https://lh3.googleusercontent.com/d/1WDKPW3yAThzXQNDXzzHwGlqlmj542rlT" alt="Inscrições abertas para o Prêmio Carolina Bori Ciência & Mulheres">
         <span class="tag">Elas no Radar</span>
@@ -489,7 +509,6 @@
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Especialista para líder: o que desaprender?</h3>
             <p class="excerpt">A transição exige abandonar o microgerenciamento e focar na estratégia. Saiba o que deixar para trás.</p>
-        
         </a>
         <a href="materia-luciana-maia-diretoria-financeira-neoenergia.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1CQutdgG-bc9TggJ7ZSRMcUooJxZBGXVt" alt="Luciana Maia assume Diretoria Financeira e de RI na Neoenergia">
@@ -1009,6 +1028,32 @@
 
         </div>
     </main>
+
+    <!-- INSERIR A SEÇÃO DE NEWSLETTER AQUI, ANTES DO FOOTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <span class="newsletter-tag">YOUP EXECUTIVE CLUB</span>
+            <h2 class="newsletter-title">A inteligência que os headhunters não contam.</h2>
+            <p class="newsletter-desc">Assine nossa Newsletter gratuita e receba, direto no seu e-mail, as movimentações confidenciais do C-Level, análises táticas de M&A e os bastidores do mercado corporativo.</p>
+            
+            <form class="newsletter-form" onsubmit="event.preventDefault(); assinarNewsletter();">
+                <div class="nl-input-group">
+                    <label>Seu Nome Completo</label>
+                    <input type="text" id="nlNome" class="nl-input" placeholder="Ex: Carlos Silva" required>
+                </div>
+                <div class="nl-input-group">
+                    <label>E-mail Corporativo ou Pessoal</label>
+                    <input type="email" id="nlEmail" class="nl-input" placeholder="carlos@empresa.com.br" required>
+                </div>
+                <div class="nl-input-group">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="nlDataNasc" class="nl-input" required>
+                </div>
+                <button type="submit" class="nl-btn" id="nlSubmitBtn">Quero Receber o Conteúdo Premium</button>
+            </form>
+            <p class="nl-privacy">Respeitamos a LGPD. Você pode se descadastrar a qualquer momento. Suas informações estão seguras. <a href="privacidade.html">Política de Privacidade</a></p>
+        </div>
+    </section>
 
     <!-- FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO -->
     <footer class="site-footer">
