@@ -95,12 +95,12 @@
 
         /* PRINCIPAIS NOTÍCIAS (TRIAD) */
         .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 10px;}
-        .side-col-left { display: flex; flex-direction: column; gap: 20px; width: 280px; flex-shrink: 0; order: 1; }
+        .side-col-left { display: flex; flex-direction: column; gap: 20px; width: 280px; flex-shrink: 0; order: 1; justify-content: flex-start; }
         
         /* CORREÇÃO DO BLOCO DE LINK NOS CARDS DA ESQUERDA (BLINDAGEM CONTRA SOBREPOSIÇÃO) */
-        .side-news-card-left { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: transform 0.3s ease; }
+        .side-news-card-left { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: transform 0.3s ease; position: relative; z-index: 1; }
         .side-news-card-left:last-child { border-bottom: none; padding-bottom: 0; }
-        .side-news-card-left:hover { transform: translateY(-3px); }
+        .side-news-card-left:hover { transform: translateY(-3px); z-index: 2; }
         .side-news-card-left:hover .side-news-title { color: var(--dourado); }
         
         .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; }
@@ -499,7 +499,7 @@
             <p class="excerpt">Com vasta experiência em IA e dados, executiva também passa a integrar o Comitê Diretivo da companhia no Brasil.</p>
         </a>    
         <a href="materia-alessandro-carlucci-retorna-ceo-natura.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
-           <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
+            <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Alessandro Carlucci retorna como CEO da Natura</h3>
            <p class="excerpt">Executivo sucede João Paulo Ferreira na presidência; Fábio Barbosa reassume o comando do Conselho de Administração.</p>
@@ -932,7 +932,7 @@
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600">
                 <span class="tag">Dica de Hunter</span>
                 <h3 class="title">As melhores vagas nunca são publicadas</h3>
-                <p class="excerpt">A mecânica corporativa do Stealth Search e as vagas confidenciais.</p>
+                <p class="excerpt">A mecânica corporativa do Stealth Search e as vagas confidential.</p>
             </a>
 
             <a href="artigo-rh-remuneracao-estrategica.html" data-type="artigo" data-category="dica-de-hunter">
