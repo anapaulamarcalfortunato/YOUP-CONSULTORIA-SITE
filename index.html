@@ -1290,35 +1290,40 @@
                    no DOM apenas uma vez ao final do loop, evitando problemas de parsing incremental.
                    Nenhuma outra lógica, classe ou configuração foi alterada.
                 ========================================================================================== */
-                function escapeAttr(str) {
-                    return String(str)
-                        .replace(/&/g, '&amp;')
-                        .replace(/"/g, '&quot;')
-                        .replace(/</g, '&lt;')
-                        .replace(/>/g, '&gt;');
-                }
-
                 const LeftItems = triadItems.slice(10, 12);
-                let leftHtml = '';
+                triadLeftCol.innerHTML = '';
+
                 LeftItems.forEach(item => {
-                    const url = item.getAttribute('href');
-                    const imgSrc = item.querySelector('img').src;
-                    const tag = item.querySelector('.tag').innerText;
-                    const title = item.querySelector('.title').innerText;
+                    const url = item.getAttribute('href') || '#';
+                    const imgEl = item.querySelector('img');
+                    const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
+                    const tag = item.querySelector('.tag') ? item.querySelector('.tag').innerText : '';
+                    const title = item.querySelector('.title') ? item.querySelector('.title').innerText : '';
                     const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                    leftHtml += `
-                        <a href="${escapeAttr(url)}" class="side-news-card-left">
-                            <div class="side-news-img-wrapper">
-                                <img src="${escapeAttr(imgSrc)}" class="side-news-img" alt="${escapeAttr(title)}">
-                            </div>
-                            <span class="side-news-tag">${tag}</span>
-                            <h3 class="side-news-title">${title}</h3>
-                            <p class="side-news-bullet">${excerpt}</p>
-                        </a>
+                    const card = document.createElement('a');
+                    card.setAttribute('href', url);
+                    card.className = 'side-news-card-left';
+
+                    card.innerHTML = `
+                        <div class="side-news-img-wrapper">
+                            <img class="side-news-img">
+                        </div>
+                        <span class="side-news-tag"></span>
+                        <h3 class="side-news-title"></h3>
+                        <p class="side-news-bullet"></p>
                     `;
+
+                    const img = card.querySelector('img');
+                    img.setAttribute('src', imgSrc);
+                    img.setAttribute('alt', title);
+
+                    card.querySelector('.side-news-tag').textContent = tag;
+                    card.querySelector('.side-news-title').textContent = title;
+                    card.querySelector('.side-news-bullet').textContent = excerpt;
+
+                    triadLeftCol.appendChild(card);
                 });
-                triadLeftCol.innerHTML = leftHtml;
                 /* ========================================================================================== */
 
                 const RightItems = triadItems.slice(12, 19);
