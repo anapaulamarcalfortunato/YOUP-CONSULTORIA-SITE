@@ -96,16 +96,12 @@
         /* PRINCIPAIS NOTÍCIAS (TRIAD) */
         .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 10px;}
         .side-col-left { display: flex; flex-direction: column; gap: 25px; width: 280px; flex-shrink: 0; order: 1; }
-        
-        /* BLINDAGEM DE CLIQUE NOS CARDS DA ESQUERDA (Resolvendo o problema de toque no Mobile) */
-        .side-news-card-left { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; position: relative; z-index: 1; overflow: hidden; }
+        .side-news-card-left { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; }
         .side-news-card-left:last-child { border-bottom: none; padding-bottom: 0; }
-        .side-news-card-left:hover { z-index: 2; }
         .side-news-card-left:hover .side-news-title { color: var(--dourado); }
-        .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; pointer-events: none; }
-        .side-news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; pointer-events: none; }
+        .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; }
+        .side-news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
         .side-news-card-left:hover .side-news-img { transform: scale(1.04); }
-        .side-news-tag, .side-news-title, .side-news-bullet { pointer-events: none; /* Garante que o clique registre apenas na tag <a> principal */ }
 
         .center-hero-rotator { position: relative; background: #ffffff; border-radius: 4px; overflow: hidden; border: 1px solid var(--borda); display: flex; flex-direction: column; flex: 1; order: 2;}
         #rotatorSlidesWrapper { display: flex; flex: 1; flex-direction: column; width: 100%; }
@@ -128,11 +124,9 @@
         .rotator-progress-fill { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s linear; }
 
         .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; height: 100%; order: 3;}
-        .side-news-item { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; position: relative; z-index: 1;}
+        .side-news-item { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; }
         .side-news-item:last-child { border-bottom: none; padding-bottom: 0; }
-        .side-news-item:hover { z-index: 2; }
         .side-news-item:hover .side-news-title { color: var(--dourado); }
-        .side-news-tag, .side-news-title { pointer-events: none; }
         .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin-bottom: 6px; display: block; }
         .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
@@ -147,8 +141,8 @@
         .colunistas-track:active { cursor: grabbing; }
         .colunistas-track::-webkit-scrollbar { display: none; }
         
-        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; z-index: 1; }
-        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); z-index: 2;}
+        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; }
+        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); }
         .colunista-card-img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--dourado); margin-bottom: 15px; pointer-events: none; }
         .colunista-card-name { font-size: 15px; font-weight: 800; color: var(--texto-escuro); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; pointer-events: none;}
         .colunista-card-theme { font-size: 11px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; pointer-events: none;}
@@ -156,10 +150,10 @@
         /* ÚLTIMAS COLUNAS */
         .ultimas-colunas-section { margin-bottom: 20px;}
         .ultimas-colunas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column; position: relative; z-index: 1;}
-        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); z-index: 2;}
-        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; pointer-events: none;}
-        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1; pointer-events: none;}
+        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column;}
+        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); }
+        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; }
+        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1;}
         .coluna-news-tag { font-size: 10px; font-weight: 800; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;}
         .coluna-news-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px;}
         .coluna-news-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0;}
@@ -167,11 +161,11 @@
         /* ACERVO (O RESTO DO FEED) */
         .editorial-feed { display: flex; flex-direction: column; }
         .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
-        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; position: relative; z-index: 1;}
-        .list-article:hover { opacity: 0.85; z-index: 2;}
-        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; pointer-events: none;}
+        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; }
+        .list-article:hover { opacity: 0.85; }
+        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
         .list-article .article-img { width: 100%; height: 100%; object-fit: cover; background: #eee; }
-        .list-article .content-wrapper { flex: 1; pointer-events: none;}
+        .list-article .content-wrapper { flex: 1; }
         .list-article .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 5px; display: block; }
         .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
 
@@ -446,109 +440,102 @@
             <!-- COLE O CARD DO NOVO ARTIGO, COLUNA OU NOTÍCIA EXATAMENTE NA LINHA ABAIXO DESTA -->
             <!-- Lembre de conferir se o card tem data-type="materia", "artigo" ou "coluna" -->
             <!-- ========================================================================================== -->
-    <a href="materia-premio-carolina-bori-meninas-ciencia-inscricoes.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-07">
-        <img src="https://lh3.googleusercontent.com/d/1WDKPW3yAThzXQNDXzzHwGlqlmj542rlT" alt="Inscrições abertas para o Prêmio Carolina Bori Ciência & Mulheres">
-        <span class="tag">Elas no Radar</span>
-        <h3 class="title">Prêmio Carolina Bori foca em Meninas na Ciência</h3>
-        <p class="excerpt">Premiação da SBPC reconhece jovens cientistas do ensino médio e graduação com prêmios de até R$ 13 mil.</p>
-    </a>        
-    <a href="materia-localiza-abre-inscricoes-programa-trainee.html" data-type="materia" data-category="jovem-lideranca" data-publish-date="2026-09-07">
-        <img src="https://lh3.googleusercontent.com/d/1JTuDX1Iug4zeI69kjnk8JxAvhOv5iPZV" alt="Localiza&Co abre vagas para Programa de Trainee">
-        <span class="tag">Jovem Liderança</span>
-        <h3 class="title">Localiza&Co abre inscrições para Trainee 2027</h3>
-        <p class="excerpt">Programa aceita recém-formados de qualquer curso e foca em projetos estratégicos com uso de IA.</p>
-    </a>        
-     <a href="artigo-como-responder-feedback-inadequado-alta-lideranca.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
-        <img src="https://lh3.googleusercontent.com/d/19mPgw_SMvEynPF-Ts83mzgiTKr8VxMEr" alt="Como responder a um feedback que você considera inadequado?">
-        <span class="tag">Radar Executivo</span>
-        <h3 class="title">Como responder a feedbacks inadequados</h3>
-        <p class="excerpt">Aprenda a discordar de avaliações injustas mantendo seu Capital Político e sua postura no C-Suite.</p>
-    </a>
-    <a href="coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html" data-type="coluna" data-author="rogerio-pires" data-category="lideranca-4-0-tech" data-publish-date="2026-09-11">
-        <img src="https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7" alt="A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.">
-        <span class="tag">Liderança 4.0 & Tech</span>
-        <h3 class="title">A IA Não É Mais Assunto da TI</h3>
-        <p class="excerpt">Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças.</p>
-    </a>        
-    <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
-        <img src="https://lh3.googleusercontent.com/d/16XUrAESVZ12HCKPHx7UFu1BcEvFnKYX_" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
-        <span class="tag">Radar Executivo</span>
-        <h3 class="title">CSN nomeia novo CEO e Arezzo anuncia cisão de negócios</h3>
-        <p class="excerpt">Semana no mercado corporativo é marcada por trocas no C-Level, M&A e reestruturações societárias na B3.</p>
-    </a>
-        <a href="materia-fabiana-nogueira-feitosa-cio-latam-danone.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-06">
+            <a href="materia-premio-carolina-bori-meninas-ciencia-inscricoes.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-07">
+            <img src="https://lh3.googleusercontent.com/d/1WDKPW3yAThzXQNDXzzHwGlqlmj542rlT" alt="Inscrições abertas para o Prêmio Carolina Bori Ciência & Mulheres">
+            <span class="tag">Elas no Radar</span>
+            <h3 class="title">Prêmio Carolina Bori foca em Meninas na Ciência</h3>
+            <p class="excerpt">Premiação da SBPC reconhece jovens cientistas do ensino médio e graduação com prêmios de até R$ 13 mil.</p>
+            </a>        
+            <a href="materia-localiza-abre-inscricoes-programa-trainee.html" data-type="materia" data-category="jovem-lideranca" data-publish-date="2026-09-07">
+            <img src="https://lh3.googleusercontent.com/d/1JTuDX1Iug4zeI69kjnk8JxAvhOv5iPZV" alt="Localiza&Co abre vagas para Programa de Trainee">
+            <span class="tag">Jovem Liderança</span>
+            <h3 class="title">Localiza&Co abre inscrições para Trainee 2027</h3>
+            <p class="excerpt">Programa aceita recém-formados de qualquer curso e foca em projetos estratégicos com uso de IA.</p>
+            </a>        
+             <a href="artigo-como-responder-feedback-inadequado-alta-lideranca.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+            <img src="https://lh3.googleusercontent.com/d/19mPgw_SMvEynPF-Ts83mzgiTKr8VxMEr" alt="Como responder a um feedback que você considera inadequado?">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">Como responder a feedbacks inadequados</h3>
+            <p class="excerpt">Aprenda a discordar de avaliações injustas mantendo seu Capital Político e sua postura no C-Suite.</p>
+            </a>
+            <a href="coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html" data-type="coluna" data-author="rogerio-pires" data-category="lideranca-4-0-tech" data-publish-date="2026-09-11">
+            <img src="https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7" alt="A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.">
+            <span class="tag">Liderança 4.0 & Tech</span>
+            <h3 class="title">A IA Não É Mais Assunto da TI</h3>
+            <p class="excerpt">Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças.</p>
+            </a>       
+            <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+            <img src="https://lh3.googleusercontent.com/d/16XUrAESVZ12HCKPHx7UFu1BcEvFnKYX_" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">CSN nomeia novo CEO e Arezzo anuncia cisão de negócios</h3>
+            <p class="excerpt">Semana no mercado corporativo é marcada por trocas no C-Level, M&A e reestruturações societárias na B3.</p>
+            </a>
+            <a href="materia-fabiana-nogueira-feitosa-cio-latam-danone.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-06">
             <img src="https://lh3.googleusercontent.com/d/1uNwFK4SRE8dfRuvKIlP3MQaC0AJo3aQj" alt="Fabiana Nogueira Feitosa assume como CIO Latam da Danone">
             <span class="tag">Elas no Radar</span>
             <h3 class="title">Fabiana Feitosa assume como CIO Latam da Danone</h3>
             <p class="excerpt">Com vasta experiência em IA e dados, executiva também passa a integrar o Comitê Diretivo da companhia no Brasil.</p>
-        </a>    
-        <a href="materia-alessandro-carlucci-retorna-ceo-natura.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
-           <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
+            </a>    
+            <a href="materia-alessandro-carlucci-retorna-ceo-natura.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+            <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Alessandro Carlucci retorna como CEO da Natura</h3>
            <p class="excerpt">Executivo sucede João Paulo Ferreira na presidência; Fábio Barbosa reassume o comando do Conselho de Administração.</p>
-        </a>
-       <a href="artigo-o-que-especialista-precisa-desaprender-quando-vira-lider.html" data-type="artigo" data-category="radar-executivo" data-publish-date="2026-09-05">
+            </a>
+           <a href="artigo-o-que-especialista-precisa-desaprender-quando-vira-lider.html" data-type="artigo" data-category="radar-executivo" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1_565gPdlgnuVO1hYxnOB6Y_jtreo9jTq" alt="O que um especialista precisa desaprender quando vira líder?">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Especialista para líder: o que desaprender?</h3>
             <p class="excerpt">A transição exige abandonar o microgerenciamento e focar na estratégia. Saiba o que deixar para trás.</p>
-        
-        </a>
-        <a href="materia-luciana-maia-diretoria-financeira-neoenergia.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-05">
+            </a>
+            <a href="materia-luciana-maia-diretoria-financeira-neoenergia.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1CQutdgG-bc9TggJ7ZSRMcUooJxZBGXVt" alt="Luciana Maia assume Diretoria Financeira e de RI na Neoenergia">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Luciana Maia assume Diretoria Financeira e de RI na Neoenergia</h3>
             <p class="excerpt">A Neoenergia reestrutura C-Level com a nomeação de Luciana Maia para a diretoria financeira e RI em cinco operações do grupo.</p>
-        </a>
-         <a href="materia-globo-reestruturacao-c-level-diretorias.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-05">
+            </a>
+            <a href="materia-globo-reestruturacao-c-level-diretorias.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1icCfLTDjB_Jtveajezy37p5yLOYRcKWL" alt="Reorganização no C-Level do Grupo Globo">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Grupo Globo anuncia reorganização no C-Level e unificação de diretorias</h3>
             <p class="excerpt">Grupo reorganizou o comando de marketing, conteúdo e distribuição digital com a saída de três executivos sêniores.</p>
-        </a>
+            </a>
             <a href="materia-bauducco-anuncia-stefano-mozzi-ceo.html" data-type="materia" data-category="c-level-negocios" data-publish-date="2026-09-04">
-                <img src="https://lh3.googleusercontent.com/d/1J5lvn85Jaz_yXGsLyMfM8XJm3wamH5gG" alt="Stefano Mozzi, novo CEO do Grupo Pandurata">
-                <span class="tag">C-Level & Negócios</span>
-                <h3 class="title">Bauducco anuncia Stefano Mozzi como novo CEO para acelerar expansão internacional</h3>
-                <p class="excerpt">Executivo, que liderava a operação externa, assume o comando global do Grupo Pandurata. Andrea Martini passa a integrar o Board.</p>
+            <img src="https://lh3.googleusercontent.com/d/1J5lvn85Jaz_yXGsLyMfM8XJm3wamH5gG" alt="Stefano Mozzi, novo CEO do Grupo Pandurata">
+            <span class="tag">C-Level & Negócios</span>
+            <h3 class="title">Bauducco anuncia Stefano Mozzi como novo CEO para acelerar expansão internacional</h3>
+            <p class="excerpt">Executivo, que liderava a operação externa, assume o comando global do Grupo Pandurata. Andrea Martini passa a integrar o Board.</p>
             </a>
-            
             <a href="artigo-fabio-schvartsman-assume-presidencia-csn.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-04">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600" alt="Fabio Schvartsman assume a presidência executiva da CSN">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">Fabio Schvartsman assume a presidência executiva da CSN</h3>
-                <p class="excerpt">Fabio Schvartsman assume a liderança operacional da siderúrgica enquanto Benjamin Steinbruch passa a presidir o Conselho de Administração.</p>
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600" alt="Fabio Schvartsman assume a presidência executiva da CSN">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">Fabio Schvartsman assume a presidência executiva da CSN</h3>
+            <p class="excerpt">Fabio Schvartsman assume a liderança operacional da siderúrgica enquanto Benjamin Steinbruch passa a presidir o Conselho de Administração.</p>
             </a>
-
             <a href="coluna-liliane-silva-governanca-em-saude.html" data-type="coluna" data-category="colunas" data-author="liliane-silva" data-publish-date="2026-09-07">
             <img src="https://lh3.googleusercontent.com/d/1tSqSFH3zkduE9m6KS8QM013k5Mf8Y0Tz" alt="GOVERNANÇA EM SAÚDE">
             <span class="tag">SAÚDE & GOVERNANÇA</span>
             <h3 class="title">Quando a gestão deixa de apagar incêndios e começa a antecipar riscos</h3>
             <p class="excerpt">Entenda como a governança em saúde transforma informações e sinais em decisões estratégicas, migrando de uma gestão reativa para a antecipação de riscos.</p>
             </a>
-
             <a href="coluna-jose-reale-desafios-direito-trabalho-ia.html" data-type="coluna" data-category="colunas" data-author="jose-reale" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1HywLMljKGf1vODmw61gWUyR3ciIobImm" alt="Os desafios do Direito do Trabalho com o avanço da Inteligência Artificial">
             <span class="tag">DEFESA DO EXECUTIVO</span>
             <h3 class="title">Os Desafios do Direito do Trabalho com o Avanço da Inteligência Artificial</h3>
             <p class="excerpt">A Inteligência Artificial já está transformando o mercado de trabalho. Descubra os desafios jurídicos para proteger o trabalhador e garantir a justiça social.</p>
             </a>
-            
             <a href="coluna-daniele-avelino-moeda-invisivel-sustenta-autoridade.html" data-type="coluna" data-category="colunas" data-author="daniele-avelino" data-publish-date="2026-09-03">
             <img src="https://lh3.googleusercontent.com/d/1KlaEyO9g431X6HJlWO4_XGoCPeKp5P1q" alt="A Moeda Invisível Que Sustenta Sua Autoridade no Mercado">
             <span class="tag">POSICIONAMENTO EXECUTIVO</span>
             <h3 class="title">A Moeda Invisível Que Sustenta Sua Autoridade no Mercado</h3>
             <p class="excerpt">Descubra como construir capital político e posicionamento executivo de forma genuína, sem recorrer à autopromoção vazia.</p>
             </a>
-            
             <a href="coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html" data-type="coluna" data-category="colunas" data-author="felipe-almeida" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida">
             <span class="tag">Jovem Liderança</span>
             <h3 class="title">JEDIP: Quando o P muda tudo</h3>
             <p class="excerpt">Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional e retém jovens talentos.</p>
             </a>
-
             <a href="coluna-debora-boscolo-o-poder-nao-revela.html" data-type="coluna" data-category="colunas" data-author="debora-boscolo" data-publish-date="2026-09-04">
             <img src="https://lh3.googleusercontent.com/d/1cd0-A1SdvBrRX40RrvbNn-0-I1et6aLm" alt="O poder não revela quem você é, revela o que você deixou de vigiar">
             <span class="tag">Comportamento Humano</span>
@@ -562,187 +549,164 @@
             <h3 class="title">Como avaliar a inteligência relacional e mediação de conflitos em líderes?</h3>
             <p class="excerpt">Aprenda a mapear a diplomacia executiva, a negociação de prioridades interdepartamentais e o autocontrole relacional com a Metodologia S.T.A.R.E.</p>
             </a>
-
             <a href="coluna-simone-vieira-lugar-de-mulher.html" data-type="coluna" data-category="colunas" data-author="simone-vieira">
             <img src="https://lh3.googleusercontent.com/d/15utt1Lxgcw2xYawC84OIOIrD5Ikil88t" alt="Lugar de Mulher é Onde Ela Decide">
             <span class="tag">Lugar de Mulher é Onde Ela Decide</span>
             <h3 class="title">Liderança Feminina: Lugar de Mulher é Onde Ela Decide</h3>
             <p class="excerpt">Descubra por que lugar de mulher é onde ela decide. A importância do protagonismo, da visibilidade e de ocupar espaços estratégicos de decisão nos conselhos.</p>
             </a>
-
-            <a href="artigo-brag-book-executivo-autoridade-clevel.html" data-type="artigo" data-category="radar-executivo">
+            <a href="artigo-excelencia-sem-medo-lideranca.html" data-type="artigo" data-category="radar-executivo">
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Excelência Sem Medo na Liderança">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">Excelência Sem Medo na Liderança</h3>
+            <p class="excerpt">Como criar ambientes de alta performance sem cultivar a cultura do medo no C-Suite.</p>
+            </a>
+            <a href="artigo-rh-planejamento-sucessao.html" data-type="artigo" data-category="dica-de-hunter">
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem7.jpg" alt="Planejamento de Sucessão no RH">
+            <span class="tag">Dica de Hunter</span>
+            <h3 class="title">Planejamento de Sucessão: A Blindagem do C-Suite</h3>
+            <p class="excerpt">Como o RH Estratégico deve mapear e preparar substitutos para cadeiras críticas da alta gestão.</p>
+            </a>
+            <a href="artigo-jovem-lideranca-jbs-trainee-agro.html" data-type="materia" data-category="jovem-lideranca">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?fm=webp&w=800&q=80" alt="JBS abre programa de Trainee no Agro">
+            <span class="tag">Jovem Liderança</span>
+            <h3 class="title">JBS lança programa de Trainee voltado ao Agrobusiness</h3>
+            <p class="excerpt">Oportunidade para jovens líderes acelerarem a carreira em um dos maiores setores da economia.</p>
+            </a>
+             <a href="artigo-brag-book-executivo-autoridade-clevel.html" data-type="artigo" data-category="radar-executivo">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/Captura%20de%20tela%202026-08-28%20181704.png" alt="O Brag Book Executivo: A Prova Material da Sua Autoridade C-Level">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">O Brag Book Executivo: A Prova Material da Sua Autoridade C-Level</h3>
             <p class="excerpt">Como transformar sua trajetória corporativa em um dossiê estratégico de resultados incontestáveis para sabatinas de mercado e conselhos de administração.</p>
             </a>
-
             <a href="artigo-desatrelar-marca-pessoal-empresa.html" data-type="artigo" data-category="radar-executivo">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem26.jpg?raw=true" alt="Como desatrelar a sua marca pessoal do nome da sua empresa atual">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Como desatrelar a sua marca pessoal do nome da sua empresa atual</h3>
             <p class="excerpt">Muitos executivos perdem a própria identidade e o poder de barganha porque a sua autoridade depende 100% da marca do empregador. Saiba como construir um Branding independente.</p>
             </a>
-
             <a href="artigo-por-que-lideres-seniores-pedem-demissao-rh.html" data-type="artigo" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem23.jpg?raw=true" alt="Por que líderes sêniores realmente pedem demissão? O erro do RH">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Por que líderes sêniores realmente pedem demissão? O erro do RH</h3>
             <p class="excerpt">Dinheiro não segura talento no C-Level. Descubra como a falta de autonomia e falhas de governança são os verdadeiros motivadores do turnover na alta gestão.</p>
             </a>
-
             <a href="artigo-marca-pessoal-linkedin-sem-arrogancia.html" data-type="artigo" data-category="radar-executivo">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem1.png?raw=true" alt="Como construir uma marca pessoal forte no LinkedIn sem parecer arrogante">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Como construir uma marca pessoal forte no LinkedIn sem parecer arrogante</h3>
             <p class="excerpt">Você já deixou de postar conquistas por medo de parecer arrogante? Descubra como construir uma marca pessoal forte e magnética para a alta gestão.</p>
             </a>
-
             <a href="artigo-curriculo-perfeito-nao-garante-bom-gestor.html" data-type="artigo" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem25.jpg?raw=true" alt="Por que o currículo perfeito nem sempre garante um bom gestor?">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">Por que o currículo perfeito nem sempre garante um bom gestor?</h3>
             <p class="excerpt">Você já contratou um executivo brilhante no papel que falhou na operação? Entenda como headhunters avaliam a liderança real além do currículo perfeito.</p>
             </a>
-
             <a href="entrevista-bruno-ferola-compliance-dp.html" data-type="artigo" data-category="entrevistas">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem20.jpeg?raw=true">
             <span class="tag">Entrevistas Exclusivas</span>
             <h3 class="title">O Departamento Pessoal como Radar de Risco: Entrevista Exclusiva com Bruno Galvão Ferola</h3>
             <p class="excerpt">Descubra como o Departamento Pessoal e o Compliance formam o centro da estratégia corporativa em nossa entrevista exclusiva com Bruno Galvão Ferola.</p>
             </a>
-            <a href="artigo-excelencia-sem-medo-lideranca.html" data-type="artigo" data-category="radar-executivo">
-        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem36.png" alt="Excelência Sem Medo na Liderança">
-        <span class="tag">Radar Executivo</span>
-        <h3 class="title">Excelência Sem Medo na Liderança</h3>
-        <p class="excerpt">Como criar ambientes de alta performance sem cultivar a cultura do medo no C-Suite.</p>
-    </a>
-
-
-    <a href="artigo-rh-planejamento-sucessao.html" data-type="artigo" data-category="dica-de-hunter">
-        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem7.jpg" alt="Planejamento de Sucessão no RH">
-        <span class="tag">Dica de Hunter</span>
-        <h3 class="title">Planejamento de Sucessão: A Blindagem do C-Suite</h3>
-        <p class="excerpt">Como o RH Estratégico deve mapear e preparar substitutos para cadeiras críticas da alta gestão.</p>
-    </a>
-
-
-    <a href="artigo-jovem-lideranca-jbs-trainee-agro.html" data-type="materia" data-category="jovem-lideranca">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?fm=webp&w=800&q=80" alt="JBS abre programa de Trainee no Agro">
-        <span class="tag">Jovem Liderança</span>
-        <h3 class="title">JBS lança programa de Trainee voltado ao Agrobusiness</h3>
-        <p class="excerpt">Oportunidade para jovens líderes acelerarem a carreira em um dos maiores setores da economia.</p>
-    </a>
-
             <a href="artigo-ilusao-contraproposta-rh.html" data-type="artigo" data-category="dica-de-hunter">
             <img src="https://github.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/blob/main/imagem19.jpg?raw=true">
             <span class="tag">Dica de Hunter</span>
             <h3 class="title">A Ilusão da Contraproposta: Por Que o RH Não Deve Tentar "Comprar" o Executivo de Volta</h3>
             <p class="excerpt">Dados de 2026 mostram que reter líderes com contrapropostas falha em meses. Aprenda como o RH deve agir na retenção preventiva antes da busca pelo mercado.</p>
             </a>
-
             <a href="artigo-quiet-firing-lideranca.html" data-type="artigo" data-category="radar-executivo">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem17.png">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">O "Quiet Firing": Os sinais de que o seu líder já desistiu de você</h3>
             <p class="excerpt">Descubra como identificar o Quiet Firing e saiba o que fazer quando orçamentos são cortados e reuniões importantes acontecem sem a sua presença.</p>
             </a>
-
             <a href="artigo-capital-politico-vs-networking.html" data-type="artigo" data-category="radar-executivo">
             <img src="https://famart.edu.br/wp-content/uploads/2021/12/networking-e1640197874637.jpg">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Networking de Cafezinho vs. Capital Político Real: O Peso Estratégico no C-Level</h3>
             <p class="excerpt">Conhecer muita gente não garante promoção. Entenda a diferença entre networking superficial e o Capital Político que destrava as cadeiras C-Level.</p>
             </a>
-
             <a href="artigo-algemas-de-ouro-carreira-c-level.html" data-type="artigo" data-category="radar-executivo">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem14.png">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">As "Algemas de Ouro": Quando o seu alto salário é o que está travando a sua carreira</h3>
             <p class="excerpt">Descubra como bônus, benefícios e pacotes de retenção mantêm executivos sêniores reféns do conforto, impedindo o salto real para o C-Suite e a mesa de decisão.</p>
             </a>
-
             <a href="artigo-radar-executivo-movimentacoes-clevel-maio-2026.html" data-type="materia" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">A Nova Arquitetura do Poder C-Level: Inter, Vamos e a Ascensão de Ana Sanches</h3>
-                <p class="excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia corporativa.</p>
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&w=1200&q=80">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">A Nova Arquitetura do Poder C-Level: Inter, Vamos e a Ascensão de Ana Sanches</h3>
+            <p class="excerpt">A dança das cadeiras em maio de 2026 expõe a mudança de ciclo para o foco em Valor e a diplomacia corporativa.</p>
             </a>
-
             <a href="artigo-elas-no-radar-gargalo-prestigio-boards.html" data-type="artigo" data-category="elas-no-radar">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800">
-                <span class="tag">Elas no Radar</span>
-                <h3 class="title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h3>
-                <p class="excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia destrói o Valuation da empresa.</p>
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem7.jpg?q=80&w=800">
+            <span class="tag">Elas no Radar</span>
+            <h3 class="title">O Paradoxo do Prestígio e o Gargalo Feminino nos Conselhos</h3>
+            <p class="excerpt">A HBR revelou: a exigência por "prestígio tradicional" barra mulheres em Boards. Entenda como essa miopia destrói o Valuation da empresa.</p>
             </a>
-
             <a href="artigo-lideranca-jovem-volume-4-maio.html" data-type="artigo" data-category="jovem-lideranca">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80">
-                <span class="tag">Jovem Liderança</span>
-                <h3 class="title">Painel: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h3>
-                <p class="excerpt">A curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão.</p>
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=webp&w=800&q=80">
+            <span class="tag">Jovem Liderança</span>
+            <h3 class="title">Painel: Oportunidades na Vale, Embraer e Grupo Edson Queiroz</h3>
+            <p class="excerpt">A curadoria das melhores vagas e programas de trainee para jovens que desejam acelerar a chegada à alta gestão.</p>
             </a>
-
             <a href="artigo-apagao-tech-rh-estrategico.html" data-type="artigo" data-category="dica-de-hunter">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800">
-                <span class="tag">Dica de Hunter</span>
-                <h3 class="title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
-                <p class="excerpt">A Ford revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap do CHRO.</p>
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800">
+            <span class="tag">Dica de Hunter</span>
+            <h3 class="title">O Apagão Tech de 98%: Por que a caça por unicórnios destrói a inovação</h3>
+            <p class="excerpt">A Ford revelou o colapso na atração de talentos de TI. Entenda a matemática do prejuízo e o roadmap do CHRO.</p>
             </a>
-
             <a href="artigo-moeda-oculta-lideranca-autorregulacao.html" data-type="artigo" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=600">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">A Moeda Oculta da Liderança: Como a Autorregulação Define o Valuation</h3>
-                <p class="excerpt">A hiperdisponibilidade digital não projeta comprometimento; sinaliza falha estrutural de governança pessoal. Descubra a análise dos Headhunters.</p>
+            <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=600">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">A Moeda Oculta da Liderança: Como a Autorregulação Define o Valuation</h3>
+            <p class="excerpt">A hiperdisponibilidade digital não projeta comprometimento; sinaliza falha estrutural de governança pessoal. Descubra a análise dos Headhunters.</p>
             </a>
-
             <a href="entrevista-elas-no-cafezinho.html" data-type="artigo" data-category="entrevistas">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg">
-                <span class="tag">Entrevistas Exclusivas</span>
-                <h3 class="title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h3>
-                <p class="excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica. Uma entrevista exclusiva.</p>
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem%2014.jpg">
+            <span class="tag">Entrevistas Exclusivas</span>
+            <h3 class="title">Elas no Cafezinho: Conexões que Abraçam e Atitudes que Transformam</h3>
+            <p class="excerpt">Conheça os bastidores do movimento que transforma conversas informais em potência estratégica. Uma entrevista exclusiva.</p>
             </a>
-
             <a href="artigo-nao-te-demores-no-menos.html" data-type="materia" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?fm=webp&w=800&q=80">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">Não Te Demores no Menos: O Macro Cenário Não Espera o Executivo Tático</h3>
-                <p class="excerpt">Edição especial analisando as grandes movimentações da semana e como líderes se desapegam do microgerenciamento.</p>
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?fm=webp&w=800&q=80">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">Não Te Demores no Menos: O Macro Cenário Não Espera o Executivo Tático</h3>
+            <p class="excerpt">Edição especial analisando as grandes movimentações da semana e como líderes se desapegam do microgerenciamento.</p>
             </a>
-
             <a href="artigo-indicacao-premio-ibest-2026.html" data-type="materia" data-category="radar-executivo">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem13%20(5).JPG">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">A Relevância Além do Algoritmo: Indicação Consecutiva ao Prêmio iBest 2026</h3>
-                <p class="excerpt">Ana Paula Marçal Fortunato é finalista pelo segundo ano consecutivo nas categorias RH e LinkedIn Influencer.</p>
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem13%20(5).JPG">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">A Relevância Além do Algoritmo: Indicação Consecutiva ao Prêmio iBest 2026</h3>
+            <p class="excerpt">Ana Paula Marçal Fortunato é finalista pelo segundo ano consecutivo nas categorias RH e LinkedIn Influencer.</p>
             </a>
 
             <a href="artigo-networking-alta-gestao-gerar-negocios.html" data-type="artigo" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
-                <p class="excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como o C-Level constrói alianças estratégicas focadas em resolver problemas.</p>
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?fm=webp&w=800&q=80">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">Networking de Alta Gestão Não É Pedir Favor (É Gerar Negócios)</h3>
+            <p class="excerpt">A alta gestão sente o cheiro do desespero de longe. Entenda como o C-Level constrói alianças estratégicas focadas em resolver problemas.</p>
             </a>
 
             <a href="entrevista-carlos-henrique-instituto-reciclar-esg.html" data-type="artigo" data-category="entrevistas">
-                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg">
-                <span class="tag">Entrevistas Exclusivas</span>
-                <h3 class="title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
-                <p class="excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência de alinhar ESG à estratégia.</p>
+            <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/imagem9.jpg">
+            <span class="tag">Entrevistas Exclusivas</span>
+            <h3 class="title">O Pragmatismo do Impacto Social: Entrevista com Carlos Henrique de Lima</h3>
+            <p class="excerpt">A visão executiva por trás de uma das ONGs mais premiadas do país e a urgência de alinhar ESG à estratégia.</p>
             </a>
 
             <a href="artigo-radar-executivo-vol1-maio-2026.html" data-type="materia" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">A Dança das Cadeiras no C-Level: O Novo Mapa do Mercado (Vol 1)</h3>
-                <p class="excerpt">Acompanhe e entenda os fatos por trás das recentes transições executivas na Braskem, Unico e Jirau Energia.</p>
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">A Dança das Cadeiras no C-Level: O Novo Mapa do Mercado (Vol 1)</h3>
+            <p class="excerpt">Acompanhe e entenda os fatos por trás das recentes transições executivas na Braskem, Unico e Jirau Energia.</p>
             </a>
 
             <a href="artigo-danca-cadeiras-recorde-ceos-maio-2026.html" data-type="materia" data-category="radar-executivo">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80">
-                <span class="tag">Radar Executivo</span>
-                <h3 class="title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h3>
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fm=webp&w=800&q=80">
+            <span class="tag">Radar Executivo</span>
+            <h3 class="title">A Aceleração das Trocas de CEOs e a Nova Dança das Cadeiras</h3>
                 <p class="excerpt">Apenas em 2026, 12 CEOs já caíram na B3. Entenda a visão dos Headhunters sobre os movimentos na BMW e Pão de Açúcar.</p>
             </a>
 
@@ -1036,32 +1000,6 @@
         </div>
     </main>
 
-    <!-- INSERIR A SEÇÃO DE NEWSLETTER AQUI, ANTES DO FOOTER -->
-    <section class="newsletter-section">
-        <div class="newsletter-container">
-            <span class="newsletter-tag">YOUP EXECUTIVE CLUB</span>
-            <h2 class="newsletter-title">A inteligência que os headhunters não contam.</h2>
-            <p class="newsletter-desc">Assine nossa Newsletter gratuita e receba, direto no seu e-mail, as movimentações confidenciais do C-Level, análises táticas de M&A e os bastidores do mercado corporativo.</p>
-            
-            <form class="newsletter-form" onsubmit="event.preventDefault(); assinarNewsletter();">
-                <div class="nl-input-group">
-                    <label>Seu Nome Completo</label>
-                    <input type="text" id="nlNome" class="nl-input" placeholder="Ex: Carlos Silva" required>
-                </div>
-                <div class="nl-input-group">
-                    <label>E-mail Corporativo ou Pessoal</label>
-                    <input type="email" id="nlEmail" class="nl-input" placeholder="carlos@empresa.com.br" required>
-                </div>
-                <div class="nl-input-group">
-                    <label>Data de Nascimento</label>
-                    <input type="date" id="nlDataNasc" class="nl-input" required>
-                </div>
-                <button type="submit" class="nl-btn" id="nlSubmitBtn">Quero Receber o Conteúdo Premium</button>
-            </form>
-            <p class="nl-privacy">Respeitamos a LGPD. Você pode se descadastrar a qualquer momento. Suas informações estão seguras. <a href="privacidade.html">Política de Privacidade</a></p>
-        </div>
-    </section>
-
     <!-- FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO -->
     <footer class="site-footer">
         <div class="footer-content">
@@ -1318,7 +1256,6 @@
                 const triadItems = newsAndArticles.slice(0, 19);
 
                 const DestaquesRotativos = triadItems.slice(0, 10);
-                let rotatorHtml = '';
                 DestaquesRotativos.forEach((item, index) => {
                     const url = item.getAttribute('href');
                     const imgSrc = item.querySelector('img').src;
@@ -1326,7 +1263,7 @@
                     const title = item.querySelector('.title').innerText;
                     const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                    rotatorHtml += `
+                    triadCenterWrapper.innerHTML += `
                         <a href="${url}" class="rotator-slide ${index === 0 ? 'active' : ''}">
                             <div class="rotator-img-container">
                                 <img src="${imgSrc}" class="rotator-img" alt="${title}">
@@ -1339,11 +1276,9 @@
                         </a>
                     `;
                 });
-                triadCenterWrapper.innerHTML = rotatorHtml;
                 if(DestaquesRotativos.length > 0) iniciarSliderRotativo(DestaquesRotativos.length);
 
                 const LeftItems = triadItems.slice(10, 12);
-                let leftHtml = '';
                 LeftItems.forEach(item => {
                     const url = item.getAttribute('href');
                     const imgSrc = item.querySelector('img').src;
@@ -1351,7 +1286,7 @@
                     const title = item.querySelector('.title').innerText;
                     const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                    leftHtml += `
+                    triadLeftCol.innerHTML += `
                         <a href="${url}" class="side-news-card-left">
                             <div class="side-news-img-wrapper">
                                 <img src="${imgSrc}" class="side-news-img" alt="${title}">
@@ -1362,27 +1297,23 @@
                         </a>
                     `;
                 });
-                triadLeftCol.innerHTML = leftHtml;
 
                 const RightItems = triadItems.slice(12, 19);
-                let rightHtml = '';
                 RightItems.forEach(item => {
                     const url = item.getAttribute('href');
                     const tag = item.querySelector('.tag').innerText;
                     const title = item.querySelector('.title').innerText;
 
-                    rightHtml += `
+                    triadRightCol.innerHTML += `
                         <a href="${url}" class="side-news-item">
                             <span class="side-news-tag">${tag}</span>
                             <h4 class="side-news-title">${title}</h4>
                         </a>
                     `;
                 });
-                triadRightCol.innerHTML = rightHtml;
 
                 const top3Colunas = colunas.slice(0, 3);
                 if (ultimasColunasGrid) {
-                    let top3Html = '';
                     top3Colunas.forEach(item => {
                         const url = item.getAttribute('href');
                         const imgSrc = item.querySelector('img').src;
@@ -1390,7 +1321,7 @@
                         const title = item.querySelector('.title').innerText;
                         const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
 
-                        top3Html += `
+                        ultimasColunasGrid.innerHTML += `
                             <a href="${url}" class="coluna-news-card">
                                 <img src="${imgSrc}" class="coluna-news-img" alt="${title}">
                                 <div class="coluna-news-body">
@@ -1401,7 +1332,6 @@
                             </a>
                         `;
                     });
-                    ultimasColunasGrid.innerHTML = top3Html;
                 }
 
                 const usedElements = new Set([...triadItems, ...top3Colunas]);
@@ -1680,3 +1610,4 @@
 
 </body>
 </html>
+
