@@ -95,12 +95,12 @@
 
         /* PRINCIPAIS NOTÍCIAS (TRIAD) */
         .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 10px;}
-        .side-col-left { display: flex; flex-direction: column; gap: 20px; width: 280px; flex-shrink: 0; order: 1; justify-content: flex-start; }
+        .side-col-left { display: flex; flex-direction: column; gap: 20px; width: 280px; flex-shrink: 0; order: 1; align-self: flex-start; height: auto; }
         
-        /* CORREÇÃO DO BLOCO DE LINK NOS CARDS DA ESQUERDA (BLINDAGEM CONTRA SOBREPOSIÇÃO) */
-        .side-news-card-left { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: transform 0.3s ease; position: relative; z-index: 1; }
+        /* CORREÇÃO DO BLOCO DE LINK NOS CARDS DA ESQUERDA */
+        .side-news-card-left { display: flex; flex-direction: column; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: transform 0.3s ease; position: relative; height: auto !important; flex: 0 0 auto !important; }
         .side-news-card-left:last-child { border-bottom: none; padding-bottom: 0; }
-        .side-news-card-left:hover { transform: translateY(-3px); z-index: 2; }
+        .side-news-card-left:hover { transform: translateY(-3px); }
         .side-news-card-left:hover .side-news-title { color: var(--dourado); }
         
         .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; }
@@ -131,8 +131,8 @@
         .rotator-progress-bar { height: 3px; background: #e5e5e5; width: 100%; position: relative; }
         .rotator-progress-fill { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s linear; }
 
-        .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; height: 100%; order: 3;}
-        .side-news-item { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; position: relative;}
+        .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; align-self: flex-start; height: auto; order: 3;}
+        .side-news-item { display: block; text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; position: relative; height: auto !important; flex: 0 0 auto !important; }
         .side-news-item:last-child { border-bottom: none; padding-bottom: 0; }
         .side-news-item:hover .side-news-title { color: var(--dourado); }
         .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin: 0 0 6px 0; display: block; }
@@ -377,9 +377,6 @@
             <div class="colunistas-carousel-wrapper">
                 <button class="carousel-btn prev" onclick="scrollColunistas(-1)">&#10094;</button>
                 <div class="colunistas-track" id="colunistasContainer">
-                    <!-- ========================================================================================== -->
-                    <!-- 🚨🚨 ALERTA ANA PAULA 1: COLUNISTAS (ADICIONE NOVOS AQUI) 🚨🚨 -->
-                    <!-- ========================================================================================== -->
                     <a href="javascript:void(0)" onclick="filtrarPorAutor('alessandra-miliatti', this, event)" class="colunista-card">
                         <img src="https://lh3.googleusercontent.com/d/1Hmxz7q6gYW6vou-8XpbEFFcfPu0uSh_N" alt="Alessandra Miliatti" class="colunista-card-img">
                         <div class="colunista-card-name">Alessandra Miliatti</div>
@@ -932,7 +929,7 @@
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600">
                 <span class="tag">Dica de Hunter</span>
                 <h3 class="title">As melhores vagas nunca são publicadas</h3>
-                <p class="excerpt">A mecânica corporativa do Stealth Search e as vagas confidential.</p>
+                <p class="excerpt">A mecânica corporativa do Stealth Search e as vagas confidenciais.</p>
             </a>
 
             <a href="artigo-rh-remuneracao-estrategica.html" data-type="artigo" data-category="dica-de-hunter">
@@ -1029,7 +1026,7 @@
         </div>
     </main>
 
-    <!-- INSERIR A SEÇÃO DE NEWSLETTER AQUI, ANTES DO FOOTER -->
+    <!-- SESSÃO DE CAPTURA DE LEADS (NEWSLETTER) -->
     <section class="newsletter-section">
         <div class="newsletter-container">
             <span class="newsletter-tag">YOUP EXECUTIVE CLUB</span>
@@ -1610,10 +1607,6 @@
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
-            // ==========================================================================================
-            // 🚨🚨 ALERTA ANA PAULA 3: PALAVRAS BLOQUEADAS (SITES EXTERNOS) 🚨🚨
-            // Insira aqui abaixo as palavras que não deseja que apareçam no feed automático
-            // ==========================================================================================
             const palavrasBloqueadas = [
                 "preso", "prisão", "polícia", "assassinato", "crime", 
                 "tráfico", "golpe", "futebol", "cantor", "atriz", 
