@@ -1630,6 +1630,222 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- ========================================== -->
+<!-- MODAL DE CAPTAÇÃO DE LEADS YOUP -->
+<!-- ========================================== -->
+<style>
+    .modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(10, 10, 10, 0.85);
+        z-index: 999999;
+        display: none; /* Inicia oculto */
+        align-items: center; justify-content: center;
+        backdrop-filter: blur(5px);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .modal-box {
+        background: #fff;
+        width: 100%; max-width: 1100px;
+        height: 90vh; max-height: 750px;
+        border-radius: 12px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        animation: modalFadeIn 0.5s ease;
+    }
+    @keyframes modalFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .modal-close-btn {
+        position: absolute; top: 15px; right: 20px;
+        font-size: 28px; color: #999;
+        background: none; border: none; cursor: pointer;
+        z-index: 10; transition: 0.3s;
+    }
+    .modal-close-btn:hover { color: var(--dourado); transform: scale(1.1); }
 
+    /* Lado Esquerdo - Textos (Dark) */
+    .modal-left {
+        flex: 1.2; background: var(--cinza-escuro); color: #fff;
+        padding: 50px 40px; overflow-y: auto; border-right: 4px solid var(--dourado);
+    }
+    .modal-left::-webkit-scrollbar { width: 6px; }
+    .modal-left::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 4px; }
+    
+    .modal-left h2 { color: var(--dourado); font-size: 24px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; line-height: 1.2;}
+    .modal-left h3 { color: #fff; font-size: 16px; font-weight: 700; margin: 30px 0 10px; border-left: 3px solid var(--verde-youp); padding-left: 10px;}
+    .modal-left p { font-size: 13px; color: #ccc; line-height: 1.6; margin-bottom: 15px;}
+    .modal-left ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
+    .modal-left ul li { font-size: 13px; color: #ccc; margin-bottom: 8px; display: flex; gap: 8px; }
+    .modal-left ul li::before { content: "✓"; color: var(--dourado); font-weight: bold; }
+
+    /* Lado Direito - Formulário (Light) */
+    .modal-right {
+        flex: 1; background: #fff; padding: 50px 40px; overflow-y: auto;
+        display: flex; flex-direction: column; justify-content: center;
+    }
+    .modal-right h2 { font-size: 22px; color: var(--texto-titulo); margin: 0 0 5px 0; }
+    .modal-right p.sub { font-size: 13px; color: #666; margin-bottom: 25px; }
+
+    .youp-form-group { margin-bottom: 15px; }
+    .youp-form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--texto-titulo); margin-bottom: 5px; text-transform: uppercase; }
+    .youp-form-group input, .youp-form-group select, .youp-form-group textarea {
+        width: 100%; padding: 12px;
+        border: 1px solid var(--borda); border-radius: 4px;
+        font-family: 'Montserrat', sans-serif; font-size: 14px;
+        background: #fafafa; transition: 0.3s; box-sizing: border-box;
+    }
+    .youp-form-group input:focus, .youp-form-group select:focus, .youp-form-group textarea:focus {
+        border-color: var(--dourado); outline: none; background: #fff;
+    }
+    .youp-form-group textarea { resize: vertical; min-height: 80px; }
+    
+    .youp-form-checkbox { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+    .youp-form-checkbox input { margin-top: 3px; }
+    .youp-form-checkbox label { font-size: 11px; color: #666; font-weight: 400; text-transform: none; line-height: 1.4; }
+
+    .btn-submit-youp {
+        width: 100%; background: var(--dourado); color: var(--cinza-escuro);
+        padding: 15px; border: none; border-radius: 4px;
+        font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+        cursor: pointer; transition: 0.3s;
+    }
+    .btn-submit-youp:hover { background: #111; color: var(--dourado); }
+
+    /* Responsivo para celular */
+    @media (max-width: 768px) {
+        .modal-box { flex-direction: column; height: 95vh; }
+        .modal-left { flex: none; border-right: none; border-bottom: 4px solid var(--dourado); padding: 30px 20px; }
+        .modal-right { flex: none; padding: 30px 20px; }
+    }
+</style>
+
+<div class="modal-overlay" id="leadModalOverlay">
+    <div class="modal-box">
+        <button class="modal-close-btn" onclick="fecharModalLead()">×</button>
+        
+        <!-- COLUNA DE TEXTO -->
+        <div class="modal-left">
+            <h2>Sua empresa não pode esperar. Vamos encontrar a solução?</h2>
+            <p>Um currículo impecável não garante um problema resolvido. Nós mapeamos líderes com o 'DNA de solução' – profissionais que já venceram as crises que sua empresa enfrenta hoje.</p>
+            
+            <h3>Assessoria de Carreira & Jobhunting</h3>
+            <p>Para líderes de alta performance, o tempo é o ativo mais valioso. Assumimos a linha de frente da sua recolocação, unindo hunting ativo e tecnologia para conectar você às melhores cadeiras do mercado.</p>
+            
+            <h3>Branding Executivo & Advisory</h3>
+            <p>Traduzimos sua trajetória em resultados tangíveis. Prospectamos o mercado de forma ativa, mapeando oportunidades aderentes e fazendo o contato direto com tomadores de decisão.</p>
+            
+            <h3>Book de Talentos & Match Inteligente (IA)</h3>
+            <p>Seu perfil é inserido de forma sigilosa. Operamos com um sistema de Inteligência Artificial que realiza o "match" entre seu perfil e vagas ocultas, visível pelo seu Painel de Acompanhamento Exclusivo.</p>
+            
+            <h3>Onde Entregamos o Resultado Inegociável:</h3>
+            <ul>
+                <li><strong>Precisão Cirúrgica:</strong> Eliminamos a "tentativa e erro".</li>
+                <li><strong>Hunting de Invisíveis:</strong> Acesso a talentos fora do radar.</li>
+                <li><strong>Alinhamento de Cultura:</strong> Garantimos o ROI da contratação.</li>
+                <li><strong>Gestão de Mudança:</strong> Líderes prontos para o próximo nível.</li>
+            </ul>
+
+            <h3>Outplacement de Elite</h3>
+            <p>Tratar a transição com cuidado protege a reputação da empresa e mantém a segurança psicológica do líder. Nossos planos (Essencial, Estratégico e Full) garantem o Go-to-Market ideal.</p>
+        </div>
+
+        <!-- COLUNA DO FORMULÁRIO -->
+        <div class="modal-right">
+            <h2>Fale com um Consultor</h2>
+            <p class="sub">Preencha os dados e entramos em contato.</p>
+            
+            <form id="leadFormYoup">
+                <div class="youp-form-group">
+                    <label>Nome *</label>
+                    <input type="text" name="nome" required placeholder="Seu nome completo">
+                </div>
+                <div class="youp-form-group">
+                    <label>E-mail Corporativo/Pessoal *</label>
+                    <input type="email" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="youp-form-group">
+                    <label>Telefone / WhatsApp *</label>
+                    <input type="text" name="telefone" required placeholder="(11) 99999-9999">
+                </div>
+                <div class="youp-form-group">
+                    <label>Interesse Principal *</label>
+                    <select name="area" required>
+                        <option value="" disabled selected>Selecione uma opção...</option>
+                        <option value="Recolocação Executiva (Para Mim)">Recolocação Executiva (Para Mim)</option>
+                        <option value="Executive Search (Para Minha Empresa)">Executive Search (Para Minha Empresa)</option>
+                        <option value="Outplacement">Outplacement</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="youp-form-group">
+                    <label>Mensagem Breve</label>
+                    <textarea name="mensagem" placeholder="Como podemos ajudar no seu momento atual?"></textarea>
+                </div>
+                
+                <div class="youp-form-checkbox">
+                    <input type="checkbox" id="aceite" required>
+                    <label for="aceite">Ao informar meus dados, estou ciente e concordo com a Política de Privacidade e em receber contatos da YOUP.</label>
+                </div>
+
+                <button type="submit" class="btn-submit-youp" id="btnSubmitYoup">Solicitar Contato Especializado</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 🚨 COLE O LINK DO GOOGLE APPS SCRIPT AQUI DENTRO DAS ASPAS
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOiBkRP0DrdHdXKfL_b2C6J9OsfSdkan3qo-VYwsZerQYMCFH_RFQf4nc3B2jWk-Ys/exec";
+
+    const modal = document.getElementById('leadModalOverlay');
+    const form = document.getElementById('leadFormYoup');
+    const btnSubmit = document.getElementById('btnSubmitYoup');
+
+    // Abre o modal após 10 segundos na página (pode alterar o tempo)
+    setTimeout(() => {
+        // Verifica se a pessoa já fechou antes para não ficar irritando
+        if(!localStorage.getItem('youp_lead_fechado')) {
+            modal.style.display = 'flex';
+        }
+    }, 10000); // 10000 = 10 segundos.
+
+    function fecharModalLead() {
+        modal.style.display = 'none';
+        localStorage.setItem('youp_lead_fechado', 'sim'); // Salva que fechou
+    }
+
+    // Fecha clicando fora da caixa branca
+    window.onclick = function(event) {
+        if (event.target == modal) fecharModalLead();
+    }
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const textoOriginal = btnSubmit.innerText;
+        btnSubmit.innerText = "Enviando seus dados...";
+        btnSubmit.disabled = true;
+
+        let formData = new FormData(form);
+
+        fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: formData })
+            .then(response => {
+                alert("Dados enviados com sucesso! Um consultor YOUP entrará em contato em breve.");
+                fecharModalLead();
+                form.reset();
+            })
+            .catch(error => {
+                alert("Ocorreu um erro ao enviar. Por favor, tente novamente ou nos chame no WhatsApp.");
+            })
+            .finally(() => {
+                btnSubmit.innerText = textoOriginal;
+                btnSubmit.disabled = false;
+            });
+    });
+</script>
+<!-- ========================================== -->
+<!-- FIM MODAL -->
+<!-- ========================================== -->
 </body>
 </html>
