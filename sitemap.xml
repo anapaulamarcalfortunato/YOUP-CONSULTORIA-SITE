@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <!-- PÁGINAS PRINCIPAIS DO SITE -->
+  <!-- PÁGINAS PRINCIPAIS E INSTITUCIONAIS DO SITE -->
   <url>
     <loc>https://www.youpconsultoria.com/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.youpconsultoria.com/blog.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/book-colunistas.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/headhunter.html</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -19,11 +29,6 @@
   <url>
     <loc>https://www.youpconsultoria.com/carreira.html</loc>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.youpconsultoria.com/headhunter.html</loc>
-    <lastmod>2026-07-11</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.youpconsultoria.com/outplacement.html</loc>
@@ -45,13 +50,18 @@
     <loc>https://www.youpconsultoria.com/contatos.html</loc>
     <priority>0.8</priority>
   </url>
-
-  <!-- ARTIGOS & ENTREVISTAS (INSIGHTS CORPORATIVOS) -->
+<!-- ARTIGOS & ENTREVISTAS (INSIGHTS CORPORATIVOS) -->
   <!-- 🚨🚨 ALERTA ANA PAULA: COLE OS LINKS DOS NOVOS ARTIGOS AQUI ABAIXO 🚨🚨 -->
-<url>
-    <loc>https://www.youpconsultoria.com/artigo-fabio-schvartsman-assume-presidencia-csn.html</loc>
-    <lastmod>2026-09-04</lastmod>
-    <priority>0.8</priority>
+  <!-- ARTIGOS, COLUNAS E MATÉRIAS -->
+  <url>
+    <loc>https://www.youpconsultoria.com/coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.youpconsultoria.com/coluna-liliane-silva-governanca-em-saude.html</loc>
@@ -59,58 +69,33 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.youpconsultoria.com/coluna-jose-reale-desafios-direito-trabalho-ia.html</loc>
-    <lastmod>2026-09-05</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.youpconsultoria.com/coluna-daniele-avelino-moeda-invisivel-sustenta-autoridade.html</loc>
-    <lastmod>2026-09-03</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.youpconsultoria.com/artigo-capital-politico-vs-networking.html</loc>
-    <priority>0.8</priority>
-  </url>
-<url>
     <loc>https://www.youpconsultoria.com/materia-premio-carolina-bori-meninas-ciencia-inscricoes.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>  
-<url>
+  </url>  
+  <url>
     <loc>https://www.youpconsultoria.com/materia-localiza-abre-inscricoes-programa-trainee.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>  
-<url>
-  <loc>https://www.youpconsultoria.com/artigo-como-responder-feedback-inadequado-alta-lideranca.html</loc>
-  <lastmod>2026-09-06</lastmod>
-  <priority>0.9</priority>
-</url>  
-<url>
-    <loc>https://www.youpconsultoria.com/coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html</loc>
-    <lastmod>2026-09-11</lastmod>
+  </url>  
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-como-responder-feedback-inadequado-alta-lideranca.html</loc>
+    <lastmod>2026-09-06</lastmod>
     <priority>0.9</priority>
-</url>
+  </url>  
   <url>
     <loc>https://www.youpconsultoria.com/materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html</loc>
     <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>
+  </url>
   <url>
     <loc>https://www.youpconsultoria.com/materia-fabiana-nogueira-feitosa-cio-latam-danone.html</loc>
     <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>
-  
+  </url>
   <url>
     <loc>https://www.youpconsultoria.com/materia-alessandro-carlucci-retorna-ceo-natura.html</loc>
     <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url> 
   <url>
@@ -119,30 +104,29 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.youpconsultoria.com/coluna-jose-reale-desafios-direito-trabalho-ia.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.youpconsultoria.com/materia-luciana-maia-diretoria-financeira-neoenergia.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>
-  
- <url>
+  </url>
+  <url>
     <loc>https://www.youpconsultoria.com/materia-globo-reestruturacao-c-level-diretorias.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>
-  
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-fabio-schvartsman-assume-presidencia-csn.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://www.youpconsultoria.com/materia-bauducco-anuncia-stefano-mozzi-ceo.html</loc>
     <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-</url>
-  
-  <url>
-    <loc>https://www.youpconsultoria.com/coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html</loc>
-    <lastmod>2026-09-09</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.youpconsultoria.com/coluna-debora-boscolo-o-poder-nao-revela.html</loc>
@@ -150,63 +134,66 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.youpconsultoria.com/coluna-daniele-avelino-moeda-invisivel-sustenta-autoridade.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.youpconsultoria.com/coluna-simone-vieira-lugar-de-mulher.html</loc>
     <lastmod>2026-09-02</lastmod>
     <priority>0.9</priority>
   </url>
-<url>
-<loc>https://www.youpconsultoria.com/artigo-brag-book-executivo-autoridade-clevel.html</loc>
-<lastmod>2026-08-28</lastmod>
-<priority>0.9</priority>
-</url>
-  
   <url>
-  <loc>https://www.youpconsultoria.com/artigo-excelencia-sem-medo-lideranca.html</loc>
-  <lastmod>2026-08-06</lastmod>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://www.youpconsultoria.com/artigo-desatrelar-marca-pessoal-empresa.html</loc>
-  <lastmod>2026-07-27</lastmod>
+    <loc>https://www.youpconsultoria.com/artigo-brag-book-executivo-autoridade-clevel.html</loc>
+    <lastmod>2026-08-28</lastmod>
     <priority>0.9</priority>
   </url>
-<url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-excelencia-sem-medo-lideranca.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-desatrelar-marca-pessoal-empresa.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.youpconsultoria.com/artigo-por-que-lideres-seniores-pedem-demissao-rh.html</loc>
     <lastmod>2026-07-27</lastmod>
     <priority>0.9</priority>
   </url>
-<url>
-  <loc>https://www.youpconsultoria.com/artigo-marca-pessoal-linkedin-sem-arrogancia.html</loc>
-  <lastmod>2026-07-27</lastmod>
-  <priority>0.9</priority>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-marca-pessoal-linkedin-sem-arrogancia.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <priority>0.9</priority>
   </url>
-<url>
-  <loc>https://www.youpconsultoria.com/artigo-curriculo-perfeito-nao-garante-bom-gestor.html</loc>
-  <lastmod>2026-07-25</lastmod>
-  <priority>0.9</priority>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-curriculo-perfeito-nao-garante-bom-gestor.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <priority>0.9</priority>
   </url>  
-<url>
+  <url>
     <loc>https://www.youpconsultoria.com/entrevista-bruno-ferola-compliance-dp.html</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.9</priority>
-</url>
+  </url>
   <url>
     <loc>https://www.youpconsultoria.com/artigo-ilusao-contraproposta-rh.html</loc>
     <lastmod>2026-07-13</lastmod>
     <priority>0.9</priority>
-</url>
+  </url>
   <url>
     <loc>https://www.youpconsultoria.com/artigo-quiet-firing-lideranca.html</loc>
     <lastmod>2026-07-13</lastmod>
     <priority>0.9</priority>
-</url>
+  </url>
   <url>
-  <loc>https://www.youpconsultoria.com/artigo-algemas-de-ouro-carreira-c-level.html</loc>
-  <lastmod>2026-07-11</lastmod>
-  <priority>0.9</priority>
-</url>
- <url>
+    <loc>https://www.youpconsultoria.com/artigo-algemas-de-ouro-carreira-c-level.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.youpconsultoria.com/artigo-radar-executivo-movimentacoes-clevel-maio-2026.html</loc>
     <lastmod>2026-07-11</lastmod>
     <priority>0.9</priority>
@@ -215,14 +202,6 @@
     <loc>https://www.youpconsultoria.com/artigo-elas-no-radar-gargalo-prestigio-boards.html</loc>
     <lastmod>2026-07-11</lastmod>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.youpconsultoria.com/artigo-apagao-tech-rh-estrategico.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.youpconsultoria.com/artigo-lideranca-jovem-volume-4-maio.html</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.youpconsultoria.com/artigo-moeda-oculta-lideranca-autorregulacao.html</loc>
@@ -242,6 +221,18 @@
   <url>
     <loc>https://www.youpconsultoria.com/artigo-indicacao-premio-ibest-2026.html</loc>
     <lastmod>2026-07-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-capital-politico-vs-networking.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-apagao-tech-rh-estrategico.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.youpconsultoria.com/artigo-lideranca-jovem-volume-4-maio.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -425,3 +416,6 @@
     <priority>0.8</priority>
   </url>
 </urlset>
+
+
+
