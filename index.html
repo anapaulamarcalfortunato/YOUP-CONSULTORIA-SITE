@@ -95,8 +95,8 @@
         .carousel-btn.prev { left: -10px; }
         .carousel-btn.next { right: -10px; }
 
-        /* PRINCIPAIS NOTÍCIAS (TRIAD) */
-        .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 10px;}
+        /* PRINCIPAIS NOTÍCIAS (TRIAD) - ESPAÇO 1 */
+        .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 40px;}
         .side-col-left { display: flex; flex-direction: column; gap: 25px; width: 280px; flex-shrink: 0; order: 1; }
         .side-news-card-left { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; }
         .side-news-card-left:last-child { border-bottom: none; padding-bottom: 0; }
@@ -131,6 +131,27 @@
         .side-news-item:hover .side-news-title { color: var(--dourado); }
         .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin-bottom: 6px; display: block; }
         .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* ========================================================================= */
+        /* QUADRANTE CURTAS / SEGUNDO ESPAÇO (DATA-SPOT="2") */
+        /* ========================================================================= */
+        .curtas-section { margin-bottom: 40px; }
+        .curtas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .curtas-column { display: flex; flex-direction: column; gap: 15px; border-right: 1px solid var(--borda); padding-right: 20px; }
+        .curtas-column:last-child { border-right: none; padding-right: 0; }
+        
+        .curtas-featured-card { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column; gap: 8px; }
+        .curtas-featured-card:hover .curtas-featured-title { color: var(--dourado); }
+        .curtas-featured-img-wrapper { width: 100%; height: 160px; border-radius: 4px; overflow: hidden; background: #f0f0f0; }
+        .curtas-featured-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .curtas-featured-card:hover .curtas-featured-img { transform: scale(1.03); }
+        .curtas-featured-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; }
+        .curtas-featured-title { font-size: 16px; font-weight: 800; line-height: 1.3; margin: 0; transition: color 0.2s; }
+        
+        .curtas-list { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; border-top: 1px solid var(--borda); padding-top: 12px; }
+        .curtas-list-item { text-decoration: none; color: var(--texto-escuro); font-size: 13px; font-weight: 700; line-height: 1.35; position: relative; padding-left: 14px; transition: color 0.2s; }
+        .curtas-list-item::before { content: "▪"; position: absolute; left: 0; color: var(--dourado); font-size: 12px; top: -1px; }
+        .curtas-list-item:hover { color: var(--dourado); }
 
         /* FAIXA DE COLUNISTAS (CARROSSEL COM ARRASTO) */
         .colunistas-carousel-section { padding: 0; margin-bottom: 20px;}
@@ -212,6 +233,8 @@
             .center-hero-rotator { height: auto; }
             .rotator-img-container { height: 280px; }
             .footer-nav { justify-content: flex-start; gap: 40px;}
+            .curtas-grid { grid-template-columns: 1fr; }
+            .curtas-column { border-right: none; border-bottom: 1px solid var(--borda); padding-right: 0; padding-bottom: 20px; }
         }
 
         @media (max-width: 768px) {
@@ -285,8 +308,7 @@
                 <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
                 <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
                 <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
-                <!-- NOVAS CATEGORIAS (EXEMPLOS): -->
-                <button class="filter-btn" onclick="filtrarBlog('governanca-esg', this)">Radar Literário</button>
+                <button class="filter-btn" onclick="filtrarBlog('radar-literario', this)">Radar Literário</button>
             </div>
             <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
         </nav>
@@ -319,7 +341,7 @@
 
         <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado para esta pesquisa.</div>
 
-        <!-- PRINCIPAIS NOTÍCIAS E ARTIGOS (TRIAD) -->
+        <!-- PRINCIPAIS NOTÍCIAS E ARTIGOS (HERO TRIAD - ESPAÇO 1) -->
         <section class="exame-hero-triad" id="exameTriadContainer">
             <div class="center-hero-rotator" id="triadCenterCol">
                 <div class="rotator-badge">
@@ -336,6 +358,12 @@
             </div>
             <div class="side-col-left" id="triadLeftCol"></div>
             <div class="side-col-right" id="triadRightCol"></div>
+        </section>
+
+        <!-- QUADRANTE CURTAS (ESPAÇO 2 - LOGO ABAIXO DO ESPAÇO PRINCIPAL E ANTES DA PUBLICIDADE) -->
+        <section class="curtas-section" id="curtasSectionWrapper">
+            <h3 class="section-title">Em Foco • Curtas & Atualizações</h3>
+            <div class="curtas-grid" id="curtasGridContainer"></div>
         </section>
 
         <!-- ANÚNCIO 2 -->
@@ -434,7 +462,7 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- ACERVO -->
+        <!-- ACERVO COMPLETO -->
         <div class="editorial-feed">
             <h3 class="section-title" id="acervoTitle">Acervo Completo</h3>
             <div id="listZone" class="list-articles-wrapper"></div>
@@ -451,21 +479,21 @@
             <!-- ========================================================================================== -->
             <!-- 🚨🚨 ALERTA ANA PAULA 2: REPOSITÓRIO GERAL (COLE TUDO AQUI) 🚨🚨 -->
             <!-- COLE O CARD DO NOVO ARTIGO, COLUNA OU NOTÍCIA EXATAMENTE NA LINHA ABAIXO DESTA -->
-            <!-- Lembre de conferir se o card tem data-type="materia", "artigo" ou "coluna" -->
+            <!-- Use data-spot="1" para Destaque Principal ou data-spot="2" para Quadrante Curtas -->
             <!-- ========================================================================================== -->
-            <a href="materia-herivelto-malosti-livro-granizo-paintless-dent-repair.html" data-type="materia" data-category="radar-literario" data-publish-date="2026-09-09">
+            <a href="materia-herivelto-malosti-livro-granizo-paintless-dent-repair.html" data-type="materia" data-spot="2" data-category="radar-literario" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1tgirBoSpTPHkgzZ9dFmw8u_pB8M1nUAQ" alt="Brasileiro lança livro sobre mercado de recuperação de veículos">
             <span class="tag">Radar Literário</span>
             <h3 class="title">O brasileiro que transformou granizo em operação automotiva global</h3>
             <p class="excerpt">Herivelto Malosti lança livro sobre como o PDR deixou de ser um serviço local para escalar na cadeia de montadoras.</p>
             </a>
-            <a href="materia-ia-executivos-diluicao-decisoes-dificeis-artigo.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-09">
+            <a href="materia-ia-executivos-diluicao-decisoes-dificeis-artigo.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1BOLq62zR4ZfWMjsiijgYPWl_u8nsxKKn" alt="O lado oculto da IA: algoritmos e decisões difíceis no C-Level">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">O lado oculto da IA: algoritmos e decisões difíceis no C-Level</h3>
             <p class="excerpt">Artigo analisa como executivos podem usar a tecnologia para diluir responsabilidades em escolhas de alto risco.</p>
             </a>
-            <a href="materia-grupo-salta-quadruplica-pagamentos-digitais-bemobi.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-09">
+            <a href="materia-grupo-salta-quadruplica-pagamentos-digitais-bemobi.html" data-type="materia" data-spot="1" data-category="radar-executivo" data-publish-date="2026-09-09">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I4.jpeg" alt="Grupo Salta quase quadruplica pagamentos digitais com Bemobi">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Grupo Salta quadruplica pagamentos digitais com Bemobi</h3>
@@ -477,13 +505,13 @@
             <h3 class="title">JEDIP: Quando o P muda tudo</h3>
             <p class="excerpt">Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional e retém jovens talentos.</p>
             </a>
-            <a href="materia-stablecoinx-nomeia-christopher-jensen-ceo.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-08">
+            <a href="materia-stablecoinx-nomeia-christopher-jensen-ceo.html" data-type="materia" data-spot="1" data-category="radar-executivo" data-publish-date="2026-09-08">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I3.jpg" alt="StablecoinX nomeia Christopher Jensen como novo CEO">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">StablecoinX nomeia Christopher Jensen como novo CEO</h3>
             <p class="excerpt">Executivo ex-Franklin Templeton assume a operação no lugar de Ted Chen, que passa a liderar o Conselho de Administração.</p>
             </a>
-            <a href="artigo-lideranca-em-tempos-de-ia-equipes-hibridas.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-08">
+            <a href="artigo-lideranca-em-tempos-de-ia-equipes-hibridas.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-08">
             <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I2.jpeg" alt="Liderança em tempo de IA: O fim da era dos prompts">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Liderança na Era da IA</h3>
@@ -495,19 +523,19 @@
             <h3 class="title">Conheça a Nossa Metodologia S.T.A.R.E. e Destrave a Sua Carreira</h3>
             <p class="excerpt">Entregar resultado virou o básico. A dura realidade é que o seu conhecimento técnico não te protege mais. O que define quem fica com a cadeira é como você empacota seu valor.</p>
             </a>
-            <a href="materia-premio-carolina-bori-meninas-ciencia-inscricoes.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-07">
+            <a href="materia-premio-carolina-bori-meninas-ciencia-inscricoes.html" data-type="materia" data-spot="2" data-category="elas-no-radar" data-publish-date="2026-09-07">
             <img src="https://lh3.googleusercontent.com/d/1WDKPW3yAThzXQNDXzzHwGlqlmj542rlT" alt="Inscrições abertas para o Prêmio Carolina Bori Ciência & Mulheres">
             <span class="tag">Elas no Radar</span>
             <h3 class="title">Prêmio Carolina Bori foca em Meninas na Ciência</h3>
             <p class="excerpt">Premiação da SBPC reconhece jovens cientistas do ensino médio e graduação com prêmios de até R$ 13 mil.</p>
             </a>        
-            <a href="materia-localiza-abre-inscricoes-programa-trainee.html" data-type="materia" data-category="jovem-lideranca" data-publish-date="2026-09-07">
+            <a href="materia-localiza-abre-inscricoes-programa-trainee.html" data-type="materia" data-spot="2" data-category="jovem-lideranca" data-publish-date="2026-09-07">
             <img src="https://lh3.googleusercontent.com/d/1JTuDX1Iug4zeI69kjnk8JxAvhOv5iPZV" alt="Localiza&Co abre vagas para Programa de Trainee">
             <span class="tag">Jovem Liderança</span>
             <h3 class="title">Localiza&Co abre inscrições para Trainee 2027</h3>
             <p class="excerpt">Programa aceita recém-formados de qualquer curso e foca em projetos estratégicos com uso de IA.</p>
             </a>        
-             <a href="artigo-como-responder-feedback-inadequado-alta-lideranca.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+             <a href="artigo-como-responder-feedback-inadequado-alta-lideranca.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
             <img src="https://lh3.googleusercontent.com/d/19mPgw_SMvEynPF-Ts83mzgiTKr8VxMEr" alt="Como responder a um feedback que você considera inadequado?">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Como responder a feedbacks inadequados</h3>
@@ -518,26 +546,26 @@
             <span class="tag">Liderança 4.0 & Tech</span>
             <h3 class="title">A IA Não É Mais Assunto da TI</h3>
             <p class="excerpt">Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças.</p>
-            </a>       
-            <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+            </a>        
+            <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
             <img src="https://lh3.googleusercontent.com/d/16XUrAESVZ12HCKPHx7UFu1BcEvFnKYX_" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">CSN nomeia novo CEO e Arezzo anuncia cisão de negócios</h3>
             <p class="excerpt">Semana no mercado corporativo é marcada por trocas no C-Level, M&A e reestruturações societárias na B3.</p>
             </a>
-            <a href="materia-fabiana-nogueira-feitosa-cio-latam-danone.html" data-type="materia" data-category="elas-no-radar" data-publish-date="2026-09-06">
+            <a href="materia-fabiana-nogueira-feitosa-cio-latam-danone.html" data-type="materia" data-spot="2" data-category="elas-no-radar" data-publish-date="2026-09-06">
             <img src="https://lh3.googleusercontent.com/d/1uNwFK4SRE8dfRuvKIlP3MQaC0AJo3aQj" alt="Fabiana Nogueira Feitosa assume como CIO Latam da Danone">
             <span class="tag">Elas no Radar</span>
             <h3 class="title">Fabiana Feitosa assume como CIO Latam da Danone</h3>
             <p class="excerpt">Com vasta experiência em IA e dados, executiva também passa a integrar o Comitê Diretivo da companhia no Brasil.</p>
             </a>    
-            <a href="materia-alessandro-carlucci-retorna-ceo-natura.html" data-type="materia" data-category="radar-executivo" data-publish-date="2026-09-06">
+            <a href="materia-alessandro-carlucci-retorna-ceo-natura.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
             <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Alessandro Carlucci retorna como CEO da Natura</h3>
            <p class="excerpt">Executivo sucede João Paulo Ferreira na presidência; Fábio Barbosa reassume o comando do Conselho de Administração.</p>
             </a>
-           <a href="artigo-o-que-especialista-precisa-desaprender-quando-vira-lider.html" data-type="artigo" data-category="radar-executivo" data-publish-date="2026-09-05">
+            <a href="artigo-o-que-especialista-precisa-desaprender-quando-vira-lider.html" data-type="artigo" data-category="radar-executivo" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1_565gPdlgnuVO1hYxnOB6Y_jtreo9jTq" alt="O que um especialista precisa desaprender quando vira líder?">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Especialista para líder: o que desaprender?</h3>
@@ -1095,13 +1123,10 @@
         </div>
     </footer>
 
-    <!-- ========================================================================================== -->
-    <!-- BANNER FIXO NO RODAPÉ DA TELA (INICIA ABERTO) -->
-    <!-- ========================================================================================== -->
+    <!-- BANNER FIXO NO RODAPÉ DA TELA -->
     <div class="sticky-bottom-wrapper" id="stickyBottomAd">
         <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
         <div class="sticky-ad-content" id="stickyAdContent">
-            <!-- ANÚNCIO DO GOOGLE -->
             <ins class="adsbygoogle"
                  style="display:block; width:100%;"
                  data-ad-client="ca-pub-1434753673886142"
@@ -1215,6 +1240,8 @@
             const triadLeftCol = document.getElementById('triadLeftCol');
             const triadCenterWrapper = document.getElementById('rotatorSlidesWrapper');
             const triadRightCol = document.getElementById('triadRightCol');
+            const curtasSectionWrapper = document.getElementById('curtasSectionWrapper');
+            const curtasGridContainer = document.getElementById('curtasGridContainer');
             const ultimasColunasGrid = document.getElementById('ultimasColunasGrid');
 
             const listZone = document.getElementById('listZone');
@@ -1227,30 +1254,34 @@
             triadLeftCol.innerHTML = ''; 
             triadCenterWrapper.innerHTML = ''; 
             triadRightCol.innerHTML = '';
+            if (curtasGridContainer) curtasGridContainer.innerHTML = '';
             if (ultimasColunasGrid) ultimasColunasGrid.innerHTML = '';
             listZone.innerHTML = '';
             
             const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
             
+            // 1. FILTRAGEM POR DATA E ORDENAÇÃO MANDATÓRIA (Mais recentes primeiro)
+            const dataAtual = new Date();
             let validArticles = sources.filter(a => {
-                let matchData = true;
                 const dataAgendada = a.getAttribute('data-publish-date'); 
                 if (dataAgendada) {
                     const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00'); 
-                    const dataAtual = new Date();
-                    if (dataAtual < dataPublicacao) {
-                        matchData = false; 
-                    }
+                    if (dataAtual < dataPublicacao) return false; 
                 }
                 if (!a.getAttribute('data-type')) {
                     if (a.getAttribute('data-author')) a.setAttribute('data-type', 'coluna');
-                    else a.setAttribute('data-type', 'artigo');
+                    else a.setAttribute('data-type', 'materia');
                 }
-                return matchData;
+                return true;
+            }).sort((a, b) => {
+                const dateA = a.getAttribute('data-publish-date') ? new Date(a.getAttribute('data-publish-date') + 'T00:00:00-03:00') : new Date(0);
+                const dateB = b.getAttribute('data-publish-date') ? new Date(b.getAttribute('data-publish-date') + 'T00:00:00-03:00') : new Date(0);
+                return dateB - dateA;
             });
 
             if (filtroAtual !== 'todos' || autorAtual !== 'todos' || pesquisaAtual !== '') {
                 triadContainer.style.display = 'none';
+                if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'none';
                 if(adSpace2) adSpace2.style.display = 'none';
                 if(adSpace3) adSpace3.style.display = 'none';
                 acervoTitle.innerText = "Resultados da Pesquisa";
@@ -1289,13 +1320,19 @@
             } else {
                 acervoTitle.innerText = "Acervo Completo";
                 triadContainer.style.display = 'flex';
+                if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'block';
                 if(adSpace2) adSpace2.style.display = 'block';
                 if(adSpace3) adSpace3.style.display = 'block';
 
                 const newsAndArticles = validArticles.filter(a => a.getAttribute('data-type') === 'materia' || a.getAttribute('data-type') === 'artigo');
                 const colunas = validArticles.filter(a => a.getAttribute('data-type') === 'coluna');
 
-                const triadItems = newsAndArticles.slice(0, 19);
+                // --- ESPAÇO 1: PRINCIPAIS NOTÍCIAS (HERO TRIAD - data-spot="1" ou Padrão) ---
+                let triadItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '1');
+                if(triadItems.length < 10) {
+                    const sobrantes = newsAndArticles.filter(a => a.getAttribute('data-spot') !== '1' && a.getAttribute('data-spot') !== '2');
+                    triadItems = triadItems.concat(sobrantes.slice(0, 19 - triadItems.length));
+                }
 
                 const DestaquesRotativos = triadItems.slice(0, 10);
                 DestaquesRotativos.forEach((item, index) => {
@@ -1320,18 +1357,6 @@
                 });
                 if(DestaquesRotativos.length > 0) iniciarSliderRotativo(DestaquesRotativos.length);
 
-                /* ==========================================================================================
-                   CORREÇÃO APLICADA AQUI (bug dos 2 cards com imagem abrindo o mesmo link):
-                   Antes, cada card era inserido individualmente via triadLeftCol.innerHTML += `...`
-                   dentro do loop. Quando a URL da imagem (imgSrc) continha um caractere "&" sem
-                   escapar (ex: ...unsplash.com/photo-xxxx?q=80&w=1600), o HTML gerado ficava mal
-                   formado, e o navegador acabava fundindo a tag <a> dos dois cards, fazendo o
-                   segundo card herdar o link do primeiro.
-                   A correção: 1) escapar os valores usados em atributos (href, src, alt) com a
-                   função escapeAttr(); 2) montar todo o HTML em uma variável (leftHtml) e escrever
-                   no DOM apenas uma vez ao final do loop, evitando problemas de parsing incremental.
-                   Nenhuma outra lógica, classe ou configuração foi alterada.
-                ========================================================================================== */
                 const LeftItems = triadItems.slice(10, 12);
                 triadLeftCol.innerHTML = '';
 
@@ -1366,7 +1391,6 @@
 
                     triadLeftCol.appendChild(card);
                 });
-                /* ========================================================================================== */
 
                 const RightItems = triadItems.slice(12, 19);
                 RightItems.forEach(item => {
@@ -1382,6 +1406,52 @@
                     `;
                 });
 
+                // --- ESPAÇO 2: QUADRANTE CURTAS (data-spot="2" ou Automático) ---
+                let curtasItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '2');
+                if(curtasItems.length === 0) {
+                    curtasItems = newsAndArticles.filter(a => !triadItems.includes(a)).slice(0, 9);
+                }
+
+                if(curtasGridContainer && curtasItems.length > 0) {
+                    const col1 = curtasItems.slice(0, Math.ceil(curtasItems.length / 3));
+                    const col2 = curtasItems.slice(Math.ceil(curtasItems.length / 3), Math.ceil(curtasItems.length / 3) * 2);
+                    const col3 = curtasItems.slice(Math.ceil(curtasItems.length / 3) * 2);
+
+                    [col1, col2, col3].forEach(colGroup => {
+                        if(colGroup.length > 0) {
+                            const destaque = colGroup[0];
+                            const lista = colGroup.slice(1);
+
+                            let colHtml = `<div class="curtas-column">`;
+                            colHtml += `
+                                <a href="${destaque.getAttribute('href')}" class="curtas-featured-card">
+                                    <div class="curtas-featured-img-wrapper">
+                                        <img src="${destaque.querySelector('img').src}" class="curtas-featured-img" alt="${destaque.querySelector('.title').innerText}">
+                                    </div>
+                                    <span class="curtas-featured-tag">${destaque.querySelector('.tag').innerText}</span>
+                                    <h4 class="curtas-featured-title">${destaque.querySelector('.title').innerText}</h4>
+                                </a>
+                            `;
+
+                            if(lista.length > 0) {
+                                colHtml += `<div class="curtas-list">`;
+                                lista.forEach(itemSub => {
+                                    colHtml += `
+                                        <a href="${itemSub.getAttribute('href')}" class="curtas-list-item">
+                                            ${itemSub.querySelector('.title').innerText}
+                                        </a>
+                                    `;
+                                });
+                                colHtml += `</div>`;
+                            }
+
+                            colHtml += `</div>`;
+                            curtasGridContainer.innerHTML += colHtml;
+                        }
+                    });
+                }
+
+                // --- ÚLTIMAS COLUNAS ---
                 const top3Colunas = colunas.slice(0, 3);
                 if (ultimasColunasGrid) {
                     top3Colunas.forEach(item => {
@@ -1404,19 +1474,12 @@
                     });
                 }
 
-                const usedElements = new Set([...triadItems, ...top3Colunas]);
-                let remainingArticles = validArticles.filter(a => !usedElements.has(a));
-
-                let totalRestante = limiteAtual;
-                if (totalRestante % 2 !== 0 && remainingArticles.length >= totalRestante + 1) {
-                    totalRestante += 1;
-                }
-
-                remainingArticles.slice(0, totalRestante).forEach(item => {
+                // --- ACERVO COMPLETO ---
+                validArticles.slice(0, limiteAtual).forEach(item => {
                     renderArticleInList(item, listZone);
                 });
 
-                if (remainingArticles.length > limiteAtual) {
+                if (validArticles.length > limiteAtual) {
                     btnLoadMore.style.display = 'block';
                 } else {
                     btnLoadMore.style.display = 'none';
@@ -1677,6 +1740,7 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <!-- ========================================== -->
 <!-- MODAL DE CAPTAÇÃO DE LEADS YOUP (V6 - MOBILE OTIMIZADO) -->
 <!-- ========================================== -->
@@ -1781,28 +1845,23 @@
     }
     .btn-submit-youp:hover { background: #111; color: #c5a059; border-color: #111; }
 
-    /* ========================================== */
-    /* RESPONSIVO PARA CELULAR - A MÁGICA ACONTECE AQUI */
-    /* ========================================== */
     @media (max-width: 768px) {
         .modal-box { 
             flex-direction: column; 
             max-height: none; 
-            width: 90%; /* Deixa borda na tela para ver o site no fundo */
+            width: 90%;
             margin: 0 auto;
         }
         
-        /* Esconde a coluna de texto preta inteira no celular */
         .modal-left { 
             display: none; 
         }
         
         .modal-right { 
             padding: 25px 20px; 
-            border-radius: 8px; /* Arredonda as pontas que ficaram sozinhas */
+            border-radius: 8px;
         }
         
-        /* Ajuste do botão fechar para não sobrepor o título no mobile */
         .modal-close-btn {
             top: 2px; right: 10px;
         }
@@ -1875,14 +1934,12 @@
 </div>
 
 <script>
-    // 🚨 COLE O LINK DO GOOGLE APPS SCRIPT AQUI DENTRO DAS ASPAS
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOiBkRP0DrdHdXKfL_b2C6J9OsfSdkan3qo-VYwsZerQYMCFH_RFQf4nc3B2jWk-Ys/exec";
 
     const modal = document.getElementById('leadModalOverlay');
     const form = document.getElementById('leadFormYoup');
     const btnSubmit = document.getElementById('btnSubmitYoup');
 
-    // Abre em 3 segundos para teste
     setTimeout(() => {
         modal.style.display = 'flex';
     }, 3000); 
@@ -1891,7 +1948,6 @@
         modal.style.display = 'none';
     }
 
-    // Fecha clicando fora da caixa
     window.onclick = function(event) {
         if (event.target == modal) fecharModalLead();
     }
