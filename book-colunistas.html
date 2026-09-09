@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -255,6 +253,12 @@
             white-space: pre-line;
         }
 
+        .columnist-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         .btn-linkedin {
             display: inline-flex;
             align-items: center;
@@ -273,6 +277,26 @@
 
         .btn-linkedin:hover {
             background-color: #005582;
+        }
+
+        .btn-website {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--verde-youp);
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .btn-website:hover {
+            background-color: #487268;
         }
 
         /* SEÇÃO SOBRE A YOUP E ANA PAULA (NO FINAL) */
@@ -436,174 +460,210 @@
             <h2>Nossos Colunistas Convidados</h2>
         </div>
 
-        <!-- PRIMEIRA PARTE: LISTA DE COLUNISTAS -->
+        <!-- LISTA DE COLUNISTAS EM ORDEM ALFABÉTICA -->
         <div class="columnists-grid">
 
             <!-- 1. ALESSANDRA MILIATTI -->
-            <article class="columnist-card">
+            <article class="columnist-card" id="alessandra-miliatti">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1Hmxz7q6gYW6vou-8XpbEFFcfPu0uSh_N" alt="Alessandra Miliatti" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(5).jpeg" alt="Alessandra Miliatti" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Mente Executiva</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Alessandra Miliatti</h3>
-                    <div class="columnist-bio">
-                        Alessandra Miliatti é profissional de Recursos Humanos, especialista em Cultura, DE&I, Gestão de Talentos e Desenvolvimento de Lideranças, com mais de 20 anos de experiência em grandes empresas como Nissin Foods, Azul Linhas Aéreas, Grupo Baumgart, iFood e Raia Drogasil. 
-
-                        Professora convidada de instituições como FDC, Senac SP e Unidrumond, também atua como mentora voluntária em iniciativas do Pacto Global da ONU e do Instituto Semear. Reconhecida como Top Voice do LinkedIn nas temáticas de Carreira e Pontos Fortes, palestrante em importantes eventos nacionais e fundadora da Tudo Talentos.
+                    <div class="columnist-bio">Alessandra Miliatti é profissional de Recursos Humanos, especialista em Cultura, DE&I, Gestão de Talentos e Desenvolvimento de Lideranças, com mais de 20 anos de experiência em grandes empresas como Nissin Foods, Azul Linhas Aéreas, Grupo Baumgart, iFood e Raia Drogasil. Professora convidada de instituições como FDC, Senac SP e Unidrumond, também atua como mentora voluntária em iniciativas do Pacto Global da ONU e do Instituto Semear. Reconhecida como Top Voice do LinkedIn nas temáticas de Carreira e Pontos Fortes, palestrante em importantes eventos nacionais e fundadora da Tudo Talentos, consultoria especializada em gestão e desenvolvimento de talentos. Formada em Administração, possui MBA em Gestão de Projetos e especializações em Educação Ambiental, Change Management, Agile Business e Leadership, Design Thinking, Coaching e CliftonStrengths.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/alemiliatti/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/alemiliatti/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 2. DANIELE AVELINO -->
-            <article class="columnist-card">
+            <!-- 2. ANA PAULA MARÇAL FORTUNATO -->
+            <article class="columnist-card" id="ana-fortunato">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/10AVB7EHyw1Ys3eoR1PVp3cGNyds61Qhg" alt="Daniele Avelino" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(13).jpeg" alt="Ana Paula Marçal Fortunato" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Radar Executivo</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Ana Paula Marçal Fortunato</h3>
+                    <div class="columnist-bio">Especialista em Executive Search, atração de C-Level e estruturação de posições estratégicas de liderança. Criadora da Metodologia S.T.A.R.E. para avaliação e posicionamento executivo. Linkedin Top Voice, Top 20 iBest Influenciadora de RH e Top 5 RH no Top of Mind de RH.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/anapaulamarcalfortunato/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. DANIELE AVELINO -->
+            <article class="columnist-card" id="daniele-avelino">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(4).jpeg" alt="Daniele Avelino" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Posicionamento Executivo</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Daniele Avelino</h3>
-                    <div class="columnist-bio">
-                        LinkedIn Top Voice. Conselheira na área de Pessoas, especialista em Recursos Humanos e Diversidade & Inclusão, e Parceira Estratégica de Negócios. 
-
-                        Palestrante, Mentora e Consultora com mais de 23 anos de mercado, atuando com propósito no posicionamento executivo e no desenvolvimento de líderes, além da construção de culturas mais humanas, diversas e sustentáveis.
+                    <div class="columnist-bio">LinkedIn Top Voice. Conselheira na área de Pessoas, especialista em Recursos Humanos e Diversidade & Inclusão, e Parceira Estratégica de Negócios. Palestrante, Mentora e Consultora com mais de 23 anos de mercado, atuando com propósito no posicionamento executivo e no desenvolvimento de líderes, além da construção de culturas mais humanas, diversas e sustentáveis.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/danieleavelino/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/danieleavelino/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 3. DEBORA BOSCOLO -->
-            <article class="columnist-card">
+            <!-- 4. DEBORA BOSCOLO -->
+            <article class="columnist-card" id="debora-boscolo">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png" alt="Debora Boscolo" class="columnist-avatar">
-                    <div><span class="columnist-theme-tag">Comportamento Humano</span></div>
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(3).jpeg" alt="Debora Boscolo" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Comportamento Humano, Educação e Trabalho</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Debora Boscolo</h3>
-                    <div class="columnist-bio">
-                        Débora Boscolo é consultora e palestrante em Comportamento Humano, com atuação em Gestão de Pessoas, Cultura Organizacional, Inteligência Emocional e Saúde Emocional. Com mais de 27 anos de trajetória profissional, atua no desenvolvimento de lideranças e na construção de culturas mais humanas, saudáveis e sustentáveis, conectando bem-estar e resultados. Reconhecida como Top 1 HR Influencer Brasil pela GOintegro em 2024 e 2025, Top 10 pela Favikon e Top 20 RH Influencer pelo Prêmio iBest em 2025 e 2026, além de integrar rankings nacionais de profissionais de destaque em RH e impacto.
+                    <div class="columnist-bio">Débora Boscolo é consultora e palestrante em Comportamento Humano, com atuação em Gestão de Pessoas, Cultura Organizacional, Inteligência Emocional e Saúde Emocional. Com mais de 27 anos de trajetória profissional, atua no desenvolvimento de lideranças e na construção de culturas mais humanas, saudáveis e sustentáveis, conectando bem-estar e resultados. Reconhecida como Top 1 HR Influencer Brasil pela GOintegro em 2024 e 2025, Top 10 pela Favikon e Top 20 RH Influencer pelo Prêmio iBest em 2025 e 2026, além de integrar rankings nacionais de profissionais de destaque em RH e impacto.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/deboraboscolo/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/deboraboscolo/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 4. FELIPE ALMEIDA -->
-            <article class="columnist-card">
+            <!-- 5. FELIPE ALMEIDA -->
+            <article class="columnist-card" id="felipe-almeida">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(2).jpeg" alt="Felipe Almeida" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Jovem Liderança</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Felipe Almeida</h3>
-                    <div class="columnist-bio">
-                        Felipe dos Anjos Almeida é Head de Diversidade, Equidade, Inclusão e Employer Branding na Numen, especialista em cultura, marca empregadora e transformação social. 
-
-                        Autor, professor e criador de conteúdo, construiu uma comunidade de mais de 500 mil pessoas no LinkedIn e utiliza sua trajetória e experiência para provocar discussões sobre pertencimento, liderança, carreira e inclusão no mundo corporativo. Acredita que DEI precisa ultrapassar o discurso e se transformar em estratégia e impacto real.
+                    <div class="columnist-bio">Felipe dos Anjos Almeida é Head de Diversidade, Equidade, Inclusão e Employer Branding na Numen, especialista em cultura, marca empregadora e transformação social. Autor, professor e criador de conteúdo, construiu uma comunidade de mais de 500 mil pessoas no LinkedIn e utiliza sua trajetória e experiência para provocar discussões sobre pertencimento, liderança, carreira e inclusão no mundo corporativo. Reconhecido entre importantes vozes de diversidade e impacto social, acredita que DEI precisa ultrapassar o discurso e se transformar em estratégia, oportunidade e impacto real.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/almeidafelipe88" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/almeidafelipe88" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 5. FERNANDA SANTARINI -->
-            <article class="columnist-card">
+            <!-- 6. FERNANDA SANTARINI -->
+            <article class="columnist-card" id="fernanda-santarini">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1l4S4QjWUTP2hd92GgRtbKKu-jVbW3GRR" alt="Fernanda Santarini" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(9).jpeg" alt="Fernanda Santarini" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Marca Pessoal</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Fernanda Santarini</h3>
-                    <div class="columnist-bio">
-                        Fernanda Santarini é mentora e consultora de carreira, recrutadora e Gupy Expert, reconhecida como LinkedIn Top Voice. 
-
-                        Engenheira de formação e fundadora da FS Carreiras, é especialista em posicionamento profissional, recolocação e desenvolvimento de carreira para líderes e especialistas. Em sua atuação, ajuda profissionais a construírem um posicionamento de valor no mercado de trabalho e a conquistarem novas oportunidades de carreira.
+                    <div class="columnist-bio">Fernanda Santarini é mentora e consultora de carreira, recrutadora e Gupy Expert, reconhecida como LinkedIn Top Voice. Engenheira de formação e fundadora da FS Carreiras, é especialista em posicionamento profissional, recolocação e desenvolvimento de carreira para líderes e especialistas. Em sua atuação, ajuda profissionais a construírem um posicionamento de valor no mercado de trabalho e a conquistarem novas oportunidades de carreira.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/fernandasantarini/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/fernandasantarini/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 6. JOANA D'ARC -->
-            <article class="columnist-card">
+            <!-- 7. JOANA DARC -->
+            <article class="columnist-card" id="joana-darc">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1NZ2UdvWX29FFgKMSo7h8HP9DYL2HmiKG" alt="Joana D'arc" class="columnist-avatar">
-                    <div><span class="columnist-theme-tag">ENTRELINHAS</span></div>
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(11).jpeg" alt="Joana Darc" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">ENTRELINHAS: Reflexões sobre pessoas, relações e as histórias que nos atravessam</span></div>
                 </div>
                 <div class="columnist-info">
-                    <h3>Joana D’arc</h3>
-                    <div class="columnist-bio">
-                        Joana D’arc Souza é jornalista, escritora e profissional do mercado editorial. Autora de <em>Amar é Fácil – Reflexões nos Relacionamentos</em>, atua com escrita, preparação de textos e desenvolvimento de projetos editoriais. 
-
-                        À frente da Boas Palavras Agência Editorial, tem nas palavras, nas histórias e nas relações humanas o centro de sua trajetória profissional e autoral.
+                    <h3>Joana Darc</h3>
+                    <div class="columnist-bio">Joana D’arc Souza é jornalista, escritora e profissional do mercado editorial. Autora de <em>Amar é Fácil – Reflexões nos Relacionamentos</em>, atua com escrita, preparação de textos e desenvolvimento de projetos editoriais. À frente da Boas Palavras Agência Editorial, tem nas palavras, nas histórias e nas relações humanas o centro de sua trajetória profissional e autoral.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/joana-darc-souza-/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                        <a href="https://www.boaspalavraseditorial.com.br" target="_blank" rel="noopener" class="btn-website">Visitar Website ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/joana-darc-souza-/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 7. JOSÉ ROBERTO REALE -->
-            <article class="columnist-card">
+            <!-- 8. JOSÉ ROBERTO REALE -->
+            <article class="columnist-card" id="jose-reale">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1LBhszWFK43j0mItY2K0cCQECbqQxuN85" alt="José Roberto Reale" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(6).jpeg" alt="José Roberto Reale" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Defesa do Executivo</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>José Roberto Reale</h3>
-                    <div class="columnist-bio">
-                        Advogado, formado pela UEL em 1990, procurador do município aposentado e ex-professor universitário de Direito. 
-
-                        Atualmente integra o escritório Pullin de Araújo Advogados Associados, com atuação voltada à proteção, governança jurídica e defesa estratégica de executivos e empresas.
+                    <div class="columnist-bio">Advogado, formado pela UEL em 1990, procurador do município aposentado e ex-professor universitário de direito. Atualmente integra o escritório Pullin de Araújo Advogados Associados.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/joserobertoreale/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/joserobertoreale/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 8. LILIANE SILVA -->
-            <article class="columnist-card">
+            <!-- 9. KELY PEREIRA -->
+            <article class="columnist-card" id="kely-pereira">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1s9rD2M-NUlbaUZYQiFNS7lPRuyIw8rgN" alt="Liliane Silva" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(8).jpeg" alt="Kely Pereira" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Liderança Feminina</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Kely Pereira</h3>
+                    <div class="columnist-bio">Kely Pereira transforma conhecimento em movimento e pessoas em protagonistas de suas próprias histórias. Educadora corporativa, consultora, palestrante, escritora e mentora de mulheres líderes, dedica sua trajetória ao desenvolvimento de pessoas e lideranças. Possui formação em Liderança Feminina pela Fundação Dom Cabral e Smith College e é cofundadora da SBAEL – Sociedade Brasileira de Aprendizagem Experiencial. Professora de pós-graduação, fez história ao se tornar a primeira mulher negra a ocupar a Diretoria de Pós-Graduação da Faculdade de Ciências Médicas de Minas Gerais, abrindo caminhos para que outras mulheres também pudessem ocupar espaços de liderança.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/kelypereira/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 10. LILIANE SILVA -->
+            <article class="columnist-card" id="liliane-silva">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(1).jpeg" alt="Liliane Silva" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Saúde & Governança</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Liliane Silva</h3>
-                    <div class="columnist-bio">
-                        Liliane Silva é enfermeira, especialista em Gestão da Qualidade e Segurança do Paciente, com mais de 15 anos de experiência na área da saúde. 
-
-                        Atua na gestão da qualidade hospitalar, avaliação para acreditação ONA e consultoria para instituições de saúde e ILPIs. Também desenvolve treinamentos e conteúdos voltados à melhoria de processos, segurança do paciente e excelência na assistência.
+                    <div class="columnist-bio">Liliane Silva é enfermeira, especialista em Gestão da Qualidade e Segurança do Paciente, com mais de 15 anos de experiência na área da saúde. Atua na gestão da qualidade hospitalar, avaliação para acreditação ONA e consultoria para instituições de saúde e ILPIs. Também desenvolve treinamentos e conteúdos voltados à melhoria de processos, segurança do paciente e excelência na assistência.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/liliane-silva-a5072834/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/liliane-silva-a5072834/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 9. ROGÉRIO PIRES -->
-            <article class="columnist-card">
+            <!-- 11. ROGERIO PIRES -->
+            <article class="columnist-card" id="rogerio-pires">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1cvvT_l4IyS3XiLyus4QezMShT5iCdQEl" alt="Rogério Pires" class="columnist-avatar">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(12).jpeg" alt="Rogerio Pires" class="columnist-avatar">
                     <div><span class="columnist-theme-tag">Liderança 4.0 & Tech</span></div>
                 </div>
                 <div class="columnist-info">
-                    <h3>Rogério Pires</h3>
-                    <div class="columnist-bio">
-                        Executivo de Tecnologia e Operações com mais de 20 anos de experiência conectando estratégia, tecnologia, processos e pessoas aos resultados do negócio. 
-
-                        Trajetória construída em empresas como The Walt Disney Company, JHSF, Cyrela, Grupo TV1 e SoldaLider, liderando transformação digital, ERP, dados, IA, cloud, cibersegurança, governança e eficiência operacional no Brasil, América Latina e Estados Unidos.
+                    <h3>Rogerio Pires</h3>
+                    <div class="columnist-bio">Executivo de Tecnologia e Operações com mais de 20 anos de experiência conectando estratégia, tecnologia, processos e pessoas aos resultados do negócio. Trajetória construída em empresas como The Walt Disney Company, JHSF, Cyrela, Grupo TV1, e SoldaLider, liderando transformação digital, ERP, dados, IA, cloud, cibersegurança, governança e eficiência operacional no Brasil, América Latina e Estados Unidos. Experiência em ambientes de alta complexidade, gestão de equipes, orçamento, fornecedores e operações multidisciplinares, com entregas relacionadas à produtividade, redução de custos, geração de caixa e crescimento.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/rogerio-pires/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/rogerio-pires/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
-            <!-- 10. SIMONE SOMMARIVA VIEIRA -->
-            <article class="columnist-card">
+            <!-- 12. ROMILDO NASCIMENTO -->
+            <article class="columnist-card" id="romildo-nascimento">
                 <div class="columnist-avatar-wrapper">
-                    <img src="https://lh3.googleusercontent.com/d/1PABxyV5h13Wx6ORzoz4dzupUz3NpaQsg" alt="Simone Sommariva Vieira" class="columnist-avatar">
-                    <div><span class="columnist-theme-tag">Lugar de Mulher</span></div>
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(7).jpeg" alt="Romildo Nascimento" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Carreira Internacional</span></div>
+                </div>
+                <div class="columnist-info">
+                    <h3>Romildo Nascimento</h3>
+                    <div class="columnist-bio">Romildo Nascimento é executivo de Recursos Humanos e especialista em Consultoria de Carreira, Transição Profissional e Recolocação Executiva, com sólida trajetória em Executive Search, posicionamento profissional e desenvolvimento de lideranças. Sua atuação integra inteligência de mercado, networking estratégico e Inteligência Artificial aplicada à empregabilidade. Ao longo da carreira, conduziu mais de 1.000 processos seletivos, participou da recolocação de mais de 200 profissionais e desenvolveu estratégias de carreira para mais de 3.000 executivos e especialistas. Atualmente, amplia sua atuação para o mercado internacional, conectando executivos, empresas e parceiros em diferentes países e desenvolvendo soluções de carreira com uma perspectiva global. Sua especialidade está na construção de estratégias de outplacement, posicionamento executivo, networking e empregabilidade, apoiando profissionais em movimentos de carreira cada vez mais competitivos e internacionais.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/romildoan/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 13. SIMONE SOMMARIVA VIEIRA -->
+            <article class="columnist-card" id="simone-vieira">
+                <div class="columnist-avatar-wrapper">
+                    <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(10).jpeg" alt="Simone Sommariva Vieira" class="columnist-avatar">
+                    <div><span class="columnist-theme-tag">Lugar de Mulher é onde ela decide</span></div>
                 </div>
                 <div class="columnist-info">
                     <h3>Simone Sommariva Vieira</h3>
-                    <div class="columnist-bio">
-                        Simone Sommariva Vieira é especialista em Desenvolvimento de Pessoas, Carreira e Potencial Humano, com mais de 20 anos de experiência em Recursos Humanos. Atua conectando pessoas, talentos e organizações por meio de estratégias de desenvolvimento, liderança, empregabilidade e resultados.
+                    <div class="columnist-bio">Simone Sommariva Vieira é especialista em Desenvolvimento de Pessoas, Carreira e Potencial Humano, com mais de 20 anos de experiência em Recursos Humanos. Atua conectando pessoas, talentos e organizações por meio de estratégias de desenvolvimento, liderança, empregabilidade e resultados.
 
-                        É idealizadora do projeto <em>Elas no Cafezinho</em>, dedicando especial atenção à liderança feminina, equidade de gênero e presença de mulheres em espaços de decisão. Seu propósito é abrir espaço para que mais mulheres ocupem, com protagonismo, os lugares onde decisões acontecem.
+Com experiência em People & Performance, Talent Acquisition, Talent Development, DHO, Desenvolvimento de Lideranças e Mentoria de Carreira, combina uma abordagem consultiva, humana e estratégica para potencializar talentos e ampliar oportunidades.
+
+É idealizadora do <em>Elas no Cafezinho</em>, projeto que dá visibilidade às mulheres, fortalece suas vozes e promove conexões para ampliar seu protagonismo.
+
+Nesta jornada, dedica especial atenção à liderança feminina, equidade de gênero, desenvolvimento de executivas e presença de mulheres em espaços de decisão, acreditando que representatividade não é apenas ocupar lugares, mas também transformar os caminhos para quem vem depois.
+
+Seu propósito: desenvolver pessoas, potencializar talentos e abrir espaço para que mais mulheres ocupem, com protagonismo, os lugares onde decisões acontecem.</div>
+                    <div class="columnist-links">
+                        <a href="https://www.linkedin.com/in/simone-sommariva-vieira/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                     </div>
-                    <a href="https://www.linkedin.com/in/simone-sommariva-vieira/" target="_blank" rel="noopener" class="btn-linkedin">Conectar no LinkedIn ↗</a>
                 </div>
             </article>
 
@@ -635,5 +695,3 @@
 
 </body>
 </html>
-
-
