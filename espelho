@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6JTWLMZBRS');
+    </script>
+
+    <!-- GOOGLE ADSENSE SCRIPT PRINCIPAL -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1434753673886142" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Executive Search - Recolocação Executiva - Inteligência de Mercado</title>
+    <meta name="description" content="Executive Search, Hunter Intelligence, Recolocação Executiva, Consultoria em outplacement.">
+    <link rel="icon" href="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/FAVICON.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/FAVICON.jpg">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --dourado: #c5a059; --fundo: #ffffff; --texto-escuro: #111111; --texto-cinza: #666666; --borda: #e5e5e5; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fundo); color: var(--texto-escuro); min-height: 100vh; top: 0px !important; }
+        
+        /* 1. CABEÇALHO SUPERIOR (FIXO) */
+        .article-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5%; background-color: var(--fundo); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--borda); height: 60px; box-sizing: border-box; }
+        .article-nav .logo-text { color: var(--texto-escuro); font-weight: 900; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; }
+        .article-nav .logo-text span { color: var(--dourado); }
+
+        .nav-actions { display: flex; gap: 12px; align-items: center; }
+        .btn-action { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; text-decoration: none; gap: 8px; white-space: nowrap;}
+        .btn-action:hover { background: var(--dourado); color: var(--texto-escuro); }
+        
+        #google_translate_element select { background: transparent; border: 1px solid var(--dourado); color: var(--dourado); padding: 6px 15px; border-radius: 20px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.3s ease; outline: none; text-transform: uppercase; letter-spacing: 1px; }
+        #google_translate_element select:hover { background: var(--dourado); color: var(--fundo); }
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+
+        /* 2. TÍTULO GIGANTE CENTRALIZADO */
+        .header-brand { text-align: center; padding: 50px 20px 25px 20px; margin: 0 auto; max-width: 1400px; }
+        .page-title { font-size: 52px; font-weight: 900; margin: 0; letter-spacing: -2px; color: var(--texto-escuro); text-transform: uppercase; line-height: 1.1; }
+        .page-subtitle { font-size: 13px; color: var(--texto-cinza); margin: 10px 0 0; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; }
+
+        /* 3. MENU DE CATEGORIAS */
+        .editorial-nav-wrapper { position: sticky; top: 60px; z-index: 999; background: var(--fundo); padding: 0 5%; border-top: 2px solid var(--texto-escuro); border-bottom: 1px solid var(--borda); box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 30px;}
+        .editorial-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 15px 0; }
+        
+        .filter-container { display: flex; gap: 25px; flex-wrap: wrap; align-items: center;}
+        .filter-btn { background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-cinza); cursor: pointer; padding: 0; transition: 0.3s; position: relative; }
+        .filter-btn:hover, .filter-btn.active { color: var(--texto-escuro); }
+        
+        .search-input { border: none; border-bottom: 1px solid var(--borda); padding: 5px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; outline: none; width: 180px; transition: 0.3s; background: transparent; }
+        .search-input:focus { border-color: var(--dourado); width: 230px; }
+
+        /* CONTAINERS GERAIS */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
+        .section-title { font-size: 18px; font-weight: 900; text-transform: uppercase; color: var(--texto-escuro); margin-bottom: 25px; border-bottom: 2px solid var(--texto-escuro); padding-bottom: 10px; letter-spacing: 1px;}
+
+        /* PUBLICIDADE */
+        .ad-space-container { width: 100%; max-width: 1400px; margin: 30px auto; padding: 10px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda); border-bottom: 1px dashed var(--borda); }
+        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--texto-cinza); margin-bottom: 5px; font-weight: 800; }
+
+        /* RADAR TEMPO REAL */
+        .live-news-section { background: #fafafa; border: 1px solid var(--borda); padding: 10px 30px; margin: 0 auto 40px auto; border-radius: 4px; overflow: hidden; position: relative; max-width: 1300px; }
+        .live-news-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--borda); }
+        .live-news-title { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--texto-escuro); display: flex; align-items: center; gap: 8px; }
+        .live-news-pulse { width: 6px; height: 6px; background-color: #25D366; border-radius: 50%; display: inline-block; box-shadow: 0 0 6px #25D366; animation: pulse 2s infinite; }
+        
+        .live-news-carousel-wrapper { position: relative; display: flex; align-items: center; }
+        .live-news-track { display: flex; overflow-x: auto; gap: 15px; scroll-behavior: smooth; scrollbar-width: none; width: 100%; padding-bottom: 5px; }
+        .live-news-track::-webkit-scrollbar { display: none; }
+        
+        .live-news-card { background: #ffffff; border: 1px solid var(--borda); border-left: 3px solid var(--dourado); padding: 8px 15px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; gap: 3px; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: var(--texto-escuro); min-height: 60px; min-width: calc(25% - 12px); flex-shrink: 0; }
+        .live-news-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .live-news-card-tag { font-size: 8px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin: 0; }
+        .live-news-card-title { font-size: 12px; font-weight: 700; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        .carousel-btn { position: absolute; z-index: 10; background: var(--cinza-escuro); color: var(--dourado); border: 1px solid var(--dourado); border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; font-size: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);}
+        .carousel-btn.prev { left: -10px; }
+        .carousel-btn.next { right: -10px; }
+
+        /* PRINCIPAIS NOTÍCIAS (TRIAD) - ESPAÇO 1 */
+        .exame-hero-triad { display: flex; gap: 35px; padding-bottom: 15px; align-items: stretch; margin-bottom: 40px;}
+        .side-col-left { display: flex; flex-direction: column; gap: 25px; width: 280px; flex-shrink: 0; order: 1; }
+        .side-news-card-left { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 20px; transition: 0.3s; }
+        .side-news-card-left:hover .side-news-title { color: var(--dourado); }
+        .side-news-img-wrapper { width: 100%; height: 140px; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: #eee; }
+        .side-news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+
+        .center-hero-rotator { position: relative; background: #ffffff; border-radius: 4px; overflow: hidden; border: 1px solid var(--borda); display: flex; flex-direction: column; flex: 1; order: 2;}
+        #rotatorSlidesWrapper { display: flex; flex: 1; flex-direction: column; width: 100%; }
+        .rotator-badge { position: absolute; top: 15px; left: 15px; background: rgba(17, 11, 11, 0.85); color: var(--dourado); border: 1px solid var(--dourado); padding: 4px 10px; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 3px; z-index: 10; display: flex; align-items: center; gap: 6px; }
+        .rotator-live-dot { width: 6px; height: 6px; background-color: #25D366; border-radius: 50%; display: inline-block; box-shadow: 0 0 6px #25D366; }
+        .rotator-nav-btns { position: absolute; top: 40%; width: 100%; display: flex; justify-content: space-between; padding: 0 10px; pointer-events: none; z-index: 10; transform: translateY(-50%); }
+        .rotator-btn { pointer-events: auto; background: rgba(0, 0, 0, 0.4); color: var(--fundo); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; font-size: 14px; outline: none; }
+        .rotator-btn:hover { background: var(--dourado); color: var(--texto-escuro); border-color: var(--dourado); }
+        .rotator-slide { display: none; flex-direction: column; text-decoration: none; color: var(--texto-escuro); transition: opacity 0.5s ease-in-out; flex: 1; }
+        .rotator-slide.active { display: flex; animation: fadeInSlide 0.6s ease; }
+        @keyframes fadeInSlide { from { opacity: 0; transform: scale(0.99); } to { opacity: 1; transform: scale(1); } }
+        .rotator-img-container { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #111; }
+        .rotator-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .rotator-body { padding: 25px 20px 20px; display: flex; flex-direction: column; justify-content: flex-start; flex: 1; }
+        .rotator-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 8px; display: block; }
+        .rotator-title { font-size: 26px; font-weight: 800; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.5px; }
+        .rotator-excerpt { font-size: 14px; color: var(--texto-cinza); line-height: 1.6; margin: 0; }
+        .rotator-progress-bar { height: 3px; background: #e5e5e5; width: 100%; position: relative; }
+        .rotator-progress-fill { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s linear; }
+
+        .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; height: 100%; order: 3;}
+        .side-news-item { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; }
+        .side-news-item:hover .side-news-title { color: var(--dourado); }
+        .side-news-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--texto-cinza); letter-spacing: 1px; margin-bottom: 6px; display: block; }
+        .side-news-title { font-size: 14px; font-weight: 700; line-height: 1.35; margin: 0 0 6px; transition: color 0.3s; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* ========================================================================= */
+        /* QUADRANTE CURTAS / SEGUNDO ESPAÇO (ESTILO PORTAL DE NOTÍCIAS) */
+        /* ========================================================================= */
+        .curtas-section { margin-bottom: 40px; }
+        .curtas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .curtas-column { display: flex; flex-direction: column; gap: 15px; border-right: 1px solid var(--borda); padding-right: 20px; }
+        .curtas-column:last-child { border-right: none; padding-right: 0; }
+        
+        .curtas-featured-card { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column; gap: 8px; }
+        .curtas-featured-card:hover .curtas-featured-title { color: var(--dourado); }
+        .curtas-featured-img-wrapper { width: 100%; height: 160px; border-radius: 4px; overflow: hidden; background: #f0f0f0; }
+        .curtas-featured-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .curtas-featured-card:hover .curtas-featured-img { transform: scale(1.03); }
+        .curtas-featured-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; }
+        .curtas-featured-title { font-size: 16px; font-weight: 800; line-height: 1.3; margin: 0; transition: color 0.2s; }
+        
+        .curtas-list { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; border-top: 1px solid var(--borda); padding-top: 12px; }
+        .curtas-list-item { text-decoration: none; color: var(--texto-escuro); font-size: 13px; font-weight: 700; line-height: 1.35; position: relative; padding-left: 14px; transition: color 0.2s; }
+        .curtas-list-item::before { content: "▪"; position: absolute; left: 0; color: var(--dourado); font-size: 12px; top: -1px; }
+        .curtas-list-item:hover { color: var(--dourado); }
+
+        /* FAIXA DE COLUNISTAS */
+        .colunistas-carousel-section { padding: 0; margin-bottom: 20px;}
+        .colunistas-header { text-align: center; margin-bottom: 30px; position: relative; }
+        .colunistas-header h2 { display: inline-block; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: var(--fundo); padding: 0 20px; position: relative; z-index: 2; margin: 0; color: var(--texto-escuro);}
+        .colunistas-header::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--texto-escuro); z-index: 1; }
+        
+        .colunistas-carousel-wrapper { position: relative; display: flex; align-items: center; }
+        .colunistas-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding: 10px 5px; width: 100%; cursor: grab; }
+        .colunistas-track::-webkit-scrollbar { display: none; }
+        
+        .colunista-card { flex: 0 0 calc(25% - 15px); background: #fdfdfd; border: 1px solid var(--borda); border-radius: 8px; padding: 25px 20px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; user-select: none; }
+        .colunista-card:hover, .colunista-card.active { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--dourado); }
+        .colunista-card-img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--dourado); margin-bottom: 15px; pointer-events: none; }
+        .colunista-card-name { font-size: 15px; font-weight: 800; color: var(--texto-escuro); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; pointer-events: none;}
+        .colunista-card-theme { font-size: 11px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; pointer-events: none;}
+
+        /* ÚLTIMAS COLUNAS */
+        .ultimas-colunas-section { margin-bottom: 20px;}
+        .ultimas-colunas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .coluna-news-card { background: #fff; border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: column;}
+        .coluna-news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); }
+        .coluna-news-img { width: 100%; height: 180px; object-fit: cover; }
+        .coluna-news-body { padding: 20px; display: flex; flex-direction: column; flex: 1;}
+        .coluna-news-tag { font-size: 10px; font-weight: 800; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;}
+        .coluna-news-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px;}
+        .coluna-news-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0;}
+
+        /* ACERVO */
+        .editorial-feed { display: flex; flex-direction: column; }
+        .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
+        .list-article { text-decoration: none; color: var(--texto-escuro); display: flex; flex-direction: row; align-items: center; gap: 20px; border-bottom: 1px solid var(--borda); padding: 25px 0; transition: opacity 0.3s; }
+        .list-article:hover { opacity: 0.85; }
+        .list-article .img-wrapper { width: 120px; height: 90px; flex-shrink: 0; }
+        .list-article .article-img { width: 100%; height: 100%; object-fit: cover; background: #eee; }
+        .list-article .content-wrapper { flex: 1; }
+        .list-article .article-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1.5px; margin-bottom: 5px; display: block; }
+        .list-article .article-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 5px; }
+
+        .no-results { text-align: center; padding: 60px; color: var(--texto-cinza); font-style: italic; display: none; width: 100%; }
+        .load-more-container { text-align: center; padding: 40px 0 20px 0; margin-bottom: 20px; }
+        .btn-load-more { background: transparent; color: var(--texto-escuro); border: 1px solid var(--texto-escuro); padding: 12px 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; border-radius: 4px;}
+        .btn-load-more:hover { background: var(--texto-escuro); color: var(--fundo); }
+
+        /* FOOTER */
+        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
+        .footer-brand { max-width: 350px; }
+        .footer-brand h2 { color: var(--fundo); font-size: 26px; margin: 0 0 15px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-brand h2 span { color: var(--dourado); }
+        .footer-brand p { font-size: 13px; line-height: 1.8; color: #999; margin: 0; }
+        
+        .footer-nav { display: flex; gap: 80px; flex-wrap: wrap; flex: 1; justify-content: flex-end;}
+        .footer-col h4 { color: var(--dourado); font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 25px; font-weight: 800; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 10px;}
+        .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px; }
+        .footer-col ul li a { color: #bbb; text-decoration: none; font-size: 13px; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px;}
+        .footer-col ul li a:hover { color: var(--fundo); padding-left: 5px;}
+        .footer-bottom { max-width: 1400px; margin: 50px auto 0; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 12px; color: #666; letter-spacing: 1px; }
+
+        /* BANNER FIXO RODAPÉ */
+        .sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda); border-bottom: none; color: var(--texto-cinza); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); }
+        .sticky-toggle:hover { color: var(--dourado); }
+        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
+
+        @media (max-width: 1100px) {
+            .exame-hero-triad { flex-direction: column; gap: 30px; }
+            .center-hero-rotator { order: 1; width: 100%; }
+            .side-col-left { order: 2; width: 100%; flex-direction: row; flex-wrap: wrap; gap: 20px;}
+            .side-news-card-left { width: calc(50% - 10px); border-bottom: none; padding-bottom: 0; }
+            .side-col-right { order: 3; width: 100%; }
+            .live-news-card { min-width: calc(50% - 10px); }
+            .colunista-card { flex: 0 0 calc(33.333% - 14px); }
+            .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); }
+            .curtas-grid { grid-template-columns: 1fr; }
+            .curtas-column { border-right: none; border-bottom: 1px solid var(--borda); padding-right: 0; padding-bottom: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; }
+            .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;}
+            .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
+            #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; }
+            
+            .header-brand { padding: 30px 10px 10px; margin: 0 10px; }
+            .page-title { font-size: 32px; }
+            .page-subtitle { font-size: 10px; }
+
+            .editorial-nav-wrapper { top: 60px; padding: 0 15px; } 
+            .editorial-nav { flex-direction: row; overflow-x: auto; white-space: nowrap; scrollbar-width: none;}
+            .editorial-nav::-webkit-scrollbar { display: none; }
+            .filter-container { flex-wrap: nowrap; gap: 15px; padding-bottom: 5px; flex: 1;}
+            .search-input { width: 120px; }
+            .search-input:focus { width: 150px; }
+            
+            .live-news-section { margin: 0 10px 30px 10px; padding: 10px 15px;}
+            .container { padding: 0 20px; }
+            
+            .colunista-card { flex: 0 0 calc(65% - 15px); }
+            .ultimas-colunas-grid { grid-template-columns: 1fr; }
+            .list-articles-wrapper { grid-template-columns: 1fr; }
+            .list-article .img-wrapper { display: none; }
+            .btn-load-more { width: 100%; box-sizing: border-box; }
+            .live-news-card { min-width: calc(85% - 15px); }
+            
+            .side-col-left { flex-direction: column; }
+            .side-news-card-left { width: 100%; border-bottom: 1px solid var(--borda); padding-bottom: 15px;}
+            .footer-content { flex-direction: column; gap: 40px;}
+            .footer-nav { flex-direction: column; gap: 30px;}
+            .site-footer { padding: 50px 20px 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR (FIXO) -->
+    <nav class="article-nav">
+        <a href="https://www.youpconsultoria.com/index.html" class="logo-text">YOUP <span>CONSULTORIA</span></a>
+        <div class="nav-actions">
+            <div id="google_translate_element"></div>
+            <a href="https://www.youpconsultoria.com/consultoria" class="btn-action">Nossa Consultoria</a>
+            <a href="https://wa.me/5512991322333?text=Quero%20anunciar%20com%20a%20Youp" target="_blank" class="btn-action">Anuncie Aqui</a>
+        </div>
+    </nav>
+
+    <!-- TÍTULO PRINCIPAL -->
+    <header class="header-brand">
+        <h1 class="page-title">Insights Corporativos</h1>
+        <p class="page-subtitle">Portal YOUP • Inteligência de Mercado & Executive Search</p>
+    </header>
+
+    <!-- MENU DE CATEGORIAS -->
+    <div class="editorial-nav-wrapper">
+        <nav class="editorial-nav">
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filtrarBlog('todos', this)">Todos</button>
+                <button class="filter-btn" onclick="filtrarBlog('radar-executivo', this)">Radar Executivo</button>
+                <button class="filter-btn" onclick="filtrarBlog('elas-no-radar', this)">Elas no Radar</button>
+                <button class="filter-btn" onclick="filtrarBlog('jovem-lideranca', this)">Jovem Liderança</button>
+                <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
+                <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
+                <button class="filter-btn" onclick="filtrarBlog('radar-literario', this)">Radar Literário</button>
+            </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
+        </nav>
+    </div>
+
+    <!-- ANÚNCIO 1 -->
+    <div class="ad-space-container">
+        <p class="ad-space-label">Publicidade</p>
+        <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <main class="container">
+        <!-- SEÇÃO RADAR EM TEMPO REAL -->
+        <section class="live-news-section">
+            <div class="live-news-header">
+                <div class="live-news-title">
+                    <span class="live-news-pulse"></span> Radar de Mercado • Em Tempo Real
+                </div>
+            </div>
+            <div class="live-news-carousel-wrapper">
+                <button class="carousel-btn prev" onclick="scrollCarouselLiveNews(-1)">&#10094;</button>
+                <div class="live-news-track" id="liveNewsContainer">
+                    <div id="manualLiveNews" style="display: contents;"></div>
+                    <div id="dynamicLiveNews" style="display: contents;"></div>
+                </div>
+                <button class="carousel-btn next" onclick="scrollCarouselLiveNews(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <div id="noResultsMsg" class="no-results">Nenhum artigo encontrado para esta pesquisa.</div>
+
+        <!-- ESPAÇO 1: PRINCIPAIS NOTÍCIAS E ARTIGOS (HERO TRIAD) -->
+        <section class="exame-hero-triad" id="exameTriadContainer">
+            <div class="center-hero-rotator" id="triadCenterCol">
+                <div class="rotator-badge">
+                    <span class="rotator-live-dot"></span> Destaque da Semana
+                </div>
+                <div class="rotator-nav-btns">
+                    <button class="rotator-btn prev" onclick="mudarSlideRotativo(-1, event)">&#10094;</button>
+                    <button class="rotator-btn next" onclick="mudarSlideRotativo(1, event)">&#10095;</button>
+                </div>
+                <div id="rotatorSlidesWrapper"></div>
+                <div class="rotator-progress-bar">
+                    <div class="rotator-progress-fill" id="rotatorProgress"></div>
+                </div>
+            </div>
+            <div class="side-col-left" id="triadLeftCol"></div>
+            <div class="side-col-right" id="triadRightCol"></div>
+        </section>
+
+        <!-- ESPAÇO 2: QUADRANTE CURTAS (ESTILO PORTAL DE NOTÍCIAS) -->
+        <section class="curtas-section" id="curtasSectionWrapper">
+            <h3 class="section-title">Em Foco • Curtas & Atualizações</h3>
+            <div class="curtas-grid" id="curtasGridContainer"></div>
+        </section>
+
+        <!-- ANÚNCIO 2 (LOGOS ABAIXO DO QUADRANTE DE CURTAS E ANTES DE COLUNISTAS) -->
+        <div class="ad-space-container" id="adSpace2">
+            <p class="ad-space-label">Publicidade</p>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- FAIXA DE COLUNISTAS -->
+        <section class="colunistas-carousel-section" id="colunistasSectionWrapper">
+            <div class="colunistas-header">
+                <h2>COLUNISTAS</h2>
+            </div>
+            <div class="colunistas-carousel-wrapper">
+                <button class="carousel-btn prev" onclick="scrollColunistas(-1)">&#10094;</button>
+                <div class="colunistas-track" id="colunistasContainer">
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('alessandra-miliatti', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(5).jpeg" alt="Alessandra Miliatti" class="colunista-card-img">
+                        <div class="colunista-card-name">Alessandra Miliatti</div>
+                        <div class="colunista-card-theme">Mente Executiva</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('daniele-avelino', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(4).jpeg" alt="Daniele Avelino" class="colunista-card-img">
+                        <div class="colunista-card-name">Daniele Avelino</div>
+                        <div class="colunista-card-theme">Posicionamento Executivo</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('debora-boscolo', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(3).jpeg" alt="Debora Boscolo" class="colunista-card-img">
+                        <div class="colunista-card-name">Debora Boscolo</div>
+                        <div class="colunista-card-theme">Comportamento Humano</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('felipe-almeida', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(2).jpeg" alt="Felipe Almeida" class="colunista-card-img">
+                        <div class="colunista-card-name">Felipe Almeida</div>
+                        <div class="colunista-card-theme">Jovem Liderança</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('fernanda-santarini', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(9).jpeg" alt="Fernanda Santarini" class="colunista-card-img">
+                        <div class="colunista-card-name">Fernanda Santarini</div>
+                        <div class="colunista-card-theme">Marca Pessoal</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('joana-darc', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(11).jpeg" alt="Joana D'arc" class="colunista-card-img">
+                        <div class="colunista-card-name">Joana D'arc</div>
+                        <div class="colunista-card-theme">ENTRELINHAS</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('jose-reale', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(6).jpeg" alt="José Roberto Reale" class="colunista-card-img">
+                        <div class="colunista-card-name">José Roberto Reale</div>
+                        <div class="colunista-card-theme">Defesa do Executivo</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('kely-pereira', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(8).jpeg" alt="Kely Pereira" class="colunista-card-img">
+                        <div class="colunista-card-name">Kely Pereira</div>
+                        <div class="colunista-card-theme">Liderança Feminina</div>
+                    </a>   
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('liliane-silva', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(1).jpeg" alt="Liliane Silva" class="colunista-card-img">
+                        <div class="colunista-card-name">Liliane Silva</div>
+                        <div class="colunista-card-theme">Saúde & Governança</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('rogerio-pires', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(12).jpeg" alt="Rogério Pires" class="colunista-card-img">
+                        <div class="colunista-card-name">Rogério Pires</div>
+                        <div class="colunista-card-theme">Liderança 4.0 & Tech</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('romildo-nascimento', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(7).jpeg" alt="Romildo Nascimento" class="colunista-card-img">
+                        <div class="colunista-card-name">Romildo Nascimento</div>
+                        <div class="colunista-card-theme">Recursos Humanos e Carreira</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="filtrarPorAutor('simone-vieira', this, event)" class="colunista-card">
+                        <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/fotocolunistayp%20(10).jpeg" alt="Simone Sommariva Vieira" class="colunista-card-img">
+                        <div class="colunista-card-name">Simone Sommariva Vieira</div>
+                        <div class="colunista-card-theme">Lugar de Mulher</div>
+                    </a>
+                </div>
+                <button class="carousel-btn next" onclick="scrollColunistas(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- ÚLTIMAS COLUNAS -->
+        <section class="ultimas-colunas-section" id="ultimasColunasWrapper">
+            <h3 class="section-title">Últimas Colunas</h3>
+            <div class="ultimas-colunas-grid" id="ultimasColunasGrid"></div>
+        </section>
+
+        <!-- ANÚNCIO 3 -->
+        <div class="ad-space-container" id="adSpace3">
+            <p class="ad-space-label">Continua após a publicidade ▼</p>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ACERVO COMPLETO -->
+        <div class="editorial-feed">
+            <h3 class="section-title" id="acervoTitle">Acervo Completo</h3>
+            <div id="listZone" class="list-articles-wrapper"></div>
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="btn-load-more" onclick="carregarMaisArtigos()">Carregar Mais Artigos ⬇</button>
+            </div>
+        </div>
+
+        <!-- REPOSITÓRIO ÚNICO DE ARTIGOS -->
+        <!-- DICA: Use data-spot="1" para Destaque Principal e data-spot="2" para Quadrante Curtas -->
+        <div id="sourceArticles" style="display: none;">
+            
+            <a href="materia-herivelto-malosti-livro-granizo-paintless-dent-repair.html" data-type="materia" data-spot="2" data-category="radar-literario" data-publish-date="2026-09-09">
+                <img src="https://lh3.googleusercontent.com/d/1tgirBoSpTPHkgzZ9dFmw8u_pB8M1nUAQ" alt="Brasileiro lança livro sobre mercado de recuperação de veículos">
+                <span class="tag">Radar Literário</span>
+                <h3 class="title">O brasileiro que transformou granizo em operação automotiva global</h3>
+                <p class="excerpt">Herivelto Malosti lança livro sobre como o PDR deixou de ser um serviço local para escalar na cadeia de montadoras.</p>
+            </a>
+
+            <a href="materia-ia-executivos-diluicao-decisoes-dificeis-artigo.html" data-type="materia" data-spot="1" data-category="radar-executivo" data-publish-date="2026-09-09">
+                <img src="https://lh3.googleusercontent.com/d/1BOLq62zR4ZfWMjsiijgYPWl_u8nsxKKn" alt="O lado oculto da IA: algoritmos e decisões difíceis no C-Level">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">O lado oculto da IA: algoritmos e decisões difíceis no C-Level</h3>
+                <p class="excerpt">Artigo analisa como executivos podem usar a tecnologia para diluir responsabilidades em escolhas de alto risco.</p>
+            </a>
+
+            <a href="materia-grupo-salta-quadruplica-pagamentos-digitais-bemobi.html" data-type="materia" data-spot="1" data-category="radar-executivo" data-publish-date="2026-09-09">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I4.jpeg" alt="Grupo Salta quase quadruplica pagamentos digitais com Bemobi">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Grupo Salta quadruplica pagamentos digitais com Bemobi</h3>
+                <p class="excerpt">Parceria eleva taxa de sucesso na recorrência para 99% e impulsiona eficiência financeira na educação básica.</p>
+            </a>
+
+            <a href="coluna-felipe-almeida-jedip-quando-o-p-muda-tudo.html" data-type="coluna" data-category="colunas" data-author="felipe-almeida" data-publish-date="2026-09-09">
+                <img src="https://lh3.googleusercontent.com/d/1o3NGpHE8i0X9I95z88lPJviMfPhzh6aX" alt="Felipe Almeida">
+                <span class="tag">Jovem Liderança</span>
+                <h3 class="title">JEDIP: Quando o P muda tudo</h3>
+                <p class="excerpt">Contratar é fácil. O problema é o que vem depois. Entenda como o P de Pertencimento transforma a cultura organizacional e retém jovens talentos.</p>
+            </a>
+
+            <a href="materia-stablecoinx-nomeia-christopher-jensen-ceo.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-08">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I3.jpg" alt="StablecoinX nomeia Christopher Jensen como novo CEO">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">StablecoinX nomeia Christopher Jensen como novo CEO</h3>
+                <p class="excerpt">Executivo ex-Franklin Templeton assume a operação no lugar de Ted Chen, que passa a liderar o Conselho de Administração.</p>
+            </a>
+
+            <a href="artigo-lideranca-em-tempos-de-ia-equipes-hibridas.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-08">
+                <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I2.jpeg" alt="Liderança em tempo de IA: O fim da era dos prompts">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Liderança na Era da IA</h3>
+                <p class="excerpt">Aprenda a gerenciar equipes híbridas (humanos e máquinas) e proteja o seu Valuation no C-Suite.</p>
+            </a>
+
+            <a href="artigo-metodologia-stare-destrave-carreira-c-level.html" data-type="coluna" data-author="ana-fortunato" data-category="radar-executivo" data-publish-date="2026-09-08">
+                <img src="https://lh3.googleusercontent.com/d/1dwNYd50RYcPZmZcHX5ntD1t7-irKPQjr" alt="Conheça a Nossa Metodologia S.T.A.R.E. e Destrave a Sua Carreira">
+                <span class="tag">RADAR EXECUTIVO</span>
+                <h3 class="title">Conheça a Nossa Metodologia S.T.A.R.E. e Destrave a Sua Carreira</h3>
+                <p class="excerpt">Entregar resultado virou o básico. A dura realidade é que o seu conhecimento técnico não te protege mais. O que define quem fica com a cadeira é como você empacota seu valor.</p>
+            </a>
+
+            <a href="materia-premio-carolina-bori-meninas-ciencia-inscricoes.html" data-type="materia" data-spot="2" data-category="elas-no-radar" data-publish-date="2026-09-07">
+                <img src="https://lh3.googleusercontent.com/d/1WDKPW3yAThzXQNDXzzHwGlqlmj542rlT" alt="Inscrições abertas para o Prêmio Carolina Bori Ciência & Mulheres">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Prêmio Carolina Bori foca em Meninas na Ciência</h3>
+                <p class="excerpt">Premiação da SBPC reconhece jovens cientistas do ensino médio e graduação com prêmios de até R$ 13 mil.</p>
+            </a>        
+
+            <a href="materia-localiza-abre-inscricoes-programa-trainee.html" data-type="materia" data-spot="2" data-category="jovem-lideranca" data-publish-date="2026-09-07">
+                <img src="https://lh3.googleusercontent.com/d/1JTuDX1Iug4zeI69kjnk8JxAvhOv5iPZV" alt="Localiza&Co abre vagas para Programa de Trainee">
+                <span class="tag">Jovem Liderança</span>
+                <h3 class="title">Localiza&Co abre inscrições para Trainee 2027</h3>
+                <p class="excerpt">Programa aceita recém-formados de qualquer curso e foca em projetos estratégicos com uso de IA.</p>
+            </a>        
+
+            <a href="artigo-como-responder-feedback-inadequado-alta-lideranca.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
+                <img src="https://lh3.googleusercontent.com/d/19mPgw_SMvEynPF-Ts83mzgiTKr8VxMEr" alt="Como responder a um feedback que você considera inadequado?">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Como responder a feedbacks inadequados</h3>
+                <p class="excerpt">Aprenda a discordar de avaliações injustas mantendo seu Capital Político e sua postura no C-Suite.</p>
+            </a>
+
+            <a href="coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html" data-type="coluna" data-author="rogerio-pires" data-category="lideranca-4-0-tech" data-publish-date="2026-09-11">
+                <img src="https://lh3.googleusercontent.com/d/1dXmInPshJlSiNQsHKbP6wS5EJm-jdss7" alt="A IA Não É Mais Assunto da TI. É Assunto de Todo Mundo.">
+                <span class="tag">Liderança 4.0 & Tech</span>
+                <h3 class="title">A IA Não É Mais Assunto da TI</h3>
+                <p class="excerpt">Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças.</p>
+            </a>        
+
+            <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
+                <img src="https://lh3.googleusercontent.com/d/16XUrAESVZ12HCKPHx7UFu1BcEvFnKYX_" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">CSN nomeia novo CEO e Arezzo anuncia cisão de negócios</h3>
+                <p class="excerpt">Semana no mercado corporativo é marcada por trocas no C-Level, M&A e reestruturações societárias na B3.</p>
+            </a>
+
+            <a href="materia-fabiana-nogueira-feitosa-cio-latam-danone.html" data-type="materia" data-spot="2" data-category="elas-no-radar" data-publish-date="2026-09-06">
+                <img src="https://lh3.googleusercontent.com/d/1uNwFK4SRE8dfRuvKIlP3MQaC0AJo3aQj" alt="Fabiana Nogueira Feitosa assume como CIO Latam da Danone">
+                <span class="tag">Elas no Radar</span>
+                <h3 class="title">Fabiana Feitosa assume como CIO Latam da Danone</h3>
+                <p class="excerpt">Com vasta experiência em IA e dados, executiva também passa a integrar o Comitê Diretivo da companhia no Brasil.</p>
+            </a>    
+
+            <a href="materia-alessandro-carlucci-retorna-ceo-natura.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
+                <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
+                <span class="tag">Radar Executivo</span>
+                <h3 class="title">Alessandro Carlucci retorna como CEO da Natura</h3>
+                <p class="excerpt">Executivo sucede João Paulo Ferreira na presidência; Fábio Barbosa reassume o comando do Conselho de Administração.</p>
+            </a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>YOUP<span>.</span></h2>
+                <p>Executive Search e Inteligência de Mercado. Estruturando o C-Suite e Conselhos de Administração das organizações que lideram o futuro.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Para Sua Carreira</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/portal-talentos.html">Nossas Vagas</a></li>
+                        <li><a href="https://www.youpconsultoria.com/carreira.html">Transição e Recolocação</a></li>
+                        <li><a href="https://www.youpconsultoria.com/reputacao.html">Gestão de Reputação</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Para Sua Empresa</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/headhunter.html">Headhunter Executivo</a></li>
+                        <li><a href="https://www.youpconsultoria.com/outplacement.html">Outplacement Estratégico</a></li>
+                        <li><a href="https://www.youpconsultoria.com/book.html">Book de Talentos Mapeados</a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone=5512991322333&text=Ol%C3%A1%2C+gostaria+de+consultar+a+agenda+da+Ana+Paula+para+palestrar+em+um+evento+corporativo.&type=phone_number&app_absent=0" target="_blank">Eventos & In Company</a></li>
+                        <li><a href="https://www.youpconsultoria.com/area-parceiro.html" style="color: var(--dourado);">✦ Hub Exclusivo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Editorial</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/book-colunistas.html">Colunistas</a></li>
+                        <li><a href="https://wa.me/5512991322333?text=Quero%20ser%20colunista" target="_blank">Seja um Colunista</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="https://www.youpconsultoria.com/sobre.html">Quem Somos</a></li>
+                        <li><a href="https://www.youpconsultoria.com/contatos.html">Contatos</a></li>
+                        <li><a href="https://www.youpconsultoria.com/privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Youp Consultoria. Executive Search.
+        </div>
+    </footer>
+
+    <!-- BANNER FIXO RODAPÉ -->
+    <div class="sticky-bottom-wrapper" id="stickyBottomAd">
+        <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
+        <div class="sticky-ad-content" id="stickyAdContent">
+            <ins class="adsbygoogle"
+                 style="display:block; width:100%;"
+                 data-ad-client="ca-pub-1434753673886142"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <!-- SCRIPTS DE LÓGICA E RENDERIZAÇÃO -->
+    <script>
+        function toggleStickyAd() {
+            const wrapper = document.getElementById('stickyBottomAd');
+            const btn = document.querySelector('.sticky-toggle');
+            wrapper.classList.toggle('closed');
+            btn.innerHTML = wrapper.classList.contains('closed') ? 'PUBLICIDADE ▲' : 'FECHAR ▼';
+        }
+
+        let limiteAtual = 10; 
+        let filtroAtual = 'todos';
+        let autorAtual = 'todos';
+        let pesquisaAtual = '';
+
+        let slideIndexAtual = 0;
+        let slideTimer = null;
+        let progressTimer = null;
+        const TEMPO_SLIDE = 6000; 
+
+        function toggleColumnistsWrapper() {
+            const wrapper = document.getElementById('colunistasSectionWrapper');
+            const ultimasWrapper = document.getElementById('ultimasColunasWrapper');
+            
+            if (filtroAtual === 'colunas' || filtroAtual === 'todos') {
+                if (wrapper) wrapper.style.display = 'block';
+                if (ultimasWrapper && filtroAtual === 'todos') ultimasWrapper.style.display = 'block';
+                else if (ultimasWrapper) ultimasWrapper.style.display = 'none';
+            } else {
+                if (wrapper) wrapper.style.display = 'none';
+                if (ultimasWrapper) ultimasWrapper.style.display = 'none';
+            }
+        }
+
+        function renderArticles() {
+            toggleColumnistsWrapper();
+
+            const triadContainer = document.getElementById('exameTriadContainer');
+            const triadLeftCol = document.getElementById('triadLeftCol');
+            const triadCenterWrapper = document.getElementById('rotatorSlidesWrapper');
+            const triadRightCol = document.getElementById('triadRightCol');
+            const curtasSectionWrapper = document.getElementById('curtasSectionWrapper');
+            const curtasGridContainer = document.getElementById('curtasGridContainer');
+            const ultimasColunasGrid = document.getElementById('ultimasColunasGrid');
+
+            const listZone = document.getElementById('listZone');
+            const noResultsMsg = document.getElementById('noResultsMsg');
+            const btnLoadMore = document.getElementById('loadMoreContainer');
+            const acervoTitle = document.getElementById('acervoTitle');
+            const adSpace2 = document.getElementById('adSpace2');
+            const adSpace3 = document.getElementById('adSpace3');
+            
+            triadLeftCol.innerHTML = ''; 
+            triadCenterWrapper.innerHTML = ''; 
+            triadRightCol.innerHTML = '';
+            if (curtasGridContainer) curtasGridContainer.innerHTML = '';
+            if (ultimasColunasGrid) ultimasColunasGrid.innerHTML = '';
+            listZone.innerHTML = '';
+            
+            const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
+            
+            // 1. FILTRAGEM POR DATA (Oculta agendadas) E ORDENAÇÃO MANDATÓRIA (Mais recentes primeiro)
+            const dataAtual = new Date();
+            let validArticles = sources.filter(a => {
+                const dataAgendada = a.getAttribute('data-publish-date'); 
+                if (dataAgendada) {
+                    const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00'); 
+                    if (dataAtual < dataPublicacao) return false; 
+                }
+                if (!a.getAttribute('data-type')) {
+                    if (a.getAttribute('data-author')) a.setAttribute('data-type', 'coluna');
+                    else a.setAttribute('data-type', 'materia');
+                }
+                return true;
+            }).sort((a, b) => {
+                const dateA = a.getAttribute('data-publish-date') ? new Date(a.getAttribute('data-publish-date') + 'T00:00:00-03:00') : new Date(0);
+                const dateB = b.getAttribute('data-publish-date') ? new Date(b.getAttribute('data-publish-date') + 'T00:00:00-03:00') : new Date(0);
+                return dateB - dateA; // Decrescente
+            });
+
+            // 2. FILTRAGEM / PESQUISA ATIVA
+            if (filtroAtual !== 'todos' || autorAtual !== 'todos' || pesquisaAtual !== '') {
+                triadContainer.style.display = 'none';
+                if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'none';
+                if(adSpace2) adSpace2.style.display = 'none';
+                if(adSpace3) adSpace3.style.display = 'none';
+                acervoTitle.innerText = "Resultados da Pesquisa";
+
+                let filtered = validArticles.filter(a => {
+                    const matchFiltro = filtroAtual === 'colunas' ? true : (a.getAttribute('data-category') === filtroAtual);
+                    const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
+                    const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
+                    
+                    if(filtroAtual === 'colunas' && autorAtual === 'todos' && pesquisaAtual === ''){
+                        return a.getAttribute('data-type') === 'coluna';
+                    }
+                    return matchFiltro && matchAutor && matchTexto;
+                });
+
+                if (filtered.length === 0) {
+                    noResultsMsg.style.display = 'block';
+                    btnLoadMore.style.display = 'none';
+                    return;
+                }
+                noResultsMsg.style.display = 'none';
+
+                filtered.slice(0, limiteAtual).forEach(item => renderArticleInList(item, listZone));
+                btnLoadMore.style.display = filtered.length > limiteAtual ? 'block' : 'none';
+
+            } else {
+                // EXIBIÇÃO PADRÃO (HOMEPAGE COMPLETA)
+                acervoTitle.innerText = "Acervo Completo";
+                triadContainer.style.display = 'flex';
+                if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'block';
+                if(adSpace2) adSpace2.style.display = 'block';
+                if(adSpace3) adSpace3.style.display = 'block';
+
+                const materiasEArtigos = validArticles.filter(a => a.getAttribute('data-type') === 'materia' || a.getAttribute('data-type') === 'artigo');
+                const colunas = validArticles.filter(a => a.getAttribute('data-type') === 'coluna');
+
+                // --- RENDER ESPAÇO 1 (HERO TRIAD - data-spot="1" ou Automático) ---
+                let triadItems = materiasEArtigos.filter(a => a.getAttribute('data-spot') === '1');
+                if(triadItems.length < 10) {
+                    const sobrantes = materiasEArtigos.filter(a => a.getAttribute('data-spot') !== '1' && a.getAttribute('data-spot') !== '2');
+                    triadItems = triadItems.concat(sobrantes.slice(0, 19 - triadItems.length));
+                }
+
+                const DestaquesRotativos = triadItems.slice(0, 10);
+                DestaquesRotativos.forEach((item, index) => {
+                    const url = item.getAttribute('href');
+                    const imgSrc = item.querySelector('img').src;
+                    const tag = item.querySelector('.tag').innerText;
+                    const title = item.querySelector('.title').innerText;
+                    const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
+
+                    triadCenterWrapper.innerHTML += `
+                        <a href="${url}" class="rotator-slide ${index === 0 ? 'active' : ''}">
+                            <div class="rotator-img-container">
+                                <img src="${imgSrc}" class="rotator-img" alt="${title}">
+                            </div>
+                            <div class="rotator-body">
+                                <span class="rotator-tag">${tag}</span>
+                                <h2 class="rotator-title">${title}</h2>
+                                <p class="rotator-excerpt">${excerpt}</p>
+                            </div>
+                        </a>
+                    `;
+                });
+                if(DestaquesRotativos.length > 0) iniciarSliderRotativo(DestaquesRotativos.length);
+
+                const LeftItems = triadItems.slice(10, 12);
+                LeftItems.forEach(item => {
+                    const url = item.getAttribute('href');
+                    const imgSrc = item.querySelector('img').src;
+                    const tag = item.querySelector('.tag').innerText;
+                    const title = item.querySelector('.title').innerText;
+                    const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
+
+                    triadLeftCol.innerHTML += `
+                        <a href="${url}" class="side-news-card-left">
+                            <div class="side-news-img-wrapper"><img src="${imgSrc}" class="side-news-img" alt="${title}"></div>
+                            <span class="side-news-tag">${tag}</span>
+                            <h3 class="side-news-title">${title}</h3>
+                            <p class="side-news-bullet">${excerpt}</p>
+                        </a>
+                    `;
+                });
+
+                const RightItems = triadItems.slice(12, 19);
+                RightItems.forEach(item => {
+                    const url = item.getAttribute('href');
+                    const tag = item.querySelector('.tag').innerText;
+                    const title = item.querySelector('.title').innerText;
+
+                    triadRightCol.innerHTML += `
+                        <a href="${url}" class="side-news-item">
+                            <span class="side-news-tag">${tag}</span>
+                            <h4 class="side-news-title">${title}</h4>
+                        </a>
+                    `;
+                });
+
+                // --- RENDER ESPAÇO 2 (QUADRANTE CURTAS - data-spot="2" ou Automático) ---
+                let curtasItems = materiasEArtigos.filter(a => a.getAttribute('data-spot') === '2');
+                if(curtasItems.length === 0) {
+                    curtasItems = materiasEArtigos.filter(a => !triadItems.includes(a)).slice(0, 9);
+                }
+
+                if(curtasGridContainer && curtasItems.length > 0) {
+                    // Divide itens em 3 colunas
+                    const col1 = curtasItems.slice(0, Math.ceil(curtasItems.length / 3));
+                    const col2 = curtasItems.slice(Math.ceil(curtasItems.length / 3), Math.ceil(curtasItems.length / 3) * 2);
+                    const col3 = curtasItems.slice(Math.ceil(curtasItems.length / 3) * 2);
+
+                    [col1, col2, col3].forEach(colGroup => {
+                        if(colGroup.length > 0) {
+                            const destaque = colGroup[0];
+                            const lista = colGroup.slice(1);
+
+                            let colHtml = `<div class="curtas-column">`;
+                            
+                            // Card Destaque no Topo da Coluna
+                            colHtml += `
+                                <a href="${destaque.getAttribute('href')}" class="curtas-featured-card">
+                                    <div class="curtas-featured-img-wrapper">
+                                        <img src="${destaque.querySelector('img').src}" class="curtas-featured-img" alt="${destaque.querySelector('.title').innerText}">
+                                    </div>
+                                    <span class="curtas-featured-tag">${destaque.querySelector('.tag').innerText}</span>
+                                    <h4 class="curtas-featured-title">${destaque.querySelector('.title').innerText}</h4>
+                                </a>
+                            `;
+
+                            // Lista em tópicos abaixo
+                            if(lista.length > 0) {
+                                colHtml += `<div class="curtas-list">`;
+                                lista.forEach(itemSub => {
+                                    colHtml += `
+                                        <a href="${itemSub.getAttribute('href')}" class="curtas-list-item">
+                                            ${itemSub.querySelector('.title').innerText}
+                                        </a>
+                                    `;
+                                });
+                                colHtml += `</div>`;
+                            }
+
+                            colHtml += `</div>`;
+                            curtasGridContainer.innerHTML += colHtml;
+                        }
+                    });
+                }
+
+                // --- RENDER ÚLTIMAS COLUNAS ---
+                const top3Colunas = colunas.slice(0, 3);
+                if (ultimasColunasGrid) {
+                    top3Colunas.forEach(item => {
+                        const url = item.getAttribute('href');
+                        const imgSrc = item.querySelector('img').src;
+                        const tag = item.querySelector('.tag').innerText;
+                        const title = item.querySelector('.title').innerText;
+                        const excerpt = item.querySelector('.excerpt') ? item.querySelector('.excerpt').innerText : '';
+
+                        ultimasColunasGrid.innerHTML += `
+                            <a href="${url}" class="coluna-news-card">
+                                <img src="${imgSrc}" class="coluna-news-img" alt="${title}">
+                                <div class="coluna-news-body">
+                                    <span class="coluna-news-tag">${tag}</span>
+                                    <h4 class="coluna-news-title">${title}</h4>
+                                    <p class="coluna-news-excerpt">${excerpt}</p>
+                                </div>
+                            </a>
+                        `;
+                    });
+                }
+
+                // --- RENDER ACERVO COMPLETO (Sempre por data mais recente) ---
+                validArticles.slice(0, limiteAtual).forEach(item => {
+                    renderArticleInList(item, listZone);
+                });
+
+                btnLoadMore.style.display = validArticles.length > limiteAtual ? 'block' : 'none';
+            }
+        }
+
+        function renderArticleInList(item, container) {
+            const url = item.getAttribute('href');
+            const imgSrc = item.querySelector('img').src;
+            const tag = item.querySelector('.tag').innerText;
+            const title = item.querySelector('.title').innerText;
+
+            container.innerHTML += `
+                <a href="${url}" class="list-article">
+                    <div class="img-wrapper"><img src="${imgSrc}" class="article-img"></div>
+                    <div class="content-wrapper">
+                        <span class="article-tag">${tag}</span>
+                        <h3 class="article-title">${title}</h3>
+                    </div>
+                </a>
+            `;
+        }
+
+        function reiniciarTimerSlider(totalSlides) {
+            if (slideTimer) clearInterval(slideTimer);
+            if (progressTimer) clearInterval(progressTimer);
+            
+            const progressFill = document.getElementById('rotatorProgress');
+            let progresso = 0;
+            if (progressFill) progressFill.style.width = '0%';
+
+            progressTimer = setInterval(() => {
+                progresso += (100 / (TEMPO_SLIDE / 100));
+                if (progressFill) progressFill.style.width = `${progresso}%`;
+            }, 100);
+
+            slideTimer = setInterval(() => mudarSlideRotativo(1), TEMPO_SLIDE);
+        }
+
+        function iniciarSliderRotativo(totalSlides) {
+            slideIndexAtual = 0;
+            if(totalSlides > 0) reiniciarTimerSlider(totalSlides);
+        }
+
+        function mudarSlideRotativo(n, event) {
+            if (event) event.preventDefault();
+            const slides = document.querySelectorAll('.rotator-slide');
+            if (slides.length === 0) return;
+
+            slides[slideIndexAtual].classList.remove('active');
+            slideIndexAtual = (slideIndexAtual + n + slides.length) % slides.length;
+            slides[slideIndexAtual].classList.add('active');
+            
+            if (event) reiniciarTimerSlider(slides.length);
+        }
+
+        function carregarMaisArtigos() {
+            limiteAtual += 10;
+            renderArticles();
+        }
+
+        function filtrarBlog(categoria, botaoClicado) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.colunista-card').forEach(btn => btn.classList.remove('active'));
+            if(botaoClicado) botaoClicado.classList.add('active');
+            document.getElementById('searchInput').value = '';
+            
+            limiteAtual = 10;
+            filtroAtual = categoria;
+            autorAtual = 'todos';
+            pesquisaAtual = '';
+            renderArticles();
+        }
+
+        function filtrarPorAutor(autor, botaoClicado, event) {
+            if (event) event.preventDefault();
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.querySelectorAll('.colunista-card').forEach(btn => btn.classList.remove('active'));
+            if(botaoClicado) botaoClicado.classList.add('active');
+
+            document.getElementById('searchInput').value = '';
+            
+            limiteAtual = 10;
+            filtroAtual = 'colunas';
+            autorAtual = autor;
+            pesquisaAtual = '';
+            renderArticles();
+            
+            const listZone = document.getElementById('listZone');
+            if (listZone) {
+                const y = listZone.getBoundingClientRect().top + window.pageYOffset - 150;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        }
+
+        function pesquisarArtigos() {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.colunista-card').forEach(btn => btn.classList.remove('active'));
+            
+            limiteAtual = 10;
+            filtroAtual = 'todos';
+            autorAtual = 'todos';
+            pesquisaAtual = document.getElementById('searchInput').value.toLowerCase();
+            renderArticles();
+        }
+
+        let carouselInterval = null;
+        function scrollCarouselLiveNews(direction, isAuto = false) {
+            const track = document.getElementById('liveNewsContainer');
+            if (!track) return;
+            const scrollAmount = track.clientWidth / 4 + 15; 
+
+            if (!isAuto) clearInterval(carouselInterval);
+
+            if (direction === 1) {
+                if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                    track.scrollLeft = 0; 
+                } else {
+                    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            } else {
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+
+            if (!isAuto) {
+                carouselInterval = setInterval(() => scrollCarouselLiveNews(1, true), 4000);
+            }
+        }
+
+        function renderManualLiveNews() {
+            const container = document.getElementById('manualLiveNews');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
+            const materiasRapidas = sources.filter(a => a.getAttribute('data-type') === 'materia').slice(0, 4);
+            
+            materiasRapidas.forEach(item => {
+                const url = item.getAttribute('href');
+                const tag = item.querySelector('.tag').innerText;
+                const title = item.querySelector('.title').innerText;
+                
+                container.innerHTML += `
+                    <a href="${url}" class="live-news-card">
+                        <span class="live-news-card-tag">${tag}</span>
+                        <h4 class="live-news-card-title">${title}</h4>
+                    </a>
+                `;
+            });
+        }
+
+        let colunistasInterval = null;
+        function scrollColunistas(direction, isAuto = false) {
+            const track = document.getElementById('colunistasContainer');
+            if (!track) return;
+            const scrollAmount = track.clientWidth / 3 + 20; 
+
+            if (!isAuto) clearInterval(colunistasInterval);
+
+            if (direction === 1) {
+                if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                    track.scrollLeft = 0; 
+                } else {
+                    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            } else {
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+
+            if (!isAuto) {
+                colunistasInterval = setInterval(() => scrollColunistas(1, true), 4000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderManualLiveNews();
+            renderArticles();
+            
+            clearInterval(colunistasInterval);
+            colunistasInterval = setInterval(() => scrollColunistas(1, true), 4000);
+        });
+    </script>
+
+    <!-- GOOGLE TRANSLATE -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt-BR',
+                includedLanguages: 'en,es,fr,de,it', 
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
