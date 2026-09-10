@@ -31,5 +31,6 @@
     "data_publicacao": "2026-09-05"
   },
   { "id_colunista": "rogerio-pires", "url": "coluna-rogerio-pires-a-ia-nao-e-mais-assunto-da-ti.html", "titulo": "A IA Não É Mais Assunto da TI", "descricao": "Descubra como a Inteligência Artificial impacta todas as áreas de negócios e exige senso crítico das lideranças." },
-  { "id_colunista": "fernanda-santarini", "url": "coluna-fernanda-santarini-capital-politico-se-constroi-antes-de-precisar.html", "titulo": "Capital Político Se Constrói Antes da Crise", "descricao": "Entenda a diferença entre ter contatos e ter capital político, e como construir networking autêntico." }
+  { "id_colunista": "fernanda-santarini", "url": "coluna-fernanda-santarini-capital-politico-se-constroi-antes-de-precisar.html", "titulo": "Capital Político Se Constrói Antes da Crise", "descricao": "Entenda a diferença entre ter contatos e ter capital político, e como construir networking autêntico." },
+  { "id_colunista": "leo-kaufmann", "url": "coluna-leo-kaufmann-o-cargo-garante-o-convite-quem-prepara-o-executivo-para-o-palco.html", "titulo": "O Cargo Garante o Convite Para o Palco?", "descricao": "Descubra por que cargos altos não garantem boa comunicação e a importância da preparação para palestras." }
 ]
