@@ -181,6 +181,21 @@
         .coluna-news-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0 0 10px;}
         .coluna-news-excerpt { font-size: 13px; color: var(--texto-cinza); line-height: 1.5; margin: 0;}
 
+        /* ========================================================================= */
+        /* NOVO ESPAÇO (DATA-SPOT="3") */
+        /* ========================================================================= */
+        .espaco-tres-section { margin-bottom: 40px; }
+        .espaco-tres-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .espaco-tres-card { display: flex; flex-direction: column; text-decoration: none; color: var(--texto-escuro); border: 1px solid var(--borda); border-radius: 8px; overflow: hidden; transition: 0.3s; background: #fff; }
+        .espaco-tres-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--dourado); }
+        .espaco-tres-img { width: 100%; height: 140px; object-fit: cover; }
+        .espaco-tres-body { padding: 15px; display: flex; flex-direction: column; flex: 1; }
+        .espaco-tres-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--dourado); letter-spacing: 1px; margin-bottom: 8px; }
+        .espaco-tres-title { font-size: 14px; font-weight: 700; line-height: 1.3; margin: 0; }
+
+        @media (max-width: 1100px) { .espaco-tres-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .espaco-tres-grid { grid-template-columns: 1fr; } }
+
         /* ACERVO (O RESTO DO FEED) */
         .editorial-feed { display: flex; flex-direction: column; }
         .list-articles-wrapper { display: grid; grid-template-columns: 1fr 1fr; column-gap: 50px; row-gap: 0; }
@@ -474,7 +489,11 @@
             <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-
+        <!-- ESPAÇO NOVO (DATA-SPOT="3") -->
+        <section class="espaco-tres-section" id="espacoTresWrapper">
+            <h3 class="section-title">Especialistas e Opiniões</h3>
+            <div class="espaco-tres-grid" id="espacoTresGrid"></div>
+        </section>
         <!-- ACERVO COMPLETO -->
         <div class="editorial-feed">
             <h3 class="section-title" id="acervoTitle">Acervo Completo</h3>
@@ -1333,6 +1352,8 @@
         function renderArticles() {
             toggleColumnistsWrapper();
 
+            const espacoTresWrapper = document.getElementById('espacoTresWrapper');
+            const espacoTresGrid = document.getElementById('espacoTresGrid');
             const triadContainer = document.getElementById('exameTriadContainer');
             const triadLeftCol = document.getElementById('triadLeftCol');
             const triadCenterWrapper = document.getElementById('rotatorSlidesWrapper');
@@ -1381,6 +1402,7 @@
                 if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'none';
                 if(adSpace2) adSpace2.style.display = 'none';
                 if(adSpace3) adSpace3.style.display = 'none';
+                if(espacoTresWrapper) espacoTresWrapper.style.display = 'none';
                 acervoTitle.innerText = "Resultados da Pesquisa";
 
                 let filtered = validArticles.filter(a => {
@@ -1420,7 +1442,8 @@
                 if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'block';
                 if(adSpace2) adSpace2.style.display = 'block';
                 if(adSpace3) adSpace3.style.display = 'block';
-
+                if(espacoTresWrapper) espacoTresWrapper.style.display = 'block';
+                
                 const newsAndArticles = validArticles.filter(a => a.getAttribute('data-type') === 'materia' || a.getAttribute('data-type') === 'artigo');
                 const colunas = validArticles.filter(a => a.getAttribute('data-type') === 'coluna');
 
@@ -1570,7 +1593,27 @@
                         `;
                     });
                 }
+                // --- NOVO ESPAÇO (DATA-SPOT="3") ---
+                let espacoTresItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '3').slice(0, 4);
+                if (espacoTresGrid) {
+                    espacoTresGrid.innerHTML = '';
+                    espacoTresItems.forEach(item => {
+                        const url = item.getAttribute('href');
+                        const imgSrc = item.querySelector('img').src;
+                        const tag = item.querySelector('.tag').innerText;
+                        const title = item.querySelector('.title').innerText;
 
+                        espacoTresGrid.innerHTML += `
+                            <a href="${url}" class="espaco-tres-card">
+                                <img src="${imgSrc}" class="espaco-tres-img" alt="${title}">
+                                <div class="espaco-tres-body">
+                                    <span class="espaco-tres-tag">${tag}</span>
+                                    <h4 class="espaco-tres-title">${title}</h4>
+                                </div>
+                            </a>
+                        `;
+                    });
+                }
                 // --- ACERVO COMPLETO ---
                 validArticles.slice(0, limiteAtual).forEach(item => {
                     renderArticleInList(item, listZone);
