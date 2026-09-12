@@ -1343,7 +1343,8 @@
                 acervoTitle.innerText = "Resultados da Pesquisa";
 
                 let filtered = validArticles.filter(a => {
-                    const matchFiltro = filtroAtual === 'colunas' ? true : (filtroAtual === 'opinioes' ? a.getAttribute('data-spot') === '3' : a.getAttribute('data-category') === filtroAtual);
+                    const spot = (a.getAttribute('data-spot') || '').trim();
+                    const matchFiltro = filtroAtual === 'colunas' ? true : (filtroAtual === 'opinioes' ? spot === '3' : a.getAttribute('data-category') === filtroAtual);
                     const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
                     const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
                     
@@ -1383,9 +1384,12 @@
                 const colunas = validArticles.filter(a => a.getAttribute('data-type') === 'coluna');
 
                 // --- ESPAÇO 1: PRINCIPAIS NOTÍCIAS (HERO TRIAD - data-spot="1" ou Padrão) ---
-                let triadItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '1');
-                if(triadItems.length < 10) {
-                    const sobrantes = newsAndArticles.filter(a => a.getAttribute('data-spot') !== '1' && a.getAttribute('data-spot') !== '2' && a.getAttribute('data-spot') !== '3');
+                let triadItems = newsAndArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '1');
+                if(triadItems.length < 19) {
+                    const sobrantes = newsAndArticles.filter(a => {
+                        const spot = (a.getAttribute('data-spot') || '').trim();
+                        return spot !== '1' && spot !== '2' && spot !== '3';
+                    });
                     triadItems = triadItems.concat(sobrantes.slice(0, 19 - triadItems.length));
                 }
 
@@ -1462,9 +1466,12 @@
                 });
 
                 // --- ESPAÇO 2: QUADRANTE CURTAS (data-spot="2" ou Automático) ---
-                let curtasItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '2');
+                let curtasItems = newsAndArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '2');
                 if(curtasItems.length === 0) {
-                    curtasItems = newsAndArticles.filter(a => !triadItems.includes(a) && a.getAttribute('data-spot') !== '3').slice(0, 9);
+                    curtasItems = newsAndArticles.filter(a => {
+                        const spot = (a.getAttribute('data-spot') || '').trim();
+                        return !triadItems.includes(a) && spot !== '3';
+                    }).slice(0, 9);
                 }
 
                 if(curtasGridContainer && curtasItems.length > 0) {
@@ -1507,7 +1514,7 @@
                 }
 
                 // --- ÚLTIMAS COLUNAS ---
-                const top3Colunas = colunas.slice(0, 3);
+                let top3Colunas = colunas.filter(a => (a.getAttribute('data-spot') || '').trim() !== '3').slice(0, 3);
                 if (ultimasColunasGrid) {
                     top3Colunas.forEach(item => {
                         const url = item.getAttribute('href');
@@ -1530,7 +1537,8 @@
                 }
                 
                 // --- NOVO ESPAÇO (DATA-SPOT="3") ---
-                let espacoTresItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '3').slice(0, 4);
+                // Usamos validArticles aqui para garantir que pegue matérias e colunas com data-spot="3"
+                let espacoTresItems = validArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '3').slice(0, 4);
                 if (espacoTresGrid) {
                     espacoTresGrid.innerHTML = '';
                     espacoTresItems.forEach(item => {
@@ -1552,11 +1560,13 @@
                 }
                 
                 // --- ACERVO COMPLETO ---
-                validArticles.slice(0, limiteAtual).forEach(item => {
+                // Para garantir que fiquem "APENAS no Opiniões", removemos os data-spot="3" do feed geral da Home
+                let feedGeral = validArticles.filter(a => (a.getAttribute('data-spot') || '').trim() !== '3');
+                feedGeral.slice(0, limiteAtual).forEach(item => {
                     renderArticleInList(item, listZone);
                 });
 
-                if (validArticles.length > limiteAtual) {
+                if (feedGeral.length > limiteAtual) {
                     btnLoadMore.style.display = 'block';
                 } else {
                     btnLoadMore.style.display = 'none';
