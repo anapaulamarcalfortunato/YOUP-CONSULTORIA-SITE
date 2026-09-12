@@ -70,11 +70,6 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
         .section-title { font-size: 18px; font-weight: 900; text-transform: uppercase; color: var(--texto-escuro); margin-bottom: 25px; border-bottom: 2px solid var(--texto-escuro); padding-bottom: 10px; letter-spacing: 1px;}
 
-        /* PUBLICIDADE */
-        .ad-space-container { width: 100%; max-width: 1400px; margin: 30px auto; padding: 10px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda); border-bottom: 1px dashed var(--borda); }
-        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--texto-cinza); margin-bottom: 5px; font-weight: 800; }
-        .ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; margin: 0 !important; padding: 0 !important; border: none !important; }
-
         /* RADAR TEMPO REAL */
         .live-news-section { background: #fafafa; border: 1px solid var(--borda); padding: 10px 30px; margin: 0 auto 40px auto; border-radius: 4px; overflow: hidden; position: relative; max-width: 1300px; }
         .live-news-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--borda); }
@@ -213,7 +208,7 @@
         .btn-load-more:hover { background: var(--texto-escuro); color: var(--fundo); }
 
         /* FOOTER / RODAPÉ SUPER ESCURO E ORGANIZADO */
-        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
+        .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 40px; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
         
         .footer-brand { max-width: 350px; }
@@ -228,13 +223,6 @@
         .footer-col ul li a:hover { color: var(--fundo); padding-left: 5px;}
         
         .footer-bottom { max-width: 1400px; margin: 50px auto 0; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 12px; color: #666; letter-spacing: 1px; }
-
-        /* BANNER FIXO NO RODAPÉ DA TELA */
-        .sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
-        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda); border-bottom: none; color: var(--texto-cinza); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
-        .sticky-toggle:hover { color: var(--dourado); }
-        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
 
         @media (max-width: 1100px) {
             .exame-hero-triad { flex-direction: column; gap: 30px; }
@@ -283,10 +271,9 @@
             .side-col-left { flex-direction: column; }
             .side-news-card-left { width: 100%; border-bottom: 1px solid var(--borda); padding-bottom: 15px;}
             
-            .sticky-bottom-wrapper { max-width: 100%; }
             .footer-content { flex-direction: column; gap: 40px;}
             .footer-nav { flex-direction: column; gap: 30px;}
-            .site-footer { padding: 50px 20px 100px; }
+            .site-footer { padding: 50px 20px 50px; }
         }
     </style>
 </head>
@@ -326,17 +313,9 @@
                 <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
                 <button class="filter-btn" onclick="filtrarBlog('radar-literario', this)">Radar Literário</button>
                 <button class="filter-btn" onclick="filtrarBlog('opinioes', this)">Opiniões</button>
-
             </div>
             <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
         </nav>
-    </div>
-
-    <!-- 4. ANÚNCIO 1 (ABAIXO DO MENU DE CATEGORIAS) -->
-    <div class="ad-space-container">
-        <p class="ad-space-label">Publicidade</p>
-        <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <main class="container">
@@ -383,13 +362,6 @@
             <h3 class="section-title">Em Foco • Curtas & Atualizações</h3>
             <div class="curtas-grid" id="curtasGridContainer"></div>
         </section>
-
-        <!-- ANÚNCIO 2 -->
-        <div class="ad-space-container" id="adSpace2">
-            <p class="ad-space-label">Publicidade</p>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
 
         <!-- FAIXA DE COLUNISTAS -->
         <section class="colunistas-carousel-section" id="colunistasSectionWrapper">
@@ -483,17 +455,12 @@
             <div class="ultimas-colunas-grid" id="ultimasColunasGrid"></div>
         </section>
 
-        <!-- ANÚNCIO 3 -->
-        <div class="ad-space-container" id="adSpace3">
-            <p class="ad-space-label">Continua após a publicidade ▼</p>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
         <!-- ESPAÇO NOVO (DATA-SPOT="3") -->
         <section class="espaco-tres-section" id="espacoTresWrapper">
             <h3 class="section-title">Opiniões</h3>
             <div class="espaco-tres-grid" id="espacoTresGrid"></div>
         </section>
+        
         <!-- ACERVO COMPLETO -->
         <div class="editorial-feed">
             <h3 class="section-title" id="acervoTitle">Acervo Completo</h3>
@@ -513,7 +480,7 @@
             <!-- COLE O CARD DO NOVO ARTIGO, COLUNA OU NOTÍCIA EXATAMENTE NA LINHA ABAIXO DESTA -->
             <!-- Use data-spot="1" para Destaque Principal ou data-spot="2" para Quadrante Curtas -->
             <!-- ========================================================================================== -->
-            <a href="materia-rica-mello-ia-processos-falhos-empresas-pme.html" data-type="materia" data-spot="3" data-category="radar-executivo" data-publish-date="2026-09-12">
+            <a href="materia-rica-mello-ia-processos-falhos-empresas-pme.html" data-type="materia" data-spot="1" data-category="radar-executivo" data-publish-date="2026-09-12">
 <img src="https://lh3.googleusercontent.com/d/1Aa1lAYKJA_7NJHTPIsip5MQRa5-lCLSM" alt="Por que 95% das empresas travam projetos de Inteligência Artificial?">
 <span class="tag">Radar Executivo</span>
 <h3 class="title">IA não resolve processos ruins, alerta economista Rica Mello</h3>
@@ -531,13 +498,13 @@
 <h3 class="title">Quem Dá Espaço Para Ela Crescer?</h3>
 <p class="excerpt">Descubra por que o desenvolvimento profissional das mulheres exige mais que talento: exige espaço e equidade real.</p>
 </a>
-            <a href="materia-hug-tendencias-contratacoes-pj-beneficios-2027.html" data-type="materia" data-spot="3" data-category="dica-de-hunter" data-publish-date="2026-09-11">
+            <a href="materia-hug-tendencias-contratacoes-pj-beneficios-2027.html" data-type="materia" data-spot="2" data-category="dica-de-hunter" data-publish-date="2026-09-11">
 <img src="https://lh3.googleusercontent.com/d/19286TsZn0CMn6rlr_cJzZDvSfuzZbB-K" alt="As 5 tendências que vão transformar as contratações em 2027">
 <span class="tag">Dica de Hunter</span>
 <h3 class="title">Estudo aponta 5 tendências de contratação e retenção para 2027</h3>
 <p class="excerpt">Avanço dos "especialistas sob demanda" obriga empresas a rever pacotes de benefícios para PJs e freelancers.</p>
 </a>
-            <a href="materia-visto-eb2-niw-green-card-preparacao-carreira.html" data-type="materia" data-spot="3" data-category="radar-executivo" data-publish-date="2026-09-11">
+            <a href="materia-visto-eb2-niw-green-card-preparacao-carreira.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-11">
 <img src="https://lh3.googleusercontent.com/d/1lkTm7QnL4ArnMzOA4HF5v50SBMBGdBoQ" alt="Como organizar a carreira para disputar um Green Card em 2027">
 <span class="tag">Radar Executivo</span>
 <h3 class="title">Executivos buscam visto EB-2 NIW para carreira nos EUA</h3>
@@ -609,7 +576,7 @@
             <h3 class="title">O brasileiro que transformou granizo em operação automotiva global</h3>
             <p class="excerpt">Herivelto Malosti lança livro sobre como o PDR deixou de ser um serviço local para escalar na cadeia de montadoras.</p>
             </a>
-            <a href="materia-ia-executivos-diluicao-decisoes-dificeis-artigo.html" data-type="materia" data-spot="3" data-category="radar-executivo" data-publish-date="2026-09-09">
+            <a href="materia-ia-executivos-diluicao-decisoes-dificeis-artigo.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-09">
             <img src="https://lh3.googleusercontent.com/d/1BOLq62zR4ZfWMjsiijgYPWl_u8nsxKKn" alt="O lado oculto da IA: algoritmos e decisões difíceis no C-Level">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">O lado oculto da IA: algoritmos e decisões difíceis no C-Level</h3>
@@ -685,7 +652,7 @@
             <img src="https://lh3.googleusercontent.com/d/1fgbpDCriPom_qyLbGrkQQxT5DznF4gpF" alt="Alessandro Carlucci retorna como CEO da Natura">
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Alessandro Carlucci retorna como CEO da Natura</h3>
-           <p class="excerpt">Executivo sucede João Paulo Ferreira na presidência; Fábio Barbosa reassume o comando do Conselho de Administração.</p>
+            <p class="excerpt">Executivo sucede João Paulo Ferreira na presidência; Fábio Barbosa reassume o comando do Conselho de Administração.</p>
             </a>
             <a href="artigo-o-que-especialista-precisa-desaprender-quando-vira-lider.html" data-type="artigo" data-category="radar-executivo" data-publish-date="2026-09-05">
             <img src="https://lh3.googleusercontent.com/d/1_565gPdlgnuVO1hYxnOB6Y_jtreo9jTq" alt="O que um especialista precisa desaprender quando vira líder?">
@@ -1239,34 +1206,8 @@
         </div>
     </footer>
 
-    <!-- BANNER FIXO NO RODAPÉ DA TELA -->
-    <div class="sticky-bottom-wrapper" id="stickyBottomAd">
-        <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
-        <div class="sticky-ad-content" id="stickyAdContent">
-            <ins class="adsbygoogle"
-                 style="display:block; width:100%;"
-                 data-ad-client="ca-pub-1434753673886142"
-                 data-ad-format="horizontal"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div>
-
     <!-- SCRIPTS DE FUNCIONALIDADE -->
     <script>
-        function toggleStickyAd() {
-            const wrapper = document.getElementById('stickyBottomAd');
-            const btn = document.querySelector('.sticky-toggle');
-            wrapper.classList.toggle('closed');
-            if (wrapper.classList.contains('closed')) {
-                btn.innerHTML = 'PUBLICIDADE ▲';
-            } else {
-                btn.innerHTML = 'FECHAR ▼';
-            }
-        }
-
         let limiteAtual = 10; 
         let filtroAtual = 'todos';
         let autorAtual = 'todos';
@@ -1366,8 +1307,6 @@
             const noResultsMsg = document.getElementById('noResultsMsg');
             const btnLoadMore = document.getElementById('loadMoreContainer');
             const acervoTitle = document.getElementById('acervoTitle');
-            const adSpace2 = document.getElementById('adSpace2');
-            const adSpace3 = document.getElementById('adSpace3');
             
             triadLeftCol.innerHTML = ''; 
             triadCenterWrapper.innerHTML = ''; 
@@ -1400,8 +1339,6 @@
             if (filtroAtual !== 'todos' || autorAtual !== 'todos' || pesquisaAtual !== '') {
                 triadContainer.style.display = 'none';
                 if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'none';
-                if(adSpace2) adSpace2.style.display = 'none';
-                if(adSpace3) adSpace3.style.display = 'none';
                 if(espacoTresWrapper) espacoTresWrapper.style.display = 'none';
                 acervoTitle.innerText = "Resultados da Pesquisa";
 
@@ -1440,8 +1377,6 @@
                 acervoTitle.innerText = "Acervo Completo";
                 triadContainer.style.display = 'flex';
                 if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'block';
-                if(adSpace2) adSpace2.style.display = 'block';
-                if(adSpace3) adSpace3.style.display = 'block';
                 if(espacoTresWrapper) espacoTresWrapper.style.display = 'block';
                 
                 const newsAndArticles = validArticles.filter(a => a.getAttribute('data-type') === 'materia' || a.getAttribute('data-type') === 'artigo');
@@ -1593,6 +1528,7 @@
                         `;
                     });
                 }
+                
                 // --- NOVO ESPAÇO (DATA-SPOT="3") ---
                 let espacoTresItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '3').slice(0, 4);
                 if (espacoTresGrid) {
@@ -1614,6 +1550,7 @@
                         `;
                     });
                 }
+                
                 // --- ACERVO COMPLETO ---
                 validArticles.slice(0, limiteAtual).forEach(item => {
                     renderArticleInList(item, listZone);
@@ -1820,10 +1757,6 @@
             const rssUrl = encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=pt-BR&gl=BR&ceid=BR:pt-419`);
             const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
 
-            // ==========================================================================================
-            // 🚨🚨 ALERTA ANA PAULA 3: PALAVRAS BLOQUEADAS (SITES EXTERNOS) 🚨🚨
-            // Insira aqui abaixo as palavras que não deseja que apareçam no feed automático
-            // ==========================================================================================
             const palavrasBloqueadas = [
                 "preso", "prisão", "polícia", "assassinato", "crime", 
                 "tráfico", "golpe", "futebol", "cantor", "atriz", 
