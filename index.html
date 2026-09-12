@@ -1450,7 +1450,7 @@
                 // --- ESPAÇO 1: PRINCIPAIS NOTÍCIAS (HERO TRIAD - data-spot="1" ou Padrão) ---
                 let triadItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '1');
                 if(triadItems.length < 10) {
-                    const sobrantes = newsAndArticles.filter(a => a.getAttribute('data-spot') !== '1' && a.getAttribute('data-spot') !== '2');
+                    const sobrantes = newsAndArticles.filter(a => a.getAttribute('data-spot') !== '1' && a.getAttribute('data-spot') !== '2' && a.getAttribute('data-spot') !== '3');
                     triadItems = triadItems.concat(sobrantes.slice(0, 19 - triadItems.length));
                 }
 
@@ -1529,7 +1529,7 @@
                 // --- ESPAÇO 2: QUADRANTE CURTAS (data-spot="2" ou Automático) ---
                 let curtasItems = newsAndArticles.filter(a => a.getAttribute('data-spot') === '2');
                 if(curtasItems.length === 0) {
-                    curtasItems = newsAndArticles.filter(a => !triadItems.includes(a)).slice(0, 9);
+                    curtasItems = newsAndArticles.filter(a => !triadItems.includes(a) && a.getAttribute('data-spot') !== '3').slice(0, 9);
                 }
 
                 if(curtasGridContainer && curtasItems.length > 0) {
