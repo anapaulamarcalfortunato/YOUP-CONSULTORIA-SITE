@@ -325,7 +325,7 @@
                 <button class="filter-btn" onclick="filtrarBlog('dica-de-hunter', this)">Dica de Hunter</button>
                 <button class="filter-btn" onclick="filtrarBlog('entrevistas', this)">Entrevistas Exclusivas</button>
                 <button class="filter-btn" onclick="filtrarBlog('radar-literario', this)">Radar Literário</button>
-                <button class="filter-btn" onclick="filtrarBlog('radar-literario', this)">Opiniões</button>
+                <button class="filter-btn" onclick="filtrarBlog('opinioes', this)">Opiniões</button>
 
             </div>
             <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar artigo..." onkeyup="pesquisarArtigos()">
@@ -1406,7 +1406,7 @@
                 acervoTitle.innerText = "Resultados da Pesquisa";
 
                 let filtered = validArticles.filter(a => {
-                    const matchFiltro = filtroAtual === 'colunas' ? true : (a.getAttribute('data-category') === filtroAtual);
+                    const matchFiltro = filtroAtual === 'colunas' ? true : (filtroAtual === 'opinioes' ? a.getAttribute('data-spot') === '3' : a.getAttribute('data-category') === filtroAtual);
                     const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
                     const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
                     
