@@ -1344,7 +1344,7 @@
 
                 let filtered = validArticles.filter(a => {
                     const spot = (a.getAttribute('data-spot') || '').trim();
-                    const matchFiltro = filtroAtual === 'colunas' ? true : (filtroAtual === 'opinioes' ? spot === '3' : a.getAttribute('data-category') === filtroAtual);
+                    const matchFiltro = (filtroAtual === 'todos' || filtroAtual === 'colunas') ? true : (filtroAtual === 'opinioes' ? spot === '3' : a.getAttribute('data-category') === filtroAtual);
                     const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
                     const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
                     
