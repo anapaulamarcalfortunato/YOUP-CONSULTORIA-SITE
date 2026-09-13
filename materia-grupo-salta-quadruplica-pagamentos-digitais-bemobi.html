@@ -102,14 +102,6 @@
         .sticky-ad p { color: #ccc; font-size: 11px; line-height: 1.4; margin-bottom: 12px; text-align: center; }
         .sticky-ad .btn-ad { display: block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; padding: 8px 10px; font-size: 10px; font-weight: 700; border-radius: 2px; text-transform: uppercase; transition: background 0.2s; }
         .sticky-ad .btn-ad:hover { background: #e2ba6e; }
-        .ad-space-container { width: 100%; max-width: 900px; margin: 30px auto; padding: 20px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda-suave); border-bottom: 1px dashed var(--borda-suave); }
-        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: #666; margin-bottom: 8px; font-weight: 800; display: block; }
-        .ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; margin: 0 !important; padding: 0 !important; border: none !important; }
-        .sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
-        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda-suave); border-bottom: none; color: #666; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
-        .sticky-toggle:hover { color: var(--dourado); }
-        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda-suave); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
         .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
         .footer-brand { max-width: 350px; }
@@ -154,11 +146,7 @@
         <article id="conteudo-artigo">
             <p>Em um movimento estratégico focado na experiência do cliente e na eficiência operacional, o Grupo Salta, maior rede de educação básica do Brasil, registrou um salto de 293% no volume transacionado (TPV) via meios digitais entre maio de 2025 e abril de 2026. Segundo informações divulgadas pelas companhias envolvidas, a forte expansão é resultado direto de uma parceria tecnológica com a Bemobi, empresa especializada na digitalização de serviços financeiros recorrentes.</p>
 
-            <div class="ad-space-container">
-                <p class="ad-space-label">Continua após a publicidade ▼</p>
-                <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
+            
 
             <h2>Eficiência e redução de atritos</h2>
 
@@ -166,19 +154,9 @@
 
             <img class="article-middle-img" src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/I4.jpeg" alt="Grupo Salta e Bemobi">
 
-            <div class="ad-space-container">
-                <p class="ad-space-label">Continua após a publicidade ▼</p>
-                <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
+    
 
             <p>Para Otto Reuter, VP de TI do Grupo Salta, o avanço tecnológico permitiu uma melhoria direta na jornada dos usuários. "Integrar as soluções nos permite elevar a experiência dos nossos clientes, oferecendo múltiplas jornadas e meios de pagamento de forma ágil, prática e segura. O avanço também contribui para a evolução dos índices de adimplência e fortalece a relação de confiança com nossos usuários", destaca o executivo.</p>
-
-            <div class="ad-space-container">
-                <p class="ad-space-label">Continua após a publicidade ▼</p>
-                <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
 
             <p>Um dos indicadores de maior sucesso na implementação do projeto foi a taxa de adesão à recorrência automática via cartão de crédito, que subiu de um patamar inferior a 60% para 99%. Segundo Anderson Morais, VP de Educação da Bemobi, adaptar a cobrança às particularidades do setor aumenta a conversão e garante previsibilidade de arrecadação para a escola. A infraestrutura construída já se encontra preparada para abarcar novas modalidades do mercado financeiro, incluindo a iminente integração do Pix Automático.</p>
             
@@ -213,14 +191,6 @@
 
     <!-- INJEÇÃO GLOBAL DE RODAPÉ -->
     <div id="footer-global"></div>
-
-    <div class="sticky-bottom-wrapper" id="stickyBottomAd">
-        <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
-        <div class="sticky-ad-content" id="stickyAdContent">
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-    </div>
 
     <!-- SCRIPTS OBRIGATÓRIOS DO LAYOUT GLOBAL -->
     <script>
@@ -336,7 +306,7 @@
         function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
         function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
         function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
-        function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
+        
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
