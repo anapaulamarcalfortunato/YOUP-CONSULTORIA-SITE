@@ -277,20 +277,123 @@
         </div>
     </main>
 
-    <!-- SCRIPTS OBRIGATÓRIOS -->
-    <script>
-        window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
-        var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
-        function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; document.querySelector('.btn-audio').innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; document.querySelector('.btn-audio').innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; document.querySelector('.btn-audio').innerText = "⏹ Parar Áudio"; } }
-        function shareLinkedIn(e) { if(e) e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
-        function shareWhatsApp(e) { if(e) e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
-        function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
-        
-    </script>
-    
-    <!-- SCRIPT EXTERNO DO TRADUTOR -->
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="footer-global"></div>
 
-    <!-- ANCHOR AD RODAPÉ (INICIA ABERTO) -->
-    </body>
+<script>
+function carregarLayoutGlobal() {
+fetch('index.html')
+.then(response => response.text())
+.then(html => {
+const parser = new DOMParser();
+const doc = parser.parseFromString(html, 'text/html');
+
+const nav = doc.querySelector('.article-nav');
+const catNav = doc.querySelector('.editorial-nav-wrapper');
+const headerContainer = document.getElementById('header-global');
+
+if (headerContainer && nav && catNav) {
+headerContainer.innerHTML = nav.outerHTML + catNav.outerHTML;
+
+const navActions = headerContainer.querySelector('.nav-actions');
+if (navActions && !navActions.querySelector('.btn-audio')) {
+const audioBtn = document.createElement('button');
+audioBtn.className = 'btn-action btn-audio';
+audioBtn.setAttribute('onclick', 'toggleAudio()');
+audioBtn.innerHTML = '▶ Ouvir Artigo';
+navActions.insertBefore(audioBtn, navActions.children[1] || null);
+}
+
+const filterBtns = headerContainer.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn => {
+btn.setAttribute('onclick', "window.location.href='https://www.youpconsultoria.com/index.html'");
+});
+
+const searchInput = headerContainer.querySelector('#searchInput');
+if (searchInput) {
+searchInput.setAttribute('onkeyup', "window.location.href='https://www.youpconsultoria.com/index.html'");
+}
+}
+
+const footer = doc.querySelector('.site-footer') || doc.querySelector('footer');
+const footerContainer = document.getElementById('footer-global');
+
+if (footerContainer && footer) {
+footerContainer.innerHTML = footer.outerHTML;
+}
+})
+.catch(err => console.error('Erro ao carregar layout global:', err));
+}
+
+function carregarRecomendados() {
+fetch('index.html')
+.then(response => response.text())
+.then(html => {
+const parser = new DOMParser();
+const doc = parser.parseFromString(html, 'text/html');
+const todosArtigos = Array.from(doc.querySelectorAll('#sourceArticles a'));
+
+const urlAtual = window.location.pathname.split('/').pop() || window.location.pathname;
+
+const artigosFiltrados = todosArtigos.filter(a => {
+const href = a.getAttribute('href');
+if (!href) return false;
+if (href.includes(urlAtual) || urlAtual.includes(href)) return false;
+
+const dataAgendada = a.getAttribute('data-publish-date');
+if (dataAgendada) {
+const dataPublicacao = new Date(dataAgendada + 'T00:00:00-03:00');
+const dataAtual = new Date();
+if (dataAtual < dataPublicacao) {
+return false;
+}
+}
+return true;
+});
+
+const recomendados = artigosFiltrados.slice(0, 3);
+const grid = document.getElementById('relatedArticlesGrid');
+
+if (!grid) return;
+grid.innerHTML = '';
+
+recomendados.forEach(item => {
+const url = item.getAttribute('href');
+const imgEl = item.querySelector('img');
+const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
+
+const tagEl = item.querySelector('.tag');
+const tag = tagEl ? tagEl.innerText : 'YOUP';
+
+const titleEl = item.querySelector('.title') || item.querySelector('h3') || item.querySelector('h4');
+const title = titleEl ? titleEl.innerText : item.innerText;
+
+grid.innerHTML += `
+<a href="${url}" class="coluna-news-card">
+<img src="${imgSrc}" class="coluna-news-img" alt="${title}">
+<div class="coluna-news-body">
+<span class="coluna-news-tag">${tag}</span>
+<h4 class="coluna-news-title">${title}</h4>
+</div>
+</a>
+`;
+});
+})
+.catch(err => console.log('Aviso: Erro ao buscar index.html', err));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+carregarLayoutGlobal();
+carregarRecomendados();
+});
+
+window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
+var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
+function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "⏹ Parar Áudio"; } }
+function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
+function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
+function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
+
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
 </html>
