@@ -112,15 +112,6 @@
         .sticky-ad .btn-ad { display: block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; padding: 8px 10px; font-size: 10px; font-weight: 700; border-radius: 2px; text-transform: uppercase; transition: background 0.2s; }
         .sticky-ad .btn-ad:hover { background: #e2ba6e; }
 
-        .ad-space-container { width: 100%; max-width: 900px; margin: 30px auto; padding: 20px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda); border-bottom: 1px dashed var(--borda); }
-        .ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--texto-cinza); margin-bottom: 8px; font-weight: 800; display: block; }
-        .ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; margin: 0 !important; padding: 0 !important; border: none !important; }
-        
-        .sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
-        .sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda); border-bottom: none; color: var(--texto-cinza); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
-        .sticky-toggle:hover { color: var(--dourado); }
-        .sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
-        .sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
 
         @media (max-width: 1100px) { .sticky-ad, .social-share-fixed { display: none; } }
         @media (max-width: 768px) { .article-main { padding: 40px 25px; margin-top: -60px; } h1 { font-size: 26px; } h2 { font-size: 21px; } .author-box { flex-direction: column; text-align: center; } .author-box img { margin: 0 auto; } }
@@ -173,13 +164,6 @@
 
             <p>O resultado é a paralisação completa da engrenagem. Cada mês que uma vaga de Engenharia de Software, Arquitetura de Nuvem ou IA fica aberta, projetos estratégicos atrasam, a experiência do cliente final se degrada e os concorrentes avançam. O "Custo da Vaga Aberta" (Cost of Vacancy) nessas disciplinas costuma superar em até 10 vezes o salário anual do próprio profissional que está faltando.</p>
 
-            <!-- ANÚNCIO 1 -->
-            <div class="ad-space-container">
-                <p class="ad-space-label">Continua após a publicidade ▼</p>
-                <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
             <h2>2. O Paradoxo do Idioma: Um Filtro de Vaidade Corporativa?</h2>
             
             <div style="background: var(--cinza-escuro); border-left: 4px solid var(--dourado); padding: 20px 30px; border-radius: 6px; margin: 40px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
@@ -208,8 +192,6 @@
 
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600" alt="Arquitetura de inovação e tecnologia em escritório corporativo" class="article-middle-img">
 
-            <!-- ANÚNCIO 2 -->
-            <div class="ad-space-container">
                 <p class="ad-space-label">Continua após a publicidade ▼</p>
                 <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -238,13 +220,6 @@
             <p>A companhia não lança uma vaga passiva no LinkedIn exigindo um perfil "Pronto". Ela lança um processo seletivo audacioso para um Bootcamp gratuito, pago por ela, focado na linguagem exata que a empresa utiliza (por exemplo, uma imersão intensiva de 3 meses em React.js e Computação em Nuvem aplicada à logística). Durante esses meses, os diretores e líderes técnicos seniores da empresa atuam como professores e mentores pontuais. O RH não avalia apenas a prova de código no final do curso, mas monitora a resiliência, a velocidade de aprendizado sob pressão, o trabalho colaborativo e a ética profissional.</p>
 
             <p>Ao final da jornada, a empresa contrata formalmente os 20% ou 30% melhores. O custo operacional de rodar essa academia é, em qualquer planilha de planejamento financeiro, drasticamente inferior à soma de três fatores: as taxas (fees) pagas a consultorias externas ineficientes, os salários absurdamente inflacionados pelo leilão do mercado, e as perdas bilionárias em M&A que falham por falta de estrutura técnica.</p>
-
-            <!-- ANÚNCIO 3 -->
-            <div class="ad-space-container">
-                <p class="ad-space-label">Continua após a publicidade ▼</p>
-                <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
 
             <h2>5. Conclusão: O RH Deixa de Ser "Comprador" e Vira "Market Maker"</h2>
 
@@ -276,17 +251,9 @@
         function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
         function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
         function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
-        function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
+
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- ANCHOR AD RODAPÉ (INICIA ABERTO) -->
-    <div class="sticky-bottom-wrapper" id="stickyBottomAd">
-        <button class="sticky-toggle" onclick="toggleStickyAd()">FECHAR ▼</button>
-        <div class="sticky-ad-content" id="stickyAdContent">
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-    </div>
 </body>
 </html>
