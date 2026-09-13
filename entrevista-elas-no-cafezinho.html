@@ -31,12 +31,8 @@
 
         body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; color: var(--texto-corpo); line-height: 1.9; }
         
-        .progress-container { width: 100%; height: 5px; background: #e0e0e0; position: fixed; top: 0; left: 0; z-index: 1002; }
-        .progress-bar { height: 5px; background: var(--dourado); width: 0%; transition: width 0.1s; }
-
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background-color: var(--cinza-escuro); position: sticky; top: 0; z-index: 1000; margin-top: 5px; }
-        .brand-logo { color:var(--dourado); text-decoration:none; font-weight:800; letter-spacing:3px; }
-        .btn-voltar { color: var(--dourado); text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: 700; border: 1px solid rgba(197, 160, 89, 0.3); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 1001; }
+        #progress-bar { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s ease-out; }
 
         .article-hero { 
             width: 100%; height: 60vh; 
@@ -116,14 +112,8 @@
 </head>
 <body>
 
-    <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-    </div>
-
-    <nav class="navbar">
-        <a href="index.html" class="brand-logo">YOUP</a>
-        <a href="blog.html" class="btn-voltar">← Corporate Insights</a>
-    </nav>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div id="header-global"></div>
 
     <div class="sticky-ad">
         <h4>Mentoria Youp</h4>
@@ -270,15 +260,65 @@
         </section>
     </main>
 
+    <div id="footer-global"></div>
+
     <script>
-        window.onscroll = function() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("myBar").style.width = scrolled + "%";
-        };
-        function shareLinkedIn() { var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + url, '_blank'); }
-        function shareWhatsApp() { var title = encodeURIComponent(document.title); var url = encodeURIComponent(window.location.href); window.open('https://api.whatsapp.com/send?text=Recomendo esta entrevista incrível: ' + title + ' - ' + url, '_blank'); }
+    function carregarLayoutGlobal() {
+    fetch('index.html')
+    .then(response => response.text())
+    .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    const nav = doc.querySelector('.article-nav');
+    const catNav = doc.querySelector('.editorial-nav-wrapper');
+    const headerContainer = document.getElementById('header-global');
+
+    if (headerContainer && nav && catNav) {
+    headerContainer.innerHTML = nav.outerHTML + catNav.outerHTML;
+
+    const navActions = headerContainer.querySelector('.nav-actions');
+    if (navActions && !navActions.querySelector('.btn-audio')) {
+    const audioBtn = document.createElement('button');
+    audioBtn.className = 'btn-action btn-audio';
+    audioBtn.setAttribute('onclick', 'toggleAudio()');
+    audioBtn.innerHTML = '▶ Ouvir Artigo';
+    navActions.insertBefore(audioBtn, navActions.children[1] || null);
+    }
+
+    const filterBtns = headerContainer.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+    btn.setAttribute('onclick', "window.location.href='https://www.youpconsultoria.com/index.html'");
+    });
+
+    const searchInput = headerContainer.querySelector('#searchInput');
+    if (searchInput) {
+    searchInput.setAttribute('onkeyup', "window.location.href='https://www.youpconsultoria.com/index.html'");
+    }
+    }
+
+    const footer = doc.querySelector('.site-footer') || doc.querySelector('footer');
+    const footerContainer = document.getElementById('footer-global');
+
+    if (footerContainer && footer) {
+    footerContainer.innerHTML = footer.outerHTML;
+    }
+    })
+    .catch(err => console.error('Erro ao carregar layout global:', err));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    carregarLayoutGlobal();
+    });
+
+    window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%"; };
+    var synth = window.speechSynthesis; var utterance = null; var isSpeaking = false;
+    function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; } else { var textToRead = document.getElementById('conteudo-artigo').innerText; utterance = new SpeechSynthesisUtterance(textToRead); utterance.lang = 'pt-BR'; utterance.onend = function() { isSpeaking = false; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "▶ Ouvir Artigo"; }; synth.speak(utterance); isSpeaking = true; const btn = document.querySelector('.btn-audio'); if (btn) btn.innerText = "⏹ Parar Áudio"; } }
+    function shareLinkedIn(e) { if(e) e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
+    function shareWhatsApp(e) { if(e) e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
+    function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
+
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
