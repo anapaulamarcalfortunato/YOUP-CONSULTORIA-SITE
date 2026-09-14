@@ -1,3 +1,8 @@
+Entendido! Regra anotada e atualizada: **a partir de agora, nenhuma matéria terá blocos de anúncio no corpo do texto, banners fixos ou cards de parceiros**, mantendo apenas o script base do Google AdSense no `<head>`.
+
+Aqui está o código HTML final e limpo da matéria da Tábata Lopes, já sem o card do parceiro Simplifica e sem nenhuma outra área de publicidade no layout:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -25,6 +30,7 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JTWLMZBRS"></script>
 <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6JTWLMZBRS');</script>
+<!-- Script base do Google AdSense mantido conforme solicitado -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1434753673886142" crossorigin="anonymous"></script>
 
 <!-- Schema JSON-LD -->
@@ -97,19 +103,6 @@ p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size:
 .social-share-fixed { position: fixed; left: 20px; top: 250px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
 .social-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--cinza-escuro); color: var(--fundo-claro); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; border: 1px solid var(--dourado); transition: all 0.3s ease; cursor: pointer; }
 .social-btn:hover { background: var(--dourado); color: var(--cinza-escuro); transform: translateY(-3px); }
-.sticky-ad { position: fixed; right: 20px; top: 120px; width: 200px; background: var(--cinza-escuro); border: 1px solid var(--dourado); padding: 20px 15px; border-radius: 4px; z-index: 999; box-shadow: 0 15px 30px rgba(0,0,0,0.2); text-align: center; }
-.sticky-ad h4 { color: var(--dourado); font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-.sticky-ad p { color: #ccc; font-size: 11px; line-height: 1.4; margin-bottom: 12px; text-align: center; }
-.sticky-ad .btn-ad { display: block; background: var(--dourado); color: var(--cinza-escuro); text-decoration: none; padding: 8px 10px; font-size: 10px; font-weight: 700; border-radius: 2px; text-transform: uppercase; transition: background 0.2s; }
-.sticky-ad .btn-ad:hover { background: #e2ba6e; }
-.ad-space-container { width: 100%; max-width: 900px; margin: 30px auto; padding: 20px 0; text-align: center; background-color: #fafafa; border-top: 1px dashed var(--borda-suave); border-bottom: 1px dashed var(--borda-suave); }
-.ad-space-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1.5px; color: #666; margin-bottom: 8px; font-weight: 800; display: block; }
-.ad-space-container:has(ins[data-ad-status="unfilled"]) { display: none !important; margin: 0 !important; padding: 0 !important; border: none !important; }
-.sticky-bottom-wrapper { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 970px; z-index: 99999; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
-.sticky-toggle { pointer-events: auto; background-color: #fdfdfd; border: 1px solid var(--borda-suave); border-bottom: none; color: #666; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 10px 25px; border-radius: 8px 8px 0 0; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); -webkit-tap-highlight-color: transparent;}
-.sticky-toggle:hover { color: var(--dourado); }
-.sticky-ad-content { pointer-events: auto; background-color: #fdfdfd; border-top: 1px solid var(--borda-suave); box-shadow: 0 -5px 15px rgba(0,0,0,0.1); width: 100%; padding: 10px; box-sizing: border-box; display: flex; justify-content: center; max-height: 250px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
-.sticky-bottom-wrapper.closed .sticky-ad-content { display: none !important; height: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; border: none !important; }
 .site-footer { background-color: #050505; color: #e5e5e5; padding: 70px 50px 40px; font-family: 'Montserrat', sans-serif; border-top: 4px solid var(--dourado); margin-top: 60px; position: relative; z-index: 10; padding-bottom: 120px; }
 .footer-content { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; }
 .footer-brand { max-width: 350px; }
@@ -122,8 +115,8 @@ p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size:
 .footer-col ul li a { color: #bbb; text-decoration: none; font-size: 13px; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px;}
 .footer-col ul li a:hover { color: var(--fundo-claro); padding-left: 5px;}
 .footer-bottom { max-width: 1400px; margin: 50px auto 0; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 12px; color: #666; letter-spacing: 1px; }
-@media (max-width: 1100px) { .sticky-ad, .social-share-fixed { display: none; } .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); } .footer-nav { justify-content: flex-start; gap: 40px;} }
-@media (max-width: 768px) { .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; } .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;} .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } .editorial-nav-wrapper { padding: 0 15px; } .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;} .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;} .article-main { padding: 40px 25px; margin-top: -60px; } h1 { font-size: 28px; } h2 { font-size: 21px; } .ultimas-colunas-grid { grid-template-columns: 1fr; } .footer-content { flex-direction: column; gap: 40px;} .footer-nav { flex-direction: column; gap: 30px;} .site-footer { padding: 50px 20px 100px; } .sticky-bottom-wrapper { max-width: 100%; } }
+@media (max-width: 1100px) { .social-share-fixed { display: none; } .ultimas-colunas-grid { grid-template-columns: repeat(2, 1fr); } .footer-nav { justify-content: flex-start; gap: 40px;} }
+@media (max-width: 768px) { .article-nav { flex-direction: column; gap: 10px; padding: 10px 20px; height: auto; } .nav-actions { width: 100%; justify-content: space-between; gap: 5px; flex-wrap: wrap;} .btn-action { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } #google_translate_element select { font-size: 9px; padding: 6px 10px; letter-spacing: 0; } .editorial-nav-wrapper { padding: 0 15px; } .editorial-nav { flex-direction: column; gap: 15px; padding: 15px 0; align-items: flex-start;} .filter-container { flex-wrap: wrap; gap: 10px; padding-bottom: 5px;} .article-main { padding: 40px 25px; margin-top: -60px; } h1 { font-size: 28px; } h2 { font-size: 21px; } .ultimas-colunas-grid { grid-template-columns: 1fr; } .footer-content { flex-direction: column; gap: 40px;} .footer-nav { flex-direction: column; gap: 30px;} .site-footer { padding: 50px 20px 100px; } }
 </style>
 </head>
 
@@ -136,12 +129,6 @@ p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size:
 <a onclick="shareWhatsApp(event)" class="social-btn" title="Compartilhar no WhatsApp">wa</a>
 </div>
 
-<div class="sticky-ad">
-<h4>Mapeamento Executivo</h4>
-<p>Precisa de suporte em Executive Search e avaliação de lideranças sêniores?</p>
-<a href="https://www.youpconsultoria.com/headhunter.html" class="btn-ad">Falar com Headhunter</a>
-</div>
-
 <div class="article-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('https://lh3.googleusercontent.com/d/1TRjx9nfazA1WnpBJ8xgDVsA8JHdRcVLF') center center/cover;"></div>
 
 <main class="article-main">
@@ -150,16 +137,10 @@ p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size:
 <p class="article-author-credit">Por Equipe Editorial Youp</p>
 
 <article id="conteudo-artigo">
-<!-- MATÉRIA 1 -->
+
 <p>Com a exigência crescente por ambientes de trabalho psicologicamente seguros e de alto desempenho, o mercado editorial corporativo ganha um novo título focado no desenvolvimento estratégico de gestores. A especialista em gestão de pessoas, <a href="https://www.linkedin.com/in/tabatalopes/" target="_blank" style="color: var(--dourado); font-weight: 700; text-decoration: none;">Tábata Lopes</a>, acaba de lançar a obra "Liderança Humanizada na Prática", um guia direcionado a líderes, empreendedores e profissionais de Recursos Humanos (RH) que buscam superar o obsoleto modelo de comando e controle nas organizações.</p>
 
 <p>Segundo informações divulgadas sobre o lançamento, o livro estrutura uma nova ótica sobre a gestão baseada em pilares científicos sólidos, ancorando-se nos estudos mais recentes da neurociência, da psicologia positiva e da psicologia comportamental. O objetivo central é demonstrar, por meio de uma abordagem pragmática, que a garantia do bem-estar organizacional e a entrega de resultados sustentáveis são fatores estritamente complementares no ecossistema corporativo atual.</p>
-
-<div class="ad-space-container">
-<p class="ad-space-label">Continua após a publicidade ▼</p>
-<ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-1434753673886142" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 
 <img src="https://lh3.googleusercontent.com/d/1W89FUbL94QQ71ghtKL_nUH5gwQBfkDf3" class="article-middle-img" alt="Capa do livro Liderança Humanizada na Prática e Tábata Lopes">
 
@@ -168,25 +149,6 @@ p { margin-bottom: 28px; color: var(--texto-corpo); text-align: left; font-size:
 <p>Reconhecida pelo mercado como <i>LinkedIn Top Voice</i> em 2024 e com vasta experiência como <i>speaker</i> do prestigiado formato TEDx, Tábata atua diretamente como consultora em programas de treinamento e desenvolvimento (T&D) executivo para corporações de diferentes portes e setores de atuação. A publicação da obra visa escalar o alcance de sua metodologia, que foca na criação de culturas corporativas ancoradas na confiança mútua e na resiliência das equipes.</p>
 
 <p>O livro já se encontra disponível para os profissionais do mercado e lideranças interessadas, e pode ser adquirido diretamente <a href="https://link.amazon/B08w20rJx" target="_blank" style="color: var(--dourado); font-weight: 700; text-decoration: none;">pelos canais oficiais da Amazon</a>.</p>
-
-<!-- Card do Parceiro Comercial Simplifica -->
-<div style="background: var(--cinza-escuro); border-left: 4px solid var(--dourado); padding: 20px 30px; border-radius: 6px; margin: 40px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-<div style="flex: 1; min-width: 250px;">
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-<span style="color: var(--dourado); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Parceiro Youp</span>
-<span style="background: rgba(197,160,89,0.2); color: var(--dourado); font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase;">100% Gratuito</span>
-</div>
-<h4 style="color: #fff; font-size: 17px; margin: 0 0 5px 0; font-weight: 700;">Formação Executiva em Inteligência Artificial</h4>
-<p style="color: #aaa; font-size: 13px; margin: 0; line-height: 1.5;">
-Domine <b>ChatGPT, Gemini e Copilot</b> para escalar a sua productivity e proteger o seu tempo estratégico. Aulas ao vivo com certificado.
-</p>
-</div>
-<div>
-<a href="https://simplificaedu.com.br/ia-express-paula" target="_blank" style="display: inline-block; background: var(--dourado); color: #000; padding: 12px 24px; text-decoration: none; font-weight: 800; text-transform: uppercase; border-radius: 50px; font-size: 11px; white-space: nowrap; transition: 0.3s;">
-Garantir Vaga ➔
-</a>
-</div>
-</div>
 
 <a href="https://www.youpconsultoria.com/index.html" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 40px; padding: 15px; background: transparent; border: 1px solid var(--verde-youp); color: var(--verde-youp); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; text-decoration: none; border-radius: 4px; transition: 0.3s; box-sizing: border-box;" onmouseover="this.style.background='var(--verde-youp)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--verde-youp)';">← Voltar para a Página Inicial</a>
 </article>
@@ -312,8 +274,9 @@ function toggleAudio() { if (isSpeaking) { synth.cancel(); isSpeaking = false; c
 function shareLinkedIn(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank'); }
 function shareWhatsApp(e) { e.preventDefault(); var url = encodeURIComponent(window.location.href); var title = encodeURIComponent(document.title); window.open('https://api.whatsapp.com/send?text=' + title + '%20' + url, '_blank'); }
 function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'pt-BR', includedLanguages: 'en,es,fr,de,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
-function toggleStickyAd() { const wrapper = document.getElementById('stickyBottomAd'); const btn = document.querySelector('.sticky-toggle'); wrapper.classList.toggle('closed'); if (wrapper.classList.contains('closed')) { btn.innerHTML = 'PUBLICIDADE ▲'; } else { btn.innerHTML = 'FECHAR ▼'; } }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+
+```
