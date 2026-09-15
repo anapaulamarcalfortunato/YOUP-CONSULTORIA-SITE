@@ -99,7 +99,7 @@
         .live-news-card-title { font-size: 12px; font-weight: 700; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
         .carousel-btn { position: absolute; z-index: 10; background: var(--cinza-escuro); color: var(--dourado); border: 1px solid var(--dourado); border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; font-size: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);}
-        .carousel-btn:hover { background: var(--dourado); color: var(--cinza-escuro); }
+        .carousel-btn:hover { background: var(--dourado); color: var(--cinza-escuro); border-color: var(--dourado); }
         .carousel-btn.prev { left: -10px; }
         .carousel-btn.next { right: -10px; }
 
@@ -489,6 +489,12 @@
             <div class="espaco-tres-grid" id="espacoTresGrid"></div>
         </section>
         
+        <!-- SEÇÃO AS MAIS LIDAS DA SEMANA (AUTOMÁTICA VIA GA4) -->
+        <section class="espaco-tres-section" id="maisLidasWrapper">
+            <h3 class="section-title">🔥 As Mais Lidas </h3>
+            <div class="espaco-tres-grid" id="maisLidasGrid"></div>
+        </section>
+
         <!-- ACERVO COMPLETO -->
         <div class="editorial-feed">
             <h3 class="section-title" id="acervoTitle">Acervo Completo</h3>
@@ -1129,7 +1135,7 @@
                 <img src="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/main/imagem6.png">
                 <span class="tag">Entrevistas Exclusivas</span>
                 <h3 class="title">Liderança Consciente: A Trajetória de Débora Boscolo</h3>
-                <p class="excerpt">A especialista discute sua transição do mercado financeiro e a humanização de empresas.</p>
+                <p class="excerpt">A specialist discute sua transição do mercado financeiro e a humanização de empresas.</p>
             </a>
 
             <a href="https://simplificaedu.com.br/ia-express-paula" data-type="artigo" data-category="radar-executivo">
@@ -1344,6 +1350,8 @@
 
     <!-- SCRIPTS DE FUNCIONALIDADE -->
     <script>
+        const URL_APPS_SCRIPT_MAIS_LIDAS = "https://script.google.com/macros/s/AKfycbwP-PL3od6jIDyrzntSQ_0iCM7mjKPkdgwHDLUpoeczVjldhUPq2aFf7g0khkJ0Cl4t_w/exec";
+
         let limiteAtual = 10; 
         let filtroAtual = 'todos';
         let autorAtual = 'todos';
@@ -1426,11 +1434,92 @@
             }
         }
 
+        function formatarDataBR(dataISO) {
+            if (!dataISO) return '';
+            const [ano, mes, dia] = dataISO.split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        function carregarMaisLidasGA4() {
+            const grid = document.getElementById('maisLidasGrid');
+            if (!grid) return;
+
+            const sources = Array.from(document.querySelectorAll('#sourceArticles a'));
+
+            fetch(URL_APPS_SCRIPT_MAIS_LIDAS)
+                .then(res => res.json())
+                .then(response => {
+                    let artigosMaisLidos = [];
+
+                    if (response.status === 'success' && response.data && response.data.length > 0) {
+                        response.data.forEach(path => {
+                            const match = sources.find(a => {
+                                const href = a.getAttribute('href');
+                                return href && href.includes(path);
+                            });
+                            if (match && !artigosMaisLidos.includes(match)) {
+                                artigosMaisLidos.push(match);
+                            }
+                        });
+                    }
+
+                    if (artigosMaisLidos.length < 4) {
+                        sources.forEach(a => {
+                            if (artigosMaisLidos.length < 4 && !artigosMaisLidos.includes(a)) {
+                                artigosMaisLidos.push(a);
+                            }
+                        });
+                    }
+
+                    grid.innerHTML = '';
+                    artigosMaisLidos.slice(0, 4).forEach(item => {
+                        const url = item.getAttribute('href');
+                        const imgSrc = item.querySelector('img') ? item.querySelector('img').src : '';
+                        const tag = item.querySelector('.tag') ? item.querySelector('.tag').innerText : '';
+                        const title = item.querySelector('.title') ? item.querySelector('.title').innerText : '';
+                        const rawDate = item.getAttribute('data-publish-date');
+                        const dateFormatted = rawDate ? formatarDataBR(rawDate) : '';
+
+                        grid.innerHTML += `
+                            <a href="${url}" class="espaco-tres-card">
+                                <img src="${imgSrc}" class="espaco-tres-img" alt="${title}">
+                                <div class="espaco-tres-body">
+                                    <span class="espaco-tres-tag">${tag} ${dateFormatted ? '• ' + dateFormatted : ''}</span>
+                                    <h4 class="espaco-tres-title">${title}</h4>
+                                </div>
+                            </a>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    grid.innerHTML = '';
+                    sources.slice(0, 4).forEach(item => {
+                        const url = item.getAttribute('href');
+                        const imgSrc = item.querySelector('img') ? item.querySelector('img').src : '';
+                        const tag = item.querySelector('.tag') ? item.querySelector('.tag').innerText : '';
+                        const title = item.querySelector('.title') ? item.querySelector('.title').innerText : '';
+                        const rawDate = item.getAttribute('data-publish-date');
+                        const dateFormatted = rawDate ? formatarDataBR(rawDate) : '';
+
+                        grid.innerHTML += `
+                            <a href="${url}" class="espaco-tres-card">
+                                <img src="${imgSrc}" class="espaco-tres-img" alt="${title}">
+                                <div class="espaco-tres-body">
+                                    <span class="espaco-tres-tag">${tag} ${dateFormatted ? '• ' + dateFormatted : ''}</span>
+                                    <h4 class="espaco-tres-title">${title}</h4>
+                                </div>
+                            </a>
+                        `;
+                    });
+                });
+        }
+
         function renderArticles() {
             toggleColumnistsWrapper();
 
             const espacoTresWrapper = document.getElementById('espacoTresWrapper');
             const espacoTresGrid = document.getElementById('espacoTresGrid');
+            const maisLidasWrapper = document.getElementById('maisLidasWrapper');
             const triadContainer = document.getElementById('exameTriadContainer');
             const triadLeftCol = document.getElementById('triadLeftCol');
             const triadCenterWrapper = document.getElementById('rotatorSlidesWrapper');
@@ -1476,6 +1565,7 @@
                 triadContainer.style.display = 'none';
                 if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'none';
                 if(espacoTresWrapper) espacoTresWrapper.style.display = 'none';
+                if(maisLidasWrapper) maisLidasWrapper.style.display = 'none';
                 acervoTitle.innerText = "Resultados da Pesquisa";
 
                 let filtered = validArticles.filter(a => {
@@ -1515,11 +1605,12 @@
                 triadContainer.style.display = 'flex';
                 if(curtasSectionWrapper) curtasSectionWrapper.style.display = 'block';
                 if(espacoTresWrapper) espacoTresWrapper.style.display = 'block';
+                if(maisLidasWrapper) maisLidasWrapper.style.display = 'block';
                 
                 const newsAndArticles = validArticles.filter(a => a.getAttribute('data-type') === 'materia' || a.getAttribute('data-type') === 'artigo');
                 const colunas = validArticles.filter(a => a.getAttribute('data-type') === 'coluna');
 
-                // --- ESPAÇO 1: PRINCIPAIS NOTÍCIAS (HERO TRIAD - data-spot="1" ou Padrão) ---
+                // --- ESPAÇO 1: PRINCIPAIS NOTÍCIAS (HERO TRIAD) ---
                 let triadItems = newsAndArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '1');
                 if(triadItems.length < 13) {
                     const sobrantes = newsAndArticles.filter(a => {
@@ -1601,7 +1692,7 @@
                     `;
                 });
 
-                // --- ESPAÇO 2: QUADRANTE CURTAS (data-spot="2" ou Automático) ---
+                // --- ESPAÇO 2: QUADRANTE CURTAS ---
                 let curtasItems = newsAndArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '2');
                 if(curtasItems.length === 0) {
                     curtasItems = newsAndArticles.filter(a => {
@@ -1611,7 +1702,6 @@
                 }
 
                 if(curtasGridContainer && curtasItems.length > 0) {
-                    // As 3 matérias mais recentes da lista assumem o topo das 3 colunas
                     const destaques = curtasItems.slice(0, 3);
                     const resto = curtasItems.slice(3);
 
@@ -1687,7 +1777,6 @@
                 }
                 
                 // --- NOVO ESPAÇO (DATA-SPOT="3") ---
-                // Usamos validArticles aqui para garantir que pegue matérias e colunas com data-spot="3"
                 let espacoTresItems = validArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '3').slice(0, 4);
                 if (espacoTresGrid) {
                     espacoTresGrid.innerHTML = '';
@@ -1710,7 +1799,6 @@
                 }
                 
                 // --- ACERVO COMPLETO ---
-                // Para garantir que fiquem "APENAS no Opiniões", removemos os data-spot="3" do feed geral da Home
                 let feedGeral = validArticles.filter(a => (a.getAttribute('data-spot') || '').trim() !== '3');
                 feedGeral.slice(0, limiteAtual).forEach(item => {
                     renderArticleInList(item, listZone);
@@ -1955,6 +2043,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             renderManualLiveNews();
             renderArticles();
+            carregarMaisLidasGA4();
             carregarNoticiasEmTempoReal();
             
             clearInterval(colunistasInterval);
