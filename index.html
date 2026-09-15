@@ -1521,15 +1521,15 @@
 
                 // --- ESPAÇO 1: PRINCIPAIS NOTÍCIAS (HERO TRIAD - data-spot="1" ou Padrão) ---
                 let triadItems = newsAndArticles.filter(a => (a.getAttribute('data-spot') || '').trim() === '1');
-                if(triadItems.length < 19) {
+                if(triadItems.length < 13) {
                     const sobrantes = newsAndArticles.filter(a => {
                         const spot = (a.getAttribute('data-spot') || '').trim();
                         return spot !== '1' && spot !== '2' && spot !== '3';
                     });
-                    triadItems = triadItems.concat(sobrantes.slice(0, 19 - triadItems.length));
+                    triadItems = triadItems.concat(sobrantes.slice(0, 13 - triadItems.length));
                 }
 
-                const DestaquesRotativos = triadItems.slice(0, 10);
+                const DestaquesRotativos = triadItems.slice(0, 4);
                 DestaquesRotativos.forEach((item, index) => {
                     const url = item.getAttribute('href');
                     const imgSrc = item.querySelector('img').src;
@@ -1552,7 +1552,7 @@
                 });
                 if(DestaquesRotativos.length > 0) iniciarSliderRotativo(DestaquesRotativos.length);
 
-                const LeftItems = triadItems.slice(10, 12);
+                const LeftItems = triadItems.slice(4, 6); 
                 triadLeftCol.innerHTML = '';
 
                 LeftItems.forEach(item => {
@@ -1587,7 +1587,7 @@
                     triadLeftCol.appendChild(card);
                 });
 
-                const RightItems = triadItems.slice(12, 19);
+                const RightItems = triadItems.slice(6, 13);
                 RightItems.forEach(item => {
                     const url = item.getAttribute('href');
                     const tag = item.querySelector('.tag').innerText;
@@ -1611,14 +1611,27 @@
                 }
 
                 if(curtasGridContainer && curtasItems.length > 0) {
-                    const col1 = curtasItems.slice(0, Math.ceil(curtasItems.length / 3));
-                    const col2 = curtasItems.slice(Math.ceil(curtasItems.length / 3), Math.ceil(curtasItems.length / 3) * 2);
-                    const col3 = curtasItems.slice(Math.ceil(curtasItems.length / 3) * 2);
+                    // As 3 matérias mais recentes da lista assumem o topo das 3 colunas
+                    const destaques = curtasItems.slice(0, 3);
+                    const resto = curtasItems.slice(3);
 
-                    [col1, col2, col3].forEach(colGroup => {
+                    const colunas = [[], [], []];
+
+                    destaques.forEach((item, index) => {
+                        colunas[index % 3].push({ item, ehDestaque: true });
+                    });
+
+                    resto.forEach((item, index) => {
+                        colunas[index % 3].push({ item, ehDestaque: false });
+                    });
+
+                    colunas.forEach(colGroup => {
                         if(colGroup.length > 0) {
-                            const destaque = colGroup[0];
-                            const lista = colGroup.slice(1);
+                            const destaqueObj = colGroup.find(c => c.ehDestaque);
+                            const listaObjs = colGroup.filter(c => !c.ehDestaque);
+
+                            if(!destaqueObj) return;
+                            const destaque = destaqueObj.item;
 
                             let colHtml = `<div class="curtas-column">`;
                             colHtml += `
@@ -1631,9 +1644,10 @@
                                 </a>
                             `;
 
-                            if(lista.length > 0) {
+                            if(listaObjs.length > 0) {
                                 colHtml += `<div class="curtas-list">`;
-                                lista.forEach(itemSub => {
+                                listaObjs.forEach(obj => {
+                                    const itemSub = obj.item;
                                     colHtml += `
                                         <a href="${itemSub.getAttribute('href')}" class="curtas-list-item">
                                             ${itemSub.querySelector('.title').innerText}
