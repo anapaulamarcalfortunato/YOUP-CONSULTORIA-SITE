@@ -384,7 +384,7 @@ const title = titleEl ? titleEl.innerText : item.innerText;
 
 grid.innerHTML += `
 <a href="${url}" class="coluna-news-card">
-<img src="${imgSrc}" class="coluna-news-img" alt="${title}">
+<img src="${imgSrc}" class="coluna-news-img" loading="lazy" alt="Imagem de capa do artigo" alt="${title}">
 <div class="coluna-news-body">
 <span class="coluna-news-tag">${tag}</span>
 <h4 class="coluna-news-title">${title}</h4>
