@@ -131,7 +131,16 @@
         .rotator-title { font-size: 26px; font-weight: 800; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.5px; }
         .rotator-excerpt { font-size: 14px; color: var(--texto-cinza); line-height: 1.6; margin: 0; }
         .rotator-progress-bar { height: 3px; background: #e5e5e5; width: 100%; position: relative; }
-        .rotator-progress-fill { height: 100%; background: var(--dourado); width: 0%; transition: width 0.1s linear; }
+        
+        /* CORREÇÃO DO CLS - Animação via scaleX na GPU em vez de width */
+        .rotator-progress-fill, #rotatorProgress { 
+            height: 100%; 
+            background: var(--dourado); 
+            width: 100%; 
+            transform-origin: left; 
+            transform: scaleX(0); 
+            transition: transform 0.1s linear; 
+        }
 
         .side-col-right { display: flex; flex-direction: column; gap: 12px; width: 280px; flex-shrink: 0; height: 100%; order: 3;}
         .side-news-item { text-decoration: none; color: var(--texto-escuro); border-bottom: 1px solid var(--borda); padding-bottom: 12px; transition: 0.3s; }
@@ -796,7 +805,7 @@
             <span class="tag">Radar Executivo</span>
             <h3 class="title">Como responder a feedbacks inadequados</h3>
             <p class="excerpt">Aprenda a discordar de avaliações injustas mantendo seu Capital Político e sua postura no C-Suite.</p>
-            </a>       
+            </a>        
             <a href="materia-csn-ceo-arezzo-cisao-movimentacoes-mercado.html" data-type="materia" data-spot="2" data-category="radar-executivo" data-publish-date="2026-09-06">
             <img src="https://res.cloudinary.com/zjtawxeg/image/upload/f_auto,q_auto/v1789686593/fycgnwe6qlpvjjqh282m.jpg" alt="CSN nomeia novo CEO e Arezzo anuncia cisão de negócios">
             <span class="tag">Radar Executivo</span>
@@ -1856,11 +1865,11 @@
             
             const progressFill = document.getElementById('rotatorProgress');
             let progresso = 0;
-            if (progressFill) progressFill.style.width = '0%';
+            if (progressFill) progressFill.style.transform = 'scaleX(0)';
 
             progressTimer = setInterval(() => {
                 progresso += (100 / (TEMPO_SLIDE / 100));
-                if (progressFill) progressFill.style.width = `${progresso}%`;
+                if (progressFill) progressFill.style.transform = `scaleX(${progresso / 100})`;
             }, 100);
 
             slideTimer = setInterval(() => {
@@ -2082,7 +2091,7 @@
             }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
 <!-- ========================================== -->
 <!-- MODAL DE CAPTAÇÃO DE LEADS YOUP (V6 - MOBILE OTIMIZADO) -->
@@ -2245,19 +2254,19 @@
             <form id="leadFormYoup">
                 <div class="youp-form-group">
                     <label>Nome *</label>
-                    <input type="text" name="nome" required placeholder="Seu nome completo">
+                    <input type="text" name="nome" required aria-label="Selecione seu nome" placeholder="Seu nome completo">
                 </div>
                 <div class="youp-form-group">
                     <label>E-mail Corporativo ou Pessoal *</label>
-                    <input type="email" name="email" required placeholder="seu@email.com">
+                    <input type="email" name="email" required aria-label="Selecione seu email" placeholder="seu@email.com">
                 </div>
                 <div class="youp-form-group">
                     <label>Telefone / WhatsApp *</label>
-                    <input type="text" name="telefone" required placeholder="(11) 99999-9999">
+                    <input type="text" name="telefone" required aria-label="Selecione seu telefone" placeholder="(11) 99999-9999">
                 </div>
                 <div class="youp-form-group">
                     <label>Interesse Principal *</label>
-                    <select name="area" required>
+                    <select name="area" required aria-label="Selecione a área de interesse">
                         <option value="" disabled selected>Selecione seu momento...</option>
                         <option value="Recolocação Executiva (Para Mim)">Recolocação Executiva (Para Mim)</option>
                         <option value="Executive Search (Para Minha Empresa)">Executive Search (Para Minha Empresa)</option>
@@ -2267,7 +2276,7 @@
                 </div>
                 <div class="youp-form-group">
                     <label>Como podemos ajudar?</label>
-                    <textarea name="mensagem" placeholder="Deixe uma breve mensagem sobre o que você busca."></textarea>
+                    <textarea name="mensagem" aria-label="Deixe uma mensagem" placeholder="Deixe uma breve mensagem sobre o que você busca."></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit-youp" id="btnSubmitYoup">Solicitar Contato Privativo</button>
