@@ -135,7 +135,7 @@
         <div class="form-group">
             <label>Serviço Oferecido</label>
             <select id="inputServico" class="form-control" onchange="mudarServico()">
-                <optgroup label="Nova Esteira (Ancoragem)">
+                <optgroup label="Esteira Estratégica YOUP">
                     <option value="revisao">0. Revisão Manual (Entrada)</option>
                     <option value="mentoria">1. Mentoria Tática (1 Encontro)</option>
                     <option value="express">2. Consultoria Express (2 Encontros)</option>
@@ -143,7 +143,7 @@
                     <option value="gtm_head">4. Go-to-Market Completo (Head)</option>
                     <option value="gtm_csuite" selected>5. Go-to-Market Completo (C-Suite)</option>
                 </optgroup>
-                <optgroup label="Serviços Corporativos / Antigos">
+                <optgroup label="Serviços Corporativos / Avulsos">
                     <option value="agenciamento">Agenciamento Executivo High-Impacto</option>
                     <option value="headhunter">HeadHunter de Alta Performance (B2B)</option>
                     <option value="outplacement">Outplacement de Elite</option>
@@ -153,16 +153,16 @@
             </select>
         </div>
 
-        <!-- CONTAINER PARA INPUTS DINÂMICOS (Dos Serviços Antigos) -->
+        <!-- CONTAINER PARA INPUTS CUSTOMIZADOS (Serviços Avulsos) -->
         <div id="blocos-valores-custom"></div>
 
-        <!-- CONTAINER DE BÔNUS E PREÇO (Dos Serviços Novos) -->
+        <!-- CONTAINER DE BÔNUS E CÁLCULO DE INTELIGÊNCIA (Esteira) -->
         <div id="container-ancoragem">
             <div id="bonus-checkboxes" style="margin-bottom: 15px; border-left: 2px solid var(--dourado); padding-left: 10px;"></div>
             
             <div class="form-group">
-                <label>Investimento Final (Pode ser editado)</label>
-                <input type="text" id="inputValorFechado" class="form-control" oninput="atualizarProposta()">
+                <label>Investimento Final do Projeto (Ajustado Automaticamente)</label>
+                <input type="text" id="inputValorFechado" class="form-control" oninput="atualizarPropostaManual()">
             </div>
         </div>
 
@@ -232,7 +232,7 @@
                 <p class="doc-text" id="docOutrosText" style="white-space: pre-wrap;"></p>
             </div>
 
-            <!-- QUEBRA DE PÁGINA: INVESTIMENTO FICA ISOLADO -->
+            <!-- QUEBRA DE PÁGINA: INVESTIMENTO ISOLADO NA SEGUNDA PÁGINA -->
             <div class="page-break"></div>
             
             <!-- PÁGINA 2: VALOR E ANCORAGEM -->
@@ -266,9 +266,8 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwA1r5bx0tQqJj-8otAV06TzWOSpRdtH3TO-fNx0mMJHDnpBivGkPdgUCOPERiFgBo/exec';
 
-        // TABELA DE VALORES INTEGRADA (Novos e Antigos)
+        // TABELA DE MATRIZ DE PREÇOS OFICIAL YOUP
         const esteiraYoup = {
-            // --- SERVIÇOS NOVOS (ANCORAGEM) ---
             revisao: {
                 tipo: 'ancorado',
                 titulo: "Revisão Manual Técnica",
@@ -278,7 +277,11 @@
                     { titulo: "Otimização de LinkedIn", desc: "Adequação de Campeão/SEO, Headline estratégica e resumo executivo." }
                 ],
                 bonus: [],
-                valorOriginal: "R$ 1.000,00", valorFechado: "R$ 850,00", descFechado: "Investimento em pacote único."
+                valorOriginal: "R$ 1.000,00",
+                valorFechado: "R$ 850,00",
+                valorSemBonus: "R$ 850,00",
+                descFechado: "Investimento em pacote único fechado.",
+                descSemBonus: "Investimento em pacote único."
             },
             mentoria: {
                 tipo: 'ancorado',
@@ -290,7 +293,11 @@
                     { titulo: "Guia Go-to-Market PDF", desc: "Material de apoio com checklists de autodiagnóstico corporativo." }
                 ],
                 bonus: [ { nome: "Termômetro de Liquidez de Carreira", valor: "R$ 800,00" } ],
-                valorOriginal: "R$ 2.000,00", valorFechado: "R$ 1.200,00", descFechado: "Acesso ao encontro, material de apoio e Bônus."
+                valorOriginal: "R$ 2.000,00",
+                valorFechado: "R$ 1.200,00",
+                valorSemBonus: "R$ 950,00",
+                descFechado: "Acesso ao encontro, material de apoio e Bônus estratégico.",
+                descSemBonus: "Investimento enxuto (remoção do Bônus Termômetro de Liquidez)."
             },
             express: {
                 tipo: 'ancorado',
@@ -304,9 +311,13 @@
                 bonus: [
                     { nome: "Termômetro de Liquidez", valor: "R$ 800,00" },
                     { nome: "Radar de Gaps de P&L", valor: "R$ 1.500,00" },
-                    { nome: "Brag Book Executivo (Opcional)", valor: "R$ 1.200,00" }
+                    { nome: "Brag Book Executivo", valor: "R$ 1.200,00" }
                 ],
-                valorOriginal: "R$ 6.100,00", valorFechado: "R$ 2.500,00", descFechado: "Pacote consolidado cobrindo reestruturação total de vitrine."
+                valorOriginal: "R$ 7.300,00",
+                valorFechado: "R$ 2.500,00",
+                valorSemBonus: "R$ 1.900,00",
+                descFechado: "Pacote completo com todos os bônus estratégicos inclusos.",
+                descSemBonus: "Valor enxuto sem bônus (retirada do Brag Book Executivo e Radar de Gaps)."
             },
             assessoria: {
                 tipo: 'ancorado',
@@ -324,7 +335,11 @@
                     { nome: "Simulação Mock Interview", valor: "R$ 1.800,00" },
                     { nome: "Brag Book Executivo", valor: "R$ 1.200,00" }
                 ],
-                valorOriginal: "R$ 8.600,00", valorFechado: "R$ 4.200,00", descFechado: "Cobertura operacional completa por 3 meses."
+                valorOriginal: "R$ 9.800,00",
+                valorFechado: "R$ 4.200,00",
+                valorSemBonus: "R$ 3.200,00",
+                descFechado: "Cobertura operacional completa por 3 meses com todos os bônus estratégicos.",
+                descSemBonus: "Valor enxuto operacional (remoção do Brag Book, Dossiê e Mock Interview)."
             },
             gtm_head: {
                 tipo: 'ancorado',
@@ -342,7 +357,11 @@
                     { nome: "Simulação Mock Interview", valor: "R$ 1.800,00" },
                     { nome: "Brag Book Executivo", valor: "R$ 1.200,00" }
                 ],
-                valorOriginal: "R$ 14.800,00 + Fee", valorFechado: "R$ 6.500,00 (Retainer)", descFechado: "<b>+ 45% de Fee de Sucesso</b> (faturado sobre a primeira remuneração bruta)."
+                valorOriginal: "R$ 16.000,00 + Fee",
+                valorFechado: "R$ 6.500,00 Retainer + 45% Fee Sucesso",
+                valorSemBonus: "R$ 5.200,00 Retainer + 45% Fee Sucesso",
+                descFechado: "Pacote completo com bônus + 45% Fee de Sucesso (após contratação).",
+                descSemBonus: "Retainer enxuto sem bônus (remoção do Brag Book, Dossiê e Mock Interview) + 45% Fee de Sucesso."
             },
             gtm_csuite: {
                 tipo: 'ancorado',
@@ -361,10 +380,14 @@
                     { nome: "Brag Book Executivo", valor: "R$ 1.200,00" },
                     { nome: "Onboarding Executivo 90d", valor: "R$ 3.000,00" }
                 ],
-                valorOriginal: "R$ 24.700,00 + Fee", valorFechado: "R$ 9.500,00 (Retainer)", descFechado: "<b>+ 50% de Fee de Sucesso</b> (faturado sobre a primeira remuneração bruta)."
+                valorOriginal: "R$ 25.900,00 + Fee",
+                valorFechado: "R$ 9.500,00 Retainer + 50% Fee Sucesso",
+                valorSemBonus: "R$ 7.200,00 Retainer + 50% Fee Sucesso",
+                descFechado: "Pacote completo C-Level com todos os bônus + 50% Fee de Sucesso.",
+                descSemBonus: "Retainer enxuto C-Level sem bônus (remoção do Onboarding, Dossiê e Brag Book) + 50% Fee de Sucesso."
             },
 
-            // --- SERVIÇOS ANTIGOS (DINÂMICOS) ---
+            // --- SERVIÇOS AVULSOS / CORPORATIVOS ---
             agenciamento: {
                 tipo: 'dinamico', titulo: "Agenciamento Executivo High-Impacto",
                 descricao: `<p class="doc-text">A YOUP oferece serviços abrangentes de Agenciamento projetados para profissionais em busca de recolocação. Atuamos como seus agentes no <b>Mercado Oculto</b>.</p>
@@ -495,14 +518,13 @@
             } else {
                 document.getElementById('blocos-valores-custom').innerHTML = '';
                 document.getElementById('container-ancoragem').style.display = 'block';
-                document.getElementById('inputValorFechado').value = svc.valorFechado;
 
-                let bonusCheckHtml = '<label>Bônus Incluídos (Desmarque para remover da proposta e editar valor)</label>';
+                let bonusCheckHtml = '<label>Bônus Incluídos (Desmarque para desconstruir o pacote)</label>';
                 if(svc.bonus.length > 0) {
                     svc.bonus.forEach((b, index) => {
                         bonusCheckHtml += `
                         <div style="margin-bottom: 8px; font-size: 12px; color: #fff; display: flex; align-items: center; gap: 8px;">
-                            <input type="checkbox" id="chkBonus_${index}" checked onchange="atualizarProposta()" style="cursor:pointer; transform: scale(1.2);">
+                            <input type="checkbox" id="chkBonus_${index}" checked onchange="calcularInteligenciaPreco()" style="cursor:pointer; transform: scale(1.2);">
                             <label for="chkBonus_${index}" style="display:inline; margin:0; text-transform:none; color:#fff; font-weight:normal; cursor:pointer;">${b.nome} (${b.valor})</label>
                         </div>`;
                     });
@@ -510,6 +532,30 @@
                     bonusCheckHtml += `<span style="font-size:11px; color:#999;">Nenhum bônus atrelado.</span>`;
                 }
                 document.getElementById('bonus-checkboxes').innerHTML = bonusCheckHtml;
+                document.getElementById('inputValorFechado').value = svc.valorFechado;
+            }
+
+            atualizarProposta();
+        }
+
+        // REGRA DE INTELIGÊNCIA: Se desmarcar bônus, muda o preço para a Margem Mínima sem Bônus
+        function calcularInteligenciaPreco() {
+            const svcKey = document.getElementById('inputServico').value;
+            const svc = esteiraYoup[svcKey];
+            if (!svc || svc.tipo !== 'ancorado') return;
+
+            let todosCheck = true;
+            if (svc.bonus.length > 0) {
+                svc.bonus.forEach((b, idx) => {
+                    const chk = document.getElementById(`chkBonus_${idx}`);
+                    if (chk && !chk.checked) todosCheck = false;
+                });
+            }
+
+            if (todosCheck) {
+                document.getElementById('inputValorFechado').value = svc.valorFechado;
+            } else {
+                document.getElementById('inputValorFechado').value = svc.valorSemBonus;
             }
 
             atualizarProposta();
@@ -532,6 +578,10 @@
             atualizarProposta();
         }
 
+        function atualizarPropostaManual() {
+            atualizarProposta();
+        }
+
         function atualizarProposta() {
             const cliente = document.getElementById('inputCliente').value || "[Nome do Cliente]";
             const svcKey = document.getElementById('inputServico').value;
@@ -551,9 +601,9 @@
                 : "O custo da estagnação em nível C-Level é invisível, mas agressivo. O próximo passo é o preenchimento do nosso formulário de Onboarding para iniciarmos a execução imediatamente.";
             document.getElementById('docProximosPassosTexto').innerText = proxTexto;
 
-            // Renderiza Valores e Escopo dependendo do Tipo (Antigo/Novo)
+            // Renderiza Valores e Escopo dependendo do Tipo
             if (svc.tipo === 'dinamico') {
-                document.getElementById('docEntregaveisGrid').innerHTML = ''; // Não tem tabela de Core separada
+                document.getElementById('docEntregaveisGrid').innerHTML = '';
                 document.getElementById('tituloEntregaveis').style.display = 'none';
                 document.getElementById('docValores').innerHTML = svc.gerarValores();
             } else {
@@ -566,17 +616,19 @@
                 document.getElementById('docEntregaveisGrid').innerHTML = coreHtml;
 
                 let bonusHtml = '';
-                let temBonusMarcado = false;
+                let todosBônusAtivos = true;
                 svc.bonus.forEach((b, idx) => {
                     const chk = document.getElementById(`chkBonus_${idx}`);
                     if(chk && chk.checked) {
-                        temBonusMarcado = true;
                         bonusHtml += `<div class="bonus-item"><span>✦ ${b.nome}</span><span class="bonus-val">${b.valor}</span></div>`;
+                    } else {
+                        todosBônusAtivos = false;
                     }
                 });
 
-                let bonusSection = temBonusMarcado ? `<div class="bonus-section"><div class="bonus-title">Bônus Estratégicos Inclusos no Pacote:</div>${bonusHtml}</div>` : '';
+                let bonusSection = bonusHtml !== '' ? `<div class="bonus-section"><div class="bonus-title">Bônus Estratégicos Inclusos no Pacote:</div>${bonusHtml}</div>` : '';
                 const valorFinalEditado = document.getElementById('inputValorFechado').value;
+                const legendaDesc = todosBônusAtivos ? svc.descFechado : svc.descSemBonus;
 
                 document.getElementById('docValores').innerHTML = `
                     ${bonusSection}
@@ -585,7 +637,7 @@
                         <div class="valor-original">Valor Avulso: <span>${svc.valorOriginal}</span></div>
                     </div>
                     <div class="price-value">${valorFinalEditado}</div>
-                    <div class="price-desc">${svc.descFechado}</div>
+                    <div class="price-desc">${legendaDesc}</div>
                 `;
             }
 
@@ -614,7 +666,7 @@
             const dados = {
                 cliente: document.getElementById('inputCliente').value || "Não informado",
                 servico: svc.titulo,
-                valor: valorParaPlanilha.replace(/<[^>]*>?/gm, ''), // Limpa tag HTML
+                valor: valorParaPlanilha.replace(/<[^>]*>?/gm, ''),
                 condicao: document.getElementById('inputCondicao').value,
                 outros: document.getElementById('inputOutros').value || "Nenhum",
                 whatsapp: document.getElementById('inputWhatsapp').value,
