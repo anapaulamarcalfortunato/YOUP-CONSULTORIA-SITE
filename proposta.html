@@ -72,7 +72,7 @@
 
         .document-a4 {
             background: #fff; width: 210mm; min-height: 297mm;
-            padding: 15mm 20mm; /* Reduzido o topo e margem inferior para caber mais */
+            padding: 15mm 20mm;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             color: #333; position: relative; box-sizing: border-box;
             display: flex; flex-direction: column;
@@ -91,7 +91,6 @@
         
         .doc-section-title { color: var(--verde-youp); font-size: 15px; border-bottom: 1px solid #eee; padding-bottom: 4px; margin: 20px 0 10px; font-weight: 700; text-transform: uppercase; }
         
-        /* GRID DE DUAS COLUNAS PARA POUPAR ESPAÇO VERTICAL */
         .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
         
         .method-box { background: #f9fbfb; border-left: 3px solid var(--verde-youp); padding: 10px 15px; }
@@ -280,7 +279,7 @@
                 </div>
             </div>
 
-            <div class="doc-section-title">Arquitetura de Investimento</div>
+            <div class="doc-section-title" id="tituloInvestimento">Arquitetura de Investimento</div>
             <p class="doc-text" id="subtituloInvestimento">A proposta abaixo reflete o pacote consolidado de inteligência estratégica desenhado para a sua cadeira.</p>
 
             <div class="price-box" id="docValores">
@@ -315,8 +314,8 @@
                 titulo: "Revisão Manual Técnica",
                 descricao: "<p class='doc-text'>Adequação da base técnica do executivo com foco em sistemas de rastreamento (ATS) e algoritmos de busca ativa (SEO).</p>",
                 core: [
-                    { titulo: "Currículo ATS Reestruturado", desc: "Reescrita técnica e estratégica convertendo tarefas genéricas em métricas de negócios e governança, garantindo aderência aos algoritmos de ATS." },
-                    { titulo: "Otimização de LinkedIn", desc: "Adequação profunda de SEO e algoritmos de busca (Recruiter). Inclui estruturação de Headline estratégica e Resumo Executivo." }
+                    { titulo: "Currículo ATS Reestruturado", desc: "Reescrita técnica e estratégica convertendo tarefas genéricas em métricas de negócios, governança e resultados de P&L, garantindo aderência aos algoritmos de ATS e impacto imediato na triagem executiva." },
+                    { titulo: "Otimização de LinkedIn", desc: "Adequação profunda de SEO e algoritmos de busca (Recruiter). Inclui estruturação de Headline estratégica, Resumo Executivo em formato de storytelling corporativo e mapeamento de competências." }
                 ],
                 bonus: [],
                 valorOriginalNum: 1000, valorFechadoNum: 850, valorSemBonus: 850, sufixo: "",
@@ -327,90 +326,90 @@
                 titulo: "1. Mentoria Tática Executiva",
                 descricao: "<p class='doc-text'>Encontro focado em alinhamento de posicionamento de mercado e transferência da metodologia estratégica para movimentações cirúrgicas.</p>",
                 core: [
-                    { titulo: "1 Encontro Individual", desc: "Sessão online intensiva (75 min) focada no diagnóstico de carreira, superação de gargalos de mercado e aplicação prática da Metodologia S.T.A.R.E." },
-                    { titulo: "Transferência de Metodologia", desc: "Acesso aos nossos frameworks proprietários de gestão de carreira, fornecendo inteligência para conduzir suas próprias movimentações." },
-                    { titulo: "Guia Go-to-Market PDF", desc: "Material tático de apoio contendo checklists de autodiagnóstico corporativo e modelos de script para abordagens diretas." }
+                    { titulo: "1 Encontro Individual", desc: "Sessão online intensiva (75 min) focada no diagnóstico de carreira, superação de gargalos de mercado e aplicação prática da Metodologia S.T.A.R.E. para o seu momento atual." },
+                    { titulo: "Transferência de Metodologia", desc: "Acesso aos nossos frameworks proprietários de gestão de carreira, fornecendo a inteligência necessária para você conduzir suas próprias movimentações com visão de Headhunter." },
+                    { titulo: "Guia Go-to-Market PDF", desc: "Material tático de apoio contendo checklists de autodiagnóstico corporativo e modelos de script para abordagens diretas no mercado." }
                 ],
                 bonus: [ 
-                    { nome: "Termômetro de Liquidez de Carreira", desc: "Mapeamento analítico que avalia a temperatura real da demanda pelo seu perfil no cenário econômico atual.", valorNominalNum: 800, descontoRealNum: 250 } 
+                    { nome: "Termômetro de Liquidez de Carreira", desc: "Mapeamento analítico que avalia a temperatura real da demanda pelo seu perfil no cenário econômico atual, auxiliando a ajustar a rota de atração e precificação do seu passe.", valorNominalNum: 800, descontoRealNum: 250 } 
                 ],
                 valorOriginalNum: 2000, valorFechadoNum: 1200, valorSemBonus: 950, sufixo: "",
-                descFechado: "Acesso ao encontro, material de apoio e ao Bônus estratégico incluído no pacote.", descSemBonus: "Investimento base enxuto (sem a inclusão do bônus de mapeamento)."
+                descFechado: "Acesso ao encontro, material de apoio e ao Bônus estratégico incluído no pacote.", descSemBonus: "Investimento base enxuto sem a inclusão do bônus de mapeamento."
             },
             express: {
                 tipo: 'ancorado',
                 titulo: "2. Consultoria Express",
                 descricao: "<p class='doc-text'>Reprogramação completa das suas ferramentas de atração e definição da tese de negócio com acompanhamento direto da nossa inteligência.</p>",
                 core: [
-                    { titulo: "2 Encontros Individuais", desc: "Reuniões táticas de alta profundidade para imersão no histórico, validação do Target Corporativo e treinamento de pitch executivo." },
-                    { titulo: "Currículo ATS & LinkedIn", desc: "Reconstrução profunda da sua vitrine profissional, blindando seu perfil para algoritmos de recrutamento e destacando entregas de P&L." },
-                    { titulo: "Relatório Blueprint", desc: "Documento estratégico contendo a sua tese de gestão exclusiva e narrativa estruturada para defesa em entrevistas." }
+                    { titulo: "2 Encontros Individuais", desc: "Reuniões táticas de alta profundidade. O primeiro para imersão total no seu histórico e o segundo para validação do Target Corporativo e treinamento de pitch executivo." },
+                    { titulo: "Currículo ATS & LinkedIn", desc: "Reconstrução profunda da sua vitrine profissional, blindando seu perfil para algoritmos de recrutamento e destacando seu impacto financeiro e entregas de valor (P&L)." },
+                    { titulo: "Relatório Blueprint", desc: "Documento estratégico contendo a sua tese de gestão exclusiva, narrativa estruturada para defesa em entrevistas e scripts de abordagem validados." }
                 ],
                 bonus: [
-                    { nome: "Termômetro de Liquidez", desc: "Mapeamento analítico estruturado de demanda e atratividade do seu nicho.", valorNominalNum: 800, descontoRealNum: 0 },
-                    { nome: "Radar de Gaps de P&L", desc: "Diagnóstico cirúrgico que aponta e corrige travas técnicas e narrativas no seu histórico.", valorNominalNum: 1500, descontoRealNum: 300 },
-                    { nome: "Brag Book Executivo", desc: "Um portfólio visual de alto impacto tangibilizando seus cases de sucesso.", valorNominalNum: 1200, descontoRealNum: 300 }
+                    { nome: "Termômetro de Liquidez", desc: "Mapeamento analítico estruturado de demanda e atratividade do seu nicho no mercado.", valorNominalNum: 800, descontoRealNum: 0 },
+                    { nome: "Radar de Gaps de P&L", desc: "Diagnóstico cirúrgico que aponta e corrige travas técnicas e narrativas no seu histórico que poderiam rebaixar sua autoridade perante decisores.", valorNominalNum: 1500, descontoRealNum: 300 },
+                    { nome: "Brag Book Executivo", desc: "Um portfólio visual de alto impacto (PDF) que tangibiliza seus cases de sucesso, métricas e P&L, ideal para apresentações em painéis de diretoria.", valorNominalNum: 1200, descontoRealNum: 300 }
                 ],
                 valorOriginalNum: 7300, valorFechadoNum: 2500, valorSemBonus: 1900, sufixo: "",
-                descFechado: "Pacote de consultoria completo com todos os bônus estratégicos inclusos.", descSemBonus: "Valor enxuto refletindo o abatimento (remoção) dos bônus selecionados."
+                descFechado: "Pacote de consultoria completo com todos os bônus estratégicos e operacionais inclusos.", descSemBonus: "Valor enxuto refletindo o abatimento (remoção) dos bônus selecionados."
             },
             assessoria: {
                 tipo: 'ancorado',
                 titulo: "3. Assessoria Tática de Operação",
-                descricao: "<p class='doc-text'>Terceirização do trabalho braçal de inteligência. Nossa equipe assume a busca ativa e a gestão do seu pipeline de candidaturas (durante 90 dias).</p>",
+                descricao: "<p class='doc-text'>Terceirização do trabalho braçal de inteligência. Nossa equipe assume a busca ativa e a gestão do seu pipeline de candidaturas (durante 90 dias) enquanto você foca na sua operação atual.</p>",
                 core: [
-                    { titulo: "Kit Técnico Completo", desc: "Elaboração do Currículo ATS e LinkedIn de Alta Autoridade, alinhando sua comunicação ao padrão exigido por Boards." },
-                    { titulo: "Mapeamento de Vagas", desc: "Curadoria contínua de oportunidades (vagas publicadas) rigorosamente aderentes à tese e ao Target estabelecido." },
-                    { titulo: "Terceirização de Inscrições", desc: "Nossa equipe assume o trabalho de preencher formulários extensos em plataformas corporativas (Gupy, Kenoby, etc)." },
-                    { titulo: "Relatório Quinzenal", desc: "Visibilidade total do processo. Report detalhado com o status de cada candidatura e próximos passos." }
+                    { titulo: "Kit Técnico Completo", desc: "Elaboração do Currículo ATS e LinkedIn de Alta Autoridade, alinhando toda a sua comunicação visual e textual ao padrão exigido pelos Boards e C-Levels." },
+                    { titulo: "Mapeamento Semanal de Vagas", desc: "Curadoria ativa e contínua de oportunidades (vagas publicadas) rigorosamente aderentes à tese e ao Target estabelecido, poupando seu tempo de busca." },
+                    { titulo: "Terceirização 100% de Inscrições", desc: "Nossa equipe assume o trabalho braçal e exaustivo de preencher formulários extensos em plataformas corporativas complexas (Gupy, Kenoby, Workday, etc)." },
+                    { titulo: "Relatório Quinzenal de Pipeline", desc: "Visibilidade total do processo. Entregamos um report detalhado com o status de cada candidatura, taxas de conversão e próximos passos estratégicos." }
                 ],
                 bonus: [
                     { nome: "Termômetro de Liquidez", desc: "Mapeamento analítico de atratividade no mercado.", valorNominalNum: 800, descontoRealNum: 0 },
-                    { nome: "Dossiê de Target Corporativo", desc: "Mapeamento de empresas-alvo prioritárias, com contexto de negócios e nomes de decisores.", valorNominalNum: 2000, descontoRealNum: 400 },
-                    { nome: "Mock Interview", desc: "Treinamento intenso (deep dive) com simulação realista de sabatina por CEOs.", valorNominalNum: 1800, descontoRealNum: 300 },
-                    { nome: "Brag Book Executivo", desc: "Portfólio visual para apresentações em processos avançados.", valorNominalNum: 1200, descontoRealNum: 300 }
+                    { nome: "Dossiê de Target Corporativo", desc: "Documento de inteligência contendo o mapeamento de 20 a 50 empresas-alvo prioritárias, divididas por safras, com contexto de negócios e nomes de decisores.", valorNominalNum: 2000, descontoRealNum: 400 },
+                    { nome: "Simulação Mock Interview", desc: "Treinamento prático e intenso de entrevista (deep dive) com simulação realista de sabatina por CEOs e membros de Conselho.", valorNominalNum: 1800, descontoRealNum: 300 },
+                    { nome: "Brag Book Executivo", desc: "Portfólio visual para apresentações e defesas de cases de sucesso em processos avançados.", valorNominalNum: 1200, descontoRealNum: 300 }
                 ],
                 valorOriginalNum: 9800, valorFechadoNum: 4200, valorSemBonus: 3200, sufixo: "",
-                descFechado: "Cobertura operacional integral de 3 meses com todo o ecossistema de bônus estratégicos ativo.", descSemBonus: "Pacote operacional enxuto ajustado proporcionalmente pela remoção dos bônus."
+                descFechado: "Cobertura operacional integral de 3 meses com todo o ecossistema de bônus estratégicos ativo.", descSemBonus: "Pacote operacional enxuto ajustado proporcionalmente pela remoção dos bônus selecionados."
             },
             gtm_head: {
                 tipo: 'ancorado',
                 titulo: "4. Go-to-Market Completo (Head)",
-                descricao: "<p class='doc-text'>Operação end-to-end. Mapeamos tomadores de decisão e iniciamos a prospecção B2B ativa no Mercado Oculto (vagas não anunciadas).</p>",
+                descricao: "<p class='doc-text'>Operação end-to-end. Além da gestão de candidaturas passivas, mapeamos tomadores de decisão e iniciamos a prospecção B2B ativa no Mercado Oculto (vagas não anunciadas).</p>",
                 core: [
-                    { titulo: "Assessoria Tática Integral", desc: "Gestão do Pipeline de candidaturas passivas, reestruturação de vitrine e terceirização de inscrições." },
-                    { titulo: "Prospecção Ativa B2B", desc: "Abordagem cirúrgica no Mercado Oculto, acessando oportunidades que nunca são publicadas em Job Boards." },
-                    { titulo: "Mapeamento de Decisores", desc: "Contato direto com quem 'assina o cheque' (CEOs, VPs), ultrapassando a barreira da triagem tradicional do RH." },
-                    { titulo: "Assessoria na Negociação", desc: "Apoio especializado na etapa de Offer, ajudando a otimizar pacotes de remuneração e Equity." }
+                    { titulo: "Assessoria Tática Integral", desc: "Operação completa de gestão do Pipeline de candidaturas passivas, com reestruturação de vitrine e terceirização de inscrições em portais." },
+                    { titulo: "Prospecção Ativa B2B", desc: "Abordagem cirúrgica e confidencial diretamente no Mercado Oculto, acessando oportunidades que nunca chegam a ser publicadas em Job Boards." },
+                    { titulo: "Mapeamento de Tomadores de Decisão", desc: "Identificação e contato direto com quem 'assina o cheque' (CEOs, VPs, Sócios e Heads), ultrapassando a barreira da triagem tradicional do RH." },
+                    { titulo: "Assessoria na Negociação", desc: "Apoio consultivo especializado na etapa de Offer, ajudando a otimizar pacotes de remuneração (Bônus, LTI, Sign-on, Equity e benefícios estruturais)." }
                 ],
                 bonus: [
                     { nome: "Radar de Gaps de P&L", desc: "Diagnóstico profundo apontando travas técnicas e narrativas.", valorNominalNum: 1500, descontoRealNum: 0 },
-                    { nome: "Dossiê de Target Corporativo", desc: "Inteligência listando 20 a 50 empresas-alvo prioritárias e decisores.", valorNominalNum: 2000, descontoRealNum: 650 },
-                    { nome: "Mock Interview", desc: "Treinamento intenso de sabatina simulando painéis e rodadas finais.", valorNominalNum: 1800, descontoRealNum: 650 },
+                    { nome: "Dossiê de Target Corporativo", desc: "Inteligência de mercado listando 20 a 50 empresas-alvo prioritárias e seus respectivos tomadores de decisão.", valorNominalNum: 2000, descontoRealNum: 650 },
+                    { nome: "Simulação Mock Interview", desc: "Treinamento intenso de sabatina executiva simulando painéis e rodadas finais de aprovação.", valorNominalNum: 1800, descontoRealNum: 650 },
                     { nome: "Brag Book Executivo", desc: "Portfólio visual evidenciando métricas, ROI e governança.", valorNominalNum: 1200, descontoRealNum: 0 }
                 ],
                 valorOriginalNum: 16000, valorFechadoNum: 6500, valorSemBonus: 5200, sufixo: " (Retainer)",
-                descFechado: "Investimento inicial acompanhado de todos os bônus <b>+ 45% de Fee de Sucesso</b> (faturado sobre o 1º salário).", descSemBonus: "Retainer ajustado sem os bônus removidos <b>+ 45% de Fee de Sucesso</b>."
+                descFechado: "Investimento fixo inicial (Retainer) acompanhado de todos os bônus <b>+ 45% de Fee de Sucesso</b> (faturado sobre o primeiro salário bruto após a contratação).", descSemBonus: "Retainer ajustado sem os bônus removidos <b>+ 45% de Fee de Sucesso</b>."
             },
             gtm_csuite: {
                 tipo: 'ancorado',
                 titulo: "5. Go-to-Market Completo (C-Suite)",
-                descricao: "<p class='doc-text'>A solução de elite para Diretores, C-Levels e Conselheiros. Sigilo absoluto, proteção de reputação e validação de teses corporativas.</p>",
+                descricao: "<p class='doc-text'>A solução de elite para Diretores, C-Levels e Conselheiros. Sigilo absoluto, proteção de reputação e validação de teses para abertura de portas em alto nível corporativo.</p>",
                 core: [
-                    { titulo: "Hunting VIP Confidencial", desc: "Prospecção ativa direcionada exclusivamente para Cadeiras de Conselho e C-Level, com proteção de imagem." },
-                    { titulo: "Validação de Tese S.T.A.R.E.", desc: "Construção de narrativas blindadas focadas em geração de receita para defesa em Conselhos." },
-                    { titulo: "Protocolo de Backchanneling", desc: "Diretrizes estritas de alinhamento para blindar o seu nome durante checagens de referências off-the-record." },
-                    { titulo: "Negociação Complexa", desc: "Inteligência para otimização de pacotes contratuais complexos envolvendo LTI e Stock Options." }
+                    { titulo: "Hunting VIP Confidencial", desc: "Prospecção ativa direcionada exclusivamente para Cadeiras de Conselho (Boards), Presidência e Diretoria C-Level, assegurando proteção máxima de imagem." },
+                    { titulo: "Validação de Tese S.T.A.R.E.", desc: "Construção de narrativas blindadas focadas em geração de receita, EBITDA e governança para defesa implacável em sabatinas de Conselhos e Investidores." },
+                    { titulo: "Protocolo de Backchanneling", desc: "Diretrizes estritas de alinhamento para blindar o seu nome e histórico durante checagens de referências off-the-record no mercado (Backchanneling)." },
+                    { titulo: "Assessoria de Negociação Complexa", desc: "Inteligência para negociação e otimização de pacotes contratuais complexos envolvendo Equity, LTI, Stock Options e Golden Parachutes." }
                 ],
                 bonus: [
                     { nome: "Radar de Gaps de P&L", desc: "Diagnóstico avançado para superação de travas de narrativa.", valorNominalNum: 1500, descontoRealNum: 0 },
-                    { nome: "Dossiê de Target Corporativo", desc: "Mapeamento exclusivo de contatos de Conselheiros e Fundos de Investimento.", valorNominalNum: 2000, descontoRealNum: 800 },
-                    { nome: "Mock Interview C-Suite", desc: "Sabatina deep-dive simulando painéis de aprovação de Board.", valorNominalNum: 1800, descontoRealNum: 0 },
+                    { nome: "Dossiê de Target Corporativo", desc: "Mapeamento exclusivo de contatos de Conselheiros, VPs e Sócios de Fundos de Investimento (Private Equity e VC).", valorNominalNum: 2000, descontoRealNum: 800 },
+                    { nome: "Simulação Mock Interview", desc: "Sabatina deep-dive rigorosa simulando painéis de aprovação e defesa de business case em Board.", valorNominalNum: 1800, descontoRealNum: 0 },
                     { nome: "Brag Book Executivo", desc: "Portfólio executivo de alta densidade visual focado em Valuation.", valorNominalNum: 1200, descontoRealNum: 300 },
-                    { nome: "Onboarding Executivo 90d", desc: "Mentoria nos primeiros 3 meses na cadeira, garantindo quick wins e proteção política (Managing Up).", valorNominalNum: 3000, descontoRealNum: 1200 }
+                    { nome: "Onboarding Executivo 90d", desc: "Mentoria de acompanhamento nos primeiros 3 meses na cadeira, garantindo quick wins, leitura de cultura e proteção política (Managing Up).", valorNominalNum: 3000, descontoRealNum: 1200 }
                 ],
                 valorOriginalNum: 25900, valorFechadoNum: 9500, valorSemBonus: 7200, sufixo: " (Retainer)",
-                descFechado: "Retainer inicial com acesso integral aos bônus VIP <b>+ 50% de Fee de Sucesso</b> (remuneração inicial ao fechamento do contrato).", descSemBonus: "Retainer enxuto ajustado proporcionalmente <b>+ 50% de Fee de Sucesso</b>."
+                descFechado: "Retainer inicial com acesso integral aos bônus VIP <b>+ 50% de Fee de Sucesso</b> (faturado sobre a remuneração inicial ao fechamento do contrato).", descSemBonus: "Retainer enxuto ajustado proporcionalmente <b>+ 50% de Fee de Sucesso</b>."
             },
 
             // --- ENTREGÁVEIS ISOLADOS (AVULSOS) ---
@@ -430,7 +429,14 @@
             // --- SERVIÇOS CORPORATIVOS ---
             agenciamento: {
                 tipo: 'dinamico', titulo: "Agenciamento Executivo High-Impacto",
-                descricao: `<p class="doc-text">A YOUP oferece serviços abrangentes de Agenciamento projetados para profissionais em busca de recolocação. Atuamos como seus agentes no <b>Mercado Oculto</b>.</p>`,
+                descricao: `<p class="doc-text">A YOUP oferece serviços abrangentes de Agenciamento projetados para profissionais em busca de recolocação. Atuamos como seus agentes no <b>Mercado Oculto</b>.</p>
+                            <div class="doc-section-title">Nossa Metodologia</div>
+                            <div class="method-grid">
+                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 1. Diagnóstico e Tradução</h4><p>Mapeamento de know how e tradução para a linguagem de ROI.</p></div>
+                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 2. Rebranding Executivo</h4><p>Revisão de Currículo e LinkedIn para algoritmos.</p></div>
+                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 3. Sourcing e Inteligência</h4><p>Pesquisa de vagas off-market e contato direto com decisores.</p></div>
+                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 4. Playbook Go-to-Market</h4><p>Termômetro de liquidez e Roadmap focado em empresas-alvo.</p></div>
+                            </div>`,
                 inputsValores: `
                     <div class="form-group">
                         <label style="color:#fff;">Mostrar Plano Basic na Proposta?</label>
@@ -661,39 +667,37 @@
                 document.getElementById('tituloInvestimento').style.display = 'block';
                 document.getElementById('subtituloInvestimento').style.display = 'block';
                 
-                // RENDERIZA ENTREGÁVEIS CORE (PÁGINA 1)
                 let coreHtml = '';
                 svc.core.forEach(item => {
                     coreHtml += `<div class="method-box"><h4 style="color: var(--verde-youp);">✓ ${item.titulo}</h4><p>${item.desc}</p></div>`;
                 });
                 document.getElementById('docEntregaveisGrid').innerHTML = coreHtml;
 
-                // RENDERIZA BÔNUS (PÁGINA 1 - DETALHADOS E PÁGINA 2 - VALORES)
                 let bonusDescHtml = ''; // Para Página 1
                 let bonusPriceHtml = ''; // Para Página 2
                 let temNenhumBonus = true;
 
-                svc.bonus.forEach((b, idx) => {
-                    const chk = document.getElementById(`chkBonus_${idx}`);
-                    if(chk && chk.checked) {
-                        // Caixa descritiva (Página 1)
-                        bonusDescHtml += `
-                        <div class="method-box-bonus">
-                            <h4 style="color: var(--dourado);">✦ ${b.nome}</h4>
-                            <p>${b.desc}</p>
-                        </div>`;
-                        
-                        // Lista de valores (Página 2)
-                        bonusPriceHtml += `
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: #555;">
-                            <span>✦ ${b.nome}</span>
-                            <span style="text-decoration: line-through; color: #999; font-weight:700;">${formatarMoeda(b.valorNominalNum)}</span>
-                        </div>`;
-                        temNenhumBonus = false;
-                    }
-                });
+                if (svc.bonus && svc.bonus.length > 0) {
+                     svc.bonus.forEach((b, idx) => {
+                        const chk = document.getElementById(`chkBonus_${idx}`);
+                        if(chk && chk.checked) {
+                            bonusDescHtml += `
+                            <div class="method-box-bonus">
+                                <h4 style="color: var(--dourado);">✦ ${b.nome}</h4>
+                                <p>${b.desc}</p>
+                            </div>`;
+                            
+                            bonusPriceHtml += `
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: #555;">
+                                <span>✦ ${b.nome}</span>
+                                <span style="text-decoration: line-through; color: #999; font-weight:700;">${formatarMoeda(b.valorNominalNum)}</span>
+                            </div>`;
+                            temNenhumBonus = false;
+                        }
+                    });
+                }
 
-                // Injeta Descrições de Bônus na Página 1
+                // Exibe as caixas de Bônus na Página 1 apenas se houver algum marcado
                 const containerBonusDesc = document.getElementById('docBonusDescContainer');
                 if (!temNenhumBonus) {
                     containerBonusDesc.style.display = 'block';
