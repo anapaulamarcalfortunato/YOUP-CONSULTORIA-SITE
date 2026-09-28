@@ -42,5 +42,6 @@
   { "id_colunista": "romildo-nascimento", "url": "coluna-romildo-nascimento-carreira-internacional-nao-comeca-no-aeroporto.html", "titulo": "Carreira Internacional Não Começa no Aeroporto", "descricao": "Descubra o que executivos precisam estruturar antes de atravessar fronteiras corporativas." },
   { "id_colunista": "ana-paula-marcal-fortunato", "url": "artigo-como-apresentar-resultados-entrevista-c-level.html", "titulo": "Como Apresentar Resultados Sem Arrogância", "descricao": "Aprenda a expor o seu Valuation em entrevistas C-Level e entenda por que o pitch único destrói as suas chances." },
   { "id_colunista": "simone-vieira", "url": "coluna-simone-vieira-nao-basta-chegar-e-preciso-ter-voz.html", "titulo": "Não Basta Chegar. É Preciso Ter Voz!", "descricao": "Descubra por que ocupar um cargo de liderança não basta se as mulheres não tiverem voz ativa nas organizações." }
-{ "id_colunista": "leandro-pereira", "url": "coluna-leandro-pereira-estrategia-em-movimento.html", "titulo": "Estratégia em Movimento", "descricao": "Descubra por que a estratégia nas empresas vai além do planejamento e se revela na execução e nas decisões reais." }
-  ]
+{ "id_colunista": "leandro-pereira", "url": "coluna-leandro-pereira-estrategia-em-movimento.html", "titulo": "Estratégia em Movimento", "descricao": "Descubra por que a estratégia nas empresas vai além do planejamento e se revela na execução e nas decisões reais." },
+  { "id_colunista": "jose-reale", "url": "coluna-jose-reale-antecedentes-criminais-na-contratacao.html", "titulo": "Antecedentes Criminais na Contratação", "descricao": "Descubra quando a empresa pode exigir a certidão de antecedentes criminais e evite passivos trabalhistas." }
+]
