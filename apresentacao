@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>O Novo Papel do RH em 2026 | YOUP Consultoria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dourado: #c5a059;
+            --dourado-escuro: #9e7d3b;
+            --verde-youp: #5c8e82;
+            --cinza-escuro: #0a0a0a;
+            --cinza-card: #141414;
+            --fundo-offwhite: #f4f5f7;
+            --texto-corpo: #222222;
+            --texto-titulo: #111111;
+            --borda: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--fundo-offwhite);
+            color: var(--texto-corpo);
+            -webkit-print-color-adjust: exact;
+        }
+
+        .slide {
+            width: 210mm;
+            height: 297mm;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        /* CAPA DA APRESENTAÇÃO */
+        .slide-cover {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            display: block;
+            padding: 25mm 20mm;
+        }
+
+        .cover-header {
+            border-bottom: 2px solid var(--dourado);
+            padding-bottom: 8mm;
+            margin-bottom: 20mm;
+        }
+
+        .cover-brand {
+            font-size: 24pt;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .cover-brand .logo-white { color: #ffffff; }
+        .cover-brand .logo-gold { color: var(--dourado); }
+
+        .cover-subbrand {
+            font-size: 9pt;
+            color: #888888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .cover-body {
+            margin-top: 25mm;
+        }
+
+        .cover-tag {
+            display: inline-block;
+            background-color: rgba(197, 160, 89, 0.15);
+            color: var(--dourado);
+            font-size: 10pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: 1px solid var(--dourado);
+            margin-bottom: 10mm;
+        }
+
+        .cover-title {
+            font-size: 38pt;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0 0 8mm 0;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .cover-title span {
+            color: var(--dourado);
+        }
+
+        .cover-description {
+            font-size: 14pt;
+            font-weight: 300;
+            color: #cccccc;
+            line-height: 1.6;
+            max-width: 160mm;
+            margin-bottom: 25mm;
+        }
+
+        .cover-footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 20mm;
+            right: 20mm;
+            border-top: 1px solid #333;
+            padding-top: 8mm;
+            display: block;
+        }
+
+        .cover-footer-text {
+            font-size: 9pt;
+            color: #aaaaaa;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.5;
+        }
+
+        /* SLIDES DE CONTEÚDO */
+        .slide-content {
+            background-color: var(--fundo-offwhite);
+            padding: 12mm 18mm 14mm 18mm;
+        }
+
+        .slide-header {
+            height: 16mm;
+            border-bottom: 2px solid var(--dourado);
+            margin-bottom: 6mm;
+            position: relative;
+        }
+
+        .slide-header-logo {
+            font-size: 13pt;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            float: left;
+        }
+
+        .slide-header-logo .logo-black { color: #000000; }
+        .slide-header-logo .logo-gold { color: var(--dourado); }
+
+        .slide-header-sub {
+            font-size: 7.5pt;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .slide-header-category {
+            float: right;
+            font-size: 8.5pt;
+            font-weight: 800;
+            color: var(--verde-youp);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: rgba(92, 142, 130, 0.12);
+            padding: 5px 12px;
+            border-radius: 3px;
+        }
+
+        .slide-container {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--borda);
+            padding: 10mm 12mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            height: 236mm;
+            position: relative;
+        }
+
+        .slide-title {
+            font-size: 20pt;
+            font-weight: 900;
+            color: var(--texto-titulo);
+            margin: 0 0 6mm 0;
+            line-height: 1.25;
+            text-transform: uppercase;
+            border-left: 4px solid var(--dourado);
+            padding-left: 4mm;
+        }
+
+        .pain-box {
+            background-color: #fff8f8;
+            border: 1px solid #f0c2c2;
+            border-left: 4px solid #d9534f;
+            border-radius: 6px;
+            padding: 4mm 6mm;
+            margin-bottom: 5mm;
+        }
+
+        .pain-title {
+            font-size: 9pt;
+            font-weight: 800;
+            color: #d9534f;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 2px;
+        }
+
+        .pain-desc {
+            font-size: 10pt;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .grid-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 4mm;
+            margin-top: 4mm;
+        }
+
+        .card-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 4mm 6mm;
+        }
+
+        .card-title {
+            font-size: 11pt;
+            font-weight: 800;
+            color: var(--verde-youp);
+            margin-bottom: 2mm;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-text {
+            font-size: 10pt;
+            color: #444444;
+            line-height: 1.55;
+            text-align: justify;
+        }
+
+        .quote-box {
+            background: var(--cinza-escuro);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 5mm 8mm;
+            text-align: center;
+            border-left: 4px solid var(--dourado);
+            margin-top: 6mm;
+        }
+
+        .quote-text {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--dourado);
+            letter-spacing: 0.5px;
+        }
+
+        .list-checks {
+            list-style: none;
+            padding: 0;
+            margin: 4mm 0;
+        }
+
+        .list-checks li {
+            font-size: 10.5pt;
+            line-height: 1.6;
+            margin-bottom: 3.5mm;
+            position: relative;
+            padding-left: 28px;
+            color: #222;
+        }
+
+        .list-checks li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ffffff;
+            background-color: var(--verde-youp);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            font-weight: 900;
+        }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 5mm;
+            left: 18mm;
+            right: 18mm;
+            height: 8mm;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 2mm;
+        }
+
+        .slide-footer-text {
+            float: left;
+            font-size: 7.5pt;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slide-footer-page {
+            float: right;
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--dourado-escuro);
+        }
+
+        .clear { clear: both; }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: CAPA -->
+    <div class="slide slide-cover">
+        <div class="cover-header">
+            <div class="cover-brand"><span class="logo-white">YOUP</span> <span class="logo-gold">CONSULTORIA</span></div>
+            <div class="cover-subbrand">Executive Search & Inteligência de Mercado</div>
+        </div>
+        <div class="cover-body">
+            <div class="cover-tag">Apresentação Estratégica</div>
+            <h1 class="cover-title">O Novo Papel<br>do RH em <span>2026</span></h1>
+            <p class="cover-description">
+                De Centro de Gestão de Crises ao Motor Estratégico do Negócio.
+            </p>
+        </div>
+        <div class="cover-footer">
+            <div class="cover-footer-text">
+                Soluções em Desenvolvimento Humano, Compliance (NR-1) e Design Organizacional
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: O CENÁRIO -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <div class="slide-header-logo">
+                <span class="logo-black">YOUP</span> <span class="logo-gold">CONSULTORIA</span>
+                <div class="slide-header-sub">Gestão & Estratégia de Pessoas</div>
+            </div>
+            <div class="slide-header-category">Diagnóstico de Mercado</div>
+            <div class="clear"></div>
+        </div>
+        <div class="slide-container">
+            <h2 class="slide-title">O paradoxo atual: O RH nunca foi tão cobrado e nunca esteve tão sobrecarregado</h2>
+            
+            <p style="font-size: 10.5pt; color: #555; margin-bottom: 4mm;">Sabemos exatamente o que está sobre a sua mesa hoje:</p>
+
+            <div class="grid-cards">
+                <div class="card-item">
+                    <div class="card-title">🚨 Passivo Invisível</div>
+                    <div class="card-text">A pressão fiscalizatória da NR-1 e o custo financeiro e operacional oculto do burnout, afastamentos e degradação da saúde mental na cultura da empresa.</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title">⚠️ Apagão de Retenção</div>
+                    <div class="card-text">Planos de carreira engessados e pacotes de benefícios tradicionais que não conseguem mais reter os melhores talentos no modelo híbrido ou remoto.</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title">🤖 A Falsa Eficiência</div>
+                    <div class="card-text">Processos seletivos fraudados por IAs generativas e líderes exaustos pelo microgerenciamento e falta de preparo para gerir pessoas.</div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <div class="quote-text">"Você não precisa de mais planilhas. Você precisa de processos que rodem sozinhos."</div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-text">YOUP Consultoria • O Novo Papel do RH em 2026</div>
+            <div class="slide-footer-page">01</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: A NOSSA PROMESSA -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <div class="slide-header-logo">
+                <span class="logo-black">YOUP</span> <span class="logo-gold">CONSULTORIA</span>
+                <div class="slide-header-sub">Gestão & Estratégia de Pessoas</div>
+            </div>
+            <div class="slide-header-category">Nossa Solução</div>
+            <div class="clear"></div>
+        </div>
+        <div class="slide-container">
+            <h2 class="slide-title">O que entregamos? Resultados que a Diretoria entende</h2>
+
+            <ul class="list-checks" style="margin-top: 6mm;">
+                <li>
+                    <strong>Blindagem Jurídica:</strong><br>
+                    Adequação total e rigorosa às normativas de saúde mental e riscos psicossociais (NR-1).
+                </li>
+                <li>
+                    <strong>Redução do Custo de Rotatividade (Turnover):</strong><br>
+                    Redesenho estratégico de jornadas e experiências que retêm os talentos de alta performance.
+                </li>
+                <li>
+                    <strong>Liderança Autônoma e Preparada:</strong><br>
+                    Gestores capacitados para resolver conflitos e demandas de pessoas, em vez de escalá-los para o RH.
+                </li>
+                <li>
+                    <strong>Descompressão do RH (Done-For-You):</strong><br>
+                    Implementação completa conduzida por nossos especialistas. Não geramos trabalho adicional para a sua equipe.
+                </li>
+            </ul>
+
+            <div style="background-color: rgba(92, 142, 130, 0.1); border: 1px solid var(--verde-youp); border-radius: 8px; padding: 5mm; margin-top: 6mm; text-align: center;">
+                <span style="font-size: 10pt; font-weight: 700; color: var(--verde-youp); text-transform: uppercase; letter-spacing: 1px;">
+                    Foco total em ROI, Governança e Eficiência Operacional
+                </span>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-text">YOUP Consultoria • O Novo Papel do RH em 2026</div>
+            <div class="slide-footer-page">02</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: ESTRUTURAÇÃO E IMPLEMENTAÇÃO -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <div class="slide-header-logo">
+                <span class="logo-black">YOUP</span> <span class="logo-gold">CONSULTORIA</span>
+                <div class="slide-header-sub">Gestão & Estratégia de Pessoas</div>
+            </div>
+            <div class="slide-header-category">Arquitetura de RH</div>
+            <div class="clear"></div>
+        </div>
+        <div class="slide-container">
+            <h2 class="slide-title">Estruturação de RH: Do Zero à Operação Estratégica</h2>
+
+            <div class="pain-box">
+                <div class="pain-title">A Dor do Negócio</div>
+                <div class="pain-desc">A empresa cresceu, mas o RH continuou sendo apenas um "Departamento Pessoal" focado em folha de pagamento. Faltam processos, a operação é manual e não há dados para tomada de decisão.</div>
+            </div>
+
+            <p style="font-size: 10.5pt; font-weight: 800; color: var(--verde-youp); text-transform: uppercase; margin-top: 4mm; margin-bottom: 2mm; letter-spacing: 1px;">O que entregamos (End-to-End):</p>
+
+            <div class="grid-cards">
+                <div class="card-item">
+                    <div class="card-title" style="color: var(--cinza-escuro);">⚙️ Setup Completo de RH</div>
+                    <div class="card-text">Mapeamento e desenho de todos os fluxos operacionais e táticos: da atração e onboarding ao desligamento (Jornada Completa do Colaborador).</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title" style="color: var(--cinza-escuro);">💻 Implementação de HR Techs</div>
+                    <div class="card-text">Escolha, configuração e integração de sistemas modernos (ATS para recrutamento, plataformas de avaliação de desempenho e People Analytics).</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title" style="color: var(--cinza-escuro);">📋 Criação de Políticas Internas</div>
+                    <div class="card-text">Redação de manuais de cultura, código de conduta e políticas de trabalho híbrido/remoto totalmente alinhadas à legislação vigente.</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-text">YOUP Consultoria • O Novo Papel do RH em 2026</div>
+            <div class="slide-footer-page">03</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: LIDERANÇA E GESTÃO DE TALENTOS -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <div class="slide-header-logo">
+                <span class="logo-black">YOUP</span> <span class="logo-gold">CONSULTORIA</span>
+                <div class="slide-header-sub">Gestão & Estratégia de Pessoas</div>
+            </div>
+            <div class="slide-header-category">Desenvolvimento de Líderes</div>
+            <div class="clear"></div>
+        </div>
+        <div class="slide-container">
+            <h2 class="slide-title">Acelerando a Média Gestão e Retendo Talentos</h2>
+
+            <div class="pain-box">
+                <div class="pain-title">A Dor do Negócio</div>
+                <div class="pain-desc">Profissionais técnicos brilhantes são promovidos a gestores, mas não sabem gerenciar pessoas, gerando microgerenciamento, insatisfação e destruindo o clima do time.</div>
+            </div>
+
+            <p style="font-size: 10.5pt; font-weight: 800; color: var(--verde-youp); text-transform: uppercase; margin-top: 4mm; margin-bottom: 2mm; letter-spacing: 1px;">O que entregamos:</p>
+
+            <div class="grid-cards">
+                <div class="card-item">
+                    <div class="card-title" style="color: var(--dourado-escuro);">🎓 PDL (Programa de Desenvolvimento de Liderança)</div>
+                    <div class="card-text">Trilhas modulares de capacitação focadas em Liderança Empática, Gestão por Resultados (OKRs), Comunicação Assíncrona e Segurança Psicológica.</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title" style="color: var(--dourado-escuro);">🎯 Mentoria Executiva (1:1)</div>
+                    <div class="card-text">Acompanhamento individualizado e direto para transição de carreira de novos gestores e líderes C-Level.</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title" style="color: var(--dourado-escuro);">📐 Design Organizacional</div>
+                    <div class="card-text">Transição estruturada para times baseados em habilidades (Skills-Based) e arquitetura de trilhas de carreira (Carreira em Y e W).</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-text">YOUP Consultoria • O Novo Papel do RH em 2026</div>
+            <div class="slide-footer-page">04</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: CLIMA, NR-1 E OUTPLACEMENT -->
+    <div class="slide slide-content">
+        <div class="slide-header">
+            <div class="slide-header-logo">
+                <span class="logo-black">YOUP</span> <span class="logo-gold">CONSULTORIA</span>
+                <div class="slide-header-sub">Gestão & Estratégia de Pessoas</div>
+            </div>
+            <div class="slide-header-category">Governança & Clima</div>
+            <div class="clear"></div>
+        </div>
+        <div class="slide-container">
+            <h2 class="slide-title">Saúde Organizacional e Desligamentos Estratégicos</h2>
+
+            <div class="pain-box">
+                <div class="pain-title">A Dor do Negócio</div>
+                <div class="pain-desc">O passivo trabalhista (NR-1/Burnout) e o dano severo à marca empregadora quando as demissões são conduzidas de forma fria, desorganizada ou sem suporte humano.</div>
+            </div>
+
+            <p style="font-size: 10.5pt; font-weight: 800; color: var(--verde-youp); text-transform: uppercase; margin-top: 4mm; margin-bottom: 2mm; letter-spacing: 1px;">O que entregamos:</p>
+
+            <div class="grid-cards">
+                <div class="card-item">
+                    <div class="card-title">🛡️ Adequação NR-1 e Riscos Psicossociais</div>
+                    <div class="card-text">Mapeamento de clima e implementação de protocolos contra o esgotamento profissional, blindando a empresa juridicamente.</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title">🤝 Outplacement (Transição Humanizada)</div>
+                    <div class="card-text">Apoio emocional e prático com metodologias modernas para acelerar a recolocação, protegendo o Employer Branding (Glassdoor/LinkedIn) e o moral de quem fica.</div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-title">🔍 Auditoria de Cultura e Engajamento</div>
+                    <div class="card-text">Diagnóstico preciso para reverter subculturas tóxicas e aumentar o alinhamento em equipes presenciais ou distribuídas.</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-text">YOUP Consultoria • O Novo Papel do RH em 2026</div>
+            <div class="slide-footer-page">05</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</body>
+</html>
