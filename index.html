@@ -1724,7 +1724,18 @@
                     const spot = (a.getAttribute('data-spot') || '').trim();
                     const matchFiltro = (filtroAtual === 'todos' || filtroAtual === 'colunas') ? true : (filtroAtual === 'opinioes' ? spot === '3' : a.getAttribute('data-category') === filtroAtual);
                     const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
-                    const matchTexto = pesquisaAtual === '' || a.textContent.toLowerCase().includes(pesquisaAtual);
+                    // Captura informações ocultas para enriquecer a busca
+const textoVisivel = a.textContent.toLowerCase();
+const autorAttr = (a.getAttribute('data-author') || '').replace(/-/g, ' ').toLowerCase();
+const categoriaAttr = (a.getAttribute('data-category') || '').replace(/-/g, ' ').toLowerCase();
+const urlAttr = (a.getAttribute('href') || '').toLowerCase();
+const altImg = a.querySelector('img') ? (a.querySelector('img').getAttribute('alt') || '').toLowerCase() : '';
+
+// Junta tudo em um "pacote" invisível de palavras-chave
+const conteudoBusca = `${textoVisivel} ${autorAttr} ${categoriaAttr} ${urlAttr} ${altImg}`;
+
+// Verifica se o que foi digitado existe em qualquer lugar desse pacote
+const matchTexto = pesquisaAtual === '' || conteudoBusca.includes(pesquisaAtual);
                     
                     if(filtroAtual === 'colunas' && autorAtual === 'todos' && pesquisaAtual === ''){
                         return a.getAttribute('data-type') === 'coluna';
