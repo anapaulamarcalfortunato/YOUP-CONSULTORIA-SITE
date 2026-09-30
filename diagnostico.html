@@ -1168,11 +1168,13 @@
             }
 
             try {
-                // Envio via fetch POST
-                let response = await fetch(GOOGLE_SCRIPT_URL, {
+                // Envio blindado contra bloqueio de CORS do navegador
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: "POST",
                     mode: "no-cors",
-                    headers: { "Content-Type": "application/json" },
+                    headers: { 
+                        "Content-Type": "text/plain;charset=utf-8" 
+                    },
                     body: JSON.stringify(dataObj)
                 });
 
