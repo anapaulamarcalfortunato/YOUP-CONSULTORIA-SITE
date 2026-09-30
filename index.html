@@ -1724,7 +1724,7 @@
                     const spot = (a.getAttribute('data-spot') || '').trim();
                     const matchFiltro = (filtroAtual === 'todos' || filtroAtual === 'colunas') ? true : (filtroAtual === 'opinioes' ? spot === '3' : a.getAttribute('data-category') === filtroAtual);
                     const matchAutor = autorAtual === 'todos' || a.getAttribute('data-author') === autorAtual;
-                    const matchTexto = pesquisaAtual === '' || a.innerText.toLowerCase().includes(pesquisaAtual);
+                    const matchTexto = pesquisaAtual === '' || a.textContent.toLowerCase().includes(pesquisaAtual);
                     
                     if(filtroAtual === 'colunas' && autorAtual === 'todos' && pesquisaAtual === ''){
                         return a.getAttribute('data-type') === 'coluna';
