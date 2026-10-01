@@ -376,12 +376,12 @@
         </div>
 
         <div class="form-intro">
-            <h2>V1.Avaliação Diagnóstica Padrão — Carreira / Jobhunter</h2>
+            <h2>V2.Avaliação Diagnóstica Padrão — Carreira / Jobhunter</h2>
             <p><strong>Objetivo:</strong> Compreender seu momento profissional atual, identificar objetivos, desafios, posicionamento, movimentação no mercado, disponibilidade, expectativa de investimento e o nível de apoio que você busca.</p>
             <p style="margin-top: 10px;"><strong>Orientação:</strong> Responda com o máximo de detalhes que considerar importantes. Não existem respostas certas ou erradas. Quanto mais clareza tivermos sobre seu momento e seus objetivos, mais personalizada poderá ser a orientação sobre o melhor formato de trabalho.</p>
         </div>
 
-        <form id="diagnosticoForm" onsubmit="event.preventDefault(); enviarDiagnostico();">
+        <form id="diagnosticoForm">
 
             <!-- 1. DADOS PROFISSIONAIS -->
             <div class="section-box">
@@ -1091,7 +1091,7 @@
 
     <script>
         // URL do Google Apps Script (Cole aqui a sua URL implantada)
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzMTXwJ-NS7Kl3YtQf6AIpvYBmvgdP2b80VDlbkKNwokma8aPPkqlLWFp0RLtVN0PqE/exec";
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmWcZF078rBXzxcr6hE4ItjD3nnbRlK6tzLz1Eic02G42J-S9_AJpFx-nkLakJL0PU/exec";
 
         // Atualização da barra de progresso no topo
         window.onscroll = function() {
@@ -1112,8 +1112,12 @@
             });
         });
 
-        // Envio do formulário
-        async function enviarDiagnostico() {
+        // Envio do formulário via requisição de formulário nativa (Form POST)
+        const formElement = document.getElementById('diagnosticoForm');
+        
+        formElement.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const btn = document.getElementById('btnSubmit');
             const status = document.getElementById('statusMsg');
 
@@ -1138,55 +1142,32 @@
 
             btn.disabled = true;
             btn.innerText = "Processando e Enviando Diagnóstico... ⏳";
-            mostrarStatus("Criptografando e enviando suas respostas com segurança...", "success");
+            mostrarStatus("Enviando suas respostas com segurança...", "success");
 
-            const formElement = document.getElementById('diagnosticoForm');
             const formData = new FormData(formElement);
+            // URLSearchParams converte os dados no formato exato que o Google precisa para receber sem CORS
+            const urlEncodedData = new URLSearchParams(formData).toString();
 
-            // Converter FormData em Objeto para tratamento
-            const dataObj = {};
-            for (let [key, value] of formData.entries()) {
-                if (dataObj[key]) {
-                    if (Array.isArray(dataObj[key])) {
-                        dataObj[key].push(value);
-                    } else {
-                        dataObj[key] = [dataObj[key], value];
-                    }
-                } else {
-                    dataObj[key] = value;
-                }
-            }
-
-            // Converter arrays para texto separado por vírgula
-            for (let k in dataObj) {
-                if (Array.isArray(dataObj[k])) {
-                    dataObj[k] = dataObj[k].join(", ");
-                }
-            }
-
-            try {
-                // Envio blindado contra bloqueio de CORS do navegador
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { 
-                        "Content-Type": "text/plain;charset=utf-8" 
-                    },
-                    body: JSON.stringify(dataObj)
-                });
-
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: urlEncodedData
+            })
+            .then(response => {
                 mostrarStatus("🎉 Diagnóstico enviado com sucesso! Seus dados foram salvos de forma estritamente confidencial.", "success");
                 btn.innerText = "Diagnóstico Enviado!";
                 formElement.reset();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            } catch (err) {
+            })
+            .catch(err => {
                 console.error("Erro no envio:", err);
                 mostrarStatus("Erro ao enviar. Por favor, verifique a conexão e tente novamente.", "error");
                 btn.disabled = false;
                 btn.innerText = "Enviar Diagnóstico para Análise Executiva ➔";
-            }
-        }
+            });
+        });
 
         function mostrarStatus(txt, tipo) {
             const el = document.getElementById('statusMsg');
