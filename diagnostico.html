@@ -1057,12 +1057,42 @@
         });
 
         const formElement = document.getElementById('diagnosticoForm');
-        
+
+        // Envio via HTML form + iframe oculto.
+        // Isso evita problemas de CORS que podem acontecer com fetch() entre
+        // o domínio do site e o Google Apps Script.
+        let envioConcluido = false;
+
+        // Recebe a confirmação real enviada pelo Apps Script.
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://script.google.com' && event.origin !== 'https://script.googleusercontent.com') return;
+            if (!event.data || event.data.result !== 'success') return;
+            if (envioConcluido) return;
+
+            envioConcluido = true;
+            const btn = document.getElementById('btnSubmit');
+            mostrarStatus("🎉 Diagnóstico enviado com sucesso! Seus dados foram salvos para análise.", "success");
+            btn.innerText = "Diagnóstico Enviado!";
+            formElement.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function criarIframeEnvio() {
+            let iframe = document.getElementById('googleScriptFrame');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.name = 'googleScriptFrame';
+                iframe.id = 'googleScriptFrame';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+            return iframe;
+        }
+
         formElement.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const btn = document.getElementById('btnSubmit');
-            const status = document.getElementById('statusMsg');
 
             const modelosSelecionados = document.querySelectorAll('input[name="modelo_trabalho"]:checked');
             if (modelosSelecionados.length === 0) {
@@ -1086,28 +1116,40 @@
             btn.innerText = "Processando e Enviando Diagnóstico... ⏳";
             mostrarStatus("Enviando suas respostas com segurança...", "success");
 
-            const formData = new FormData(formElement);
-            const urlEncodedData = new URLSearchParams(formData).toString();
+            // Cria um formulário auxiliar para enviar diretamente ao Apps Script.
+            // Não usamos fetch() aqui, porque a resposta do Apps Script pode ser
+            // bloqueada pelo navegador por política de CORS.
+            const iframe = criarIframeEnvio();
+            const envioForm = document.createElement('form');
+            envioForm.method = 'POST';
+            envioForm.action = GOOGLE_SCRIPT_URL;
+            envioForm.target = iframe.name;
+            envioForm.style.display = 'none';
 
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: urlEncodedData
-            })
-            .then(response => {
-                mostrarStatus("🎉 Diagnóstico enviado com sucesso! Seus dados foram salvos de forma estritamente confidencial.", "success");
-                btn.innerText = "Diagnóstico Enviado!";
-                formElement.reset();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            })
-            .catch(err => {
-                console.error("Erro no envio:", err);
-                mostrarStatus("Erro ao enviar. Por favor, verifique a conexão e tente novamente.", "error");
-                btn.disabled = false;
-                btn.innerText = "Enviar Diagnóstico para Análise Executiva ➔";
+            // Copia TODOS os campos, inclusive checkboxes múltiplos.
+            const campos = formElement.querySelectorAll('input, select, textarea');
+            campos.forEach(campo => {
+                if (!campo.name || campo.disabled) return;
+                if ((campo.type === 'checkbox' || campo.type === 'radio') && !campo.checked) return;
+
+                const hidden = document.createElement('input');
+                hidden.type = 'hidden';
+                hidden.name = campo.name;
+                hidden.value = campo.value || '';
+                envioForm.appendChild(hidden);
             });
+
+            document.body.appendChild(envioForm);
+            envioConcluido = false;
+
+            // Como o iframe não expõe a resposta do Apps Script ao site,
+            // consideramos o POST concluído quando o iframe carregar.
+            iframe.onload = function() {
+                // O resultado real é confirmado pelo postMessage do Apps Script.
+                // Não mostramos sucesso apenas porque o iframe carregou.
+            };
+
+            envioForm.submit();
         });
 
         function mostrarStatus(txt, tipo) {
