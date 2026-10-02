@@ -156,13 +156,8 @@
             margin-bottom: 20px;
         }
 
-        .field-group {
-            margin-bottom: 25px;
-        }
-
-        .field-group:last-child {
-            margin-bottom: 0;
-        }
+        .field-group { margin-bottom: 25px; }
+        .field-group:last-child { margin-bottom: 0; }
 
         label.field-label {
             display: block;
@@ -215,29 +210,10 @@
             background: #ffffff;
         }
 
-        /* Escala Linear de 1 a 10 Estilizada */
-        .scale-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .scale-options {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .scale-item {
-            flex: 1;
-            min-width: 38px;
-            text-align: center;
-        }
-
-        .scale-item input[type="radio"] {
-            display: none;
-        }
-
+        .scale-wrapper { display: flex; flex-direction: column; gap: 8px; }
+        .scale-options { display: flex; gap: 8px; flex-wrap: wrap; }
+        .scale-item { flex: 1; min-width: 38px; text-align: center; }
+        .scale-item input[type="radio"] { display: none; }
         .scale-item label {
             display: block;
             padding: 12px 0;
@@ -250,17 +226,13 @@
             color: var(--texto-principal);
             transition: all 0.2s ease;
         }
-
         .scale-item input[type="radio"]:checked + label {
             background: var(--dourado);
             color: #ffffff;
             border-color: var(--dourado);
             box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
         }
-
-        .scale-item label:hover {
-            border-color: var(--dourado);
-        }
+        .scale-item label:hover { border-color: var(--dourado); }
 
         .scale-legend {
             display: flex;
@@ -273,13 +245,7 @@
             margin-top: 4px;
         }
 
-        /* Múltipla Escolha e Checkboxes */
-        .choices-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
+        .choices-stack { display: flex; flex-direction: column; gap: 10px; }
         .choice-option {
             display: flex;
             align-items: center;
@@ -290,12 +256,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-
-        .choice-option:hover {
-            border-color: var(--dourado);
-            background: #ffffff;
-        }
-
+        .choice-option:hover { border-color: var(--dourado); background: #ffffff; }
         .choice-option input {
             accent-color: var(--dourado);
             width: 16px;
@@ -303,11 +264,7 @@
             margin-right: 12px;
             cursor: pointer;
         }
-
-        .choice-option span {
-            font-size: 13px;
-            color: var(--texto-principal);
-        }
+        .choice-option span { font-size: 13px; color: var(--texto-principal); }
 
         .btn-submit {
             width: 100%;
@@ -326,20 +283,13 @@
             box-shadow: 0 5px 20px rgba(197, 160, 89, 0.3);
             margin-top: 10px;
         }
-
         .btn-submit:hover {
             background: var(--dourado-hover);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
         }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-        .btn-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Status & Feedback Overlays */
         .status-msg {
             margin-top: 20px;
             text-align: center;
@@ -349,18 +299,8 @@
             font-weight: 700;
             display: none;
         }
-
-        .status-msg.success {
-            background: rgba(37, 211, 102, 0.1);
-            color: var(--sucesso);
-            border: 1px solid var(--sucesso);
-        }
-
-        .status-msg.error {
-            background: rgba(211, 47, 47, 0.1);
-            color: var(--erro);
-            border: 1px solid var(--erro);
-        }
+        .status-msg.success { background: rgba(37, 211, 102, 0.1); color: var(--sucesso); border: 1px solid var(--sucesso); }
+        .status-msg.error { background: rgba(211, 47, 47, 0.1); color: var(--erro); border: 1px solid var(--erro); }
 
         @media (max-width: 768px) {
             .main-card { padding: 30px 20px; }
@@ -382,7 +322,7 @@
         </div>
 
         <div class="form-intro">
-            <h2>V3.Avaliação Diagnóstica Padrão — Carreira / Jobhunter</h2>
+            <h2>V4.Avaliação Diagnóstica Padrão — Carreira / Jobhunter</h2>
             <p><strong>Objetivo:</strong> Compreender seu momento profissional atual, identificar objetivos, desafios, posicionamento, movimentação no mercado, disponibilidade, expectativa de investimento e o nível de apoio que você busca.</p>
             <p style="margin-top: 10px;"><strong>Orientação:</strong> Responda com o máximo de detalhes que considerar importantes. Não existem respostas certas ou erradas. Quanto mais clareza tivermos sobre seu momento e seus objetivos, mais personalizada poderá ser a orientação sobre o melhor formato de trabalho.</p>
         </div>
@@ -1096,17 +1036,15 @@
     </div>
 
     <script>
-        // URL do Google Apps Script (Cole aqui a sua URL implantada)
+        // ======= COLOQUE A SUA NOVA URL GERADA NO PASSO 2 AQUI EMBAIXO =======
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwdxfVbSTmqar4rPqFnwCOwwdWI1TmbjmIkXP4ICC53GTwEEubwd7Wp0i57ghDjT3pQ/exec";
 
-        // Atualização da barra de progresso no topo
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
         };
 
-        // Validação de Limite máximo de 3 seleções no item 8
         const checkboxesFatores = document.querySelectorAll('.limit-max-3');
         checkboxesFatores.forEach(checkbox => {
             checkbox.addEventListener('change', function() {
@@ -1118,7 +1056,6 @@
             });
         });
 
-        // Envio do formulário via requisição de formulário nativa (Form POST)
         const formElement = document.getElementById('diagnosticoForm');
         
         formElement.addEventListener('submit', function(e) {
@@ -1127,7 +1064,6 @@
             const btn = document.getElementById('btnSubmit');
             const status = document.getElementById('statusMsg');
 
-            // Validação de checkbox obrigatório no item 8 (Atividades de apoio / Modelo trabalho)
             const modelosSelecionados = document.querySelectorAll('input[name="modelo_trabalho"]:checked');
             if (modelosSelecionados.length === 0) {
                 alert("Por favor, selecione pelo menos um modelo de trabalho no item 5.");
@@ -1151,7 +1087,6 @@
             mostrarStatus("Enviando suas respostas com segurança...", "success");
 
             const formData = new FormData(formElement);
-            // URLSearchParams converte os dados no formato exato que o Google precisa para receber sem CORS
             const urlEncodedData = new URLSearchParams(formData).toString();
 
             fetch(GOOGLE_SCRIPT_URL, {
