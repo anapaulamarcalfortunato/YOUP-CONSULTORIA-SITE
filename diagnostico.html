@@ -1,1180 +1,1186 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliação Diagnóstica Padrão | YOUP Consultoria</title>
-    <meta name="description" content="Avaliação Diagnóstica de Carreira e Jobhunter - YOUP Consultoria">
-    <link rel="icon" href="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/FAVICON.jpg" sizes="192x192">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Diagnóstica Padrão | YOUP Consultoria</title>
+    <meta name="description" content="Avaliação Diagnóstica de Carreira e Jobhunter - YOUP Consultoria">
+    <link rel="icon" href="https://raw.githubusercontent.com/anapaulamarcalfortunato/YOUP-CONSULTORIA-SITE/refs/heads/main/FAVICON.jpg" sizes="192x192">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --dourado: #c5a059;
-            --dourado-hover: #d4af37;
-            --escuro: #0a0a0a;
-            --card-bg: #141414;
-            --input-bg: #1f1f1f;
-            --borda: #333333;
-            --texto-claro: #ffffff;
-            --texto-cinza: #aaaaaa;
-            --verde-youp: #5c8e82;
-            --erro: #ff4d4d;
-            --sucesso: #25D366;
-        }
+    <style>
+        :root {
+            /* Cores Oficiais YOUP */
+            --dourado: #c5a059;
+            --dourado-hover: #b38f4d;
+            --verde-youp: #5c8e82;
+            
+            /* Paleta Clara (Light Theme) */
+            --fundo-pagina: #f4f4f4;
+            --card-bg: #ffffff;
+            --input-bg: #fafafa;
+            --borda: #dddddd;
+            --texto-principal: #2c2c2c;
+            --texto-cinza: #666666;
+            
+            /* Feedbacks */
+            --erro: #d32f2f;
+            --sucesso: #2e7d32;
+        }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--escuro);
-            color: var(--texto-claro);
-            line-height: 1.6;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fundo-pagina);
+            color: var(--texto-principal);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
 
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: rgba(255,255,255,0.05);
-            z-index: 1001;
-        }
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(0,0,0,0.05);
+            z-index: 1001;
+        }
 
-        #progress-bar {
-            height: 100%;
-            background: var(--dourado);
-            width: 0%;
-            transition: width 0.2s ease-out;
-        }
+        #progress-bar {
+            height: 100%;
+            background: var(--dourado);
+            width: 0%;
+            transition: width 0.2s ease-out;
+        }
 
-        .main-card {
-            background: var(--card-bg);
-            border: 1px solid var(--dourado);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 900px;
-            padding: 50px 40px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-            position: relative;
-        }
+        .main-card {
+            background: var(--card-bg);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 900px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
 
-        .brand-header {
-            text-align: center;
-            border-bottom: 1px solid var(--borda);
-            padding-bottom: 25px;
-            margin-bottom: 35px;
-        }
+        .brand-header {
+            text-align: center;
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
 
-        .brand-header h1 {
-            font-weight: 900;
-            font-size: 26px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--dourado);
-            margin: 0;
-        }
+        .brand-header h1 {
+            font-weight: 900;
+            font-size: 26px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dourado);
+            margin: 0;
+        }
 
-        .brand-header p {
-            font-size: 11px;
-            color: var(--texto-cinza);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 6px;
-        }
+        .brand-header p {
+            font-size: 11px;
+            color: var(--texto-cinza);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 6px;
+        }
 
-        .form-intro {
-            background: rgba(197, 160, 89, 0.05);
-            border-left: 4px solid var(--dourado);
-            padding: 20px 25px;
-            border-radius: 4px;
-            margin-bottom: 40px;
-        }
+        .form-intro {
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 4px solid var(--dourado);
+            padding: 20px 25px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
 
-        .form-intro h2 {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--dourado);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
+        .form-intro h2 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
 
-        .form-intro p {
-            font-size: 13px;
-            color: #cccccc;
-            line-height: 1.7;
-        }
+        .form-intro p {
+            font-size: 13px;
+            color: var(--texto-cinza);
+            line-height: 1.7;
+        }
 
-        .section-box {
-            background: #181818;
-            border: 1px solid var(--borda);
-            border-radius: 6px;
-            padding: 30px;
-            margin-bottom: 35px;
-            transition: border-color 0.3s ease;
-        }
+        .section-box {
+            background: var(--card-bg);
+            border: 1px solid var(--borda);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 35px;
+            transition: border-color 0.3s ease;
+        }
 
-        .section-box:focus-within {
-            border-color: rgba(197, 160, 89, 0.5);
-        }
+        .section-box:focus-within {
+            border-color: rgba(197, 160, 89, 0.5);
+        }
 
-        .section-title {
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--dourado);
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--dourado);
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        .section-subtitle {
-            font-size: 11px;
-            color: var(--verde-youp);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: -12px;
-            margin-bottom: 20px;
-        }
+        .section-subtitle {
+            font-size: 11px;
+            color: var(--verde-youp);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: -12px;
+            margin-bottom: 20px;
+        }
 
-        .field-group {
-            margin-bottom: 25px;
-        }
+        .field-group {
+            margin-bottom: 25px;
+        }
 
-        .field-group:last-child {
-            margin-bottom: 0;
-        }
+        .field-group:last-child {
+            margin-bottom: 0;
+        }
 
-        label.field-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--texto-claro);
-            margin-bottom: 8px;
-        }
+        label.field-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--texto-principal);
+            margin-bottom: 8px;
+        }
 
-        label.field-label .req {
-            color: var(--dourado);
-            margin-left: 3px;
-        }
+        label.field-label .req {
+            color: var(--dourado);
+            margin-left: 3px;
+        }
 
-        .field-desc {
-            font-size: 11px;
-            color: var(--texto-cinza);
-            margin-top: -4px;
-            margin-bottom: 10px;
-        }
+        .field-desc {
+            font-size: 11px;
+            color: var(--texto-cinza);
+            margin-top: -4px;
+            margin-bottom: 10px;
+        }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        select,
-        textarea {
-            width: 100%;
-            background: var(--input-bg);
-            border: 1px solid var(--borda);
-            color: var(--texto-claro);
-            padding: 14px;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--borda);
+            color: var(--texto-principal);
+            padding: 14px;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
 
-        textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
 
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--dourado);
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
-            background: #242424;
-        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--dourado);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+            background: #ffffff;
+        }
 
-        /* Escala Linear de 1 a 10 Estilizada */
-        .scale-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+        /* Escala Linear de 1 a 10 Estilizada */
+        .scale-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-        .scale-options {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+        .scale-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
-        .scale-item {
-            flex: 1;
-            min-width: 38px;
-            text-align: center;
-        }
+        .scale-item {
+            flex: 1;
+            min-width: 38px;
+            text-align: center;
+        }
 
-        .scale-item input[type="radio"] {
-            display: none;
-        }
+        .scale-item input[type="radio"] {
+            display: none;
+        }
 
-        .scale-item label {
-            display: block;
-            padding: 12px 0;
-            background: var(--input-bg);
-            border: 1px solid var(--borda);
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--texto-claro);
-            transition: all 0.2s ease;
-        }
+        .scale-item label {
+            display: block;
+            padding: 12px 0;
+            background: var(--input-bg);
+            border: 1px solid var(--borda);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--texto-principal);
+            transition: all 0.2s ease;
+        }
 
-        .scale-item input[type="radio"]:checked + label {
-            background: var(--dourado);
-            color: var(--escuro);
-            border-color: var(--dourado);
-            box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
-        }
+        .scale-item input[type="radio"]:checked + label {
+            background: var(--dourado);
+            color: #ffffff;
+            border-color: var(--dourado);
+            box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
+        }
 
-        .scale-item label:hover {
-            border-color: var(--dourado);
-        }
+        .scale-item label:hover {
+            border-color: var(--dourado);
+        }
 
-        .scale-legend {
-            display: flex;
-            justify-content: space-between;
-            font-size: 10px;
-            color: var(--texto-cinza);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-top: 4px;
-        }
+        .scale-legend {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--texto-cinza);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
 
-        /* Múltipla Escolha e Checkboxes */
-        .choices-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        /* Múltipla Escolha e Checkboxes */
+        .choices-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-        .choice-option {
-            display: flex;
-            align-items: center;
-            background: var(--input-bg);
-            border: 1px solid var(--borda);
-            padding: 12px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+        .choice-option {
+            display: flex;
+            align-items: center;
+            background: var(--input-bg);
+            border: 1px solid var(--borda);
+            padding: 12px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-        .choice-option:hover {
-            border-color: var(--dourado);
-        }
+        .choice-option:hover {
+            border-color: var(--dourado);
+            background: #ffffff;
+        }
 
-        .choice-option input {
-            accent-color: var(--dourado);
-            width: 16px;
-            height: 16px;
-            margin-right: 12px;
-            cursor: pointer;
-        }
+        .choice-option input {
+            accent-color: var(--dourado);
+            width: 16px;
+            height: 16px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
 
-        .choice-option span {
-            font-size: 13px;
-            color: var(--texto-claro);
-        }
+        .choice-option span {
+            font-size: 13px;
+            color: var(--texto-principal);
+        }
 
-        .btn-submit {
-            width: 100%;
-            background: var(--dourado);
-            color: var(--escuro);
-            border: none;
-            padding: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.3);
-            margin-top: 10px;
-        }
+        .btn-submit {
+            width: 100%;
+            background: var(--dourado);
+            color: #ffffff;
+            border: none;
+            padding: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.3);
+            margin-top: 10px;
+        }
 
-        .btn-submit:hover {
-            background: var(--dourado-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
-        }
+        .btn-submit:hover {
+            background: var(--dourado-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+        }
 
-        .btn-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-        /* Status & Feedback Overlays */
-        .status-msg {
-            margin-top: 20px;
-            text-align: center;
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 700;
-            display: none;
-        }
+        /* Status & Feedback Overlays */
+        .status-msg {
+            margin-top: 20px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            display: none;
+        }
 
-        .status-msg.success {
-            background: rgba(37, 211, 102, 0.15);
-            color: var(--sucesso);
-            border: 1px solid var(--sucesso);
-        }
+        .status-msg.success {
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--sucesso);
+            border: 1px solid var(--sucesso);
+        }
 
-        .status-msg.error {
-            background: rgba(255, 77, 77, 0.15);
-            color: var(--erro);
-            border: 1px solid var(--erro);
-        }
+        .status-msg.error {
+            background: rgba(211, 47, 47, 0.1);
+            color: var(--erro);
+            border: 1px solid var(--erro);
+        }
 
-        @media (max-width: 768px) {
-            .main-card { padding: 30px 20px; }
-            .section-box { padding: 20px 15px; }
-            .scale-options { gap: 4px; }
-            .scale-item { min-width: 28px; }
-            .scale-item label { padding: 8px 0; font-size: 11px; }
-        }
-    </style>
+        @media (max-width: 768px) {
+            .main-card { padding: 30px 20px; }
+            .section-box { padding: 20px 15px; }
+            .scale-options { gap: 4px; }
+            .scale-item { min-width: 28px; }
+            .scale-item label { padding: 8px 0; font-size: 11px; }
+        }
+    </style>
 </head>
 <body>
 
-    <div id="progress-container"><div id="progress-bar"></div></div>
-
-    <div class="main-card">
-        <div class="brand-header">
-            <h1>YOUP CONSULTORIA</h1>
-            <p>Executive Search & Consultoria de Carreira</p>
-        </div>
-
-        <div class="form-intro">
-            <h2>V2.Avaliação Diagnóstica Padrão — Carreira / Jobhunter</h2>
-            <p><strong>Objetivo:</strong> Compreender seu momento profissional atual, identificar objetivos, desafios, posicionamento, movimentação no mercado, disponibilidade, expectativa de investimento e o nível de apoio que você busca.</p>
-            <p style="margin-top: 10px;"><strong>Orientação:</strong> Responda com o máximo de detalhes que considerar importantes. Não existem respostas certas ou erradas. Quanto mais clareza tivermos sobre seu momento e seus objetivos, mais personalizada poderá ser a orientação sobre o melhor formato de trabalho.</p>
-        </div>
-
-        <form id="diagnosticoForm">
-
-            <!-- 1. DADOS PROFISSIONAIS -->
-            <div class="section-box">
-                <div class="section-title">1. DADOS PROFISSIONAIS</div>
-
-                <div class="field-group">
-                    <label class="field-label">Nome completo <span class="req">*</span></label>
-                    <input type="text" name="nome_completo" required placeholder="Digite seu nome completo">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Cargo atual ou último cargo <span class="req">*</span></label>
-                    <input type="text" name="cargo_atual" required placeholder="Ex: Diretor de Operações / Gerente de RH">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Empresa atual ou última empresa <span class="req">*</span></label>
-                    <input type="text" name="empresa_atual" required placeholder="Nome da empresa">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Área de atuação <span class="req">*</span></label>
-                    <input type="text" name="area_atuacao" required placeholder="Ex: Recursos Humanos, Finanças, Comercial">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Tempo de experiência profissional <span class="req">*</span></label>
-                    <input type="text" name="tempo_experiencia_total" required placeholder="Ex: 15 anos">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Tempo de experiência na última posição</label>
-                    <input type="text" name="tempo_experiencia_ultima" placeholder="Ex: 3 anos e 6 meses">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Última remuneração</label>
-                    <input type="text" name="ultima_remuneracao" placeholder="Fixo + Variável / Pacote anual aproximado">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Localização <span class="req">*</span></label>
-                    <input type="text" name="localizacao" required placeholder="Cidade / Estado">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Disponibilidade para início <span class="req">*</span></label>
-                    <input type="text" name="disponibilidade_inicio" required placeholder="Ex: Imediato / 30 dias">
-                </div>
-            </div>
-
-            <!-- 2. PONTO A — SEU MOMENTO ATUAL -->
-            <div class="section-box">
-                <div class="section-title">2. PONTO A — SEU MOMENTO ATUAL</div>
-
-                <div class="field-group">
-                    <label class="field-label">O que motivou você a buscar uma mudança profissional neste momento? <span class="req">*</span></label>
-                    <textarea name="motivacao_mudanca" required placeholder="Detenha-se nos detalhes principais..."></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Como você se sente em relação à sua carreira hoje? <span class="req">*</span></label>
-                    <textarea name="sentimento_carreira" required placeholder="Descreva seu sentimento atual..."></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Qual é o seu principal desafio profissional hoje? <span class="req">*</span></label>
-                    <textarea name="principal_desafio" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que mais tem incomodado você na sua situação profissional atual?</label>
-                    <textarea name="incomodo_atual"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você acredita que está impedindo você de estar no lugar profissional em que gostaria?</label>
-                    <textarea name="impedimento_percebido"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Como você avalia sua satisfação profissional atual? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="satisfacao_escala" id="sat_${i}" value="${i}" required><label for="sat_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = totalmente insatisfeita</span>
-                            <span>10 = totalmente satisfeita</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quanto você considera urgente realizar essa mudança profissional? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="urgencia_escala" id="urg_${i}" value="${i}" required><label for="urg_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = pouco urgente</span>
-                            <span>10 = extremamente urgente</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Por que você escolheu essa nota?</label>
-                    <textarea name="justificativa_urgencia"></textarea>
-                </div>
-            </div>
-
-            <!-- 3. TRAJETÓRIA E EXPERIÊNCIAS -->
-            <div class="section-box">
-                <div class="section-title">3. TRAJETÓRIA E EXPERIÊNCIAS</div>
-
-                <div class="field-group">
-                    <label class="field-label">Conte brevemente sua trajetória profissional. <span class="req">*</span></label>
-                    <textarea name="trajetoria_resumo" required placeholder="Resumo dos principais marcos da sua carreira..."></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quais experiências profissionais foram mais importantes para você?</label>
-                    <textarea name="experiencias_marcantes"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">De qual conquista profissional você mais se orgulha? <span class="req">*</span></label>
-                    <textarea name="maior_conquista" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quais resultados profissionais você considera mais relevantes na sua trajetória? <span class="req">*</span></label>
-                    <textarea name="resultados_relevantes" required placeholder="Métricas, projetos, reestruturações, economias, crescimento..."></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quais são suas principais competências e diferenciais profissionais? <span class="req">*</span></label>
-                    <textarea name="competencias_diferenciais" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe alguma competência que você gostaria de desenvolver ou fortalecer?</label>
-                    <textarea name="competencias_desenvolver"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe alguma experiência, função ou situação profissional que você não deseja repetir?</label>
-                    <textarea name="situacoes_nao_repetir"></textarea>
-                </div>
-            </div>
-
-            <!-- 4. PONTO B — OBJETIVOS DE CARREIRA -->
-            <div class="section-box">
-                <div class="section-title">4. PONTO B — OBJETIVOS DE CARREIRA</div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você deseja conquistar neste novo momento da sua carreira? <span class="req">*</span></label>
-                    <textarea name="desejo_conquista" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Como seria o cenário profissional ideal para você daqui a 6 meses? <span class="req">*</span></label>
-                    <textarea name="cenario_ideal_6m" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">E daqui a 1 ano?</label>
-                    <textarea name="cenario_ideal_1ano"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe algum cargo, função ou área que você deseja alcançar?</label>
-                    <input type="text" name="cargo_alvo" placeholder="Ex: VP de Operações / Conselheira / CHRO">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Que tipo de desafio profissional despertaria seu interesse?</label>
-                    <textarea name="tipo_desafio_interesse"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você deseja mudar ou evoluir na sua carreira? <span class="req">*</span></label>
-                    <textarea name="evoluir_carreira" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quanto você acredita que está claro o próximo passo que deseja dar profissionalmente? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="clareza_proximo_passo" id="cla_${i}" value="${i}" required><label for="cla_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = totalmente confuso</span>
-                            <span>10 = totalmente claro</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que ainda não está claro?</label>
-                    <textarea name="pontos_nao_claros"></textarea>
-                </div>
-            </div>
-
-            <!-- 5. EMPRESA, MERCADO E FIT -->
-            <div class="section-box">
-                <div class="section-title">5. EMPRESA, MERCADO E FIT</div>
-
-                <div class="field-group">
-                    <label class="field-label">Que tipo de empresa você gostaria de encontrar? <span class="req">*</span></label>
-                    <textarea name="empresa_desejada" required placeholder="Cultura, ambiente, valores..."></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Que tipo de empresa você gostaria de evitar?</label>
-                    <textarea name="empresa_evitar"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quais setores ou mercados despertam seu interesse? <span class="req">*</span></label>
-                    <input type="text" name="setores_interesse" required placeholder="Ex: Tecnologia, Saúde, Bens de Consumo, Agrobusiness">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe algum setor em que você não deseja mais atuar?</label>
-                    <input type="text" name="setores_evitar">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Que características uma empresa precisa ter para que uma oportunidade faça sentido para você? <span class="req">*</span></label>
-                    <textarea name="caracteristicas_essenciais" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe algum porte de empresa que você prefere? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Pequena" required><span>Pequena</span></label>
-                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Média"><span>Média</span></label>
-                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Grande"><span>Grande</span></label>
-                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Multinacional"><span>Multinacional</span></label>
-                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Não tenho preferência"><span>Não tenho preferência</span></label>
-                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Outro"><span>Outro</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quais modelos de trabalho você considera? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="checkbox" name="modelo_trabalho" value="Presencial"><span>Presencial</span></label>
-                        <label class="choice-option"><input type="checkbox" name="modelo_trabalho" value="Híbrido"><span>Híbrido</span></label>
-                        <label class="choice-option"><input type="checkbox" name="modelo_trabalho" value="Remoto"><span>Remoto</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você possui alguma restrição geográfica? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="restricao_geografica" value="Não" required><span>Não</span></label>
-                        <label class="choice-option"><input type="radio" name="restricao_geografica" value="Sim"><span>Sim</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se sim, qual?</label>
-                    <textarea name="restricao_geografica_detalhe"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você possui disponibilidade para viagens profissionais? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="disponibilidade_viagens" value="Sim" required><span>Sim</span></label>
-                        <label class="choice-option"><input type="radio" name="disponibilidade_viagens" value="Não"><span>Não</span></label>
-                        <label class="choice-option"><input type="radio" name="disponibilidade_viagens" value="Depende da frequência"><span>Depende da frequência</span></label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. MOVIMENTAÇÃO NO MERCADO -->
-            <div class="section-box">
-                <div class="section-title">6. MOVIMENTAÇÃO NO MERCADO</div>
-
-                <div class="field-group">
-                    <label class="field-label">Você está participando atualmente de processos seletivos? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="participando_processos" value="Sim" required><span>Sim</span></label>
-                        <label class="choice-option"><input type="radio" name="participando_processos" value="Não"><span>Não</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se sim, para quais tipos de posições?</label>
-                    <textarea name="posicoes_processos_atuais"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Aproximadamente quantas oportunidades você tem buscado por semana?</label>
-                    <input type="text" name="oportunidades_semana_qtd" placeholder="Ex: 5 oportunidades">
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você tem sido chamada para entrevistas? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Frequentemente" required><span>Frequentemente</span></label>
-                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Às vezes"><span>Às vezes</span></label>
-                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Raramente"><span>Raramente</span></label>
-                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Nunca"><span>Nunca</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Em qual etapa dos processos você costuma encontrar maior dificuldade?</label>
-                    <textarea name="dificuldade_etapa_processo"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você tem recebido feedback dos processos? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="recebe_feedback" value="Sim" required><span>Sim</span></label>
-                        <label class="choice-option"><input type="radio" name="recebe_feedback" value="Não"><span>Não</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe algum feedback que se repete?</label>
-                    <textarea name="feedback_repetitivo"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você acredita que está dificultando seu avanço nos processos seletivos? <span class="req">*</span></label>
-                    <textarea name="dificuldade_avanco_processos" required></textarea>
-                </div>
-            </div>
-
-            <!-- 7. POSICIONAMENTO PROFISSIONAL -->
-            <div class="section-box">
-                <div class="section-title">7. POSICIONAMENTO PROFISSIONAL</div>
-
-                <div class="field-group">
-                    <label class="field-label">Você acredita que seu currículo representa adequadamente sua trajetória e seus resultados? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="representacao_curriculo" id="cur_${i}" value="${i}" required><label for="cur_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = não representa</span>
-                            <span>10 = representa completamente</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você acredita que seu LinkedIn representa adequadamente o profissional que você é hoje? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="representacao_linkedin" id="lik_${i}" value="${i}" required><label for="lik_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = não representa</span>
-                            <span>10 = representa completamente</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você consegue explicar claramente qual é o seu principal diferencial profissional? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="explica_diferencial" value="Sim" required><span>Sim</span></label>
-                        <label class="choice-option"><input type="radio" name="explica_diferencial" value="Parcialmente"><span>Parcialmente</span></label>
-                        <label class="choice-option"><input type="radio" name="explica_diferencial" value="Não"><span>Não</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se um recrutador tivesse 30 segundos para conhecer seu perfil, o que você gostaria que ele entendesse sobre você? <span class="req">*</span></label>
-                    <textarea name="pitch_30_segundos" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe alguma característica da sua trajetória que você sente que o mercado não está enxergando?</label>
-                    <textarea name="caracteristica_invisivel_mercado"></textarea>
-                </div>
-            </div>
-
-            <!-- 8. MOTIVAÇÃO E CRITÉRIOS DE ESCOLHA -->
-            <div class="section-box">
-                <div class="section-title">8. MOTIVAÇÃO E CRITÉRIOS DE ESCOLHA</div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você mais gosta de fazer profissionalmente? <span class="req">*</span></label>
-                    <textarea name="gosta_fazer_profissional" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Que atividades mais energizam você?</label>
-                    <textarea name="atividades_energizam"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Que atividades mais desgastam você?</label>
-                    <textarea name="atividades_desgastam"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você definitivamente não quer mais fazer? <span class="req">*</span></label>
-                    <textarea name="nao_quer_mais_fazer" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe algo de que você não está disposta a abrir mão na sua vida profissional?</label>
-                    <textarea name="nao_abre_mao"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quais são os três fatores mais importantes para você em uma próxima oportunidade? <span class="req">*</span></label>
-                    <div class="field-desc">Selecione no máximo 3 opções</div>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Remuneração" class="limit-max-3"><span>Remuneração</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Desenvolvimento" class="limit-max-3"><span>Desenvolvimento</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Desafio profissional" class="limit-max-3"><span>Desafio profissional</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Cultura" class="limit-max-3"><span>Cultura</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Liderança" class="limit-max-3"><span>Liderança</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Flexibilidade" class="limit-max-3"><span>Flexibilidade</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Estabilidade" class="limit-max-3"><span>Estabilidade</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Benefícios" class="limit-max-3"><span>Benefícios</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Autonomia" class="limit-max-3"><span>Autonomia</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Propósito" class="limit-max-3"><span>Propósito</span></label>
-                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Outro" class="limit-max-3"><span>Outro</span></label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 9. INVESTIMENTO NO PROCESSO -->
-            <div class="section-box">
-                <div class="section-title">9. INVESTIMENTO NO PROCESSO</div>
-                <div class="section-subtitle">Objetivo desta etapa: compreender a expectativa de investimento para direcionar o formato de trabalho mais adequado. A resposta não determina automaticamente a modalidade ou o investimento final.</div>
-
-                <div class="field-group">
-                    <label class="field-label">Você já havia considerado investir em um processo profissional de Carreira/Jobhunter? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="ja_considerou_investir" value="Sim" required><span>Sim</span></label>
-                        <label class="choice-option"><input type="radio" name="ja_considerou_investir" value="Não"><span>Não</span></label>
-                        <label class="choice-option"><input type="radio" name="ja_considerou_investir" value="Nunca havia pensado nisso"><span>Nunca havia pensado nisso</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Considerando o nível de apoio que você busca, qual faixa de investimento você imaginava para esse processo? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 1.001 a R$ 2.000" required><span>De R$ 1.001 a R$ 2.000</span></label>
-                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 2.001 a R$ 3.500"><span>De R$ 2.001 a R$ 3.500</span></label>
-                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 3.501 a R$ 5.000"><span>De R$ 3.501 a R$ 5.000</span></label>
-                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 5.001 a R$ 8.000"><span>De R$ 5.001 a R$ 8.000</span></label>
-                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="Acima de R$ 8.000"><span>Acima de R$ 8.000</span></label>
-                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="Ainda não faço ideia"><span>Ainda não faço ideia</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que levou você a pensar nessa faixa de investimento?</label>
-                    <textarea name="motivo_faixa_investimento"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Para você, o que justificaria um investimento maior em um processo de Carreira/Jobhunter?</label>
-                    <textarea name="justificativa_investimento_maior"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Você prefere avaliar o investimento considerando: <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="preferencia_avaliacao_investimento" value="Um valor total pelo projeto" required><span>Um valor total pelo projeto</span></label>
-                        <label class="choice-option"><input type="radio" name="preferencia_avaliacao_investimento" value="Pagamento parcelado"><span>Pagamento parcelado</span></label>
-                        <label class="choice-option"><input type="radio" name="preferencia_avaliacao_investimento" value="Ainda não sei"><span>Ainda não sei</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe alguma condição de pagamento que seja importante para você?</label>
-                    <textarea name="condicao_pagamento_importante"></textarea>
-                </div>
-            </div>
-
-            <!-- 10. COMO VOCÊ GOSTARIA DE UTILIZAR A CONSULTORIA? -->
-            <div class="section-box">
-                <div class="section-title">10. COMO VOCÊ GOSTARIA DE UTILIZAR A CONSULTORIA?</div>
-                <div class="section-subtitle">Objetivo desta etapa: entender o nível de participação e de execução que você espera da consultora.</div>
-
-                <div class="field-group">
-                    <label class="field-label">O que você mais busca neste momento? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero principalmente orientação para tomar decisões melhores." required><span>Quero principalmente orientação para tomar decisões melhores.</span></label>
-                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero encontros para receber direcionamento e construir os próximos passos comigo."><span>Quero encontros para receber direcionamento e construir os próximos passos comigo.</span></label>
-                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero acompanhamento ao longo de um período para estruturar e executar minha estratégia."><span>Quero acompanhamento ao longo de um período para estruturar e executar minha estratégia.</span></label>
-                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero que a consultora assuma uma parte maior da execução para acelerar minha movimentação."><span>Quero que a consultora assuma uma parte maior da execução para acelerar minha movimentação.</span></label>
-                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Ainda não sei qual formato seria mais adequado."><span>Ainda não sei qual formato seria mais adequado.</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quanto você espera executar pessoalmente durante o processo? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="execucao_pessoal" id="exp_${i}" value="${i}" required><label for="exp_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = delegar o máximo possível</span>
-                            <span>10 = fazer tudo com orientação</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Quanto você gostaria que a consultora participasse diretamente da execução? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="participacao_consultora" id="par_${i}" value="${i}" required><label for="par_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = apenas orientação</span>
-                            <span>10 = participação intensa na execução</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Em quais atividades você gostaria de receber apoio? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Clareza e direcionamento de carreira"><span>Clareza e direcionamento de carreira</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Posicionamento profissional"><span>Posicionamento profissional</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Currículo"><span>Currículo</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="LinkedIn"><span>LinkedIn</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Estratégia de busca"><span>Estratégia de busca</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Identificação de oportunidades"><span>Identificação de oportunidades</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Mapeamento de mercado"><span>Mapeamento de mercado</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Preparação para entrevistas"><span>Preparação para entrevistas</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Preparação para processos seletivos"><span>Preparação para processos seletivos</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Abordagem de empresas/recrutadores"><span>Abordagem de empresas/recrutadores</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Prospecção ativa de oportunidades"><span>Prospecção ativa de oportunidades</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Acompanhamento da movimentação"><span>Acompanhamento da movimentação</span></label>
-                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Outro"><span>Outro</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe alguma atividade que você gostaria que a consultora assumisse diretamente por você?</label>
-                    <textarea name="atividade_direta_consultora"></textarea>
-                </div>
-            </div>
-
-            <!-- 11. FORMATO DE APOIO QUE VOCÊ IMAGINA -->
-            <div class="section-box">
-                <div class="section-title">11. FORMATO DE APOIO QUE VOCÊ IMAGINA</div>
-
-                <div class="field-group">
-                    <label class="field-label">Pensando no seu momento atual, qual destas formas de apoio mais se aproxima do que você imagina precisar? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Consultoria Express: intervenção pontual" required><span>Consultoria Express: uma intervenção pontual para analisar uma questão específica e direcionar os próximos passos.</span></label>
-                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Encontro único de orientação"><span>Encontro único de orientação: uma conversa estruturada para esclarecer uma decisão, dúvida ou movimento de carreira.</span></label>
-                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Mentoria: acompanhamento para desenvolver estratégia"><span>Mentoria: acompanhamento para desenvolver estratégia, tomada de decisão e evolução profissional com participação ativa da cliente.</span></label>
-                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Assessoria: acompanhamento próximo e execução"><span>Assessoria: acompanhamento mais próximo, com maior participação da consultora na execução das estratégias definidas.</span></label>
-                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Ainda não sei. Gostaria que a consultora recomendasse."><span>Ainda não sei. Gostaria que a consultora recomendasse o formato.</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Por que esse formato parece fazer mais sentido para você?</label>
-                    <textarea name="motivo_formato_preferido"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se você pudesse escolher, quanto tempo gostaria de ter esse acompanhamento? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="Um único encontro" required><span>Um único encontro</span></label>
-                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="Até 30 dias"><span>Até 30 dias</span></label>
-                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="De 1 a 3 meses"><span>De 1 a 3 meses</span></label>
-                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="De 3 a 6 meses"><span>De 3 a 6 meses</span></label>
-                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="Não sei"><span>Não sei</span></label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 12. MATURIDADE E COMPROMETIMENTO -->
-            <div class="section-box">
-                <div class="section-title">12. MATURIDADE E COMPROMETIMENTO</div>
-
-                <div class="field-group">
-                    <label class="field-label">Você já contratou algum serviço de consultoria de carreira? <span class="req">*</span></label>
-                    <div class="choices-stack">
-                        <label class="choice-option"><input type="radio" name="ja_contratou_consultoria" value="Sim" required><span>Sim</span></label>
-                        <label class="choice-option"><input type="radio" name="ja_contratou_consultoria" value="Não"><span>Não</span></label>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se sim, como foi essa experiência?</label>
-                    <textarea name="experiencia_consultoria_anterior"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que funcionou?</label>
-                    <textarea name="o_que_funcionou_anterior"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">O que não funcionou?</label>
-                    <textarea name="o_que_nao_funcionou_anterior"></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Em uma escala de 1 a 10, quanto você está comprometida com a mudança profissional neste momento? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="escala_comprometimento" id="com_${i}" value="${i}" required><label for="com_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = pouco comprometida</span>
-                            <span>10 = totalmente comprometida</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Em uma escala de 1 a 10, quanto tempo e energia você consegue dedicar ao processo? <span class="req">*</span></label>
-                    <div class="scale-wrapper">
-                        <div class="scale-options">
-                            <script>
-                                for(let i=1; i<=10; i++) {
-                                    document.write(`<div class="scale-item"><input type="radio" name="escala_tempo_dedicacao" id="ted_${i}" value="${i}" required><label for="ted_${i}">${i}</label></div>`);
-                                }
-                            </script>
-                        </div>
-                        <div class="scale-legend">
-                            <span>1 = muito pouco</span>
-                            <span>10 = bastante</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13. DEFINIÇÃO DE SUCESSO -->
-            <div class="section-box">
-                <div class="section-title">13. DEFINIÇÃO DE SUCESSO</div>
-
-                <div class="field-group">
-                    <label class="field-label">O que precisa acontecer para você considerar que esse processo foi bem-sucedido? <span class="req">*</span></label>
-                    <textarea name="criterio_sucesso_processo" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se esse processo der exatamente certo para você, o que terá mudado na sua carreira? <span class="req">*</span></label>
-                    <textarea name="mudanca_esperada_sucesso" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Qual é a principal ajuda que você precisa neste momento? <span class="req">*</span></label>
-                    <textarea name="principal_ajuda_necessaria" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Se você pudesse resolver apenas uma questão da sua carreira hoje, qual seria? <span class="req">*</span></label>
-                    <textarea name="questao_unica_resolver" required></textarea>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">Existe alguma informação importante sobre sua carreira, seus objetivos ou seu momento profissional que você considera importante compartilhar e que não perguntamos aqui?</label>
-                    <textarea name="informacao_adicional_livre"></textarea>
-                </div>
-            </div>
-
-            <button type="submit" class="btn-submit" id="btnSubmit">Enviar Diagnóstico para Análise Executiva ➔</button>
-            <div id="statusMsg" class="status-msg"></div>
-        </form>
-    </div>
-
-    <script>
-        // URL do Google Apps Script (Cole aqui a sua URL implantada)
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmWcZF078rBXzxcr6hE4ItjD3nnbRlK6tzLz1Eic02G42J-S9_AJpFx-nkLakJL0PU/exec";
-
-        // Atualização da barra de progresso no topo
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
-        };
-
-        // Validação de Limite máximo de 3 seleções no item 8
-        const checkboxesFatores = document.querySelectorAll('.limit-max-3');
-        checkboxesFatores.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const selecionados = document.querySelectorAll('.limit-max-3:checked');
-                if (selecionados.length > 3) {
-                    this.checked = false;
-                    alert("Por favor, selecione no máximo 3 fatores para esta questão.");
-                }
-            });
-        });
-
-        // Envio do formulário via requisição de formulário nativa (Form POST)
-        const formElement = document.getElementById('diagnosticoForm');
-        
-        formElement.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('btnSubmit');
-            const status = document.getElementById('statusMsg');
-
-            // Validação de checkbox obrigatório no item 8 (Atividades de apoio / Modelo trabalho)
-            const modelosSelecionados = document.querySelectorAll('input[name="modelo_trabalho"]:checked');
-            if (modelosSelecionados.length === 0) {
-                alert("Por favor, selecione pelo menos um modelo de trabalho no item 5.");
-                return;
-            }
-
-            const fatoresSelecionados = document.querySelectorAll('input[name="fatores_importantes"]:checked');
-            if (fatoresSelecionados.length === 0) {
-                alert("Por favor, selecione os fatores mais importantes na Seção 8.");
-                return;
-            }
-
-            const apoioSelecionados = document.querySelectorAll('input[name="atividades_apoio"]:checked');
-            if (apoioSelecionados.length === 0) {
-                alert("Por favor, selecione pelo menos uma atividade em que deseja apoio na Seção 10.");
-                return;
-            }
-
-            btn.disabled = true;
-            btn.innerText = "Processando e Enviando Diagnóstico... ⏳";
-            mostrarStatus("Enviando suas respostas com segurança...", "success");
-
-            const formData = new FormData(formElement);
-            // URLSearchParams converte os dados no formato exato que o Google precisa para receber sem CORS
-            const urlEncodedData = new URLSearchParams(formData).toString();
-
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: urlEncodedData
-            })
-            .then(response => {
-                mostrarStatus("🎉 Diagnóstico enviado com sucesso! Seus dados foram salvos de forma estritamente confidencial.", "success");
-                btn.innerText = "Diagnóstico Enviado!";
-                formElement.reset();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            })
-            .catch(err => {
-                console.error("Erro no envio:", err);
-                mostrarStatus("Erro ao enviar. Por favor, verifique a conexão e tente novamente.", "error");
-                btn.disabled = false;
-                btn.innerText = "Enviar Diagnóstico para Análise Executiva ➔";
-            });
-        });
-
-        function mostrarStatus(txt, tipo) {
-            const el = document.getElementById('statusMsg');
-            el.className = 'status-msg ' + tipo;
-            el.innerText = txt;
-            el.style.display = 'block';
-        }
-    </script>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <div class="main-card">
+        <div class="brand-header">
+            <h1>YOUP CONSULTORIA</h1>
+            <p>Executive Search & Consultoria de Carreira</p>
+        </div>
+
+        <div class="form-intro">
+            <h2>V2.Avaliação Diagnóstica Padrão — Carreira / Jobhunter</h2>
+            <p><strong>Objetivo:</strong> Compreender seu momento profissional atual, identificar objetivos, desafios, posicionamento, movimentação no mercado, disponibilidade, expectativa de investimento e o nível de apoio que você busca.</p>
+            <p style="margin-top: 10px;"><strong>Orientação:</strong> Responda com o máximo de detalhes que considerar importantes. Não existem respostas certas ou erradas. Quanto mais clareza tivermos sobre seu momento e seus objetivos, mais personalizada poderá ser a orientação sobre o melhor formato de trabalho.</p>
+        </div>
+
+        <form id="diagnosticoForm">
+
+            <!-- 1. DADOS PROFISSIONAIS -->
+            <div class="section-box">
+                <div class="section-title">1. DADOS PROFISSIONAIS</div>
+
+                <div class="field-group">
+                    <label class="field-label">Nome completo <span class="req">*</span></label>
+                    <input type="text" name="nome_completo" required placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Cargo atual ou último cargo <span class="req">*</span></label>
+                    <input type="text" name="cargo_atual" required placeholder="Ex: Diretor de Operações / Gerente de RH">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Empresa atual ou última empresa <span class="req">*</span></label>
+                    <input type="text" name="empresa_atual" required placeholder="Nome da empresa">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Área de atuação <span class="req">*</span></label>
+                    <input type="text" name="area_atuacao" required placeholder="Ex: Recursos Humanos, Finanças, Comercial">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Tempo de experiência profissional <span class="req">*</span></label>
+                    <input type="text" name="tempo_experiencia_total" required placeholder="Ex: 15 anos">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Tempo de experiência na última posição</label>
+                    <input type="text" name="tempo_experiencia_ultima" placeholder="Ex: 3 anos e 6 meses">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Última remuneração</label>
+                    <input type="text" name="ultima_remuneracao" placeholder="Fixo + Variável / Pacote anual aproximado">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Localização <span class="req">*</span></label>
+                    <input type="text" name="localizacao" required placeholder="Cidade / Estado">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Disponibilidade para início <span class="req">*</span></label>
+                    <input type="text" name="disponibilidade_inicio" required placeholder="Ex: Imediato / 30 dias">
+                </div>
+            </div>
+
+            <!-- 2. PONTO A — SEU MOMENTO ATUAL -->
+            <div class="section-box">
+                <div class="section-title">2. PONTO A — SEU MOMENTO ATUAL</div>
+
+                <div class="field-group">
+                    <label class="field-label">O que motivou você a buscar uma mudança profissional neste momento? <span class="req">*</span></label>
+                    <textarea name="motivacao_mudanca" required placeholder="Detenha-se nos detalhes principais..."></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Como você se sente em relação à sua carreira hoje? <span class="req">*</span></label>
+                    <textarea name="sentimento_carreira" required placeholder="Descreva seu sentimento atual..."></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Qual é o seu principal desafio profissional hoje? <span class="req">*</span></label>
+                    <textarea name="principal_desafio" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que mais tem incomodado você na sua situação profissional atual?</label>
+                    <textarea name="incomodo_atual"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você acredita que está impedindo você de estar no lugar profissional em que gostaria?</label>
+                    <textarea name="impedimento_percebido"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Como você avalia sua satisfação profissional atual? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="satisfacao_escala" id="sat_${i}" value="${i}" required><label for="sat_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = totalmente insatisfeita</span>
+                            <span>10 = totalmente satisfeita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quanto você considera urgente realizar essa mudança profissional? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="urgencia_escala" id="urg_${i}" value="${i}" required><label for="urg_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = pouco urgente</span>
+                            <span>10 = extremamente urgente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Por que você escolheu essa nota?</label>
+                    <textarea name="justificativa_urgencia"></textarea>
+                </div>
+            </div>
+
+            <!-- 3. TRAJETÓRIA E EXPERIÊNCIAS -->
+            <div class="section-box">
+                <div class="section-title">3. TRAJETÓRIA E EXPERIÊNCIAS</div>
+
+                <div class="field-group">
+                    <label class="field-label">Conte brevemente sua trajetória profissional. <span class="req">*</span></label>
+                    <textarea name="trajetoria_resumo" required placeholder="Resumo dos principais marcos da sua carreira..."></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quais experiências profissionais foram mais importantes para você?</label>
+                    <textarea name="experiencias_marcantes"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">De qual conquista profissional você mais se orgulha? <span class="req">*</span></label>
+                    <textarea name="maior_conquista" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quais resultados profissionais você considera mais relevantes na sua trajetória? <span class="req">*</span></label>
+                    <textarea name="resultados_relevantes" required placeholder="Métricas, projetos, reestruturações, economias, crescimento..."></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quais são suas principais competências e diferenciais profissionais? <span class="req">*</span></label>
+                    <textarea name="competencias_diferenciais" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe alguma competência que você gostaria de desenvolver ou fortalecer?</label>
+                    <textarea name="competencias_desenvolver"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe alguma experiência, função ou situação profissional que você não deseja repetir?</label>
+                    <textarea name="situacoes_nao_repetir"></textarea>
+                </div>
+            </div>
+
+            <!-- 4. PONTO B — OBJETIVOS DE CARREIRA -->
+            <div class="section-box">
+                <div class="section-title">4. PONTO B — OBJETIVOS DE CARREIRA</div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você deseja conquistar neste novo momento da sua carreira? <span class="req">*</span></label>
+                    <textarea name="desejo_conquista" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Como seria o cenário profissional ideal para você daqui a 6 meses? <span class="req">*</span></label>
+                    <textarea name="cenario_ideal_6m" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">E daqui a 1 ano?</label>
+                    <textarea name="cenario_ideal_1ano"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe algum cargo, função ou área que você deseja alcançar?</label>
+                    <input type="text" name="cargo_alvo" placeholder="Ex: VP de Operações / Conselheira / CHRO">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Que tipo de desafio profissional despertaria seu interesse?</label>
+                    <textarea name="tipo_desafio_interesse"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você deseja mudar ou evoluir na sua carreira? <span class="req">*</span></label>
+                    <textarea name="evoluir_carreira" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quanto você acredita que está claro o próximo passo que deseja dar profissionalmente? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="clareza_proximo_passo" id="cla_${i}" value="${i}" required><label for="cla_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = totalmente confuso</span>
+                            <span>10 = totalmente claro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que ainda não está claro?</label>
+                    <textarea name="pontos_nao_claros"></textarea>
+                </div>
+            </div>
+
+            <!-- 5. EMPRESA, MERCADO E FIT -->
+            <div class="section-box">
+                <div class="section-title">5. EMPRESA, MERCADO E FIT</div>
+
+                <div class="field-group">
+                    <label class="field-label">Que tipo de empresa você gostaria de encontrar? <span class="req">*</span></label>
+                    <textarea name="empresa_desejada" required placeholder="Cultura, ambiente, valores..."></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Que tipo de empresa você gostaria de evitar?</label>
+                    <textarea name="empresa_evitar"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quais setores ou mercados despertam seu interesse? <span class="req">*</span></label>
+                    <input type="text" name="setores_interesse" required placeholder="Ex: Tecnologia, Saúde, Bens de Consumo, Agrobusiness">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe algum setor em que você não deseja mais atuar?</label>
+                    <input type="text" name="setores_evitar">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Que características uma empresa precisa ter para que uma oportunidade faça sentido para você? <span class="req">*</span></label>
+                    <textarea name="caracteristicas_essenciais" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe algum porte de empresa que você prefere? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Pequena" required><span>Pequena</span></label>
+                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Média"><span>Média</span></label>
+                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Grande"><span>Grande</span></label>
+                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Multinacional"><span>Multinacional</span></label>
+                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Não tenho preferência"><span>Não tenho preferência</span></label>
+                        <label class="choice-option"><input type="radio" name="porte_empresa" value="Outro"><span>Outro</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quais modelos de trabalho você considera? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="checkbox" name="modelo_trabalho" value="Presencial"><span>Presencial</span></label>
+                        <label class="choice-option"><input type="checkbox" name="modelo_trabalho" value="Híbrido"><span>Híbrido</span></label>
+                        <label class="choice-option"><input type="checkbox" name="modelo_trabalho" value="Remoto"><span>Remoto</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você possui alguma restrição geográfica? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="restricao_geografica" value="Não" required><span>Não</span></label>
+                        <label class="choice-option"><input type="radio" name="restricao_geografica" value="Sim"><span>Sim</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se sim, qual?</label>
+                    <textarea name="restricao_geografica_detalhe"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você possui disponibilidade para viagens profissionais? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="disponibilidade_viagens" value="Sim" required><span>Sim</span></label>
+                        <label class="choice-option"><input type="radio" name="disponibilidade_viagens" value="Não"><span>Não</span></label>
+                        <label class="choice-option"><input type="radio" name="disponibilidade_viagens" value="Depende da frequência"><span>Depende da frequência</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. MOVIMENTAÇÃO NO MERCADO -->
+            <div class="section-box">
+                <div class="section-title">6. MOVIMENTAÇÃO NO MERCADO</div>
+
+                <div class="field-group">
+                    <label class="field-label">Você está participando atualmente de processos seletivos? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="participando_processos" value="Sim" required><span>Sim</span></label>
+                        <label class="choice-option"><input type="radio" name="participando_processos" value="Não"><span>Não</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se sim, para quais tipos de posições?</label>
+                    <textarea name="posicoes_processos_atuais"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Aproximadamente quantas oportunidades você tem buscado por semana?</label>
+                    <input type="text" name="oportunidades_semana_qtd" placeholder="Ex: 5 oportunidades">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você tem sido chamada para entrevistas? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Frequentemente" required><span>Frequentemente</span></label>
+                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Às vezes"><span>Às vezes</span></label>
+                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Raramente"><span>Raramente</span></label>
+                        <label class="choice-option"><input type="radio" name="chamada_entrevistas" value="Nunca"><span>Nunca</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Em qual etapa dos processos você costuma encontrar maior dificuldade?</label>
+                    <textarea name="dificuldade_etapa_processo"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você tem recebido feedback dos processos? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="recebe_feedback" value="Sim" required><span>Sim</span></label>
+                        <label class="choice-option"><input type="radio" name="recebe_feedback" value="Não"><span>Não</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe algum feedback que se repete?</label>
+                    <textarea name="feedback_repetitivo"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você acredita que está dificultando seu avanço nos processos seletivos? <span class="req">*</span></label>
+                    <textarea name="dificuldade_avanco_processos" required></textarea>
+                </div>
+            </div>
+
+            <!-- 7. POSICIONAMENTO PROFISSIONAL -->
+            <div class="section-box">
+                <div class="section-title">7. POSICIONAMENTO PROFISSIONAL</div>
+
+                <div class="field-group">
+                    <label class="field-label">Você acredita que seu currículo representa adequadamente sua trajetória e seus resultados? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="representacao_curriculo" id="cur_${i}" value="${i}" required><label for="cur_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = não representa</span>
+                            <span>10 = representa completamente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você acredita que seu LinkedIn representa adequadamente o profissional que você é hoje? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="representacao_linkedin" id="lik_${i}" value="${i}" required><label for="lik_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = não representa</span>
+                            <span>10 = representa completamente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você consegue explicar claramente qual é o seu principal diferencial profissional? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="explica_diferencial" value="Sim" required><span>Sim</span></label>
+                        <label class="choice-option"><input type="radio" name="explica_diferencial" value="Parcialmente"><span>Parcialmente</span></label>
+                        <label class="choice-option"><input type="radio" name="explica_diferencial" value="Não"><span>Não</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se um recrutador tivesse 30 segundos para conhecer seu perfil, o que você gostaria que ele entendesse sobre você? <span class="req">*</span></label>
+                    <textarea name="pitch_30_segundos" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe alguma característica da sua trajetória que você sente que o mercado não está enxergando?</label>
+                    <textarea name="caracteristica_invisivel_mercado"></textarea>
+                </div>
+            </div>
+
+            <!-- 8. MOTIVAÇÃO E CRITÉRIOS DE ESCOLHA -->
+            <div class="section-box">
+                <div class="section-title">8. MOTIVAÇÃO E CRITÉRIOS DE ESCOLHA</div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você mais gosta de fazer profissionalmente? <span class="req">*</span></label>
+                    <textarea name="gosta_fazer_profissional" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Que atividades mais energizam você?</label>
+                    <textarea name="atividades_energizam"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Que atividades mais desgastam você?</label>
+                    <textarea name="atividades_desgastam"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você definitivamente não quer mais fazer? <span class="req">*</span></label>
+                    <textarea name="nao_quer_mais_fazer" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe algo de que você não está disposta a abrir mão na sua vida profissional?</label>
+                    <textarea name="nao_abre_mao"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quais são os três fatores mais importantes para você em uma próxima oportunidade? <span class="req">*</span></label>
+                    <div class="field-desc">Selecione no máximo 3 opções</div>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Remuneração" class="limit-max-3"><span>Remuneração</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Desenvolvimento" class="limit-max-3"><span>Desenvolvimento</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Desafio profissional" class="limit-max-3"><span>Desafio profissional</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Cultura" class="limit-max-3"><span>Cultura</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Liderança" class="limit-max-3"><span>Liderança</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Flexibilidade" class="limit-max-3"><span>Flexibilidade</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Estabilidade" class="limit-max-3"><span>Estabilidade</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Benefícios" class="limit-max-3"><span>Benefícios</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Autonomia" class="limit-max-3"><span>Autonomia</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Propósito" class="limit-max-3"><span>Propósito</span></label>
+                        <label class="choice-option"><input type="checkbox" name="fatores_importantes" value="Outro" class="limit-max-3"><span>Outro</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. INVESTIMENTO NO PROCESSO -->
+            <div class="section-box">
+                <div class="section-title">9. INVESTIMENTO NO PROCESSO</div>
+                <div class="section-subtitle">Objetivo desta etapa: compreender a expectativa de investimento para direcionar o formato de trabalho mais adequado. A resposta não determina automaticamente a modalidade ou o investimento final.</div>
+
+                <div class="field-group">
+                    <label class="field-label">Você já havia considerado investir em um processo profissional de Carreira/Jobhunter? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="ja_considerou_investir" value="Sim" required><span>Sim</span></label>
+                        <label class="choice-option"><input type="radio" name="ja_considerou_investir" value="Não"><span>Não</span></label>
+                        <label class="choice-option"><input type="radio" name="ja_considerou_investir" value="Nunca havia pensado nisso"><span>Nunca havia pensado nisso</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Considerando o nível de apoio que você busca, qual faixa de investimento você imaginava para esse processo? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 1.001 a R$ 2.000" required><span>De R$ 1.001 a R$ 2.000</span></label>
+                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 2.001 a R$ 3.500"><span>De R$ 2.001 a R$ 3.500</span></label>
+                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 3.501 a R$ 5.000"><span>De R$ 3.501 a R$ 5.000</span></label>
+                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="De R$ 5.001 a R$ 8.000"><span>De R$ 5.001 a R$ 8.000</span></label>
+                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="Acima de R$ 8.000"><span>Acima de R$ 8.000</span></label>
+                        <label class="choice-option"><input type="radio" name="faixa_investimento" value="Ainda não faço ideia"><span>Ainda não faço ideia</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que levou você a pensar nessa faixa de investimento?</label>
+                    <textarea name="motivo_faixa_investimento"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Para você, o que justificaria um investimento maior em um processo de Carreira/Jobhunter?</label>
+                    <textarea name="justificativa_investimento_maior"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Você prefere avaliar o investimento considerando: <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="preferencia_avaliacao_investimento" value="Um valor total pelo projeto" required><span>Um valor total pelo projeto</span></label>
+                        <label class="choice-option"><input type="radio" name="preferencia_avaliacao_investimento" value="Pagamento parcelado"><span>Pagamento parcelado</span></label>
+                        <label class="choice-option"><input type="radio" name="preferencia_avaliacao_investimento" value="Ainda não sei"><span>Ainda não sei</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe alguma condição de pagamento que seja importante para você?</label>
+                    <textarea name="condicao_pagamento_importante"></textarea>
+                </div>
+            </div>
+
+            <!-- 10. COMO VOCÊ GOSTARIA DE UTILIZAR A CONSULTORIA? -->
+            <div class="section-box">
+                <div class="section-title">10. COMO VOCÊ GOSTARIA DE UTILIZAR A CONSULTORIA?</div>
+                <div class="section-subtitle">Objetivo desta etapa: entender o nível de participação e de execução que você espera da consultora.</div>
+
+                <div class="field-group">
+                    <label class="field-label">O que você mais busca neste momento? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero principalmente orientação para tomar decisões melhores." required><span>Quero principalmente orientação para tomar decisões melhores.</span></label>
+                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero encontros para receber direcionamento e construir os próximos passos comigo."><span>Quero encontros para receber direcionamento e construir os próximos passos comigo.</span></label>
+                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero acompanhamento ao longo de um período para estruturar e executar minha estratégia."><span>Quero acompanhamento ao longo de um período para estruturar e executar minha estratégia.</span></label>
+                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Quero que a consultora assuma uma parte maior da execução para acelerar minha movimentação."><span>Quero que a consultora assuma uma parte maior da execução para acelerar minha movimentação.</span></label>
+                        <label class="choice-option"><input type="radio" name="busca_consultoria_objetivo" value="Ainda não sei qual formato seria mais adequado."><span>Ainda não sei qual formato seria mais adequado.</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quanto você espera executar pessoalmente durante o processo? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="execucao_pessoal" id="exp_${i}" value="${i}" required><label for="exp_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = delegar o máximo possível</span>
+                            <span>10 = fazer tudo com orientação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Quanto você gostaria que a consultora participasse diretamente da execução? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="participacao_consultora" id="par_${i}" value="${i}" required><label for="par_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = apenas orientação</span>
+                            <span>10 = participação intensa na execução</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Em quais atividades você gostaria de receber apoio? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Clareza e direcionamento de carreira"><span>Clareza e direcionamento de carreira</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Posicionamento profissional"><span>Posicionamento profissional</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Currículo"><span>Currículo</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="LinkedIn"><span>LinkedIn</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Estratégia de busca"><span>Estratégia de busca</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Identificação de oportunidades"><span>Identificação de oportunidades</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Mapeamento de mercado"><span>Mapeamento de mercado</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Preparação para entrevistas"><span>Preparação para entrevistas</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Preparação para processos seletivos"><span>Preparação para processos seletivos</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Abordagem de empresas/recrutadores"><span>Abordagem de empresas/recrutadores</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Prospecção ativa de oportunidades"><span>Prospecção ativa de oportunidades</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Acompanhamento da movimentação"><span>Acompanhamento da movimentação</span></label>
+                        <label class="choice-option"><input type="checkbox" name="atividades_apoio" value="Outro"><span>Outro</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe alguma atividade que você gostaria que a consultora assumisse diretamente por você?</label>
+                    <textarea name="atividade_direta_consultora"></textarea>
+                </div>
+            </div>
+
+            <!-- 11. FORMATO DE APOIO QUE VOCÊ IMAGINA -->
+            <div class="section-box">
+                <div class="section-title">11. FORMATO DE APOIO QUE VOCÊ IMAGINA</div>
+
+                <div class="field-group">
+                    <label class="field-label">Pensando no seu momento atual, qual destas formas de apoio mais se aproxima do que você imagina precisar? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Consultoria Express: intervenção pontual" required><span>Consultoria Express: uma intervenção pontual para analisar uma questão específica e direcionar os próximos passos.</span></label>
+                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Encontro único de orientação"><span>Encontro único de orientação: uma conversa estruturada para esclarecer uma decisão, dúvida ou movimento de carreira.</span></label>
+                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Mentoria: acompanhamento para desenvolver estratégia"><span>Mentoria: acompanhamento para desenvolver estratégia, tomada de decisão e evolução profissional com participação ativa da cliente.</span></label>
+                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Assessoria: acompanhamento próximo e execução"><span>Assessoria: acompanhamento mais próximo, com maior participação da consultora na execução das estratégias definidas.</span></label>
+                        <label class="choice-option"><input type="radio" name="formato_apoio_preferido" value="Ainda não sei. Gostaria que a consultora recomendasse."><span>Ainda não sei. Gostaria que a consultora recomendasse o formato.</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Por que esse formato parece fazer mais sentido para você?</label>
+                    <textarea name="motivo_formato_preferido"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se você pudesse escolher, quanto tempo gostaria de ter esse acompanhamento? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="Um único encontro" required><span>Um único encontro</span></label>
+                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="Até 30 dias"><span>Até 30 dias</span></label>
+                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="De 1 a 3 meses"><span>De 1 a 3 meses</span></label>
+                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="De 3 a 6 meses"><span>De 3 a 6 meses</span></label>
+                        <label class="choice-option"><input type="radio" name="tempo_acompanhamento" value="Não sei"><span>Não sei</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. MATURIDADE E COMPROMETIMENTO -->
+            <div class="section-box">
+                <div class="section-title">12. MATURIDADE E COMPROMETIMENTO</div>
+
+                <div class="field-group">
+                    <label class="field-label">Você já contratou algum serviço de consultoria de carreira? <span class="req">*</span></label>
+                    <div class="choices-stack">
+                        <label class="choice-option"><input type="radio" name="ja_contratou_consultoria" value="Sim" required><span>Sim</span></label>
+                        <label class="choice-option"><input type="radio" name="ja_contratou_consultoria" value="Não"><span>Não</span></label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se sim, como foi essa experiência?</label>
+                    <textarea name="experiencia_consultoria_anterior"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que funcionou?</label>
+                    <textarea name="o_que_funcionou_anterior"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">O que não funcionou?</label>
+                    <textarea name="o_que_nao_funcionou_anterior"></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Em uma escala de 1 a 10, quanto você está comprometida com a mudança profissional neste momento? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="escala_comprometimento" id="com_${i}" value="${i}" required><label for="com_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = pouco comprometida</span>
+                            <span>10 = totalmente comprometida</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Em uma escala de 1 a 10, quanto tempo e energia você consegue dedicar ao processo? <span class="req">*</span></label>
+                    <div class="scale-wrapper">
+                        <div class="scale-options">
+                            <script>
+                                for(let i=1; i<=10; i++) {
+                                    document.write(`<div class="scale-item"><input type="radio" name="escala_tempo_dedicacao" id="ted_${i}" value="${i}" required><label for="ted_${i}">${i}</label></div>`);
+                                }
+                            </script>
+                        </div>
+                        <div class="scale-legend">
+                            <span>1 = muito pouco</span>
+                            <span>10 = bastante</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. DEFINIÇÃO DE SUCESSO -->
+            <div class="section-box">
+                <div class="section-title">13. DEFINIÇÃO DE SUCESSO</div>
+
+                <div class="field-group">
+                    <label class="field-label">O que precisa acontecer para você considerar que esse processo foi bem-sucedido? <span class="req">*</span></label>
+                    <textarea name="criterio_sucesso_processo" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se esse processo der exatamente certo para você, o que terá mudado na sua carreira? <span class="req">*</span></label>
+                    <textarea name="mudanca_esperada_sucesso" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Qual é a principal ajuda que você precisa neste momento? <span class="req">*</span></label>
+                    <textarea name="principal_ajuda_necessaria" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Se você pudesse resolver apenas uma questão da sua carreira hoje, qual seria? <span class="req">*</span></label>
+                    <textarea name="questao_unica_resolver" required></textarea>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Existe alguma informação importante sobre sua carreira, seus objetivos ou seu momento profissional que você considera importante compartilhar e que não perguntamos aqui?</label>
+                    <textarea name="informacao_adicional_livre"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="btnSubmit">Enviar Diagnóstico para Análise Executiva ➔</button>
+            <div id="statusMsg" class="status-msg"></div>
+        </form>
+    </div>
+
+    <script>
+        // URL do Google Apps Script (Cole aqui a sua URL implantada)
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmWcZF078rBXzxcr6hE4ItjD3nnbRlK6tzLz1Eic02G42J-S9_AJpFx-nkLakJL0PU/exec";
+
+        // Atualização da barra de progresso no topo
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
+        };
+
+        // Validação de Limite máximo de 3 seleções no item 8
+        const checkboxesFatores = document.querySelectorAll('.limit-max-3');
+        checkboxesFatores.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const selecionados = document.querySelectorAll('.limit-max-3:checked');
+                if (selecionados.length > 3) {
+                    this.checked = false;
+                    alert("Por favor, selecione no máximo 3 fatores para esta questão.");
+                }
+            });
+        });
+
+        // Envio do formulário via requisição de formulário nativa (Form POST)
+        const formElement = document.getElementById('diagnosticoForm');
+        
+        formElement.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('btnSubmit');
+            const status = document.getElementById('statusMsg');
+
+            // Validação de checkbox obrigatório no item 8 (Atividades de apoio / Modelo trabalho)
+            const modelosSelecionados = document.querySelectorAll('input[name="modelo_trabalho"]:checked');
+            if (modelosSelecionados.length === 0) {
+                alert("Por favor, selecione pelo menos um modelo de trabalho no item 5.");
+                return;
+            }
+
+            const fatoresSelecionados = document.querySelectorAll('input[name="fatores_importantes"]:checked');
+            if (fatoresSelecionados.length === 0) {
+                alert("Por favor, selecione os fatores mais importantes na Seção 8.");
+                return;
+            }
+
+            const apoioSelecionados = document.querySelectorAll('input[name="atividades_apoio"]:checked');
+            if (apoioSelecionados.length === 0) {
+                alert("Por favor, selecione pelo menos uma atividade em que deseja apoio na Seção 10.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Processando e Enviando Diagnóstico... ⏳";
+            mostrarStatus("Enviando suas respostas com segurança...", "success");
+
+            const formData = new FormData(formElement);
+            // URLSearchParams converte os dados no formato exato que o Google precisa para receber sem CORS
+            const urlEncodedData = new URLSearchParams(formData).toString();
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: urlEncodedData
+            })
+            .then(response => {
+                mostrarStatus("🎉 Diagnóstico enviado com sucesso! Seus dados foram salvos de forma estritamente confidencial.", "success");
+                btn.innerText = "Diagnóstico Enviado!";
+                formElement.reset();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            })
+            .catch(err => {
+                console.error("Erro no envio:", err);
+                mostrarStatus("Erro ao enviar. Por favor, verifique a conexão e tente novamente.", "error");
+                btn.disabled = false;
+                btn.innerText = "Enviar Diagnóstico para Análise Executiva ➔";
+            });
+        });
+
+        function mostrarStatus(txt, tipo) {
+            const el = document.getElementById('statusMsg');
+            el.className = 'status-msg ' + tipo;
+            el.innerText = txt;
+            el.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
