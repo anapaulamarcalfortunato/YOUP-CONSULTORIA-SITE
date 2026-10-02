@@ -12,25 +12,30 @@
 
     <style>
         :root {
+            /* Cores Oficiais YOUP */
             --dourado: #c5a059;
-            --dourado-hover: #d4af37;
-            --escuro: #0a0a0a;
-            --card-bg: #141414;
-            --input-bg: #1f1f1f;
-            --borda: #333333;
-            --texto-claro: #ffffff;
-            --texto-cinza: #aaaaaa;
+            --dourado-hover: #b38f4d;
             --verde-youp: #5c8e82;
-            --erro: #ff4d4d;
-            --sucesso: #25D366;
+            
+            /* Nova Paleta Clara (Light Theme) */
+            --fundo-pagina: #f4f4f4;
+            --card-bg: #ffffff;
+            --input-bg: #fafafa;
+            --borda: #dddddd;
+            --texto-principal: #2c2c2c;
+            --texto-cinza: #666666;
+            
+            /* Feedbacks */
+            --erro: #d32f2f;
+            --sucesso: #2e7d32;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--escuro);
-            color: var(--texto-claro);
+            background-color: var(--fundo-pagina);
+            color: var(--texto-principal);
             line-height: 1.6;
             padding: 40px 20px;
             display: flex;
@@ -45,7 +50,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.05); /* Escurecido sutilmente para o fundo claro */
             z-index: 1001;
         }
 
@@ -58,12 +63,12 @@
 
         .main-card {
             background: var(--card-bg);
-            border: 1px solid var(--dourado);
+            border: 1px solid var(--borda);
             border-radius: 8px;
             width: 100%;
             max-width: 900px;
             padding: 50px 40px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Sombra mais suave para o tema claro */
             position: relative;
         }
 
@@ -110,12 +115,12 @@
 
         .form-intro p {
             font-size: 13px;
-            color: #cccccc;
+            color: var(--texto-cinza);
             line-height: 1.7;
         }
 
         .section-box {
-            background: #181818;
+            background: var(--card-bg);
             border: 1px solid var(--borda);
             border-radius: 6px;
             padding: 30px;
@@ -165,7 +170,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             margin-bottom: 8px;
         }
 
@@ -189,7 +194,7 @@
             width: 100%;
             background: var(--input-bg);
             border: 1px solid var(--borda);
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             padding: 14px;
             border-radius: 4px;
             font-family: 'Montserrat', sans-serif;
@@ -206,8 +211,8 @@
 
         input:focus, select:focus, textarea:focus {
             border-color: var(--dourado);
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
-            background: #242424;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+            background: #ffffff;
         }
 
         /* Escala Linear de 1 a 10 Estilizada */
@@ -242,15 +247,15 @@
             cursor: pointer;
             font-size: 13px;
             font-weight: 700;
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             transition: all 0.2s ease;
         }
 
         .scale-item input[type="radio"]:checked + label {
             background: var(--dourado);
-            color: var(--escuro);
+            color: #ffffff;
             border-color: var(--dourado);
-            box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+            box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
         }
 
         .scale-item label:hover {
@@ -288,6 +293,7 @@
 
         .choice-option:hover {
             border-color: var(--dourado);
+            background: #ffffff;
         }
 
         .choice-option input {
@@ -300,13 +306,13 @@
 
         .choice-option span {
             font-size: 13px;
-            color: var(--texto-claro);
+            color: var(--texto-principal);
         }
 
         .btn-submit {
             width: 100%;
             background: var(--dourado);
-            color: var(--escuro);
+            color: #ffffff;
             border: none;
             padding: 18px;
             font-family: 'Montserrat', sans-serif;
@@ -345,13 +351,13 @@
         }
 
         .status-msg.success {
-            background: rgba(37, 211, 102, 0.15);
+            background: rgba(37, 211, 102, 0.1);
             color: var(--sucesso);
             border: 1px solid var(--sucesso);
         }
 
         .status-msg.error {
-            background: rgba(255, 77, 77, 0.15);
+            background: rgba(211, 47, 47, 0.1);
             color: var(--erro);
             border: 1px solid var(--erro);
         }
