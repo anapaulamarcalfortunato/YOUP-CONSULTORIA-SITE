@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -16,6 +16,7 @@
             --dourado: #c5a059;
             --cinza-escuro: #1a1a1a;
             --cinza-claro: #b0b0b0;
+            --cinza-fundo: #f4f6f5;
         }
 
         body {
@@ -27,7 +28,8 @@
 
         /* PAINEL DE CONTROLE (Esquerda) */
         .sidebar {
-            width: 420px;
+            width: 440px;
+            min-width: 440px;
             background-image: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(30, 30, 30, 0.95)), url('https://images.unsplash.com/photo-1454165833767-027ffea10c3b?q=80&w=600');
             background-size: cover;
             border-right: 1px solid rgba(197, 160, 89, 0.3);
@@ -36,6 +38,7 @@
             overflow-y: auto;
             box-shadow: 5px 0 20px rgba(0,0,0,0.5);
             z-index: 10;
+            box-sizing: border-box;
         }
 
         .sidebar::-webkit-scrollbar { width: 6px; }
@@ -43,116 +46,166 @@
         .sidebar::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 10px; }
 
         .sidebar h2 { color: var(--dourado); font-size: 20px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .sidebar p { font-size: 12px; color: var(--cinza-claro); margin-bottom: 30px; }
+        .sidebar p { font-size: 12px; color: var(--cinza-claro); margin-bottom: 25px; }
 
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; font-size: 11px; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 8px; font-weight: 600; letter-spacing: 1px; }
         .form-control { 
-            width: 100%; padding: 12px 15px; 
-            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); 
-            color: #fff; border-radius: 6px; font-family: 'Montserrat'; font-size: 13px; 
+            width: 100%; padding: 12px 14px; 
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); 
+            color: #fff; border-radius: 6px; font-family: 'Montserrat'; font-size: 12.5px; 
             box-sizing: border-box; outline: none; transition: 0.3s;
         }
-        .form-control:focus { border-color: var(--dourado); background: rgba(0,0,0,0.8); }
+        .form-control:focus { border-color: var(--dourado); background: rgba(0,0,0,0.85); }
         
         .btn-gerar {
             width: 100%; padding: 15px; margin-top: 20px;
             background: var(--dourado); color: var(--cinza-escuro);
-            border: none; border-radius: 6px; font-weight: 700; font-size: 14px;
-            text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
+            border: none; border-radius: 6px; font-weight: 700; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s;
         }
         .btn-gerar:hover { background: #fff; transform: translateY(-2px); }
         .btn-gerar:disabled { background: #555; cursor: not-allowed; }
 
+        .btn-auxiliar {
+            width: 100%; padding: 9px 12px; margin-bottom: 12px;
+            background: rgba(197, 160, 89, 0.15); color: var(--dourado);
+            border: 1px solid var(--dourado); border-radius: 5px; font-size: 11px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-auxiliar:hover { background: var(--dourado); color: var(--cinza-escuro); }
+
         /* ÁREA DE PREVIEW / DOCUMENTO (Direita) */
         .preview-area {
-            flex: 1; background: #eef1f0; padding: 40px; overflow-y: auto;
+            flex: 1; background: #dce2e0; padding: 30px; overflow-y: auto;
             display: flex; justify-content: center;
         }
 
         .document-a4 {
             background: #fff; width: 210mm; min-height: 297mm;
             padding: 15mm 20mm;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.18);
             color: #333; position: relative; box-sizing: border-box;
             display: flex; flex-direction: column;
         }
 
-        .page-break { page-break-before: always; margin-top: 30px; }
+        .page-break { page-break-before: always; margin-top: 35px; border-top: 1px dashed #d5d5d5; padding-top: 25px; }
 
-        .doc-header { border-bottom: 2px solid var(--verde-youp); padding-bottom: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .doc-header { border-bottom: 2px solid var(--verde-youp); padding-bottom: 12px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: flex-end; }
         .doc-date { font-size: 11px; color: #888; text-align: right; }
 
-        .doc-title { color: var(--cinza-escuro); font-size: 20px; font-weight: 700; margin-bottom: 5px; }
-        .doc-client { color: var(--dourado); font-size: 13px; font-weight: 600; margin-bottom: 15px; text-transform: uppercase; }
+        .doc-title { color: var(--cinza-escuro); font-size: 20px; font-weight: 800; margin-bottom: 5px; line-height: 1.3; }
+        .doc-subtitle { color: #666; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+        .doc-client { color: var(--dourado); font-size: 13px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        .doc-text { font-size: 12px; line-height: 1.6; color: #444; margin-bottom: 15px; text-align: justify; }
+        .doc-text { font-size: 11.5px; line-height: 1.65; color: #444; margin-bottom: 12px; text-align: justify; }
         .doc-text b { color: var(--verde-youp); }
         
-        .doc-section-title { color: var(--verde-youp); font-size: 15px; border-bottom: 1px solid #eee; padding-bottom: 4px; margin: 20px 0 10px; font-weight: 700; text-transform: uppercase; }
+        .doc-section-title { color: var(--verde-youp); font-size: 14px; border-bottom: 1px solid #e2e8e5; padding-bottom: 4px; margin: 20px 0 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
         
         .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
-        
-        .method-box { background: #f9fbfb; border-left: 3px solid var(--verde-youp); padding: 10px 15px; }
-        .method-box h4 { margin: 0 0 5px 0; color: var(--cinza-escuro); font-size: 12px; display: flex; align-items: center; gap: 6px;}
+        .method-box { background: #f9fbfb; border-left: 3px solid var(--verde-youp); padding: 10px 14px; break-inside: avoid; }
+        .method-box h4 { margin: 0 0 5px 0; color: var(--cinza-escuro); font-size: 11.5px; display: flex; align-items: center; gap: 6px;}
         .method-box p { margin: 0; font-size: 10.5px; line-height: 1.5; color: #555; text-align: justify;}
 
-        .method-box-bonus { background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--dourado); padding: 10px 15px; }
-        .method-box-bonus h4 { margin: 0 0 5px 0; color: var(--cinza-escuro); font-size: 12px; display: flex; align-items: center; gap: 6px;}
+        .method-box-bonus { background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--dourado); padding: 10px 14px; break-inside: avoid; }
+        .method-box-bonus h4 { margin: 0 0 5px 0; color: var(--cinza-escuro); font-size: 11.5px; display: flex; align-items: center; gap: 6px;}
         .method-box-bonus p { margin: 0; font-size: 10.5px; line-height: 1.5; color: #555; text-align: justify;}
 
-        /* Bloco de Valores Página 2 */
-        .price-box { background: rgba(92, 142, 130, 0.03); border: 1px solid rgba(92, 142, 130, 0.2); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
-        
-        .bonus-section { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed rgba(197, 160, 89, 0.3); }
-        .bonus-title { font-size: 12px; text-transform: uppercase; font-weight: 800; color: var(--dourado); margin-bottom: 15px; letter-spacing: 1px;}
-        
-        .bonus-item { background: #fff; border: 1px solid #eee; padding: 12px; margin-bottom: 8px; border-radius: 6px; }
-        .bonus-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-        .bonus-item-header strong { font-size: 12px; color: var(--verde-youp); }
-        .bonus-val { text-decoration: line-through; color: #999; font-size: 12px; font-weight: 700;}
-        .bonus-item p { margin: 0; font-size: 11px; color: #555; line-height: 1.5; text-align: justify;}
-        
-        .ancoragem-box { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px; }
-        .valor-original { font-size: 13px; color: #777; }
+        /* Bloco de Valores */
+        .price-box { background: rgba(92, 142, 130, 0.04); border: 1px solid rgba(92, 142, 130, 0.25); border-radius: 8px; padding: 22px; margin-bottom: 20px; break-inside: avoid; }
+        .bonus-section { margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px dashed rgba(197, 160, 89, 0.35); }
+        .bonus-title { font-size: 11.5px; text-transform: uppercase; font-weight: 800; color: var(--dourado); margin-bottom: 12px; letter-spacing: 1px;}
+        .ancoragem-box { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; }
+        .valor-original { font-size: 12px; color: #777; }
         .valor-original span { text-decoration: line-through; font-weight: 700; color: #999;}
-        
-        .price-title { color: var(--verde-youp); font-weight: 800; font-size: 18px; text-transform: uppercase; }
-        .price-value { color: var(--dourado); font-size: 28px; font-weight: 900; }
-        .price-desc { font-size: 12px; color: #444; line-height: 1.6; margin-top: 15px; }
+        .price-title { color: var(--verde-youp); font-weight: 800; font-size: 16px; text-transform: uppercase; }
+        .price-value { color: var(--dourado); font-size: 26px; font-weight: 900; }
+        .price-desc { font-size: 11.5px; color: #444; line-height: 1.6; margin-top: 12px; }
+
+        /* ESTILOS ESPECÍFICOS PARA PROPOSTA LIVRE / PERSONALIZADA */
+        .custom-meta-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            background: #f8faf9; border-left: 3px solid var(--dourado);
+            padding: 12px 16px; margin-bottom: 20px; font-size: 11px;
+        }
+        .custom-meta-item strong { color: var(--cinza-escuro); text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+        .custom-meta-item div { color: #555; margin-top: 2px; }
+
+        .custom-section-h2 {
+            color: var(--verde-youp); font-size: 13.5px; font-weight: 800;
+            text-transform: uppercase; border-bottom: 1.5px solid rgba(92,142,130,0.3);
+            padding-bottom: 4px; margin: 24px 0 10px 0; letter-spacing: 0.5px;
+            break-after: avoid;
+        }
+
+        .custom-section-h3 {
+            color: var(--cinza-escuro); font-size: 12px; font-weight: 700;
+            margin: 14px 0 6px 0; break-after: avoid;
+        }
+
+        .custom-list {
+            margin: 6px 0 12px 20px; padding: 0; font-size: 11.5px;
+            color: #444; line-height: 1.6;
+        }
+        .custom-list li { margin-bottom: 4px; }
+
+        .custom-table-container { margin: 15px 0 20px 0; overflow-x: auto; break-inside: avoid; }
+        .custom-table {
+            width: 100%; border-collapse: collapse; font-size: 11px;
+            background: #fff; border: 1px solid #e1e7e5;
+        }
+        .custom-table th {
+            background-color: var(--verde-youp); color: #fff;
+            padding: 8px 10px; text-align: left; font-weight: 700;
+            text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px;
+        }
+        .custom-table td {
+            padding: 8px 10px; border-bottom: 1px solid #eef2f1; color: #444;
+        }
+        .custom-table tr:nth-child(even) td { background-color: #f9fbfb; }
 
         .doc-footer { margin-top: auto; text-align: center; border-top: 1px solid #eee; padding-top: 15px; }
-        .doc-footer p { font-size: 11px; color: #888; margin: 3px 0; }
+        .doc-footer p { font-size: 10.5px; color: #888; margin: 2px 0; }
 
+        /* REGRAS DE IMPRESSÃO */
         @media print {
             body { background: white; display: block; overflow: visible; height: auto; }
-            .sidebar { display: none; }
-            .preview-area { background: white; padding: 0; display: block; }
-            .document-a4 { box-shadow: none; width: 100%; height: auto; padding: 0; min-height: auto;}
-            .page-break { page-break-before: always; }
+            .sidebar { display: none !important; }
+            .preview-area { background: white; padding: 0; display: block; overflow: visible; }
+            .document-a4 { box-shadow: none; width: 100%; height: auto; padding: 12mm 15mm; min-height: auto; }
+            .page-break { page-break-before: always; border: none; padding-top: 0; margin-top: 0; }
+            .method-box, .method-box-bonus, .price-box, .custom-table-container { break-inside: avoid; }
+            .custom-section-h2, .custom-section-h3, .doc-section-title { break-after: avoid; }
         }
     </style>
 </head>
 <body>
 
+    <!-- PAINEL DE CONTROLE (Sidebar) -->
     <aside class="sidebar">
         <h2>Gerador de Proposta</h2>
+        <p>Youp Consultoria • Executive Intelligence</p>
 
         <div class="form-group">
             <label>Nome do Cliente / Empresa</label>
-            <input type="text" id="inputCliente" class="form-control" placeholder="Ex: João da Silva" oninput="atualizarProposta()">
+            <input type="text" id="inputCliente" class="form-control" placeholder="Ex: Ricardo Calixto de Oliveira" oninput="atualizarProposta()">
         </div>
 
         <div class="form-group">
-            <label>Serviço Oferecido</label>
+            <label>Tipo de Proposta / Serviço</label>
             <select id="inputServico" class="form-control" onchange="mudarServico()">
-                <optgroup label="Esteira Estratégica YOUP">
+                <optgroup label="Proposta Sob Medida / Livre">
+                    <option value="livre" selected>✦ Proposta Livre (Totalmente Customizada)</option>
+                </optgroup>
+                <optgroup label="Esteira Estratégica YOUP (Pacotes Fechados)">
                     <option value="revisao">0. Revisão Manual (Entrada)</option>
                     <option value="mentoria">1. Mentoria Tática (1 Encontro)</option>
                     <option value="express">2. Consultoria Express (2 Encontros)</option>
                     <option value="assessoria">3. Assessoria Tática (90 Dias Operação)</option>
                     <option value="gtm_head">4. Go-to-Market Completo (Head)</option>
-                    <option value="gtm_csuite" selected>5. Go-to-Market Completo (C-Suite)</option>
+                    <option value="gtm_csuite">5. Go-to-Market Completo (C-Suite)</option>
                 </optgroup>
                 <optgroup label="Entregáveis Isolados (Avulsos)">
                     <option value="avulso_cv">Reestruturação de Currículo ATS</option>
@@ -178,46 +231,90 @@
             </select>
         </div>
 
+        <!-- PAINEL DINÂMICO PARA PROPOSTA LIVRE -->
+        <div id="container-livre" style="display: none;">
+            <button type="button" class="btn-auxiliar" onclick="carregarExemploStare()">Carregar Exemplo S.T.A.R.E. Advisory</button>
+
+            <div class="form-group">
+                <label>Título do Projeto / Proposta</label>
+                <input type="text" id="inputLivreTitulo" class="form-control" value="S.T.A.R.E. Executive Advisory" oninput="atualizarProposta()">
+            </div>
+
+            <div class="form-group">
+                <label>Subtítulo / Descrição da Cadeira</label>
+                <input type="text" id="inputLivreSubtitulo" class="form-control" value="Projeto de Advisory Executivo — Próximo Ciclo Profissional" oninput="atualizarProposta()">
+            </div>
+
+            <div class="form-group">
+                <label>Modalidade</label>
+                <input type="text" id="inputLivreModalidade" class="form-control" value="Advisory Executivo Independente" oninput="atualizarProposta()">
+            </div>
+
+            <div class="form-group">
+                <label>Natureza</label>
+                <input type="text" id="inputLivreNatureza" class="form-control" value="Consultoria estratégica individual" oninput="atualizarProposta()">
+            </div>
+
+            <div class="form-group">
+                <label>Proponente</label>
+                <input type="text" id="inputLivreProponente" class="form-control" value="Youp Consultoria • Ana Paula Marçal" oninput="atualizarProposta()">
+            </div>
+
+            <div class="form-group">
+                <label>Conteúdo Completo (Texto, Seções, Listas e Tabelas)</label>
+                <textarea id="inputLivreCorpo" class="form-control" rows="14" style="font-family: monospace; font-size: 11px; line-height: 1.4;" placeholder="Cole aqui os tópicos da proposta..." oninput="atualizarProposta()"></textarea>
+                <span style="font-size: 10px; color: #888; display: block; margin-top: 4px;">Dica: Use <b>1. Nome</b> para seções, <b>- Item</b> para listas, e <b>---</b> para forçar quebra de página.</span>
+            </div>
+
+            <div class="form-group">
+                <label>Resumo de Investimento (Para Planilha / Fechamento)</label>
+                <input type="text" id="inputLivreValor" class="form-control" value="R$ 8.000,00 a R$ 15.000,00" placeholder="Ex: R$ 10.000,00" oninput="atualizarProposta()">
+            </div>
+        </div>
+
+        <!-- PAINÉIS DOS OUTROS SERVIÇOS NATIVOS -->
         <div id="blocos-valores-custom"></div>
 
         <div id="container-avulsos" style="display: none;">
             <div class="form-group">
                 <label>Investimento do Serviço Isolado</label>
-                <input type="text" id="inputValorAvulso" class="form-control" oninput="atualizarPropostaManual()">
+                <input type="text" id="inputValorAvulso" class="form-control" oninput="atualizarProposta()">
             </div>
         </div>
 
-        <div id="container-ancoragem">
+        <div id="container-ancoragem" style="display: none;">
             <div id="bonus-checkboxes" style="margin-bottom: 15px; border-left: 2px solid var(--dourado); padding-left: 10px;"></div>
             
             <div class="form-group">
                 <label>Investimento Final do Projeto</label>
-                <input type="text" id="inputValorFechado" class="form-control" oninput="atualizarPropostaManual()">
+                <input type="text" id="inputValorFechado" class="form-control" oninput="atualizarProposta()">
             </div>
         </div>
 
         <hr style="border: 0; border-top: 1px solid rgba(197, 160, 89, 0.3); margin: 20px 0;">
 
-        <div class="form-group">
-            <label>Próximo Passo (CTA)</label>
-            <select id="inputProximoPasso" class="form-control" onchange="atualizarProposta()">
-                <option value="reuniao">Agendar Reunião de Alinhamento</option>
-                <option value="formulario">Preencher Formulário de Onboarding</option>
-            </select>
+        <div id="bloco-cta-padrao">
+            <div class="form-group">
+                <label>Próximo Passo (CTA)</label>
+                <select id="inputProximoPasso" class="form-control" onchange="atualizarProposta()">
+                    <option value="reuniao">Agendar Reunião de Alinhamento</option>
+                    <option value="formulario">Preencher Formulário de Onboarding</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Outros Serviços Propostos (Opcional)</label>
+                <textarea id="inputOutros" class="form-control" rows="2" placeholder="Ex: Adição de Reunião com Sócios..." oninput="atualizarProposta()"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Condições de Pagamento</label>
+                <input type="text" id="inputCondicao" class="form-control" value="À vista no Pix (5% off) ou em até 12x no cartão." oninput="atualizarProposta()">
+            </div>
+            <hr style="border: 0; border-top: 1px solid rgba(197, 160, 89, 0.3); margin: 20px 0;">
         </div>
 
-        <div class="form-group">
-            <label>Outros Serviços Propostos (Opcional)</label>
-            <textarea id="inputOutros" class="form-control" rows="2" placeholder="Ex: Adição de Reunião com Sócios..." oninput="atualizarProposta()"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label>Condições de Pagamento</label>
-            <input type="text" id="inputCondicao" class="form-control" value="À vista no Pix (5% off) ou em até 12x no cartão." oninput="atualizarProposta()">
-        </div>
-
-        <hr style="border: 0; border-top: 1px solid rgba(197, 160, 89, 0.3); margin: 20px 0;">
-        <h3 style="color: var(--dourado); font-size: 11px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">Dados do Cliente</h3>
+        <h3 style="color: var(--dourado); font-size: 11px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">Dados do Cliente (CRM / Planilha)</h3>
         
         <div class="form-group">
             <label>WhatsApp</label>
@@ -232,70 +329,84 @@
         <div id="statusMsg" style="margin-top: 10px; font-size: 11px; text-align: center; color: var(--verde-claro);"></div>
     </aside>
 
+    <!-- ÁREA DE PREVIEW / IMPRESSÃO (Direita) -->
     <main class="preview-area">
-        <div class="document-a4">
+        <div class="document-a4" id="documentoProposta">
             
-            <!-- PÁGINA 1: ESCOPO E ENTREGÁVEIS DETALHADOS -->
+            <!-- CABEÇALHO PADRÃO -->
             <div class="doc-header">
                 <div>
-                    <h1 style="color: #111111; font-weight: 800; font-size: 26px; letter-spacing: -1px; margin: 0;">YOUP <span style="color: #c5a059;">CONSULTORIA</span></h1>
-                    <p style="margin: 3px 0 0 0; color: #666666; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Executive Search & Inteligência de Mercado</p>
+                    <h1 style="color: #111111; font-weight: 900; font-size: 24px; letter-spacing: -1px; margin: 0;">YOUP <span style="color: #c5a059;">CONSULTORIA</span></h1>
+                    <p style="margin: 3px 0 0 0; color: #666666; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Executive Search & Inteligência de Mercado</p>
                 </div>
                 <div class="doc-date" id="docData">Data: --/--/----</div>
             </div>
 
-            <div class="doc-title" id="docServicoTitle">Nome do Serviço</div>
-            <div class="doc-client" id="docClienteTarget">Preparado para: <span>[Nome do Cliente]</span></div>
+            <!-- CONTAINER PARA PROPOSTA LIVRE / PERSONALIZADA -->
+            <div id="area-proposta-livre" style="display: none;">
+                <div class="doc-title" id="docLivreTitulo">S.T.A.R.E. Executive Advisory</div>
+                <div class="doc-subtitle" id="docLivreSubtitulo">Projeto de Advisory Executivo — Próximo Ciclo Profissional</div>
+                
+                <div class="custom-meta-grid">
+                    <div class="custom-meta-item"><strong>Cliente:</strong> <div id="docLivreCliente">-</div></div>
+                    <div class="custom-meta-item"><strong>Modalidade:</strong> <div id="docLivreModalidade">-</div></div>
+                    <div class="custom-meta-item"><strong>Natureza:</strong> <div id="docLivreNatureza">-</div></div>
+                    <div class="custom-meta-item"><strong>Proponente:</strong> <div id="docLivreProponente">-</div></div>
+                </div>
 
-            <div class="doc-section-title" style="margin-top: 0;">Sobre a YOUP</div>
-            <p class="doc-text">A <b>YOUP Consultoria</b> é uma boutique especializada em Executive Search e Inteligência de Mercado. Atuamos de forma cirúrgica na estruturação estratégica da carreira de líderes e na busca por talentos C-Level que moldam o futuro dos negócios. Nossa metodologia baseia-se na tradução de P&L corporativo e na conexão direta com os principais tomadores de decisão do mercado oculto.</p>
-
-            <div id="docDescricaoServico"></div>
-
-            <div class="doc-section-title" id="tituloEntregaveis">Entregáveis Principais (Core)</div>
-            <div class="method-grid" id="docEntregaveisGrid">
-                <!-- Preenchido via JS (Itens Base lado a lado) -->
+                <div id="docLivreConteudoProcessado"></div>
             </div>
 
-            <div id="docBonusDescContainer" style="display: none;">
-                <div class="doc-section-title">Bônus Estratégicos Inclusos</div>
-                <div class="method-grid" id="docBonusDescGrid">
-                    <!-- Preenchido via JS com a explicação dos Bônus lado a lado -->
+            <!-- CONTAINER PARA PROPOSTAS TRADICIONAIS YOUP -->
+            <div id="area-proposta-padrao">
+                <div class="doc-title" id="docServicoTitle">Nome do Serviço</div>
+                <div class="doc-client" id="docClienteTarget">Preparado para: <span>[Nome do Cliente]</span></div>
+
+                <div class="doc-section-title" style="margin-top: 0;">Sobre a YOUP</div>
+                <p class="doc-text">A <b>YOUP Consultoria</b> é uma boutique especializada em Executive Search e Inteligência de Mercado. Atuamos de forma cirúrgica na estruturação estratégica da carreira de líderes e na busca por talentos C-Level que moldam o futuro dos negócios. Nossa metodologia baseia-se na tradução de P&L corporativo e na conexão direta com os principais tomadores de decisão do mercado oculto.</p>
+
+                <div id="docDescricaoServico"></div>
+
+                <div class="doc-section-title" id="tituloEntregaveis">Entregáveis Principais (Core)</div>
+                <div class="method-grid" id="docEntregaveisGrid"></div>
+
+                <div id="docBonusDescContainer" style="display: none;">
+                    <div class="doc-section-title">Bônus Estratégicos Inclusos</div>
+                    <div class="method-grid" id="docBonusDescGrid"></div>
+                </div>
+
+                <div id="docOutrosServicosContainer" style="display: none;">
+                    <div class="doc-section-title">Serviços Adicionais</div>
+                    <p class="doc-text" id="docOutrosText" style="white-space: pre-wrap;"></p>
+                </div>
+
+                <!-- QUEBRA DE PÁGINA PARA PACOTES NATIVOS -->
+                <div class="page-break" id="quebraPagina"></div>
+                
+                <div class="doc-header" id="cabecalhoPagina2">
+                    <div>
+                        <h1 style="color: #111111; font-weight: 800; font-size: 18px; letter-spacing: -1px; margin: 0;">YOUP <span style="color: #c5a059;">CONSULTORIA</span></h1>
+                    </div>
+                </div>
+
+                <div class="doc-section-title" id="tituloInvestimento">Arquitetura de Investimento</div>
+                <p class="doc-text" id="subtituloInvestimento">A proposta abaixo reflete o pacote consolidado de inteligência estratégica desenhado para a sua cadeira.</p>
+
+                <div class="price-box" id="docValores"></div>
+
+                <div id="boxCondicoesPadrao" class="doc-text" style="margin-top: 15px; font-size: 11.5px; background: #f9fbfb; padding: 12px 15px; border-left: 3px solid var(--verde-youp);">
+                    <strong>Condições Comerciais:</strong> <span id="docCondicaoTexto"></span>
+                </div>
+
+                <div id="boxProximosPassosPadrao">
+                    <div class="doc-section-title">Próximos Passos</div>
+                    <p class="doc-text" id="docProximosPassosTexto"></p>
                 </div>
             </div>
-
-            <div id="docOutrosServicosContainer" style="display: none;">
-                <div class="doc-section-title">Serviços Adicionais</div>
-                <p class="doc-text" id="docOutrosText" style="white-space: pre-wrap;"></p>
-            </div>
-
-            <!-- QUEBRA DE PÁGINA -->
-            <div class="page-break" id="quebraPagina"></div>
-            
-            <!-- PÁGINA 2: VALOR E ANCORAGEM FINANCEIRA -->
-            <div class="doc-header" id="cabecalhoPagina2">
-                <div>
-                    <h1 style="color: #111111; font-weight: 800; font-size: 20px; letter-spacing: -1px; margin: 0;">YOUP <span style="color: #c5a059;">CONSULTORIA</span></h1>
-                </div>
-            </div>
-
-            <div class="doc-section-title" id="tituloInvestimento">Arquitetura de Investimento</div>
-            <p class="doc-text" id="subtituloInvestimento">A proposta abaixo reflete o pacote consolidado de inteligência estratégica desenhado para a sua cadeira.</p>
-
-            <div class="price-box" id="docValores">
-                <!-- Preenchido via JS -->
-            </div>
-
-            <div class="doc-text" style="margin-top: 20px; font-size: 12px; background: #f9fbfb; padding: 15px; border-left: 3px solid var(--verde-youp);">
-                <strong>Condições Comerciais:</strong> <span id="docCondicaoTexto"></span>
-            </div>
-
-            <div class="doc-section-title">Próximos Passos</div>
-            <p class="doc-text" id="docProximosPassosTexto"></p>
 
             <div class="doc-footer">
                 <p>Nós Mapeamos. Nós Conectamos.</p>
-                <p>anapaulamarcal@youpconsultoria.com | (12) 99132-2333</p>
+                <p>anapaulamarcal@youpconsultoria.com | (12) 99132-2333 | www.youpconsultoria.com</p>
             </div>
         </div>
     </main>
@@ -307,15 +418,112 @@
             return "R$ " + valorStr.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
+        // TEXTO COMPLETO DO EXEMPLO S.T.A.R.E.
+        const exemploStareTexto = `1. Apresentação da proposta
+O próximo ciclo de uma carreira executiva não deve ser definido apenas pela existência de novas oportunidades, mas pela compreensão do valor profissional construído, das possibilidades de contribuição e das condições necessárias para uma decisão consistente.
+Esta proposta apresenta uma atuação de Advisory Executivo voltada à análise independente da trajetória profissional de Ricardo Oliveira, à construção e avaliação de hipóteses de próximo ciclo e à validação estratégica das alternativas consideradas prioritárias.
+O trabalho será conduzido com autonomia técnica, confidencialidade e foco na qualidade da decisão.
+A atuação não parte da premissa de recolocação profissional. Entre os resultados possíveis estão a permanência na posição atual, uma nova posição executiva, caminhos de sociedade ou investimento e outras alternativas identificadas durante o processo.
+
+2. Objetivo do projeto
+Oferecer uma leitura executiva independente, fundamentada na trajetória, nas competências, nos resultados e nas possibilidades profissionais de Ricardo, contribuindo para a construção de hipóteses e a avaliação de caminhos para seu próximo ciclo.
+
+Objetivos específicos
+- Analisar o posicionamento e a competitividade executiva.
+- Identificar diferenciais, pontos de atenção e contextos de maior aderência profissional.
+- Construir hipóteses de próximo ciclo, sem restringir a análise à recolocação.
+- Avaliar atratividade, vantagens, riscos e condições necessárias para cada alternativa.
+- Validar externamente as hipóteses atribuídas à atuação da Advisor.
+- Consolidar evidências e recomendações para apoiar a tomada de decisão.
+
+3. Princípios da atuação
+- Independência técnica: A análise, o parecer e as recomendações serão desenvolvidos de maneira independente, sem interferência ou subordinação ao outro advisor participante do projeto.
+- Autonomia de execução: Cada advisor será responsável por sua própria metodologia, análise e entregas. A participação em encontros conjuntos não implica elaboração compartilhada dos pareceres.
+- Confidencialidade: Informações sobre trajetória, interesses e possibilidades profissionais serão tratadas com sigilo. Abordagens externas dependerão de aprovação prévia de Ricardo.
+- Análise fundamentada: As hipóteses serão examinadas considerando potencial de contribuição, atratividade, riscos, condições de viabilidade e aprendizados obtidos durante o processo.
+- Liberdade de decisão: O trabalho tem caráter consultivo. A decisão sobre o próximo ciclo profissional permanecerá exclusivamente com Ricardo.
+
+4. Metodologia — S.T.A.R.E. Executive Advisory
+A atuação será conduzida a partir do método S.T.A.R.E., aplicado à análise de posicionamento executivo e à avaliação estratégica de alternativas profissionais.
+
+- S — Senso de Negócio: Análise da trajetória executiva, visão de negócios, capacidade de gestão, repertório de liderança e resultados construídos. Foco: compreender onde a experiência de Ricardo pode gerar maior contribuição.
+- T — Target Corporativo: Identificação de contextos organizacionais, modelos de negócio e caminhos profissionais compatíveis com a trajetória e os objetivos do executivo. Foco: compreender em quais ambientes e alternativas seu repertório pode apresentar maior aderência.
+- A — Autoridade Executiva: Avaliação dos diferenciais competitivos, pontos de atenção, posicionamento e percepção de valor da experiência profissional. Foco: construir uma leitura clara sobre sua competitividade para diferentes níveis de responsabilidade e mandatos.
+- R — Resultados e Riscos: Avaliação da atratividade das hipóteses, benefícios potenciais, riscos envolvidos e condições necessárias para sua viabilidade. Foco: contribuir para uma escolha fundamentada, considerando oportunidades e limitações.
+- E — Executive Presence: Análise da apresentação da trajetória, da narrativa executiva e da capacidade de comunicar o próprio valor em interações estratégicas. Foco: apoiar a clareza do posicionamento perante interlocutores relevantes.
+
+5. Etapa 1 — Leitura executiva e definição de caminhos
+Objetivo: Construir um parecer executivo independente e contribuir para a identificação e priorização das hipóteses de próximo ciclo profissional.
+
+Atividades da Etapa 1
+- Atividade 1 (Diagnóstico executivo individual): Encontro individual de até 1h orientado pelos pilares do método S.T.A.R.E.
+- Atividade 2 (Elaboração do parecer independente): Parecer contendo leitura de perfil, diferenciais, pontos de atenção, competitividade e hipóteses iniciais.
+- Atividade 3 (Apresentação das leituras): Participação em encontro conjunto de até 2h para alinhamento independente com os advisors.
+- Atividade 4 (Avaliação e priorização dos caminhos): Análise aprofundada de atratividade, riscos e condições de viabilidade.
+
+Entregas da Etapa 1
+- Entrega 1: Parecer Executivo Independente S.T.A.R.E.
+- Entrega 2: Análise das hipóteses profissionais com vantagens e riscos.
+- Entrega 3: Participação nos encontros de alinhamento e priorização.
+
+6. Etapa 2 — Validação estratégica de mercado
+Objetivo: Investigar as hipóteses prioritárias atribuídas à responsabilidade da Advisor, utilizando interlocutores relevantes para ampliar a compreensão sobre viabilidade e atratividade.
+
+Atividades da Etapa 2
+- Atividade 1 (Planejamento da validação): Plano de investigação por hipótese aprovada.
+- Atividade 2 (Mapeamento de interlocutores): Identificação de C-Levels, Conselheiros e Fundos com aprovação prévia.
+- Atividade 3 (Conversas qualificadas): Até 2 conversas por hipótese atribuída para investigação e aprendizado.
+- Atividade 4 (Consolidação dos aprendizados): Relatório de premissas, riscos e viabilidade.
+- Atividade 5 (Parecer final independente): Conclusão executiva fundamentada nas evidências.
+
+7. Governança e responsabilidades
+- Atuação independente e em igualdade de posição, sem subordinação ou dependência metodológica.
+- Responsabilidade individual pelas análises, interlocutores e relatórios entregues.
+- As hipóteses de validação serão formalizadas e aprovadas após o encerramento da Etapa 1.
+
+8. Arquitetura de Investimento
+Etapa 1 — Diagnóstico e leitura executiva
+Investimento: R$ 5.000,00 (Contempla diagnóstico individual, metodologia S.T.A.R.E., parecer e participação nos encontros).
+
+Etapa 2 — Validação estratégica de mercado
+| Hipóteses Atribuídas | Conversas Previstas | Investimento |
+| 1 hipótese | Até 2 conversas | R$ 3.000,00 |
+| 2 hipóteses | Até 4 conversas | R$ 6.000,00 |
+| 3 hipóteses | Até 6 conversas | R$ 8.000,00 |
+| 4 hipóteses | Até 8 conversas | R$ 10.000,00 |
+
+Investimento total previsto (Etapa 1 + Etapa 2):
+- Com 1 hipótese: R$ 8.000,00
+- Com 2 hipóteses: R$ 11.000,00
+- Com 3 hipóteses: R$ 13.000,00
+- Com 4 hipóteses: R$ 15.000,00
+
+Condições de pagamento:
+- Etapa 1: R$ 5.000,00 na formalização da contratação.
+- Etapa 2: 50% na aprovação do plano de hipóteses e 50% em marco intermediário.
+
+9. Premissas e limites do escopo
+- A proposta considera atuação consultiva individualizada e confidencial.
+- Não estão incluídos: garantia de contratação, processos de hunting passivo, assessoria jurídica/societária ou conversas excedentes ao volume contratado.
+
+10. Próximos passos
+1. Aprovação do escopo e investimento da Etapa 1.
+2. Formalização da contratação e assinatura do termo de confidencialidade (NDA).
+3. Recebimento do briefing executivo e agendamento da Sessão de Diagnóstico.
+4. Condução da Etapa 1 e priorização das hipóteses para a Etapa 2.`;
+
         const esteiraYoup = {
-            // --- SERVIÇOS NOVOS (ANCORAGEM INTELIGENTE) ---
+            livre: {
+                tipo: 'livre',
+                titulo: "Proposta Comercial Sob Medida"
+            },
             revisao: {
                 tipo: 'ancorado',
                 titulo: "Revisão Manual Técnica",
                 descricao: "<p class='doc-text'>Adequação da base técnica do executivo com foco em sistemas de rastreamento (ATS) e algoritmos de busca ativa (SEO).</p>",
                 core: [
-                    { titulo: "Currículo ATS Reestruturado", desc: "Reescrita técnica e estratégica convertendo tarefas genéricas em métricas de negócios, governança e resultados de P&L, garantindo aderência aos algoritmos de ATS e impacto imediato na triagem executiva." },
-                    { titulo: "Otimização de LinkedIn", desc: "Adequação profunda de SEO e algoritmos de busca (Recruiter). Inclui estruturação de Headline estratégica, Resumo Executivo em formato de storytelling corporativo e mapeamento de competências." }
+                    { titulo: "Currículo ATS Reestruturado", desc: "Reescrita técnica e estratégica convertendo tarefas genéricas em métricas de negócios, governança e resultados de P&L." },
+                    { titulo: "Otimização de LinkedIn", desc: "Adequação profunda de SEO e algoritmos de busca (Recruiter), headline estratégica e storytelling." }
                 ],
                 bonus: [],
                 valorOriginalNum: 1000, valorFechadoNum: 850, valorSemBonus: 850, sufixo: "",
@@ -326,12 +534,12 @@
                 titulo: "1. Mentoria Tática Executiva",
                 descricao: "<p class='doc-text'>Encontro focado em alinhamento de posicionamento de mercado e transferência da metodologia estratégica para movimentações cirúrgicas.</p>",
                 core: [
-                    { titulo: "1 Encontro Individual", desc: "Sessão online intensiva (75 min) focada no diagnóstico de carreira, superação de gargalos de mercado e aplicação prática da Metodologia S.T.A.R.E. para o seu momento atual." },
-                    { titulo: "Transferência de Metodologia", desc: "Acesso aos nossos frameworks proprietários de gestão de carreira, fornecendo a inteligência necessária para você conduzir suas próprias movimentações com visão de Headhunter." },
-                    { titulo: "Guia Go-to-Market PDF", desc: "Material tático de apoio contendo checklists de autodiagnóstico corporativo e modelos de script para abordagens diretas no mercado." }
+                    { titulo: "1 Encontro Individual", desc: "Sessão online intensiva (75 min) focada no diagnóstico de carreira e aplicação da Metodologia S.T.A.R.E." },
+                    { titulo: "Transferência de Metodologia", desc: "Acesso aos nossos frameworks proprietários para movimentações com visão de Headhunter." },
+                    { titulo: "Guia Go-to-Market PDF", desc: "Material tático com checklists de autodiagnóstico e modelos de scripts." }
                 ],
                 bonus: [ 
-                    { nome: "Termômetro de Liquidez de Carreira", desc: "Mapeamento analítico que avalia a temperatura real da demanda pelo seu perfil no cenário econômico atual, auxiliando a ajustar a rota de atração e precificação do seu passe.", valorNominalNum: 800, descontoRealNum: 250 } 
+                    { nome: "Termômetro de Liquidez de Carreira", desc: "Mapeamento analítico que avalia a temperatura real da demanda pelo seu perfil.", valorNominalNum: 800, descontoRealNum: 250 } 
                 ],
                 valorOriginalNum: 2000, valorFechadoNum: 1200, valorSemBonus: 950, sufixo: "",
                 descFechado: "Acesso ao encontro, material de apoio e ao Bônus estratégico incluído no pacote.", descSemBonus: "Investimento base enxuto sem a inclusão do bônus de mapeamento."
@@ -341,213 +549,174 @@
                 titulo: "2. Consultoria Express",
                 descricao: "<p class='doc-text'>Reprogramação completa das suas ferramentas de atração e definição da tese de negócio com acompanhamento direto da nossa inteligência.</p>",
                 core: [
-                    { titulo: "2 Encontros Individuais", desc: "Reuniões táticas de alta profundidade. O primeiro para imersão total no seu histórico e o segundo para validação do Target Corporativo e treinamento de pitch executivo." },
-                    { titulo: "Currículo ATS & LinkedIn", desc: "Reconstrução profunda da sua vitrine profissional, blindando seu perfil para algoritmos de recrutamento e destacando seu impacto financeiro e entregas de valor (P&L)." },
-                    { titulo: "Relatório Blueprint", desc: "Documento estratégico contendo a sua tese de gestão exclusiva, narrativa estruturada para defesa em entrevistas e scripts de abordagem validados." }
+                    { titulo: "2 Encontros Individuais", desc: "Reuniões táticas de alta profundidade para imersão, validação de target e pitch executivo." },
+                    { titulo: "Currículo ATS & LinkedIn", desc: "Reconstrução profunda da vitrine profissional destacando entregas de valor (P&L)." },
+                    { titulo: "Relatório Blueprint", desc: "Documento estratégico com tese de gestão exclusiva e narrativa de defesa." }
                 ],
                 bonus: [
-                    { nome: "Termômetro de Liquidez", desc: "Mapeamento analítico estruturado de demanda e atratividade do seu nicho no mercado.", valorNominalNum: 800, descontoRealNum: 0 },
-                    { nome: "Radar de Gaps de P&L", desc: "Diagnóstico cirúrgico que aponta e corrige travas técnicas e narrativas no seu histórico que poderiam rebaixar sua autoridade perante decisores.", valorNominalNum: 1500, descontoRealNum: 300 },
-                    { nome: "Brag Book Executivo", desc: "Um portfólio visual de alto impacto (PDF) que tangibiliza seus cases de sucesso, métricas e P&L, ideal para apresentações em painéis de diretoria.", valorNominalNum: 1200, descontoRealNum: 300 }
+                    { nome: "Termômetro de Liquidez", desc: "Mapeamento analítico estruturado de demanda e atratividade do seu nicho.", valorNominalNum: 800, descontoRealNum: 0 },
+                    { nome: "Radar de Gaps de P&L", desc: "Diagnóstico cirúrgico que aponta e corrige travas técnicas e narrativas.", valorNominalNum: 1500, descontoRealNum: 300 },
+                    { nome: "Brag Book Executivo", desc: "Portfólio visual de alto impacto (PDF) tangibilizando cases e métricas.", valorNominalNum: 1200, descontoRealNum: 300 }
                 ],
                 valorOriginalNum: 7300, valorFechadoNum: 2500, valorSemBonus: 1900, sufixo: "",
-                descFechado: "Pacote de consultoria completo com todos os bônus estratégicos e operacionais inclusos.", descSemBonus: "Valor enxuto refletindo o abatimento (remoção) dos bônus selecionados."
+                descFechado: "Pacote de consultoria completo com todos os bônus estratégicos e operacionais inclusos.", descSemBonus: "Valor enxuto refletindo o abatimento dos bônus selecionados."
             },
             assessoria: {
                 tipo: 'ancorado',
                 titulo: "3. Assessoria Tática de Operação",
-                descricao: "<p class='doc-text'>Terceirização do trabalho braçal de inteligência. Nossa equipe assume a busca ativa e a gestão do seu pipeline de candidaturas (durante 90 dias) enquanto você foca na sua operação atual.</p>",
+                descricao: "<p class='doc-text'>Terceirização do trabalho braçal de inteligência. Nossa equipe assume a busca ativa e a gestão do seu pipeline de candidaturas durante 90 dias.</p>",
                 core: [
-                    { titulo: "Kit Técnico Completo", desc: "Elaboração do Currículo ATS e LinkedIn de Alta Autoridade, alinhando toda a sua comunicação visual e textual ao padrão exigido pelos Boards e C-Levels." },
-                    { titulo: "Mapeamento Semanal de Vagas", desc: "Curadoria ativa e contínua de oportunidades (vagas publicadas) rigorosamente aderentes à tese e ao Target estabelecido, poupando seu tempo de busca." },
-                    { titulo: "Terceirização 100% de Inscrições", desc: "Nossa equipe assume o trabalho braçal e exaustivo de preencher formulários extensos em plataformas corporativas complexas (Gupy, Kenoby, Workday, etc)." },
-                    { titulo: "Relatório Quinzenal de Pipeline", desc: "Visibilidade total do processo. Entregamos um report detalhado com o status de cada candidatura, taxas de conversão e próximos passos estratégicos." }
+                    { titulo: "Kit Técnico Completo", desc: "Currículo ATS e LinkedIn alinhados ao padrão exigido pelos Boards e C-Levels." },
+                    { titulo: "Mapeamento Semanal de Vagas", desc: "Curadoria ativa e contínua de oportunidades aderentes à tese." },
+                    { titulo: "Terceirização 100% de Inscrições", desc: "Nossa equipe assume o preenchimento de formulários em plataformas complexas." },
+                    { titulo: "Relatório Quinzenal de Pipeline", desc: "Visibilidade com status de cada candidatura e taxas de conversão." }
                 ],
                 bonus: [
                     { nome: "Termômetro de Liquidez", desc: "Mapeamento analítico de atratividade no mercado.", valorNominalNum: 800, descontoRealNum: 0 },
-                    { nome: "Dossiê de Target Corporativo", desc: "Documento de inteligência contendo o mapeamento de 20 a 50 empresas-alvo prioritárias, divididas por safras, com contexto de negócios e nomes de decisores.", valorNominalNum: 2000, descontoRealNum: 400 },
-                    { nome: "Simulação Mock Interview", desc: "Treinamento prático e intenso de entrevista (deep dive) com simulação realista de sabatina por CEOs e membros de Conselho.", valorNominalNum: 1800, descontoRealNum: 300 },
-                    { nome: "Brag Book Executivo", desc: "Portfólio visual para apresentações e defesas de cases de sucesso em processos avançados.", valorNominalNum: 1200, descontoRealNum: 300 }
+                    { nome: "Dossiê de Target Corporativo", desc: "Mapeamento de 20 a 50 empresas-alvo prioritárias e decisores.", valorNominalNum: 2000, descontoRealNum: 400 },
+                    { nome: "Simulação Mock Interview", desc: "Treinamento prático de sabatina executiva simulada por CEOs.", valorNominalNum: 1800, descontoRealNum: 300 },
+                    { nome: "Brag Book Executivo", desc: "Portfólio visual para apresentações e defesas de cases.", valorNominalNum: 1200, descontoRealNum: 300 }
                 ],
                 valorOriginalNum: 9800, valorFechadoNum: 4200, valorSemBonus: 3200, sufixo: "",
-                descFechado: "Cobertura operacional integral de 3 meses com todo o ecossistema de bônus estratégicos ativo.", descSemBonus: "Pacote operacional enxuto ajustado proporcionalmente pela remoção dos bônus selecionados."
+                descFechado: "Cobertura operacional integral de 3 meses com todo o ecossistema de bônus ativo.", descSemBonus: "Pacote enxuto ajustado proporcionalmente pela remoção dos bônus."
             },
             gtm_head: {
                 tipo: 'ancorado',
                 titulo: "4. Go-to-Market Completo (Head)",
-                descricao: "<p class='doc-text'>Operação end-to-end. Além da gestão de candidaturas passivas, mapeamos tomadores de decisão e iniciamos a prospecção B2B ativa no Mercado Oculto (vagas não anunciadas).</p>",
+                descricao: "<p class='doc-text'>Operação end-to-end. Além da gestão de candidaturas passivas, mapeamos tomadores de decisão e iniciamos a prospecção B2B no Mercado Oculto.</p>",
                 core: [
-                    { titulo: "Assessoria Tática Integral", desc: "Operação completa de gestão do Pipeline de candidaturas passivas, com reestruturação de vitrine e terceirização de inscrições em portais." },
-                    { titulo: "Prospecção Ativa B2B", desc: "Abordagem cirúrgica e confidencial diretamente no Mercado Oculto, acessando oportunidades que nunca chegam a ser publicadas em Job Boards." },
-                    { titulo: "Mapeamento de Tomadores de Decisão", desc: "Identificação e contato direto com quem 'assina o cheque' (CEOs, VPs, Sócios e Heads), ultrapassando a barreira da triagem tradicional do RH." },
-                    { titulo: "Assessoria na Negociação", desc: "Apoio consultivo especializado na etapa de Offer, ajudando a otimizar pacotes de remuneração (Bônus, LTI, Sign-on, Equity e benefícios estruturais)." }
+                    { titulo: "Assessoria Tática Integral", desc: "Operação completa de gestão de pipeline passivo com reestruturação técnica." },
+                    { titulo: "Prospecção Ativa B2B", desc: "Abordagem cirúrgica e confidencial diretamente em vagas não anunciadas." },
+                    { titulo: "Mapeamento de Decisores", desc: "Contato direto com quem assina o cheque (CEOs, VPs e Heads)." },
+                    { titulo: "Assessoria na Negociação", desc: "Apoio consultivo na etapa de Offer para otimizar pacotes de remuneração." }
                 ],
                 bonus: [
-                    { nome: "Radar de Gaps de P&L", desc: "Diagnóstico profundo apontando travas técnicas e narrativas.", valorNominalNum: 1500, descontoRealNum: 0 },
-                    { nome: "Dossiê de Target Corporativo", desc: "Inteligência de mercado listando 20 a 50 empresas-alvo prioritárias e seus respectivos tomadores de decisão.", valorNominalNum: 2000, descontoRealNum: 650 },
-                    { nome: "Simulação Mock Interview", desc: "Treinamento intenso de sabatina executiva simulando painéis e rodadas finais de aprovação.", valorNominalNum: 1800, descontoRealNum: 650 },
-                    { nome: "Brag Book Executivo", desc: "Portfólio visual evidenciando métricas, ROI e governança.", valorNominalNum: 1200, descontoRealNum: 0 }
+                    { nome: "Radar de Gaps de P&L", desc: "Diagnóstico profundo apontando travas técnicas.", valorNominalNum: 1500, descontoRealNum: 0 },
+                    { nome: "Dossiê de Target Corporativo", desc: "Lista de 20 a 50 empresas-alvo prioritárias e tomadores de decisão.", valorNominalNum: 2000, descontoRealNum: 650 },
+                    { nome: "Simulação Mock Interview", desc: "Treinamento intenso de sabatina executiva.", valorNominalNum: 1800, descontoRealNum: 650 },
+                    { nome: "Brag Book Executivo", desc: "Portfólio visual com foco em métricas e ROI.", valorNominalNum: 1200, descontoRealNum: 0 }
                 ],
                 valorOriginalNum: 16000, valorFechadoNum: 6500, valorSemBonus: 5200, sufixo: " (Retainer)",
-                descFechado: "Investimento fixo inicial (Retainer) acompanhado de todos os bônus <b>+ 45% de Fee de Sucesso</b> (faturado sobre o primeiro salário bruto após a contratação).", descSemBonus: "Retainer ajustado sem os bônus removidos <b>+ 45% de Fee de Sucesso</b>."
+                descFechado: "Retainer inicial com todos os bônus <b>+ 45% de Fee de Sucesso</b> sobre o primeiro salário.", descSemBonus: "Retainer ajustado sem os bônus removidos <b>+ 45% de Fee de Sucesso</b>."
             },
             gtm_csuite: {
                 tipo: 'ancorado',
                 titulo: "5. Go-to-Market Completo (C-Suite)",
-                descricao: "<p class='doc-text'>A solução de elite para Diretores, C-Levels e Conselheiros. Sigilo absoluto, proteção de reputação e validação de teses para abertura de portas em alto nível corporativo.</p>",
+                descricao: "<p class='doc-text'>A solução de elite para Diretores, C-Levels e Conselheiros. Sigilo absoluto, proteção de reputação e validação de teses para abertura de portas.</p>",
                 core: [
-                    { titulo: "Hunting VIP Confidencial", desc: "Prospecção ativa direcionada exclusivamente para Cadeiras de Conselho (Boards), Presidência e Diretoria C-Level, assegurando proteção máxima de imagem." },
-                    { titulo: "Validação de Tese S.T.A.R.E.", desc: "Construção de narrativas blindadas focadas em geração de receita, EBITDA e governança para defesa implacável em sabatinas de Conselhos e Investidores." },
-                    { titulo: "Protocolo de Backchanneling", desc: "Diretrizes estritas de alinhamento para blindar o seu nome e histórico durante checagens de referências off-the-record no mercado (Backchanneling)." },
-                    { titulo: "Assessoria de Negociação Complexa", desc: "Inteligência para negociação e otimização de pacotes contratuais complexos envolvendo Equity, LTI, Stock Options e Golden Parachutes." }
+                    { titulo: "Hunting VIP Confidencial", desc: "Prospecção ativa direcionada exclusivamente para Boards, Presidência e C-Level." },
+                    { titulo: "Validação de Tese S.T.A.R.E.", desc: "Construção de narrativas focadas em EBITDA e governança para defesa em Conselhos." },
+                    { titulo: "Protocolo de Backchanneling", desc: "Diretrizes estritas para blindagem em checagens off-the-record no mercado." },
+                    { titulo: "Assessoria de Negociação Complexa", desc: "Negociação de pacotes com Equity, LTI, Stock Options e Golden Parachutes." }
                 ],
                 bonus: [
                     { nome: "Radar de Gaps de P&L", desc: "Diagnóstico avançado para superação de travas de narrativa.", valorNominalNum: 1500, descontoRealNum: 0 },
-                    { nome: "Dossiê de Target Corporativo", desc: "Mapeamento exclusivo de contatos de Conselheiros, VPs e Sócios de Fundos de Investimento (Private Equity e VC).", valorNominalNum: 2000, descontoRealNum: 800 },
-                    { nome: "Simulação Mock Interview", desc: "Sabatina deep-dive rigorosa simulando painéis de aprovação e defesa de business case em Board.", valorNominalNum: 1800, descontoRealNum: 0 },
+                    { nome: "Dossiê de Target Corporativo", desc: "Mapeamento exclusivo de contatos de Conselheiros e Fundos de PE/VC.", valorNominalNum: 2000, descontoRealNum: 800 },
+                    { nome: "Simulação Mock Interview", desc: "Sabatina deep-dive simulando painéis de aprovação em Board.", valorNominalNum: 1800, descontoRealNum: 0 },
                     { nome: "Brag Book Executivo", desc: "Portfólio executivo de alta densidade visual focado em Valuation.", valorNominalNum: 1200, descontoRealNum: 300 },
-                    { nome: "Onboarding Executivo 90d", desc: "Mentoria de acompanhamento nos primeiros 3 meses na cadeira, garantindo quick wins, leitura de cultura e proteção política (Managing Up).", valorNominalNum: 3000, descontoRealNum: 1200 }
+                    { nome: "Onboarding Executivo 90d", desc: "Mentoria de acompanhamento nos primeiros 3 meses para quick wins e Managing Up.", valorNominalNum: 3000, descontoRealNum: 1200 }
                 ],
                 valorOriginalNum: 25900, valorFechadoNum: 9500, valorSemBonus: 7200, sufixo: " (Retainer)",
-                descFechado: "Retainer inicial com acesso integral aos bônus VIP <b>+ 50% de Fee de Sucesso</b> (faturado sobre a remuneração inicial ao fechamento do contrato).", descSemBonus: "Retainer enxuto ajustado proporcionalmente <b>+ 50% de Fee de Sucesso</b>."
+                descFechado: "Retainer inicial com acesso VIP <b>+ 50% de Fee de Sucesso</b> ao fechamento do contrato.", descSemBonus: "Retainer enxuto ajustado <b>+ 50% de Fee de Sucesso</b>."
             },
-
-            // --- ENTREGÁVEIS ISOLADOS (AVULSOS) ---
-            avulso_cv: { tipo: 'avulso', titulo: "Reestruturação de Currículo ATS", descricao: "<p class='doc-text'>Reescrita técnica do material sob a arquitetura ATS, convertendo tarefas genéricas em métricas, governança e resultados financeiros.</p>", valorAvulso: "R$ 500,00" },
-            avulso_linkedin: { tipo: 'avulso', titulo: "Otimização de LinkedIn de Alta Autoridade", descricao: "<p class='doc-text'>Adequação de Campeão/SEO no perfil, Headline estratégica, resumo executivo em storytelling e estruturação técnica de competências.</p>", valorAvulso: "R$ 500,00" },
-            avulso_sessao: { tipo: 'avulso', titulo: "Sessão Individual de Diagnóstico", descricao: "<p class='doc-text'>Encontro individual online (75 min) focado em alinhamento de posicionamento e aplicação da Metodologia S.T.A.R.E.</p>", valorAvulso: "R$ 800,00" },
-            avulso_blueprint: { tipo: 'avulso', titulo: "Relatório Blueprint de Tese Executiva", descricao: "<p class='doc-text'>Documento estratégico contendo a tese de gestão do cliente, narrativa de P&L e scripts de abordagem estruturados.</p>", valorAvulso: "R$ 1.200,00" },
-            avulso_operacao: { tipo: 'avulso', titulo: "Operação de Aplicações & Mapeamento", descricao: "<p class='doc-text'>Terceirização do trabalho braçal de busca diária, cadastros e preenchimento de formulários corporativos (90 dias).</p>", valorAvulso: "R$ 2.500,00" },
-            avulso_negociacao: { tipo: 'avulso', titulo: "Assessoria na Negociação de Pacote Executivo", descricao: "<p class='doc-text'>Orientação estratégica em etapas de offer para otimização de bônus, LTI, sign-on, benefícios e cláusulas contratuais.</p>", valorAvulso: "R$ 1.500,00" },
-            avulso_termometro: { tipo: 'avulso', titulo: "Termômetro de Liquidez de Carreira", descricao: "<p class='doc-text'>Mapeamento analítico estruturado de demanda e atratividade do nicho específico do executivo no mercado atual.</p>", valorAvulso: "R$ 800,00" },
-            avulso_backchanneling: { tipo: 'avulso', titulo: "Protocolo de Backchanneling e Blindagem", descricao: "<p class='doc-text'>Diretrizes de alinhamento com referências de bastidores para blindagem de reputação e checagem off-the-record.</p>", valorAvulso: "R$ 900,00" },
-            avulso_radar: { tipo: 'avulso', titulo: "Radar de Gaps de P&L e Governança", descricao: "<p class='doc-text'>Diagnóstico cirúrgico que aponta travas técnicas e narrativas no histórico que rebaixam a autoridade do líder.</p>", valorAvulso: "R$ 1.500,00" },
+            avulso_cv: { tipo: 'avulso', titulo: "Reestruturação de Currículo ATS", descricao: "<p class='doc-text'>Reescrita técnica do material sob a arquitetura ATS, convertendo tarefas genéricas em métricas e resultados financeiros.</p>", valorAvulso: "R$ 500,00" },
+            avulso_linkedin: { tipo: 'avulso', titulo: "Otimização de LinkedIn de Alta Autoridade", descricao: "<p class='doc-text'>Adequação de Campeão/SEO no perfil, Headline estratégica e resumo executivo em storytelling.</p>", valorAvulso: "R$ 500,00" },
+            avulso_sessao: { tipo: 'avulso', titulo: "Sessão Individual de Diagnóstico", descricao: "<p class='doc-text'>Encontro individual online (75 min) focado em alinhamento de posicionamento e Metodologia S.T.A.R.E.</p>", valorAvulso: "R$ 800,00" },
+            avulso_blueprint: { tipo: 'avulso', titulo: "Relatório Blueprint de Tese Executiva", descricao: "<p class='doc-text'>Documento estratégico contendo a tese de gestão do cliente, narrativa de P&L e scripts de abordagem.</p>", valorAvulso: "R$ 1.200,00" },
+            avulso_operacao: { tipo: 'avulso', titulo: "Operação de Aplicações & Mapeamento", descricao: "<p class='doc-text'>Terceirização do trabalho de busca diária, cadastros e preenchimento de formulários (90 dias).</p>", valorAvulso: "R$ 2.500,00" },
+            avulso_negociacao: { tipo: 'avulso', titulo: "Assessoria na Negociação de Pacote Executivo", descricao: "<p class='doc-text'>Orientação estratégica em etapas de offer para otimização de bônus, LTI, sign-on e benefícios.</p>", valorAvulso: "R$ 1.500,00" },
+            avulso_termometro: { tipo: 'avulso', titulo: "Termômetro de Liquidez de Carreira", descricao: "<p class='doc-text'>Mapeamento analítico estruturado de demanda e atratividade do seu nicho no mercado.</p>", valorAvulso: "R$ 800,00" },
+            avulso_backchanneling: { tipo: 'avulso', titulo: "Protocolo de Backchanneling e Blindagem", descricao: "<p class='doc-text'>Diretrizes de alinhamento com referências de bastidores para blindagem de reputação off-the-record.</p>", valorAvulso: "R$ 900,00" },
+            avulso_radar: { tipo: 'avulso', titulo: "Radar de Gaps de P&L e Governança", descricao: "<p class='doc-text'>Diagnóstico cirúrgico que aponta travas técnicas e narrativas que rebaixam a autoridade do líder.</p>", valorAvulso: "R$ 1.500,00" },
             avulso_mock: { tipo: 'avulso', titulo: "Simulação de Defesa (Mock Interview)", descricao: "<p class='doc-text'>Treinamento prático de entrevista deep dive com simulação de sabatina por CEOs e conselheiros.</p>", valorAvulso: "R$ 1.800,00" },
-            avulso_dossie: { tipo: 'avulso', titulo: "Dossiê de Inteligência de Target Corporativo", descricao: "<p class='doc-text'>Mapeamento exclusivo de 20 empresas-alvo prioritárias, identificação de seus momentos de negócio e contatos diretos de decisão.</p>", valorAvulso: "R$ 2.000,00" },
+            avulso_dossie: { tipo: 'avulso', titulo: "Dossiê de Inteligência de Target Corporativo", descricao: "<p class='doc-text'>Mapeamento exclusivo de 20 empresas-alvo prioritárias e contatos diretos de decisão.</p>", valorAvulso: "R$ 2.000,00" },
             avulso_onboarding: { tipo: 'avulso', titulo: "Sessão de Onboarding Executivo", descricao: "<p class='doc-text'>Mentoria pós-contratação (Primeiros 90 dias) para garantia de quick wins na nova cadeira corporativa.</p>", valorAvulso: "R$ 3.000,00" },
-
-            // --- SERVIÇOS CORPORATIVOS ---
             agenciamento: {
                 tipo: 'dinamico', titulo: "Agenciamento Executivo High-Impacto",
-                descricao: `<p class="doc-text">A YOUP oferece serviços abrangentes de Agenciamento projetados para profissionais em busca de recolocação. Atuamos como seus agentes no <b>Mercado Oculto</b>.</p>
-                            <div class="doc-section-title">Nossa Metodologia</div>
-                            <div class="method-grid">
-                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 1. Diagnóstico e Tradução</h4><p>Mapeamento de know how e tradução para a linguagem de ROI.</p></div>
-                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 2. Rebranding Executivo</h4><p>Revisão de Currículo e LinkedIn para algoritmos.</p></div>
-                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 3. Sourcing e Inteligência</h4><p>Pesquisa de vagas off-market e contato direto com decisores.</p></div>
-                                <div class="method-box"><h4 style="color: var(--verde-youp);">✓ 4. Playbook Go-to-Market</h4><p>Termômetro de liquidez e Roadmap focado em empresas-alvo.</p></div>
-                            </div>`,
+                descricao: `<p class="doc-text">A YOUP oferece serviços abrangentes de Agenciamento para recolocação no <b>Mercado Oculto</b>.</p>`,
                 inputsValores: `
-                    <div class="form-group">
-                        <label style="color:#fff;">Mostrar Plano Basic na Proposta?</label>
-                        <select id="incBasic" class="form-control" onchange="toggleBasic(); atualizarProposta()" style="border-color:var(--verde-youp);">
-                            <option value="sim">Sim, incluir Plano Basic</option>
-                            <option value="nao">Não, exibir apenas o Premium</option>
-                        </select>
-                    </div>
-                    <div id="blocoBasicInput">
-                        <div class="form-group"><label>Valor Plano Basic</label><input type="text" id="valBasic" class="form-control" value="R$ 2.500,00" oninput="atualizarProposta()"></div>
-                        <div class="form-group"><label>Prazo Plano Basic</label><input type="text" id="valPrazoBasic" class="form-control" value="90 dias" oninput="atualizarProposta()"></div>
-                    </div>
                     <div class="form-group"><label>Valor Retainer Premium</label><input type="text" id="valPremiumRetainer" class="form-control" value="R$ 4.500,00" oninput="atualizarProposta()"></div>
-                    <div class="form-group"><label>Taxa de Sucesso Premium (%)</label><input type="text" id="valPremiumSucesso" class="form-control" value="45%" oninput="atualizarProposta()"></div>
-                    <div class="form-group"><label>Prazo Plano Premium</label><input type="text" id="valPrazoPremium" class="form-control" value="180 dias" oninput="atualizarProposta()"></div>
+                    <div class="form-group"><label>Taxa de Sucesso (%)</label><input type="text" id="valPremiumSucesso" class="form-control" value="45%" oninput="atualizarProposta()"></div>
                 `,
-                gerarValores: () => {
-                    const incBasic = document.getElementById('incBasic') ? document.getElementById('incBasic').value : 'sim';
-                    let html = '';
-                    if (incBasic === 'sim') {
-                        html += `<div class="price-box"><div class="price-title">Plano Basic</div><div class="price-value">${document.getElementById('valBasic').value}</div><div class="price-desc"><b>Serviços:</b> Diagnóstico, Rebranding, Plano Go-to-Market.<br><b>Período:</b> ${document.getElementById('valPrazoBasic').value}.</div></div>`;
-                    }
-                    html += `<div class="price-box"><div class="price-title">Plano Premium (Sourcing Ativo)</div><div class="price-value">${document.getElementById('valPremiumRetainer').value} <span style="font-size:14px; font-weight:400; color:#333;">+ ${document.getElementById('valPremiumSucesso').value} Taxa Sucesso</span></div><div class="price-desc"><b>Serviços:</b> Plano Basic + Sourcing Ativo Stealth Search.<br><b>Período:</b> ${document.getElementById('valPrazoPremium').value}.</div></div>`;
-                    return html;
-                }
+                gerarValores: () => `<div class="price-box"><div class="price-title">Plano Premium (Sourcing Ativo)</div><div class="price-value">${document.getElementById('valPremiumRetainer').value} <span style="font-size:14px; font-weight:400; color:#333;">+ ${document.getElementById('valPremiumSucesso').value} Taxa Sucesso</span></div><div class="price-desc">Plano com hunting stealth confidencial e prospecção de decisores.</div></div>`
             },
             headhunter: {
                 tipo: 'dinamico', titulo: "HeadHunting Estratégico (B2B)",
-                descricao: `<p class="doc-text">Mitigação de risco corporativo. Nossa metodologia de hunting elimina o "tentativa e erro".</p>`,
-                inputsValores: `
-                    <div class="form-group"><label>Fee de Contratação (%)</label><input type="text" id="valFee" class="form-control" value="20%" oninput="atualizarProposta()"></div>
-                    <div class="form-group"><label>Prazo de Garantia</label><input type="text" id="valGarantia" class="form-control" value="90 dias" oninput="atualizarProposta()"></div>
-                `,
-                gerarValores: () => `<div class="price-box"><div class="price-title">Fee de Resultado</div><div class="price-value">${document.getElementById('valFee').value} <span style="font-size:14px; font-weight:400; color:#333;">sobre o pacote anual</span></div><div class="price-desc"><b>Faturamento:</b> 40% Retainer e 60% Success Fee.<br><b>Garantia de Reposição:</b> ${document.getElementById('valGarantia').value}.</div></div>`
+                descricao: `<p class="doc-text">Mitigação de risco corporativo na busca por líderes C-Level.</p>`,
+                inputsValores: `<div class="form-group"><label>Fee de Contratação (%)</label><input type="text" id="valFee" class="form-control" value="20%" oninput="atualizarProposta()"></div>`,
+                gerarValores: () => `<div class="price-box"><div class="price-title">Fee de Resultado</div><div class="price-value">${document.getElementById('valFee').value} <span style="font-size:14px; font-weight:400; color:#333;">sobre pacote anual</span></div><div class="price-desc">40% Retainer no start e 60% Success Fee na contratação.</div></div>`
             },
             outplacement: {
                 tipo: 'dinamico', titulo: "Outplacement de Elite",
                 descricao: `<p class="doc-text">Protege a reputação da empresa e mitiga passivos no desligamento de líderes C-Level.</p>`,
-                inputsValores: `
-                    <div class="form-group"><label>Valor do Programa</label><input type="text" id="valOutplacement" class="form-control" value="R$ 6.000,00" oninput="atualizarProposta()"></div>
-                    <div class="form-group"><label>Tempo de Cobertura</label><input type="text" id="valTempoOut" class="form-control" value="6 meses" oninput="atualizarProposta()"></div>
-                `,
-                gerarValores: () => `<div class="price-box"><div class="price-title">Programa de Transição</div><div class="price-value">${document.getElementById('valOutplacement').value} <span style="font-size:14px; font-weight:400; color:#333;">por executivo</span></div><div class="price-desc"><b>Inclui:</b> Mapeamento de mercado e acompanhamento por <b>${document.getElementById('valTempoOut').value}</b>.</div></div>`
+                inputsValores: `<div class="form-group"><label>Valor do Programa</label><input type="text" id="valOutplacement" class="form-control" value="R$ 6.000,00" oninput="atualizarProposta()"></div>`,
+                gerarValores: () => `<div class="price-box"><div class="price-title">Programa de Transição</div><div class="price-value">${document.getElementById('valOutplacement').value}</div><div class="price-desc">Acompanhamento e suporte por 6 meses.</div></div>`
             },
             reputacao: {
                 tipo: 'dinamico', titulo: "Gestão de Reputação e Marca",
-                descricao: `<p class="doc-text">Grandes negócios são atraídos por marcas fortes. Atuação focada em LinkedIn e PR.</p>`,
-                inputsValores: `
-                    <div class="form-group"><label>Valor Mensal (Fee)</label><input type="text" id="valReputacao" class="form-control" value="R$ 3.500,00" oninput="atualizarProposta()"></div>
-                `,
-                gerarValores: () => `<div class="price-box"><div class="price-title">Assessoria de Posicionamento</div><div class="price-value">${document.getElementById('valReputacao').value} <span style="font-size:14px; font-weight:400; color:#333;">/mês</span></div><div class="price-desc"><b>Inclui:</b> Planejamento editorial, ghostwriting e métricas.</div></div>`
+                descricao: `<p class="doc-text">Grandes negócios são atraídos por marcas fortes. Atuação em LinkedIn e PR.</p>`,
+                inputsValores: `<div class="form-group"><label>Valor Mensal (Fee)</label><input type="text" id="valReputacao" class="form-control" value="R$ 3.500,00" oninput="atualizarProposta()"></div>`,
+                gerarValores: () => `<div class="price-box"><div class="price-title">Assessoria de Posicionamento</div><div class="price-value">${document.getElementById('valReputacao').value} <span style="font-size:14px; font-weight:400; color:#333;">/mês</span></div><div class="price-desc">Planejamento editorial e ghostwriting executivo.</div></div>`
             },
             mentoria_old: {
                 tipo: 'dinamico', titulo: "Mentoria Executiva (Corporativa)",
                 descricao: `<p class="doc-text">Processo customizado desenhado para elevar a performance de líderes da organização.</p>`,
-                inputsValores: `
-                    <div class="form-group">
-                        <label>Quantidade de Sessões (1h)</label>
-                        <select id="qtdSessoes" class="form-control" onchange="renderizarTemasMentoria()" style="border-color:var(--verde-youp);">
-                            <option value="5">5 Sessões</option>
-                            <option value="6">6 Sessões</option>
-                            <option value="7">7 Sessões</option>
-                        </select>
-                    </div>
-                    <div id="temasContainer"></div>
-                    <div class="form-group"><label>Valor Total do Programa</label><input type="text" id="valMentoriaOld" class="form-control" value="R$ 5.000,00" oninput="atualizarProposta()"></div>
-                `,
-                gerarValores: () => {
-                    const qtd = parseInt(document.getElementById('qtdSessoes').value);
-                    let temasHtml = '<ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 12px; color: #444;">';
-                    for (let i = 1; i <= qtd; i++) {
-                        const t = document.getElementById(`tema_${i}`);
-                        temasHtml += `<li><b>Sessão ${i}:</b> ${t && t.value ? t.value : 'A definir'}</li>`;
-                    }
-                    temasHtml += '</ul>';
-                    return `<div class="price-box"><div class="price-title">Mentoria Customizada (${qtd}h)</div><div class="price-value">${document.getElementById('valMentoriaOld').value}</div><div class="price-desc">${temasHtml}</div></div>`;
-                }
+                inputsValores: `<div class="form-group"><label>Valor Total do Programa</label><input type="text" id="valMentoriaOld" class="form-control" value="R$ 5.000,00" oninput="atualizarProposta()"></div>`,
+                gerarValores: () => `<div class="price-box"><div class="price-title">Mentoria Customizada</div><div class="price-value">${document.getElementById('valMentoriaOld').value}</div><div class="price-desc">Programa executivo intensivo.</div></div>`
             }
         };
 
         document.addEventListener("DOMContentLoaded", () => {
             const dataAtual = new Date();
             document.getElementById('docData').innerText = "Data: " + dataAtual.toLocaleDateString('pt-BR');
-            mudarServico(); 
+            
+            // Inicializa com o exemplo pré-carregado no modo livre
+            carregarExemploStare();
+            mudarServico();
         });
+
+        function carregarExemploStare() {
+            document.getElementById('inputCliente').value = "Ricardo Calixto de Oliveira";
+            document.getElementById('inputLivreTitulo').value = "S.T.A.R.E. Executive Advisory";
+            document.getElementById('inputLivreSubtitulo').value = "Projeto de Advisory Executivo — Próximo Ciclo Profissional";
+            document.getElementById('inputLivreModalidade').value = "Advisory Executivo Independente";
+            document.getElementById('inputLivreNatureza').value = "Consultoria estratégica individual";
+            document.getElementById('inputLivreProponente').value = "Youp Consultoria • Ana Paula Marçal";
+            document.getElementById('inputLivreCorpo').value = exemploStareTexto;
+            document.getElementById('inputLivreValor').value = "R$ 8.000,00 a R$ 15.000,00";
+            atualizarProposta();
+        }
 
         function mudarServico() {
             const svcKey = document.getElementById('inputServico').value;
             const svc = esteiraYoup[svcKey];
 
-            if (svc.tipo === 'dinamico') {
-                document.getElementById('blocos-valores-custom').innerHTML = svc.inputsValores;
-                document.getElementById('container-ancoragem').style.display = 'none';
-                document.getElementById('container-avulsos').style.display = 'none';
-                
-                if (svcKey === 'agenciamento') toggleBasic();
-                if (svcKey === 'mentoria_old') renderizarTemasMentoria();
+            const painelLivre = document.getElementById('container-livre');
+            const painelAncorado = document.getElementById('container-ancoragem');
+            const painelAvulso = document.getElementById('container-avulsos');
+            const painelCustom = document.getElementById('blocos-valores-custom');
+            const blocoCtaPadrao = document.getElementById('bloco-cta-padrao');
 
+            // Reset visual dos painéis
+            painelLivre.style.display = 'none';
+            painelAncorado.style.display = 'none';
+            painelAvulso.style.display = 'none';
+            painelCustom.innerHTML = '';
+            blocoCtaPadrao.style.display = 'block';
+
+            if (svc.tipo === 'livre') {
+                painelLivre.style.display = 'block';
+                blocoCtaPadrao.style.display = 'none'; // A proposta livre já possui seção própria de fechamento/próximos passos
+            } else if (svc.tipo === 'dinamico') {
+                painelCustom.innerHTML = svc.inputsValores;
             } else if (svc.tipo === 'avulso') {
-                document.getElementById('blocos-valores-custom').innerHTML = '';
-                document.getElementById('container-ancoragem').style.display = 'none';
-                document.getElementById('container-avulsos').style.display = 'block';
+                painelAvulso.style.display = 'block';
                 document.getElementById('inputValorAvulso').value = svc.valorAvulso;
-
-            } else { // ancorado
-                document.getElementById('blocos-valores-custom').innerHTML = '';
-                document.getElementById('container-ancoragem').style.display = 'block';
-                document.getElementById('container-avulsos').style.display = 'none';
+            } else if (svc.tipo === 'ancorado') {
+                painelAncorado.style.display = 'block';
 
                 let bonusCheckHtml = '<label>Bônus Incluídos (Desmarque para abater o valor do pacote)</label>';
-                if(svc.bonus.length > 0) {
+                if (svc.bonus && svc.bonus.length > 0) {
                     svc.bonus.forEach((b, index) => {
                         bonusCheckHtml += `
                         <div style="margin-bottom: 8px; font-size: 12px; color: #fff; display: flex; align-items: center; gap: 8px;">
@@ -559,8 +728,6 @@
                     bonusCheckHtml += `<span style="font-size:11px; color:#999;">Nenhum bônus atrelado a este serviço.</span>`;
                 }
                 document.getElementById('bonus-checkboxes').innerHTML = bonusCheckHtml;
-                
-                // Reseta a exibição inicial
                 svc.valorOriginalDisplay = null;
                 document.getElementById('inputValorFechado').value = formatarMoeda(svc.valorFechadoNum) + svc.sufixo;
             }
@@ -568,7 +735,110 @@
             atualizarProposta();
         }
 
-        // LÓGICA MATEMÁTICA DE UNBUNDLING
+        // PARSER INTELIGENTE DE TEXTO LIVRE PARA PROPOSTAS EXECUTIVAS
+        function formatarTextoPropostaLivre(textoBruto) {
+            if (!textoBruto) return "";
+            
+            const linhas = textoBruto.split('\n');
+            let htmlFinal = "";
+            let emLista = false;
+            let emTabela = false;
+            let tabelaHeaderFeito = false;
+
+            for (let i = 0; i < linhas.length; i++) {
+                let linha = linhas[i].trim();
+
+                // Quebra de página manual solicitada pelo usuário
+                if (linha === '---' || linha === '[QUEBRA]' || linha === '[PAGE-BREAK]') {
+                    if (emLista) { htmlFinal += "</ul>"; emLista = false; }
+                    if (emTabela) { htmlFinal += "</tbody></table></div>"; emTabela = false; tabelaHeaderFeito = false; }
+                    htmlFinal += `<div class="page-break"></div>
+                    <div class="doc-header" style="margin-top:10px;">
+                        <div><h1 style="color: #111111; font-weight: 800; font-size: 18px; letter-spacing: -1px; margin: 0;">YOUP <span style="color: #c5a059;">CONSULTORIA</span></h1></div>
+                    </div>`;
+                    continue;
+                }
+
+                // Detecção de Tabela Markdown ou separada por pipes
+                if (linha.startsWith('|') && linha.endsWith('|')) {
+                    if (emLista) { htmlFinal += "</ul>"; emLista = false; }
+                    
+                    // Linha divisória de tabela markdown (|---|---|)
+                    if (linha.includes('---')) continue;
+
+                    const colunas = linha.split('|').filter((c, idx, arr) => idx !== 0 && idx !== arr.length - 1).map(c => c.trim());
+
+                    if (!emTabela) {
+                        emTabela = true;
+                        tabelaHeaderFeito = true;
+                        htmlFinal += `<div class="custom-table-container"><table class="custom-table"><thead><tr>`;
+                        colunas.forEach(col => { htmlFinal += `<th>${col}</th>`; });
+                        htmlFinal += `</tr></thead><tbody>`;
+                    } else {
+                        htmlFinal += `<tr>`;
+                        colunas.forEach(col => { htmlFinal += `<td>${col}</td>`; });
+                        htmlFinal += `</tr>`;
+                    }
+                    continue;
+                } else if (emTabela) {
+                    htmlFinal += "</tbody></table></div>";
+                    emTabela = false;
+                    tabelaHeaderFeito = false;
+                }
+
+                // Linha em branco
+                if (!linha) {
+                    if (emLista) { htmlFinal += "</ul>"; emLista = false; }
+                    continue;
+                }
+
+                // Títulos Maiores numerados (Ex: "1. Apresentação da proposta", "5. Etapa 1...")
+                const matchH2 = linha.match(/^(\d+)\.\s+(.*)/);
+                if (matchH2) {
+                    if (emLista) { htmlFinal += "</ul>"; emLista = false; }
+                    htmlFinal += `<div class="custom-section-h2">${matchH2[1]}. ${matchH2[2]}</div>`;
+                    continue;
+                }
+
+                // Subtítulos (Ex: "Objetivos específicos", "Atividades da Etapa 1", "Investimento total previsto:")
+                const ehSubtitulo = /^(Objetivos específicos|Princípios da atuação|Atividades|Entregas|Investimento|Condições de pagamento|Premissas|Próximos passos|Etapa \d+)/i.test(linha) && linha.length < 65;
+                if (ehSubtitulo) {
+                    if (emLista) { htmlFinal += "</ul>"; emLista = false; }
+                    htmlFinal += `<div class="custom-section-h3">${linha}</div>`;
+                    continue;
+                }
+
+                // Listas com marcadores (-, *, •) ou numeração de passos (1., 2.)
+                if (linha.startsWith('- ') || linha.startsWith('* ') || linha.startsWith('• ') || /^\d+\.\s/.test(linha)) {
+                    if (!emLista) {
+                        htmlFinal += `<ul class="custom-list">`;
+                        emLista = true;
+                    }
+                    const conteudoItem = linha.replace(/^[\-\*\•]\s+/, '').replace(/^\d+\.\s+/, '');
+                    
+                    // Formata itens no formato "Chave: Descrição" destacando a chave
+                    if (conteudoItem.includes(':')) {
+                        const partes = conteudoItem.split(':');
+                        htmlFinal += `<li><strong>${partes[0].trim()}:</strong> ${partes.slice(1).join(':').trim()}</li>`;
+                    } else {
+                        htmlFinal += `<li>${conteudoItem}</li>`;
+                    }
+                    continue;
+                } else if (emLista) {
+                    htmlFinal += "</ul>";
+                    emLista = false;
+                }
+
+                // Parágrafo corrido
+                htmlFinal += `<p class="doc-text">${linha}</p>`;
+            }
+
+            if (emLista) htmlFinal += "</ul>";
+            if (emTabela) htmlFinal += "</tbody></table></div>";
+
+            return htmlFinal;
+        }
+
         function calcularInteligenciaPreco() {
             const svcKey = document.getElementById('inputServico').value;
             const svc = esteiraYoup[svcKey];
@@ -577,7 +847,7 @@
             let totalFechado = svc.valorFechadoNum;
             let totalAncorado = svc.valorOriginalNum;
 
-            if (svc.bonus.length > 0) {
+            if (svc.bonus && svc.bonus.length > 0) {
                 svc.bonus.forEach((b, idx) => {
                     const chk = document.getElementById(`chkBonus_${idx}`);
                     if (chk && !chk.checked) {
@@ -592,39 +862,42 @@
             atualizarProposta();
         }
 
-        function toggleBasic() {
-            const inc = document.getElementById('incBasic');
-            const bloco = document.getElementById('blocoBasicInput');
-            if (inc && bloco) bloco.style.display = inc.value === 'sim' ? 'block' : 'none';
-        }
-
-        function renderizarTemasMentoria() {
-            const qtd = parseInt(document.getElementById('qtdSessoes').value);
-            let html = '';
-            for (let i = 1; i <= qtd; i++) {
-                const exist = document.getElementById(`tema_${i}`) ? document.getElementById(`tema_${i}`).value : '';
-                html += `<div class="form-group" style="margin-left: 10px; border-left: 2px solid var(--dourado); padding-left: 10px;"><label>Tema Sessão ${i}</label><input type="text" id="tema_${i}" class="form-control" value="${exist}" oninput="atualizarProposta()"></div>`;
-            }
-            document.getElementById('temasContainer').innerHTML = html;
-            atualizarProposta();
-        }
-
-        function atualizarPropostaManual() {
-            atualizarProposta();
-        }
-
         function atualizarProposta() {
             const cliente = document.getElementById('inputCliente').value || "[Nome do Cliente]";
             const svcKey = document.getElementById('inputServico').value;
+            const svc = esteiraYoup[svcKey];
+
+            const areaLivre = document.getElementById('area-proposta-livre');
+            const areaPadrao = document.getElementById('area-proposta-padrao');
+
+            if (svc.tipo === 'livre') {
+                areaLivre.style.display = 'block';
+                areaPadrao.style.display = 'none';
+
+                document.getElementById('docLivreTitulo').innerText = document.getElementById('inputLivreTitulo').value || "Proposta Executiva";
+                document.getElementById('docLivreSubtitulo').innerText = document.getElementById('inputLivreSubtitulo').value || "";
+                document.getElementById('docLivreCliente').innerText = cliente;
+                document.getElementById('docLivreModalidade').innerText = document.getElementById('inputLivreModalidade').value || "Advisory";
+                document.getElementById('docLivreNatureza').innerText = document.getElementById('inputLivreNatureza').value || "Consultoria Estratégica";
+                document.getElementById('docLivreProponente').innerText = document.getElementById('inputLivreProponente').value || "Youp Consultoria";
+
+                const textoBruto = document.getElementById('inputLivreCorpo').value;
+                document.getElementById('docLivreConteudoProcessado').innerHTML = formatarTextoPropostaLivre(textoBruto);
+                return;
+            }
+
+            // Exibição do modo nativo / padrão
+            areaLivre.style.display = 'none';
+            areaPadrao.style.display = 'block';
+
             const condicao = document.getElementById('inputCondicao').value;
             const outros = document.getElementById('inputOutros').value.trim();
             const proximoPasso = document.getElementById('inputProximoPasso').value;
 
-            const svc = esteiraYoup[svcKey];
-
             document.getElementById('docClienteTarget').innerHTML = `Preparado para: <span>${cliente}</span>`;
             document.getElementById('docServicoTitle').innerText = svc.titulo;
-            document.getElementById('docDescricaoServico').innerHTML = svc.descricao;
+            document.getElementById('docDescricaoServico').innerHTML = svc.descricao || "";
+            document.getElementById('docCondicaoTexto').innerText = condicao;
 
             const proxTexto = proximoPasso === 'reuniao' 
                 ? "O custo da estagnação em nível C-Level é invisível, mas agressivo. Se você busca um salto com governança, estratégia e discrição, o próximo passo é agendarmos uma reunião de alinhamento para validar o seu momento e darmos o start na execução."
@@ -651,9 +924,8 @@
                 document.getElementById('subtituloInvestimento').style.display = 'none';
 
                 const valorEditadoAvulso = document.getElementById('inputValorAvulso').value;
-
                 document.getElementById('docValores').innerHTML = `
-                    <div class="price-box" style="margin-top: 40px;">
+                    <div class="price-box" style="margin-top: 25px;">
                         <div class="price-title">Contratação Isolada</div>
                         <div class="price-value">${valorEditadoAvulso}</div>
                         <div class="price-desc">Contratação focada e exclusiva para a entrega estrutural descrita.</div>
@@ -673,14 +945,14 @@
                 });
                 document.getElementById('docEntregaveisGrid').innerHTML = coreHtml;
 
-                let bonusDescHtml = ''; // Para Página 1
-                let bonusPriceHtml = ''; // Para Página 2
+                let bonusDescHtml = '';
+                let bonusPriceHtml = '';
                 let temNenhumBonus = true;
 
                 if (svc.bonus && svc.bonus.length > 0) {
                      svc.bonus.forEach((b, idx) => {
                         const chk = document.getElementById(`chkBonus_${idx}`);
-                        if(chk && chk.checked) {
+                        if (chk && chk.checked) {
                             bonusDescHtml += `
                             <div class="method-box-bonus">
                                 <h4 style="color: var(--dourado);">✦ ${b.nome}</h4>
@@ -688,7 +960,7 @@
                             </div>`;
                             
                             bonusPriceHtml += `
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: #555;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 11.5px; color: #555;">
                                 <span>✦ ${b.nome}</span>
                                 <span style="text-decoration: line-through; color: #999; font-weight:700;">${formatarMoeda(b.valorNominalNum)}</span>
                             </div>`;
@@ -697,7 +969,6 @@
                     });
                 }
 
-                // Exibe as caixas de Bônus na Página 1 apenas se houver algum marcado
                 const containerBonusDesc = document.getElementById('docBonusDescContainer');
                 if (!temNenhumBonus) {
                     containerBonusDesc.style.display = 'block';
@@ -706,7 +977,6 @@
                     containerBonusDesc.style.display = 'none';
                 }
 
-                // Injeta Valores e Ancoragem na Página 2
                 let bonusSection = !temNenhumBonus ? `<div class="bonus-section"><div class="bonus-title">Valores dos Bônus Inclusos (Isentos no Pacote):</div>${bonusPriceHtml}</div>` : '';
                 const valorFinalEditado = document.getElementById('inputValorFechado').value;
                 const legendaDesc = temNenhumBonus ? svc.descSemBonus : svc.descFechado;
@@ -732,6 +1002,7 @@
             }
         }
 
+        // SALVAR DADOS NA PLANILHA E ABRIR MODAL DE IMPRESSÃO
         function salvarESenviar() {
             const btn = document.getElementById('btnSalvar');
             const status = document.getElementById('statusMsg');
@@ -743,15 +1014,25 @@
             const svcKey = document.getElementById('inputServico').value;
             const svc = esteiraYoup[svcKey];
             
-            let valorParaPlanilha = "Valor Dinâmico";
-            if (svc.tipo === 'ancorado') valorParaPlanilha = document.getElementById('inputValorFechado').value;
-            if (svc.tipo === 'avulso') valorParaPlanilha = document.getElementById('inputValorAvulso').value;
+            let servicoTitulo = svc.titulo;
+            let valorParaPlanilha = "Sob Consulta";
+            let condicaoFinal = document.getElementById('inputCondicao').value;
+
+            if (svc.tipo === 'livre') {
+                servicoTitulo = document.getElementById('inputLivreTitulo').value || "Proposta Livre";
+                valorParaPlanilha = document.getElementById('inputLivreValor').value || "Conforme Etapas";
+                condicaoFinal = "Definida no escopo da proposta";
+            } else if (svc.tipo === 'ancorado') {
+                valorParaPlanilha = document.getElementById('inputValorFechado').value;
+            } else if (svc.tipo === 'avulso') {
+                valorParaPlanilha = document.getElementById('inputValorAvulso').value;
+            }
 
             const dados = {
                 cliente: document.getElementById('inputCliente').value || "Não informado",
-                servico: svc.titulo,
+                servico: servicoTitulo,
                 valor: valorParaPlanilha.replace(/<[^>]*>?/gm, ''),
-                condicao: document.getElementById('inputCondicao').value,
+                condicao: condicaoFinal,
                 outros: document.getElementById('inputOutros').value || "Nenhum",
                 whatsapp: document.getElementById('inputWhatsapp').value,
                 email: document.getElementById('inputEmail').value
