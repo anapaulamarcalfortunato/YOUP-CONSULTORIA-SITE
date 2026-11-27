@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyApply - Youp Consultoria</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbyuQoY-4y-h1hmChylXBAGelRLrPEU1kKi7Z7ImC9i89yFwbmu5frVlYkexgNvxe4XcYw/exec" 
+    allow="clipboard-read; clipboard-write; geolocation; microphone; camera"
+    allowfullscreen>
+  </iframe>
+</body>
+</html>
